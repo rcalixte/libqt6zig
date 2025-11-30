@@ -18,14 +18,14 @@ pub const attica__config = struct {
         return qtc.Attica__Config_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__Config, other: QtC.Attica__Config ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Config_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#contact)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#contact)
     ///
     /// ``` self: QtC.Attica__Config, allocator: std.mem.Allocator ```
     pub fn Contact(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -36,7 +36,7 @@ pub const attica__config = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#host)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#host)
     ///
     /// ``` self: QtC.Attica__Config, allocator: std.mem.Allocator ```
     pub fn Host(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,7 +47,7 @@ pub const attica__config = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#version)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#version)
     ///
     /// ``` self: QtC.Attica__Config, allocator: std.mem.Allocator ```
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -58,14 +58,14 @@ pub const attica__config = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#ssl)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#ssl)
     ///
     /// ``` self: QtC.Attica__Config ```
     pub fn Ssl(self: ?*anyopaque) bool {
         return qtc.Attica__Config_Ssl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#website)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#website)
     ///
     /// ``` self: QtC.Attica__Config, allocator: std.mem.Allocator ```
     pub fn Website(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -76,7 +76,7 @@ pub const attica__config = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#setContact)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#setContact)
     ///
     /// ``` self: QtC.Attica__Config, contact: []const u8 ```
     pub fn SetContact(self: ?*anyopaque, contact: []const u8) void {
@@ -87,7 +87,7 @@ pub const attica__config = struct {
         qtc.Attica__Config_SetContact(@ptrCast(self), contact_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#setHost)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#setHost)
     ///
     /// ``` self: QtC.Attica__Config, host: []const u8 ```
     pub fn SetHost(self: ?*anyopaque, host: []const u8) void {
@@ -98,14 +98,14 @@ pub const attica__config = struct {
         qtc.Attica__Config_SetHost(@ptrCast(self), host_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#setSsl)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#setSsl)
     ///
     /// ``` self: QtC.Attica__Config, ssl: bool ```
     pub fn SetSsl(self: ?*anyopaque, ssl: bool) void {
         qtc.Attica__Config_SetSsl(@ptrCast(self), ssl);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#setVersion)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#setVersion)
     ///
     /// ``` self: QtC.Attica__Config, version: []const u8 ```
     pub fn SetVersion(self: ?*anyopaque, version: []const u8) void {
@@ -116,7 +116,7 @@ pub const attica__config = struct {
         qtc.Attica__Config_SetVersion(@ptrCast(self), version_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#setWebsite)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#setWebsite)
     ///
     /// ``` self: QtC.Attica__Config, website: []const u8 ```
     pub fn SetWebsite(self: ?*anyopaque, website: []const u8) void {
@@ -127,7 +127,7 @@ pub const attica__config = struct {
         qtc.Attica__Config_SetWebsite(@ptrCast(self), website_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-config.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-config.html#isValid)
     ///
     /// ``` self: QtC.Attica__Config ```
     pub fn IsValid(self: ?*anyopaque) bool {

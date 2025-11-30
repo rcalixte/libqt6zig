@@ -35,7 +35,7 @@ pub const ktexteditor__attribute = struct {
         return qtc.KTextEditor__Attribute_new3(@ptrCast(a));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#name)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#name)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -46,7 +46,7 @@ pub const ktexteditor__attribute = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setName)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setName)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -57,7 +57,7 @@ pub const ktexteditor__attribute = struct {
         qtc.KTextEditor__Attribute_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#defaultStyle)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#defaultStyle)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -66,126 +66,126 @@ pub const ktexteditor__attribute = struct {
         return qtc.KTextEditor__Attribute_DefaultStyle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setDefaultStyle)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setDefaultStyle)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, style: theme_enums.TextStyle ```
     pub fn SetDefaultStyle(self: ?*anyopaque, style: i32) void {
         qtc.KTextEditor__Attribute_SetDefaultStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#skipSpellChecking)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#skipSpellChecking)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn SkipSpellChecking(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Attribute_SkipSpellChecking(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setSkipSpellChecking)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setSkipSpellChecking)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, skipspellchecking: bool ```
     pub fn SetSkipSpellChecking(self: ?*anyopaque, skipspellchecking: bool) void {
         qtc.KTextEditor__Attribute_SetSkipSpellChecking(@ptrCast(self), skipspellchecking);
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#fontBold)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#fontBold)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontBold(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Attribute_FontBold(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setFontBold)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setFontBold)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn SetFontBold(self: ?*anyopaque) void {
         qtc.KTextEditor__Attribute_SetFontBold(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#outline)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#outline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn Outline(self: ?*anyopaque) QtC.QBrush {
         return qtc.KTextEditor__Attribute_Outline(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setOutline)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setOutline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, brush: QtC.QBrush ```
     pub fn SetOutline(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.KTextEditor__Attribute_SetOutline(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#selectedForeground)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#selectedForeground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn SelectedForeground(self: ?*anyopaque) QtC.QBrush {
         return qtc.KTextEditor__Attribute_SelectedForeground(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setSelectedForeground)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setSelectedForeground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, foreground: QtC.QBrush ```
     pub fn SetSelectedForeground(self: ?*anyopaque, foreground: ?*anyopaque) void {
         qtc.KTextEditor__Attribute_SetSelectedForeground(@ptrCast(self), @ptrCast(foreground));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#selectedBackground)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#selectedBackground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn SelectedBackground(self: ?*anyopaque) QtC.QBrush {
         return qtc.KTextEditor__Attribute_SelectedBackground(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setSelectedBackground)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setSelectedBackground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, brush: QtC.QBrush ```
     pub fn SetSelectedBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.KTextEditor__Attribute_SetSelectedBackground(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#backgroundFillWhitespace)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#backgroundFillWhitespace)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn BackgroundFillWhitespace(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Attribute_BackgroundFillWhitespace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setBackgroundFillWhitespace)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setBackgroundFillWhitespace)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, fillWhitespace: bool ```
     pub fn SetBackgroundFillWhitespace(self: ?*anyopaque, fillWhitespace: bool) void {
         qtc.KTextEditor__Attribute_SetBackgroundFillWhitespace(@ptrCast(self), fillWhitespace);
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#clear)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#clear)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KTextEditor__Attribute_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#hasAnyProperty)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#hasAnyProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn HasAnyProperty(self: ?*anyopaque) bool {
         return qtc.KTextEditor__Attribute_HasAnyProperty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#operator-2b-eq)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#operator-2b-eq)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, a: QtC.KTextEditor__Attribute ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, a: ?*anyopaque) QtC.KTextEditor__Attribute {
         return qtc.KTextEditor__Attribute_OperatorPlusAssign(@ptrCast(self), @ptrCast(a));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#operator-eq)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, a: QtC.KTextEditor__Attribute ```
     pub fn OperatorAssign(self: ?*anyopaque, a: ?*anyopaque) void {
         qtc.KTextEditor__Attribute_OperatorAssign(@ptrCast(self), @ptrCast(a));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#setFontBold)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#setFontBold)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, bold: bool ```
     pub fn SetFontBold1(self: ?*anyopaque, bold: bool) void {
@@ -194,7 +194,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#isValid)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -203,7 +203,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -212,7 +212,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#font)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -221,7 +221,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamily)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamily)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
@@ -234,7 +234,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamily)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamily)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -247,7 +247,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamilies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFamilies)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
@@ -268,7 +268,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamilies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontFamilies)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontFamilies(self: ?*anyopaque) QtC.QVariant {
@@ -277,7 +277,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleName)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, styleName: []const u8 ```
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
@@ -290,7 +290,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleName)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontStyleName(self: ?*anyopaque) QtC.QVariant {
@@ -299,7 +299,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontPointSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontPointSize)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, size: f64 ```
     pub fn SetFontPointSize(self: ?*anyopaque, size: f64) void {
@@ -308,7 +308,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontPointSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontPointSize)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontPointSize(self: ?*anyopaque) f64 {
@@ -317,7 +317,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWeight)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, weight: i32 ```
     pub fn SetFontWeight(self: ?*anyopaque, weight: i32) void {
@@ -326,7 +326,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontWeight)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontWeight(self: ?*anyopaque) i32 {
@@ -335,7 +335,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontItalic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontItalic)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, italic: bool ```
     pub fn SetFontItalic(self: ?*anyopaque, italic: bool) void {
@@ -344,7 +344,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontItalic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontItalic)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontItalic(self: ?*anyopaque) bool {
@@ -353,7 +353,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, capitalization: qfont_enums.Capitalization ```
     pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
@@ -362,7 +362,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -373,7 +373,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, letterSpacingType: qfont_enums.SpacingType ```
     pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
@@ -382,7 +382,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -393,7 +393,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacing)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, spacing: f64 ```
     pub fn SetFontLetterSpacing(self: ?*anyopaque, spacing: f64) void {
@@ -402,7 +402,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacing)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontLetterSpacing(self: ?*anyopaque) f64 {
@@ -411,7 +411,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWordSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontWordSpacing)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, spacing: f64 ```
     pub fn SetFontWordSpacing(self: ?*anyopaque, spacing: f64) void {
@@ -420,7 +420,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontWordSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontWordSpacing)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontWordSpacing(self: ?*anyopaque) f64 {
@@ -429,7 +429,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontUnderline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontUnderline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, underline: bool ```
     pub fn SetFontUnderline(self: ?*anyopaque, underline: bool) void {
@@ -438,7 +438,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontUnderline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontUnderline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontUnderline(self: ?*anyopaque) bool {
@@ -447,7 +447,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontOverline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontOverline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, overline: bool ```
     pub fn SetFontOverline(self: ?*anyopaque, overline: bool) void {
@@ -456,7 +456,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontOverline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontOverline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontOverline(self: ?*anyopaque) bool {
@@ -465,7 +465,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStrikeOut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStrikeOut)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, strikeOut: bool ```
     pub fn SetFontStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
@@ -474,7 +474,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStrikeOut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStrikeOut)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontStrikeOut(self: ?*anyopaque) bool {
@@ -483,7 +483,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineColor)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, color: QtC.QColor ```
     pub fn SetUnderlineColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -492,7 +492,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#underlineColor)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn UnderlineColor(self: ?*anyopaque) QtC.QColor {
@@ -501,7 +501,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFixedPitch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontFixedPitch)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, fixedPitch: bool ```
     pub fn SetFontFixedPitch(self: ?*anyopaque, fixedPitch: bool) void {
@@ -510,7 +510,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontFixedPitch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontFixedPitch)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontFixedPitch(self: ?*anyopaque) bool {
@@ -519,7 +519,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStretch)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, factor: i32 ```
     pub fn SetFontStretch(self: ?*anyopaque, factor: i32) void {
@@ -528,7 +528,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStretch)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontStretch(self: ?*anyopaque) i32 {
@@ -537,7 +537,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, hint: qfont_enums.StyleHint ```
     pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
@@ -546,7 +546,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
@@ -555,7 +555,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -566,7 +566,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -577,7 +577,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, hintingPreference: qfont_enums.HintingPreference ```
     pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
@@ -586,7 +586,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -597,7 +597,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontKerning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontKerning)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, enable: bool ```
     pub fn SetFontKerning(self: ?*anyopaque, enable: bool) void {
@@ -606,7 +606,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontKerning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#fontKerning)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn FontKerning(self: ?*anyopaque) bool {
@@ -615,7 +615,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, style: qtextformat_enums.UnderlineStyle ```
     pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
@@ -624,7 +624,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -635,7 +635,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, alignment: qtextformat_enums.VerticalAlignment ```
     pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
@@ -644,7 +644,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -655,7 +655,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTextOutline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setTextOutline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, pen: QtC.QPen ```
     pub fn SetTextOutline(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -664,7 +664,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#textOutline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#textOutline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn TextOutline(self: ?*anyopaque) QtC.QPen {
@@ -673,7 +673,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setToolTip)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -686,7 +686,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#toolTip)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -699,7 +699,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSuperScriptBaseline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setSuperScriptBaseline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, baseline: f64 ```
     pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
@@ -708,7 +708,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#superScriptBaseline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#superScriptBaseline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn SuperScriptBaseline(self: ?*anyopaque) f64 {
@@ -717,7 +717,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setSubScriptBaseline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setSubScriptBaseline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, baseline: f64 ```
     pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
@@ -726,7 +726,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#subScriptBaseline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#subScriptBaseline)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn SubScriptBaseline(self: ?*anyopaque) f64 {
@@ -735,7 +735,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setBaselineOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setBaselineOffset)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, baseline: f64 ```
     pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
@@ -744,7 +744,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#baselineOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#baselineOffset)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn BaselineOffset(self: ?*anyopaque) f64 {
@@ -753,7 +753,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchor)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, anchor: bool ```
     pub fn SetAnchor(self: ?*anyopaque, anchor: bool) void {
@@ -762,7 +762,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#isAnchor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#isAnchor)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsAnchor(self: ?*anyopaque) bool {
@@ -771,7 +771,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorHref)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorHref)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, value: []const u8 ```
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
@@ -784,7 +784,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorHref)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#anchorHref)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, allocator: std.mem.Allocator ```
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -797,7 +797,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setAnchorNames)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
@@ -818,7 +818,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#anchorNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#anchorNames)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, allocator: std.mem.Allocator ```
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -842,7 +842,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellRowSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellRowSpan)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, tableCellRowSpan: i32 ```
     pub fn SetTableCellRowSpan(self: ?*anyopaque, tableCellRowSpan: i32) void {
@@ -851,7 +851,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellRowSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellRowSpan)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn TableCellRowSpan(self: ?*anyopaque) i32 {
@@ -860,7 +860,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellColumnSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setTableCellColumnSpan)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, tableCellColumnSpan: i32 ```
     pub fn SetTableCellColumnSpan(self: ?*anyopaque, tableCellColumnSpan: i32) void {
@@ -869,7 +869,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellColumnSpan)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#tableCellColumnSpan)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn TableCellColumnSpan(self: ?*anyopaque) i32 {
@@ -878,7 +878,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, font: QtC.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
     pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
@@ -887,7 +887,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextCharFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
     pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
@@ -896,7 +896,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#swap)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, other: QtC.QTextFormat ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -905,7 +905,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#merge)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#merge)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, other: QtC.QTextFormat ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -914,7 +914,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isEmpty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
@@ -923,7 +923,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#type)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn Type(self: ?*anyopaque) i32 {
@@ -932,7 +932,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#objectIndex)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ObjectIndex(self: ?*anyopaque) i32 {
@@ -941,7 +941,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setObjectIndex)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, object: i32 ```
     pub fn SetObjectIndex(self: ?*anyopaque, object: i32) void {
@@ -950,7 +950,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#property)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn Property(self: ?*anyopaque, propertyId: i32) QtC.QVariant {
@@ -959,7 +959,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, propertyId: i32, value: ?*anyopaque) void {
@@ -968,7 +968,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#clearProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn ClearProperty(self: ?*anyopaque, propertyId: i32) void {
@@ -977,7 +977,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#hasProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn HasProperty(self: ?*anyopaque, propertyId: i32) bool {
@@ -986,7 +986,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#boolProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn BoolProperty(self: ?*anyopaque, propertyId: i32) bool {
@@ -995,7 +995,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#intProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn IntProperty(self: ?*anyopaque, propertyId: i32) i32 {
@@ -1004,7 +1004,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#doubleProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn DoubleProperty(self: ?*anyopaque, propertyId: i32) f64 {
@@ -1013,7 +1013,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#stringProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1026,7 +1026,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#colorProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn ColorProperty(self: ?*anyopaque, propertyId: i32) QtC.QColor {
@@ -1035,7 +1035,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#penProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn PenProperty(self: ?*anyopaque, propertyId: i32) QtC.QPen {
@@ -1044,7 +1044,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#brushProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn BrushProperty(self: ?*anyopaque, propertyId: i32) QtC.QBrush {
@@ -1053,7 +1053,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#lengthProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32 ```
     pub fn LengthProperty(self: ?*anyopaque, propertyId: i32) QtC.QTextLength {
@@ -1062,7 +1062,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#lengthVectorProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
@@ -1076,7 +1076,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setProperty)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
@@ -1089,7 +1089,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#properties)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#properties)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
@@ -1112,7 +1112,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#propertyCount)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn PropertyCount(self: ?*anyopaque) i32 {
@@ -1121,7 +1121,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setObjectType)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, typeVal: i32 ```
     pub fn SetObjectType(self: ?*anyopaque, typeVal: i32) void {
@@ -1130,7 +1130,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#objectType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#objectType)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ObjectType(self: ?*anyopaque) i32 {
@@ -1139,7 +1139,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isCharFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsCharFormat(self: ?*anyopaque) bool {
@@ -1148,7 +1148,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isBlockFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsBlockFormat(self: ?*anyopaque) bool {
@@ -1157,7 +1157,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isListFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsListFormat(self: ?*anyopaque) bool {
@@ -1166,7 +1166,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isFrameFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsFrameFormat(self: ?*anyopaque) bool {
@@ -1175,7 +1175,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isImageFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsImageFormat(self: ?*anyopaque) bool {
@@ -1184,7 +1184,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isTableFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsTableFormat(self: ?*anyopaque) bool {
@@ -1193,7 +1193,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#isTableCellFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn IsTableCellFormat(self: ?*anyopaque) bool {
@@ -1202,7 +1202,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toBlockFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToBlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
@@ -1211,7 +1211,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toCharFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
@@ -1220,7 +1220,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toListFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToListFormat(self: ?*anyopaque) QtC.QTextListFormat {
@@ -1229,7 +1229,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toTableFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToTableFormat(self: ?*anyopaque) QtC.QTextTableFormat {
@@ -1238,7 +1238,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toFrameFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToFrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
@@ -1247,7 +1247,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toImageFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToImageFormat(self: ?*anyopaque) QtC.QTextImageFormat {
@@ -1256,7 +1256,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#toTableCellFormat)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToTableCellFormat(self: ?*anyopaque) QtC.QTextTableCellFormat {
@@ -1265,7 +1265,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -1274,7 +1274,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -1283,7 +1283,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -1292,7 +1292,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -1301,7 +1301,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     ///
@@ -1312,7 +1312,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setBackground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, brush: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -1321,7 +1321,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#background)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#background)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn Background(self: ?*anyopaque) QtC.QBrush {
@@ -1330,7 +1330,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#clearBackground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ClearBackground(self: ?*anyopaque) void {
@@ -1339,7 +1339,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#setForeground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, brush: QtC.QBrush ```
     pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -1348,7 +1348,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#foreground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#foreground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
@@ -1357,7 +1357,7 @@ pub const ktexteditor__attribute = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#clearForeground)
     ///
     /// ``` self: QtC.KTextEditor__Attribute ```
     pub fn ClearForeground(self: ?*anyopaque) void {
@@ -1381,35 +1381,35 @@ pub const ktexteditor__attributeblock = struct {
         return qtc.KTextEditor__AttributeBlock_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attributeblock.html#start-var)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attributeblock.html#start-var)
     ///
     /// ``` self: QtC.KTextEditor__AttributeBlock ```
     pub fn Start(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__AttributeBlock_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attributeblock.html#start-var)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attributeblock.html#start-var)
     ///
     /// ``` self: QtC.KTextEditor__AttributeBlock, start: i32 ```
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
         qtc.KTextEditor__AttributeBlock_SetStart(@ptrCast(self), @intCast(start));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attributeblock.html#length-var)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attributeblock.html#length-var)
     ///
     /// ``` self: QtC.KTextEditor__AttributeBlock ```
     pub fn Length(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__AttributeBlock_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attributeblock.html#length-var)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attributeblock.html#length-var)
     ///
     /// ``` self: QtC.KTextEditor__AttributeBlock, length: i32 ```
     pub fn SetLength(self: ?*anyopaque, length: i32) void {
         qtc.KTextEditor__AttributeBlock_SetLength(@ptrCast(self), @intCast(length));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-attributeblock.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-attributeblock.html#operator-eq)
     ///
     /// ``` self: QtC.KTextEditor__AttributeBlock, param1: QtC.KTextEditor__AttributeBlock ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

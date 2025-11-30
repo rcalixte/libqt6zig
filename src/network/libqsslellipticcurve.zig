@@ -46,7 +46,7 @@ pub const qsslellipticcurve = struct {
         qtc.QSslEllipticCurve_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromShortName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromShortName)
     ///
     /// ``` name: []const u8 ```
     pub fn FromShortName(name: []const u8) QtC.QSslEllipticCurve {
@@ -57,7 +57,7 @@ pub const qsslellipticcurve = struct {
         return qtc.QSslEllipticCurve_FromShortName(name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromLongName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#fromLongName)
     ///
     /// ``` name: []const u8 ```
     pub fn FromLongName(name: []const u8) QtC.QSslEllipticCurve {
@@ -68,7 +68,7 @@ pub const qsslellipticcurve = struct {
         return qtc.QSslEllipticCurve_FromLongName(name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslellipticcurve.html#shortName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#shortName)
     ///
     /// ``` self: QtC.QSslEllipticCurve, allocator: std.mem.Allocator ```
     pub fn ShortName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -79,7 +79,7 @@ pub const qsslellipticcurve = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslellipticcurve.html#longName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#longName)
     ///
     /// ``` self: QtC.QSslEllipticCurve, allocator: std.mem.Allocator ```
     pub fn LongName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,21 +90,21 @@ pub const qsslellipticcurve = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslellipticcurve.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#isValid)
     ///
     /// ``` self: QtC.QSslEllipticCurve ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QSslEllipticCurve_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslellipticcurve.html#isTlsNamedCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#isTlsNamedCurve)
     ///
     /// ``` self: QtC.QSslEllipticCurve ```
     pub fn IsTlsNamedCurve(self: ?*anyopaque) bool {
         return qtc.QSslEllipticCurve_IsTlsNamedCurve(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslellipticcurve.html#dtor.QSslEllipticCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html#dtor.QSslEllipticCurve)
     ///
     /// Delete this object from C++ memory.
     ///

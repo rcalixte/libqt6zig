@@ -22,7 +22,7 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -88,7 +88,7 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -97,7 +97,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_OnSupportedSchemes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemes)
     ///
     /// Base class method implementation
     ///
@@ -121,105 +121,105 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#clearAccessCache)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#clearAccessCache)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn ClearAccessCache(self: ?*anyopaque) void {
         qtc.QNetworkAccessManager_ClearAccessCache(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#clearConnectionCache)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#clearConnectionCache)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn ClearConnectionCache(self: ?*anyopaque) void {
         qtc.QNetworkAccessManager_ClearConnectionCache(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxy)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn Proxy(self: ?*anyopaque) QtC.QNetworkProxy {
         return qtc.QNetworkAccessManager_Proxy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setProxy)
     ///
     /// ``` self: QtC.QNetworkAccessManager, proxy: QtC.QNetworkProxy ```
     pub fn SetProxy(self: ?*anyopaque, proxy: ?*anyopaque) void {
         qtc.QNetworkAccessManager_SetProxy(@ptrCast(self), @ptrCast(proxy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyFactory)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn ProxyFactory(self: ?*anyopaque) QtC.QNetworkProxyFactory {
         return qtc.QNetworkAccessManager_ProxyFactory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setProxyFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setProxyFactory)
     ///
     /// ``` self: QtC.QNetworkAccessManager, factory: QtC.QNetworkProxyFactory ```
     pub fn SetProxyFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
         qtc.QNetworkAccessManager_SetProxyFactory(@ptrCast(self), @ptrCast(factory));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#cache)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#cache)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn Cache(self: ?*anyopaque) QtC.QAbstractNetworkCache {
         return qtc.QNetworkAccessManager_Cache(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setCache)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setCache)
     ///
     /// ``` self: QtC.QNetworkAccessManager, cache: QtC.QAbstractNetworkCache ```
     pub fn SetCache(self: ?*anyopaque, cache: ?*anyopaque) void {
         qtc.QNetworkAccessManager_SetCache(@ptrCast(self), @ptrCast(cache));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#cookieJar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#cookieJar)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn CookieJar(self: ?*anyopaque) QtC.QNetworkCookieJar {
         return qtc.QNetworkAccessManager_CookieJar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setCookieJar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setCookieJar)
     ///
     /// ``` self: QtC.QNetworkAccessManager, cookieJar: QtC.QNetworkCookieJar ```
     pub fn SetCookieJar(self: ?*anyopaque, cookieJar: ?*anyopaque) void {
         qtc.QNetworkAccessManager_SetCookieJar(@ptrCast(self), @ptrCast(cookieJar));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setStrictTransportSecurityEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setStrictTransportSecurityEnabled)
     ///
     /// ``` self: QtC.QNetworkAccessManager, enabled: bool ```
     pub fn SetStrictTransportSecurityEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QNetworkAccessManager_SetStrictTransportSecurityEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#isStrictTransportSecurityEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#isStrictTransportSecurityEnabled)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn IsStrictTransportSecurityEnabled(self: ?*anyopaque) bool {
         return qtc.QNetworkAccessManager_IsStrictTransportSecurityEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#enableStrictTransportSecurityStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#enableStrictTransportSecurityStore)
     ///
     /// ``` self: QtC.QNetworkAccessManager, enabled: bool ```
     pub fn EnableStrictTransportSecurityStore(self: ?*anyopaque, enabled: bool) void {
         qtc.QNetworkAccessManager_EnableStrictTransportSecurityStore(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#isStrictTransportSecurityStoreEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#isStrictTransportSecurityStoreEnabled)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn IsStrictTransportSecurityStoreEnabled(self: ?*anyopaque) bool {
         return qtc.QNetworkAccessManager_IsStrictTransportSecurityStoreEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#addStrictTransportSecurityHosts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#addStrictTransportSecurityHosts)
     ///
     /// ``` self: QtC.QNetworkAccessManager, knownHosts: []QtC.QHstsPolicy ```
     pub fn AddStrictTransportSecurityHosts(self: ?*anyopaque, knownHosts: []QtC.QHstsPolicy) void {
@@ -230,7 +230,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_AddStrictTransportSecurityHosts(@ptrCast(self), knownHosts_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#strictTransportSecurityHosts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#strictTransportSecurityHosts)
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn StrictTransportSecurityHosts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QHstsPolicy {
@@ -242,28 +242,28 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#head)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#head)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest ```
     pub fn Head(self: ?*anyopaque, request: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_Head(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest ```
     pub fn Get(self: ?*anyopaque, request: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_Get(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: QtC.QIODevice ```
     pub fn Get2(self: ?*anyopaque, request: ?*anyopaque, data: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_Get2(@ptrCast(self), @ptrCast(request), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#get)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Get3(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
@@ -274,14 +274,14 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_Get3(@ptrCast(self), @ptrCast(request), data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: QtC.QIODevice ```
     pub fn Post(self: ?*anyopaque, request: ?*anyopaque, data: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_Post(@ptrCast(self), @ptrCast(request), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Post2(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
@@ -292,14 +292,14 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_Post2(@ptrCast(self), @ptrCast(request), data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: QtC.QIODevice ```
     pub fn Put(self: ?*anyopaque, request: ?*anyopaque, data: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_Put(@ptrCast(self), @ptrCast(request), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Put2(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
@@ -310,14 +310,14 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_Put2(@ptrCast(self), @ptrCast(request), data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#deleteResource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#deleteResource)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest ```
     pub fn DeleteResource(self: ?*anyopaque, request: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_DeleteResource(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8 ```
     pub fn SendCustomRequest(self: ?*anyopaque, request: ?*anyopaque, verb: []u8) QtC.QNetworkReply {
@@ -328,7 +328,7 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_SendCustomRequest(@ptrCast(self), @ptrCast(request), verb_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8, data: []u8 ```
     pub fn SendCustomRequest2(self: ?*anyopaque, request: ?*anyopaque, verb: []u8, data: []u8) QtC.QNetworkReply {
@@ -343,21 +343,21 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_SendCustomRequest2(@ptrCast(self), @ptrCast(request), verb_str, data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#post)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, multiPart: QtC.QHttpMultiPart ```
     pub fn Post4(self: ?*anyopaque, request: ?*anyopaque, multiPart: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_Post4(@ptrCast(self), @ptrCast(request), @ptrCast(multiPart));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#put)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, multiPart: QtC.QHttpMultiPart ```
     pub fn Put4(self: ?*anyopaque, request: ?*anyopaque, multiPart: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_Put4(@ptrCast(self), @ptrCast(request), @ptrCast(multiPart));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8, multiPart: QtC.QHttpMultiPart ```
     pub fn SendCustomRequest3(self: ?*anyopaque, request: ?*anyopaque, verb: []u8, multiPart: ?*anyopaque) QtC.QNetworkReply {
@@ -368,7 +368,7 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_SendCustomRequest3(@ptrCast(self), @ptrCast(request), verb_str, @ptrCast(multiPart));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8 ```
     pub fn ConnectToHostEncrypted(self: ?*anyopaque, hostName: []const u8) void {
@@ -379,7 +379,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_ConnectToHostEncrypted(@ptrCast(self), hostName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: QtC.QSslConfiguration, peerName: []const u8 ```
     pub fn ConnectToHostEncrypted2(self: ?*anyopaque, hostName: []const u8, port: u16, sslConfiguration: ?*anyopaque, peerName: []const u8) void {
@@ -394,7 +394,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_ConnectToHostEncrypted2(@ptrCast(self), hostName_str, @intCast(port), @ptrCast(sslConfiguration), peerName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHost)
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8 ```
     pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8) void {
@@ -405,14 +405,14 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_ConnectToHost(@ptrCast(self), hostName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setRedirectPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setRedirectPolicy)
     ///
     /// ``` self: QtC.QNetworkAccessManager, policy: qnetworkrequest_enums.RedirectPolicy ```
     pub fn SetRedirectPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QNetworkAccessManager_SetRedirectPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#redirectPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#redirectPolicy)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     ///
@@ -421,98 +421,98 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_RedirectPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#autoDeleteReplies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#autoDeleteReplies)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn AutoDeleteReplies(self: ?*anyopaque) bool {
         return qtc.QNetworkAccessManager_AutoDeleteReplies(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setAutoDeleteReplies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setAutoDeleteReplies)
     ///
     /// ``` self: QtC.QNetworkAccessManager, autoDelete: bool ```
     pub fn SetAutoDeleteReplies(self: ?*anyopaque, autoDelete: bool) void {
         qtc.QNetworkAccessManager_SetAutoDeleteReplies(@ptrCast(self), autoDelete);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#transferTimeout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#transferTimeout)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn TransferTimeout(self: ?*anyopaque) i32 {
         return qtc.QNetworkAccessManager_TransferTimeout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
     ///
     /// ``` self: QtC.QNetworkAccessManager, timeout: i32 ```
     pub fn SetTransferTimeout(self: ?*anyopaque, timeout: i32) void {
         qtc.QNetworkAccessManager_SetTransferTimeout(@ptrCast(self), @intCast(timeout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn SetTransferTimeout2(self: ?*anyopaque) void {
         qtc.QNetworkAccessManager_SetTransferTimeout2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyAuthenticationRequired)
     ///
     /// ``` self: QtC.QNetworkAccessManager, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator ```
     pub fn ProxyAuthenticationRequired(self: ?*anyopaque, proxy: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QNetworkAccessManager_ProxyAuthenticationRequired(@ptrCast(self), @ptrCast(proxy), @ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#proxyAuthenticationRequired)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void ```
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_ProxyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#authenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#authenticationRequired)
     ///
     /// ``` self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, authenticator: QtC.QAuthenticator ```
     pub fn AuthenticationRequired(self: ?*anyopaque, reply: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QNetworkAccessManager_AuthenticationRequired(@ptrCast(self), @ptrCast(reply), @ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#authenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#authenticationRequired)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, authenticator: QtC.QAuthenticator) callconv(.c) void ```
     pub fn OnAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_AuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#finished)
     ///
     /// ``` self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply ```
     pub fn Finished(self: ?*anyopaque, reply: ?*anyopaque) void {
         qtc.QNetworkAccessManager_Finished(@ptrCast(self), @ptrCast(reply));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#finished)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#encrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#encrypted)
     ///
     /// ``` self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply ```
     pub fn Encrypted(self: ?*anyopaque, reply: ?*anyopaque) void {
         qtc.QNetworkAccessManager_Encrypted(@ptrCast(self), @ptrCast(reply));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#encrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#encrypted)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply) callconv(.c) void ```
     pub fn OnEncrypted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_Encrypted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sslErrors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sslErrors)
     ///
     /// ``` self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, errors: []QtC.QSslError ```
     pub fn SslErrors(self: ?*anyopaque, reply: ?*anyopaque, errors: []QtC.QSslError) void {
@@ -523,35 +523,35 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_SslErrors(@ptrCast(self), @ptrCast(reply), errors_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sslErrors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sslErrors)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, errors: [*]QtC.QSslError) callconv(.c) void ```
     pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#preSharedKeyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#preSharedKeyAuthenticationRequired)
     ///
     /// ``` self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, authenticator: QtC.QSslPreSharedKeyAuthenticator ```
     pub fn PreSharedKeyAuthenticationRequired(self: ?*anyopaque, reply: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QNetworkAccessManager_PreSharedKeyAuthenticationRequired(@ptrCast(self), @ptrCast(reply), @ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#preSharedKeyAuthenticationRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#preSharedKeyAuthenticationRequired)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void ```
     pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
     ///
     /// ``` self: QtC.QNetworkAccessManager, op: qnetworkaccessmanager_enums.Operation, request: QtC.QNetworkRequest, outgoingData: QtC.QIODevice ```
     pub fn CreateRequest(self: ?*anyopaque, op: i32, request: ?*anyopaque, outgoingData: ?*anyopaque) QtC.QNetworkReply {
         return qtc.QNetworkAccessManager_CreateRequest(@ptrCast(self), @intCast(op), @ptrCast(request), @ptrCast(outgoingData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
     ///
     /// Allows for overriding the related default method
     ///
@@ -560,7 +560,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_OnCreateRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#createRequest)
     ///
     /// Base class method implementation
     ///
@@ -569,7 +569,7 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_QBaseCreateRequest(@ptrCast(self), @intCast(op), @ptrCast(request), @ptrCast(outgoingData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn SupportedSchemesImplementation(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -591,7 +591,7 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
     ///
     /// Allows for overriding the related default method
     ///
@@ -600,7 +600,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_OnSupportedSchemesImplementation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#supportedSchemesImplementation)
     ///
     /// Base class method implementation
     ///
@@ -624,7 +624,7 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -637,7 +637,7 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -650,7 +650,7 @@ pub const qnetworkaccessmanager = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#enableStrictTransportSecurityStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#enableStrictTransportSecurityStore)
     ///
     /// ``` self: QtC.QNetworkAccessManager, enabled: bool, storeDir: []const u8 ```
     pub fn EnableStrictTransportSecurityStore2(self: ?*anyopaque, enabled: bool, storeDir: []const u8) void {
@@ -661,7 +661,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_EnableStrictTransportSecurityStore2(@ptrCast(self), enabled, storeDir_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sendCustomRequest)
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8, data: QtC.QIODevice ```
     pub fn SendCustomRequest32(self: ?*anyopaque, request: ?*anyopaque, verb: []u8, data: ?*anyopaque) QtC.QNetworkReply {
@@ -672,7 +672,7 @@ pub const qnetworkaccessmanager = struct {
         return qtc.QNetworkAccessManager_SendCustomRequest32(@ptrCast(self), @ptrCast(request), verb_str, @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16 ```
     pub fn ConnectToHostEncrypted22(self: ?*anyopaque, hostName: []const u8, port: u16) void {
@@ -683,7 +683,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_ConnectToHostEncrypted22(@ptrCast(self), hostName_str, @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHostEncrypted)
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: QtC.QSslConfiguration ```
     pub fn ConnectToHostEncrypted3(self: ?*anyopaque, hostName: []const u8, port: u16, sslConfiguration: ?*anyopaque) void {
@@ -694,7 +694,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_ConnectToHostEncrypted3(@ptrCast(self), hostName_str, @intCast(port), @ptrCast(sslConfiguration));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHost)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#connectToHost)
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16 ```
     pub fn ConnectToHost2(self: ?*anyopaque, hostName: []const u8, port: u16) void {
@@ -707,7 +707,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -720,7 +720,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QNetworkAccessManager, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -733,7 +733,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -742,7 +742,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -751,7 +751,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -760,7 +760,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -769,7 +769,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QNetworkAccessManager, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -778,7 +778,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -787,7 +787,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QNetworkAccessManager, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -796,7 +796,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QNetworkAccessManager, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -805,7 +805,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QNetworkAccessManager, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -814,7 +814,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QNetworkAccessManager, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -823,7 +823,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -837,7 +837,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QNetworkAccessManager, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -846,7 +846,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QNetworkAccessManager, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -855,7 +855,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QNetworkAccessManager, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -864,7 +864,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -873,7 +873,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QNetworkAccessManager, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -884,7 +884,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -893,7 +893,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -902,7 +902,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -911,7 +911,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -920,7 +920,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QNetworkAccessManager, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -930,7 +930,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QNetworkAccessManager, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -940,7 +940,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -964,7 +964,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -973,7 +973,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -982,7 +982,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -991,7 +991,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1000,7 +1000,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1009,7 +1009,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QNetworkAccessManager, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1019,7 +1019,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1028,7 +1028,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QNetworkAccessManager, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1037,7 +1037,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QNetworkAccessManager, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1046,7 +1046,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1055,7 +1055,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QNetworkAccessManager, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1066,7 +1066,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkAccessManager, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1075,7 +1075,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkAccessManager, callback: *const fn (self: QtC.QNetworkAccessManager, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1084,7 +1084,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1095,7 +1095,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1106,7 +1106,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1117,7 +1117,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1128,7 +1128,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1139,7 +1139,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1150,7 +1150,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1161,7 +1161,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1172,7 +1172,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1183,7 +1183,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1194,7 +1194,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1205,7 +1205,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1216,7 +1216,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1227,7 +1227,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1238,7 +1238,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1249,7 +1249,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1260,7 +1260,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1271,7 +1271,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1282,7 +1282,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1293,7 +1293,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1304,7 +1304,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1315,7 +1315,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1326,7 +1326,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1337,7 +1337,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1348,7 +1348,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1359,7 +1359,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1370,7 +1370,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1381,7 +1381,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1393,7 +1393,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1405,7 +1405,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1416,7 +1416,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1427,7 +1427,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1438,7 +1438,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1449,7 +1449,7 @@ pub const qnetworkaccessmanager = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1458,7 +1458,7 @@ pub const qnetworkaccessmanager = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#dtor.QNetworkAccessManager)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#dtor.QNetworkAccessManager)
     ///
     /// Delete this object from C++ memory.
     ///

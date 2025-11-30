@@ -20,7 +20,7 @@ pub const qsvggenerator = struct {
         return qtc.QSvgGenerator_new2(@intCast(version));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#title)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#title)
     ///
     /// ``` self: QtC.QSvgGenerator, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -31,7 +31,7 @@ pub const qsvggenerator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setTitle)
     ///
     /// ``` self: QtC.QSvgGenerator, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
@@ -42,7 +42,7 @@ pub const qsvggenerator = struct {
         qtc.QSvgGenerator_SetTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#description)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#description)
     ///
     /// ``` self: QtC.QSvgGenerator, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -53,7 +53,7 @@ pub const qsvggenerator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setDescription)
     ///
     /// ``` self: QtC.QSvgGenerator, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -64,49 +64,49 @@ pub const qsvggenerator = struct {
         qtc.QSvgGenerator_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#size)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QSvgGenerator_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setSize)
     ///
     /// ``` self: QtC.QSvgGenerator, size: QtC.QSize ```
     pub fn SetSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QSvgGenerator_SetSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#viewBox)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#viewBox)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn ViewBox(self: ?*anyopaque) QtC.QRect {
         return qtc.QSvgGenerator_ViewBox(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#viewBoxF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#viewBoxF)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn ViewBoxF(self: ?*anyopaque) QtC.QRectF {
         return qtc.QSvgGenerator_ViewBoxF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setViewBox)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setViewBox)
     ///
     /// ``` self: QtC.QSvgGenerator, viewBox: QtC.QRect ```
     pub fn SetViewBox(self: ?*anyopaque, viewBox: ?*anyopaque) void {
         qtc.QSvgGenerator_SetViewBox(@ptrCast(self), @ptrCast(viewBox));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setViewBox)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setViewBox)
     ///
     /// ``` self: QtC.QSvgGenerator, viewBox: QtC.QRectF ```
     pub fn SetViewBox2(self: ?*anyopaque, viewBox: ?*anyopaque) void {
         qtc.QSvgGenerator_SetViewBox2(@ptrCast(self), @ptrCast(viewBox));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#fileName)
     ///
     /// ``` self: QtC.QSvgGenerator, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -117,7 +117,7 @@ pub const qsvggenerator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setFileName)
     ///
     /// ``` self: QtC.QSvgGenerator, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
@@ -128,35 +128,35 @@ pub const qsvggenerator = struct {
         qtc.QSvgGenerator_SetFileName(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#outputDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#outputDevice)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn OutputDevice(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QSvgGenerator_OutputDevice(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setOutputDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setOutputDevice)
     ///
     /// ``` self: QtC.QSvgGenerator, outputDevice: QtC.QIODevice ```
     pub fn SetOutputDevice(self: ?*anyopaque, outputDevice: ?*anyopaque) void {
         qtc.QSvgGenerator_SetOutputDevice(@ptrCast(self), @ptrCast(outputDevice));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setResolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#setResolution)
     ///
     /// ``` self: QtC.QSvgGenerator, dpi: i32 ```
     pub fn SetResolution(self: ?*anyopaque, dpi: i32) void {
         qtc.QSvgGenerator_SetResolution(@ptrCast(self), @intCast(dpi));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#resolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#resolution)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn Resolution(self: ?*anyopaque) i32 {
         return qtc.QSvgGenerator_Resolution(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#svgVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#svgVersion)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     ///
@@ -165,14 +165,14 @@ pub const qsvggenerator = struct {
         return qtc.QSvgGenerator_SvgVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.QSvgGenerator_PaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
     ///
     /// Allows for overriding the related default method
     ///
@@ -181,7 +181,7 @@ pub const qsvggenerator = struct {
         qtc.QSvgGenerator_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
     ///
     /// Base class method implementation
     ///
@@ -190,14 +190,14 @@ pub const qsvggenerator = struct {
         return qtc.QSvgGenerator_QBasePaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
     ///
     /// ``` self: QtC.QSvgGenerator, metric: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, metric: i32) i32 {
         return qtc.QSvgGenerator_Metric(@ptrCast(self), @intCast(metric));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
     ///
     /// Allows for overriding the related default method
     ///
@@ -206,7 +206,7 @@ pub const qsvggenerator = struct {
         qtc.QSvgGenerator_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
     ///
     /// Base class method implementation
     ///
@@ -217,7 +217,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -226,7 +226,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -235,7 +235,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -244,7 +244,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -253,7 +253,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -262,7 +262,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -271,7 +271,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -280,7 +280,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -289,7 +289,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -298,7 +298,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -307,7 +307,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -316,7 +316,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -325,7 +325,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QSvgGenerator ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -334,7 +334,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -343,7 +343,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -352,7 +352,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -363,7 +363,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -374,7 +374,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -385,7 +385,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -396,7 +396,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -407,7 +407,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -418,7 +418,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -429,7 +429,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -440,7 +440,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -451,7 +451,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -462,7 +462,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -473,7 +473,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -484,7 +484,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -495,7 +495,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -506,7 +506,7 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -515,7 +515,7 @@ pub const qsvggenerator = struct {
         qtc.QSvgGenerator_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#dtor.QSvgGenerator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#dtor.QSvgGenerator)
     ///
     /// Delete this object from C++ memory.
     ///

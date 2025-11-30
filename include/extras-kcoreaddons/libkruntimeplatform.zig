@@ -4,7 +4,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kruntimeplatform.html
 pub const kruntimeplatform = struct {
-    /// [Qt documentation](https://api.kde.org/kruntimeplatform.html#runtimePlatform)
+    /// [Upstream resources](https://api.kde.org/kruntimeplatform.html#runtimePlatform)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn RuntimePlatform(allocator: std.mem.Allocator) [][]const u8 {

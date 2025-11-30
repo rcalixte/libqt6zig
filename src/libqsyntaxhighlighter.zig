@@ -20,7 +20,7 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -52,7 +52,7 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -64,35 +64,35 @@ pub const qsyntaxhighlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setDocument)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setDocument)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, doc: QtC.QTextDocument ```
     pub fn SetDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_SetDocument(@ptrCast(self), @ptrCast(doc));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#document)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#document)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
         return qtc.QSyntaxHighlighter_Document(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlight)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn Rehighlight(self: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_Rehighlight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlightBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#rehighlightBlock)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, block: QtC.QTextBlock ```
     pub fn RehighlightBlock(self: ?*anyopaque, block: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_RehighlightBlock(@ptrCast(self), @ptrCast(block));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, text: []const u8 ```
     pub fn HighlightBlock(self: ?*anyopaque, text: []const u8) void {
@@ -103,7 +103,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_HighlightBlock(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
     ///
     /// Allows for overriding the related default method
     ///
@@ -112,7 +112,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnHighlightBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
     ///
     /// Base class method implementation
     ///
@@ -125,14 +125,14 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_QBaseHighlightBlock(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, start: i32, count: i32, format: QtC.QTextCharFormat ```
     pub fn SetFormat(self: ?*anyopaque, start: i32, count: i32, format: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_SetFormat(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Allows for overriding the related default method
     ///
@@ -141,7 +141,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Base class method implementation
     ///
@@ -150,14 +150,14 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_QBaseSetFormat(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, start: i32, count: i32, color: QtC.QColor ```
     pub fn SetFormat2(self: ?*anyopaque, start: i32, count: i32, color: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_SetFormat2(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Allows for overriding the related default method
     ///
@@ -166,7 +166,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetFormat2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Base class method implementation
     ///
@@ -175,14 +175,14 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_QBaseSetFormat2(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, start: i32, count: i32, font: QtC.QFont ```
     pub fn SetFormat3(self: ?*anyopaque, start: i32, count: i32, font: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_SetFormat3(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Allows for overriding the related default method
     ///
@@ -191,7 +191,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetFormat3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
     ///
     /// Base class method implementation
     ///
@@ -200,14 +200,14 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_QBaseSetFormat3(@ptrCast(self), @intCast(start), @intCast(count), @ptrCast(font));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, pos: i32 ```
     pub fn Format(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
         return qtc.QSyntaxHighlighter_Format(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
     ///
     /// Allows for overriding the related default method
     ///
@@ -216,7 +216,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
     ///
     /// Base class method implementation
     ///
@@ -225,14 +225,14 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_QBaseFormat(@ptrCast(self), @intCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn PreviousBlockState(self: ?*anyopaque) i32 {
         return qtc.QSyntaxHighlighter_PreviousBlockState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -241,7 +241,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnPreviousBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
     ///
     /// Base class method implementation
     ///
@@ -250,14 +250,14 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_QBasePreviousBlockState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn CurrentBlockState(self: ?*anyopaque) i32 {
         return qtc.QSyntaxHighlighter_CurrentBlockState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -266,7 +266,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
     ///
     /// Base class method implementation
     ///
@@ -275,14 +275,14 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_QBaseCurrentBlockState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, newState: i32 ```
     pub fn SetCurrentBlockState(self: ?*anyopaque, newState: i32) void {
         qtc.QSyntaxHighlighter_SetCurrentBlockState(@ptrCast(self), @intCast(newState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -291,7 +291,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
     ///
     /// Base class method implementation
     ///
@@ -300,14 +300,14 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_QBaseSetCurrentBlockState(@ptrCast(self), @intCast(newState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, data: QtC.QTextBlockUserData ```
     pub fn SetCurrentBlockUserData(self: ?*anyopaque, data: ?*anyopaque) void {
         qtc.QSyntaxHighlighter_SetCurrentBlockUserData(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -316,7 +316,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnSetCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
     ///
     /// Base class method implementation
     ///
@@ -325,14 +325,14 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_QBaseSetCurrentBlockUserData(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn CurrentBlockUserData(self: ?*anyopaque) QtC.QTextBlockUserData {
         return qtc.QSyntaxHighlighter_CurrentBlockUserData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -341,7 +341,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
     ///
     /// Base class method implementation
     ///
@@ -350,14 +350,14 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_QBaseCurrentBlockUserData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn CurrentBlock(self: ?*anyopaque) QtC.QTextBlock {
         return qtc.QSyntaxHighlighter_CurrentBlock(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
     ///
     /// Allows for overriding the related default method
     ///
@@ -366,7 +366,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QSyntaxHighlighter_OnCurrentBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
     ///
     /// Base class method implementation
     ///
@@ -375,7 +375,7 @@ pub const qsyntaxhighlighter = struct {
         return qtc.QSyntaxHighlighter_QBaseCurrentBlock(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -388,7 +388,7 @@ pub const qsyntaxhighlighter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -403,7 +403,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -416,7 +416,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -429,7 +429,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -438,7 +438,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -447,7 +447,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -456,7 +456,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -465,7 +465,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -474,7 +474,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -483,7 +483,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -492,7 +492,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -501,7 +501,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -510,7 +510,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -519,7 +519,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -533,7 +533,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -542,7 +542,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -551,7 +551,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -560,7 +560,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -569,7 +569,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -580,7 +580,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -589,7 +589,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -598,7 +598,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -607,7 +607,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -616,7 +616,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -626,7 +626,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -636,7 +636,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -660,7 +660,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -669,7 +669,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -678,7 +678,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -687,7 +687,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -696,7 +696,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -705,7 +705,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -715,7 +715,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSyntaxHighlighter ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -724,7 +724,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -733,7 +733,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -742,7 +742,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -751,7 +751,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -762,7 +762,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -771,7 +771,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -780,7 +780,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -791,7 +791,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -802,7 +802,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -813,7 +813,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -824,7 +824,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -835,7 +835,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -846,7 +846,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -857,7 +857,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -868,7 +868,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -879,7 +879,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -890,7 +890,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -901,7 +901,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -912,7 +912,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -923,7 +923,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -934,7 +934,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -945,7 +945,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -956,7 +956,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -967,7 +967,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -978,7 +978,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -989,7 +989,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1000,7 +1000,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1011,7 +1011,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1022,7 +1022,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1033,7 +1033,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1044,7 +1044,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1055,7 +1055,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1066,7 +1066,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1077,7 +1077,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1089,7 +1089,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1101,7 +1101,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1112,7 +1112,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1123,7 +1123,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1134,7 +1134,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1145,7 +1145,7 @@ pub const qsyntaxhighlighter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1154,7 +1154,7 @@ pub const qsyntaxhighlighter = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#dtor.QSyntaxHighlighter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#dtor.QSyntaxHighlighter)
     ///
     /// Delete this object from C++ memory.
     ///

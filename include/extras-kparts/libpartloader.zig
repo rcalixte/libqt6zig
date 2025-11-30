@@ -5,14 +5,14 @@ const std = @import("std");
 
 /// https://api.kde.org/kparts.html
 pub const kparts = struct {
-    /// [Qt documentation](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: partloader_enums.PartCapability ```
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
         return qtc.KParts_GetEnumMetaObject(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts.html#qt_getEnumName)
+    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
     ///
     /// ``` param1: partloader_enums.PartCapability ```
     pub fn GetEnumName(param1: i32) []const u8 {
@@ -20,14 +20,14 @@ pub const kparts = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: flag of partloader_enums.PartCapability ```
     pub fn GetEnumMetaObject2(param1: i32) QtC.QMetaObject {
         return qtc.KParts_GetEnumMetaObject2(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts.html#qt_getEnumName)
+    /// [Upstream resources](https://api.kde.org/kparts.html#qt_getEnumName)
     ///
     /// ``` param1: flag of partloader_enums.PartCapability ```
     pub fn GetEnumName2(param1: i32) []const u8 {
@@ -38,7 +38,7 @@ pub const kparts = struct {
 
 /// https://api.kde.org/kparts-partloader.html
 pub const kparts__partloader = struct {
-    /// [Qt documentation](https://api.kde.org/kparts-partloader.html#partCapabilities)
+    /// [Upstream resources](https://api.kde.org/kparts-partloader.html#partCapabilities)
     ///
     /// ``` param1: QtC.KPluginMetaData ```
     ///
@@ -47,7 +47,7 @@ pub const kparts__partloader = struct {
         return qtc.KParts__PartLoader_PartCapabilities(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-partloader.html#partsForMimeType)
+    /// [Upstream resources](https://api.kde.org/kparts-partloader.html#partsForMimeType)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn PartsForMimeType(param1: []const u8, allocator: std.mem.Allocator) []QtC.KPluginMetaData {

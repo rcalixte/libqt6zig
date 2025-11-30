@@ -23,7 +23,7 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_new2(@intCast(param1), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -55,7 +55,7 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -67,7 +67,7 @@ pub const qboxlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#direction)
     ///
     /// ``` self: QtC.QBoxLayout ```
     ///
@@ -76,63 +76,63 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_Direction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
     ///
     /// ``` self: QtC.QBoxLayout, direction: qboxlayout_enums.Direction ```
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QBoxLayout_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addSpacing)
     ///
     /// ``` self: QtC.QBoxLayout, size: i32 ```
     pub fn AddSpacing(self: ?*anyopaque, size: i32) void {
         qtc.QBoxLayout_AddSpacing(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn AddStretch(self: ?*anyopaque) void {
         qtc.QBoxLayout_AddStretch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addSpacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addSpacerItem)
     ///
     /// ``` self: QtC.QBoxLayout, spacerItem: QtC.QSpacerItem ```
     pub fn AddSpacerItem(self: ?*anyopaque, spacerItem: ?*anyopaque) void {
         qtc.QBoxLayout_AddSpacerItem(@ptrCast(self), @ptrCast(spacerItem));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QBoxLayout, param1: QtC.QWidget ```
     pub fn AddWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QBoxLayout_AddWidget(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
     ///
     /// ``` self: QtC.QBoxLayout, layout: QtC.QLayout ```
     pub fn AddLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
         qtc.QBoxLayout_AddLayout(@ptrCast(self), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStrut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStrut)
     ///
     /// ``` self: QtC.QBoxLayout, param1: i32 ```
     pub fn AddStrut(self: ?*anyopaque, param1: i32) void {
         qtc.QBoxLayout_AddStrut(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// ``` self: QtC.QBoxLayout, param1: QtC.QLayoutItem ```
     pub fn AddItem(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QBoxLayout_AddItem(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Allows for overriding the related default method
     ///
@@ -141,7 +141,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnAddItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Base class method implementation
     ///
@@ -150,56 +150,56 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_QBaseAddItem(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacing)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, size: i32 ```
     pub fn InsertSpacing(self: ?*anyopaque, index: i32, size: i32) void {
         qtc.QBoxLayout_InsertSpacing(@ptrCast(self), @intCast(index), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32 ```
     pub fn InsertStretch(self: ?*anyopaque, index: i32) void {
         qtc.QBoxLayout_InsertStretch(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacerItem)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, spacerItem: QtC.QSpacerItem ```
     pub fn InsertSpacerItem(self: ?*anyopaque, index: i32, spacerItem: ?*anyopaque) void {
         qtc.QBoxLayout_InsertSpacerItem(@ptrCast(self), @intCast(index), @ptrCast(spacerItem));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, widget: QtC.QWidget ```
     pub fn InsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
         qtc.QBoxLayout_InsertWidget(@ptrCast(self), @intCast(index), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, layout: QtC.QLayout ```
     pub fn InsertLayout(self: ?*anyopaque, index: i32, layout: ?*anyopaque) void {
         qtc.QBoxLayout_InsertLayout(@ptrCast(self), @intCast(index), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertItem)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, param2: QtC.QLayoutItem ```
     pub fn InsertItem(self: ?*anyopaque, index: i32, param2: ?*anyopaque) void {
         qtc.QBoxLayout_InsertItem(@ptrCast(self), @intCast(index), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Spacing(self: ?*anyopaque) i32 {
         return qtc.QBoxLayout_Spacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Base class method implementation
     ///
@@ -217,14 +217,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseSpacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// ``` self: QtC.QBoxLayout, spacing: i32 ```
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QBoxLayout_SetSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -233,7 +233,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Base class method implementation
     ///
@@ -242,42 +242,42 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_QBaseSetSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
     ///
     /// ``` self: QtC.QBoxLayout, w: QtC.QWidget, stretch: i32 ```
     pub fn SetStretchFactor(self: ?*anyopaque, w: ?*anyopaque, stretch: i32) bool {
         return qtc.QBoxLayout_SetStretchFactor(@ptrCast(self), @ptrCast(w), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
     ///
     /// ``` self: QtC.QBoxLayout, l: QtC.QLayout, stretch: i32 ```
     pub fn SetStretchFactor2(self: ?*anyopaque, l: ?*anyopaque, stretch: i32) bool {
         return qtc.QBoxLayout_SetStretchFactor2(@ptrCast(self), @ptrCast(l), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretch)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, stretch: i32 ```
     pub fn SetStretch(self: ?*anyopaque, index: i32, stretch: i32) void {
         qtc.QBoxLayout_SetStretch(@ptrCast(self), @intCast(index), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#stretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#stretch)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32 ```
     pub fn Stretch(self: ?*anyopaque, index: i32) i32 {
         return qtc.QBoxLayout_Stretch(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QBoxLayout_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -286,7 +286,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -295,14 +295,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QBoxLayout_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -311,7 +311,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Base class method implementation
     ///
@@ -320,14 +320,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QBoxLayout_MaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -336,7 +336,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Base class method implementation
     ///
@@ -345,14 +345,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseMaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QBoxLayout_HasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -361,7 +361,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -370,14 +370,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// ``` self: QtC.QBoxLayout, param1: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QBoxLayout_HeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -386,7 +386,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -395,14 +395,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// ``` self: QtC.QBoxLayout, param1: i32 ```
     pub fn MinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QBoxLayout_MinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -411,7 +411,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -420,7 +420,7 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// ``` self: QtC.QBoxLayout ```
     ///
@@ -429,7 +429,7 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -438,7 +438,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
@@ -449,14 +449,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QBoxLayout_Invalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -465,7 +465,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Base class method implementation
     ///
@@ -474,14 +474,14 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_QBaseInvalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// ``` self: QtC.QBoxLayout, param1: i32 ```
     pub fn ItemAt(self: ?*anyopaque, param1: i32) QtC.QLayoutItem {
         return qtc.QBoxLayout_ItemAt(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -490,7 +490,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Base class method implementation
     ///
@@ -499,14 +499,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseItemAt(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// ``` self: QtC.QBoxLayout, param1: i32 ```
     pub fn TakeAt(self: ?*anyopaque, param1: i32) QtC.QLayoutItem {
         return qtc.QBoxLayout_TakeAt(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -515,7 +515,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Base class method implementation
     ///
@@ -524,14 +524,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseTakeAt(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QBoxLayout_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Allows for overriding the related default method
     ///
@@ -540,7 +540,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Base class method implementation
     ///
@@ -549,14 +549,14 @@ pub const qboxlayout = struct {
         return qtc.QBoxLayout_QBaseCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// ``` self: QtC.QBoxLayout, geometry: QtC.QRect ```
     pub fn SetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
         qtc.QBoxLayout_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -565,7 +565,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Base class method implementation
     ///
@@ -574,7 +574,7 @@ pub const qboxlayout = struct {
         qtc.QBoxLayout_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -587,7 +587,7 @@ pub const qboxlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -600,56 +600,56 @@ pub const qboxlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
     ///
     /// ``` self: QtC.QBoxLayout, stretch: i32 ```
     pub fn AddStretch1(self: ?*anyopaque, stretch: i32) void {
         qtc.QBoxLayout_AddStretch1(@ptrCast(self), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QBoxLayout, param1: QtC.QWidget, stretch: i32 ```
     pub fn AddWidget2(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32) void {
         qtc.QBoxLayout_AddWidget2(@ptrCast(self), @ptrCast(param1), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32, alignment: i32) void {
         qtc.QBoxLayout_AddWidget3(@ptrCast(self), @ptrCast(param1), @intCast(stretch), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
     ///
     /// ``` self: QtC.QBoxLayout, layout: QtC.QLayout, stretch: i32 ```
     pub fn AddLayout2(self: ?*anyopaque, layout: ?*anyopaque, stretch: i32) void {
         qtc.QBoxLayout_AddLayout2(@ptrCast(self), @ptrCast(layout), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, stretch: i32 ```
     pub fn InsertStretch2(self: ?*anyopaque, index: i32, stretch: i32) void {
         qtc.QBoxLayout_InsertStretch2(@ptrCast(self), @intCast(index), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32 ```
     pub fn InsertWidget3(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32) void {
         qtc.QBoxLayout_InsertWidget3(@ptrCast(self), @intCast(index), @ptrCast(widget), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn InsertWidget4(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32, alignment: i32) void {
         qtc.QBoxLayout_InsertWidget4(@ptrCast(self), @intCast(index), @ptrCast(widget), @intCast(stretch), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
     ///
     /// ``` self: QtC.QBoxLayout, index: i32, layout: QtC.QLayout, stretch: i32 ```
     pub fn InsertLayout3(self: ?*anyopaque, index: i32, layout: ?*anyopaque, stretch: i32) void {
@@ -658,7 +658,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QBoxLayout, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -667,7 +667,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QBoxLayout, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -676,7 +676,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn UnsetContentsMargins(self: ?*anyopaque) void {
@@ -685,7 +685,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
     /// ``` self: QtC.QBoxLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
     pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
@@ -694,7 +694,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -703,7 +703,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -712,7 +712,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QBoxLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
@@ -721,7 +721,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QBoxLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
@@ -730,7 +730,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QBoxLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
@@ -739,7 +739,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QBoxLayout ```
     ///
@@ -750,7 +750,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
     ///
     /// ``` self: QtC.QBoxLayout, w: QtC.QWidget ```
     pub fn SetMenuBar(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -759,7 +759,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#menuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#menuBar)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn MenuBar(self: ?*anyopaque) QtC.QWidget {
@@ -768,7 +768,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -777,7 +777,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#activate)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Activate(self: ?*anyopaque) bool {
@@ -786,7 +786,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#update)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Update(self: ?*anyopaque) void {
@@ -795,7 +795,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
     ///
     /// ``` self: QtC.QBoxLayout, w: QtC.QWidget ```
     pub fn RemoveWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -804,7 +804,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeItem)
     ///
     /// ``` self: QtC.QBoxLayout, param1: QtC.QLayoutItem ```
     pub fn RemoveItem(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -813,7 +813,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// ``` self: QtC.QBoxLayout, param1: QtC.QLayoutItem ```
     pub fn IndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
@@ -822,7 +822,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Allows for overriding the related default method
     ///
@@ -833,7 +833,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Base class method implementation
     ///
@@ -844,7 +844,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
     ///
     /// ``` self: QtC.QBoxLayout, w: i32 ```
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -853,7 +853,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
     ///
     /// ``` self: QtC.QBoxLayout, w: i32 ```
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -862,7 +862,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn TotalMinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -871,7 +871,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn TotalMaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -880,7 +880,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn TotalSizeHint(self: ?*anyopaque) QtC.QSize {
@@ -889,7 +889,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
     ///
     /// ``` self: QtC.QBoxLayout, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -898,7 +898,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -907,7 +907,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
     ///
     /// ``` w: QtC.QWidget, s: QtC.QSize ```
     pub fn ClosestAcceptableSize(w: ?*anyopaque, s: ?*anyopaque) QtC.QSize {
@@ -916,7 +916,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QBoxLayout, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -929,7 +929,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -942,7 +942,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -951,7 +951,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -960,7 +960,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -969,7 +969,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -978,7 +978,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QBoxLayout, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -987,7 +987,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -996,7 +996,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QBoxLayout, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1005,7 +1005,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBoxLayout, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1014,7 +1014,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBoxLayout, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1023,7 +1023,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBoxLayout, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1032,7 +1032,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QBoxLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1046,7 +1046,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QBoxLayout, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1055,7 +1055,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QBoxLayout, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1064,7 +1064,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QBoxLayout, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1073,7 +1073,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1082,7 +1082,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1093,7 +1093,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1102,7 +1102,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1111,7 +1111,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1120,7 +1120,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1129,7 +1129,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QBoxLayout, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1139,7 +1139,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QBoxLayout, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1149,7 +1149,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QBoxLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1173,7 +1173,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1182,7 +1182,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1191,7 +1191,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1200,7 +1200,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1209,7 +1209,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1218,7 +1218,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QBoxLayout, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1228,7 +1228,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QBoxLayout ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1237,7 +1237,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QBoxLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1246,7 +1246,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBoxLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1255,7 +1255,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1264,7 +1264,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1275,7 +1275,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxLayout, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1284,7 +1284,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1293,7 +1293,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QBoxLayout ```
     ///
@@ -1304,7 +1304,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1315,7 +1315,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1326,7 +1326,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1337,7 +1337,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1348,7 +1348,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1359,7 +1359,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1370,7 +1370,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1381,7 +1381,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1392,7 +1392,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1403,7 +1403,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1416,7 +1416,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1429,7 +1429,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1440,7 +1440,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1451,7 +1451,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1462,7 +1462,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1473,7 +1473,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1484,7 +1484,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1495,7 +1495,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1506,7 +1506,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1517,7 +1517,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1528,7 +1528,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1539,7 +1539,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1550,7 +1550,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1561,7 +1561,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1572,7 +1572,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1583,7 +1583,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1594,7 +1594,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1605,7 +1605,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1616,7 +1616,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1627,7 +1627,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1638,7 +1638,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1649,7 +1649,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1660,7 +1660,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1671,7 +1671,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1682,7 +1682,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1693,7 +1693,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1704,7 +1704,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1715,7 +1715,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1726,7 +1726,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1737,7 +1737,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1748,7 +1748,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1759,7 +1759,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1770,7 +1770,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1781,7 +1781,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1792,7 +1792,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1803,7 +1803,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1814,7 +1814,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1825,7 +1825,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1836,7 +1836,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1847,7 +1847,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1858,7 +1858,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1869,7 +1869,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1880,7 +1880,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1891,7 +1891,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1902,7 +1902,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1913,7 +1913,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1924,7 +1924,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1935,7 +1935,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1946,7 +1946,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1957,7 +1957,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1968,7 +1968,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1979,7 +1979,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1990,7 +1990,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2001,7 +2001,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2012,7 +2012,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2023,7 +2023,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2034,7 +2034,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2046,7 +2046,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2058,7 +2058,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2069,7 +2069,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2080,7 +2080,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2091,7 +2091,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2102,7 +2102,7 @@ pub const qboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2111,7 +2111,7 @@ pub const qboxlayout = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#dtor.QBoxLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#dtor.QBoxLayout)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2137,7 +2137,7 @@ pub const qhboxlayout = struct {
         return qtc.QHBoxLayout_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -2169,7 +2169,7 @@ pub const qhboxlayout = struct {
         return qtc.QHBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2181,7 +2181,7 @@ pub const qhboxlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2194,7 +2194,7 @@ pub const qhboxlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2209,7 +2209,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#direction)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     ///
@@ -2220,7 +2220,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
     ///
     /// ``` self: QtC.QHBoxLayout, direction: qboxlayout_enums.Direction ```
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
@@ -2229,7 +2229,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addSpacing)
     ///
     /// ``` self: QtC.QHBoxLayout, size: i32 ```
     pub fn AddSpacing(self: ?*anyopaque, size: i32) void {
@@ -2238,7 +2238,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn AddStretch(self: ?*anyopaque) void {
@@ -2247,7 +2247,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addSpacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addSpacerItem)
     ///
     /// ``` self: QtC.QHBoxLayout, spacerItem: QtC.QSpacerItem ```
     pub fn AddSpacerItem(self: ?*anyopaque, spacerItem: ?*anyopaque) void {
@@ -2256,7 +2256,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QHBoxLayout, param1: QtC.QWidget ```
     pub fn AddWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2265,7 +2265,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
     ///
     /// ``` self: QtC.QHBoxLayout, layout: QtC.QLayout ```
     pub fn AddLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -2274,7 +2274,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStrut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStrut)
     ///
     /// ``` self: QtC.QHBoxLayout, param1: i32 ```
     pub fn AddStrut(self: ?*anyopaque, param1: i32) void {
@@ -2283,7 +2283,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacing)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, size: i32 ```
     pub fn InsertSpacing(self: ?*anyopaque, index: i32, size: i32) void {
@@ -2292,7 +2292,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32 ```
     pub fn InsertStretch(self: ?*anyopaque, index: i32) void {
@@ -2301,7 +2301,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacerItem)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, spacerItem: QtC.QSpacerItem ```
     pub fn InsertSpacerItem(self: ?*anyopaque, index: i32, spacerItem: ?*anyopaque) void {
@@ -2310,7 +2310,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, widget: QtC.QWidget ```
     pub fn InsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
@@ -2319,7 +2319,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, layout: QtC.QLayout ```
     pub fn InsertLayout(self: ?*anyopaque, index: i32, layout: ?*anyopaque) void {
@@ -2328,7 +2328,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertItem)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, param2: QtC.QLayoutItem ```
     pub fn InsertItem(self: ?*anyopaque, index: i32, param2: ?*anyopaque) void {
@@ -2337,7 +2337,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
     ///
     /// ``` self: QtC.QHBoxLayout, w: QtC.QWidget, stretch: i32 ```
     pub fn SetStretchFactor(self: ?*anyopaque, w: ?*anyopaque, stretch: i32) bool {
@@ -2346,7 +2346,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
     ///
     /// ``` self: QtC.QHBoxLayout, l: QtC.QLayout, stretch: i32 ```
     pub fn SetStretchFactor2(self: ?*anyopaque, l: ?*anyopaque, stretch: i32) bool {
@@ -2355,7 +2355,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretch)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, stretch: i32 ```
     pub fn SetStretch(self: ?*anyopaque, index: i32, stretch: i32) void {
@@ -2364,7 +2364,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#stretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#stretch)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32 ```
     pub fn Stretch(self: ?*anyopaque, index: i32) i32 {
@@ -2373,7 +2373,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
     ///
     /// ``` self: QtC.QHBoxLayout, stretch: i32 ```
     pub fn AddStretch1(self: ?*anyopaque, stretch: i32) void {
@@ -2382,7 +2382,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QHBoxLayout, param1: QtC.QWidget, stretch: i32 ```
     pub fn AddWidget2(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32) void {
@@ -2391,7 +2391,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QHBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32, alignment: i32) void {
@@ -2400,7 +2400,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
     ///
     /// ``` self: QtC.QHBoxLayout, layout: QtC.QLayout, stretch: i32 ```
     pub fn AddLayout2(self: ?*anyopaque, layout: ?*anyopaque, stretch: i32) void {
@@ -2409,7 +2409,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, stretch: i32 ```
     pub fn InsertStretch2(self: ?*anyopaque, index: i32, stretch: i32) void {
@@ -2418,7 +2418,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32 ```
     pub fn InsertWidget3(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32) void {
@@ -2427,7 +2427,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn InsertWidget4(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32, alignment: i32) void {
@@ -2436,7 +2436,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
     ///
     /// ``` self: QtC.QHBoxLayout, index: i32, layout: QtC.QLayout, stretch: i32 ```
     pub fn InsertLayout3(self: ?*anyopaque, index: i32, layout: ?*anyopaque, stretch: i32) void {
@@ -2445,7 +2445,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QHBoxLayout, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -2454,7 +2454,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QHBoxLayout, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -2463,7 +2463,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn UnsetContentsMargins(self: ?*anyopaque) void {
@@ -2472,7 +2472,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
     /// ``` self: QtC.QHBoxLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
     pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
@@ -2481,7 +2481,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -2490,7 +2490,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -2499,7 +2499,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QHBoxLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
@@ -2508,7 +2508,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QHBoxLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
@@ -2517,7 +2517,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QHBoxLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
@@ -2526,7 +2526,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     ///
@@ -2537,7 +2537,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
     ///
     /// ``` self: QtC.QHBoxLayout, w: QtC.QWidget ```
     pub fn SetMenuBar(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -2546,7 +2546,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#menuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#menuBar)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn MenuBar(self: ?*anyopaque) QtC.QWidget {
@@ -2555,7 +2555,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2564,7 +2564,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#activate)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn Activate(self: ?*anyopaque) bool {
@@ -2573,7 +2573,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#update)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn Update(self: ?*anyopaque) void {
@@ -2582,7 +2582,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
     ///
     /// ``` self: QtC.QHBoxLayout, w: QtC.QWidget ```
     pub fn RemoveWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -2591,7 +2591,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeItem)
     ///
     /// ``` self: QtC.QHBoxLayout, param1: QtC.QLayoutItem ```
     pub fn RemoveItem(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2600,7 +2600,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// ``` self: QtC.QHBoxLayout, param1: QtC.QLayoutItem ```
     pub fn IndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
@@ -2609,7 +2609,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2620,7 +2620,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Base class method implementation
     ///
@@ -2631,7 +2631,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
     ///
     /// ``` self: QtC.QHBoxLayout, w: i32 ```
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -2640,7 +2640,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
     ///
     /// ``` self: QtC.QHBoxLayout, w: i32 ```
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -2649,7 +2649,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn TotalMinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2658,7 +2658,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn TotalMaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2667,7 +2667,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn TotalSizeHint(self: ?*anyopaque) QtC.QSize {
@@ -2676,7 +2676,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
     ///
     /// ``` self: QtC.QHBoxLayout, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2685,7 +2685,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2694,7 +2694,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
     ///
     /// ``` w: QtC.QWidget, s: QtC.QSize ```
     pub fn ClosestAcceptableSize(w: ?*anyopaque, s: ?*anyopaque) QtC.QSize {
@@ -2703,7 +2703,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QHBoxLayout, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2716,7 +2716,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QHBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2729,7 +2729,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2738,7 +2738,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2747,7 +2747,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2756,7 +2756,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2765,7 +2765,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QHBoxLayout, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2774,7 +2774,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2783,7 +2783,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QHBoxLayout, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2792,7 +2792,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QHBoxLayout, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2801,7 +2801,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QHBoxLayout, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2810,7 +2810,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QHBoxLayout, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2819,7 +2819,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QHBoxLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2833,7 +2833,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QHBoxLayout, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2842,7 +2842,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QHBoxLayout, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2851,7 +2851,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QHBoxLayout, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2860,7 +2860,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2869,7 +2869,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QHBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2880,7 +2880,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2889,7 +2889,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2898,7 +2898,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2907,7 +2907,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2916,7 +2916,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QHBoxLayout, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2926,7 +2926,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QHBoxLayout, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2936,7 +2936,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QHBoxLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2960,7 +2960,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2969,7 +2969,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2978,7 +2978,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2987,7 +2987,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2996,7 +2996,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3005,7 +3005,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QHBoxLayout, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3015,7 +3015,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3024,7 +3024,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QHBoxLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3033,7 +3033,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QHBoxLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3042,7 +3042,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3051,7 +3051,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QHBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3062,7 +3062,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHBoxLayout, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3071,7 +3071,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3080,7 +3080,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QHBoxLayout ```
     ///
@@ -3091,7 +3091,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3102,7 +3102,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3113,7 +3113,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3124,7 +3124,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3135,7 +3135,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3146,7 +3146,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3157,7 +3157,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3168,7 +3168,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3179,7 +3179,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3190,7 +3190,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3201,7 +3201,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3212,7 +3212,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3223,7 +3223,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3234,7 +3234,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3245,7 +3245,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3256,7 +3256,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3267,7 +3267,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3278,7 +3278,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3289,7 +3289,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3300,7 +3300,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3311,7 +3311,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3322,7 +3322,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3333,7 +3333,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3344,7 +3344,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3355,7 +3355,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3366,7 +3366,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3377,7 +3377,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3388,7 +3388,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3401,7 +3401,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3414,7 +3414,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3425,7 +3425,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3436,7 +3436,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3447,7 +3447,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3458,7 +3458,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3469,7 +3469,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3480,7 +3480,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3491,7 +3491,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3502,7 +3502,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3513,7 +3513,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3524,7 +3524,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3535,7 +3535,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3546,7 +3546,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3557,7 +3557,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3568,7 +3568,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3579,7 +3579,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3590,7 +3590,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3601,7 +3601,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3612,7 +3612,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3623,7 +3623,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3634,7 +3634,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3645,7 +3645,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3656,7 +3656,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3667,7 +3667,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3678,7 +3678,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3689,7 +3689,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3702,7 +3702,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3715,7 +3715,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3726,7 +3726,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3737,7 +3737,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3748,7 +3748,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3759,7 +3759,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3770,7 +3770,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3781,7 +3781,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3792,7 +3792,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3803,7 +3803,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3814,7 +3814,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3825,7 +3825,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3836,7 +3836,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3847,7 +3847,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3858,7 +3858,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3869,7 +3869,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3880,7 +3880,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3891,7 +3891,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3902,7 +3902,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3913,7 +3913,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3924,7 +3924,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3935,7 +3935,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3946,7 +3946,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3957,7 +3957,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3968,7 +3968,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3979,7 +3979,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3990,7 +3990,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4001,7 +4001,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4012,7 +4012,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4023,7 +4023,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4034,7 +4034,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4045,7 +4045,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4056,7 +4056,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4067,7 +4067,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4078,7 +4078,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4089,7 +4089,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4100,7 +4100,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4111,7 +4111,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4122,7 +4122,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4133,7 +4133,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4144,7 +4144,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4155,7 +4155,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4166,7 +4166,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4177,7 +4177,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4188,7 +4188,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4199,7 +4199,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4210,7 +4210,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4221,7 +4221,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4232,7 +4232,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4243,7 +4243,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4254,7 +4254,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4265,7 +4265,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4276,7 +4276,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4287,7 +4287,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4298,7 +4298,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4309,7 +4309,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4320,7 +4320,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4332,7 +4332,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4344,7 +4344,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4355,7 +4355,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4366,7 +4366,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4377,7 +4377,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4388,7 +4388,7 @@ pub const qhboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -4397,7 +4397,7 @@ pub const qhboxlayout = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhboxlayout.html#dtor.QHBoxLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhboxlayout.html#dtor.QHBoxLayout)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -4423,7 +4423,7 @@ pub const qvboxlayout = struct {
         return qtc.QVBoxLayout_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -4455,7 +4455,7 @@ pub const qvboxlayout = struct {
         return qtc.QVBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4467,7 +4467,7 @@ pub const qvboxlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4480,7 +4480,7 @@ pub const qvboxlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -4495,7 +4495,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#direction)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     ///
@@ -4506,7 +4506,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
     ///
     /// ``` self: QtC.QVBoxLayout, direction: qboxlayout_enums.Direction ```
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
@@ -4515,7 +4515,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addSpacing)
     ///
     /// ``` self: QtC.QVBoxLayout, size: i32 ```
     pub fn AddSpacing(self: ?*anyopaque, size: i32) void {
@@ -4524,7 +4524,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn AddStretch(self: ?*anyopaque) void {
@@ -4533,7 +4533,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addSpacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addSpacerItem)
     ///
     /// ``` self: QtC.QVBoxLayout, spacerItem: QtC.QSpacerItem ```
     pub fn AddSpacerItem(self: ?*anyopaque, spacerItem: ?*anyopaque) void {
@@ -4542,7 +4542,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QVBoxLayout, param1: QtC.QWidget ```
     pub fn AddWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4551,7 +4551,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
     ///
     /// ``` self: QtC.QVBoxLayout, layout: QtC.QLayout ```
     pub fn AddLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -4560,7 +4560,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStrut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStrut)
     ///
     /// ``` self: QtC.QVBoxLayout, param1: i32 ```
     pub fn AddStrut(self: ?*anyopaque, param1: i32) void {
@@ -4569,7 +4569,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacing)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, size: i32 ```
     pub fn InsertSpacing(self: ?*anyopaque, index: i32, size: i32) void {
@@ -4578,7 +4578,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32 ```
     pub fn InsertStretch(self: ?*anyopaque, index: i32) void {
@@ -4587,7 +4587,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertSpacerItem)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, spacerItem: QtC.QSpacerItem ```
     pub fn InsertSpacerItem(self: ?*anyopaque, index: i32, spacerItem: ?*anyopaque) void {
@@ -4596,7 +4596,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, widget: QtC.QWidget ```
     pub fn InsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
@@ -4605,7 +4605,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, layout: QtC.QLayout ```
     pub fn InsertLayout(self: ?*anyopaque, index: i32, layout: ?*anyopaque) void {
@@ -4614,7 +4614,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertItem)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, param2: QtC.QLayoutItem ```
     pub fn InsertItem(self: ?*anyopaque, index: i32, param2: ?*anyopaque) void {
@@ -4623,7 +4623,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
     ///
     /// ``` self: QtC.QVBoxLayout, w: QtC.QWidget, stretch: i32 ```
     pub fn SetStretchFactor(self: ?*anyopaque, w: ?*anyopaque, stretch: i32) bool {
@@ -4632,7 +4632,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretchFactor)
     ///
     /// ``` self: QtC.QVBoxLayout, l: QtC.QLayout, stretch: i32 ```
     pub fn SetStretchFactor2(self: ?*anyopaque, l: ?*anyopaque, stretch: i32) bool {
@@ -4641,7 +4641,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setStretch)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, stretch: i32 ```
     pub fn SetStretch(self: ?*anyopaque, index: i32, stretch: i32) void {
@@ -4650,7 +4650,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#stretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#stretch)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32 ```
     pub fn Stretch(self: ?*anyopaque, index: i32) i32 {
@@ -4659,7 +4659,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addStretch)
     ///
     /// ``` self: QtC.QVBoxLayout, stretch: i32 ```
     pub fn AddStretch1(self: ?*anyopaque, stretch: i32) void {
@@ -4668,7 +4668,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QVBoxLayout, param1: QtC.QWidget, stretch: i32 ```
     pub fn AddWidget2(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32) void {
@@ -4677,7 +4677,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
     /// ``` self: QtC.QVBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32, alignment: i32) void {
@@ -4686,7 +4686,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addLayout)
     ///
     /// ``` self: QtC.QVBoxLayout, layout: QtC.QLayout, stretch: i32 ```
     pub fn AddLayout2(self: ?*anyopaque, layout: ?*anyopaque, stretch: i32) void {
@@ -4695,7 +4695,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, stretch: i32 ```
     pub fn InsertStretch2(self: ?*anyopaque, index: i32, stretch: i32) void {
@@ -4704,7 +4704,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32 ```
     pub fn InsertWidget3(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32) void {
@@ -4713,7 +4713,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn InsertWidget4(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32, alignment: i32) void {
@@ -4722,7 +4722,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#insertLayout)
     ///
     /// ``` self: QtC.QVBoxLayout, index: i32, layout: QtC.QLayout, stretch: i32 ```
     pub fn InsertLayout3(self: ?*anyopaque, index: i32, layout: ?*anyopaque, stretch: i32) void {
@@ -4731,7 +4731,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QVBoxLayout, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -4740,7 +4740,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QVBoxLayout, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -4749,7 +4749,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn UnsetContentsMargins(self: ?*anyopaque) void {
@@ -4758,7 +4758,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
     /// ``` self: QtC.QVBoxLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
     pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
@@ -4767,7 +4767,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -4776,7 +4776,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -4785,7 +4785,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QVBoxLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
@@ -4794,7 +4794,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QVBoxLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
@@ -4803,7 +4803,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QVBoxLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
@@ -4812,7 +4812,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     ///
@@ -4823,7 +4823,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
     ///
     /// ``` self: QtC.QVBoxLayout, w: QtC.QWidget ```
     pub fn SetMenuBar(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -4832,7 +4832,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#menuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#menuBar)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn MenuBar(self: ?*anyopaque) QtC.QWidget {
@@ -4841,7 +4841,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4850,7 +4850,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#activate)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn Activate(self: ?*anyopaque) bool {
@@ -4859,7 +4859,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#update)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn Update(self: ?*anyopaque) void {
@@ -4868,7 +4868,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
     ///
     /// ``` self: QtC.QVBoxLayout, w: QtC.QWidget ```
     pub fn RemoveWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -4877,7 +4877,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeItem)
     ///
     /// ``` self: QtC.QVBoxLayout, param1: QtC.QLayoutItem ```
     pub fn RemoveItem(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4886,7 +4886,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// ``` self: QtC.QVBoxLayout, param1: QtC.QLayoutItem ```
     pub fn IndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
@@ -4895,7 +4895,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Allows for overriding the related default method
     ///
@@ -4906,7 +4906,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Base class method implementation
     ///
@@ -4917,7 +4917,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
     ///
     /// ``` self: QtC.QVBoxLayout, w: i32 ```
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -4926,7 +4926,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
     ///
     /// ``` self: QtC.QVBoxLayout, w: i32 ```
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -4935,7 +4935,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn TotalMinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -4944,7 +4944,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn TotalMaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -4953,7 +4953,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn TotalSizeHint(self: ?*anyopaque) QtC.QSize {
@@ -4962,7 +4962,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
     ///
     /// ``` self: QtC.QVBoxLayout, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -4971,7 +4971,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -4980,7 +4980,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
     ///
     /// ``` w: QtC.QWidget, s: QtC.QSize ```
     pub fn ClosestAcceptableSize(w: ?*anyopaque, s: ?*anyopaque) QtC.QSize {
@@ -4989,7 +4989,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QVBoxLayout, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5002,7 +5002,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QVBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -5015,7 +5015,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -5024,7 +5024,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -5033,7 +5033,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -5042,7 +5042,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -5051,7 +5051,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QVBoxLayout, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -5060,7 +5060,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -5069,7 +5069,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QVBoxLayout, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -5078,7 +5078,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QVBoxLayout, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -5087,7 +5087,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QVBoxLayout, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -5096,7 +5096,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QVBoxLayout, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -5105,7 +5105,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QVBoxLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -5119,7 +5119,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QVBoxLayout, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -5128,7 +5128,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QVBoxLayout, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -5137,7 +5137,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QVBoxLayout, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -5146,7 +5146,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -5155,7 +5155,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QVBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -5166,7 +5166,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -5175,7 +5175,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -5184,7 +5184,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -5193,7 +5193,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -5202,7 +5202,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QVBoxLayout, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -5212,7 +5212,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QVBoxLayout, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -5222,7 +5222,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QVBoxLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5246,7 +5246,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5255,7 +5255,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5264,7 +5264,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5273,7 +5273,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5282,7 +5282,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5291,7 +5291,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QVBoxLayout, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5301,7 +5301,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5310,7 +5310,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QVBoxLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5319,7 +5319,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QVBoxLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5328,7 +5328,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5337,7 +5337,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QVBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5348,7 +5348,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVBoxLayout, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5357,7 +5357,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5366,7 +5366,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QVBoxLayout ```
     ///
@@ -5377,7 +5377,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5388,7 +5388,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5399,7 +5399,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5410,7 +5410,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5421,7 +5421,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5432,7 +5432,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5443,7 +5443,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5454,7 +5454,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5465,7 +5465,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5476,7 +5476,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5487,7 +5487,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5498,7 +5498,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5509,7 +5509,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5520,7 +5520,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5531,7 +5531,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5542,7 +5542,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5553,7 +5553,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5564,7 +5564,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5575,7 +5575,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5586,7 +5586,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5597,7 +5597,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5608,7 +5608,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5619,7 +5619,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5630,7 +5630,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5641,7 +5641,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5652,7 +5652,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5663,7 +5663,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5674,7 +5674,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5687,7 +5687,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5700,7 +5700,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5711,7 +5711,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5722,7 +5722,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5733,7 +5733,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5744,7 +5744,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5755,7 +5755,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5766,7 +5766,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5777,7 +5777,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5788,7 +5788,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5799,7 +5799,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5810,7 +5810,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5821,7 +5821,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5832,7 +5832,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#count)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5843,7 +5843,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5854,7 +5854,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5865,7 +5865,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QBoxLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5876,7 +5876,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5887,7 +5887,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5898,7 +5898,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5909,7 +5909,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5920,7 +5920,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5931,7 +5931,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5942,7 +5942,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5953,7 +5953,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5964,7 +5964,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5975,7 +5975,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5988,7 +5988,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6001,7 +6001,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6012,7 +6012,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6023,7 +6023,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6034,7 +6034,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6045,7 +6045,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6056,7 +6056,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6067,7 +6067,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6078,7 +6078,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6089,7 +6089,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6100,7 +6100,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6111,7 +6111,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6122,7 +6122,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6133,7 +6133,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6144,7 +6144,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6155,7 +6155,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6166,7 +6166,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6177,7 +6177,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6188,7 +6188,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6199,7 +6199,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6210,7 +6210,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6221,7 +6221,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6232,7 +6232,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6243,7 +6243,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6254,7 +6254,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6265,7 +6265,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6276,7 +6276,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6287,7 +6287,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6298,7 +6298,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6309,7 +6309,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6320,7 +6320,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6331,7 +6331,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6342,7 +6342,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6353,7 +6353,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6364,7 +6364,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6375,7 +6375,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6386,7 +6386,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6397,7 +6397,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6408,7 +6408,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6419,7 +6419,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6430,7 +6430,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6441,7 +6441,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6452,7 +6452,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6463,7 +6463,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6474,7 +6474,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6485,7 +6485,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6496,7 +6496,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6507,7 +6507,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6518,7 +6518,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6529,7 +6529,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6540,7 +6540,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6551,7 +6551,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6562,7 +6562,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6573,7 +6573,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6584,7 +6584,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6595,7 +6595,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6606,7 +6606,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6618,7 +6618,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6630,7 +6630,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6641,7 +6641,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6652,7 +6652,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6663,7 +6663,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6674,7 +6674,7 @@ pub const qvboxlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6683,7 +6683,7 @@ pub const qvboxlayout = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvboxlayout.html#dtor.QVBoxLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvboxlayout.html#dtor.QVBoxLayout)
     ///
     /// Delete this object from C++ memory.
     ///

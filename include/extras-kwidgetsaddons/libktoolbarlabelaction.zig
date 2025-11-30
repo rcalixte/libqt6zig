@@ -32,7 +32,7 @@ pub const ktoolbarlabelaction = struct {
         return qtc.KToolBarLabelAction_new2(@ptrCast(buddy), text_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -64,7 +64,7 @@ pub const ktoolbarlabelaction = struct {
         return qtc.KToolBarLabelAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -76,28 +76,28 @@ pub const ktoolbarlabelaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#setBuddy)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#setBuddy)
     ///
     /// ``` self: QtC.KToolBarLabelAction, buddy: QtC.QAction ```
     pub fn SetBuddy(self: ?*anyopaque, buddy: ?*anyopaque) void {
         qtc.KToolBarLabelAction_SetBuddy(@ptrCast(self), @ptrCast(buddy));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#buddy)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#buddy)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Buddy(self: ?*anyopaque) QtC.QAction {
         return qtc.KToolBarLabelAction_Buddy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
     ///
     /// ``` self: QtC.KToolBarLabelAction, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KToolBarLabelAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -106,7 +106,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -115,7 +115,7 @@ pub const ktoolbarlabelaction = struct {
         return qtc.KToolBarLabelAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#textChanged)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#textChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, newText: []const u8 ```
     pub fn TextChanged(self: ?*anyopaque, newText: []const u8) void {
@@ -126,21 +126,21 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_TextChanged(@ptrCast(self), newText_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#textChanged)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#textChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, newText: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KToolBarLabelAction_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#event)
     ///
     /// ``` self: QtC.KToolBarLabelAction, param1: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.KToolBarLabelAction_Event(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -149,7 +149,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#event)
     ///
     /// Base class method implementation
     ///
@@ -158,14 +158,14 @@ pub const ktoolbarlabelaction = struct {
         return qtc.KToolBarLabelAction_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
     ///
     /// ``` self: QtC.KToolBarLabelAction, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KToolBarLabelAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -174,7 +174,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.KToolBarLabelAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -183,7 +183,7 @@ pub const ktoolbarlabelaction = struct {
         return qtc.KToolBarLabelAction_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -196,7 +196,7 @@ pub const ktoolbarlabelaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -211,7 +211,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
     ///
     /// ``` self: QtC.KToolBarLabelAction, w: QtC.QWidget ```
     pub fn SetDefaultWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -220,7 +220,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn DefaultWidget(self: ?*anyopaque) QtC.QWidget {
@@ -229,7 +229,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
     ///
     /// ``` self: QtC.KToolBarLabelAction, parent: QtC.QWidget ```
     pub fn RequestWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -238,7 +238,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
     ///
     /// ``` self: QtC.KToolBarLabelAction, widget: QtC.QWidget ```
     pub fn ReleaseWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -247,7 +247,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -261,7 +261,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
     ///
     /// ``` self: QtC.KToolBarLabelAction, group: QtC.QActionGroup ```
     pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -270,7 +270,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#actionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -279,7 +279,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
     ///
     /// ``` self: QtC.KToolBarLabelAction, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -288,7 +288,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
@@ -297,7 +297,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
     ///
     /// ``` self: QtC.KToolBarLabelAction, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -310,7 +310,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -323,7 +323,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
     ///
     /// ``` self: QtC.KToolBarLabelAction, text: []const u8 ```
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
@@ -336,7 +336,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#iconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -349,7 +349,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
     ///
     /// ``` self: QtC.KToolBarLabelAction, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -362,7 +362,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -375,7 +375,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
     ///
     /// ``` self: QtC.KToolBarLabelAction, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -388,7 +388,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -401,7 +401,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
     ///
     /// ``` self: QtC.KToolBarLabelAction, what: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
@@ -414,7 +414,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -427,7 +427,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setPriority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
     /// ``` self: QtC.KToolBarLabelAction, priority: qaction_enums.Priority ```
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
@@ -436,7 +436,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#priority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     ///
@@ -447,7 +447,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
     ///
     /// ``` self: QtC.KToolBarLabelAction, b: bool ```
     pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
@@ -456,7 +456,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
@@ -465,7 +465,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
     ///
     /// ``` self: QtC.KToolBarLabelAction, shortcut: QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
@@ -474,7 +474,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
@@ -483,7 +483,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KToolBarLabelAction, shortcuts: []QtC.QKeySequence ```
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
@@ -496,7 +496,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KToolBarLabelAction, shortcuts: qkeysequence_enums.StandardKey ```
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
@@ -505,7 +505,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -519,7 +519,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
     /// ``` self: QtC.KToolBarLabelAction, context: qnamespace_enums.ShortcutContext ```
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
@@ -528,7 +528,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     ///
@@ -539,7 +539,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
     ///
     /// ``` self: QtC.KToolBarLabelAction, autoRepeat: bool ```
     pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
@@ -548,7 +548,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn AutoRepeat(self: ?*anyopaque) bool {
@@ -557,7 +557,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setFont)
     ///
     /// ``` self: QtC.KToolBarLabelAction, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -566,7 +566,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#font)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -575,7 +575,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
     ///
     /// ``` self: QtC.KToolBarLabelAction, checkable: bool ```
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
@@ -584,7 +584,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsCheckable(self: ?*anyopaque) bool {
@@ -593,7 +593,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
@@ -602,7 +602,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
     ///
     /// ``` self: QtC.KToolBarLabelAction, varVal: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
@@ -611,7 +611,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsChecked(self: ?*anyopaque) bool {
@@ -620,7 +620,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -629,7 +629,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -638,7 +638,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
     /// ``` self: QtC.KToolBarLabelAction, event: qaction_enums.ActionEvent ```
     pub fn Activate(self: ?*anyopaque, event: i32) void {
@@ -647,7 +647,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
     /// ``` self: QtC.KToolBarLabelAction, menuRole: qaction_enums.MenuRole ```
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
@@ -656,7 +656,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#menuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     ///
@@ -667,7 +667,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
     ///
     /// ``` self: QtC.KToolBarLabelAction, visible: bool ```
     pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
@@ -676,7 +676,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
@@ -685,7 +685,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KToolBarLabelAction, show: bool ```
     pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
@@ -694,7 +694,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
@@ -703,7 +703,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn ShowStatusText(self: ?*anyopaque) bool {
@@ -712,7 +712,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#trigger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Trigger(self: ?*anyopaque) void {
@@ -721,7 +721,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hover)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Hover(self: ?*anyopaque) void {
@@ -730,7 +730,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
     ///
     /// ``` self: QtC.KToolBarLabelAction, checked: bool ```
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
@@ -739,7 +739,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Toggle(self: ?*anyopaque) void {
@@ -748,7 +748,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
     ///
     /// ``` self: QtC.KToolBarLabelAction, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -757,7 +757,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn ResetEnabled(self: ?*anyopaque) void {
@@ -766,7 +766,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
     ///
     /// ``` self: QtC.KToolBarLabelAction, b: bool ```
     pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
@@ -775,7 +775,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
     ///
     /// ``` self: QtC.KToolBarLabelAction, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -784,7 +784,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -793,7 +793,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -802,7 +802,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -811,7 +811,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -820,7 +820,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, checkable: bool ```
     pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
@@ -829,7 +829,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, checkable: bool) callconv(.c) void ```
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -838,7 +838,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -847,7 +847,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -856,7 +856,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Triggered(self: ?*anyopaque) void {
@@ -865,7 +865,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -874,7 +874,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Hovered(self: ?*anyopaque) void {
@@ -883,7 +883,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -892,7 +892,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KToolBarLabelAction, param1: bool ```
     pub fn Toggled(self: ?*anyopaque, param1: bool) void {
@@ -901,7 +901,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, param1: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -910,7 +910,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KToolBarLabelAction, object: QtC.QObject ```
     pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
@@ -919,7 +919,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KToolBarLabelAction, checked: bool ```
     pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
@@ -928,7 +928,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, checked: bool) callconv(.c) void ```
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -937,7 +937,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -950,7 +950,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KToolBarLabelAction, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -963,7 +963,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -972,7 +972,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -981,7 +981,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -990,7 +990,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -999,7 +999,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KToolBarLabelAction, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1008,7 +1008,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1017,7 +1017,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KToolBarLabelAction, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1026,7 +1026,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KToolBarLabelAction, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1035,7 +1035,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KToolBarLabelAction, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1044,7 +1044,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KToolBarLabelAction, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1053,7 +1053,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1067,7 +1067,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KToolBarLabelAction, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1076,7 +1076,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KToolBarLabelAction, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1085,7 +1085,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KToolBarLabelAction, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1094,7 +1094,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1103,7 +1103,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KToolBarLabelAction, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1114,7 +1114,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1123,7 +1123,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1132,7 +1132,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1141,7 +1141,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1150,7 +1150,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KToolBarLabelAction, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1160,7 +1160,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KToolBarLabelAction, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1170,7 +1170,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KToolBarLabelAction, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1194,7 +1194,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1203,7 +1203,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1212,7 +1212,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1221,7 +1221,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1230,7 +1230,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1239,7 +1239,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KToolBarLabelAction, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1249,7 +1249,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KToolBarLabelAction ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1258,7 +1258,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KToolBarLabelAction, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1267,7 +1267,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KToolBarLabelAction, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1276,7 +1276,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1285,7 +1285,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KToolBarLabelAction, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1296,7 +1296,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KToolBarLabelAction, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1305,7 +1305,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1314,7 +1314,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1325,7 +1325,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1336,7 +1336,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1347,7 +1347,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1358,7 +1358,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1369,7 +1369,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1380,7 +1380,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1391,7 +1391,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1402,7 +1402,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1413,7 +1413,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1424,7 +1424,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1435,7 +1435,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1457,7 +1457,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1468,7 +1468,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1479,7 +1479,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1490,7 +1490,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1501,7 +1501,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1512,7 +1512,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1528,7 +1528,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1544,7 +1544,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1555,7 +1555,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1566,7 +1566,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1577,7 +1577,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1588,7 +1588,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1599,7 +1599,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1610,7 +1610,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1621,7 +1621,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1633,7 +1633,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1645,7 +1645,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1656,7 +1656,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1667,7 +1667,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1678,7 +1678,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1689,7 +1689,7 @@ pub const ktoolbarlabelaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1698,7 +1698,7 @@ pub const ktoolbarlabelaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#dtor.KToolBarLabelAction)
+    /// [Upstream resources](https://api.kde.org/ktoolbarlabelaction.html#dtor.KToolBarLabelAction)
     ///
     /// Delete this object from C++ memory.
     ///

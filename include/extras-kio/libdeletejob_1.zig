@@ -9,7 +9,7 @@ pub const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// https://api.kde.org/kio-deletejob.html
 pub const kio__deletejob = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -27,7 +27,7 @@ pub const kio__deletejob = struct {
         return qtc.KIO__DeleteJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -39,7 +39,7 @@ pub const kio__deletejob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#urls)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#urls)
     ///
     /// ``` self: QtC.KIO__DeleteJob, allocator: std.mem.Allocator ```
     pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -51,77 +51,77 @@ pub const kio__deletejob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#totalFiles)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#totalFiles)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KJob, files: u64 ```
     pub fn TotalFiles(self: ?*anyopaque, job: ?*anyopaque, files: u64) void {
         qtc.KIO__DeleteJob_TotalFiles(@ptrCast(self), @ptrCast(job), @intCast(files));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#totalFiles)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#totalFiles)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KJob, files: u64) callconv(.c) void ```
     pub fn OnTotalFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KIO__DeleteJob_Connect_TotalFiles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#totalDirs)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#totalDirs)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KJob, dirs: u64 ```
     pub fn TotalDirs(self: ?*anyopaque, job: ?*anyopaque, dirs: u64) void {
         qtc.KIO__DeleteJob_TotalDirs(@ptrCast(self), @ptrCast(job), @intCast(dirs));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#totalDirs)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#totalDirs)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KJob, dirs: u64) callconv(.c) void ```
     pub fn OnTotalDirs(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KIO__DeleteJob_Connect_TotalDirs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#processedFiles)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#processedFiles)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KIO__Job, files: u64 ```
     pub fn ProcessedFiles(self: ?*anyopaque, job: ?*anyopaque, files: u64) void {
         qtc.KIO__DeleteJob_ProcessedFiles(@ptrCast(self), @ptrCast(job), @intCast(files));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#processedFiles)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#processedFiles)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KIO__Job, files: u64) callconv(.c) void ```
     pub fn OnProcessedFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KIO__DeleteJob_Connect_ProcessedFiles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#processedDirs)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#processedDirs)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KIO__Job, dirs: u64 ```
     pub fn ProcessedDirs(self: ?*anyopaque, job: ?*anyopaque, dirs: u64) void {
         qtc.KIO__DeleteJob_ProcessedDirs(@ptrCast(self), @ptrCast(job), @intCast(dirs));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#processedDirs)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#processedDirs)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KIO__Job, dirs: u64) callconv(.c) void ```
     pub fn OnProcessedDirs(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
         qtc.KIO__DeleteJob_Connect_ProcessedDirs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#deleting)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#deleting)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KIO__Job, file: QtC.QUrl ```
     pub fn Deleting(self: ?*anyopaque, job: ?*anyopaque, file: ?*anyopaque) void {
         qtc.KIO__DeleteJob_Deleting(@ptrCast(self), @ptrCast(job), @ptrCast(file));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-deletejob.html#deleting)
+    /// [Upstream resources](https://api.kde.org/kio-deletejob.html#deleting)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KIO__Job, file: QtC.QUrl) callconv(.c) void ```
     pub fn OnDeleting(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__DeleteJob_Connect_Deleting(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -134,7 +134,7 @@ pub const kio__deletejob = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -149,7 +149,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#start)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#start)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Start(self: ?*anyopaque) void {
@@ -158,7 +158,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#uiDelegateExtension)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#uiDelegateExtension)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn UiDelegateExtension(self: ?*anyopaque) QtC.KIO__JobUiDelegateExtension {
@@ -167,7 +167,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#setUiDelegateExtension)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#setUiDelegateExtension)
     ///
     /// ``` self: QtC.KIO__DeleteJob, extension: QtC.KIO__JobUiDelegateExtension ```
     pub fn SetUiDelegateExtension(self: ?*anyopaque, extension: ?*anyopaque) void {
@@ -176,7 +176,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#errorString)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#errorString)
     ///
     /// ``` self: QtC.KIO__DeleteJob, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -189,7 +189,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
     /// ``` self: QtC.KIO__DeleteJob, allocator: std.mem.Allocator ```
     pub fn DetailedErrorStrings(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -213,7 +213,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#setParentJob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#setParentJob)
     ///
     /// ``` self: QtC.KIO__DeleteJob, parentJob: QtC.KIO__Job ```
     pub fn SetParentJob(self: ?*anyopaque, parentJob: ?*anyopaque) void {
@@ -222,7 +222,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#parentJob)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#parentJob)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn ParentJob(self: ?*anyopaque) QtC.KIO__Job {
@@ -231,7 +231,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#setMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#setMetaData)
     ///
     /// ``` self: QtC.KIO__DeleteJob, metaData: QtC.KIO__MetaData ```
     pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
@@ -240,7 +240,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#addMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
     ///
     /// ``` self: QtC.KIO__DeleteJob, key: []const u8, value: []const u8 ```
     pub fn AddMetaData(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -257,7 +257,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#addMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#addMetaData)
     ///
     /// ``` self: QtC.KIO__DeleteJob, values: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn AddMetaData2(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
@@ -286,7 +286,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#mergeMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#mergeMetaData)
     ///
     /// ``` self: QtC.KIO__DeleteJob, values: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn MergeMetaData(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
@@ -315,7 +315,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#outgoingMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#outgoingMetaData)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn OutgoingMetaData(self: ?*anyopaque) QtC.KIO__MetaData {
@@ -324,7 +324,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#metaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#metaData)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn MetaData(self: ?*anyopaque) QtC.KIO__MetaData {
@@ -333,7 +333,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#queryMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#queryMetaData)
     ///
     /// ``` self: QtC.KIO__DeleteJob, key: []const u8, allocator: std.mem.Allocator ```
     pub fn QueryMetaData(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -350,7 +350,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#connected)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#connected)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KIO__Job ```
     pub fn Connected(self: ?*anyopaque, job: ?*anyopaque) void {
@@ -359,7 +359,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#connected)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#connected)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KIO__Job) callconv(.c) void ```
     pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -368,7 +368,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
     /// ``` self: QtC.KIO__DeleteJob, reqUrl: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn DetailedErrorStrings1(self: ?*anyopaque, reqUrl: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -392,7 +392,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KIO::Job
     ///
-    /// [Qt documentation](https://api.kde.org/kio-job.html#detailedErrorStrings)
+    /// [Upstream resources](https://api.kde.org/kio-job.html#detailedErrorStrings)
     ///
     /// ``` self: QtC.KIO__DeleteJob, reqUrl: QtC.QUrl, method: i32, allocator: std.mem.Allocator ```
     pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -416,7 +416,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setUiDelegate)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setUiDelegate)
     ///
     /// ``` self: QtC.KIO__DeleteJob, delegate: QtC.KJobUiDelegate ```
     pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -425,7 +425,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#uiDelegate)
+    /// [Upstream resources](https://api.kde.org/kjob.html#uiDelegate)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
@@ -434,7 +434,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#capabilities)
+    /// [Upstream resources](https://api.kde.org/kjob.html#capabilities)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     ///
@@ -445,7 +445,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isSuspended)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isSuspended)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn IsSuspended(self: ?*anyopaque) bool {
@@ -454,7 +454,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Kill(self: ?*anyopaque) bool {
@@ -463,7 +463,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#suspend)
+    /// [Upstream resources](https://api.kde.org/kjob.html#suspend)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Suspend(self: ?*anyopaque) bool {
@@ -472,7 +472,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#resume)
+    /// [Upstream resources](https://api.kde.org/kjob.html#resume)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Resume(self: ?*anyopaque) bool {
@@ -481,7 +481,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#exec)
+    /// [Upstream resources](https://api.kde.org/kjob.html#exec)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Exec(self: ?*anyopaque) bool {
@@ -490,7 +490,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#error)
+    /// [Upstream resources](https://api.kde.org/kjob.html#error)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Error(self: ?*anyopaque) i32 {
@@ -499,7 +499,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#errorText)
+    /// [Upstream resources](https://api.kde.org/kjob.html#errorText)
     ///
     /// ``` self: QtC.KIO__DeleteJob, allocator: std.mem.Allocator ```
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -512,7 +512,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmount)
     ///
     /// ``` self: QtC.KIO__DeleteJob, unit: kjob_enums.Unit ```
     pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -521,7 +521,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmount)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmount)
     ///
     /// ``` self: QtC.KIO__DeleteJob, unit: kjob_enums.Unit ```
     pub fn TotalAmount(self: ?*anyopaque, unit: i32) u64 {
@@ -530,7 +530,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#percent)
+    /// [Upstream resources](https://api.kde.org/kjob.html#percent)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Percent(self: ?*anyopaque) u64 {
@@ -539,7 +539,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setAutoDelete)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setAutoDelete)
     ///
     /// ``` self: QtC.KIO__DeleteJob, autodelete: bool ```
     pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
@@ -548,7 +548,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isAutoDelete)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isAutoDelete)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn IsAutoDelete(self: ?*anyopaque) bool {
@@ -557,7 +557,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
@@ -566,7 +566,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
@@ -575,7 +575,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#isStartedWithExec)
+    /// [Upstream resources](https://api.kde.org/kjob.html#isStartedWithExec)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn IsStartedWithExec(self: ?*anyopaque) bool {
@@ -584,7 +584,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#elapsedTime)
+    /// [Upstream resources](https://api.kde.org/kjob.html#elapsedTime)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
@@ -593,7 +593,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KJob, message: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -606,7 +606,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -615,7 +615,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
+    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KJob, message: []const u8 ```
     pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
@@ -628,7 +628,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#warning)
+    /// [Upstream resources](https://api.kde.org/kjob.html#warning)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -637,7 +637,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KJob, size: u64 ```
     pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -646,7 +646,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalSize)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -655,7 +655,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KJob, size: u64 ```
     pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: u64) void {
@@ -664,7 +664,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedSize)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KJob, size: u64) callconv(.c) void ```
     pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -673,7 +673,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KIO__DeleteJob, job: QtC.KJob, speed: u64 ```
     pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: u64) void {
@@ -682,7 +682,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#speed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#speed)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
     pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
@@ -691,7 +691,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#kill)
+    /// [Upstream resources](https://api.kde.org/kjob.html#kill)
     ///
     /// ``` self: QtC.KIO__DeleteJob, verbosity: kjob_enums.KillVerbosity ```
     pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
@@ -700,7 +700,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
+    /// [Upstream resources](https://api.kde.org/kjob.html#setFinishedNotificationHidden)
     ///
     /// ``` self: QtC.KIO__DeleteJob, hide: bool ```
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
@@ -709,7 +709,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.KIO__DeleteJob, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -718,7 +718,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.KIO__DeleteJob, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -727,7 +727,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KIO__DeleteJob, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -740,7 +740,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KIO__DeleteJob, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -753,7 +753,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -762,7 +762,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -771,7 +771,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -780,7 +780,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -789,7 +789,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KIO__DeleteJob, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -798,7 +798,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -807,7 +807,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__DeleteJob, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -816,7 +816,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__DeleteJob, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -825,7 +825,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__DeleteJob, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -834,7 +834,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__DeleteJob, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -843,7 +843,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KIO__DeleteJob, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -857,7 +857,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KIO__DeleteJob, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -866,7 +866,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KIO__DeleteJob, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -875,7 +875,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KIO__DeleteJob, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -884,7 +884,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -893,7 +893,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__DeleteJob, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -904,7 +904,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -913,7 +913,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -922,7 +922,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -931,7 +931,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -940,7 +940,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KIO__DeleteJob, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -950,7 +950,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KIO__DeleteJob, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -960,7 +960,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KIO__DeleteJob, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -984,7 +984,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -993,7 +993,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1002,7 +1002,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1011,7 +1011,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1020,7 +1020,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1029,7 +1029,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KIO__DeleteJob, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1039,7 +1039,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KIO__DeleteJob ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1048,7 +1048,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__DeleteJob, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1057,7 +1057,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__DeleteJob, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1066,7 +1066,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1075,7 +1075,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__DeleteJob, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1086,7 +1086,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__DeleteJob, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1095,7 +1095,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__DeleteJob, callback: *const fn (self: QtC.KIO__DeleteJob, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1104,7 +1104,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#finished)
+    /// [Upstream resources](https://api.kde.org/kjob.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1115,7 +1115,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#suspended)
+    /// [Upstream resources](https://api.kde.org/kjob.html#suspended)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1126,7 +1126,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#resumed)
+    /// [Upstream resources](https://api.kde.org/kjob.html#resumed)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1137,7 +1137,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#result)
+    /// [Upstream resources](https://api.kde.org/kjob.html#result)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1148,7 +1148,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#totalAmountChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#totalAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1159,7 +1159,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#processedAmountChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#processedAmountChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1170,7 +1170,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from KJob
     ///
-    /// [Qt documentation](https://api.kde.org/kjob.html#percentChanged)
+    /// [Upstream resources](https://api.kde.org/kjob.html#percentChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1181,7 +1181,7 @@ pub const kio__deletejob = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1200,14 +1200,14 @@ pub const kio__deletejob = struct {
 
 /// https://api.kde.org/kio.html
 pub const kio = struct {
-    /// [Qt documentation](https://api.kde.org/kio.html#del)
+    /// [Upstream resources](https://api.kde.org/kio.html#del)
     ///
     /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Del(param1: ?*anyopaque, param2: i32) QtC.KIO__DeleteJob {
         return qtc.KIO_Del(@ptrCast(param1), @intCast(param2));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#del)
+    /// [Upstream resources](https://api.kde.org/kio.html#del)
     ///
     /// ``` param1: []QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Del2(param1: []QtC.QUrl, param2: i32) QtC.KIO__DeleteJob {

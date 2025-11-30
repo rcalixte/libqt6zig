@@ -35,7 +35,7 @@ pub const qsystemtrayicon = struct {
         return qtc.QSystemTrayIcon_new4(@ptrCast(icon), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -67,7 +67,7 @@ pub const qsystemtrayicon = struct {
         return qtc.QSystemTrayIcon_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -79,35 +79,35 @@ pub const qsystemtrayicon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#setContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#setContextMenu)
     ///
     /// ``` self: QtC.QSystemTrayIcon, menu: QtC.QMenu ```
     pub fn SetContextMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
         qtc.QSystemTrayIcon_SetContextMenu(@ptrCast(self), @ptrCast(menu));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#contextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#contextMenu)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn ContextMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.QSystemTrayIcon_ContextMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#icon)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
         return qtc.QSystemTrayIcon_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#setIcon)
     ///
     /// ``` self: QtC.QSystemTrayIcon, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.QSystemTrayIcon_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#toolTip)
     ///
     /// ``` self: QtC.QSystemTrayIcon, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -118,7 +118,7 @@ pub const qsystemtrayicon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#setToolTip)
     ///
     /// ``` self: QtC.QSystemTrayIcon, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -129,56 +129,56 @@ pub const qsystemtrayicon = struct {
         qtc.QSystemTrayIcon_SetToolTip(@ptrCast(self), tip_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#isSystemTrayAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#isSystemTrayAvailable)
     ///
     ///
     pub fn IsSystemTrayAvailable() bool {
         return qtc.QSystemTrayIcon_IsSystemTrayAvailable();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#supportsMessages)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#supportsMessages)
     ///
     ///
     pub fn SupportsMessages() bool {
         return qtc.QSystemTrayIcon_SupportsMessages();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#geometry)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
         return qtc.QSystemTrayIcon_Geometry(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#isVisible)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn IsVisible(self: ?*anyopaque) bool {
         return qtc.QSystemTrayIcon_IsVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#setVisible)
     ///
     /// ``` self: QtC.QSystemTrayIcon, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QSystemTrayIcon_SetVisible(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#show)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn Show(self: ?*anyopaque) void {
         qtc.QSystemTrayIcon_Show(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#hide)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn Hide(self: ?*anyopaque) void {
         qtc.QSystemTrayIcon_Hide(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: QtC.QIcon ```
     pub fn ShowMessage(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: ?*anyopaque) void {
@@ -193,7 +193,7 @@ pub const qsystemtrayicon = struct {
         qtc.QSystemTrayIcon_ShowMessage(@ptrCast(self), title_str, msg_str, @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8 ```
     pub fn ShowMessage2(self: ?*anyopaque, title: []const u8, msg: []const u8) void {
@@ -208,42 +208,42 @@ pub const qsystemtrayicon = struct {
         qtc.QSystemTrayIcon_ShowMessage2(@ptrCast(self), title_str, msg_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#activated)
     ///
     /// ``` self: QtC.QSystemTrayIcon, reason: qsystemtrayicon_enums.ActivationReason ```
     pub fn Activated(self: ?*anyopaque, reason: i32) void {
         qtc.QSystemTrayIcon_Activated(@ptrCast(self), @intCast(reason));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#activated)
     ///
     /// ``` self: QtC.QSystemTrayIcon, callback: *const fn (self: QtC.QSystemTrayIcon, reason: qsystemtrayicon_enums.ActivationReason) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSystemTrayIcon_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#messageClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#messageClicked)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn MessageClicked(self: ?*anyopaque) void {
         qtc.QSystemTrayIcon_MessageClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#messageClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#messageClicked)
     ///
     /// ``` self: QtC.QSystemTrayIcon, callback: *const fn (self: QtC.QSystemTrayIcon) callconv(.c) void ```
     pub fn OnMessageClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QSystemTrayIcon_Connect_MessageClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
     ///
     /// ``` self: QtC.QSystemTrayIcon, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSystemTrayIcon_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -252,7 +252,7 @@ pub const qsystemtrayicon = struct {
         qtc.QSystemTrayIcon_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
     ///
     /// Base class method implementation
     ///
@@ -261,7 +261,7 @@ pub const qsystemtrayicon = struct {
         return qtc.QSystemTrayIcon_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -274,7 +274,7 @@ pub const qsystemtrayicon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -287,7 +287,7 @@ pub const qsystemtrayicon = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: QtC.QIcon, msecs: i32 ```
     pub fn ShowMessage4(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: ?*anyopaque, msecs: i32) void {
@@ -302,7 +302,7 @@ pub const qsystemtrayicon = struct {
         qtc.QSystemTrayIcon_ShowMessage4(@ptrCast(self), title_str, msg_str, @ptrCast(icon), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: qsystemtrayicon_enums.MessageIcon ```
     pub fn ShowMessage3(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: i32) void {
@@ -317,7 +317,7 @@ pub const qsystemtrayicon = struct {
         qtc.QSystemTrayIcon_ShowMessage3(@ptrCast(self), title_str, msg_str, @intCast(icon));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: qsystemtrayicon_enums.MessageIcon, msecs: i32 ```
     pub fn ShowMessage42(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: i32, msecs: i32) void {
@@ -334,7 +334,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSystemTrayIcon, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -347,7 +347,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSystemTrayIcon, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -360,7 +360,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -369,7 +369,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -378,7 +378,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -387,7 +387,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -396,7 +396,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSystemTrayIcon, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -405,7 +405,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -414,7 +414,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSystemTrayIcon, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -423,7 +423,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSystemTrayIcon, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -432,7 +432,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSystemTrayIcon, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -441,7 +441,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSystemTrayIcon, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -450,7 +450,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSystemTrayIcon, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -464,7 +464,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSystemTrayIcon, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -473,7 +473,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSystemTrayIcon, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -482,7 +482,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSystemTrayIcon, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -491,7 +491,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -500,7 +500,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSystemTrayIcon, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -511,7 +511,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -520,7 +520,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -529,7 +529,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -538,7 +538,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -547,7 +547,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSystemTrayIcon, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -557,7 +557,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSystemTrayIcon, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -567,7 +567,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSystemTrayIcon, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -591,7 +591,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -600,7 +600,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -609,7 +609,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -618,7 +618,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSystemTrayIcon, callback: *const fn (self: QtC.QSystemTrayIcon) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -627,7 +627,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -636,7 +636,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSystemTrayIcon, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -646,7 +646,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSystemTrayIcon ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -655,7 +655,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSystemTrayIcon, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -664,7 +664,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSystemTrayIcon, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -673,7 +673,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -682,7 +682,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSystemTrayIcon, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -693,7 +693,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSystemTrayIcon, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -702,7 +702,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSystemTrayIcon, callback: *const fn (self: QtC.QSystemTrayIcon, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -711,7 +711,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -722,7 +722,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -733,7 +733,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -744,7 +744,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -755,7 +755,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -766,7 +766,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -777,7 +777,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -788,7 +788,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -799,7 +799,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -810,7 +810,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -821,7 +821,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -832,7 +832,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -843,7 +843,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -854,7 +854,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -865,7 +865,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -876,7 +876,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -887,7 +887,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -898,7 +898,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -909,7 +909,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -920,7 +920,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -931,7 +931,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -942,7 +942,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -953,7 +953,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -964,7 +964,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -975,7 +975,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -987,7 +987,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -999,7 +999,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1010,7 +1010,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1021,7 +1021,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1032,7 +1032,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1043,7 +1043,7 @@ pub const qsystemtrayicon = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1052,7 +1052,7 @@ pub const qsystemtrayicon = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsystemtrayicon.html#dtor.QSystemTrayIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#dtor.QSystemTrayIcon)
     ///
     /// Delete this object from C++ memory.
     ///

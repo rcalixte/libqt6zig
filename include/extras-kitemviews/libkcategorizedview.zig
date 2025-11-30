@@ -30,7 +30,7 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -62,7 +62,7 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -74,14 +74,14 @@ pub const kcategorizedview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setModel)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setModel)
     ///
     /// ``` self: QtC.KCategorizedView, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.KCategorizedView_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setModel)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -90,7 +90,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setModel)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setModel)
     ///
     /// Base class method implementation
     ///
@@ -99,28 +99,28 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setGridSize)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setGridSize)
     ///
     /// ``` self: QtC.KCategorizedView, size: QtC.QSize ```
     pub fn SetGridSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.KCategorizedView_SetGridSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setGridSizeOwn)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setGridSizeOwn)
     ///
     /// ``` self: QtC.KCategorizedView, size: QtC.QSize ```
     pub fn SetGridSizeOwn(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.KCategorizedView_SetGridSizeOwn(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#visualRect)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#visualRect)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
         return qtc.KCategorizedView_VisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#visualRect)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#visualRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -129,7 +129,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnVisualRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#visualRect)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#visualRect)
     ///
     /// Base class method implementation
     ///
@@ -138,63 +138,63 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categoryDrawer)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#categoryDrawer)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CategoryDrawer(self: ?*anyopaque) QtC.KCategoryDrawer {
         return qtc.KCategorizedView_CategoryDrawer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setCategoryDrawer)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setCategoryDrawer)
     ///
     /// ``` self: QtC.KCategorizedView, categoryDrawer: QtC.KCategoryDrawer ```
     pub fn SetCategoryDrawer(self: ?*anyopaque, categoryDrawer: ?*anyopaque) void {
         qtc.KCategorizedView_SetCategoryDrawer(@ptrCast(self), @ptrCast(categoryDrawer));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categorySpacing)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#categorySpacing)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CategorySpacing(self: ?*anyopaque) i32 {
         return qtc.KCategorizedView_CategorySpacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setCategorySpacing)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setCategorySpacing)
     ///
     /// ``` self: QtC.KCategorizedView, categorySpacing: i32 ```
     pub fn SetCategorySpacing(self: ?*anyopaque, categorySpacing: i32) void {
         qtc.KCategorizedView_SetCategorySpacing(@ptrCast(self), @intCast(categorySpacing));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#alternatingBlockColors)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#alternatingBlockColors)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn AlternatingBlockColors(self: ?*anyopaque) bool {
         return qtc.KCategorizedView_AlternatingBlockColors(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setAlternatingBlockColors)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setAlternatingBlockColors)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetAlternatingBlockColors(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_SetAlternatingBlockColors(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#collapsibleBlocks)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#collapsibleBlocks)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CollapsibleBlocks(self: ?*anyopaque) bool {
         return qtc.KCategorizedView_CollapsibleBlocks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setCollapsibleBlocks)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setCollapsibleBlocks)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetCollapsibleBlocks(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_SetCollapsibleBlocks(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#block)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#block)
     ///
     /// ``` self: QtC.KCategorizedView, category: []const u8, allocator: std.mem.Allocator ```
     pub fn Block(self: ?*anyopaque, category: []const u8, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -210,7 +210,7 @@ pub const kcategorizedview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#block)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#block)
     ///
     /// ``` self: QtC.KCategorizedView, representative: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn Block2(self: ?*anyopaque, representative: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -222,14 +222,14 @@ pub const kcategorizedview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#indexAt)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#indexAt)
     ///
     /// ``` self: QtC.KCategorizedView, point: QtC.QPoint ```
     pub fn IndexAt(self: ?*anyopaque, point: ?*anyopaque) QtC.QModelIndex {
         return qtc.KCategorizedView_IndexAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#indexAt)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#indexAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -238,7 +238,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnIndexAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#indexAt)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#indexAt)
     ///
     /// Base class method implementation
     ///
@@ -247,14 +247,14 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_QBaseIndexAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#reset)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#reset)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.KCategorizedView_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#reset)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#reset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -263,7 +263,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#reset)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#reset)
     ///
     /// Base class method implementation
     ///
@@ -272,56 +272,56 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseReset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categorySpacingChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#categorySpacingChanged)
     ///
     /// ``` self: QtC.KCategorizedView, spacing: i32 ```
     pub fn CategorySpacingChanged(self: ?*anyopaque, spacing: i32) void {
         qtc.KCategorizedView_CategorySpacingChanged(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#categorySpacingChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#categorySpacingChanged)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, spacing: i32) callconv(.c) void ```
     pub fn OnCategorySpacingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_CategorySpacingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn AlternatingBlockColorsChanged(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_AlternatingBlockColorsChanged(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#alternatingBlockColorsChanged)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, enable: bool) callconv(.c) void ```
     pub fn OnAlternatingBlockColorsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_AlternatingBlockColorsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn CollapsibleBlocksChanged(self: ?*anyopaque, enable: bool) void {
         qtc.KCategorizedView_CollapsibleBlocksChanged(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#collapsibleBlocksChanged)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, enable: bool) callconv(.c) void ```
     pub fn OnCollapsibleBlocksChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.KCategorizedView_Connect_CollapsibleBlocksChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#paintEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#paintEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#paintEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -330,7 +330,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#paintEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -339,14 +339,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#resizeEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#resizeEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#resizeEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -355,7 +355,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#resizeEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -364,14 +364,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setSelection)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setSelection)
     ///
     /// ``` self: QtC.KCategorizedView, rect: QtC.QRect, flags: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, flags: i32) void {
         qtc.KCategorizedView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setSelection)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -380,7 +380,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#setSelection)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#setSelection)
     ///
     /// Base class method implementation
     ///
@@ -389,14 +389,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -405,7 +405,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -414,14 +414,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mousePressEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mousePressEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mousePressEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -430,7 +430,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mousePressEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -439,14 +439,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -455,7 +455,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -464,14 +464,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#leaveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#leaveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QEvent ```
     pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#leaveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#leaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -480,7 +480,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#leaveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#leaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -489,14 +489,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#startDrag)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#startDrag)
     ///
     /// ``` self: QtC.KCategorizedView, supportedActions: flag of qnamespace_enums.DropAction ```
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
         qtc.KCategorizedView_StartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#startDrag)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#startDrag)
     ///
     /// Allows for overriding the related default method
     ///
@@ -505,7 +505,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnStartDrag(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#startDrag)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#startDrag)
     ///
     /// Base class method implementation
     ///
@@ -514,14 +514,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -530,7 +530,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -539,14 +539,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -555,7 +555,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -564,14 +564,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -580,7 +580,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dragLeaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -589,14 +589,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dropEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dropEvent)
     ///
     /// ``` self: QtC.KCategorizedView, event: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KCategorizedView_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dropEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -605,7 +605,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dropEvent)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -614,14 +614,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#moveCursor)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#moveCursor)
     ///
     /// ``` self: QtC.KCategorizedView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i64) QtC.QModelIndex {
         return qtc.KCategorizedView_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#moveCursor)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#moveCursor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -630,7 +630,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnMoveCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#moveCursor)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#moveCursor)
     ///
     /// Base class method implementation
     ///
@@ -639,14 +639,14 @@ pub const kcategorizedview = struct {
         return qtc.KCategorizedView_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
     ///
     /// ``` self: QtC.KCategorizedView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
         qtc.KCategorizedView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
     ///
     /// Allows for overriding the related default method
     ///
@@ -655,7 +655,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnRowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#rowsAboutToBeRemoved)
     ///
     /// Base class method implementation
     ///
@@ -664,14 +664,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#updateGeometries)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#updateGeometries)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UpdateGeometries(self: ?*anyopaque) void {
         qtc.KCategorizedView_UpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#updateGeometries)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#updateGeometries)
     ///
     /// Allows for overriding the related default method
     ///
@@ -680,7 +680,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnUpdateGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#updateGeometries)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#updateGeometries)
     ///
     /// Base class method implementation
     ///
@@ -689,14 +689,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseUpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#currentChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#currentChanged)
     ///
     /// ``` self: QtC.KCategorizedView, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
     pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.KCategorizedView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#currentChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#currentChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -705,7 +705,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnCurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#currentChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#currentChanged)
     ///
     /// Base class method implementation
     ///
@@ -714,7 +714,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dataChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dataChanged)
     ///
     /// ``` self: QtC.KCategorizedView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -725,7 +725,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dataChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dataChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -734,7 +734,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dataChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dataChanged)
     ///
     /// Base class method implementation
     ///
@@ -747,14 +747,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsInserted)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#rowsInserted)
     ///
     /// ``` self: QtC.KCategorizedView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
         qtc.KCategorizedView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsInserted)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#rowsInserted)
     ///
     /// Allows for overriding the related default method
     ///
@@ -763,7 +763,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnRowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#rowsInserted)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#rowsInserted)
     ///
     /// Base class method implementation
     ///
@@ -772,14 +772,14 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn SlotLayoutChanged(self: ?*anyopaque) void {
         qtc.KCategorizedView_SlotLayoutChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -788,7 +788,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_OnSlotLayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#slotLayoutChanged)
     ///
     /// Base class method implementation
     ///
@@ -797,7 +797,7 @@ pub const kcategorizedview = struct {
         qtc.KCategorizedView_QBaseSlotLayoutChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -810,7 +810,7 @@ pub const kcategorizedview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -825,7 +825,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setMovement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setMovement)
     ///
     /// ``` self: QtC.KCategorizedView, movement: qlistview_enums.Movement ```
     pub fn SetMovement(self: ?*anyopaque, movement: i32) void {
@@ -834,7 +834,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#movement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#movement)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -845,7 +845,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setFlow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setFlow)
     ///
     /// ``` self: QtC.KCategorizedView, flow: qlistview_enums.Flow ```
     pub fn SetFlow(self: ?*anyopaque, flow: i32) void {
@@ -854,7 +854,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#flow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#flow)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -865,7 +865,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setWrapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setWrapping)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetWrapping(self: ?*anyopaque, enable: bool) void {
@@ -874,7 +874,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isWrapping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isWrapping)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsWrapping(self: ?*anyopaque) bool {
@@ -883,7 +883,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setResizeMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setResizeMode)
     ///
     /// ``` self: QtC.KCategorizedView, mode: qlistview_enums.ResizeMode ```
     pub fn SetResizeMode(self: ?*anyopaque, mode: i32) void {
@@ -892,7 +892,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -903,7 +903,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setLayoutMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setLayoutMode)
     ///
     /// ``` self: QtC.KCategorizedView, mode: qlistview_enums.LayoutMode ```
     pub fn SetLayoutMode(self: ?*anyopaque, mode: i32) void {
@@ -912,7 +912,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#layoutMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#layoutMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -923,7 +923,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setSpacing)
     ///
     /// ``` self: QtC.KCategorizedView, space: i32 ```
     pub fn SetSpacing(self: ?*anyopaque, space: i32) void {
@@ -932,7 +932,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#spacing)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Spacing(self: ?*anyopaque) i32 {
@@ -941,7 +941,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setBatchSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setBatchSize)
     ///
     /// ``` self: QtC.KCategorizedView, batchSize: i32 ```
     pub fn SetBatchSize(self: ?*anyopaque, batchSize: i32) void {
@@ -950,7 +950,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#batchSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#batchSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn BatchSize(self: ?*anyopaque) i32 {
@@ -959,7 +959,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#gridSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#gridSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn GridSize(self: ?*anyopaque) QtC.QSize {
@@ -968,7 +968,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setViewMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setViewMode)
     ///
     /// ``` self: QtC.KCategorizedView, mode: qlistview_enums.ViewMode ```
     pub fn SetViewMode(self: ?*anyopaque, mode: i32) void {
@@ -977,7 +977,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -988,7 +988,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#clearPropertyFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#clearPropertyFlags)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ClearPropertyFlags(self: ?*anyopaque) void {
@@ -997,7 +997,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isRowHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isRowHidden)
     ///
     /// ``` self: QtC.KCategorizedView, row: i32 ```
     pub fn IsRowHidden(self: ?*anyopaque, row: i32) bool {
@@ -1006,7 +1006,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRowHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRowHidden)
     ///
     /// ``` self: QtC.KCategorizedView, row: i32, hide: bool ```
     pub fn SetRowHidden(self: ?*anyopaque, row: i32, hide: bool) void {
@@ -1015,7 +1015,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setModelColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setModelColumn)
     ///
     /// ``` self: QtC.KCategorizedView, column: i32 ```
     pub fn SetModelColumn(self: ?*anyopaque, column: i32) void {
@@ -1024,7 +1024,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#modelColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#modelColumn)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ModelColumn(self: ?*anyopaque) i32 {
@@ -1033,7 +1033,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setUniformItemSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setUniformItemSizes)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetUniformItemSizes(self: ?*anyopaque, enable: bool) void {
@@ -1042,7 +1042,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#uniformItemSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#uniformItemSizes)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UniformItemSizes(self: ?*anyopaque) bool {
@@ -1051,7 +1051,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setWordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setWordWrap)
     ///
     /// ``` self: QtC.KCategorizedView, on: bool ```
     pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
@@ -1060,7 +1060,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wordWrap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wordWrap)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn WordWrap(self: ?*anyopaque) bool {
@@ -1069,7 +1069,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setSelectionRectVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setSelectionRectVisible)
     ///
     /// ``` self: QtC.KCategorizedView, show: bool ```
     pub fn SetSelectionRectVisible(self: ?*anyopaque, show: bool) void {
@@ -1078,7 +1078,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isSelectionRectVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isSelectionRectVisible)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsSelectionRectVisible(self: ?*anyopaque) bool {
@@ -1087,7 +1087,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setItemAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setItemAlignment)
     ///
     /// ``` self: QtC.KCategorizedView, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetItemAlignment(self: ?*anyopaque, alignment: i32) void {
@@ -1096,7 +1096,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#itemAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#itemAlignment)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1107,7 +1107,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
     ///
     /// ``` self: QtC.KCategorizedView, indexes: []QtC.QModelIndex ```
     pub fn IndexesMoved(self: ?*anyopaque, indexes: []QtC.QModelIndex) void {
@@ -1120,7 +1120,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#indexesMoved)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, indexes: [*]QtC.QModelIndex) callconv(.c) void ```
     pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) void) void {
@@ -1129,7 +1129,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#model)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -1138,7 +1138,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
@@ -1147,7 +1147,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
     ///
     /// ``` self: QtC.KCategorizedView, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
@@ -1156,7 +1156,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -1165,7 +1165,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ``` self: QtC.KCategorizedView, mode: qabstractitemview_enums.SelectionMode ```
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
@@ -1174,7 +1174,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1185,7 +1185,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ``` self: QtC.KCategorizedView, behavior: qabstractitemview_enums.SelectionBehavior ```
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
@@ -1194,7 +1194,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1205,7 +1205,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -1214,7 +1214,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -1223,7 +1223,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ``` self: QtC.KCategorizedView, triggers: flag of qabstractitemview_enums.EditTrigger ```
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
@@ -1232,7 +1232,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1243,7 +1243,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ``` self: QtC.KCategorizedView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -1252,7 +1252,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1263,7 +1263,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
@@ -1272,7 +1272,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ``` self: QtC.KCategorizedView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
@@ -1281,7 +1281,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1292,7 +1292,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
@@ -1301,7 +1301,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
@@ -1310,7 +1310,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn HasAutoScroll(self: ?*anyopaque) bool {
@@ -1319,7 +1319,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
     ///
     /// ``` self: QtC.KCategorizedView, margin: i32 ```
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
@@ -1328,7 +1328,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
@@ -1337,7 +1337,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
@@ -1346,7 +1346,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn TabKeyNavigation(self: ?*anyopaque) bool {
@@ -1355,7 +1355,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
@@ -1364,7 +1364,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ShowDropIndicator(self: ?*anyopaque) bool {
@@ -1373,7 +1373,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
@@ -1382,7 +1382,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn DragEnabled(self: ?*anyopaque) bool {
@@ -1391,7 +1391,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
     ///
     /// ``` self: QtC.KCategorizedView, overwrite: bool ```
     pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
@@ -1400,7 +1400,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
@@ -1409,7 +1409,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ``` self: QtC.KCategorizedView, behavior: qabstractitemview_enums.DragDropMode ```
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
@@ -1418,7 +1418,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1429,7 +1429,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ``` self: QtC.KCategorizedView, dropAction: qnamespace_enums.DropAction ```
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
@@ -1438,7 +1438,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1449,7 +1449,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
@@ -1458,7 +1458,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn AlternatingRowColors(self: ?*anyopaque) bool {
@@ -1467,7 +1467,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
     ///
     /// ``` self: QtC.KCategorizedView, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -1476,7 +1476,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
@@ -1485,7 +1485,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ``` self: QtC.KCategorizedView, mode: qnamespace_enums.TextElideMode ```
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
@@ -1494,7 +1494,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1505,7 +1505,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
@@ -1514,7 +1514,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn OpenPersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1523,7 +1523,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn ClosePersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1532,7 +1532,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn IsPersistentEditorOpen(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -1541,7 +1541,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex, widget: QtC.QWidget ```
     pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1550,7 +1550,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
@@ -1559,7 +1559,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
     ///
     /// ``` self: QtC.KCategorizedView, row: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
@@ -1568,7 +1568,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
     ///
     /// ``` self: QtC.KCategorizedView, row: i32 ```
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
@@ -1577,7 +1577,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
     ///
     /// ``` self: QtC.KCategorizedView, column: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
@@ -1586,7 +1586,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
     ///
     /// ``` self: QtC.KCategorizedView, column: i32 ```
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
@@ -1595,7 +1595,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
@@ -1604,7 +1604,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1613,7 +1613,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ClearSelection(self: ?*anyopaque) void {
@@ -1622,7 +1622,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1631,7 +1631,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ScrollToTop(self: ?*anyopaque) void {
@@ -1640,7 +1640,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ScrollToBottom(self: ?*anyopaque) void {
@@ -1649,7 +1649,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#update)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1658,7 +1658,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1667,7 +1667,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1676,7 +1676,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1685,7 +1685,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1694,7 +1694,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1703,7 +1703,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1712,7 +1712,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1721,7 +1721,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1730,7 +1730,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.KCategorizedView, index: QtC.QModelIndex ```
     pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
@@ -1739,7 +1739,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1748,7 +1748,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ViewportEntered(self: ?*anyopaque) void {
@@ -1757,7 +1757,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView) callconv(.c) void ```
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1766,7 +1766,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.KCategorizedView, size: QtC.QSize ```
     pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -1775,7 +1775,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, size: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1784,7 +1784,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1795,7 +1795,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCategorizedView, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -1804,7 +1804,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -1813,7 +1813,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.KCategorizedView, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -1822,7 +1822,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1833,7 +1833,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.KCategorizedView, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -1842,7 +1842,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -1851,7 +1851,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.KCategorizedView, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -1860,7 +1860,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1869,7 +1869,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.KCategorizedView, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1878,7 +1878,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.KCategorizedView, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -1887,7 +1887,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.KCategorizedView, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -1901,7 +1901,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -1910,7 +1910,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.KCategorizedView, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1919,7 +1919,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -1928,7 +1928,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1939,7 +1939,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.KCategorizedView, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -1948,7 +1948,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -1957,7 +1957,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.KCategorizedView, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -1966,7 +1966,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -1975,7 +1975,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -1986,7 +1986,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.KCategorizedView, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -1995,7 +1995,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -2006,7 +2006,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.KCategorizedView, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -2015,7 +2015,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -2024,7 +2024,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.KCategorizedView, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -2033,7 +2033,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -2042,7 +2042,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.KCategorizedView, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -2051,7 +2051,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -2060,7 +2060,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.KCategorizedView, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -2069,7 +2069,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -2078,7 +2078,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -2087,7 +2087,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -2096,7 +2096,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -2105,7 +2105,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -2114,7 +2114,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.KCategorizedView, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -2123,7 +2123,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -2132,7 +2132,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2141,7 +2141,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -2150,7 +2150,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -2161,7 +2161,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.KCategorizedView, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -2170,7 +2170,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2179,7 +2179,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2188,7 +2188,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.KCategorizedView, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2197,7 +2197,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.KCategorizedView, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -2206,7 +2206,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.KCategorizedView, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -2215,7 +2215,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2224,7 +2224,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -2233,7 +2233,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2242,7 +2242,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -2251,7 +2251,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -2260,7 +2260,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -2269,7 +2269,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -2278,7 +2278,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -2287,7 +2287,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -2296,7 +2296,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -2305,7 +2305,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -2314,7 +2314,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -2323,7 +2323,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2332,7 +2332,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2341,7 +2341,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2350,7 +2350,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -2359,7 +2359,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -2368,7 +2368,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -2377,7 +2377,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -2386,7 +2386,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KCategorizedView, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -2395,7 +2395,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KCategorizedView, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -2404,7 +2404,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KCategorizedView, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -2413,7 +2413,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KCategorizedView, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -2422,7 +2422,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.KCategorizedView, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -2431,7 +2431,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.KCategorizedView, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -2440,7 +2440,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.KCategorizedView, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -2449,7 +2449,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.KCategorizedView, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -2458,7 +2458,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -2467,7 +2467,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KCategorizedView, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -2476,7 +2476,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KCategorizedView, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2485,7 +2485,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -2494,7 +2494,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KCategorizedView, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -2503,7 +2503,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KCategorizedView, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -2512,7 +2512,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KCategorizedView, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -2521,7 +2521,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KCategorizedView, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2530,7 +2530,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.KCategorizedView, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -2539,7 +2539,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.KCategorizedView, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -2548,7 +2548,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2557,7 +2557,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2566,7 +2566,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2575,7 +2575,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2584,7 +2584,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2593,7 +2593,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2602,7 +2602,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2611,7 +2611,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2620,7 +2620,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2629,7 +2629,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2638,7 +2638,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2647,7 +2647,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2656,7 +2656,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -2665,7 +2665,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2674,7 +2674,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2683,7 +2683,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -2692,7 +2692,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.KCategorizedView, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -2701,7 +2701,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.KCategorizedView, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -2710,7 +2710,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -2721,7 +2721,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.KCategorizedView, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -2730,7 +2730,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -2741,7 +2741,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -2750,7 +2750,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.KCategorizedView, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -2759,7 +2759,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -2768,7 +2768,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -2777,7 +2777,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2786,7 +2786,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.KCategorizedView, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2795,7 +2795,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2804,7 +2804,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -2813,7 +2813,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -2822,7 +2822,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -2831,7 +2831,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -2840,7 +2840,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -2849,7 +2849,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KCategorizedView, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2858,7 +2858,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KCategorizedView, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2867,7 +2867,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -2876,7 +2876,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -2885,7 +2885,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -2894,7 +2894,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -2903,7 +2903,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -2912,7 +2912,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -2921,7 +2921,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.KCategorizedView, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -2930,7 +2930,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KCategorizedView, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2939,7 +2939,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.KCategorizedView, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2948,7 +2948,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.KCategorizedView, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -2961,7 +2961,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.KCategorizedView, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -2974,7 +2974,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2987,7 +2987,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3000,7 +3000,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.KCategorizedView, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3009,7 +3009,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -3018,7 +3018,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.KCategorizedView, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -3031,7 +3031,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3044,7 +3044,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.KCategorizedView, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -3057,7 +3057,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3070,7 +3070,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.KCategorizedView, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -3083,7 +3083,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3096,7 +3096,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.KCategorizedView, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -3105,7 +3105,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -3114,7 +3114,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -3123,7 +3123,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.KCategorizedView, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -3136,7 +3136,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3149,7 +3149,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.KCategorizedView, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -3158,7 +3158,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -3167,7 +3167,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.KCategorizedView, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -3180,7 +3180,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3193,7 +3193,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.KCategorizedView, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -3206,7 +3206,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3219,7 +3219,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3232,7 +3232,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.KCategorizedView, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -3245,7 +3245,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3258,7 +3258,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.KCategorizedView, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -3271,7 +3271,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KCategorizedView, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -3280,7 +3280,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -3291,7 +3291,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -3300,7 +3300,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.KCategorizedView, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3309,7 +3309,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3318,7 +3318,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -3327,7 +3327,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -3336,7 +3336,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -3345,7 +3345,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -3354,7 +3354,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -3363,7 +3363,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -3372,7 +3372,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -3381,7 +3381,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KCategorizedView, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -3390,7 +3390,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -3401,7 +3401,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.KCategorizedView, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3410,7 +3410,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -3419,7 +3419,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -3428,7 +3428,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.KCategorizedView, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -3437,7 +3437,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -3446,7 +3446,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -3457,7 +3457,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.KCategorizedView, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3466,7 +3466,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -3475,7 +3475,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3484,7 +3484,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -3493,7 +3493,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -3502,7 +3502,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -3511,7 +3511,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KCategorizedView, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -3520,7 +3520,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.KCategorizedView, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -3529,7 +3529,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KCategorizedView, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -3538,7 +3538,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KCategorizedView, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -3547,7 +3547,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -3556,7 +3556,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -3565,7 +3565,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -3574,7 +3574,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.KCategorizedView, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -3583,7 +3583,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -3592,7 +3592,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -3601,7 +3601,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KCategorizedView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3610,7 +3610,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3619,7 +3619,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3628,7 +3628,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCategorizedView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3637,7 +3637,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3646,7 +3646,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3655,7 +3655,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.KCategorizedView, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -3664,7 +3664,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Show(self: ?*anyopaque) void {
@@ -3673,7 +3673,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -3682,7 +3682,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -3691,7 +3691,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -3700,7 +3700,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -3709,7 +3709,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -3718,7 +3718,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -3727,7 +3727,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -3736,7 +3736,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -3745,7 +3745,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3754,7 +3754,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KCategorizedView, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -3763,7 +3763,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3772,7 +3772,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KCategorizedView, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3781,7 +3781,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3790,7 +3790,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KCategorizedView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3799,7 +3799,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KCategorizedView, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -3808,7 +3808,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -3821,7 +3821,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.KCategorizedView, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -3834,7 +3834,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -3843,7 +3843,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -3852,7 +3852,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -3861,7 +3861,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -3870,7 +3870,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -3879,7 +3879,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -3888,7 +3888,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -3897,7 +3897,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -3908,7 +3908,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KCategorizedView, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -3917,7 +3917,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KCategorizedView, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -3926,7 +3926,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -3935,7 +3935,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KCategorizedView, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -3944,7 +3944,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KCategorizedView, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -3953,7 +3953,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -3962,7 +3962,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KCategorizedView, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -3971,7 +3971,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KCategorizedView, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -3980,7 +3980,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -3989,7 +3989,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -3998,7 +3998,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -4007,7 +4007,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.KCategorizedView, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -4016,7 +4016,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -4025,7 +4025,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KCategorizedView, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4034,7 +4034,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KCategorizedView, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -4043,7 +4043,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KCategorizedView, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -4052,7 +4052,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KCategorizedView, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -4061,7 +4061,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4070,7 +4070,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4079,7 +4079,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4088,7 +4088,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -4097,7 +4097,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.KCategorizedView, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -4106,7 +4106,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCategorizedView, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4115,7 +4115,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.KCategorizedView, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4128,7 +4128,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.KCategorizedView, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4141,7 +4141,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.KCategorizedView, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -4150,7 +4150,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.KCategorizedView, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4159,7 +4159,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4173,7 +4173,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCategorizedView, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4186,7 +4186,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCategorizedView, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4199,7 +4199,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCategorizedView, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4212,7 +4212,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KCategorizedView, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4225,7 +4225,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4234,7 +4234,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.KCategorizedView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4243,7 +4243,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -4254,7 +4254,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KCategorizedView, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -4263,7 +4263,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.KCategorizedView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4272,7 +4272,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -4283,7 +4283,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -4292,7 +4292,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KCategorizedView, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -4301,7 +4301,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KCategorizedView, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4310,7 +4310,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KCategorizedView, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4319,7 +4319,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KCategorizedView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -4328,7 +4328,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.KCategorizedView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -4337,7 +4337,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -4346,7 +4346,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.KCategorizedView, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -4355,7 +4355,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -4364,7 +4364,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.KCategorizedView, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -4373,7 +4373,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -4382,7 +4382,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -4391,7 +4391,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -4400,7 +4400,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.KCategorizedView, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -4409,7 +4409,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -4418,7 +4418,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KCategorizedView, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -4431,7 +4431,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4440,7 +4440,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KCategorizedView, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -4449,7 +4449,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4458,7 +4458,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KCategorizedView, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -4471,7 +4471,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4480,7 +4480,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KCategorizedView, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -4489,7 +4489,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4498,7 +4498,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.KCategorizedView ```
     ///
@@ -4509,7 +4509,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.KCategorizedView, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -4518,7 +4518,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4527,7 +4527,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4536,7 +4536,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4545,7 +4545,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4554,7 +4554,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4563,7 +4563,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KCategorizedView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4572,7 +4572,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KCategorizedView, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -4581,7 +4581,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KCategorizedView, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -4590,7 +4590,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KCategorizedView, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -4599,7 +4599,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KCategorizedView, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4608,7 +4608,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KCategorizedView, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4617,7 +4617,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KCategorizedView, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -4626,7 +4626,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KCategorizedView, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -4635,7 +4635,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -4644,7 +4644,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -4653,7 +4653,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4666,7 +4666,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KCategorizedView, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -4679,7 +4679,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4688,7 +4688,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4697,7 +4697,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4706,7 +4706,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4715,7 +4715,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KCategorizedView, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4724,7 +4724,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4733,7 +4733,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KCategorizedView, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4742,7 +4742,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KCategorizedView, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4751,7 +4751,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KCategorizedView, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4760,7 +4760,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KCategorizedView, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4769,7 +4769,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4783,7 +4783,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KCategorizedView, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4792,7 +4792,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KCategorizedView, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4801,7 +4801,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4810,7 +4810,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KCategorizedView, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4821,7 +4821,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4830,7 +4830,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4839,7 +4839,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4848,7 +4848,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4857,7 +4857,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KCategorizedView, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4867,7 +4867,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KCategorizedView, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4877,7 +4877,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KCategorizedView, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4901,7 +4901,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4910,7 +4910,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4919,7 +4919,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4928,7 +4928,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4937,7 +4937,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -4946,7 +4946,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KCategorizedView, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4956,7 +4956,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4965,7 +4965,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KCategorizedView, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4974,7 +4974,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KCategorizedView, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4983,7 +4983,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4992,7 +4992,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KCategorizedView, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5003,7 +5003,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCategorizedView, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5012,7 +5012,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KCategorizedView, callback: *const fn (self: QtC.KCategorizedView, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5021,7 +5021,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -5030,7 +5030,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -5039,7 +5039,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -5048,7 +5048,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -5057,7 +5057,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -5066,7 +5066,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -5075,7 +5075,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -5084,7 +5084,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -5093,7 +5093,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -5102,7 +5102,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -5111,7 +5111,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.KCategorizedView ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -5120,7 +5120,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -5129,7 +5129,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -5138,7 +5138,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5149,7 +5149,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5160,7 +5160,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollTo)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5171,7 +5171,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5182,7 +5182,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5193,7 +5193,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#doItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5204,7 +5204,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5215,7 +5215,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5226,7 +5226,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setRootIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5237,7 +5237,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5248,7 +5248,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5259,7 +5259,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5270,7 +5270,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5281,7 +5281,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5292,7 +5292,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#scrollContentsBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5303,7 +5303,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5314,7 +5314,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5325,7 +5325,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5336,7 +5336,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5347,7 +5347,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5358,7 +5358,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5369,7 +5369,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5380,7 +5380,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5391,7 +5391,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#initViewItemOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5402,7 +5402,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5413,7 +5413,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5424,7 +5424,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#horizontalOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5435,7 +5435,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5446,7 +5446,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5457,7 +5457,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#verticalOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5468,7 +5468,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5479,7 +5479,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5490,7 +5490,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#visualRegionForSelection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5501,7 +5501,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5517,7 +5517,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5533,7 +5533,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectedIndexes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5544,7 +5544,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5555,7 +5555,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5566,7 +5566,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#isIndexHidden)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5577,7 +5577,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5588,7 +5588,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5599,7 +5599,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#selectionChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5610,7 +5610,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5621,7 +5621,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5632,7 +5632,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5643,7 +5643,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5654,7 +5654,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5665,7 +5665,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5676,7 +5676,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5691,7 +5691,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5706,7 +5706,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5717,7 +5717,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5728,7 +5728,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5739,7 +5739,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5750,7 +5750,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5761,7 +5761,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5772,7 +5772,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5783,7 +5783,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5794,7 +5794,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5805,7 +5805,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5816,7 +5816,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5827,7 +5827,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5838,7 +5838,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5849,7 +5849,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5860,7 +5860,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5871,7 +5871,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5882,7 +5882,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5893,7 +5893,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5904,7 +5904,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5915,7 +5915,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5926,7 +5926,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5937,7 +5937,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5948,7 +5948,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5959,7 +5959,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5970,7 +5970,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5981,7 +5981,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5992,7 +5992,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6003,7 +6003,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6014,7 +6014,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6025,7 +6025,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6036,7 +6036,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6047,7 +6047,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6058,7 +6058,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6069,7 +6069,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6080,7 +6080,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6091,7 +6091,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6102,7 +6102,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6113,7 +6113,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6124,7 +6124,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6135,7 +6135,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6146,7 +6146,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6157,7 +6157,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6168,7 +6168,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6179,7 +6179,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6190,7 +6190,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6201,7 +6201,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6212,7 +6212,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6225,7 +6225,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6238,7 +6238,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6249,7 +6249,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6260,7 +6260,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6271,7 +6271,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6282,7 +6282,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6293,7 +6293,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6304,7 +6304,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6315,7 +6315,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6326,7 +6326,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6337,7 +6337,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6348,7 +6348,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6359,7 +6359,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6370,7 +6370,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6381,7 +6381,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6392,7 +6392,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6403,7 +6403,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6414,7 +6414,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6425,7 +6425,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6436,7 +6436,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6447,7 +6447,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6458,7 +6458,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6469,7 +6469,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6480,7 +6480,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6491,7 +6491,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6502,7 +6502,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6513,7 +6513,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6524,7 +6524,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6535,7 +6535,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6546,7 +6546,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6557,7 +6557,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6568,7 +6568,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6579,7 +6579,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6590,7 +6590,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6601,7 +6601,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6612,7 +6612,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6623,7 +6623,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6634,7 +6634,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6645,7 +6645,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6656,7 +6656,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6667,7 +6667,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6678,7 +6678,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6689,7 +6689,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6700,7 +6700,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6711,7 +6711,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6722,7 +6722,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6733,7 +6733,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6744,7 +6744,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6755,7 +6755,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6766,7 +6766,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6777,7 +6777,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6788,7 +6788,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6799,7 +6799,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6810,7 +6810,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6821,7 +6821,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6832,7 +6832,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6843,7 +6843,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6854,7 +6854,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6865,7 +6865,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6876,7 +6876,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6887,7 +6887,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6898,7 +6898,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6909,7 +6909,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6920,7 +6920,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6931,7 +6931,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6942,7 +6942,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6953,7 +6953,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6964,7 +6964,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6975,7 +6975,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6986,7 +6986,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6997,7 +6997,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7008,7 +7008,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7019,7 +7019,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7030,7 +7030,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7041,7 +7041,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7052,7 +7052,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7063,7 +7063,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7074,7 +7074,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7085,7 +7085,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7096,7 +7096,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7107,7 +7107,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7118,7 +7118,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7129,7 +7129,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7140,7 +7140,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7155,7 +7155,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7170,7 +7170,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7181,7 +7181,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7192,7 +7192,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7203,7 +7203,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7214,7 +7214,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7225,7 +7225,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7236,7 +7236,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7247,7 +7247,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7258,7 +7258,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7269,7 +7269,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7280,7 +7280,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7291,7 +7291,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7302,7 +7302,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7313,7 +7313,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7324,7 +7324,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7335,7 +7335,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7346,7 +7346,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7357,7 +7357,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7368,7 +7368,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7379,7 +7379,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7390,7 +7390,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7401,7 +7401,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7412,7 +7412,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7423,7 +7423,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7434,7 +7434,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7445,7 +7445,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7456,7 +7456,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7467,7 +7467,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7478,7 +7478,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7489,7 +7489,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7500,7 +7500,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7511,7 +7511,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7522,7 +7522,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7533,7 +7533,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7544,7 +7544,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7555,7 +7555,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7566,7 +7566,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QListView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7577,7 +7577,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7590,7 +7590,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7603,7 +7603,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7614,7 +7614,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7625,7 +7625,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7636,7 +7636,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7647,7 +7647,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7658,7 +7658,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7669,7 +7669,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7680,7 +7680,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7691,7 +7691,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7702,7 +7702,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7713,7 +7713,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7724,7 +7724,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7735,7 +7735,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7746,7 +7746,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7757,7 +7757,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7768,7 +7768,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7779,7 +7779,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7790,7 +7790,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7801,7 +7801,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7812,7 +7812,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7823,7 +7823,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7834,7 +7834,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7845,7 +7845,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7856,7 +7856,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7867,7 +7867,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7878,7 +7878,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7889,7 +7889,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7900,7 +7900,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7911,7 +7911,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7924,7 +7924,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7937,7 +7937,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractItemView
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7948,7 +7948,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7959,7 +7959,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7970,7 +7970,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7981,7 +7981,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7992,7 +7992,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8003,7 +8003,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8014,7 +8014,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8025,7 +8025,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8036,7 +8036,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8047,7 +8047,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8058,7 +8058,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8069,7 +8069,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8080,7 +8080,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8091,7 +8091,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8102,7 +8102,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8113,7 +8113,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8124,7 +8124,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8135,7 +8135,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8146,7 +8146,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8157,7 +8157,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8168,7 +8168,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8179,7 +8179,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8190,7 +8190,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8201,7 +8201,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8212,7 +8212,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8223,7 +8223,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8234,7 +8234,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8245,7 +8245,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8256,7 +8256,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8267,7 +8267,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8278,7 +8278,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8290,7 +8290,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8302,7 +8302,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8313,7 +8313,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8324,7 +8324,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8335,7 +8335,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8346,7 +8346,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8357,7 +8357,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8368,7 +8368,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8379,7 +8379,7 @@ pub const kcategorizedview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -8388,7 +8388,7 @@ pub const kcategorizedview = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcategorizedview.html#dtor.KCategorizedView)
+    /// [Upstream resources](https://api.kde.org/kcategorizedview.html#dtor.KCategorizedView)
     ///
     /// Delete this object from C++ memory.
     ///

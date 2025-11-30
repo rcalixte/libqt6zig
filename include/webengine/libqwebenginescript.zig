@@ -19,14 +19,14 @@ pub const qwebenginescript = struct {
         return qtc.QWebEngineScript_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineScript, other: QtC.QWebEngineScript ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineScript_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#name)
     ///
     /// ``` self: QtC.QWebEngineScript, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -37,7 +37,7 @@ pub const qwebenginescript = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#setName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setName)
     ///
     /// ``` self: QtC.QWebEngineScript, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -48,21 +48,21 @@ pub const qwebenginescript = struct {
         qtc.QWebEngineScript_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#sourceUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#sourceUrl)
     ///
     /// ``` self: QtC.QWebEngineScript ```
     pub fn SourceUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineScript_SourceUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#setSourceUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setSourceUrl)
     ///
     /// ``` self: QtC.QWebEngineScript, url: QtC.QUrl ```
     pub fn SetSourceUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEngineScript_SetSourceUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#sourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#sourceCode)
     ///
     /// ``` self: QtC.QWebEngineScript, allocator: std.mem.Allocator ```
     pub fn SourceCode(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -73,7 +73,7 @@ pub const qwebenginescript = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#setSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setSourceCode)
     ///
     /// ``` self: QtC.QWebEngineScript, sourceCode: []const u8 ```
     pub fn SetSourceCode(self: ?*anyopaque, sourceCode: []const u8) void {
@@ -84,7 +84,7 @@ pub const qwebenginescript = struct {
         qtc.QWebEngineScript_SetSourceCode(@ptrCast(self), sourceCode_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#injectionPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#injectionPoint)
     ///
     /// ``` self: QtC.QWebEngineScript ```
     ///
@@ -93,63 +93,63 @@ pub const qwebenginescript = struct {
         return qtc.QWebEngineScript_InjectionPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#setInjectionPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setInjectionPoint)
     ///
     /// ``` self: QtC.QWebEngineScript, injectionPoint: qwebenginescript_enums.InjectionPoint ```
     pub fn SetInjectionPoint(self: ?*anyopaque, injectionPoint: i32) void {
         qtc.QWebEngineScript_SetInjectionPoint(@ptrCast(self), @intCast(injectionPoint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#worldId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#worldId)
     ///
     /// ``` self: QtC.QWebEngineScript ```
     pub fn WorldId(self: ?*anyopaque) u32 {
         return qtc.QWebEngineScript_WorldId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#setWorldId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setWorldId)
     ///
     /// ``` self: QtC.QWebEngineScript, worldId: u32 ```
     pub fn SetWorldId(self: ?*anyopaque, worldId: u32) void {
         qtc.QWebEngineScript_SetWorldId(@ptrCast(self), @intCast(worldId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#runsOnSubFrames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#runsOnSubFrames)
     ///
     /// ``` self: QtC.QWebEngineScript ```
     pub fn RunsOnSubFrames(self: ?*anyopaque) bool {
         return qtc.QWebEngineScript_RunsOnSubFrames(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#setRunsOnSubFrames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#setRunsOnSubFrames)
     ///
     /// ``` self: QtC.QWebEngineScript, on: bool ```
     pub fn SetRunsOnSubFrames(self: ?*anyopaque, on: bool) void {
         qtc.QWebEngineScript_SetRunsOnSubFrames(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineScript, other: QtC.QWebEngineScript ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QWebEngineScript_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineScript, other: QtC.QWebEngineScript ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QWebEngineScript_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#swap)
     ///
     /// ``` self: QtC.QWebEngineScript, other: QtC.QWebEngineScript ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineScript_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#dtor.QWebEngineScript)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#dtor.QWebEngineScript)
     ///
     /// Delete this object from C++ memory.
     ///

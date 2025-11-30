@@ -60,7 +60,7 @@ pub const qtilerules = struct {
         qtc.QTileRules_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
     ///
     /// ``` self: QtC.QTileRules ```
     ///
@@ -69,14 +69,14 @@ pub const qtilerules = struct {
         return qtc.QTileRules_Horizontal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
     ///
     /// ``` self: QtC.QTileRules, horizontal: qnamespace_enums.TileRule ```
     pub fn SetHorizontal(self: ?*anyopaque, horizontal: i32) void {
         qtc.QTileRules_SetHorizontal(@ptrCast(self), @intCast(horizontal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
     ///
     /// ``` self: QtC.QTileRules ```
     ///
@@ -85,14 +85,14 @@ pub const qtilerules = struct {
         return qtc.QTileRules_Vertical(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
     ///
     /// ``` self: QtC.QTileRules, vertical: qnamespace_enums.TileRule ```
     pub fn SetVertical(self: ?*anyopaque, vertical: i32) void {
         qtc.QTileRules_SetVertical(@ptrCast(self), @intCast(vertical));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtilerules.html#dtor.QTileRules)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#dtor.QTileRules)
     ///
     /// Delete this object from C++ memory.
     ///

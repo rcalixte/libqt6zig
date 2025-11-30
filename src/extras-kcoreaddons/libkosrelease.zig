@@ -23,7 +23,7 @@ pub const kosrelease = struct {
         return qtc.KOSRelease_new2(filePath_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#name)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#name)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -34,7 +34,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#version)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#version)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -45,7 +45,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#id)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#id)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -56,7 +56,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#idLike)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#idLike)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn IdLike(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -78,7 +78,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#versionCodename)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#versionCodename)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn VersionCodename(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -89,7 +89,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#versionId)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#versionId)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn VersionId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -100,7 +100,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#prettyName)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#prettyName)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn PrettyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -111,7 +111,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#ansiColor)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#ansiColor)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn AnsiColor(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#cpeName)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#cpeName)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn CpeName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -133,7 +133,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#homeUrl)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#homeUrl)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn HomeUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -144,7 +144,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#documentationUrl)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#documentationUrl)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn DocumentationUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -155,7 +155,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#supportUrl)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#supportUrl)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn SupportUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -166,7 +166,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#bugReportUrl)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#bugReportUrl)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn BugReportUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -177,7 +177,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#privacyPolicyUrl)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#privacyPolicyUrl)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn PrivacyPolicyUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#buildId)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#buildId)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn BuildId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -199,7 +199,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#variant)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#variant)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn Variant(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -210,7 +210,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#variantId)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#variantId)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn VariantId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -221,7 +221,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#logo)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#logo)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn Logo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -232,7 +232,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#extraKeys)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#extraKeys)
     ///
     /// ``` self: QtC.KOSRelease, allocator: std.mem.Allocator ```
     pub fn ExtraKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -254,7 +254,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#extraValue)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#extraValue)
     ///
     /// ``` self: QtC.KOSRelease, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ExtraValue(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -269,7 +269,7 @@ pub const kosrelease = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kosrelease.html#dtor.KOSRelease)
+    /// [Upstream resources](https://api.kde.org/kosrelease.html#dtor.KOSRelease)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -46,7 +46,7 @@ pub const qsavefile = struct {
         return qtc.QSaveFile_new4(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -78,7 +78,7 @@ pub const qsavefile = struct {
         return qtc.QSaveFile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const qsavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#fileName)
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -101,7 +101,7 @@ pub const qsavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#fileName)
     ///
     /// Allows for overriding the related default method
     ///
@@ -110,7 +110,7 @@ pub const qsavefile = struct {
         qtc.QSaveFile_OnFileName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#fileName)
     ///
     /// Base class method implementation
     ///
@@ -123,7 +123,7 @@ pub const qsavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#setFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#setFileName)
     ///
     /// ``` self: QtC.QSaveFile, name: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, name: []const u8) void {
@@ -134,14 +134,14 @@ pub const qsavefile = struct {
         qtc.QSaveFile_SetFileName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
     /// ``` self: QtC.QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, flags: i32) bool {
         return qtc.QSaveFile_Open(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
     /// Allows for overriding the related default method
     ///
@@ -150,7 +150,7 @@ pub const qsavefile = struct {
         qtc.QSaveFile_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
     /// Base class method implementation
     ///
@@ -159,35 +159,35 @@ pub const qsavefile = struct {
         return qtc.QSaveFile_QBaseOpen(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#commit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#commit)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn Commit(self: ?*anyopaque) bool {
         return qtc.QSaveFile_Commit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#cancelWriting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#cancelWriting)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn CancelWriting(self: ?*anyopaque) void {
         qtc.QSaveFile_CancelWriting(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#setDirectWriteFallback)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#setDirectWriteFallback)
     ///
     /// ``` self: QtC.QSaveFile, enabled: bool ```
     pub fn SetDirectWriteFallback(self: ?*anyopaque, enabled: bool) void {
         qtc.QSaveFile_SetDirectWriteFallback(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#directWriteFallback)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#directWriteFallback)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn DirectWriteFallback(self: ?*anyopaque) bool {
         return qtc.QSaveFile_DirectWriteFallback(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#writeData)
     ///
     /// ``` self: QtC.QSaveFile, data: []const u8, lenVal: i64 ```
     pub fn WriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -195,7 +195,7 @@ pub const qsavefile = struct {
         return qtc.QSaveFile_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#writeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -204,7 +204,7 @@ pub const qsavefile = struct {
         qtc.QSaveFile_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#writeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#writeData)
     ///
     /// Base class method implementation
     ///
@@ -214,7 +214,7 @@ pub const qsavefile = struct {
         return qtc.QSaveFile_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -227,7 +227,7 @@ pub const qsavefile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -242,7 +242,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#error)
     ///
     /// ``` self: QtC.QSaveFile ```
     ///
@@ -253,7 +253,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn UnsetError(self: ?*anyopaque) void {
@@ -262,7 +262,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn Close(self: ?*anyopaque) void {
@@ -271,7 +271,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#handle)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn Handle(self: ?*anyopaque) i32 {
@@ -280,7 +280,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#flush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#flush)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn Flush(self: ?*anyopaque) bool {
@@ -289,7 +289,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QSaveFile, offset: i64, size: i64 ```
     pub fn Map(self: ?*anyopaque, offset: i64, size: i64) ?*u8 {
@@ -298,7 +298,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
     ///
     /// ``` self: QtC.QSaveFile, address: *u8 ```
     pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
@@ -307,7 +307,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
     ///
     /// ``` self: QtC.QSaveFile, time: qfiledevice_enums.FileTime ```
     pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
@@ -316,7 +316,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
     ///
     /// ``` self: QtC.QSaveFile, newDate: QtC.QDateTime, fileTime: qfiledevice_enums.FileTime ```
     pub fn SetFileTime(self: ?*anyopaque, newDate: ?*anyopaque, fileTime: i32) bool {
@@ -325,7 +325,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QSaveFile, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
     pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
@@ -334,7 +334,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QSaveFile ```
     ///
@@ -345,7 +345,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
     /// ``` self: QtC.QSaveFile, enabled: bool ```
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -354,7 +354,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
@@ -363,7 +363,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsOpen(self: ?*anyopaque) bool {
@@ -372,7 +372,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsReadable(self: ?*anyopaque) bool {
@@ -381,7 +381,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsWritable(self: ?*anyopaque) bool {
@@ -390,7 +390,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
@@ -399,7 +399,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
@@ -408,7 +408,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
@@ -417,7 +417,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
     /// ``` self: QtC.QSaveFile, channel: i32 ```
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
@@ -426,7 +426,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
@@ -435,7 +435,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
     /// ``` self: QtC.QSaveFile, channel: i32 ```
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
@@ -444,7 +444,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QSaveFile, data: []u8, maxlen: i64 ```
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -454,7 +454,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -467,7 +467,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -480,7 +480,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QSaveFile, data: []u8, maxlen: i64 ```
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -490,7 +490,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -503,7 +503,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn StartTransaction(self: ?*anyopaque) void {
@@ -512,7 +512,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn CommitTransaction(self: ?*anyopaque) void {
@@ -521,7 +521,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn RollbackTransaction(self: ?*anyopaque) void {
@@ -530,7 +530,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
@@ -539,7 +539,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QSaveFile, data: []const u8, lenVal: i64 ```
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -549,7 +549,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QSaveFile, data: []const u8 ```
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
@@ -559,7 +559,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QSaveFile, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
@@ -572,7 +572,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QSaveFile, data: []u8, maxlen: i64 ```
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -582,7 +582,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -595,7 +595,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
     /// ``` self: QtC.QSaveFile, maxSize: i64 ```
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
@@ -604,7 +604,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
     /// ``` self: QtC.QSaveFile, c: u8 ```
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
@@ -613,7 +613,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
     /// ``` self: QtC.QSaveFile, c: u8 ```
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
@@ -622,7 +622,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
     /// ``` self: QtC.QSaveFile, c: []u8 ```
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
@@ -632,7 +632,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -645,7 +645,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn ReadyRead(self: ?*anyopaque) void {
@@ -654,7 +654,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -663,7 +663,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QSaveFile, channel: i32 ```
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
@@ -672,7 +672,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -681,7 +681,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QSaveFile, bytes: i64 ```
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
@@ -690,7 +690,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
@@ -699,7 +699,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QSaveFile, channel: i32, bytes: i64 ```
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
@@ -708,7 +708,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
@@ -717,7 +717,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn AboutToClose(self: ?*anyopaque) void {
@@ -726,7 +726,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -735,7 +735,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
@@ -744,7 +744,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -753,7 +753,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -766,7 +766,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -779,7 +779,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSaveFile, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -792,7 +792,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -801,7 +801,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -810,7 +810,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -819,7 +819,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -828,7 +828,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSaveFile, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -837,7 +837,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -846,7 +846,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSaveFile, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -855,7 +855,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSaveFile, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -864,7 +864,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSaveFile, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -873,7 +873,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSaveFile, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -882,7 +882,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -896,7 +896,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSaveFile, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -905,7 +905,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSaveFile, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -914,7 +914,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSaveFile, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -923,7 +923,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -932,7 +932,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSaveFile, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -943,7 +943,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -952,7 +952,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -961,7 +961,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -970,7 +970,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -979,7 +979,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSaveFile, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -989,7 +989,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSaveFile, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -999,7 +999,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1023,7 +1023,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1032,7 +1032,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1041,7 +1041,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1050,7 +1050,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1059,7 +1059,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1068,7 +1068,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSaveFile, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1078,7 +1078,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSaveFile ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1087,7 +1087,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSaveFile, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1096,7 +1096,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSaveFile, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1105,7 +1105,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1114,7 +1114,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSaveFile, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1125,7 +1125,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSaveFile, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1134,7 +1134,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSaveFile, callback: *const fn (self: QtC.QSaveFile, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1143,7 +1143,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1154,7 +1154,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1165,7 +1165,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1176,7 +1176,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1187,7 +1187,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1198,7 +1198,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1209,7 +1209,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1220,7 +1220,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1231,7 +1231,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1242,7 +1242,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1253,7 +1253,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1264,7 +1264,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1275,7 +1275,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1286,7 +1286,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1297,7 +1297,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1308,7 +1308,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#resize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1319,7 +1319,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#resize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1330,7 +1330,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#resize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1341,7 +1341,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1354,7 +1354,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1367,7 +1367,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1378,7 +1378,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1389,7 +1389,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1400,7 +1400,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1411,7 +1411,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1423,7 +1423,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1435,7 +1435,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1458,7 +1458,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1470,7 +1470,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QFileDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1481,7 +1481,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1492,7 +1492,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1503,7 +1503,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1514,7 +1514,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1525,7 +1525,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1536,7 +1536,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1547,7 +1547,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1558,7 +1558,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1569,7 +1569,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1580,7 +1580,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1591,7 +1591,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1602,7 +1602,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1613,7 +1613,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1624,7 +1624,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1635,7 +1635,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1646,7 +1646,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1657,7 +1657,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1668,7 +1668,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1679,7 +1679,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1690,7 +1690,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1701,7 +1701,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skipData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1712,7 +1712,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1723,7 +1723,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1734,7 +1734,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1745,7 +1745,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1756,7 +1756,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1767,7 +1767,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1778,7 +1778,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1789,7 +1789,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1800,7 +1800,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1811,7 +1811,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1822,7 +1822,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1833,7 +1833,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1844,7 +1844,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1855,7 +1855,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1866,7 +1866,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1877,7 +1877,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1888,7 +1888,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1899,7 +1899,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1910,7 +1910,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1921,7 +1921,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1932,7 +1932,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1943,7 +1943,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1954,7 +1954,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1965,7 +1965,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1976,7 +1976,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1991,7 +1991,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2006,7 +2006,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2017,7 +2017,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2028,7 +2028,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2039,7 +2039,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2050,7 +2050,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2061,7 +2061,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2072,7 +2072,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2083,7 +2083,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2095,7 +2095,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2107,7 +2107,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2118,7 +2118,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2129,7 +2129,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2140,7 +2140,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2151,7 +2151,7 @@ pub const qsavefile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2160,7 +2160,7 @@ pub const qsavefile = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#dtor.QSaveFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsavefile.html#dtor.QSaveFile)
     ///
     /// Delete this object from C++ memory.
     ///

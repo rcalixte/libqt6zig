@@ -17,77 +17,77 @@ pub const qsemaphore = struct {
         return qtc.QSemaphore_new2(@intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#acquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#acquire)
     ///
     /// ``` self: QtC.QSemaphore ```
     pub fn Acquire(self: ?*anyopaque) void {
         qtc.QSemaphore_Acquire(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
     ///
     /// ``` self: QtC.QSemaphore ```
     pub fn TryAcquire(self: ?*anyopaque) bool {
         return qtc.QSemaphore_TryAcquire(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
     ///
     /// ``` self: QtC.QSemaphore, n: i32, timeout: i32 ```
     pub fn TryAcquire2(self: ?*anyopaque, n: i32, timeout: i32) bool {
         return qtc.QSemaphore_TryAcquire2(@ptrCast(self), @intCast(n), @intCast(timeout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
     ///
     /// ``` self: QtC.QSemaphore, n: i32, timeout: QtC.QDeadlineTimer ```
     pub fn TryAcquire3(self: ?*anyopaque, n: i32, timeout: QtC.QDeadlineTimer) bool {
         return qtc.QSemaphore_TryAcquire3(@ptrCast(self), @intCast(n), @ptrCast(timeout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#release)
     ///
     /// ``` self: QtC.QSemaphore ```
     pub fn Release(self: ?*anyopaque) void {
         qtc.QSemaphore_Release(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#available)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#available)
     ///
     /// ``` self: QtC.QSemaphore ```
     pub fn Available(self: ?*anyopaque) i32 {
         return qtc.QSemaphore_Available(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#try_acquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#try_acquire)
     ///
     /// ``` self: QtC.QSemaphore ```
     pub fn TryAcquire4(self: ?*anyopaque) bool {
         return qtc.QSemaphore_TryAcquire4(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#acquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#acquire)
     ///
     /// ``` self: QtC.QSemaphore, n: i32 ```
     pub fn Acquire1(self: ?*anyopaque, n: i32) void {
         qtc.QSemaphore_Acquire1(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
     ///
     /// ``` self: QtC.QSemaphore, n: i32 ```
     pub fn TryAcquire1(self: ?*anyopaque, n: i32) bool {
         return qtc.QSemaphore_TryAcquire1(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#release)
     ///
     /// ``` self: QtC.QSemaphore, n: i32 ```
     pub fn Release1(self: ?*anyopaque, n: i32) void {
         qtc.QSemaphore_Release1(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#dtor.QSemaphore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphore.html#dtor.QSemaphore)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -134,28 +134,28 @@ pub const qsemaphorereleaser = struct {
         return qtc.QSemaphoreReleaser_new5(@ptrCast(sem), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphorereleaser.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphorereleaser.html#swap)
     ///
     /// ``` self: QtC.QSemaphoreReleaser, other: QtC.QSemaphoreReleaser ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSemaphoreReleaser_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphorereleaser.html#semaphore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphorereleaser.html#semaphore)
     ///
     /// ``` self: QtC.QSemaphoreReleaser ```
     pub fn Semaphore(self: ?*anyopaque) QtC.QSemaphore {
         return qtc.QSemaphoreReleaser_Semaphore(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphorereleaser.html#cancel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphorereleaser.html#cancel)
     ///
     /// ``` self: QtC.QSemaphoreReleaser ```
     pub fn Cancel(self: ?*anyopaque) QtC.QSemaphore {
         return qtc.QSemaphoreReleaser_Cancel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphorereleaser.html#dtor.QSemaphoreReleaser)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsemaphorereleaser.html#dtor.QSemaphoreReleaser)
     ///
     /// Delete this object from C++ memory.
     ///

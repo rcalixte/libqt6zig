@@ -5,14 +5,14 @@ const std = @import("std");
 
 /// https://api.kde.org/knscore-errorcode.html
 pub const knscore__errorcode = struct {
-    /// [Qt documentation](https://api.kde.org/knscore-errorcode.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: errorcode_enums.ErrorCode ```
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
         return qtc.KNSCore__ErrorCode_GetEnumMetaObject(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-errorcode.html#qt_getEnumName)
+    /// [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumName)
     ///
     /// ``` param1: errorcode_enums.ErrorCode ```
     pub fn GetEnumName(param1: i32) []const u8 {

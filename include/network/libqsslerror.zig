@@ -33,35 +33,35 @@ pub const qsslerror = struct {
         return qtc.QSslError_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#swap)
     ///
     /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslError_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-eq)
     ///
     /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslError_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslError_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#error)
     ///
     /// ``` self: QtC.QSslError ```
     ///
@@ -70,7 +70,7 @@ pub const qsslerror = struct {
         return qtc.QSslError_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#errorString)
     ///
     /// ``` self: QtC.QSslError, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -81,14 +81,14 @@ pub const qsslerror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#certificate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#certificate)
     ///
     /// ``` self: QtC.QSslError ```
     pub fn Certificate(self: ?*anyopaque) QtC.QSslCertificate {
         return qtc.QSslError_Certificate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#dtor.QSslError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#dtor.QSslError)
     ///
     /// Delete this object from C++ memory.
     ///

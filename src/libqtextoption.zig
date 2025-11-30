@@ -27,21 +27,21 @@ pub const qtextoption = struct {
         return qtc.QTextOption_new3(@ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#operator-eq)
     ///
     /// ``` self: QtC.QTextOption, o: QtC.QTextOption ```
     pub fn OperatorAssign(self: ?*anyopaque, o: ?*anyopaque) void {
         qtc.QTextOption_OperatorAssign(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setAlignment)
     ///
     /// ``` self: QtC.QTextOption, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextOption_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#alignment)
     ///
     /// ``` self: QtC.QTextOption ```
     ///
@@ -50,14 +50,14 @@ pub const qtextoption = struct {
         return qtc.QTextOption_Alignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setTextDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTextDirection)
     ///
     /// ``` self: QtC.QTextOption, aDirection: qnamespace_enums.LayoutDirection ```
     pub fn SetTextDirection(self: ?*anyopaque, aDirection: i32) void {
         qtc.QTextOption_SetTextDirection(@ptrCast(self), @intCast(aDirection));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#textDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#textDirection)
     ///
     /// ``` self: QtC.QTextOption ```
     ///
@@ -66,14 +66,14 @@ pub const qtextoption = struct {
         return qtc.QTextOption_TextDirection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setWrapMode)
     ///
     /// ``` self: QtC.QTextOption, wrap: qtextoption_enums.WrapMode ```
     pub fn SetWrapMode(self: ?*anyopaque, wrap: i32) void {
         qtc.QTextOption_SetWrapMode(@ptrCast(self), @intCast(wrap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#wrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#wrapMode)
     ///
     /// ``` self: QtC.QTextOption ```
     ///
@@ -82,14 +82,14 @@ pub const qtextoption = struct {
         return qtc.QTextOption_WrapMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setFlags)
     ///
     /// ``` self: QtC.QTextOption, flags: flag of qtextoption_enums.Flag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QTextOption_SetFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#flags)
     ///
     /// ``` self: QtC.QTextOption ```
     ///
@@ -98,21 +98,21 @@ pub const qtextoption = struct {
         return qtc.QTextOption_Flags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setTabStopDistance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTabStopDistance)
     ///
     /// ``` self: QtC.QTextOption, tabStopDistance: f64 ```
     pub fn SetTabStopDistance(self: ?*anyopaque, tabStopDistance: f64) void {
         qtc.QTextOption_SetTabStopDistance(@ptrCast(self), @floatCast(tabStopDistance));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#tabStopDistance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#tabStopDistance)
     ///
     /// ``` self: QtC.QTextOption ```
     pub fn TabStopDistance(self: ?*anyopaque) f64 {
         return qtc.QTextOption_TabStopDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setTabArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTabArray)
     ///
     /// ``` self: QtC.QTextOption, tabStops: []f64 ```
     pub fn SetTabArray(self: ?*anyopaque, tabStops: []f64) void {
@@ -123,7 +123,7 @@ pub const qtextoption = struct {
         qtc.QTextOption_SetTabArray(@ptrCast(self), tabStops_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#tabArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#tabArray)
     ///
     /// ``` self: QtC.QTextOption, allocator: std.mem.Allocator ```
     pub fn TabArray(self: ?*anyopaque, allocator: std.mem.Allocator) []f64 {
@@ -135,7 +135,7 @@ pub const qtextoption = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setTabs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setTabs)
     ///
     /// ``` self: QtC.QTextOption, tabStops: []QtC.QTextOption__Tab ```
     pub fn SetTabs(self: ?*anyopaque, tabStops: []QtC.QTextOption__Tab) void {
@@ -146,7 +146,7 @@ pub const qtextoption = struct {
         qtc.QTextOption_SetTabs(@ptrCast(self), tabStops_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#tabs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#tabs)
     ///
     /// ``` self: QtC.QTextOption, allocator: std.mem.Allocator ```
     pub fn Tabs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextOption__Tab {
@@ -158,21 +158,21 @@ pub const qtextoption = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setUseDesignMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#setUseDesignMetrics)
     ///
     /// ``` self: QtC.QTextOption, b: bool ```
     pub fn SetUseDesignMetrics(self: ?*anyopaque, b: bool) void {
         qtc.QTextOption_SetUseDesignMetrics(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#useDesignMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#useDesignMetrics)
     ///
     /// ``` self: QtC.QTextOption ```
     pub fn UseDesignMetrics(self: ?*anyopaque) bool {
         return qtc.QTextOption_UseDesignMetrics(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#dtor.QTextOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#dtor.QTextOption)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -233,35 +233,35 @@ pub const qtextoption__tab = struct {
         qtc.QTextOption__Tab_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextOption__Tab, other: QtC.QTextOption__Tab ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTextOption__Tab_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextOption__Tab, other: QtC.QTextOption__Tab ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTextOption__Tab_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
     ///
     /// ``` self: QtC.QTextOption__Tab ```
     pub fn Position(self: ?*anyopaque) f64 {
         return qtc.QTextOption__Tab_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
     ///
     /// ``` self: QtC.QTextOption__Tab, position: f64 ```
     pub fn SetPosition(self: ?*anyopaque, position: f64) void {
         qtc.QTextOption__Tab_SetPosition(@ptrCast(self), @floatCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
     ///
     /// ``` self: QtC.QTextOption__Tab ```
     ///
@@ -270,21 +270,21 @@ pub const qtextoption__tab = struct {
         return qtc.QTextOption__Tab_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
     ///
     /// ``` self: QtC.QTextOption__Tab, type: qtextoption_enums.TabType ```
     pub fn SetType(self: ?*anyopaque, _type: i32) void {
         qtc.QTextOption__Tab_SetType(@ptrCast(self), @intCast(_type));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
     ///
     /// ``` self: QtC.QTextOption__Tab ```
     pub fn Delimiter(self: ?*anyopaque) QtC.QChar {
         return qtc.QTextOption__Tab_Delimiter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
     ///
     /// ``` self: QtC.QTextOption__Tab, delimiter: QtC.QChar ```
     pub fn SetDelimiter(self: ?*anyopaque, delimiter: QtC.QChar) void {

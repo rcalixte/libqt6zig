@@ -49,7 +49,7 @@ pub const krichtextwidget = struct {
         return qtc.KRichTextWidget_new3(text_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -81,7 +81,7 @@ pub const krichtextwidget = struct {
         return qtc.KRichTextWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -93,7 +93,7 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#createActions)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#createActions)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn CreateActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -105,7 +105,7 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#createActions)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#createActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -114,7 +114,7 @@ pub const krichtextwidget = struct {
         qtc.KRichTextWidget_OnCreateActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#createActions)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#createActions)
     ///
     /// Base class method implementation
     ///
@@ -128,7 +128,7 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#richTextSupport)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#richTextSupport)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -137,28 +137,28 @@ pub const krichtextwidget = struct {
         return qtc.KRichTextWidget_RichTextSupport(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#updateActionStates)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#updateActionStates)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UpdateActionStates(self: ?*anyopaque) void {
         qtc.KRichTextWidget_UpdateActionStates(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#setActionsEnabled)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#setActionsEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget, enabled: bool ```
     pub fn SetActionsEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.KRichTextWidget_SetActionsEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.KRichTextWidget, event: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KRichTextWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -167,7 +167,7 @@ pub const krichtextwidget = struct {
         qtc.KRichTextWidget_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -176,7 +176,7 @@ pub const krichtextwidget = struct {
         qtc.KRichTextWidget_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -189,7 +189,7 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -204,7 +204,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#enableRichTextMode)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#enableRichTextMode)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn EnableRichTextMode(self: ?*anyopaque) void {
@@ -213,7 +213,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textMode)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textMode)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -224,7 +224,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textOrHtml)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textOrHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn TextOrHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -237,7 +237,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextOrHtml)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextOrHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn SetTextOrHtml(self: ?*anyopaque, text: []const u8) void {
@@ -250,7 +250,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#currentLinkText)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#currentLinkText)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn CurrentLinkText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -263,7 +263,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#currentLinkUrl)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#currentLinkUrl)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn CurrentLinkUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -276,7 +276,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#selectLinkText)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#selectLinkText)
     ///
     /// ``` self: QtC.KRichTextWidget, cursor: QtC.QTextCursor ```
     pub fn SelectLinkText(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -285,7 +285,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#selectLinkText)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#selectLinkText)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SelectLinkText2(self: ?*anyopaque) void {
@@ -294,7 +294,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#updateLink)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#updateLink)
     ///
     /// ``` self: QtC.KRichTextWidget, linkUrl: []const u8, linkText: []const u8 ```
     pub fn UpdateLink(self: ?*anyopaque, linkUrl: []const u8, linkText: []const u8) void {
@@ -311,7 +311,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#canIndentList)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#canIndentList)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CanIndentList(self: ?*anyopaque) bool {
@@ -320,7 +320,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#canDedentList)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#canDedentList)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CanDedentList(self: ?*anyopaque) bool {
@@ -329,7 +329,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignLeft)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignLeft)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignLeft(self: ?*anyopaque) void {
@@ -338,7 +338,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignCenter)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignCenter)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignCenter(self: ?*anyopaque) void {
@@ -347,7 +347,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignRight)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignRight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignRight(self: ?*anyopaque) void {
@@ -356,7 +356,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#alignJustify)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#alignJustify)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AlignJustify(self: ?*anyopaque) void {
@@ -365,7 +365,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#makeRightToLeft)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#makeRightToLeft)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MakeRightToLeft(self: ?*anyopaque) void {
@@ -374,7 +374,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#makeLeftToRight)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#makeLeftToRight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MakeLeftToRight(self: ?*anyopaque) void {
@@ -383,7 +383,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setListStyle)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setListStyle)
     ///
     /// ``` self: QtC.KRichTextWidget, _styleIndex: i32 ```
     pub fn SetListStyle(self: ?*anyopaque, _styleIndex: i32) void {
@@ -392,7 +392,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#indentListMore)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#indentListMore)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IndentListMore(self: ?*anyopaque) void {
@@ -401,7 +401,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#indentListLess)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#indentListLess)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IndentListLess(self: ?*anyopaque) void {
@@ -410,7 +410,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setFontFamily)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setFontFamily)
     ///
     /// ``` self: QtC.KRichTextWidget, fontFamily: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, fontFamily: []const u8) void {
@@ -423,7 +423,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setFontSize)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setFontSize)
     ///
     /// ``` self: QtC.KRichTextWidget, size: i32 ```
     pub fn SetFontSize(self: ?*anyopaque, size: i32) void {
@@ -432,7 +432,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setFont)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setFont)
     ///
     /// ``` self: QtC.KRichTextWidget, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -441,7 +441,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextBold)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextBold)
     ///
     /// ``` self: QtC.KRichTextWidget, bold: bool ```
     pub fn SetTextBold(self: ?*anyopaque, bold: bool) void {
@@ -450,7 +450,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextItalic)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextItalic)
     ///
     /// ``` self: QtC.KRichTextWidget, italic: bool ```
     pub fn SetTextItalic(self: ?*anyopaque, italic: bool) void {
@@ -459,7 +459,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextUnderline)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextUnderline)
     ///
     /// ``` self: QtC.KRichTextWidget, underline: bool ```
     pub fn SetTextUnderline(self: ?*anyopaque, underline: bool) void {
@@ -468,7 +468,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextStrikeOut)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextStrikeOut)
     ///
     /// ``` self: QtC.KRichTextWidget, strikeOut: bool ```
     pub fn SetTextStrikeOut(self: ?*anyopaque, strikeOut: bool) void {
@@ -477,7 +477,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextForegroundColor)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextForegroundColor)
     ///
     /// ``` self: QtC.KRichTextWidget, color: QtC.QColor ```
     pub fn SetTextForegroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -486,7 +486,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextBackgroundColor)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextBackgroundColor)
     ///
     /// ``` self: QtC.KRichTextWidget, color: QtC.QColor ```
     pub fn SetTextBackgroundColor(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -495,7 +495,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#insertHorizontalRule)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#insertHorizontalRule)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn InsertHorizontalRule(self: ?*anyopaque) void {
@@ -504,7 +504,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#switchToPlainText)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#switchToPlainText)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SwitchToPlainText(self: ?*anyopaque) void {
@@ -513,7 +513,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#toCleanHtml)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#toCleanHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ToCleanHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -526,7 +526,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextSuperScript)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextSuperScript)
     ///
     /// ``` self: QtC.KRichTextWidget, superscript: bool ```
     pub fn SetTextSuperScript(self: ?*anyopaque, superscript: bool) void {
@@ -535,7 +535,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setTextSubScript)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setTextSubScript)
     ///
     /// ``` self: QtC.KRichTextWidget, subscript: bool ```
     pub fn SetTextSubScript(self: ?*anyopaque, subscript: bool) void {
@@ -544,7 +544,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#setHeadingLevel)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#setHeadingLevel)
     ///
     /// ``` self: QtC.KRichTextWidget, level: i32 ```
     pub fn SetHeadingLevel(self: ?*anyopaque, level: i32) void {
@@ -553,7 +553,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#insertPlainTextImplementation)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#insertPlainTextImplementation)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn InsertPlainTextImplementation(self: ?*anyopaque) void {
@@ -562,7 +562,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textModeChanged)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textModeChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, mode: krichtextedit_enums.Mode ```
     pub fn TextModeChanged(self: ?*anyopaque, mode: i32) void {
@@ -571,7 +571,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#textModeChanged)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#textModeChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, mode: krichtextedit_enums.Mode) callconv(.c) void ```
     pub fn OnTextModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -580,7 +580,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#highlightWord)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#highlightWord)
     ///
     /// ``` self: QtC.KRichTextWidget, length: i32, pos: i32 ```
     pub fn HighlightWord(self: ?*anyopaque, length: i32, pos: i32) void {
@@ -589,7 +589,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#highlighter)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#highlighter)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Highlighter(self: ?*anyopaque) QtC.Sonnet__Highlighter {
@@ -598,7 +598,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setHighlighter)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setHighlighter)
     ///
     /// ``` self: QtC.KRichTextWidget, _highLighter: QtC.Sonnet__Highlighter ```
     pub fn SetHighlighter(self: ?*anyopaque, _highLighter: ?*anyopaque) void {
@@ -607,7 +607,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#enableFindReplace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#enableFindReplace)
     ///
     /// ``` self: QtC.KRichTextWidget, enabled: bool ```
     pub fn EnableFindReplace(self: ?*anyopaque, enabled: bool) void {
@@ -616,7 +616,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingLanguage)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingLanguage)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn SpellCheckingLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -629,7 +629,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#showTabAction)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#showTabAction)
     ///
     /// ``` self: QtC.KRichTextWidget, show: bool ```
     pub fn ShowTabAction(self: ?*anyopaque, show: bool) void {
@@ -638,7 +638,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#showAutoCorrectButton)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#showAutoCorrectButton)
     ///
     /// ``` self: QtC.KRichTextWidget, show: bool ```
     pub fn ShowAutoCorrectButton(self: ?*anyopaque, show: bool) void {
@@ -647,7 +647,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#forceSpellChecking)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#forceSpellChecking)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ForceSpellChecking(self: ?*anyopaque) void {
@@ -656,7 +656,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingChanged)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: bool ```
     pub fn CheckSpellingChanged(self: ?*anyopaque, param1: bool) void {
@@ -665,7 +665,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingChanged)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, param1: bool) callconv(.c) void ```
     pub fn OnCheckSpellingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -674,7 +674,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckStatus)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: []const u8 ```
     pub fn SpellCheckStatus(self: ?*anyopaque, param1: []const u8) void {
@@ -687,7 +687,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckStatus)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, param1: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckStatus(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -696,7 +696,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#languageChanged)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#languageChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, language: []const u8 ```
     pub fn LanguageChanged(self: ?*anyopaque, language: []const u8) void {
@@ -709,7 +709,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#languageChanged)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#languageChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, language: [*:0]const u8) callconv(.c) void ```
     pub fn OnLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -718,7 +718,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KRichTextWidget, menu: QtC.QMenu ```
     pub fn AboutToShowContextMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
@@ -727,7 +727,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, menu: QtC.QMenu) callconv(.c) void ```
     pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -736,7 +736,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
     /// ``` self: QtC.KRichTextWidget, currentWord: []const u8, autoCorrectWord: []const u8 ```
     pub fn SpellCheckerAutoCorrect(self: ?*anyopaque, currentWord: []const u8, autoCorrectWord: []const u8) void {
@@ -753,7 +753,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void ```
     pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
@@ -762,7 +762,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingFinished)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SpellCheckingFinished(self: ?*anyopaque) void {
@@ -771,7 +771,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingFinished)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnSpellCheckingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -780,7 +780,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SpellCheckingCanceled(self: ?*anyopaque) void {
@@ -789,7 +789,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnSpellCheckingCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -798,7 +798,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setSpellCheckingLanguage)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setSpellCheckingLanguage)
     ///
     /// ``` self: QtC.KRichTextWidget, language: []const u8 ```
     pub fn SetSpellCheckingLanguage(self: ?*anyopaque, language: []const u8) void {
@@ -811,7 +811,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpelling)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpelling)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CheckSpelling(self: ?*anyopaque) void {
@@ -820,7 +820,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ShowSpellConfigDialog(self: ?*anyopaque) void {
@@ -829,7 +829,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#replace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#replace)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Replace(self: ?*anyopaque) void {
@@ -838,7 +838,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#addTextDecorator)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#addTextDecorator)
     ///
     /// ``` self: QtC.KRichTextWidget, decorator: QtC.Sonnet__SpellCheckDecorator ```
     pub fn AddTextDecorator(self: ?*anyopaque, decorator: ?*anyopaque) void {
@@ -847,7 +847,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#clearDecorator)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#clearDecorator)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ClearDecorator(self: ?*anyopaque) void {
@@ -856,7 +856,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#showSpellConfigDialog)
     ///
     /// ``` self: QtC.KRichTextWidget, windowIcon: []const u8 ```
     pub fn ShowSpellConfigDialog1(self: ?*anyopaque, windowIcon: []const u8) void {
@@ -869,7 +869,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setDocument)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocument)
     ///
     /// ``` self: QtC.KRichTextWidget, document: QtC.QTextDocument ```
     pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
@@ -878,7 +878,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#document)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#document)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
@@ -887,7 +887,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setPlaceholderText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlaceholderText)
     ///
     /// ``` self: QtC.KRichTextWidget, placeholderText: []const u8 ```
     pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
@@ -900,7 +900,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#placeholderText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#placeholderText)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -913,7 +913,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextCursor)
     ///
     /// ``` self: QtC.KRichTextWidget, cursor: QtC.QTextCursor ```
     pub fn SetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -922,7 +922,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textCursor)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn TextCursor(self: ?*anyopaque) QtC.QTextCursor {
@@ -931,7 +931,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#isReadOnly)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isReadOnly)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
@@ -940,7 +940,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.KRichTextWidget, flags: flag of qnamespace_enums.TextInteractionFlag ```
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
@@ -949,7 +949,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textInteractionFlags)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -960,7 +960,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontPointSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontPointSize)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FontPointSize(self: ?*anyopaque) f64 {
@@ -969,7 +969,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontFamily)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontFamily)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -982,7 +982,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontWeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontWeight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FontWeight(self: ?*anyopaque) i32 {
@@ -991,7 +991,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontUnderline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontUnderline)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FontUnderline(self: ?*anyopaque) bool {
@@ -1000,7 +1000,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontItalic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontItalic)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FontItalic(self: ?*anyopaque) bool {
@@ -1009,7 +1009,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textColor)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn TextColor(self: ?*anyopaque) QtC.QColor {
@@ -1018,7 +1018,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textBackgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textBackgroundColor)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn TextBackgroundColor(self: ?*anyopaque) QtC.QColor {
@@ -1027,7 +1027,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentFont)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CurrentFont(self: ?*anyopaque) QtC.QFont {
@@ -1036,7 +1036,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#alignment)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -1047,7 +1047,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mergeCurrentCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mergeCurrentCharFormat)
     ///
     /// ``` self: QtC.KRichTextWidget, modifier: QtC.QTextCharFormat ```
     pub fn MergeCurrentCharFormat(self: ?*anyopaque, modifier: ?*anyopaque) void {
@@ -1056,7 +1056,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setCurrentCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentCharFormat)
     ///
     /// ``` self: QtC.KRichTextWidget, format: QtC.QTextCharFormat ```
     pub fn SetCurrentCharFormat(self: ?*anyopaque, format: ?*anyopaque) void {
@@ -1065,7 +1065,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormat)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CurrentCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
@@ -1074,7 +1074,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#autoFormatting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#autoFormatting)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -1085,7 +1085,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAutoFormatting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAutoFormatting)
     ///
     /// ``` self: QtC.KRichTextWidget, features: flag of qtextedit_enums.AutoFormattingFlag ```
     pub fn SetAutoFormatting(self: ?*anyopaque, features: i64) void {
@@ -1094,7 +1094,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#tabChangesFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabChangesFocus)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn TabChangesFocus(self: ?*anyopaque) bool {
@@ -1103,7 +1103,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTabChangesFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabChangesFocus)
     ///
     /// ``` self: QtC.KRichTextWidget, b: bool ```
     pub fn SetTabChangesFocus(self: ?*anyopaque, b: bool) void {
@@ -1112,7 +1112,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setDocumentTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocumentTitle)
     ///
     /// ``` self: QtC.KRichTextWidget, title: []const u8 ```
     pub fn SetDocumentTitle(self: ?*anyopaque, title: []const u8) void {
@@ -1125,7 +1125,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#documentTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#documentTitle)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn DocumentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1138,7 +1138,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#isUndoRedoEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isUndoRedoEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsUndoRedoEnabled(self: ?*anyopaque) bool {
@@ -1147,7 +1147,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setUndoRedoEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setUndoRedoEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget, enable: bool ```
     pub fn SetUndoRedoEnabled(self: ?*anyopaque, enable: bool) void {
@@ -1156,7 +1156,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#lineWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapMode)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -1167,7 +1167,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapMode)
     ///
     /// ``` self: QtC.KRichTextWidget, mode: qtextedit_enums.LineWrapMode ```
     pub fn SetLineWrapMode(self: ?*anyopaque, mode: i32) void {
@@ -1176,7 +1176,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#lineWrapColumnOrWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapColumnOrWidth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn LineWrapColumnOrWidth(self: ?*anyopaque) i32 {
@@ -1185,7 +1185,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapColumnOrWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapColumnOrWidth)
     ///
     /// ``` self: QtC.KRichTextWidget, w: i32 ```
     pub fn SetLineWrapColumnOrWidth(self: ?*anyopaque, w: i32) void {
@@ -1194,7 +1194,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wordWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wordWrapMode)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -1205,7 +1205,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setWordWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setWordWrapMode)
     ///
     /// ``` self: QtC.KRichTextWidget, policy: qtextoption_enums.WrapMode ```
     pub fn SetWordWrapMode(self: ?*anyopaque, policy: i32) void {
@@ -1214,7 +1214,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.KRichTextWidget, exp: []const u8 ```
     pub fn Find(self: ?*anyopaque, exp: []const u8) bool {
@@ -1227,7 +1227,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.KRichTextWidget, exp: QtC.QRegularExpression ```
     pub fn Find2(self: ?*anyopaque, exp: ?*anyopaque) bool {
@@ -1236,7 +1236,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toPlainText)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ToPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1249,7 +1249,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ToHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1262,7 +1262,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ToMarkdown(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1275,7 +1275,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#ensureCursorVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#ensureCursorVisible)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn EnsureCursorVisible(self: ?*anyopaque) void {
@@ -1284,7 +1284,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
@@ -1293,7 +1293,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
     ///
     /// ``` self: QtC.KRichTextWidget, position: QtC.QPoint ```
     pub fn CreateStandardContextMenu2(self: ?*anyopaque, position: ?*anyopaque) QtC.QMenu {
@@ -1302,7 +1302,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorForPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorForPosition)
     ///
     /// ``` self: QtC.KRichTextWidget, pos: QtC.QPoint ```
     pub fn CursorForPosition(self: ?*anyopaque, pos: ?*anyopaque) QtC.QTextCursor {
@@ -1311,7 +1311,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
     ///
     /// ``` self: QtC.KRichTextWidget, cursor: QtC.QTextCursor ```
     pub fn CursorRect(self: ?*anyopaque, cursor: ?*anyopaque) QtC.QRect {
@@ -1320,7 +1320,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CursorRect2(self: ?*anyopaque) QtC.QRect {
@@ -1329,7 +1329,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#anchorAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#anchorAt)
     ///
     /// ``` self: QtC.KRichTextWidget, pos: QtC.QPoint, allocator: std.mem.Allocator ```
     pub fn AnchorAt(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1342,7 +1342,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#overwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#overwriteMode)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn OverwriteMode(self: ?*anyopaque) bool {
@@ -1351,7 +1351,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setOverwriteMode)
     ///
     /// ``` self: QtC.KRichTextWidget, overwrite: bool ```
     pub fn SetOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
@@ -1360,7 +1360,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#tabStopDistance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabStopDistance)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn TabStopDistance(self: ?*anyopaque) f64 {
@@ -1369,7 +1369,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTabStopDistance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabStopDistance)
     ///
     /// ``` self: QtC.KRichTextWidget, distance: f64 ```
     pub fn SetTabStopDistance(self: ?*anyopaque, distance: f64) void {
@@ -1378,7 +1378,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorWidth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CursorWidth(self: ?*anyopaque) i32 {
@@ -1387,7 +1387,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setCursorWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCursorWidth)
     ///
     /// ``` self: QtC.KRichTextWidget, width: i32 ```
     pub fn SetCursorWidth(self: ?*anyopaque, width: i32) void {
@@ -1396,7 +1396,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#acceptRichText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#acceptRichText)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AcceptRichText(self: ?*anyopaque) bool {
@@ -1405,7 +1405,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAcceptRichText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAcceptRichText)
     ///
     /// ``` self: QtC.KRichTextWidget, accept: bool ```
     pub fn SetAcceptRichText(self: ?*anyopaque, accept: bool) void {
@@ -1414,7 +1414,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setExtraSelections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setExtraSelections)
     ///
     /// ``` self: QtC.KRichTextWidget, selections: []QtC.QTextEdit__ExtraSelection ```
     pub fn SetExtraSelections(self: ?*anyopaque, selections: []QtC.QTextEdit__ExtraSelection) void {
@@ -1427,7 +1427,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#extraSelections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#extraSelections)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ExtraSelections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextEdit__ExtraSelection {
@@ -1441,7 +1441,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
     ///
     /// ``` self: QtC.KRichTextWidget, operation: qtextcursor_enums.MoveOperation ```
     pub fn MoveCursor(self: ?*anyopaque, operation: i32) void {
@@ -1450,7 +1450,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canPaste)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canPaste)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CanPaste(self: ?*anyopaque) bool {
@@ -1459,7 +1459,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#print)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#print)
     ///
     /// ``` self: QtC.KRichTextWidget, printer: QtC.QPagedPaintDevice ```
     pub fn Print(self: ?*anyopaque, printer: ?*anyopaque) void {
@@ -1468,7 +1468,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// ``` self: QtC.KRichTextWidget, query: qnamespace_enums.InputMethodQuery, argument: QtC.QVariant ```
     pub fn InputMethodQuery2(self: ?*anyopaque, query: i64, argument: QtC.QVariant) QtC.QVariant {
@@ -1477,7 +1477,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontPointSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontPointSize)
     ///
     /// ``` self: QtC.KRichTextWidget, s: f64 ```
     pub fn SetFontPointSize(self: ?*anyopaque, s: f64) void {
@@ -1486,7 +1486,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontWeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontWeight)
     ///
     /// ``` self: QtC.KRichTextWidget, w: i32 ```
     pub fn SetFontWeight(self: ?*anyopaque, w: i32) void {
@@ -1495,7 +1495,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontUnderline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontUnderline)
     ///
     /// ``` self: QtC.KRichTextWidget, b: bool ```
     pub fn SetFontUnderline(self: ?*anyopaque, b: bool) void {
@@ -1504,7 +1504,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontItalic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontItalic)
     ///
     /// ``` self: QtC.KRichTextWidget, b: bool ```
     pub fn SetFontItalic(self: ?*anyopaque, b: bool) void {
@@ -1513,7 +1513,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextColor)
     ///
     /// ``` self: QtC.KRichTextWidget, c: QtC.QColor ```
     pub fn SetTextColor(self: ?*anyopaque, c: ?*anyopaque) void {
@@ -1522,7 +1522,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setCurrentFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentFont)
     ///
     /// ``` self: QtC.KRichTextWidget, f: QtC.QFont ```
     pub fn SetCurrentFont(self: ?*anyopaque, f: ?*anyopaque) void {
@@ -1531,7 +1531,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
     ///
     /// ``` self: QtC.KRichTextWidget, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
@@ -1540,7 +1540,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlainText)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
@@ -1553,7 +1553,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn SetHtml(self: ?*anyopaque, text: []const u8) void {
@@ -1566,7 +1566,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setMarkdown)
     ///
     /// ``` self: QtC.KRichTextWidget, markdown: []const u8 ```
     pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
@@ -1579,7 +1579,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setText)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -1592,7 +1592,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cut)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Cut(self: ?*anyopaque) void {
@@ -1601,7 +1601,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#copy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Copy(self: ?*anyopaque) void {
@@ -1610,7 +1610,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paste)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paste)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Paste(self: ?*anyopaque) void {
@@ -1619,7 +1619,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#undo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undo)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Undo(self: ?*anyopaque) void {
@@ -1628,7 +1628,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#redo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redo)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Redo(self: ?*anyopaque) void {
@@ -1637,7 +1637,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#clear)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -1646,7 +1646,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectAll)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SelectAll(self: ?*anyopaque) void {
@@ -1655,7 +1655,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertPlainText)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn InsertPlainText(self: ?*anyopaque, text: []const u8) void {
@@ -1668,7 +1668,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertHtml)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn InsertHtml(self: ?*anyopaque, text: []const u8) void {
@@ -1681,7 +1681,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#append)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn Append(self: ?*anyopaque, text: []const u8) void {
@@ -1694,7 +1694,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollToAnchor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollToAnchor)
     ///
     /// ``` self: QtC.KRichTextWidget, name: []const u8 ```
     pub fn ScrollToAnchor(self: ?*anyopaque, name: []const u8) void {
@@ -1707,7 +1707,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ZoomIn(self: ?*anyopaque) void {
@@ -1716,7 +1716,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ZoomOut(self: ?*anyopaque) void {
@@ -1725,7 +1725,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn TextChanged(self: ?*anyopaque) void {
@@ -1734,7 +1734,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1743,7 +1743,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
     ///
     /// ``` self: QtC.KRichTextWidget, b: bool ```
     pub fn UndoAvailable(self: ?*anyopaque, b: bool) void {
@@ -1752,7 +1752,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, b: bool) callconv(.c) void ```
     pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1761,7 +1761,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
     ///
     /// ``` self: QtC.KRichTextWidget, b: bool ```
     pub fn RedoAvailable(self: ?*anyopaque, b: bool) void {
@@ -1770,7 +1770,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, b: bool) callconv(.c) void ```
     pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1779,7 +1779,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, format: QtC.QTextCharFormat ```
     pub fn CurrentCharFormatChanged(self: ?*anyopaque, format: ?*anyopaque) void {
@@ -1788,7 +1788,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, format: QtC.QTextCharFormat) callconv(.c) void ```
     pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1797,7 +1797,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
     ///
     /// ``` self: QtC.KRichTextWidget, b: bool ```
     pub fn CopyAvailable(self: ?*anyopaque, b: bool) void {
@@ -1806,7 +1806,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, b: bool) callconv(.c) void ```
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1815,7 +1815,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SelectionChanged(self: ?*anyopaque) void {
@@ -1824,7 +1824,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1833,7 +1833,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CursorPositionChanged(self: ?*anyopaque) void {
@@ -1842,7 +1842,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1851,7 +1851,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.KRichTextWidget, exp: []const u8, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i32) bool {
@@ -1864,7 +1864,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.KRichTextWidget, exp: QtC.QRegularExpression, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i32) bool {
@@ -1873,7 +1873,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
     /// ``` self: QtC.KRichTextWidget, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
     pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1886,7 +1886,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
     ///
     /// ``` self: QtC.KRichTextWidget, operation: qtextcursor_enums.MoveOperation, mode: qtextcursor_enums.MoveMode ```
     pub fn MoveCursor2(self: ?*anyopaque, operation: i32, mode: i32) void {
@@ -1895,7 +1895,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
     ///
     /// ``` self: QtC.KRichTextWidget, range: i32 ```
     pub fn ZoomIn1(self: ?*anyopaque, range: i32) void {
@@ -1904,7 +1904,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
     ///
     /// ``` self: QtC.KRichTextWidget, range: i32 ```
     pub fn ZoomOut1(self: ?*anyopaque, range: i32) void {
@@ -1913,7 +1913,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -1924,7 +1924,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -1933,7 +1933,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -1942,7 +1942,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.KRichTextWidget, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -1951,7 +1951,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -1962,7 +1962,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -1971,7 +1971,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -1980,7 +1980,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.KRichTextWidget, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -1989,7 +1989,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1998,7 +1998,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.KRichTextWidget, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2007,7 +2007,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.KRichTextWidget, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -2016,7 +2016,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.KRichTextWidget, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -2030,7 +2030,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -2039,7 +2039,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.KRichTextWidget, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2048,7 +2048,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -2057,7 +2057,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -2068,7 +2068,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2077,7 +2077,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -2086,7 +2086,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.KRichTextWidget, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -2095,7 +2095,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -2104,7 +2104,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -2115,7 +2115,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.KRichTextWidget, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -2124,7 +2124,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -2135,7 +2135,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.KRichTextWidget, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -2144,7 +2144,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -2153,7 +2153,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.KRichTextWidget, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -2162,7 +2162,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -2171,7 +2171,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.KRichTextWidget, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -2180,7 +2180,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -2189,7 +2189,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.KRichTextWidget, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -2198,7 +2198,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -2207,7 +2207,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -2216,7 +2216,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -2225,7 +2225,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -2234,7 +2234,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -2243,7 +2243,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.KRichTextWidget, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -2252,7 +2252,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -2261,7 +2261,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2270,7 +2270,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -2279,7 +2279,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -2290,7 +2290,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.KRichTextWidget, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -2299,7 +2299,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2308,7 +2308,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2317,7 +2317,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2326,7 +2326,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.KRichTextWidget, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -2335,7 +2335,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.KRichTextWidget, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -2344,7 +2344,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2353,7 +2353,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -2362,7 +2362,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2371,7 +2371,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -2380,7 +2380,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -2389,7 +2389,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -2398,7 +2398,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -2407,7 +2407,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -2416,7 +2416,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -2425,7 +2425,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -2434,7 +2434,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -2443,7 +2443,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -2452,7 +2452,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2461,7 +2461,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2470,7 +2470,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2479,7 +2479,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -2488,7 +2488,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -2497,7 +2497,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -2506,7 +2506,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -2515,7 +2515,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KRichTextWidget, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -2524,7 +2524,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KRichTextWidget, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -2533,7 +2533,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KRichTextWidget, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -2542,7 +2542,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KRichTextWidget, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -2551,7 +2551,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.KRichTextWidget, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -2560,7 +2560,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.KRichTextWidget, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -2569,7 +2569,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.KRichTextWidget, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -2578,7 +2578,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.KRichTextWidget, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -2587,7 +2587,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -2596,7 +2596,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KRichTextWidget, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -2605,7 +2605,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KRichTextWidget, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2614,7 +2614,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -2623,7 +2623,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KRichTextWidget, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -2632,7 +2632,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KRichTextWidget, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -2641,7 +2641,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KRichTextWidget, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -2650,7 +2650,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KRichTextWidget, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2659,7 +2659,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.KRichTextWidget, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -2668,7 +2668,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.KRichTextWidget, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -2677,7 +2677,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2686,7 +2686,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2695,7 +2695,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2704,7 +2704,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2713,7 +2713,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2722,7 +2722,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2731,7 +2731,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2740,7 +2740,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2749,7 +2749,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2758,7 +2758,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2767,7 +2767,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2776,7 +2776,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2785,7 +2785,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -2794,7 +2794,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2803,7 +2803,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2812,7 +2812,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -2821,7 +2821,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.KRichTextWidget, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -2830,7 +2830,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.KRichTextWidget, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -2839,7 +2839,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -2850,7 +2850,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.KRichTextWidget, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -2859,7 +2859,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -2870,7 +2870,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -2879,7 +2879,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -2888,7 +2888,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -2897,7 +2897,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2906,7 +2906,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.KRichTextWidget, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2915,7 +2915,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2924,7 +2924,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.KRichTextWidget, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -2933,7 +2933,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -2942,7 +2942,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -2951,7 +2951,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.KRichTextWidget, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -2960,7 +2960,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -2969,7 +2969,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KRichTextWidget, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2978,7 +2978,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KRichTextWidget, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2987,7 +2987,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -2996,7 +2996,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -3005,7 +3005,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -3014,7 +3014,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -3023,7 +3023,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -3032,7 +3032,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -3041,7 +3041,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.KRichTextWidget, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -3050,7 +3050,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KRichTextWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3059,7 +3059,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.KRichTextWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3068,7 +3068,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.KRichTextWidget, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -3081,7 +3081,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.KRichTextWidget, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -3094,7 +3094,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3107,7 +3107,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3120,7 +3120,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.KRichTextWidget, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3129,7 +3129,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -3138,7 +3138,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.KRichTextWidget, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -3151,7 +3151,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3164,7 +3164,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.KRichTextWidget, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -3177,7 +3177,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3190,7 +3190,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.KRichTextWidget, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -3203,7 +3203,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3216,7 +3216,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.KRichTextWidget, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -3225,7 +3225,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -3234,7 +3234,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -3243,7 +3243,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.KRichTextWidget, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -3256,7 +3256,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3269,7 +3269,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.KRichTextWidget, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -3278,7 +3278,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -3287,7 +3287,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.KRichTextWidget, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -3300,7 +3300,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3313,7 +3313,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.KRichTextWidget, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -3326,7 +3326,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3339,7 +3339,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3352,7 +3352,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.KRichTextWidget, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -3365,7 +3365,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3378,7 +3378,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.KRichTextWidget, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -3391,7 +3391,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KRichTextWidget, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -3400,7 +3400,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -3411,7 +3411,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -3420,7 +3420,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.KRichTextWidget, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3429,7 +3429,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3438,7 +3438,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -3447,7 +3447,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -3456,7 +3456,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -3465,7 +3465,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -3474,7 +3474,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -3483,7 +3483,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -3492,7 +3492,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -3501,7 +3501,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KRichTextWidget, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -3510,7 +3510,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -3521,7 +3521,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3530,7 +3530,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -3539,7 +3539,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -3548,7 +3548,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.KRichTextWidget, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -3557,7 +3557,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -3566,7 +3566,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -3577,7 +3577,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.KRichTextWidget, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3586,7 +3586,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -3595,7 +3595,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3604,7 +3604,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -3613,7 +3613,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -3622,7 +3622,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -3631,7 +3631,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KRichTextWidget, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -3640,7 +3640,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.KRichTextWidget, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -3649,7 +3649,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -3658,7 +3658,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KRichTextWidget, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -3667,7 +3667,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -3676,7 +3676,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -3685,7 +3685,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -3694,7 +3694,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -3703,7 +3703,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -3712,7 +3712,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Update(self: ?*anyopaque) void {
@@ -3721,7 +3721,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -3730,7 +3730,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KRichTextWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3739,7 +3739,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3748,7 +3748,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3757,7 +3757,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KRichTextWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3766,7 +3766,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3775,7 +3775,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3784,7 +3784,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.KRichTextWidget, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -3793,7 +3793,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Show(self: ?*anyopaque) void {
@@ -3802,7 +3802,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -3811,7 +3811,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -3820,7 +3820,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -3829,7 +3829,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -3838,7 +3838,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -3847,7 +3847,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -3856,7 +3856,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -3865,7 +3865,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -3874,7 +3874,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3883,7 +3883,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KRichTextWidget, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -3892,7 +3892,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3901,7 +3901,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KRichTextWidget, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3910,7 +3910,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3919,7 +3919,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KRichTextWidget, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3928,7 +3928,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KRichTextWidget, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -3937,7 +3937,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -3950,7 +3950,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.KRichTextWidget, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -3963,7 +3963,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -3972,7 +3972,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -3981,7 +3981,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -3990,7 +3990,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -3999,7 +3999,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -4008,7 +4008,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -4017,7 +4017,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -4026,7 +4026,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -4037,7 +4037,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KRichTextWidget, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -4046,7 +4046,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KRichTextWidget, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -4055,7 +4055,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -4064,7 +4064,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KRichTextWidget, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -4073,7 +4073,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KRichTextWidget, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -4082,7 +4082,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -4091,7 +4091,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KRichTextWidget, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -4100,7 +4100,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KRichTextWidget, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -4109,7 +4109,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -4118,7 +4118,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -4127,7 +4127,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -4136,7 +4136,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.KRichTextWidget, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -4145,7 +4145,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -4154,7 +4154,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KRichTextWidget, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4163,7 +4163,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KRichTextWidget, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -4172,7 +4172,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KRichTextWidget, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -4181,7 +4181,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KRichTextWidget, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -4190,7 +4190,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4199,7 +4199,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4208,7 +4208,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4217,7 +4217,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -4226,7 +4226,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.KRichTextWidget, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -4235,7 +4235,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KRichTextWidget, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4244,7 +4244,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.KRichTextWidget, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4257,7 +4257,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.KRichTextWidget, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4270,7 +4270,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.KRichTextWidget, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -4279,7 +4279,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.KRichTextWidget, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4288,7 +4288,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4302,7 +4302,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4315,7 +4315,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KRichTextWidget, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4328,7 +4328,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KRichTextWidget, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4341,7 +4341,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KRichTextWidget, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4354,7 +4354,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4363,7 +4363,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.KRichTextWidget, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4372,7 +4372,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -4383,7 +4383,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -4392,7 +4392,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.KRichTextWidget, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4401,7 +4401,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -4412,7 +4412,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KRichTextWidget, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -4421,7 +4421,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KRichTextWidget, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4430,7 +4430,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KRichTextWidget, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4439,7 +4439,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -4448,7 +4448,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -4457,7 +4457,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -4466,7 +4466,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.KRichTextWidget, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -4475,7 +4475,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -4484,7 +4484,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.KRichTextWidget, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -4493,7 +4493,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -4502,7 +4502,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -4511,7 +4511,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -4520,7 +4520,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.KRichTextWidget, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -4529,7 +4529,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -4538,7 +4538,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -4551,7 +4551,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4560,7 +4560,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -4569,7 +4569,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4578,7 +4578,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -4591,7 +4591,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4600,7 +4600,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KRichTextWidget, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -4609,7 +4609,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4618,7 +4618,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     ///
@@ -4629,7 +4629,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.KRichTextWidget, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -4638,7 +4638,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4647,7 +4647,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4656,7 +4656,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4665,7 +4665,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4674,7 +4674,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4683,7 +4683,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KRichTextWidget, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4692,7 +4692,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KRichTextWidget, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -4701,7 +4701,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KRichTextWidget, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -4710,7 +4710,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KRichTextWidget, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -4719,7 +4719,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KRichTextWidget, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4728,7 +4728,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KRichTextWidget, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4737,7 +4737,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -4746,7 +4746,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -4755,7 +4755,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -4764,7 +4764,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -4773,7 +4773,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4786,7 +4786,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KRichTextWidget, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -4799,7 +4799,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4808,7 +4808,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4817,7 +4817,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4826,7 +4826,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4835,7 +4835,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KRichTextWidget, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4844,7 +4844,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4853,7 +4853,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KRichTextWidget, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4862,7 +4862,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KRichTextWidget, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4871,7 +4871,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KRichTextWidget, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4880,7 +4880,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KRichTextWidget, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4889,7 +4889,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4903,7 +4903,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KRichTextWidget, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4912,7 +4912,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KRichTextWidget, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4921,7 +4921,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4930,7 +4930,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KRichTextWidget, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4941,7 +4941,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4950,7 +4950,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4959,7 +4959,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4968,7 +4968,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4977,7 +4977,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KRichTextWidget, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4987,7 +4987,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KRichTextWidget, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4997,7 +4997,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KRichTextWidget, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5021,7 +5021,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5030,7 +5030,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5039,7 +5039,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5048,7 +5048,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5057,7 +5057,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5066,7 +5066,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KRichTextWidget, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5076,7 +5076,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5085,7 +5085,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KRichTextWidget, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5094,7 +5094,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KRichTextWidget, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5103,7 +5103,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5112,7 +5112,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KRichTextWidget, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5123,7 +5123,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRichTextWidget, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5132,7 +5132,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRichTextWidget, callback: *const fn (self: QtC.KRichTextWidget, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5141,7 +5141,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -5150,7 +5150,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -5159,7 +5159,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -5168,7 +5168,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -5177,7 +5177,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -5186,7 +5186,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -5195,7 +5195,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -5204,7 +5204,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -5213,7 +5213,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -5222,7 +5222,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -5231,7 +5231,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.KRichTextWidget ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -5240,7 +5240,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -5249,7 +5249,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -5258,7 +5258,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5269,7 +5269,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5280,7 +5280,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KRichTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
+    /// [Upstream resources](https://api.kde.org/krichtextedit.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5291,7 +5291,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5302,7 +5302,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5313,7 +5313,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setReadOnly)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setReadOnly)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5324,7 +5324,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5335,7 +5335,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5346,7 +5346,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#setCheckSpellingEnabled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5357,7 +5357,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5368,7 +5368,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5379,7 +5379,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#checkSpellingEnabled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5390,7 +5390,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5405,7 +5405,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5420,7 +5420,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#shouldBlockBeSpellChecked)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5431,7 +5431,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5442,7 +5442,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5453,7 +5453,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#createHighlighter)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#createHighlighter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5464,7 +5464,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5475,7 +5475,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5486,7 +5486,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#mousePopupMenu)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#mousePopupMenu)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5497,7 +5497,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5508,7 +5508,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5519,7 +5519,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#event)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5530,7 +5530,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5541,7 +5541,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5552,7 +5552,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#focusInEvent)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5563,7 +5563,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5574,7 +5574,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5585,7 +5585,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordBack)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordBack)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5596,7 +5596,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5607,7 +5607,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5618,7 +5618,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#deleteWordForward)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#deleteWordForward)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5629,7 +5629,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5640,7 +5640,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5651,7 +5651,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#contextMenuEvent)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5662,7 +5662,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5673,7 +5673,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5684,7 +5684,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5695,7 +5695,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5706,7 +5706,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5717,7 +5717,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5728,7 +5728,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5739,7 +5739,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5750,7 +5750,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5761,7 +5761,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5772,7 +5772,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5783,7 +5783,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5794,7 +5794,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5805,7 +5805,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5816,7 +5816,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5827,7 +5827,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5838,7 +5838,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5849,7 +5849,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5860,7 +5860,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5871,7 +5871,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5882,7 +5882,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5893,7 +5893,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5904,7 +5904,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5915,7 +5915,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5926,7 +5926,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5937,7 +5937,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5948,7 +5948,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5959,7 +5959,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5970,7 +5970,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5981,7 +5981,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5992,7 +5992,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6003,7 +6003,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6014,7 +6014,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6025,7 +6025,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6036,7 +6036,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6047,7 +6047,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6058,7 +6058,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6069,7 +6069,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6080,7 +6080,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6091,7 +6091,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6102,7 +6102,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6113,7 +6113,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6124,7 +6124,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6135,7 +6135,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6146,7 +6146,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6157,7 +6157,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6168,7 +6168,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6179,7 +6179,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6190,7 +6190,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6201,7 +6201,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6212,7 +6212,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6223,7 +6223,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6234,7 +6234,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6245,7 +6245,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6256,7 +6256,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6267,7 +6267,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6278,7 +6278,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6289,7 +6289,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6300,7 +6300,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6311,7 +6311,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6322,7 +6322,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6333,7 +6333,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6344,7 +6344,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6355,7 +6355,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6366,7 +6366,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6377,7 +6377,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6388,7 +6388,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6399,7 +6399,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6410,7 +6410,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6421,7 +6421,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6432,7 +6432,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6443,7 +6443,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6454,7 +6454,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6465,7 +6465,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6476,7 +6476,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6487,7 +6487,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6498,7 +6498,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6509,7 +6509,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6520,7 +6520,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6531,7 +6531,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6542,7 +6542,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6553,7 +6553,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6564,7 +6564,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6575,7 +6575,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6586,7 +6586,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6597,7 +6597,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6608,7 +6608,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6619,7 +6619,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6630,7 +6630,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6641,7 +6641,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6652,7 +6652,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6663,7 +6663,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6674,7 +6674,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6685,7 +6685,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6696,7 +6696,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6707,7 +6707,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6718,7 +6718,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6729,7 +6729,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6740,7 +6740,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6751,7 +6751,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6762,7 +6762,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6773,7 +6773,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6784,7 +6784,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6795,7 +6795,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6806,7 +6806,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6817,7 +6817,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6828,7 +6828,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6839,7 +6839,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6850,7 +6850,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6861,7 +6861,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6872,7 +6872,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6883,7 +6883,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6894,7 +6894,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6905,7 +6905,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6916,7 +6916,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6927,7 +6927,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6938,7 +6938,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6949,7 +6949,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6960,7 +6960,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6971,7 +6971,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6982,7 +6982,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6993,7 +6993,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7004,7 +7004,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7015,7 +7015,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7026,7 +7026,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7037,7 +7037,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7048,7 +7048,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7059,7 +7059,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7070,7 +7070,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7081,7 +7081,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7096,7 +7096,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7111,7 +7111,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7122,7 +7122,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7133,7 +7133,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7144,7 +7144,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7155,7 +7155,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7166,7 +7166,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7177,7 +7177,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7188,7 +7188,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7199,7 +7199,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7210,7 +7210,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7221,7 +7221,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7232,7 +7232,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7243,7 +7243,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7254,7 +7254,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7265,7 +7265,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7276,7 +7276,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7287,7 +7287,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7298,7 +7298,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7309,7 +7309,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7320,7 +7320,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7331,7 +7331,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7342,7 +7342,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7353,7 +7353,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7364,7 +7364,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7375,7 +7375,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7386,7 +7386,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7397,7 +7397,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7408,7 +7408,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoReplace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7419,7 +7419,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7430,7 +7430,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7441,7 +7441,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplaceNext)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7452,7 +7452,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7463,7 +7463,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7474,7 +7474,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotDoFind)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7485,7 +7485,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7496,7 +7496,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7507,7 +7507,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFind)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7518,7 +7518,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7529,7 +7529,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7540,7 +7540,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindNext)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7551,7 +7551,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7562,7 +7562,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7573,7 +7573,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotFindPrevious)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7584,7 +7584,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7595,7 +7595,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7606,7 +7606,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotReplace)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7617,7 +7617,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7628,7 +7628,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7639,7 +7639,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from KTextEdit
     ///
-    /// [Qt documentation](https://api.kde.org/ktextedit.html#slotSpeakText)
+    /// [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7650,7 +7650,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7661,7 +7661,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7672,7 +7672,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QTextEdit
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7683,7 +7683,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7694,7 +7694,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7705,7 +7705,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7716,7 +7716,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7727,7 +7727,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7738,7 +7738,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7749,7 +7749,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7760,7 +7760,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7771,7 +7771,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7782,7 +7782,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7793,7 +7793,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7804,7 +7804,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7815,7 +7815,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7826,7 +7826,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7837,7 +7837,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7848,7 +7848,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7859,7 +7859,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7870,7 +7870,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7881,7 +7881,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7892,7 +7892,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7903,7 +7903,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7914,7 +7914,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7925,7 +7925,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7936,7 +7936,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7947,7 +7947,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7958,7 +7958,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7969,7 +7969,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7980,7 +7980,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7991,7 +7991,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8002,7 +8002,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8013,7 +8013,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8025,7 +8025,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8037,7 +8037,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8048,7 +8048,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8059,7 +8059,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8070,7 +8070,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8081,7 +8081,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8092,7 +8092,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8103,7 +8103,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8114,7 +8114,7 @@ pub const krichtextwidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -8123,7 +8123,7 @@ pub const krichtextwidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/krichtextwidget.html#dtor.KRichTextWidget)
+    /// [Upstream resources](https://api.kde.org/krichtextwidget.html#dtor.KRichTextWidget)
     ///
     /// Delete this object from C++ memory.
     ///

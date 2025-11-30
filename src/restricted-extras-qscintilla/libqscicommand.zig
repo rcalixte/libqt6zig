@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html
 pub const qscicommand = struct {
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand ```
     ///
@@ -14,49 +14,49 @@ pub const qscicommand = struct {
         return qtc.QsciCommand_Command(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand ```
     pub fn Execute(self: ?*anyopaque) void {
         qtc.QsciCommand_Execute(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand, key: i32 ```
     pub fn SetKey(self: ?*anyopaque, key: i32) void {
         qtc.QsciCommand_SetKey(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand, altkey: i32 ```
     pub fn SetAlternateKey(self: ?*anyopaque, altkey: i32) void {
         qtc.QsciCommand_SetAlternateKey(@ptrCast(self), @intCast(altkey));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand ```
     pub fn Key(self: ?*anyopaque) i32 {
         return qtc.QsciCommand_Key(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand ```
     pub fn AlternateKey(self: ?*anyopaque) i32 {
         return qtc.QsciCommand_AlternateKey(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` key: i32 ```
     pub fn ValidKey(key: i32) bool {
         return qtc.QsciCommand_ValidKey(@intCast(key));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -67,7 +67,7 @@ pub const qscicommand = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// Delete this object from C++ memory.
     ///

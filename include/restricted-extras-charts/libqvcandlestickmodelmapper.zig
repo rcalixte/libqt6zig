@@ -20,7 +20,7 @@ pub const qvcandlestickmodelmapper = struct {
         return qtc.QVCandlestickModelMapper_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -52,7 +52,7 @@ pub const qvcandlestickmodelmapper = struct {
         return qtc.QVCandlestickModelMapper_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -64,7 +64,7 @@ pub const qvcandlestickmodelmapper = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     ///
@@ -73,7 +73,7 @@ pub const qvcandlestickmodelmapper = struct {
         return qtc.QVCandlestickModelMapper_Orientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
     ///
     /// Allows for overriding the related default method
     ///
@@ -82,7 +82,7 @@ pub const qvcandlestickmodelmapper = struct {
         qtc.QVCandlestickModelMapper_OnOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
     ///
     /// Base class method implementation
     ///
@@ -93,203 +93,203 @@ pub const qvcandlestickmodelmapper = struct {
         return qtc.QVCandlestickModelMapper_QBaseOrientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setTimestampRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setTimestampRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, timestampRow: i32 ```
     pub fn SetTimestampRow(self: ?*anyopaque, timestampRow: i32) void {
         qtc.QVCandlestickModelMapper_SetTimestampRow(@ptrCast(self), @intCast(timestampRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn TimestampRow(self: ?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_TimestampRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setOpenRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setOpenRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, openRow: i32 ```
     pub fn SetOpenRow(self: ?*anyopaque, openRow: i32) void {
         qtc.QVCandlestickModelMapper_SetOpenRow(@ptrCast(self), @intCast(openRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn OpenRow(self: ?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_OpenRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setHighRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setHighRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, highRow: i32 ```
     pub fn SetHighRow(self: ?*anyopaque, highRow: i32) void {
         qtc.QVCandlestickModelMapper_SetHighRow(@ptrCast(self), @intCast(highRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn HighRow(self: ?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_HighRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setLowRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setLowRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, lowRow: i32 ```
     pub fn SetLowRow(self: ?*anyopaque, lowRow: i32) void {
         qtc.QVCandlestickModelMapper_SetLowRow(@ptrCast(self), @intCast(lowRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn LowRow(self: ?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_LowRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setCloseRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setCloseRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, closeRow: i32 ```
     pub fn SetCloseRow(self: ?*anyopaque, closeRow: i32) void {
         qtc.QVCandlestickModelMapper_SetCloseRow(@ptrCast(self), @intCast(closeRow));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRow)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn CloseRow(self: ?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_CloseRow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setFirstSetColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setFirstSetColumn)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, firstSetColumn: i32 ```
     pub fn SetFirstSetColumn(self: ?*anyopaque, firstSetColumn: i32) void {
         qtc.QVCandlestickModelMapper_SetFirstSetColumn(@ptrCast(self), @intCast(firstSetColumn));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumn)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn FirstSetColumn(self: ?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_FirstSetColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setLastSetColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#setLastSetColumn)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, lastSetColumn: i32 ```
     pub fn SetLastSetColumn(self: ?*anyopaque, lastSetColumn: i32) void {
         qtc.QVCandlestickModelMapper_SetLastSetColumn(@ptrCast(self), @intCast(lastSetColumn));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumn)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn LastSetColumn(self: ?*anyopaque) i32 {
         return qtc.QVCandlestickModelMapper_LastSetColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn TimestampRowChanged(self: ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_TimestampRowChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnTimestampRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_TimestampRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn OpenRowChanged(self: ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_OpenRowChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnOpenRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_OpenRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn HighRowChanged(self: ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_HighRowChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnHighRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_HighRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn LowRowChanged(self: ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_LowRowChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnLowRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_LowRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn CloseRowChanged(self: ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_CloseRowChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnCloseRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_CloseRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn FirstSetColumnChanged(self: ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_FirstSetColumnChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnFirstSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_FirstSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn LastSetColumnChanged(self: ?*anyopaque) void {
         qtc.QVCandlestickModelMapper_LastSetColumnChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnLastSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QVCandlestickModelMapper_Connect_LastSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -302,7 +302,7 @@ pub const qvcandlestickmodelmapper = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -317,7 +317,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setModel)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
@@ -326,7 +326,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#model)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -335,7 +335,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setSeries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setSeries)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, series: QtC.QCandlestickSeries ```
     pub fn SetSeries(self: ?*anyopaque, series: ?*anyopaque) void {
@@ -344,7 +344,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#series)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#series)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn Series(self: ?*anyopaque) QtC.QCandlestickSeries {
@@ -353,7 +353,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#modelReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#modelReplaced)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn ModelReplaced(self: ?*anyopaque) void {
@@ -362,7 +362,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#modelReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#modelReplaced)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnModelReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -371,7 +371,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#seriesReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#seriesReplaced)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn SeriesReplaced(self: ?*anyopaque) void {
@@ -380,7 +380,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#seriesReplaced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#seriesReplaced)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnSeriesReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -389,7 +389,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -402,7 +402,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -415,7 +415,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -424,7 +424,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -433,7 +433,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -442,7 +442,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -451,7 +451,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -460,7 +460,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -469,7 +469,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -478,7 +478,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -487,7 +487,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -496,7 +496,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -505,7 +505,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -519,7 +519,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -528,7 +528,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -537,7 +537,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -546,7 +546,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -555,7 +555,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -566,7 +566,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -575,7 +575,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -584,7 +584,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -593,7 +593,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -602,7 +602,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -612,7 +612,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -622,7 +622,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -646,7 +646,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -655,7 +655,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -664,7 +664,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -673,7 +673,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -682,7 +682,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -691,7 +691,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -701,7 +701,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -710,7 +710,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -719,7 +719,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -728,7 +728,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -737,7 +737,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -748,7 +748,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -757,7 +757,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -766,7 +766,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -777,7 +777,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -788,7 +788,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -799,7 +799,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -810,7 +810,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -821,7 +821,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -832,7 +832,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -843,7 +843,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -854,7 +854,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -865,7 +865,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -876,7 +876,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -887,7 +887,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -898,7 +898,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -909,7 +909,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -920,7 +920,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -931,7 +931,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -942,7 +942,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -953,7 +953,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -964,7 +964,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -975,7 +975,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -986,7 +986,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -997,7 +997,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setTimestamp)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1008,7 +1008,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setTimestamp)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1019,7 +1019,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setTimestamp)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1030,7 +1030,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#timestamp)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1041,7 +1041,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#timestamp)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1052,7 +1052,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#timestamp)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1063,7 +1063,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setOpen)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1074,7 +1074,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setOpen)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1085,7 +1085,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setOpen)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1096,7 +1096,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#open)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1107,7 +1107,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#open)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1118,7 +1118,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#open)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1129,7 +1129,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setHigh)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setHigh)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1140,7 +1140,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setHigh)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setHigh)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1151,7 +1151,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setHigh)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setHigh)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1162,7 +1162,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#high)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#high)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1173,7 +1173,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#high)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#high)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1184,7 +1184,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#high)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#high)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1195,7 +1195,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLow)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1206,7 +1206,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLow)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1217,7 +1217,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLow)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1228,7 +1228,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#low)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#low)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1239,7 +1239,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#low)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#low)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1250,7 +1250,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#low)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#low)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1261,7 +1261,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setClose)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1272,7 +1272,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setClose)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1283,7 +1283,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setClose)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1294,7 +1294,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#close)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1305,7 +1305,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#close)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1316,7 +1316,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#close)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1327,7 +1327,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setFirstSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setFirstSetSection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1338,7 +1338,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setFirstSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setFirstSetSection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1349,7 +1349,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setFirstSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setFirstSetSection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1360,7 +1360,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#firstSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#firstSetSection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1371,7 +1371,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#firstSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#firstSetSection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1382,7 +1382,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#firstSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#firstSetSection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1393,7 +1393,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLastSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLastSetSection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1404,7 +1404,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLastSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLastSetSection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1415,7 +1415,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLastSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#setLastSetSection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1426,7 +1426,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#lastSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#lastSetSection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1437,7 +1437,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#lastSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#lastSetSection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1448,7 +1448,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QCandlestickModelMapper
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#lastSetSection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#lastSetSection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1459,7 +1459,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1470,7 +1470,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1481,7 +1481,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1492,7 +1492,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1503,7 +1503,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1514,7 +1514,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1525,7 +1525,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1537,7 +1537,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1549,7 +1549,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1560,7 +1560,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1571,7 +1571,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1582,7 +1582,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1593,7 +1593,7 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1602,7 +1602,7 @@ pub const qvcandlestickmodelmapper = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#dtor.QVCandlestickModelMapper)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#dtor.QVCandlestickModelMapper)
     ///
     /// Delete this object from C++ memory.
     ///

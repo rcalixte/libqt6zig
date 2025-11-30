@@ -59,77 +59,77 @@ pub const qbitmap = struct {
         return qtc.QBitmap_new6(fileName_str, format_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
     ///
     /// ``` self: QtC.QBitmap, param1: QtC.QPixmap ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QBitmap_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#swap)
     ///
     /// ``` self: QtC.QBitmap, other: QtC.QBitmap ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QBitmap_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QBitmap_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#clear)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QBitmap_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromImage)
     ///
     /// ``` image: QtC.QImage ```
     pub fn FromImage(image: ?*anyopaque) QtC.QBitmap {
         return qtc.QBitmap_FromImage(@ptrCast(image));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromData)
     ///
     /// ``` size: QtC.QSize, bits: *const u8 ```
     pub fn FromData(size: ?*anyopaque, bits: *const u8) QtC.QBitmap {
         return qtc.QBitmap_FromData(@ptrCast(size), @ptrCast(bits));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromPixmap)
     ///
     /// ``` pixmap: QtC.QPixmap ```
     pub fn FromPixmap(pixmap: ?*anyopaque) QtC.QBitmap {
         return qtc.QBitmap_FromPixmap(@ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#transformed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#transformed)
     ///
     /// ``` self: QtC.QBitmap, matrix: QtC.QTransform ```
     pub fn Transformed(self: ?*anyopaque, matrix: ?*anyopaque) QtC.QBitmap {
         return qtc.QBitmap_Transformed(@ptrCast(self), @ptrCast(matrix));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
     ///
     /// ``` self: QtC.QBitmap, param1: QtC.QBitmap ```
     pub fn OperatorAssign2(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QBitmap_OperatorAssign2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromImage)
     ///
     /// ``` image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn FromImage2(image: ?*anyopaque, flags: i32) QtC.QBitmap {
         return qtc.QBitmap_FromImage2(@ptrCast(image), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#fromData)
     ///
     /// ``` size: QtC.QSize, bits: *const u8, monoFormat: qimage_enums.Format ```
     pub fn FromData3(size: ?*anyopaque, bits: *const u8, monoFormat: i32) QtC.QBitmap {
@@ -138,7 +138,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#isNull)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn IsNull(self: ?*anyopaque) bool {
@@ -147,7 +147,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#width)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -156,7 +156,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#height)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -165,7 +165,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#size)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -174,7 +174,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#rect)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -183,7 +183,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#depth)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -192,7 +192,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#defaultDepth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#defaultDepth)
     ///
     ///
     pub fn DefaultDepth() i32 {
@@ -201,7 +201,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#fill)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fill)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Fill(self: ?*anyopaque) void {
@@ -210,7 +210,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#mask)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Mask(self: ?*anyopaque) QtC.QBitmap {
@@ -219,7 +219,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#setMask)
     ///
     /// ``` self: QtC.QBitmap, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -228,7 +228,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -237,7 +237,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#setDevicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#setDevicePixelRatio)
     ///
     /// ``` self: QtC.QBitmap, scaleFactor: f64 ```
     pub fn SetDevicePixelRatio(self: ?*anyopaque, scaleFactor: f64) void {
@@ -246,7 +246,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#deviceIndependentSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#deviceIndependentSize)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn DeviceIndependentSize(self: ?*anyopaque) QtC.QSizeF {
@@ -255,7 +255,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#hasAlpha)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#hasAlpha)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn HasAlpha(self: ?*anyopaque) bool {
@@ -264,7 +264,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#hasAlphaChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#hasAlphaChannel)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn HasAlphaChannel(self: ?*anyopaque) bool {
@@ -273,7 +273,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#createHeuristicMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#createHeuristicMask)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn CreateHeuristicMask(self: ?*anyopaque) QtC.QBitmap {
@@ -282,7 +282,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#createMaskFromColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#createMaskFromColor)
     ///
     /// ``` self: QtC.QBitmap, maskColor: QtC.QColor ```
     pub fn CreateMaskFromColor(self: ?*anyopaque, maskColor: ?*anyopaque) QtC.QBitmap {
@@ -291,7 +291,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QBitmap, w: i32, h: i32 ```
     pub fn Scaled(self: ?*anyopaque, w: i32, h: i32) QtC.QPixmap {
@@ -300,7 +300,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QBitmap, s: QtC.QSize ```
     pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque) QtC.QPixmap {
@@ -309,7 +309,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaledToWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaledToWidth)
     ///
     /// ``` self: QtC.QBitmap, w: i32 ```
     pub fn ScaledToWidth(self: ?*anyopaque, w: i32) QtC.QPixmap {
@@ -318,7 +318,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaledToHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaledToHeight)
     ///
     /// ``` self: QtC.QBitmap, h: i32 ```
     pub fn ScaledToHeight(self: ?*anyopaque, h: i32) QtC.QPixmap {
@@ -327,7 +327,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#trueMatrix)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#trueMatrix)
     ///
     /// ``` m: QtC.QTransform, w: i32, h: i32 ```
     pub fn TrueMatrix(m: ?*anyopaque, w: i32, h: i32) QtC.QTransform {
@@ -336,7 +336,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#toImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#toImage)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn ToImage(self: ?*anyopaque) QtC.QImage {
@@ -345,7 +345,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#fromImageReader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageReader)
     ///
     /// ``` imageReader: QtC.QImageReader ```
     pub fn FromImageReader(imageReader: ?*anyopaque) QtC.QPixmap {
@@ -354,7 +354,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#load)
     ///
     /// ``` self: QtC.QBitmap, fileName: []const u8 ```
     pub fn Load(self: ?*anyopaque, fileName: []const u8) bool {
@@ -367,7 +367,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QBitmap, buf: *const u8, lenVal: u32 ```
     pub fn LoadFromData(self: ?*anyopaque, buf: *const u8, lenVal: u32) bool {
@@ -376,7 +376,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QBitmap, data: []u8 ```
     pub fn LoadFromData2(self: ?*anyopaque, data: []u8) bool {
@@ -389,7 +389,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QBitmap, fileName: []const u8 ```
     pub fn Save(self: ?*anyopaque, fileName: []const u8) bool {
@@ -402,7 +402,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QBitmap, device: QtC.QIODevice ```
     pub fn Save2(self: ?*anyopaque, device: ?*anyopaque) bool {
@@ -411,7 +411,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#convertFromImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#convertFromImage)
     ///
     /// ``` self: QtC.QBitmap, img: QtC.QImage ```
     pub fn ConvertFromImage(self: ?*anyopaque, img: ?*anyopaque) bool {
@@ -420,7 +420,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#copy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#copy)
     ///
     /// ``` self: QtC.QBitmap, x: i32, y: i32, width: i32, height: i32 ```
     pub fn Copy(self: ?*anyopaque, x: i32, y: i32, width: i32, height: i32) QtC.QPixmap {
@@ -429,7 +429,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#copy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#copy)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Copy2(self: ?*anyopaque) QtC.QPixmap {
@@ -438,7 +438,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scroll)
     ///
     /// ``` self: QtC.QBitmap, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32) void {
@@ -447,7 +447,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scroll)
     ///
     /// ``` self: QtC.QBitmap, dx: i32, dy: i32, rect: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, rect: ?*anyopaque) void {
@@ -456,7 +456,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#cacheKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#cacheKey)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn CacheKey(self: ?*anyopaque) i64 {
@@ -465,7 +465,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#isDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#isDetached)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn IsDetached(self: ?*anyopaque) bool {
@@ -474,7 +474,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#detach)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#detach)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn Detach(self: ?*anyopaque) void {
@@ -483,7 +483,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#isQBitmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#isQBitmap)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn IsQBitmap(self: ?*anyopaque) bool {
@@ -492,7 +492,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#operator-not)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#operator-not)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn OperatorNot(self: ?*anyopaque) bool {
@@ -501,7 +501,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#fill)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fill)
     ///
     /// ``` self: QtC.QBitmap, fillColor: QtC.QColor ```
     pub fn Fill1(self: ?*anyopaque, fillColor: ?*anyopaque) void {
@@ -510,7 +510,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#createHeuristicMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#createHeuristicMask)
     ///
     /// ``` self: QtC.QBitmap, clipTight: bool ```
     pub fn CreateHeuristicMask1(self: ?*anyopaque, clipTight: bool) QtC.QBitmap {
@@ -519,7 +519,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#createMaskFromColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#createMaskFromColor)
     ///
     /// ``` self: QtC.QBitmap, maskColor: QtC.QColor, mode: qnamespace_enums.MaskMode ```
     pub fn CreateMaskFromColor2(self: ?*anyopaque, maskColor: ?*anyopaque, mode: i32) QtC.QBitmap {
@@ -528,7 +528,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QBitmap, w: i32, h: i32, aspectMode: qnamespace_enums.AspectRatioMode ```
     pub fn Scaled3(self: ?*anyopaque, w: i32, h: i32, aspectMode: i32) QtC.QPixmap {
@@ -537,7 +537,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QBitmap, w: i32, h: i32, aspectMode: qnamespace_enums.AspectRatioMode, mode: qnamespace_enums.TransformationMode ```
     pub fn Scaled4(self: ?*anyopaque, w: i32, h: i32, aspectMode: i32, mode: i32) QtC.QPixmap {
@@ -546,7 +546,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QBitmap, s: QtC.QSize, aspectMode: qnamespace_enums.AspectRatioMode ```
     pub fn Scaled22(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i32) QtC.QPixmap {
@@ -555,7 +555,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QBitmap, s: QtC.QSize, aspectMode: qnamespace_enums.AspectRatioMode, mode: qnamespace_enums.TransformationMode ```
     pub fn Scaled32(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i32, mode: i32) QtC.QPixmap {
@@ -564,7 +564,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaledToWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaledToWidth)
     ///
     /// ``` self: QtC.QBitmap, w: i32, mode: qnamespace_enums.TransformationMode ```
     pub fn ScaledToWidth2(self: ?*anyopaque, w: i32, mode: i32) QtC.QPixmap {
@@ -573,7 +573,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaledToHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scaledToHeight)
     ///
     /// ``` self: QtC.QBitmap, h: i32, mode: qnamespace_enums.TransformationMode ```
     pub fn ScaledToHeight2(self: ?*anyopaque, h: i32, mode: i32) QtC.QPixmap {
@@ -582,7 +582,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#transformed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#transformed)
     ///
     /// ``` self: QtC.QBitmap, param1: QtC.QTransform, mode: qnamespace_enums.TransformationMode ```
     pub fn Transformed2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) QtC.QPixmap {
@@ -591,7 +591,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#fromImageReader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageReader)
     ///
     /// ``` imageReader: QtC.QImageReader, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn FromImageReader2(imageReader: ?*anyopaque, flags: i32) QtC.QPixmap {
@@ -600,7 +600,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#load)
     ///
     /// ``` self: QtC.QBitmap, fileName: []const u8, format: []const u8 ```
     pub fn Load2(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
@@ -614,7 +614,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#load)
     ///
     /// ``` self: QtC.QBitmap, fileName: []const u8, format: []const u8, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn Load3(self: ?*anyopaque, fileName: []const u8, format: []const u8, flags: i32) bool {
@@ -628,7 +628,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QBitmap, buf: *const u8, lenVal: u32, format: []const u8 ```
     pub fn LoadFromData3(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: []const u8) bool {
@@ -638,7 +638,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QBitmap, buf: *const u8, lenVal: u32, format: []const u8, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn LoadFromData4(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: []const u8, flags: i32) bool {
@@ -648,7 +648,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QBitmap, data: []u8, format: []const u8 ```
     pub fn LoadFromData22(self: ?*anyopaque, data: []u8, format: []const u8) bool {
@@ -662,7 +662,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QBitmap, data: []u8, format: []const u8, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn LoadFromData32(self: ?*anyopaque, data: []u8, format: []const u8, flags: i32) bool {
@@ -676,7 +676,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QBitmap, fileName: []const u8, format: []const u8 ```
     pub fn Save22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
@@ -690,7 +690,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QBitmap, fileName: []const u8, format: []const u8, quality: i32 ```
     pub fn Save3(self: ?*anyopaque, fileName: []const u8, format: []const u8, quality: i32) bool {
@@ -704,7 +704,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QBitmap, device: QtC.QIODevice, format: []const u8 ```
     pub fn Save23(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
@@ -714,7 +714,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QBitmap, device: QtC.QIODevice, format: []const u8, quality: i32 ```
     pub fn Save32(self: ?*anyopaque, device: ?*anyopaque, format: []const u8, quality: i32) bool {
@@ -724,7 +724,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#convertFromImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#convertFromImage)
     ///
     /// ``` self: QtC.QBitmap, img: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertFromImage2(self: ?*anyopaque, img: ?*anyopaque, flags: i32) bool {
@@ -733,7 +733,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#copy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#copy)
     ///
     /// ``` self: QtC.QBitmap, rect: QtC.QRect ```
     pub fn Copy1(self: ?*anyopaque, rect: ?*anyopaque) QtC.QPixmap {
@@ -742,7 +742,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scroll)
     ///
     /// ``` self: QtC.QBitmap, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32, exposed: QtC.QRegion ```
     pub fn Scroll7(self: ?*anyopaque, dx: i32, dy: i32, x: i32, y: i32, width: i32, height: i32, exposed: ?*anyopaque) void {
@@ -751,7 +751,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#scroll)
     ///
     /// ``` self: QtC.QBitmap, dx: i32, dy: i32, rect: QtC.QRect, exposed: QtC.QRegion ```
     pub fn Scroll4(self: ?*anyopaque, dx: i32, dy: i32, rect: ?*anyopaque, exposed: ?*anyopaque) void {
@@ -760,7 +760,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -769,7 +769,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -778,7 +778,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -787,7 +787,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -796,7 +796,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -805,7 +805,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -814,7 +814,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -823,7 +823,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -832,7 +832,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -841,7 +841,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -850,7 +850,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -859,7 +859,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -870,7 +870,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -881,7 +881,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -892,7 +892,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -903,7 +903,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -914,7 +914,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -925,7 +925,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -936,7 +936,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -947,7 +947,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -958,7 +958,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -969,7 +969,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -980,7 +980,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -991,7 +991,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1002,7 +1002,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1013,7 +1013,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1024,7 +1024,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1035,7 +1035,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1046,7 +1046,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1057,7 +1057,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1068,7 +1068,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1079,7 +1079,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1088,7 +1088,7 @@ pub const qbitmap = struct {
         qtc.QBitmap_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#dtor.QBitmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#dtor.QBitmap)
     ///
     /// Delete this object from C++ memory.
     ///

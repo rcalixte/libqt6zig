@@ -32,7 +32,7 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_new(protocol_str, poolSocket_str, appSocket_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -64,7 +64,7 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -76,14 +76,14 @@ pub const kio__forwardingworkerbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#get)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#get)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl ```
     pub fn Get(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Get(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#get)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#get)
     ///
     /// Allows for overriding the related default method
     ///
@@ -92,7 +92,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnGet(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#get)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#get)
     ///
     /// Base class method implementation
     ///
@@ -101,14 +101,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseGet(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#put)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#put)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn Put(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Put(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#put)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#put)
     ///
     /// Allows for overriding the related default method
     ///
@@ -117,7 +117,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnPut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#put)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#put)
     ///
     /// Base class method implementation
     ///
@@ -126,14 +126,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBasePut(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#stat)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#stat)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl ```
     pub fn Stat(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Stat(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#stat)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#stat)
     ///
     /// Allows for overriding the related default method
     ///
@@ -142,7 +142,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnStat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#stat)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#stat)
     ///
     /// Base class method implementation
     ///
@@ -151,14 +151,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseStat(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl ```
     pub fn Mimetype(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Mimetype(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
     ///
     /// Allows for overriding the related default method
     ///
@@ -167,7 +167,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnMimetype(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
     ///
     /// Base class method implementation
     ///
@@ -176,14 +176,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseMimetype(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl ```
     pub fn ListDir(self: ?*anyopaque, url: ?*anyopaque) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_ListDir(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
     ///
     /// Allows for overriding the related default method
     ///
@@ -192,7 +192,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnListDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
     ///
     /// Base class method implementation
     ///
@@ -201,14 +201,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseListDir(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32 ```
     pub fn Mkdir(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Mkdir(@ptrCast(self), @ptrCast(url), @intCast(permissions));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
     ///
     /// Allows for overriding the related default method
     ///
@@ -217,7 +217,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnMkdir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
     ///
     /// Base class method implementation
     ///
@@ -226,14 +226,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseMkdir(@ptrCast(self), @ptrCast(url), @intCast(permissions));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rename)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rename)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn Rename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Rename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rename)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rename)
     ///
     /// Allows for overriding the related default method
     ///
@@ -242,7 +242,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rename)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rename)
     ///
     /// Base class method implementation
     ///
@@ -251,7 +251,7 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseRename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn Symlink(self: ?*anyopaque, target: []const u8, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
@@ -262,7 +262,7 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_Symlink(@ptrCast(self), target_str, @ptrCast(dest), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
     ///
     /// Allows for overriding the related default method
     ///
@@ -271,7 +271,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnSymlink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
     ///
     /// Base class method implementation
     ///
@@ -284,14 +284,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseSymlink(@ptrCast(self), target_str, @ptrCast(dest), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32 ```
     pub fn Chmod(self: ?*anyopaque, url: ?*anyopaque, permissions: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Chmod(@ptrCast(self), @ptrCast(url), @intCast(permissions));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
     ///
     /// Allows for overriding the related default method
     ///
@@ -300,7 +300,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnChmod(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
     ///
     /// Base class method implementation
     ///
@@ -309,14 +309,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseChmod(@ptrCast(self), @ptrCast(url), @intCast(permissions));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, mtime: QtC.QDateTime ```
     pub fn SetModificationTime(self: ?*anyopaque, url: ?*anyopaque, mtime: ?*anyopaque) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_SetModificationTime(@ptrCast(self), @ptrCast(url), @ptrCast(mtime));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
     ///
     /// Allows for overriding the related default method
     ///
@@ -325,7 +325,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnSetModificationTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
     ///
     /// Base class method implementation
     ///
@@ -334,14 +334,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseSetModificationTime(@ptrCast(self), @ptrCast(url), @ptrCast(mtime));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#copy)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#copy)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn Copy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Copy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#copy)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#copy)
     ///
     /// Allows for overriding the related default method
     ///
@@ -350,7 +350,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#copy)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#copy)
     ///
     /// Base class method implementation
     ///
@@ -359,14 +359,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseCopy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#del)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#del)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, isfile: bool ```
     pub fn Del(self: ?*anyopaque, url: ?*anyopaque, isfile: bool) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Del(@ptrCast(self), @ptrCast(url), isfile);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#del)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#del)
     ///
     /// Allows for overriding the related default method
     ///
@@ -375,7 +375,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnDel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#del)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#del)
     ///
     /// Base class method implementation
     ///
@@ -384,14 +384,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseDel(@ptrCast(self), @ptrCast(url), isfile);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, newURL: QtC.QUrl ```
     pub fn RewriteUrl(self: ?*anyopaque, url: ?*anyopaque, newURL: ?*anyopaque) bool {
         return qtc.KIO__ForwardingWorkerBase_RewriteUrl(@ptrCast(self), @ptrCast(url), @ptrCast(newURL));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -400,7 +400,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnRewriteUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
     ///
     /// Base class method implementation
     ///
@@ -409,14 +409,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseRewriteUrl(@ptrCast(self), @ptrCast(url), @ptrCast(newURL));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, entry: QtC.KIO__UDSEntry, creationMode: forwardingworkerbase_enums.UDSEntryCreationMode ```
     pub fn AdjustUDSEntry(self: ?*anyopaque, entry: ?*anyopaque, creationMode: i32) void {
         qtc.KIO__ForwardingWorkerBase_AdjustUDSEntry(@ptrCast(self), @ptrCast(entry), @intCast(creationMode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -425,7 +425,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnAdjustUDSEntry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
     ///
     /// Base class method implementation
     ///
@@ -434,14 +434,14 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_QBaseAdjustUDSEntry(@ptrCast(self), @ptrCast(entry), @intCast(creationMode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn ProcessedUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.KIO__ForwardingWorkerBase_ProcessedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -450,7 +450,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnProcessedUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
     ///
     /// Base class method implementation
     ///
@@ -459,14 +459,14 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseProcessedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn RequestedUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.KIO__ForwardingWorkerBase_RequestedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -475,7 +475,7 @@ pub const kio__forwardingworkerbase = struct {
         qtc.KIO__ForwardingWorkerBase_OnRequestedUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
+    /// [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
     ///
     /// Base class method implementation
     ///
@@ -484,7 +484,7 @@ pub const kio__forwardingworkerbase = struct {
         return qtc.KIO__ForwardingWorkerBase_QBaseRequestedUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -497,7 +497,7 @@ pub const kio__forwardingworkerbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -512,7 +512,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -525,7 +525,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -538,7 +538,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -547,7 +547,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -556,7 +556,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -565,7 +565,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -574,7 +574,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -583,7 +583,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -592,7 +592,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -601,7 +601,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -610,7 +610,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -619,7 +619,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -628,7 +628,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -642,7 +642,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -651,7 +651,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -660,7 +660,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -669,7 +669,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -678,7 +678,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -689,7 +689,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -698,7 +698,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -707,7 +707,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -716,7 +716,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -725,7 +725,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -735,7 +735,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -745,7 +745,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -769,7 +769,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -778,7 +778,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -787,7 +787,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -796,7 +796,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -805,7 +805,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -814,7 +814,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -824,7 +824,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -833,7 +833,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -842,7 +842,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -851,7 +851,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -860,7 +860,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -871,7 +871,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -880,7 +880,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -889,7 +889,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#exit)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#exit)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn Exit(self: ?*anyopaque) void {
@@ -898,7 +898,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#dispatchLoop)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#dispatchLoop)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn DispatchLoop(self: ?*anyopaque) void {
@@ -907,7 +907,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#data)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#data)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, data: []u8 ```
     pub fn Data(self: ?*anyopaque, data: []u8) void {
@@ -920,7 +920,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#dataReq)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#dataReq)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn DataReq(self: ?*anyopaque) void {
@@ -929,7 +929,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#workerStatus)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#workerStatus)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, host: []const u8, connected: bool ```
     pub fn WorkerStatus(self: ?*anyopaque, host: []const u8, connected: bool) void {
@@ -942,7 +942,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#statEntry)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#statEntry)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _entry: QtC.KIO__UDSEntry ```
     pub fn StatEntry(self: ?*anyopaque, _entry: ?*anyopaque) void {
@@ -951,7 +951,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#listEntries)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#listEntries)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _entry: []QtC.KIO__UDSEntry ```
     pub fn ListEntries(self: ?*anyopaque, _entry: []QtC.KIO__UDSEntry) void {
@@ -964,7 +964,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#canResume)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#canResume)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, offset: u64 ```
     pub fn CanResume(self: ?*anyopaque, offset: u64) bool {
@@ -973,7 +973,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#canResume)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#canResume)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn CanResume2(self: ?*anyopaque) void {
@@ -982,7 +982,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#totalSize)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#totalSize)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _bytes: u64 ```
     pub fn TotalSize(self: ?*anyopaque, _bytes: u64) void {
@@ -991,7 +991,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#processedSize)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#processedSize)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _bytes: u64 ```
     pub fn ProcessedSize(self: ?*anyopaque, _bytes: u64) void {
@@ -1000,7 +1000,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#position)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#position)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _pos: u64 ```
     pub fn Position(self: ?*anyopaque, _pos: u64) void {
@@ -1009,7 +1009,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#written)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#written)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _bytes: u64 ```
     pub fn Written(self: ?*anyopaque, _bytes: u64) void {
@@ -1018,7 +1018,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#truncated)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#truncated)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _length: u64 ```
     pub fn Truncated(self: ?*anyopaque, _length: u64) void {
@@ -1027,7 +1027,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#speed)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#speed)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _bytes_per_second: u64 ```
     pub fn Speed(self: ?*anyopaque, _bytes_per_second: u64) void {
@@ -1036,7 +1036,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#redirection)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#redirection)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _url: QtC.QUrl ```
     pub fn Redirection(self: ?*anyopaque, _url: ?*anyopaque) void {
@@ -1045,7 +1045,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#errorPage)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#errorPage)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn ErrorPage(self: ?*anyopaque) void {
@@ -1054,7 +1054,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#mimeType)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#mimeType)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, _type: []const u8 ```
     pub fn MimeType(self: ?*anyopaque, _type: []const u8) void {
@@ -1067,7 +1067,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#warning)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#warning)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, msg: []const u8 ```
     pub fn Warning(self: ?*anyopaque, msg: []const u8) void {
@@ -1080,7 +1080,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#infoMessage)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, msg: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, msg: []const u8) void {
@@ -1093,7 +1093,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, typeVal: workerbase_enums.MessageBoxType, text: []const u8 ```
     pub fn MessageBox(self: ?*anyopaque, typeVal: i32, text: []const u8) i32 {
@@ -1106,7 +1106,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, text: []const u8, typeVal: workerbase_enums.MessageBoxType ```
     pub fn MessageBox2(self: ?*anyopaque, text: []const u8, typeVal: i32) i32 {
@@ -1119,7 +1119,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#sslError)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#sslError)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, sslData: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SslError(self: ?*anyopaque, sslData: map_constu8_qtcqvariant, allocator: std.mem.Allocator) i32 {
@@ -1148,7 +1148,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#setMetaData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, key: []const u8, value: []const u8 ```
     pub fn SetMetaData(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -1165,7 +1165,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#hasMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#hasMetaData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, key: []const u8 ```
     pub fn HasMetaData(self: ?*anyopaque, key: []const u8) bool {
@@ -1178,7 +1178,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#metaData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#metaData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, key: []const u8, allocator: std.mem.Allocator ```
     pub fn MetaData(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1195,7 +1195,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#allMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#allMetaData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn AllMetaData(self: ?*anyopaque) QtC.KIO__MetaData {
@@ -1204,7 +1204,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#mapConfig)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#mapConfig)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, allocator: std.mem.Allocator ```
     pub fn MapConfig(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
@@ -1232,7 +1232,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#configValue)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#configValue)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, key: []const u8, defaultValue: bool ```
     pub fn ConfigValue(self: ?*anyopaque, key: []const u8, defaultValue: bool) bool {
@@ -1245,7 +1245,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#configValue)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#configValue)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, key: []const u8, defaultValue: i32 ```
     pub fn ConfigValue2(self: ?*anyopaque, key: []const u8, defaultValue: i32) i32 {
@@ -1258,7 +1258,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#configValue)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#configValue)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ConfigValue3(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1275,7 +1275,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#config)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#config)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn Config(self: ?*anyopaque) QtC.KConfigGroup {
@@ -1284,7 +1284,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#remoteEncoding)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#remoteEncoding)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn RemoteEncoding(self: ?*anyopaque) QtC.KRemoteEncoding {
@@ -1293,7 +1293,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#connectTimeout)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#connectTimeout)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn ConnectTimeout(self: ?*anyopaque) i32 {
@@ -1302,7 +1302,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#proxyConnectTimeout)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#proxyConnectTimeout)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn ProxyConnectTimeout(self: ?*anyopaque) i32 {
@@ -1311,7 +1311,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#responseTimeout)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#responseTimeout)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn ResponseTimeout(self: ?*anyopaque) i32 {
@@ -1320,7 +1320,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#readTimeout)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#readTimeout)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn ReadTimeout(self: ?*anyopaque) i32 {
@@ -1329,7 +1329,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setTimeoutSpecialCommand)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#setTimeoutSpecialCommand)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, timeout: i32 ```
     pub fn SetTimeoutSpecialCommand(self: ?*anyopaque, timeout: i32) void {
@@ -1338,7 +1338,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#readData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#readData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, buffer: []u8 ```
     pub fn ReadData(self: ?*anyopaque, buffer: []u8) i32 {
@@ -1351,7 +1351,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#listEntry)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#listEntry)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, entry: QtC.KIO__UDSEntry ```
     pub fn ListEntry(self: ?*anyopaque, entry: ?*anyopaque) void {
@@ -1360,7 +1360,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#connectWorker)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#connectWorker)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, path: []const u8 ```
     pub fn ConnectWorker(self: ?*anyopaque, path: []const u8) void {
@@ -1373,7 +1373,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#disconnectWorker)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#disconnectWorker)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn DisconnectWorker(self: ?*anyopaque) void {
@@ -1382,7 +1382,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#openPasswordDialog)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#openPasswordDialog)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, info: QtC.KIO__AuthInfo ```
     pub fn OpenPasswordDialog(self: ?*anyopaque, info: ?*anyopaque) i32 {
@@ -1391,7 +1391,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#checkCachedAuthentication)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#checkCachedAuthentication)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, info: QtC.KIO__AuthInfo ```
     pub fn CheckCachedAuthentication(self: ?*anyopaque, info: ?*anyopaque) bool {
@@ -1400,7 +1400,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#cacheAuthentication)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#cacheAuthentication)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, info: QtC.KIO__AuthInfo ```
     pub fn CacheAuthentication(self: ?*anyopaque, info: ?*anyopaque) bool {
@@ -1409,7 +1409,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#waitForAnswer)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#waitForAnswer)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, data: []u8 ```
     pub fn WaitForAnswer(self: ?*anyopaque, expected1: i32, expected2: i32, data: []u8) i32 {
@@ -1422,7 +1422,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#sendMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#sendMetaData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn SendMetaData(self: ?*anyopaque) void {
@@ -1431,7 +1431,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#sendAndKeepMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#sendAndKeepMetaData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn SendAndKeepMetaData(self: ?*anyopaque) void {
@@ -1440,7 +1440,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#wasKilled)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#wasKilled)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase ```
     pub fn WasKilled(self: ?*anyopaque) bool {
@@ -1449,7 +1449,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#lookupHost)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#lookupHost)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, host: []const u8 ```
     pub fn LookupHost(self: ?*anyopaque, host: []const u8) void {
@@ -1462,7 +1462,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#waitForHostInfo)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#waitForHostInfo)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, info: QtC.QHostInfo ```
     pub fn WaitForHostInfo(self: ?*anyopaque, info: ?*anyopaque) i32 {
@@ -1471,7 +1471,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#requestPrivilegeOperation)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#requestPrivilegeOperation)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, operationDetails: []const u8 ```
     ///
@@ -1486,7 +1486,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#addTemporaryAuthorization)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#addTemporaryAuthorization)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, action: []const u8 ```
     pub fn AddTemporaryAuthorization(self: ?*anyopaque, action: []const u8) void {
@@ -1499,7 +1499,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setIncomingMetaData)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#setIncomingMetaData)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, metaData: QtC.KIO__MetaData ```
     pub fn SetIncomingMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
@@ -1508,7 +1508,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, typeVal: workerbase_enums.MessageBoxType, text: []const u8, title: []const u8 ```
     pub fn MessageBox3(self: ?*anyopaque, typeVal: i32, text: []const u8, title: []const u8) i32 {
@@ -1525,7 +1525,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, typeVal: workerbase_enums.MessageBoxType, text: []const u8, title: []const u8, primaryActionText: []const u8 ```
     pub fn MessageBox4(self: ?*anyopaque, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8) i32 {
@@ -1546,7 +1546,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, typeVal: workerbase_enums.MessageBoxType, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8 ```
     pub fn MessageBox5(self: ?*anyopaque, typeVal: i32, text: []const u8, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8) i32 {
@@ -1571,7 +1571,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, text: []const u8, typeVal: workerbase_enums.MessageBoxType, title: []const u8 ```
     pub fn MessageBox32(self: ?*anyopaque, text: []const u8, typeVal: i32, title: []const u8) i32 {
@@ -1588,7 +1588,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, text: []const u8, typeVal: workerbase_enums.MessageBoxType, title: []const u8, primaryActionText: []const u8 ```
     pub fn MessageBox42(self: ?*anyopaque, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8) i32 {
@@ -1609,7 +1609,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, text: []const u8, typeVal: workerbase_enums.MessageBoxType, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8 ```
     pub fn MessageBox52(self: ?*anyopaque, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8) i32 {
@@ -1634,7 +1634,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#messageBox)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#messageBox)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, text: []const u8, typeVal: workerbase_enums.MessageBoxType, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, dontAskAgainName: []const u8 ```
     pub fn MessageBox6(self: ?*anyopaque, text: []const u8, typeVal: i32, title: []const u8, primaryActionText: []const u8, secondaryActionText: []const u8, dontAskAgainName: []const u8) i32 {
@@ -1663,7 +1663,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#configValue)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#configValue)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, key: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ConfigValue22(self: ?*anyopaque, key: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1684,7 +1684,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setTimeoutSpecialCommand)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#setTimeoutSpecialCommand)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, timeout: i32, data: []u8 ```
     pub fn SetTimeoutSpecialCommand2(self: ?*anyopaque, timeout: i32, data: []u8) void {
@@ -1697,7 +1697,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#openPasswordDialog)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#openPasswordDialog)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, info: QtC.KIO__AuthInfo, errorMsg: []const u8 ```
     pub fn OpenPasswordDialog2(self: ?*anyopaque, info: ?*anyopaque, errorMsg: []const u8) i32 {
@@ -1710,7 +1710,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#waitForAnswer)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#waitForAnswer)
     ///
     /// ``` self: QtC.KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, data: []u8, pCmd: *i32 ```
     pub fn WaitForAnswer4(self: ?*anyopaque, expected1: i32, expected2: i32, data: []u8, pCmd: *i32) i32 {
@@ -1723,7 +1723,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1734,7 +1734,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1745,7 +1745,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1756,7 +1756,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1767,7 +1767,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1778,7 +1778,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1789,7 +1789,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1800,7 +1800,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1811,7 +1811,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1822,7 +1822,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1833,7 +1833,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1844,7 +1844,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1855,7 +1855,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1866,7 +1866,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1877,7 +1877,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1888,7 +1888,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1899,7 +1899,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1910,7 +1910,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1921,7 +1921,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1932,7 +1932,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1943,7 +1943,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1954,7 +1954,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#appConnectionMade)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#appConnectionMade)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1965,7 +1965,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#appConnectionMade)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#appConnectionMade)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1976,7 +1976,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#appConnectionMade)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#appConnectionMade)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1987,7 +1987,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setHost)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2010,7 +2010,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setHost)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2033,7 +2033,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setHost)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#setHost)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2044,7 +2044,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#openConnection)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#openConnection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2055,7 +2055,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#openConnection)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#openConnection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2066,7 +2066,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#openConnection)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#openConnection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2077,7 +2077,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#closeConnection)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#closeConnection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2088,7 +2088,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#closeConnection)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#closeConnection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2099,7 +2099,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#closeConnection)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#closeConnection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2110,7 +2110,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#open)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#open)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2121,7 +2121,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#open)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#open)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2132,7 +2132,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#open)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#open)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2143,7 +2143,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#read)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2154,7 +2154,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#read)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2165,7 +2165,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#read)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#read)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2176,7 +2176,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#write)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#write)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2191,7 +2191,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#write)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#write)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2206,7 +2206,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#write)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#write)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2217,7 +2217,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#seek)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#seek)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2228,7 +2228,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#seek)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#seek)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2239,7 +2239,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#seek)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#seek)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2250,7 +2250,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#truncate)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2261,7 +2261,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#truncate)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2272,7 +2272,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#truncate)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#truncate)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2283,7 +2283,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#close)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#close)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2294,7 +2294,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#close)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#close)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2305,7 +2305,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#close)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#close)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2316,7 +2316,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#chown)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#chown)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2335,7 +2335,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#chown)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#chown)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2354,7 +2354,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#chown)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#chown)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2365,7 +2365,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#special)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#special)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2380,7 +2380,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#special)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#special)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2395,7 +2395,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#special)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#special)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2406,7 +2406,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2417,7 +2417,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2428,7 +2428,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2439,7 +2439,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#worker_status)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2450,7 +2450,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#worker_status)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2461,7 +2461,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#worker_status)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#worker_status)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2472,7 +2472,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2483,7 +2483,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2494,7 +2494,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from KIO::WorkerBase
     ///
-    /// [Qt documentation](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
+    /// [Upstream resources](https://api.kde.org/kio-workerbase.html#reparseConfiguration)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2505,7 +2505,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2516,7 +2516,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2527,7 +2527,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2538,7 +2538,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2549,7 +2549,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2560,7 +2560,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2571,7 +2571,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2583,7 +2583,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2595,7 +2595,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2606,7 +2606,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2617,7 +2617,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2628,7 +2628,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2639,7 +2639,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

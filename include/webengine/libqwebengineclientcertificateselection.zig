@@ -11,35 +11,35 @@ pub const qwebengineclientcertificateselection = struct {
         return qtc.QWebEngineClientCertificateSelection_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateSelection, param1: QtC.QWebEngineClientCertificateSelection ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateSelection_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#host)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#host)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateSelection ```
     pub fn Host(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineClientCertificateSelection_Host(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#select)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#select)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateSelection, certificate: QtC.QSslCertificate ```
     pub fn Select(self: ?*anyopaque, certificate: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateSelection_Select(@ptrCast(self), @ptrCast(certificate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#selectNone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#selectNone)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateSelection ```
     pub fn SelectNone(self: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateSelection_SelectNone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#certificates)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#certificates)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateSelection, allocator: std.mem.Allocator ```
     pub fn Certificates(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
@@ -51,7 +51,7 @@ pub const qwebengineclientcertificateselection = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#dtor.QWebEngineClientCertificateSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#dtor.QWebEngineClientCertificateSelection)
     ///
     /// Delete this object from C++ memory.
     ///

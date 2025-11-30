@@ -12,14 +12,14 @@ pub const knscore__searchpreset = struct {
         return qtc.KNSCore__SearchPreset_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchpreset.html#request)
+    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#request)
     ///
     /// ``` self: QtC.KNSCore__SearchPreset ```
     pub fn Request(self: ?*anyopaque) QtC.KNSCore__SearchRequest {
         return qtc.KNSCore__SearchPreset_Request(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchpreset.html#displayName)
+    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#displayName)
     ///
     /// ``` self: QtC.KNSCore__SearchPreset, allocator: std.mem.Allocator ```
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -30,7 +30,7 @@ pub const knscore__searchpreset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchpreset.html#iconName)
+    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#iconName)
     ///
     /// ``` self: QtC.KNSCore__SearchPreset, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -41,7 +41,7 @@ pub const knscore__searchpreset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchpreset.html#type)
+    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#type)
     ///
     /// ``` self: QtC.KNSCore__SearchPreset ```
     ///
@@ -50,7 +50,7 @@ pub const knscore__searchpreset = struct {
         return qtc.KNSCore__SearchPreset_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchpreset.html#providerId)
+    /// [Upstream resources](https://api.kde.org/knscore-searchpreset.html#providerId)
     ///
     /// ``` self: QtC.KNSCore__SearchPreset, allocator: std.mem.Allocator ```
     pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {

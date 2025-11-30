@@ -62,7 +62,7 @@ pub const qbytearrayview = struct {
         qtc.QByteArrayView_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toByteArray)
     ///
     /// ``` self: QtC.QByteArrayView, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -73,14 +73,14 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#size)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Size(self: ?*anyopaque) i64 {
         return qtc.QByteArrayView_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#data)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Data(self: ?*anyopaque) []const u8 {
@@ -88,7 +88,7 @@ pub const qbytearrayview = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#constData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#constData)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ConstData(self: ?*anyopaque) []const u8 {
@@ -96,21 +96,21 @@ pub const qbytearrayview = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, n: i64) u8 {
         return qtc.QByteArrayView_OperatorSubscript(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#at)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#at)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64 ```
     pub fn At(self: ?*anyopaque, n: i64) u8 {
         return qtc.QByteArrayView_At(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#first)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#first)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
     pub fn First(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -121,7 +121,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#last)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#last)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
     pub fn Last(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -132,7 +132,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#sliced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#sliced)
     ///
     /// ``` self: QtC.QByteArrayView, pos: i64, allocator: std.mem.Allocator ```
     pub fn Sliced(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
@@ -143,7 +143,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#sliced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#sliced)
     ///
     /// ``` self: QtC.QByteArrayView, pos: i64, n: i64, allocator: std.mem.Allocator ```
     pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -154,7 +154,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#slice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#slice)
     ///
     /// ``` self: QtC.QByteArrayView, pos: i64, allocator: std.mem.Allocator ```
     pub fn Slice(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
@@ -165,7 +165,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#slice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#slice)
     ///
     /// ``` self: QtC.QByteArrayView, pos: i64, n: i64, allocator: std.mem.Allocator ```
     pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -176,7 +176,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#chopped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#chopped)
     ///
     /// ``` self: QtC.QByteArrayView, lenVal: i64, allocator: std.mem.Allocator ```
     pub fn Chopped(self: ?*anyopaque, lenVal: i64, allocator: std.mem.Allocator) []const u8 {
@@ -187,7 +187,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#left)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#left)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
     pub fn Left(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -198,7 +198,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#right)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#right)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
     pub fn Right(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -209,7 +209,7 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#mid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#mid)
     ///
     /// ``` self: QtC.QByteArrayView, pos: i64, allocator: std.mem.Allocator ```
     pub fn Mid(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
@@ -220,21 +220,21 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#truncate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#truncate)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64 ```
     pub fn Truncate(self: ?*anyopaque, n: i64) void {
         qtc.QByteArrayView_Truncate(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#chop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#chop)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64 ```
     pub fn Chop(self: ?*anyopaque, n: i64) void {
         qtc.QByteArrayView_Chop(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#trimmed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#trimmed)
     ///
     /// ``` self: QtC.QByteArrayView, allocator: std.mem.Allocator ```
     pub fn Trimmed(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -245,77 +245,77 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toShort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toShort)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToShort(self: ?*anyopaque) i16 {
         return qtc.QByteArrayView_ToShort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toUShort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toUShort)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToUShort(self: ?*anyopaque) u16 {
         return qtc.QByteArrayView_ToUShort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toInt)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QByteArrayView_ToInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toUInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toUInt)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToUInt(self: ?*anyopaque) u32 {
         return qtc.QByteArrayView_ToUInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toLong)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToLong(self: ?*anyopaque) i64 {
         return qtc.QByteArrayView_ToLong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toULong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toULong)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToULong(self: ?*anyopaque) u64 {
         return qtc.QByteArrayView_ToULong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toLongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toLongLong)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToLongLong(self: ?*anyopaque) i64 {
         return qtc.QByteArrayView_ToLongLong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toULongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toULongLong)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToULongLong(self: ?*anyopaque) u64 {
         return qtc.QByteArrayView_ToULongLong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toFloat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toFloat)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToFloat(self: ?*anyopaque) f32 {
         return qtc.QByteArrayView_ToFloat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toDouble)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QByteArrayView_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#startsWith)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#startsWith)
     ///
     /// ``` self: QtC.QByteArrayView, other: []const u8 ```
     pub fn StartsWith(self: ?*anyopaque, other: []const u8) bool {
@@ -326,14 +326,14 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_StartsWith(@ptrCast(self), other_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#startsWith)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#startsWith)
     ///
     /// ``` self: QtC.QByteArrayView, c: u8 ```
     pub fn StartsWith2(self: ?*anyopaque, c: u8) bool {
         return qtc.QByteArrayView_StartsWith2(@ptrCast(self), @intCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
     ///
     /// ``` self: QtC.QByteArrayView, other: []const u8 ```
     pub fn EndsWith(self: ?*anyopaque, other: []const u8) bool {
@@ -344,14 +344,14 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_EndsWith(@ptrCast(self), other_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
     ///
     /// ``` self: QtC.QByteArrayView, c: u8 ```
     pub fn EndsWith2(self: ?*anyopaque, c: u8) bool {
         return qtc.QByteArrayView_EndsWith2(@ptrCast(self), @intCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn IndexOf(self: ?*anyopaque, a: []const u8) i64 {
@@ -362,14 +362,14 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_IndexOf(@ptrCast(self), a_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
     ///
     /// ``` self: QtC.QByteArrayView, ch: u8 ```
     pub fn IndexOf2(self: ?*anyopaque, ch: u8) i64 {
         return qtc.QByteArrayView_IndexOf2(@ptrCast(self), @intCast(ch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Contains(self: ?*anyopaque, a: []const u8) bool {
@@ -380,14 +380,14 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_Contains(@ptrCast(self), a_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
     ///
     /// ``` self: QtC.QByteArrayView, c: u8 ```
     pub fn Contains2(self: ?*anyopaque, c: u8) bool {
         return qtc.QByteArrayView_Contains2(@ptrCast(self), @intCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn LastIndexOf(self: ?*anyopaque, a: []const u8) i64 {
@@ -398,7 +398,7 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_LastIndexOf(@ptrCast(self), a_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, from: i64 ```
     pub fn LastIndexOf2(self: ?*anyopaque, a: []const u8, from: i64) i64 {
@@ -409,14 +409,14 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_LastIndexOf2(@ptrCast(self), a_str, @intCast(from));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QByteArrayView, ch: u8 ```
     pub fn LastIndexOf3(self: ?*anyopaque, ch: u8) i64 {
         return qtc.QByteArrayView_LastIndexOf3(@ptrCast(self), @intCast(ch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#count)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Count(self: ?*anyopaque, a: []const u8) i64 {
@@ -427,14 +427,14 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_Count(@ptrCast(self), a_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#count)
     ///
     /// ``` self: QtC.QByteArrayView, ch: u8 ```
     pub fn Count2(self: ?*anyopaque, ch: u8) i64 {
         return qtc.QByteArrayView_Count2(@ptrCast(self), @intCast(ch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#compare)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Compare(self: ?*anyopaque, a: []const u8) i32 {
@@ -445,14 +445,14 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_Compare(@ptrCast(self), a_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#isValidUtf8)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#isValidUtf8)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn IsValidUtf8(self: ?*anyopaque) bool {
         return qtc.QByteArrayView_IsValidUtf8(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#begin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#begin)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Begin(self: ?*anyopaque) []const u8 {
@@ -460,7 +460,7 @@ pub const qbytearrayview = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#end)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#end)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn End(self: ?*anyopaque) []const u8 {
@@ -468,7 +468,7 @@ pub const qbytearrayview = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#cbegin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#cbegin)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Cbegin(self: ?*anyopaque) []const u8 {
@@ -476,7 +476,7 @@ pub const qbytearrayview = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#cend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#cend)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Cend(self: ?*anyopaque) []const u8 {
@@ -484,77 +484,77 @@ pub const qbytearrayview = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#empty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#empty)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Empty(self: ?*anyopaque) bool {
         return qtc.QByteArrayView_Empty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#front)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#front)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Front(self: ?*anyopaque) u8 {
         return qtc.QByteArrayView_Front(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#back)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#back)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Back(self: ?*anyopaque) u8 {
         return qtc.QByteArrayView_Back(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#max_size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#max_size)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn MaxSize(self: ?*anyopaque) i64 {
         return qtc.QByteArrayView_MaxSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#isNull)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QByteArrayView_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#isEmpty)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QByteArrayView_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#length)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Length(self: ?*anyopaque) i64 {
         return qtc.QByteArrayView_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#first)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#first)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn First2(self: ?*anyopaque) u8 {
         return qtc.QByteArrayView_First2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#last)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#last)
     ///
     /// ``` self: QtC.QByteArrayView ```
     pub fn Last2(self: ?*anyopaque) u8 {
         return qtc.QByteArrayView_Last2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#maxSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#maxSize)
     ///
     ///
     pub fn MaxSize2() i64 {
         return qtc.QByteArrayView_MaxSize2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#mid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#mid)
     ///
     /// ``` self: QtC.QByteArrayView, pos: i64, n: i64, allocator: std.mem.Allocator ```
     pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -565,133 +565,133 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toShort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toShort)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToShort1(self: ?*anyopaque, ok: *bool) i16 {
         return qtc.QByteArrayView_ToShort1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toShort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toShort)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToShort2(self: ?*anyopaque, ok: *bool, base: i32) i16 {
         return qtc.QByteArrayView_ToShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toUShort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toUShort)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToUShort1(self: ?*anyopaque, ok: *bool) u16 {
         return qtc.QByteArrayView_ToUShort1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toUShort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toUShort)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToUShort2(self: ?*anyopaque, ok: *bool, base: i32) u16 {
         return qtc.QByteArrayView_ToUShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toInt)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QByteArrayView_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toInt)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToInt2(self: ?*anyopaque, ok: *bool, base: i32) i32 {
         return qtc.QByteArrayView_ToInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toUInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toUInt)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QByteArrayView_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toUInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toUInt)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToUInt2(self: ?*anyopaque, ok: *bool, base: i32) u32 {
         return qtc.QByteArrayView_ToUInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toLong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QByteArrayView_ToLong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toLong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QByteArrayView_ToLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toULong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toULong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToULong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QByteArrayView_ToULong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toULong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toULong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QByteArrayView_ToULong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toLongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toLongLong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QByteArrayView_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toLongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toLongLong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QByteArrayView_ToLongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toULongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toULongLong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QByteArrayView_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toULongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toULongLong)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool, base: i32 ```
     pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QByteArrayView_ToULongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toFloat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toFloat)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QByteArrayView_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#toDouble)
     ///
     /// ``` self: QtC.QByteArrayView, ok: *bool ```
     pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QByteArrayView_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, from: i64 ```
     pub fn IndexOf22(self: ?*anyopaque, a: []const u8, from: i64) i64 {
@@ -702,21 +702,21 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_IndexOf22(@ptrCast(self), a_str, @intCast(from));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
     ///
     /// ``` self: QtC.QByteArrayView, ch: u8, from: i64 ```
     pub fn IndexOf23(self: ?*anyopaque, ch: u8, from: i64) i64 {
         return qtc.QByteArrayView_IndexOf23(@ptrCast(self), @intCast(ch), @intCast(from));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QByteArrayView, ch: u8, from: i64 ```
     pub fn LastIndexOf22(self: ?*anyopaque, ch: u8, from: i64) i64 {
         return qtc.QByteArrayView_LastIndexOf22(@ptrCast(self), @intCast(ch), @intCast(from));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#compare)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Compare2(self: ?*anyopaque, a: []const u8, cs: i32) i32 {
@@ -727,7 +727,7 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_Compare2(@ptrCast(self), a_str, @intCast(cs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#dtor.QByteArrayView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qbytearrayview.html#dtor.QByteArrayView)
     ///
     /// Delete this object from C++ memory.
     ///

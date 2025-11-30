@@ -21,7 +21,7 @@ pub const qmediarecorder = struct {
         return qtc.QMediaRecorder_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qmediarecorder = struct {
         return qtc.QMediaRecorder_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,49 +65,49 @@ pub const qmediarecorder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#isAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#isAvailable)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn IsAvailable(self: ?*anyopaque) bool {
         return qtc.QMediaRecorder_IsAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#outputLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#outputLocation)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn OutputLocation(self: ?*anyopaque) QtC.QUrl {
         return qtc.QMediaRecorder_OutputLocation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setOutputLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setOutputLocation)
     ///
     /// ``` self: QtC.QMediaRecorder, location: QtC.QUrl ```
     pub fn SetOutputLocation(self: ?*anyopaque, location: ?*anyopaque) void {
         qtc.QMediaRecorder_SetOutputLocation(@ptrCast(self), @ptrCast(location));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setOutputDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setOutputDevice)
     ///
     /// ``` self: QtC.QMediaRecorder, device: QtC.QIODevice ```
     pub fn SetOutputDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QMediaRecorder_SetOutputDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#outputDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#outputDevice)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn OutputDevice(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QMediaRecorder_OutputDevice(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocation)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn ActualLocation(self: ?*anyopaque) QtC.QUrl {
         return qtc.QMediaRecorder_ActualLocation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#recorderState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#recorderState)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     ///
@@ -116,7 +116,7 @@ pub const qmediarecorder = struct {
         return qtc.QMediaRecorder_RecorderState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#error)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     ///
@@ -125,7 +125,7 @@ pub const qmediarecorder = struct {
         return qtc.QMediaRecorder_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorString)
     ///
     /// ``` self: QtC.QMediaRecorder, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -136,28 +136,28 @@ pub const qmediarecorder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#duration)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn Duration(self: ?*anyopaque) i64 {
         return qtc.QMediaRecorder_Duration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormat)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn MediaFormat(self: ?*anyopaque) QtC.QMediaFormat {
         return qtc.QMediaRecorder_MediaFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setMediaFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setMediaFormat)
     ///
     /// ``` self: QtC.QMediaRecorder, format: QtC.QMediaFormat ```
     pub fn SetMediaFormat(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QMediaRecorder_SetMediaFormat(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#encodingMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encodingMode)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     ///
@@ -166,14 +166,14 @@ pub const qmediarecorder = struct {
         return qtc.QMediaRecorder_EncodingMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setEncodingMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setEncodingMode)
     ///
     /// ``` self: QtC.QMediaRecorder, encodingMode: qmediarecorder_enums.EncodingMode ```
     pub fn SetEncodingMode(self: ?*anyopaque, encodingMode: i32) void {
         qtc.QMediaRecorder_SetEncodingMode(@ptrCast(self), @intCast(encodingMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#quality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#quality)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     ///
@@ -182,224 +182,224 @@ pub const qmediarecorder = struct {
         return qtc.QMediaRecorder_Quality(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setQuality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setQuality)
     ///
     /// ``` self: QtC.QMediaRecorder, quality: qmediarecorder_enums.Quality ```
     pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
         qtc.QMediaRecorder_SetQuality(@ptrCast(self), @intCast(quality));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolution)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn VideoResolution(self: ?*anyopaque) QtC.QSize {
         return qtc.QMediaRecorder_VideoResolution(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoResolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoResolution)
     ///
     /// ``` self: QtC.QMediaRecorder, videoResolution: QtC.QSize ```
     pub fn SetVideoResolution(self: ?*anyopaque, videoResolution: ?*anyopaque) void {
         qtc.QMediaRecorder_SetVideoResolution(@ptrCast(self), @ptrCast(videoResolution));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoResolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoResolution)
     ///
     /// ``` self: QtC.QMediaRecorder, width: i32, height: i32 ```
     pub fn SetVideoResolution2(self: ?*anyopaque, width: i32, height: i32) void {
         qtc.QMediaRecorder_SetVideoResolution2(@ptrCast(self), @intCast(width), @intCast(height));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRate)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn VideoFrameRate(self: ?*anyopaque) f64 {
         return qtc.QMediaRecorder_VideoFrameRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoFrameRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoFrameRate)
     ///
     /// ``` self: QtC.QMediaRecorder, frameRate: f64 ```
     pub fn SetVideoFrameRate(self: ?*anyopaque, frameRate: f64) void {
         qtc.QMediaRecorder_SetVideoFrameRate(@ptrCast(self), @floatCast(frameRate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRate)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn VideoBitRate(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_VideoBitRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoBitRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setVideoBitRate)
     ///
     /// ``` self: QtC.QMediaRecorder, bitRate: i32 ```
     pub fn SetVideoBitRate(self: ?*anyopaque, bitRate: i32) void {
         qtc.QMediaRecorder_SetVideoBitRate(@ptrCast(self), @intCast(bitRate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRate)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AudioBitRate(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_AudioBitRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioBitRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioBitRate)
     ///
     /// ``` self: QtC.QMediaRecorder, bitRate: i32 ```
     pub fn SetAudioBitRate(self: ?*anyopaque, bitRate: i32) void {
         qtc.QMediaRecorder_SetAudioBitRate(@ptrCast(self), @intCast(bitRate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCount)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AudioChannelCount(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_AudioChannelCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioChannelCount)
     ///
     /// ``` self: QtC.QMediaRecorder, channels: i32 ```
     pub fn SetAudioChannelCount(self: ?*anyopaque, channels: i32) void {
         qtc.QMediaRecorder_SetAudioChannelCount(@ptrCast(self), @intCast(channels));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRate)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AudioSampleRate(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_AudioSampleRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioSampleRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAudioSampleRate)
     ///
     /// ``` self: QtC.QMediaRecorder, sampleRate: i32 ```
     pub fn SetAudioSampleRate(self: ?*anyopaque, sampleRate: i32) void {
         qtc.QMediaRecorder_SetAudioSampleRate(@ptrCast(self), @intCast(sampleRate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#metaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#metaData)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn MetaData(self: ?*anyopaque) QtC.QMediaMetaData {
         return qtc.QMediaRecorder_MetaData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setMetaData)
     ///
     /// ``` self: QtC.QMediaRecorder, metaData: QtC.QMediaMetaData ```
     pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.QMediaRecorder_SetMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#addMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#addMetaData)
     ///
     /// ``` self: QtC.QMediaRecorder, metaData: QtC.QMediaMetaData ```
     pub fn AddMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.QMediaRecorder_AddMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#autoStop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#autoStop)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AutoStop(self: ?*anyopaque) bool {
         return qtc.QMediaRecorder_AutoStop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setAutoStop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#setAutoStop)
     ///
     /// ``` self: QtC.QMediaRecorder, autoStop: bool ```
     pub fn SetAutoStop(self: ?*anyopaque, autoStop: bool) void {
         qtc.QMediaRecorder_SetAutoStop(@ptrCast(self), autoStop);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#captureSession)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#captureSession)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn CaptureSession(self: ?*anyopaque) QtC.QMediaCaptureSession {
         return qtc.QMediaRecorder_CaptureSession(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#record)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#record)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn Record(self: ?*anyopaque) void {
         qtc.QMediaRecorder_Record(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#pause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#pause)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn Pause(self: ?*anyopaque) void {
         qtc.QMediaRecorder_Pause(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#stop)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QMediaRecorder_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, state: qmediarecorder_enums.RecorderState ```
     pub fn RecorderStateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QMediaRecorder_RecorderStateChanged(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder, state: qmediarecorder_enums.RecorderState) callconv(.c) void ```
     pub fn OnRecorderStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_RecorderStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#durationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#durationChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, duration: i64 ```
     pub fn DurationChanged(self: ?*anyopaque, duration: i64) void {
         qtc.QMediaRecorder_DurationChanged(@ptrCast(self), @intCast(duration));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#durationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#durationChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder, duration: i64) callconv(.c) void ```
     pub fn OnDurationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_DurationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocationChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, location: QtC.QUrl ```
     pub fn ActualLocationChanged(self: ?*anyopaque, location: ?*anyopaque) void {
         qtc.QMediaRecorder_ActualLocationChanged(@ptrCast(self), @ptrCast(location));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocationChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder, location: QtC.QUrl) callconv(.c) void ```
     pub fn OnActualLocationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ActualLocationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#encoderSettingsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encoderSettingsChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn EncoderSettingsChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_EncoderSettingsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#encoderSettingsChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encoderSettingsChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnEncoderSettingsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_EncoderSettingsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
     ///
     /// ``` self: QtC.QMediaRecorder, errorVal: qmediarecorder_enums.Error, errorString: []const u8 ```
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
@@ -410,182 +410,182 @@ pub const qmediarecorder = struct {
         qtc.QMediaRecorder_ErrorOccurred(@ptrCast(self), @intCast(errorVal), errorString_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder, errorVal: qmediarecorder_enums.Error, errorString: [*:0]const u8) callconv(.c) void ```
     pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#errorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn ErrorChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_ErrorChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#errorChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#errorChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnErrorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ErrorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#metaDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#metaDataChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn MetaDataChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_MetaDataChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#metaDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#metaDataChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnMetaDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_MetaDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormatChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn MediaFormatChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_MediaFormatChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#mediaFormatChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnMediaFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_MediaFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#encodingModeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encodingModeChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn EncodingModeChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_EncodingModeChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#encodingModeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#encodingModeChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnEncodingModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_EncodingModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#qualityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#qualityChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn QualityChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_QualityChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#qualityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#qualityChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnQualityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_QualityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolutionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolutionChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn VideoResolutionChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_VideoResolutionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolutionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoResolutionChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnVideoResolutionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_VideoResolutionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn VideoFrameRateChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_VideoFrameRateChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoFrameRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnVideoFrameRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_VideoFrameRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn VideoBitRateChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_VideoBitRateChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#videoBitRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnVideoBitRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_VideoBitRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AudioBitRateChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_AudioBitRateChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioBitRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnAudioBitRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AudioBitRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCountChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AudioChannelCountChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_AudioChannelCountChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioChannelCountChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnAudioChannelCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AudioChannelCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AudioSampleRateChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_AudioSampleRateChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#audioSampleRateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnAudioSampleRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AudioSampleRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn AutoStopChanged(self: ?*anyopaque) void {
         qtc.QMediaRecorder_AutoStopChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnAutoStopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_AutoStopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -598,7 +598,7 @@ pub const qmediarecorder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -613,7 +613,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QMediaRecorder, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -626,7 +626,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QMediaRecorder, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -639,7 +639,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -648,7 +648,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -657,7 +657,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -666,7 +666,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -675,7 +675,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QMediaRecorder, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -684,7 +684,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -693,7 +693,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMediaRecorder, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -702,7 +702,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMediaRecorder, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -711,7 +711,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMediaRecorder, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -720,7 +720,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMediaRecorder, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -729,7 +729,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QMediaRecorder, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -743,7 +743,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QMediaRecorder, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -752,7 +752,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QMediaRecorder, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -761,7 +761,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QMediaRecorder, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -770,7 +770,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -779,7 +779,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMediaRecorder, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -790,7 +790,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -799,7 +799,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -808,7 +808,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -817,7 +817,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -826,7 +826,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QMediaRecorder, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -836,7 +836,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QMediaRecorder, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -846,7 +846,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QMediaRecorder, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -870,7 +870,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -879,7 +879,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -888,7 +888,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -897,7 +897,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -906,7 +906,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -915,7 +915,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QMediaRecorder, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -925,7 +925,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QMediaRecorder ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -934,7 +934,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMediaRecorder, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -943,7 +943,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMediaRecorder, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -952,7 +952,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -961,7 +961,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMediaRecorder, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -972,7 +972,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMediaRecorder, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -981,7 +981,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMediaRecorder, callback: *const fn (self: QtC.QMediaRecorder, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -990,7 +990,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1001,7 +1001,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1012,7 +1012,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1023,7 +1023,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1034,7 +1034,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1045,7 +1045,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1056,7 +1056,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1067,7 +1067,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1078,7 +1078,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1089,7 +1089,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1100,7 +1100,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1111,7 +1111,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1122,7 +1122,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1133,7 +1133,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1144,7 +1144,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1155,7 +1155,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1166,7 +1166,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1177,7 +1177,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1188,7 +1188,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1199,7 +1199,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1210,7 +1210,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1221,7 +1221,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1232,7 +1232,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1243,7 +1243,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1254,7 +1254,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1265,7 +1265,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1276,7 +1276,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1287,7 +1287,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1299,7 +1299,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1311,7 +1311,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1322,7 +1322,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1333,7 +1333,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1344,7 +1344,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1355,7 +1355,7 @@ pub const qmediarecorder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1364,7 +1364,7 @@ pub const qmediarecorder = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#dtor.QMediaRecorder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#dtor.QMediaRecorder)
     ///
     /// Delete this object from C++ memory.
     ///

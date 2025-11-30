@@ -22,7 +22,7 @@ pub const qhorizontalstackedbarseries = struct {
         return qtc.QHorizontalStackedBarSeries_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const qhorizontalstackedbarseries = struct {
         return qtc.QHorizontalStackedBarSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const qhorizontalstackedbarseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#type)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     ///
@@ -75,7 +75,7 @@ pub const qhorizontalstackedbarseries = struct {
         return qtc.QHorizontalStackedBarSeries_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -84,7 +84,7 @@ pub const qhorizontalstackedbarseries = struct {
         qtc.QHorizontalStackedBarSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#type)
     ///
     /// Base class method implementation
     ///
@@ -95,7 +95,7 @@ pub const qhorizontalstackedbarseries = struct {
         return qtc.QHorizontalStackedBarSeries_QBaseType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -108,7 +108,7 @@ pub const qhorizontalstackedbarseries = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -123,7 +123,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#setBarWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#setBarWidth)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, width: f64 ```
     pub fn SetBarWidth(self: ?*anyopaque, width: f64) void {
@@ -132,7 +132,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#barWidth)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn BarWidth(self: ?*anyopaque) f64 {
@@ -141,7 +141,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#append)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, set: QtC.QBarSet ```
     pub fn Append(self: ?*anyopaque, set: ?*anyopaque) bool {
@@ -150,7 +150,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#remove)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, set: QtC.QBarSet ```
     pub fn Remove(self: ?*anyopaque, set: ?*anyopaque) bool {
@@ -159,7 +159,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#take)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#take)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, set: QtC.QBarSet ```
     pub fn Take(self: ?*anyopaque, set: ?*anyopaque) bool {
@@ -168,7 +168,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#append)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sets: []QtC.QBarSet ```
     pub fn Append2(self: ?*anyopaque, sets: []?*anyopaque) bool {
@@ -181,7 +181,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#insert)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, index: i32, set: QtC.QBarSet ```
     pub fn Insert(self: ?*anyopaque, index: i32, set: ?*anyopaque) bool {
@@ -190,7 +190,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#count)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Count(self: ?*anyopaque) i32 {
@@ -199,7 +199,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barSets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#barSets)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn BarSets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QBarSet {
@@ -213,7 +213,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#clear)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -222,7 +222,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsVisible)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn SetLabelsVisible(self: ?*anyopaque) void {
@@ -231,7 +231,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#isLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#isLabelsVisible)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn IsLabelsVisible(self: ?*anyopaque) bool {
@@ -240,7 +240,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsFormat)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, format: []const u8 ```
     pub fn SetLabelsFormat(self: ?*anyopaque, format: []const u8) void {
@@ -253,7 +253,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormat)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn LabelsFormat(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -266,7 +266,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsAngle)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, angle: f64 ```
     pub fn SetLabelsAngle(self: ?*anyopaque, angle: f64) void {
@@ -275,7 +275,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsAngle)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn LabelsAngle(self: ?*anyopaque) f64 {
@@ -284,7 +284,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsPosition)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, position: qabstractbarseries_enums.LabelsPosition ```
     pub fn SetLabelsPosition(self: ?*anyopaque, position: i32) void {
@@ -293,7 +293,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPosition)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     ///
@@ -304,7 +304,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsPrecision)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsPrecision)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, precision: i32 ```
     pub fn SetLabelsPrecision(self: ?*anyopaque, precision: i32) void {
@@ -313,7 +313,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPrecision)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPrecision)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn LabelsPrecision(self: ?*anyopaque) i32 {
@@ -322,7 +322,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#clicked)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet ```
     pub fn Clicked(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
@@ -331,7 +331,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#clicked)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
@@ -340,7 +340,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#hovered)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, status: bool, index: i32, barset: QtC.QBarSet ```
     pub fn Hovered(self: ?*anyopaque, status: bool, index: i32, barset: ?*anyopaque) void {
@@ -349,7 +349,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#hovered)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, status: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32, ?*anyopaque) callconv(.c) void) void {
@@ -358,7 +358,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#pressed)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet ```
     pub fn Pressed(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
@@ -367,7 +367,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#pressed)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
@@ -376,7 +376,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#released)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet ```
     pub fn Released(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
@@ -385,7 +385,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#released)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
@@ -394,7 +394,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#doubleClicked)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet ```
     pub fn DoubleClicked(self: ?*anyopaque, index: i32, barset: ?*anyopaque) void {
@@ -403,7 +403,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#doubleClicked)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
@@ -412,7 +412,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#countChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#countChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn CountChanged(self: ?*anyopaque) void {
@@ -421,7 +421,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#countChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#countChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries) callconv(.c) void ```
     pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -430,7 +430,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsVisibleChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn LabelsVisibleChanged(self: ?*anyopaque) void {
@@ -439,7 +439,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsVisibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsVisibleChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries) callconv(.c) void ```
     pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -448,7 +448,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormatChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, format: []const u8 ```
     pub fn LabelsFormatChanged(self: ?*anyopaque, format: []const u8) void {
@@ -461,7 +461,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormatChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, format: [*:0]const u8) callconv(.c) void ```
     pub fn OnLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -470,7 +470,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPositionChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, position: qabstractbarseries_enums.LabelsPosition ```
     pub fn LabelsPositionChanged(self: ?*anyopaque, position: i32) void {
@@ -479,7 +479,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPositionChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, position: qabstractbarseries_enums.LabelsPosition) callconv(.c) void ```
     pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -488,7 +488,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsAngleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsAngleChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, angle: f64 ```
     pub fn LabelsAngleChanged(self: ?*anyopaque, angle: f64) void {
@@ -497,7 +497,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsAngleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsAngleChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, angle: f64) callconv(.c) void ```
     pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
@@ -506,7 +506,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPrecisionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPrecisionChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, precision: i32 ```
     pub fn LabelsPrecisionChanged(self: ?*anyopaque, precision: i32) void {
@@ -515,7 +515,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPrecisionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPrecisionChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, precision: i32) callconv(.c) void ```
     pub fn OnLabelsPrecisionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -524,7 +524,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsAdded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsAdded)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sets: []QtC.QBarSet ```
     pub fn BarsetsAdded(self: ?*anyopaque, sets: []?*anyopaque) void {
@@ -537,7 +537,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsAdded)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsAdded)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
     pub fn OnBarsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
@@ -546,7 +546,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsRemoved)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sets: []QtC.QBarSet ```
     pub fn BarsetsRemoved(self: ?*anyopaque, sets: []?*anyopaque) void {
@@ -559,7 +559,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsRemoved)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
     pub fn OnBarsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
@@ -568,7 +568,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractBarSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries.html#setLabelsVisible)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, visible: bool ```
     pub fn SetLabelsVisible1(self: ?*anyopaque, visible: bool) void {
@@ -577,7 +577,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setName)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -590,7 +590,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#name)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -603,7 +603,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn SetVisible(self: ?*anyopaque) void {
@@ -612,7 +612,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#isVisible)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -621,7 +621,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacity)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Opacity(self: ?*anyopaque) f64 {
@@ -630,7 +630,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setOpacity)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
@@ -639,7 +639,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn SetUseOpenGL(self: ?*anyopaque) void {
@@ -648,7 +648,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGL)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn UseOpenGL(self: ?*anyopaque) bool {
@@ -657,7 +657,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#chart)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#chart)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Chart(self: ?*anyopaque) QtC.QChart {
@@ -666,7 +666,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#attachAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachAxis)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, axis: QtC.QAbstractAxis ```
     pub fn AttachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
@@ -675,7 +675,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#detachAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#detachAxis)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, axis: QtC.QAbstractAxis ```
     pub fn DetachAxis(self: ?*anyopaque, axis: ?*anyopaque) bool {
@@ -684,7 +684,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#attachedAxes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#attachedAxes)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
@@ -698,7 +698,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#show)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Show(self: ?*anyopaque) void {
@@ -707,7 +707,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#hide)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -716,7 +716,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn NameChanged(self: ?*anyopaque) void {
@@ -725,7 +725,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries) callconv(.c) void ```
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -734,7 +734,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -743,7 +743,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -752,7 +752,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn OpacityChanged(self: ?*anyopaque) void {
@@ -761,7 +761,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -770,7 +770,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn UseOpenGLChanged(self: ?*anyopaque) void {
@@ -779,7 +779,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries) callconv(.c) void ```
     pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -788,7 +788,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setVisible)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, visible: bool ```
     pub fn SetVisible1(self: ?*anyopaque, visible: bool) void {
@@ -797,7 +797,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QAbstractSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#setUseOpenGL)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, enable: bool ```
     pub fn SetUseOpenGL1(self: ?*anyopaque, enable: bool) void {
@@ -806,7 +806,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -819,7 +819,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -832,7 +832,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -841,7 +841,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -850,7 +850,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -859,7 +859,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -868,7 +868,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -877,7 +877,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -886,7 +886,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -895,7 +895,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -904,7 +904,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -913,7 +913,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -922,7 +922,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -936,7 +936,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -945,7 +945,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -954,7 +954,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -963,7 +963,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -972,7 +972,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -983,7 +983,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -992,7 +992,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1001,7 +1001,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1010,7 +1010,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1019,7 +1019,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1029,7 +1029,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1039,7 +1039,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1063,7 +1063,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1072,7 +1072,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1081,7 +1081,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1090,7 +1090,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1099,7 +1099,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1108,7 +1108,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1118,7 +1118,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1127,7 +1127,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1136,7 +1136,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1145,7 +1145,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1154,7 +1154,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1165,7 +1165,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1174,7 +1174,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, callback: *const fn (self: QtC.QHorizontalStackedBarSeries, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1183,7 +1183,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1194,7 +1194,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1205,7 +1205,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1216,7 +1216,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1227,7 +1227,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1238,7 +1238,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1249,7 +1249,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1260,7 +1260,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1271,7 +1271,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1282,7 +1282,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1293,7 +1293,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1304,7 +1304,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1315,7 +1315,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1326,7 +1326,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1337,7 +1337,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1348,7 +1348,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1359,7 +1359,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1370,7 +1370,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1381,7 +1381,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1392,7 +1392,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1403,7 +1403,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1414,7 +1414,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1425,7 +1425,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1436,7 +1436,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1447,7 +1447,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1458,7 +1458,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1469,7 +1469,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1480,7 +1480,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1492,7 +1492,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1504,7 +1504,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1515,7 +1515,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1526,7 +1526,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1537,7 +1537,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1548,7 +1548,7 @@ pub const qhorizontalstackedbarseries = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1557,7 +1557,7 @@ pub const qhorizontalstackedbarseries = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#dtor.QHorizontalStackedBarSeries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#dtor.QHorizontalStackedBarSeries)
     ///
     /// Delete this object from C++ memory.
     ///

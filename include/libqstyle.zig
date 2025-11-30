@@ -17,7 +17,7 @@ pub const qstyle = struct {
         return qtc.QStyle_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -49,7 +49,7 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -61,7 +61,7 @@ pub const qstyle = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#name)
     ///
     /// ``` self: QtC.QStyle, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -72,14 +72,14 @@ pub const qstyle = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// ``` self: QtC.QStyle, widget: QtC.QWidget ```
     pub fn Polish(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QStyle_Polish(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// Allows for overriding the related default method
     ///
@@ -88,7 +88,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnPolish(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// Base class method implementation
     ///
@@ -97,14 +97,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBasePolish(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#unpolish)
     ///
     /// ``` self: QtC.QStyle, widget: QtC.QWidget ```
     pub fn Unpolish(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QStyle_Unpolish(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#unpolish)
     ///
     /// Allows for overriding the related default method
     ///
@@ -113,7 +113,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnUnpolish(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#unpolish)
     ///
     /// Base class method implementation
     ///
@@ -122,14 +122,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBaseUnpolish(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// ``` self: QtC.QStyle, application: QtC.QApplication ```
     pub fn Polish2(self: ?*anyopaque, application: ?*anyopaque) void {
         qtc.QStyle_Polish2(@ptrCast(self), @ptrCast(application));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// Allows for overriding the related default method
     ///
@@ -138,7 +138,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnPolish2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// Base class method implementation
     ///
@@ -147,14 +147,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBasePolish2(@ptrCast(self), @ptrCast(application));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#unpolish)
     ///
     /// ``` self: QtC.QStyle, application: QtC.QApplication ```
     pub fn Unpolish2(self: ?*anyopaque, application: ?*anyopaque) void {
         qtc.QStyle_Unpolish2(@ptrCast(self), @ptrCast(application));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#unpolish)
     ///
     /// Allows for overriding the related default method
     ///
@@ -163,7 +163,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnUnpolish2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#unpolish)
     ///
     /// Base class method implementation
     ///
@@ -172,14 +172,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBaseUnpolish2(@ptrCast(self), @ptrCast(application));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// ``` self: QtC.QStyle, palette: QtC.QPalette ```
     pub fn Polish3(self: ?*anyopaque, palette: ?*anyopaque) void {
         qtc.QStyle_Polish3(@ptrCast(self), @ptrCast(palette));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// Allows for overriding the related default method
     ///
@@ -188,7 +188,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnPolish3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// Base class method implementation
     ///
@@ -197,7 +197,7 @@ pub const qstyle = struct {
         qtc.QStyle_QBasePolish3(@ptrCast(self), @ptrCast(palette));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#itemTextRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#itemTextRect)
     ///
     /// ``` self: QtC.QStyle, fm: QtC.QFontMetrics, r: QtC.QRect, flags: i32, enabled: bool, text: []const u8 ```
     pub fn ItemTextRect(self: ?*anyopaque, fm: ?*anyopaque, r: ?*anyopaque, flags: i32, enabled: bool, text: []const u8) QtC.QRect {
@@ -208,7 +208,7 @@ pub const qstyle = struct {
         return qtc.QStyle_ItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @intCast(flags), enabled, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#itemTextRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#itemTextRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -217,7 +217,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnItemTextRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#itemTextRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#itemTextRect)
     ///
     /// Base class method implementation
     ///
@@ -230,14 +230,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @intCast(flags), enabled, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#itemPixmapRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#itemPixmapRect)
     ///
     /// ``` self: QtC.QStyle, r: QtC.QRect, flags: i32, pixmap: QtC.QPixmap ```
     pub fn ItemPixmapRect(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pixmap: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_ItemPixmapRect(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#itemPixmapRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#itemPixmapRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -246,7 +246,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnItemPixmapRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#itemPixmapRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#itemPixmapRect)
     ///
     /// Base class method implementation
     ///
@@ -255,7 +255,7 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseItemPixmapRect(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawItemText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawItemText)
     ///
     /// ``` self: QtC.QStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole ```
     pub fn DrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
@@ -266,7 +266,7 @@ pub const qstyle = struct {
         qtc.QStyle_DrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(flags), @ptrCast(pal), enabled, text_str, @intCast(textRole));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawItemText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawItemText)
     ///
     /// Allows for overriding the related default method
     ///
@@ -275,7 +275,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnDrawItemText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawItemText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawItemText)
     ///
     /// Base class method implementation
     ///
@@ -288,14 +288,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBaseDrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(flags), @ptrCast(pal), enabled, text_str, @intCast(textRole));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawItemPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawItemPixmap)
     ///
     /// ``` self: QtC.QStyle, painter: QtC.QPainter, rect: QtC.QRect, alignment: i32, pixmap: QtC.QPixmap ```
     pub fn DrawItemPixmap(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32, pixmap: ?*anyopaque) void {
         qtc.QStyle_DrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawItemPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawItemPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -304,7 +304,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnDrawItemPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawItemPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawItemPixmap)
     ///
     /// Base class method implementation
     ///
@@ -313,14 +313,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBaseDrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPalette)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn StandardPalette(self: ?*anyopaque) QtC.QPalette {
         return qtc.QStyle_StandardPalette(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPalette)
     ///
     /// Allows for overriding the related default method
     ///
@@ -329,7 +329,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnStandardPalette(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPalette)
     ///
     /// Base class method implementation
     ///
@@ -338,14 +338,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseStandardPalette(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
     ///
     /// ``` self: QtC.QStyle, pe: qstyle_enums.PrimitiveElement, opt: QtC.QStyleOption, p: QtC.QPainter, w: QtC.QWidget ```
     pub fn DrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyle_DrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
     ///
     /// Allows for overriding the related default method
     ///
@@ -354,7 +354,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnDrawPrimitive(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
     ///
     /// Base class method implementation
     ///
@@ -363,14 +363,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBaseDrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawControl)
     ///
     /// ``` self: QtC.QStyle, element: qstyle_enums.ControlElement, opt: QtC.QStyleOption, p: QtC.QPainter, w: QtC.QWidget ```
     pub fn DrawControl(self: ?*anyopaque, element: i64, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QStyle_DrawControl(@ptrCast(self), @intCast(element), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawControl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -379,7 +379,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnDrawControl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawControl)
     ///
     /// Base class method implementation
     ///
@@ -388,14 +388,14 @@ pub const qstyle = struct {
         qtc.QStyle_QBaseDrawControl(@ptrCast(self), @intCast(element), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
     ///
     /// ``` self: QtC.QStyle, subElement: qstyle_enums.SubElement, option: QtC.QStyleOption, widget: QtC.QWidget ```
     pub fn SubElementRect(self: ?*anyopaque, subElement: i64, option: ?*anyopaque, widget: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_SubElementRect(@ptrCast(self), @intCast(subElement), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -404,7 +404,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnSubElementRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
     ///
     /// Base class method implementation
     ///
@@ -413,14 +413,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseSubElementRect(@ptrCast(self), @intCast(subElement), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
     ///
     /// ``` self: QtC.QStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, p: QtC.QPainter, widget: QtC.QWidget ```
     pub fn DrawComplexControl(self: ?*anyopaque, cc: i64, opt: ?*anyopaque, p: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QStyle_DrawComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(p), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -429,7 +429,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnDrawComplexControl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
     ///
     /// Base class method implementation
     ///
@@ -438,7 +438,7 @@ pub const qstyle = struct {
         qtc.QStyle_QBaseDrawComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(p), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
     ///
     /// ``` self: QtC.QStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, pt: QtC.QPoint, widget: QtC.QWidget ```
     ///
@@ -447,7 +447,7 @@ pub const qstyle = struct {
         return qtc.QStyle_HitTestComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -456,7 +456,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnHitTestComplexControl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
     ///
     /// Base class method implementation
     ///
@@ -467,14 +467,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseHitTestComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
     ///
     /// ``` self: QtC.QStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, sc: qstyle_enums.SubControl, widget: QtC.QWidget ```
     pub fn SubControlRect(self: ?*anyopaque, cc: i64, opt: ?*anyopaque, sc: i64, widget: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_SubControlRect(@ptrCast(self), @intCast(cc), @ptrCast(opt), @intCast(sc), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -483,7 +483,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnSubControlRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
     ///
     /// Base class method implementation
     ///
@@ -492,14 +492,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseSubControlRect(@ptrCast(self), @intCast(cc), @ptrCast(opt), @intCast(sc), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
     ///
     /// ``` self: QtC.QStyle, metric: qstyle_enums.PixelMetric, option: QtC.QStyleOption, widget: QtC.QWidget ```
     pub fn PixelMetric(self: ?*anyopaque, metric: i64, option: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QStyle_PixelMetric(@ptrCast(self), @intCast(metric), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
     ///
     /// Allows for overriding the related default method
     ///
@@ -508,7 +508,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnPixelMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
     ///
     /// Base class method implementation
     ///
@@ -517,14 +517,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBasePixelMetric(@ptrCast(self), @intCast(metric), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
     ///
     /// ``` self: QtC.QStyle, ct: qstyle_enums.ContentsType, opt: QtC.QStyleOption, contentsSize: QtC.QSize, w: QtC.QWidget ```
     pub fn SizeFromContents(self: ?*anyopaque, ct: i64, opt: ?*anyopaque, contentsSize: ?*anyopaque, w: ?*anyopaque) QtC.QSize {
         return qtc.QStyle_SizeFromContents(@ptrCast(self), @intCast(ct), @ptrCast(opt), @ptrCast(contentsSize), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
     ///
     /// Allows for overriding the related default method
     ///
@@ -533,7 +533,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnSizeFromContents(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
     ///
     /// Base class method implementation
     ///
@@ -542,14 +542,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseSizeFromContents(@ptrCast(self), @intCast(ct), @ptrCast(opt), @ptrCast(contentsSize), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#styleHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#styleHint)
     ///
     /// ``` self: QtC.QStyle, stylehint: qstyle_enums.StyleHint, opt: QtC.QStyleOption, widget: QtC.QWidget, returnData: QtC.QStyleHintReturn ```
     pub fn StyleHint(self: ?*anyopaque, stylehint: i64, opt: ?*anyopaque, widget: ?*anyopaque, returnData: ?*anyopaque) i32 {
         return qtc.QStyle_StyleHint(@ptrCast(self), @intCast(stylehint), @ptrCast(opt), @ptrCast(widget), @ptrCast(returnData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#styleHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#styleHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -558,7 +558,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnStyleHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#styleHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#styleHint)
     ///
     /// Base class method implementation
     ///
@@ -567,14 +567,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseStyleHint(@ptrCast(self), @intCast(stylehint), @ptrCast(opt), @ptrCast(widget), @ptrCast(returnData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
     ///
     /// ``` self: QtC.QStyle, standardPixmap: qstyle_enums.StandardPixmap, opt: QtC.QStyleOption, widget: QtC.QWidget ```
     pub fn StandardPixmap(self: ?*anyopaque, standardPixmap: i64, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QPixmap {
         return qtc.QStyle_StandardPixmap(@ptrCast(self), @intCast(standardPixmap), @ptrCast(opt), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -583,7 +583,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnStandardPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
     ///
     /// Base class method implementation
     ///
@@ -592,14 +592,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseStandardPixmap(@ptrCast(self), @intCast(standardPixmap), @ptrCast(opt), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
     ///
     /// ``` self: QtC.QStyle, standardIcon: qstyle_enums.StandardPixmap, option: QtC.QStyleOption, widget: QtC.QWidget ```
     pub fn StandardIcon(self: ?*anyopaque, standardIcon: i64, option: ?*anyopaque, widget: ?*anyopaque) QtC.QIcon {
         return qtc.QStyle_StandardIcon(@ptrCast(self), @intCast(standardIcon), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -608,7 +608,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnStandardIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
     ///
     /// Base class method implementation
     ///
@@ -617,14 +617,14 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseStandardIcon(@ptrCast(self), @intCast(standardIcon), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
     ///
     /// ``` self: QtC.QStyle, iconMode: qicon_enums.Mode, pixmap: QtC.QPixmap, opt: QtC.QStyleOption ```
     pub fn GeneratedIconPixmap(self: ?*anyopaque, iconMode: i32, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
         return qtc.QStyle_GeneratedIconPixmap(@ptrCast(self), @intCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -633,7 +633,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnGeneratedIconPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
     ///
     /// Base class method implementation
     ///
@@ -642,35 +642,35 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseGeneratedIconPixmap(@ptrCast(self), @intCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#visualRect)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, boundingRect: QtC.QRect, logicalRect: QtC.QRect ```
     pub fn VisualRect(direction: i32, boundingRect: ?*anyopaque, logicalRect: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_VisualRect(@intCast(direction), @ptrCast(boundingRect), @ptrCast(logicalRect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#visualPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#visualPos)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, boundingRect: QtC.QRect, logicalPos: QtC.QPoint ```
     pub fn VisualPos(direction: i32, boundingRect: ?*anyopaque, logicalPos: ?*anyopaque) QtC.QPoint {
         return qtc.QStyle_VisualPos(@intCast(direction), @ptrCast(boundingRect), @ptrCast(logicalPos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#sliderPositionFromValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sliderPositionFromValue)
     ///
     /// ``` min: i32, max: i32, val: i32, space: i32 ```
     pub fn SliderPositionFromValue(min: i32, max: i32, val: i32, space: i32) i32 {
         return qtc.QStyle_SliderPositionFromValue(@intCast(min), @intCast(max), @intCast(val), @intCast(space));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#sliderValueFromPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sliderValueFromPosition)
     ///
     /// ``` min: i32, max: i32, pos: i32, space: i32 ```
     pub fn SliderValueFromPosition(min: i32, max: i32, pos: i32, space: i32) i32 {
         return qtc.QStyle_SliderValueFromPosition(@intCast(min), @intCast(max), @intCast(pos), @intCast(space));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#visualAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#visualAlignment)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag ```
     ///
@@ -679,21 +679,21 @@ pub const qstyle = struct {
         return qtc.QStyle_VisualAlignment(@intCast(direction), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#alignedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#alignedRect)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag, size: QtC.QSize, rectangle: QtC.QRect ```
     pub fn AlignedRect(direction: i32, alignment: i32, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_AlignedRect(@intCast(direction), @intCast(alignment), @ptrCast(size), @ptrCast(rectangle));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
     ///
     /// ``` self: QtC.QStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
     pub fn LayoutSpacing(self: ?*anyopaque, control1: i32, control2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QStyle_LayoutSpacing(@ptrCast(self), @intCast(control1), @intCast(control2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -702,7 +702,7 @@ pub const qstyle = struct {
         qtc.QStyle_OnLayoutSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
     ///
     /// Base class method implementation
     ///
@@ -711,21 +711,21 @@ pub const qstyle = struct {
         return qtc.QStyle_QBaseLayoutSpacing(@ptrCast(self), @intCast(control1), @intCast(control2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation ```
     pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32) i32 {
         return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#proxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#proxy)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn Proxy(self: ?*anyopaque) QtC.QStyle {
         return qtc.QStyle_Proxy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -738,7 +738,7 @@ pub const qstyle = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -751,28 +751,28 @@ pub const qstyle = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#sliderPositionFromValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sliderPositionFromValue)
     ///
     /// ``` min: i32, max: i32, val: i32, space: i32, upsideDown: bool ```
     pub fn SliderPositionFromValue5(min: i32, max: i32, val: i32, space: i32, upsideDown: bool) i32 {
         return qtc.QStyle_SliderPositionFromValue5(@intCast(min), @intCast(max), @intCast(val), @intCast(space), upsideDown);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#sliderValueFromPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sliderValueFromPosition)
     ///
     /// ``` min: i32, max: i32, pos: i32, space: i32, upsideDown: bool ```
     pub fn SliderValueFromPosition5(min: i32, max: i32, pos: i32, space: i32, upsideDown: bool) i32 {
         return qtc.QStyle_SliderValueFromPosition5(@intCast(min), @intCast(max), @intCast(pos), @intCast(space), upsideDown);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption ```
     pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque) i32 {
         return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
     pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
@@ -781,7 +781,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QStyle, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -794,7 +794,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QStyle, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -807,7 +807,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -816,7 +816,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -825,7 +825,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -834,7 +834,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -843,7 +843,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QStyle, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -852,7 +852,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -861,7 +861,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QStyle, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -870,7 +870,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QStyle, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -879,7 +879,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QStyle, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -888,7 +888,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QStyle, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -897,7 +897,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QStyle, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -911,7 +911,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QStyle, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -920,7 +920,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QStyle, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -929,7 +929,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QStyle, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -938,7 +938,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -947,7 +947,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QStyle, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -958,7 +958,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -967,7 +967,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -976,7 +976,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -985,7 +985,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -994,7 +994,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QStyle, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1004,7 +1004,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QStyle, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1014,7 +1014,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QStyle, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1038,7 +1038,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1047,7 +1047,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1056,7 +1056,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1065,7 +1065,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QStyle, callback: *const fn (self: QtC.QStyle) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1074,7 +1074,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1083,7 +1083,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QStyle, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1093,7 +1093,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QStyle ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1102,7 +1102,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QStyle, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1111,7 +1111,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QStyle, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1120,7 +1120,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1129,7 +1129,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QStyle, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1140,7 +1140,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QStyle, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1149,7 +1149,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QStyle, callback: *const fn (self: QtC.QStyle, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1158,7 +1158,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1169,7 +1169,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1180,7 +1180,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1191,7 +1191,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1202,7 +1202,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1213,7 +1213,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1224,7 +1224,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1235,7 +1235,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1246,7 +1246,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1257,7 +1257,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1268,7 +1268,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1279,7 +1279,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1290,7 +1290,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1301,7 +1301,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1312,7 +1312,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1323,7 +1323,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1334,7 +1334,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1345,7 +1345,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1356,7 +1356,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1367,7 +1367,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1378,7 +1378,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1389,7 +1389,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1400,7 +1400,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1411,7 +1411,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1422,7 +1422,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1433,7 +1433,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1444,7 +1444,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1455,7 +1455,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1467,7 +1467,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1479,7 +1479,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1490,7 +1490,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1501,7 +1501,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1512,7 +1512,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1523,7 +1523,7 @@ pub const qstyle = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1532,7 +1532,7 @@ pub const qstyle = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#dtor.QStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#dtor.QStyle)
     ///
     /// Delete this object from C++ memory.
     ///

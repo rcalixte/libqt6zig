@@ -28,7 +28,7 @@ pub const qtimeline = struct {
         return qtc.QTimeLine_new3(@intCast(duration), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -60,7 +60,7 @@ pub const qtimeline = struct {
         return qtc.QTimeLine_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -72,7 +72,7 @@ pub const qtimeline = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#state)
     ///
     /// ``` self: QtC.QTimeLine ```
     ///
@@ -81,21 +81,21 @@ pub const qtimeline = struct {
         return qtc.QTimeLine_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#loopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#loopCount)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn LoopCount(self: ?*anyopaque) i32 {
         return qtc.QTimeLine_LoopCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setLoopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setLoopCount)
     ///
     /// ``` self: QtC.QTimeLine, count: i32 ```
     pub fn SetLoopCount(self: ?*anyopaque, count: i32) void {
         qtc.QTimeLine_SetLoopCount(@ptrCast(self), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#direction)
     ///
     /// ``` self: QtC.QTimeLine ```
     ///
@@ -104,126 +104,126 @@ pub const qtimeline = struct {
         return qtc.QTimeLine_Direction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setDirection)
     ///
     /// ``` self: QtC.QTimeLine, direction: qtimeline_enums.Direction ```
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTimeLine_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#duration)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn Duration(self: ?*anyopaque) i32 {
         return qtc.QTimeLine_Duration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setDuration)
     ///
     /// ``` self: QtC.QTimeLine, duration: i32 ```
     pub fn SetDuration(self: ?*anyopaque, duration: i32) void {
         qtc.QTimeLine_SetDuration(@ptrCast(self), @intCast(duration));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#startFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#startFrame)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn StartFrame(self: ?*anyopaque) i32 {
         return qtc.QTimeLine_StartFrame(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setStartFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setStartFrame)
     ///
     /// ``` self: QtC.QTimeLine, frame: i32 ```
     pub fn SetStartFrame(self: ?*anyopaque, frame: i32) void {
         qtc.QTimeLine_SetStartFrame(@ptrCast(self), @intCast(frame));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#endFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#endFrame)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn EndFrame(self: ?*anyopaque) i32 {
         return qtc.QTimeLine_EndFrame(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setEndFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setEndFrame)
     ///
     /// ``` self: QtC.QTimeLine, frame: i32 ```
     pub fn SetEndFrame(self: ?*anyopaque, frame: i32) void {
         qtc.QTimeLine_SetEndFrame(@ptrCast(self), @intCast(frame));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setFrameRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setFrameRange)
     ///
     /// ``` self: QtC.QTimeLine, startFrame: i32, endFrame: i32 ```
     pub fn SetFrameRange(self: ?*anyopaque, startFrame: i32, endFrame: i32) void {
         qtc.QTimeLine_SetFrameRange(@ptrCast(self), @intCast(startFrame), @intCast(endFrame));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#updateInterval)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#updateInterval)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn UpdateInterval(self: ?*anyopaque) i32 {
         return qtc.QTimeLine_UpdateInterval(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setUpdateInterval)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setUpdateInterval)
     ///
     /// ``` self: QtC.QTimeLine, interval: i32 ```
     pub fn SetUpdateInterval(self: ?*anyopaque, interval: i32) void {
         qtc.QTimeLine_SetUpdateInterval(@ptrCast(self), @intCast(interval));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#easingCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#easingCurve)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn EasingCurve(self: ?*anyopaque) QtC.QEasingCurve {
         return qtc.QTimeLine_EasingCurve(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setEasingCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setEasingCurve)
     ///
     /// ``` self: QtC.QTimeLine, curve: QtC.QEasingCurve ```
     pub fn SetEasingCurve(self: ?*anyopaque, curve: ?*anyopaque) void {
         qtc.QTimeLine_SetEasingCurve(@ptrCast(self), @ptrCast(curve));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#currentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#currentTime)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn CurrentTime(self: ?*anyopaque) i32 {
         return qtc.QTimeLine_CurrentTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#currentFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#currentFrame)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn CurrentFrame(self: ?*anyopaque) i32 {
         return qtc.QTimeLine_CurrentFrame(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#currentValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#currentValue)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn CurrentValue(self: ?*anyopaque) f64 {
         return qtc.QTimeLine_CurrentValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#frameForTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#frameForTime)
     ///
     /// ``` self: QtC.QTimeLine, msec: i32 ```
     pub fn FrameForTime(self: ?*anyopaque, msec: i32) i32 {
         return qtc.QTimeLine_FrameForTime(@ptrCast(self), @intCast(msec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
     ///
     /// ``` self: QtC.QTimeLine, msec: i32 ```
     pub fn ValueForTime(self: ?*anyopaque, msec: i32) f64 {
         return qtc.QTimeLine_ValueForTime(@ptrCast(self), @intCast(msec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
     ///
     /// Allows for overriding the related default method
     ///
@@ -232,7 +232,7 @@ pub const qtimeline = struct {
         qtc.QTimeLine_OnValueForTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueForTime)
     ///
     /// Base class method implementation
     ///
@@ -241,56 +241,56 @@ pub const qtimeline = struct {
         return qtc.QTimeLine_QBaseValueForTime(@ptrCast(self), @intCast(msec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#start)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.QTimeLine_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#resume)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QTimeLine_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#stop)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QTimeLine_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setPaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setPaused)
     ///
     /// ``` self: QtC.QTimeLine, paused: bool ```
     pub fn SetPaused(self: ?*anyopaque, paused: bool) void {
         qtc.QTimeLine_SetPaused(@ptrCast(self), paused);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#setCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#setCurrentTime)
     ///
     /// ``` self: QtC.QTimeLine, msec: i32 ```
     pub fn SetCurrentTime(self: ?*anyopaque, msec: i32) void {
         qtc.QTimeLine_SetCurrentTime(@ptrCast(self), @intCast(msec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#toggleDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#toggleDirection)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn ToggleDirection(self: ?*anyopaque) void {
         qtc.QTimeLine_ToggleDirection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
     ///
     /// ``` self: QtC.QTimeLine, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QTimeLine_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -299,7 +299,7 @@ pub const qtimeline = struct {
         qtc.QTimeLine_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#timerEvent)
     ///
     /// Base class method implementation
     ///
@@ -308,7 +308,7 @@ pub const qtimeline = struct {
         qtc.QTimeLine_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -321,7 +321,7 @@ pub const qtimeline = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -336,7 +336,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QTimeLine, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -349,7 +349,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QTimeLine, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -362,7 +362,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -371,7 +371,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -380,7 +380,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -389,7 +389,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -398,7 +398,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QTimeLine, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -407,7 +407,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -416,7 +416,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTimeLine, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -425,7 +425,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTimeLine, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -434,7 +434,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTimeLine, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -443,7 +443,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTimeLine, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -452,7 +452,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QTimeLine, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -466,7 +466,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QTimeLine, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -475,7 +475,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QTimeLine, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -484,7 +484,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QTimeLine, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -493,7 +493,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -502,7 +502,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTimeLine, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -513,7 +513,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -522,7 +522,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -531,7 +531,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -540,7 +540,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -549,7 +549,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QTimeLine, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -559,7 +559,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QTimeLine, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -569,7 +569,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QTimeLine, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -593,7 +593,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -602,7 +602,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -611,7 +611,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -620,7 +620,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTimeLine, callback: *const fn (self: QtC.QTimeLine) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -629,7 +629,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -638,7 +638,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QTimeLine, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -648,7 +648,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QTimeLine ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -657,7 +657,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTimeLine, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -666,7 +666,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTimeLine, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -675,7 +675,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -684,7 +684,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTimeLine, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -695,7 +695,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTimeLine, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -704,7 +704,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTimeLine, callback: *const fn (self: QtC.QTimeLine, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -713,7 +713,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -724,7 +724,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -735,7 +735,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -746,7 +746,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -757,7 +757,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -768,7 +768,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -779,7 +779,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -790,7 +790,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -801,7 +801,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -812,7 +812,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -823,7 +823,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -834,7 +834,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -845,7 +845,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -856,7 +856,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -867,7 +867,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -878,7 +878,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -889,7 +889,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -900,7 +900,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -911,7 +911,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -922,7 +922,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -933,7 +933,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -944,7 +944,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -955,7 +955,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -966,7 +966,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -977,7 +977,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -989,7 +989,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1001,7 +1001,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1012,7 +1012,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1023,7 +1023,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1034,7 +1034,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1043,7 +1043,7 @@ pub const qtimeline = struct {
         qtc.QTimeLine_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#valueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#valueChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1052,7 +1052,7 @@ pub const qtimeline = struct {
         qtc.QTimeLine_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#frameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#frameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1061,7 +1061,7 @@ pub const qtimeline = struct {
         qtc.QTimeLine_Connect_FrameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#stateChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1070,7 +1070,7 @@ pub const qtimeline = struct {
         qtc.QTimeLine_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#finished)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1081,7 +1081,7 @@ pub const qtimeline = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1090,7 +1090,7 @@ pub const qtimeline = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimeline.html#dtor.QTimeLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#dtor.QTimeLine)
     ///
     /// Delete this object from C++ memory.
     ///

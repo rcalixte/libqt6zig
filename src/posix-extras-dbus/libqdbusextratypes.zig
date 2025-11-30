@@ -39,14 +39,14 @@ pub const qdbusobjectpath = struct {
         return qtc.QDBusObjectPath_new4(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusobjectpath.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#swap)
     ///
     /// ``` self: QtC.QDBusObjectPath, other: QtC.QDBusObjectPath ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusObjectPath_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusobjectpath.html#setPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#setPath)
     ///
     /// ``` self: QtC.QDBusObjectPath, path: []const u8 ```
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
@@ -57,7 +57,7 @@ pub const qdbusobjectpath = struct {
         qtc.QDBusObjectPath_SetPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusobjectpath.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#path)
     ///
     /// ``` self: QtC.QDBusObjectPath, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -68,14 +68,14 @@ pub const qdbusobjectpath = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusobjectpath.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#operator)
     ///
     /// ``` self: QtC.QDBusObjectPath ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QDBusObjectPath_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusobjectpath.html#dtor.QDBusObjectPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#dtor.QDBusObjectPath)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -122,14 +122,14 @@ pub const qdbussignature = struct {
         return qtc.QDBusSignature_new4(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbussignature.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#swap)
     ///
     /// ``` self: QtC.QDBusSignature, other: QtC.QDBusSignature ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusSignature_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbussignature.html#setSignature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#setSignature)
     ///
     /// ``` self: QtC.QDBusSignature, signature: []const u8 ```
     pub fn SetSignature(self: ?*anyopaque, signature: []const u8) void {
@@ -140,7 +140,7 @@ pub const qdbussignature = struct {
         qtc.QDBusSignature_SetSignature(@ptrCast(self), signature_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbussignature.html#signature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#signature)
     ///
     /// ``` self: QtC.QDBusSignature, allocator: std.mem.Allocator ```
     pub fn Signature(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -151,7 +151,7 @@ pub const qdbussignature = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbussignature.html#dtor.QDBusSignature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#dtor.QDBusSignature)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -177,35 +177,35 @@ pub const qdbusvariant = struct {
         return qtc.QDBusVariant_new2(@ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusvariant.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#swap)
     ///
     /// ``` self: QtC.QDBusVariant, other: QtC.QDBusVariant ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusVariant_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusvariant.html#setVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#setVariant)
     ///
     /// ``` self: QtC.QDBusVariant, variant: QtC.QVariant ```
     pub fn SetVariant(self: ?*anyopaque, variant: ?*anyopaque) void {
         qtc.QDBusVariant_SetVariant(@ptrCast(self), @ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusvariant.html#variant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#variant)
     ///
     /// ``` self: QtC.QDBusVariant ```
     pub fn Variant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QDBusVariant_Variant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusvariant.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#operator-eq)
     ///
     /// ``` self: QtC.QDBusVariant, param1: QtC.QDBusVariant ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QDBusVariant_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusvariant.html#dtor.QDBusVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#dtor.QDBusVariant)
     ///
     /// Delete this object from C++ memory.
     ///

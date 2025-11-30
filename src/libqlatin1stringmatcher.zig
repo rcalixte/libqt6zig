@@ -11,14 +11,14 @@ pub const qlatin1stringmatcher = struct {
         return qtc.QLatin1StringMatcher_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#setCaseSensitivity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#setCaseSensitivity)
     ///
     /// ``` self: QtC.QLatin1StringMatcher, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
         qtc.QLatin1StringMatcher_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#caseSensitivity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#caseSensitivity)
     ///
     /// ``` self: QtC.QLatin1StringMatcher ```
     ///
@@ -27,7 +27,7 @@ pub const qlatin1stringmatcher = struct {
         return qtc.QLatin1StringMatcher_CaseSensitivity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#dtor.QLatin1StringMatcher)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#dtor.QLatin1StringMatcher)
     ///
     /// Delete this object from C++ memory.
     ///

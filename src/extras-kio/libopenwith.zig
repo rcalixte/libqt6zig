@@ -49,21 +49,21 @@ pub const kio__openwith__acceptresult = struct {
         return qtc.KIO__OpenWith__AcceptResult_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)
+    /// [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)
     ///
     /// ``` self: QtC.KIO__OpenWith__AcceptResult ```
     pub fn Accept(self: ?*anyopaque) bool {
         return qtc.KIO__OpenWith__AcceptResult_Accept(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)
+    /// [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)
     ///
     /// ``` self: QtC.KIO__OpenWith__AcceptResult, accept: bool ```
     pub fn SetAccept(self: ?*anyopaque, accept: bool) void {
         qtc.KIO__OpenWith__AcceptResult_SetAccept(@ptrCast(self), accept);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-openwith-acceptresult.html#error-var)
+    /// [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#error-var)
     ///
     /// ``` self: QtC.KIO__OpenWith__AcceptResult, allocator: std.mem.Allocator ```
     pub fn Error(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -74,7 +74,7 @@ pub const kio__openwith__acceptresult = struct {
         return error_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-openwith-acceptresult.html#error-var)
+    /// [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#error-var)
     ///
     /// ``` self: QtC.KIO__OpenWith__AcceptResult, error: []const u8 ```
     pub fn SetError(self: ?*anyopaque, _error: []const u8) void {
@@ -85,21 +85,21 @@ pub const kio__openwith__acceptresult = struct {
         qtc.KIO__OpenWith__AcceptResult_SetError(@ptrCast(self), error_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-openwith-acceptresult.html#rebuildSycoca-var)
+    /// [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#rebuildSycoca-var)
     ///
     /// ``` self: QtC.KIO__OpenWith__AcceptResult ```
     pub fn RebuildSycoca(self: ?*anyopaque) bool {
         return qtc.KIO__OpenWith__AcceptResult_RebuildSycoca(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-openwith-acceptresult.html#rebuildSycoca-var)
+    /// [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#rebuildSycoca-var)
     ///
     /// ``` self: QtC.KIO__OpenWith__AcceptResult, rebuildSycoca: bool ```
     pub fn SetRebuildSycoca(self: ?*anyopaque, rebuildSycoca: bool) void {
         qtc.KIO__OpenWith__AcceptResult_SetRebuildSycoca(@ptrCast(self), rebuildSycoca);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-openwith-acceptresult.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#operator-eq)
     ///
     /// ``` self: QtC.KIO__OpenWith__AcceptResult, param1: QtC.KIO__OpenWith__AcceptResult ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

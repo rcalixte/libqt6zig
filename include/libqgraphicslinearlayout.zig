@@ -33,14 +33,14 @@ pub const qgraphicslinearlayout = struct {
         return qtc.QGraphicsLinearLayout_new4(@intCast(orientation), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setOrientation)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, orientation: qnamespace_enums.Orientation ```
     pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QGraphicsLinearLayout_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#orientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#orientation)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     ///
@@ -49,49 +49,49 @@ pub const qgraphicslinearlayout = struct {
         return qtc.QGraphicsLinearLayout_Orientation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addItem)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem ```
     pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QGraphicsLinearLayout_AddItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addStretch)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn AddStretch(self: ?*anyopaque) void {
         qtc.QGraphicsLinearLayout_AddStretch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertItem)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, index: i32, item: QtC.QGraphicsLayoutItem ```
     pub fn InsertItem(self: ?*anyopaque, index: i32, item: ?*anyopaque) void {
         qtc.QGraphicsLinearLayout_InsertItem(@ptrCast(self), @intCast(index), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, index: i32 ```
     pub fn InsertStretch(self: ?*anyopaque, index: i32) void {
         qtc.QGraphicsLinearLayout_InsertStretch(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeItem)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem ```
     pub fn RemoveItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QGraphicsLinearLayout_RemoveItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, index: i32 ```
     pub fn RemoveAt(self: ?*anyopaque, index: i32) void {
         qtc.QGraphicsLinearLayout_RemoveAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -100,7 +100,7 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_OnRemoveAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
     ///
     /// Base class method implementation
     ///
@@ -109,56 +109,56 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_QBaseRemoveAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setSpacing)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, spacing: f64 ```
     pub fn SetSpacing(self: ?*anyopaque, spacing: f64) void {
         qtc.QGraphicsLinearLayout_SetSpacing(@ptrCast(self), @floatCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#spacing)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn Spacing(self: ?*anyopaque) f64 {
         return qtc.QGraphicsLinearLayout_Spacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setItemSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setItemSpacing)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, index: i32, spacing: f64 ```
     pub fn SetItemSpacing(self: ?*anyopaque, index: i32, spacing: f64) void {
         qtc.QGraphicsLinearLayout_SetItemSpacing(@ptrCast(self), @intCast(index), @floatCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemSpacing)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, index: i32 ```
     pub fn ItemSpacing(self: ?*anyopaque, index: i32) f64 {
         return qtc.QGraphicsLinearLayout_ItemSpacing(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setStretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setStretchFactor)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem, stretch: i32 ```
     pub fn SetStretchFactor(self: ?*anyopaque, item: ?*anyopaque, stretch: i32) void {
         qtc.QGraphicsLinearLayout_SetStretchFactor(@ptrCast(self), @ptrCast(item), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#stretchFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#stretchFactor)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem ```
     pub fn StretchFactor(self: ?*anyopaque, item: ?*anyopaque) i32 {
         return qtc.QGraphicsLinearLayout_StretchFactor(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i32) void {
         qtc.QGraphicsLinearLayout_SetAlignment(@ptrCast(self), @ptrCast(item), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#alignment)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem ```
     ///
@@ -167,14 +167,14 @@ pub const qgraphicslinearlayout = struct {
         return qtc.QGraphicsLinearLayout_Alignment(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, rect: QtC.QRectF ```
     pub fn SetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QGraphicsLinearLayout_SetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -183,7 +183,7 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
     ///
     /// Base class method implementation
     ///
@@ -192,14 +192,14 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_QBaseSetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QGraphicsLinearLayout_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
     ///
     /// Base class method implementation
     ///
@@ -217,14 +217,14 @@ pub const qgraphicslinearlayout = struct {
         return qtc.QGraphicsLinearLayout_QBaseCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, index: i32 ```
     pub fn ItemAt(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
         return qtc.QGraphicsLinearLayout_ItemAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -233,7 +233,7 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
     ///
     /// Base class method implementation
     ///
@@ -242,14 +242,14 @@ pub const qgraphicslinearlayout = struct {
         return qtc.QGraphicsLinearLayout_QBaseItemAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QGraphicsLinearLayout_Invalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -258,7 +258,7 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
     ///
     /// Base class method implementation
     ///
@@ -267,14 +267,14 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_QBaseInvalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
     pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsLinearLayout_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -283,7 +283,7 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -292,28 +292,28 @@ pub const qgraphicslinearlayout = struct {
         return qtc.QGraphicsLinearLayout_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dump)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dump)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn Dump(self: ?*anyopaque) void {
         qtc.QGraphicsLinearLayout_Dump(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addStretch)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, stretch: i32 ```
     pub fn AddStretch1(self: ?*anyopaque, stretch: i32) void {
         qtc.QGraphicsLinearLayout_AddStretch1(@ptrCast(self), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertStretch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertStretch)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, index: i32, stretch: i32 ```
     pub fn InsertStretch2(self: ?*anyopaque, index: i32, stretch: i32) void {
         qtc.QGraphicsLinearLayout_InsertStretch2(@ptrCast(self), @intCast(index), @intCast(stretch));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dump)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dump)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, indent: i32 ```
     pub fn Dump1(self: ?*anyopaque, indent: i32) void {
@@ -322,7 +322,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, left: f64, top: f64, right: f64, bottom: f64 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
@@ -331,7 +331,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#activate)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn Activate(self: ?*anyopaque) void {
@@ -340,7 +340,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#isActivated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#isActivated)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn IsActivated(self: ?*anyopaque) bool {
@@ -349,7 +349,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#setInstantInvalidatePropagation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#setInstantInvalidatePropagation)
     ///
     /// ``` enable: bool ```
     pub fn SetInstantInvalidatePropagation(enable: bool) void {
@@ -358,7 +358,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#instantInvalidatePropagation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#instantInvalidatePropagation)
     ///
     ///
     pub fn InstantInvalidatePropagation() bool {
@@ -367,7 +367,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, policy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, policy: ?*anyopaque) void {
@@ -376,7 +376,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
@@ -385,7 +385,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizePolicy)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -394,7 +394,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, size: QtC.QSizeF ```
     pub fn SetMinimumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -403,7 +403,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, w: f64, h: f64 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -412,7 +412,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSizeF {
@@ -421,7 +421,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, width: f64 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
@@ -430,7 +430,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn MinimumWidth(self: ?*anyopaque) f64 {
@@ -439,7 +439,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, height: f64 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
@@ -448,7 +448,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn MinimumHeight(self: ?*anyopaque) f64 {
@@ -457,7 +457,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, size: QtC.QSizeF ```
     pub fn SetPreferredSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -466,7 +466,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, w: f64, h: f64 ```
     pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -475,7 +475,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn PreferredSize(self: ?*anyopaque) QtC.QSizeF {
@@ -484,7 +484,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredWidth)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, width: f64 ```
     pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
@@ -493,7 +493,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn PreferredWidth(self: ?*anyopaque) f64 {
@@ -502,7 +502,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredHeight)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, height: f64 ```
     pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
@@ -511,7 +511,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn PreferredHeight(self: ?*anyopaque) f64 {
@@ -520,7 +520,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, size: QtC.QSizeF ```
     pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -529,7 +529,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, w: f64, h: f64 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -538,7 +538,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumSize)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSizeF {
@@ -547,7 +547,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, width: f64 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
@@ -556,7 +556,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn MaximumWidth(self: ?*anyopaque) f64 {
@@ -565,7 +565,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, height: f64 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
@@ -574,7 +574,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn MaximumHeight(self: ?*anyopaque) f64 {
@@ -583,7 +583,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#geometry)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRectF {
@@ -592,7 +592,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRectF {
@@ -601,7 +601,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint ```
     pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
@@ -610,7 +610,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#parentLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#parentLayoutItem)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn ParentLayoutItem(self: ?*anyopaque) QtC.QGraphicsLayoutItem {
@@ -619,7 +619,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setParentLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setParentLayoutItem)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, parent: QtC.QGraphicsLayoutItem ```
     pub fn SetParentLayoutItem(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -628,7 +628,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isLayout)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn IsLayout(self: ?*anyopaque) bool {
@@ -637,7 +637,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#graphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#graphicsItem)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn GraphicsItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -646,7 +646,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#ownedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#ownedByLayout)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
     pub fn OwnedByLayout(self: ?*anyopaque) bool {
@@ -655,7 +655,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy, controlType: qsizepolicy_enums.ControlType ```
     pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
@@ -664,7 +664,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
     pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
@@ -673,7 +673,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#getContentsMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -684,7 +684,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#getContentsMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -695,7 +695,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#getContentsMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -706,7 +706,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#updateGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -717,7 +717,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#updateGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -728,7 +728,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#updateGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -739,7 +739,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -750,7 +750,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -761,7 +761,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#widgetEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -772,7 +772,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -783,7 +783,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -794,7 +794,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -805,7 +805,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -816,7 +816,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -827,7 +827,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -838,7 +838,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -849,7 +849,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -860,7 +860,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -871,7 +871,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -882,7 +882,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -893,7 +893,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -902,7 +902,7 @@ pub const qgraphicslinearlayout = struct {
         qtc.QGraphicsLinearLayout_OnSetOwnedByLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dtor.QGraphicsLinearLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dtor.QGraphicsLinearLayout)
     ///
     /// Delete this object from C++ memory.
     ///

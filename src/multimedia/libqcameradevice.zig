@@ -21,14 +21,14 @@ pub const qcameraformat = struct {
         return qtc.QCameraFormat_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq)
     ///
     /// ``` self: QtC.QCameraFormat, other: QtC.QCameraFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCameraFormat_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#pixelFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#pixelFormat)
     ///
     /// ``` self: QtC.QCameraFormat ```
     ///
@@ -37,49 +37,49 @@ pub const qcameraformat = struct {
         return qtc.QCameraFormat_PixelFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#resolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#resolution)
     ///
     /// ``` self: QtC.QCameraFormat ```
     pub fn Resolution(self: ?*anyopaque) QtC.QSize {
         return qtc.QCameraFormat_Resolution(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#minFrameRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#minFrameRate)
     ///
     /// ``` self: QtC.QCameraFormat ```
     pub fn MinFrameRate(self: ?*anyopaque) f32 {
         return qtc.QCameraFormat_MinFrameRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#maxFrameRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#maxFrameRate)
     ///
     /// ``` self: QtC.QCameraFormat ```
     pub fn MaxFrameRate(self: ?*anyopaque) f32 {
         return qtc.QCameraFormat_MaxFrameRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#isNull)
     ///
     /// ``` self: QtC.QCameraFormat ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QCameraFormat_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QCameraFormat, other: QtC.QCameraFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QCameraFormat_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QCameraFormat, other: QtC.QCameraFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QCameraFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#dtor.QCameraFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#dtor.QCameraFormat)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -105,35 +105,35 @@ pub const qcameradevice = struct {
         return qtc.QCameraDevice_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq)
     ///
     /// ``` self: QtC.QCameraDevice, other: QtC.QCameraDevice ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCameraDevice_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QCameraDevice, other: QtC.QCameraDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QCameraDevice_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#operator-not-eq)
     ///
     /// ``` self: QtC.QCameraDevice, other: QtC.QCameraDevice ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QCameraDevice_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#isNull)
     ///
     /// ``` self: QtC.QCameraDevice ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QCameraDevice_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#id)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#id)
     ///
     /// ``` self: QtC.QCameraDevice, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -144,7 +144,7 @@ pub const qcameradevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#description)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#description)
     ///
     /// ``` self: QtC.QCameraDevice, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -155,14 +155,14 @@ pub const qcameradevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#isDefault)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#isDefault)
     ///
     /// ``` self: QtC.QCameraDevice ```
     pub fn IsDefault(self: ?*anyopaque) bool {
         return qtc.QCameraDevice_IsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#position)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#position)
     ///
     /// ``` self: QtC.QCameraDevice ```
     ///
@@ -171,7 +171,7 @@ pub const qcameradevice = struct {
         return qtc.QCameraDevice_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#photoResolutions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#photoResolutions)
     ///
     /// ``` self: QtC.QCameraDevice, allocator: std.mem.Allocator ```
     pub fn PhotoResolutions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSize {
@@ -183,7 +183,7 @@ pub const qcameradevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#videoFormats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#videoFormats)
     ///
     /// ``` self: QtC.QCameraDevice, allocator: std.mem.Allocator ```
     pub fn VideoFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QCameraFormat {
@@ -195,7 +195,7 @@ pub const qcameradevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#correctionAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#correctionAngle)
     ///
     /// ``` self: QtC.QCameraDevice ```
     ///
@@ -204,7 +204,7 @@ pub const qcameradevice = struct {
         return qtc.QCameraDevice_CorrectionAngle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#dtor.QCameraDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#dtor.QCameraDevice)
     ///
     /// Delete this object from C++ memory.
     ///

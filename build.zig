@@ -192,6 +192,25 @@ pub fn build(b: *std.Build) !void {
     libqt6zig.addImport("qtzig", qtzig_types);
 
     try b.modules.put("libqt6zig", libqt6zig);
+
+    // Documentation build step
+    const docs_step = b.step("docs", "Emit libqt6zig documentation");
+    const libqt6zig_docs = b.addLibrary(.{
+        .name = "libqt6",
+        .root_module = b.createModule(.{
+            .target = target,
+            .root_source_file = b.path("include/libqt6.zig"),
+        }),
+    });
+
+    const docs_install = b.addInstallDirectory(.{
+        .source_dir = libqt6zig_docs.getEmittedDocs(),
+        .install_dir = .prefix,
+        .install_subdir = "docs",
+    });
+
+    docs_step.dependOn(&docs_install.step);
+    b.default_step.dependOn(docs_step);
 }
 
 const is_bsd_host = switch (host_os) {

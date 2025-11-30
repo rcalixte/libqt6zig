@@ -25,7 +25,7 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_new2(@ptrCast(mgr), @ptrCast(owner), @ptrCast(parentMenu), parentAddress_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -57,7 +57,7 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -69,56 +69,56 @@ pub const kbookmarkmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#ensureUpToDate)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#ensureUpToDate)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn EnsureUpToDate(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_EnsureUpToDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addBookmarkAction)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addBookmarkAction)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn AddBookmarkAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KBookmarkMenu_AddBookmarkAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#bookmarkTabsAsFolderAction)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#bookmarkTabsAsFolderAction)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn BookmarkTabsAsFolderAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KBookmarkMenu_BookmarkTabsAsFolderAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#newBookmarkFolderAction)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#newBookmarkFolderAction)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn NewBookmarkFolderAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KBookmarkMenu_NewBookmarkFolderAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#editBookmarksAction)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#editBookmarksAction)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn EditBookmarksAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KBookmarkMenu_EditBookmarksAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#setBrowserMode)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#setBrowserMode)
     ///
     /// ``` self: QtC.KBookmarkMenu, browserMode: bool ```
     pub fn SetBrowserMode(self: ?*anyopaque, browserMode: bool) void {
         qtc.KBookmarkMenu_SetBrowserMode(@ptrCast(self), browserMode);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#browserMode)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#browserMode)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn BrowserMode(self: ?*anyopaque) bool {
         return qtc.KBookmarkMenu_BrowserMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotBookmarksChanged)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotBookmarksChanged)
     ///
     /// ``` self: QtC.KBookmarkMenu, param1: []const u8 ```
     pub fn SlotBookmarksChanged(self: ?*anyopaque, param1: []const u8) void {
@@ -129,14 +129,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_SlotBookmarksChanged(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn SlotAboutToShow(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_SlotAboutToShow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
     ///
     /// Allows for overriding the related default method
     ///
@@ -145,7 +145,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnSlotAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
     ///
     /// Base class method implementation
     ///
@@ -154,14 +154,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseSlotAboutToShow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn SlotAddBookmarksList(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_SlotAddBookmarksList(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
     ///
     /// Allows for overriding the related default method
     ///
@@ -170,7 +170,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnSlotAddBookmarksList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
     ///
     /// Base class method implementation
     ///
@@ -179,14 +179,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseSlotAddBookmarksList(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn SlotAddBookmark(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_SlotAddBookmark(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
     ///
     /// Allows for overriding the related default method
     ///
@@ -195,7 +195,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnSlotAddBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
     ///
     /// Base class method implementation
     ///
@@ -204,14 +204,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseSlotAddBookmark(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn SlotNewFolder(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_SlotNewFolder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
     ///
     /// Allows for overriding the related default method
     ///
@@ -220,7 +220,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnSlotNewFolder(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
     ///
     /// Base class method implementation
     ///
@@ -229,14 +229,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseSlotNewFolder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn SlotOpenFolderInTabs(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_SlotOpenFolderInTabs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
     ///
     /// Allows for overriding the related default method
     ///
@@ -245,7 +245,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnSlotOpenFolderInTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
     ///
     /// Base class method implementation
     ///
@@ -254,14 +254,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseSlotOpenFolderInTabs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#clear)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#clear)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#clear)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#clear)
     ///
     /// Allows for overriding the related default method
     ///
@@ -270,7 +270,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#clear)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#clear)
     ///
     /// Base class method implementation
     ///
@@ -279,14 +279,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseClear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#refill)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#refill)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn Refill(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_Refill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#refill)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#refill)
     ///
     /// Allows for overriding the related default method
     ///
@@ -295,7 +295,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnRefill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#refill)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#refill)
     ///
     /// Base class method implementation
     ///
@@ -304,14 +304,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseRefill(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
     ///
     /// ``` self: QtC.KBookmarkMenu, bm: QtC.KBookmark ```
     pub fn ActionForBookmark(self: ?*anyopaque, bm: ?*anyopaque) QtC.QAction {
         return qtc.KBookmarkMenu_ActionForBookmark(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
     ///
     /// Allows for overriding the related default method
     ///
@@ -320,7 +320,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnActionForBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
     ///
     /// Base class method implementation
     ///
@@ -329,14 +329,14 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseActionForBookmark(@ptrCast(self), @ptrCast(bm));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#contextMenu)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#contextMenu)
     ///
     /// ``` self: QtC.KBookmarkMenu, action: QtC.QAction ```
     pub fn ContextMenu(self: ?*anyopaque, action: ?*anyopaque) QtC.QMenu {
         return qtc.KBookmarkMenu_ContextMenu(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#contextMenu)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#contextMenu)
     ///
     /// Allows for overriding the related default method
     ///
@@ -345,7 +345,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#contextMenu)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#contextMenu)
     ///
     /// Base class method implementation
     ///
@@ -354,14 +354,14 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseContextMenu(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addActions)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addActions)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn AddActions(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_AddActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addActions)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addActions)
     ///
     /// Allows for overriding the related default method
     ///
@@ -370,7 +370,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnAddActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addActions)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addActions)
     ///
     /// Base class method implementation
     ///
@@ -379,14 +379,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseAddActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn FillBookmarks(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_FillBookmarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
     ///
     /// Allows for overriding the related default method
     ///
@@ -395,7 +395,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnFillBookmarks(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
     ///
     /// Base class method implementation
     ///
@@ -404,14 +404,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseFillBookmarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn AddAddBookmark(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_AddAddBookmark(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
     ///
     /// Allows for overriding the related default method
     ///
@@ -420,7 +420,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnAddAddBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
     ///
     /// Base class method implementation
     ///
@@ -429,14 +429,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseAddAddBookmark(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn AddAddBookmarksList(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_AddAddBookmarksList(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
     ///
     /// Allows for overriding the related default method
     ///
@@ -445,7 +445,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnAddAddBookmarksList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
     ///
     /// Base class method implementation
     ///
@@ -454,14 +454,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseAddAddBookmarksList(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn AddEditBookmarks(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_AddEditBookmarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
     ///
     /// Allows for overriding the related default method
     ///
@@ -470,7 +470,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnAddEditBookmarks(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
     ///
     /// Base class method implementation
     ///
@@ -479,14 +479,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseAddEditBookmarks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn AddNewFolder(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_AddNewFolder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
     ///
     /// Allows for overriding the related default method
     ///
@@ -495,7 +495,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnAddNewFolder(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
     ///
     /// Base class method implementation
     ///
@@ -504,14 +504,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseAddNewFolder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn AddOpenInTabs(self: ?*anyopaque) void {
         qtc.KBookmarkMenu_AddOpenInTabs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
     ///
     /// Allows for overriding the related default method
     ///
@@ -520,7 +520,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnAddOpenInTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
     ///
     /// Base class method implementation
     ///
@@ -529,14 +529,14 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_QBaseAddOpenInTabs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isRoot)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isRoot)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn IsRoot(self: ?*anyopaque) bool {
         return qtc.KBookmarkMenu_IsRoot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isRoot)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isRoot)
     ///
     /// Allows for overriding the related default method
     ///
@@ -545,7 +545,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnIsRoot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isRoot)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isRoot)
     ///
     /// Base class method implementation
     ///
@@ -554,14 +554,14 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseIsRoot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isDirty)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isDirty)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn IsDirty(self: ?*anyopaque) bool {
         return qtc.KBookmarkMenu_IsDirty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isDirty)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isDirty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -570,7 +570,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnIsDirty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isDirty)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isDirty)
     ///
     /// Base class method implementation
     ///
@@ -579,7 +579,7 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseIsDirty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentAddress)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentAddress)
     ///
     /// ``` self: QtC.KBookmarkMenu, allocator: std.mem.Allocator ```
     pub fn ParentAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -590,7 +590,7 @@ pub const kbookmarkmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentAddress)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentAddress)
     ///
     /// Allows for overriding the related default method
     ///
@@ -599,7 +599,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnParentAddress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentAddress)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentAddress)
     ///
     /// Base class method implementation
     ///
@@ -612,14 +612,14 @@ pub const kbookmarkmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#manager)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#manager)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn Manager(self: ?*anyopaque) QtC.KBookmarkManager {
         return qtc.KBookmarkMenu_Manager(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#manager)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#manager)
     ///
     /// Allows for overriding the related default method
     ///
@@ -628,7 +628,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnManager(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#manager)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#manager)
     ///
     /// Base class method implementation
     ///
@@ -637,14 +637,14 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseManager(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#owner)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#owner)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn Owner(self: ?*anyopaque) QtC.KBookmarkOwner {
         return qtc.KBookmarkMenu_Owner(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#owner)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#owner)
     ///
     /// Allows for overriding the related default method
     ///
@@ -653,7 +653,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnOwner(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#owner)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#owner)
     ///
     /// Base class method implementation
     ///
@@ -662,14 +662,14 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseOwner(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentMenu)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentMenu)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn ParentMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.KBookmarkMenu_ParentMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentMenu)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentMenu)
     ///
     /// Allows for overriding the related default method
     ///
@@ -678,7 +678,7 @@ pub const kbookmarkmenu = struct {
         qtc.KBookmarkMenu_OnParentMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentMenu)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentMenu)
     ///
     /// Base class method implementation
     ///
@@ -687,7 +687,7 @@ pub const kbookmarkmenu = struct {
         return qtc.KBookmarkMenu_QBaseParentMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -700,7 +700,7 @@ pub const kbookmarkmenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -715,7 +715,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KBookmarkMenu, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -728,7 +728,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KBookmarkMenu, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -741,7 +741,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -750,7 +750,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -759,7 +759,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -768,7 +768,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -777,7 +777,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KBookmarkMenu, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -786,7 +786,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -795,7 +795,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KBookmarkMenu, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -804,7 +804,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KBookmarkMenu, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -813,7 +813,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KBookmarkMenu, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -822,7 +822,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KBookmarkMenu, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -831,7 +831,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KBookmarkMenu, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -845,7 +845,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KBookmarkMenu, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -854,7 +854,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KBookmarkMenu, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -863,7 +863,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KBookmarkMenu, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -872,7 +872,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -881,7 +881,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KBookmarkMenu, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -892,7 +892,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -901,7 +901,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -910,7 +910,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -919,7 +919,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -928,7 +928,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KBookmarkMenu, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -938,7 +938,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KBookmarkMenu, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -948,7 +948,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KBookmarkMenu, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -972,7 +972,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -981,7 +981,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -990,7 +990,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -999,7 +999,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1008,7 +1008,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1017,7 +1017,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KBookmarkMenu, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1027,7 +1027,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KBookmarkMenu ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1036,7 +1036,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KBookmarkMenu, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1045,7 +1045,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KBookmarkMenu, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1054,7 +1054,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1063,7 +1063,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KBookmarkMenu, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1074,7 +1074,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkMenu, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1083,7 +1083,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1092,7 +1092,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1103,7 +1103,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1114,7 +1114,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1125,7 +1125,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1136,7 +1136,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1147,7 +1147,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1158,7 +1158,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1169,7 +1169,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1180,7 +1180,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1191,7 +1191,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1202,7 +1202,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1213,7 +1213,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1224,7 +1224,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1235,7 +1235,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1246,7 +1246,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1257,7 +1257,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1268,7 +1268,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1279,7 +1279,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1290,7 +1290,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1301,7 +1301,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1312,7 +1312,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1323,7 +1323,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1334,7 +1334,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1345,7 +1345,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1356,7 +1356,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1367,7 +1367,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1378,7 +1378,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1389,7 +1389,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1401,7 +1401,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1413,7 +1413,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1424,7 +1424,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1435,7 +1435,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1457,7 +1457,7 @@ pub const kbookmarkmenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1466,7 +1466,7 @@ pub const kbookmarkmenu = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#dtor.KBookmarkMenu)
+    /// [Upstream resources](https://api.kde.org/kbookmarkmenu.html#dtor.KBookmarkMenu)
     ///
     /// Delete this object from C++ memory.
     ///

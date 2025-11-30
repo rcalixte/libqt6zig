@@ -4,7 +4,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kfileutils.html
 pub const kfileutils = struct {
-    /// [Qt documentation](https://api.kde.org/kfileutils.html#suggestName)
+    /// [Upstream resources](https://api.kde.org/kfileutils.html#suggestName)
     ///
     /// ``` param1: QtC.QUrl, param2: []const u8, allocator: std.mem.Allocator ```
     pub fn SuggestName(param1: ?*anyopaque, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -19,7 +19,7 @@ pub const kfileutils = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileutils.html#makeSuggestedName)
+    /// [Upstream resources](https://api.kde.org/kfileutils.html#makeSuggestedName)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn MakeSuggestedName(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -34,7 +34,7 @@ pub const kfileutils = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileutils.html#findAllUniqueFiles)
+    /// [Upstream resources](https://api.kde.org/kfileutils.html#findAllUniqueFiles)
     ///
     /// ``` param1: [][]const u8, param2: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FindAllUniqueFiles(param1: [][]const u8, param2: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {

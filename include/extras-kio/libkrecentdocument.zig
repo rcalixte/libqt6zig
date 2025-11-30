@@ -33,7 +33,7 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#recentUrls)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#recentUrls)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn RecentUrls(allocator: std.mem.Allocator) []QtC.QUrl {
@@ -45,14 +45,14 @@ pub const krecentdocument = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#add)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn Add(url: ?*anyopaque) void {
         qtc.KRecentDocument_Add(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#add)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
     /// ``` url: QtC.QUrl, groups: []krecentdocument_enums.RecentDocumentGroup ```
     pub fn Add2(url: ?*anyopaque, groups: []i32) void {
@@ -63,7 +63,7 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_Add2(@ptrCast(url), groups_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#add)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
     /// ``` url: QtC.QUrl, desktopEntryName: []const u8 ```
     pub fn Add3(url: ?*anyopaque, desktopEntryName: []const u8) void {
@@ -74,7 +74,7 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_Add3(@ptrCast(url), desktopEntryName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#add)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#add)
     ///
     /// ``` url: QtC.QUrl, desktopEntryName: []const u8, groups: []krecentdocument_enums.RecentDocumentGroup ```
     pub fn Add4(url: ?*anyopaque, desktopEntryName: []const u8, groups: []i32) void {
@@ -89,14 +89,14 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_Add4(@ptrCast(url), desktopEntryName_str, groups_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#removeFile)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#removeFile)
     ///
     /// ``` url: QtC.QUrl ```
     pub fn RemoveFile(url: ?*anyopaque) void {
         qtc.KRecentDocument_RemoveFile(@ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#removeApplication)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#removeApplication)
     ///
     /// ``` desktopEntryName: []const u8 ```
     pub fn RemoveApplication(desktopEntryName: []const u8) void {
@@ -107,28 +107,28 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_RemoveApplication(desktopEntryName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#removeBookmarksModifiedSince)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#removeBookmarksModifiedSince)
     ///
     /// ``` since: QtC.QDateTime ```
     pub fn RemoveBookmarksModifiedSince(since: ?*anyopaque) void {
         qtc.KRecentDocument_RemoveBookmarksModifiedSince(@ptrCast(since));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#clear)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#clear)
     ///
     ///
     pub fn Clear() void {
         qtc.KRecentDocument_Clear();
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#maximumItems)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#maximumItems)
     ///
     ///
     pub fn MaximumItems() i32 {
         return qtc.KRecentDocument_MaximumItems();
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#dtor.KRecentDocument)
+    /// [Upstream resources](https://api.kde.org/krecentdocument.html#dtor.KRecentDocument)
     ///
     /// Delete this object from C++ memory.
     ///

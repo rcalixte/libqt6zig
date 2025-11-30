@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qnetworkinformation.html
 pub const qnetworkinformation = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qnetworkinformation = struct {
         return qtc.QNetworkInformation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,7 +37,7 @@ pub const qnetworkinformation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#reachability)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#reachability)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     ///
@@ -46,14 +46,14 @@ pub const qnetworkinformation = struct {
         return qtc.QNetworkInformation_Reachability(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortal)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn IsBehindCaptivePortal(self: ?*anyopaque) bool {
         return qtc.QNetworkInformation_IsBehindCaptivePortal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMedium)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMedium)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     ///
@@ -62,14 +62,14 @@ pub const qnetworkinformation = struct {
         return qtc.QNetworkInformation_TransportMedium(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isMetered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#isMetered)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn IsMetered(self: ?*anyopaque) bool {
         return qtc.QNetworkInformation_IsMetered(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#backendName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#backendName)
     ///
     /// ``` self: QtC.QNetworkInformation, allocator: std.mem.Allocator ```
     pub fn BackendName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -80,14 +80,14 @@ pub const qnetworkinformation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#supports)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#supports)
     ///
     /// ``` self: QtC.QNetworkInformation, features: flag of qnetworkinformation_enums.Feature ```
     pub fn Supports(self: ?*anyopaque, features: i32) bool {
         return qtc.QNetworkInformation_Supports(@ptrCast(self), @intCast(features));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#supportedFeatures)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#supportedFeatures)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     ///
@@ -96,28 +96,28 @@ pub const qnetworkinformation = struct {
         return qtc.QNetworkInformation_SupportedFeatures(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#loadDefaultBackend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#loadDefaultBackend)
     ///
     ///
     pub fn LoadDefaultBackend() bool {
         return qtc.QNetworkInformation_LoadDefaultBackend();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#loadBackendByFeatures)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#loadBackendByFeatures)
     ///
     /// ``` features: flag of qnetworkinformation_enums.Feature ```
     pub fn LoadBackendByFeatures(features: i32) bool {
         return qtc.QNetworkInformation_LoadBackendByFeatures(@intCast(features));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#load)
     ///
     /// ``` features: flag of qnetworkinformation_enums.Feature ```
     pub fn Load2(features: i32) bool {
         return qtc.QNetworkInformation_Load2(@intCast(features));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#availableBackends)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#availableBackends)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableBackends(allocator: std.mem.Allocator) [][]const u8 {
@@ -139,70 +139,70 @@ pub const qnetworkinformation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#instance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#instance)
     ///
     ///
     pub fn Instance() QtC.QNetworkInformation {
         return qtc.QNetworkInformation_Instance();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#reachabilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#reachabilityChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, newReachability: qnetworkinformation_enums.Reachability ```
     pub fn ReachabilityChanged(self: ?*anyopaque, newReachability: i32) void {
         qtc.QNetworkInformation_ReachabilityChanged(@ptrCast(self), @intCast(newReachability));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#reachabilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#reachabilityChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, newReachability: qnetworkinformation_enums.Reachability) callconv(.c) void ```
     pub fn OnReachabilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_ReachabilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortalChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortalChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, state: bool ```
     pub fn IsBehindCaptivePortalChanged(self: ?*anyopaque, state: bool) void {
         qtc.QNetworkInformation_IsBehindCaptivePortalChanged(@ptrCast(self), state);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortalChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortalChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, state: bool) callconv(.c) void ```
     pub fn OnIsBehindCaptivePortalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_IsBehindCaptivePortalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMediumChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMediumChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, current: qnetworkinformation_enums.TransportMedium ```
     pub fn TransportMediumChanged(self: ?*anyopaque, current: i32) void {
         qtc.QNetworkInformation_TransportMediumChanged(@ptrCast(self), @intCast(current));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMediumChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMediumChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, current: qnetworkinformation_enums.TransportMedium) callconv(.c) void ```
     pub fn OnTransportMediumChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_TransportMediumChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isMeteredChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#isMeteredChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, isMetered: bool ```
     pub fn IsMeteredChanged(self: ?*anyopaque, isMetered: bool) void {
         qtc.QNetworkInformation_IsMeteredChanged(@ptrCast(self), isMetered);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isMeteredChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#isMeteredChanged)
     ///
     /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, isMetered: bool) callconv(.c) void ```
     pub fn OnIsMeteredChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QNetworkInformation_Connect_IsMeteredChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -215,7 +215,7 @@ pub const qnetworkinformation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -230,7 +230,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QNetworkInformation, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -239,7 +239,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QNetworkInformation, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -248,7 +248,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QNetworkInformation, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -261,7 +261,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QNetworkInformation, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -274,7 +274,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -283,7 +283,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -292,7 +292,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -301,7 +301,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -310,7 +310,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QNetworkInformation, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -319,7 +319,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -328,7 +328,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QNetworkInformation, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -337,7 +337,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QNetworkInformation, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -346,7 +346,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QNetworkInformation, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -355,7 +355,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QNetworkInformation, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -364,7 +364,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QNetworkInformation, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -378,7 +378,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QNetworkInformation, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -387,7 +387,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QNetworkInformation, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -396,7 +396,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QNetworkInformation, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -405,7 +405,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -414,7 +414,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QNetworkInformation, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -425,7 +425,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -434,7 +434,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -443,7 +443,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -452,7 +452,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -461,7 +461,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QNetworkInformation, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -471,7 +471,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QNetworkInformation, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -481,7 +481,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QNetworkInformation, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -505,7 +505,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -514,7 +514,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -523,7 +523,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -532,7 +532,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -541,7 +541,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -550,7 +550,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QNetworkInformation, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -560,7 +560,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QNetworkInformation ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -569,7 +569,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QNetworkInformation, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -578,7 +578,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QNetworkInformation, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -587,7 +587,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -596,7 +596,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QNetworkInformation, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -607,7 +607,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkInformation, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -616,7 +616,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -625,7 +625,7 @@ pub const qnetworkinformation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

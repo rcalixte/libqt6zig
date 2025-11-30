@@ -33,21 +33,21 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_new4(@ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#operator-eq)
     ///
     /// ``` self: QtC.QTextDocumentFragment, rhs: QtC.QTextDocumentFragment ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
         qtc.QTextDocumentFragment_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#isEmpty)
     ///
     /// ``` self: QtC.QTextDocumentFragment ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QTextDocumentFragment_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toPlainText)
     ///
     /// ``` self: QtC.QTextDocumentFragment, allocator: std.mem.Allocator ```
     pub fn ToPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -58,7 +58,7 @@ pub const qtextdocumentfragment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toRawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toRawText)
     ///
     /// ``` self: QtC.QTextDocumentFragment, allocator: std.mem.Allocator ```
     pub fn ToRawText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -69,7 +69,7 @@ pub const qtextdocumentfragment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toHtml)
     ///
     /// ``` self: QtC.QTextDocumentFragment, allocator: std.mem.Allocator ```
     pub fn ToHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -80,7 +80,7 @@ pub const qtextdocumentfragment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toMarkdown)
     ///
     /// ``` self: QtC.QTextDocumentFragment, allocator: std.mem.Allocator ```
     pub fn ToMarkdown(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -91,7 +91,7 @@ pub const qtextdocumentfragment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromPlainText)
     ///
     /// ``` plainText: []const u8 ```
     pub fn FromPlainText(plainText: []const u8) QtC.QTextDocumentFragment {
@@ -102,7 +102,7 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_FromPlainText(plainText_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromHtml)
     ///
     /// ``` html: []const u8 ```
     pub fn FromHtml(html: []const u8) QtC.QTextDocumentFragment {
@@ -113,7 +113,7 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_FromHtml(html_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromMarkdown)
     ///
     /// ``` markdown: []const u8 ```
     pub fn FromMarkdown(markdown: []const u8) QtC.QTextDocumentFragment {
@@ -124,7 +124,7 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_FromMarkdown(markdown_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toMarkdown)
     ///
     /// ``` self: QtC.QTextDocumentFragment, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
     pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
@@ -135,7 +135,7 @@ pub const qtextdocumentfragment = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromHtml)
     ///
     /// ``` html: []const u8, resourceProvider: QtC.QTextDocument ```
     pub fn FromHtml2(html: []const u8, resourceProvider: ?*anyopaque) QtC.QTextDocumentFragment {
@@ -146,7 +146,7 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_FromHtml2(html_str, @ptrCast(resourceProvider));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromMarkdown)
     ///
     /// ``` markdown: []const u8, features: flag of qtextdocument_enums.MarkdownFeature ```
     pub fn FromMarkdown2(markdown: []const u8, features: i32) QtC.QTextDocumentFragment {
@@ -157,7 +157,7 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_FromMarkdown2(markdown_str, @intCast(features));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#dtor.QTextDocumentFragment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextdocumentfragment.html#dtor.QTextDocumentFragment)
     ///
     /// Delete this object from C++ memory.
     ///

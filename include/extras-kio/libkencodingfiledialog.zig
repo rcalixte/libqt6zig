@@ -10,7 +10,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kencodingfiledialog.html
 pub const kencodingfiledialog = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -28,56 +28,56 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
     ///
     pub fn GetOpenFileNameAndEncoding() QtC.KEncodingFileDialog__Result {
         return qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding();
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     ///
     pub fn GetOpenFileNamesAndEncoding() QtC.KEncodingFileDialog__Result {
         return qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding();
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     ///
     pub fn GetOpenUrlAndEncoding() QtC.KEncodingFileDialog__Result {
         return qtc.KEncodingFileDialog_GetOpenUrlAndEncoding();
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     ///
     pub fn GetOpenUrlsAndEncoding() QtC.KEncodingFileDialog__Result {
         return qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding();
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     ///
     pub fn GetSaveFileNameAndEncoding() QtC.KEncodingFileDialog__Result {
         return qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding();
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     ///
     pub fn GetSaveUrlAndEncoding() QtC.KEncodingFileDialog__Result {
         return qtc.KEncodingFileDialog_GetSaveUrlAndEncoding();
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#sizeHint)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#sizeHint)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KEncodingFileDialog_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8 ```
     pub fn GetOpenFileNameAndEncoding1(encoding: []const u8) QtC.KEncodingFileDialog__Result {
@@ -88,7 +88,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding1(encoding_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl ```
     pub fn GetOpenFileNameAndEncoding2(encoding: []const u8, startDir: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -99,7 +99,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding2(encoding_str, @ptrCast(startDir));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8 ```
     pub fn GetOpenFileNameAndEncoding3(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8) QtC.KEncodingFileDialog__Result {
@@ -114,7 +114,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding3(encoding_str, @ptrCast(startDir), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget ```
     pub fn GetOpenFileNameAndEncoding4(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -129,7 +129,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding4(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget, title: []const u8 ```
     pub fn GetOpenFileNameAndEncoding5(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque, title: []const u8) QtC.KEncodingFileDialog__Result {
@@ -148,7 +148,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding5(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent), title_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     /// ``` encoding: []const u8 ```
     pub fn GetOpenFileNamesAndEncoding1(encoding: []const u8) QtC.KEncodingFileDialog__Result {
@@ -159,7 +159,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding1(encoding_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl ```
     pub fn GetOpenFileNamesAndEncoding2(encoding: []const u8, startDir: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -170,7 +170,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding2(encoding_str, @ptrCast(startDir));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8 ```
     pub fn GetOpenFileNamesAndEncoding3(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8) QtC.KEncodingFileDialog__Result {
@@ -185,7 +185,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding3(encoding_str, @ptrCast(startDir), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget ```
     pub fn GetOpenFileNamesAndEncoding4(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -200,7 +200,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding4(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget, title: []const u8 ```
     pub fn GetOpenFileNamesAndEncoding5(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque, title: []const u8) QtC.KEncodingFileDialog__Result {
@@ -219,7 +219,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding5(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent), title_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     /// ``` encoding: []const u8 ```
     pub fn GetOpenUrlAndEncoding1(encoding: []const u8) QtC.KEncodingFileDialog__Result {
@@ -230,7 +230,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlAndEncoding1(encoding_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl ```
     pub fn GetOpenUrlAndEncoding2(encoding: []const u8, startDir: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -241,7 +241,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlAndEncoding2(encoding_str, @ptrCast(startDir));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8 ```
     pub fn GetOpenUrlAndEncoding3(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8) QtC.KEncodingFileDialog__Result {
@@ -256,7 +256,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlAndEncoding3(encoding_str, @ptrCast(startDir), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget ```
     pub fn GetOpenUrlAndEncoding4(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -271,7 +271,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlAndEncoding4(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget, title: []const u8 ```
     pub fn GetOpenUrlAndEncoding5(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque, title: []const u8) QtC.KEncodingFileDialog__Result {
@@ -290,7 +290,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlAndEncoding5(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent), title_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     /// ``` encoding: []const u8 ```
     pub fn GetOpenUrlsAndEncoding1(encoding: []const u8) QtC.KEncodingFileDialog__Result {
@@ -301,7 +301,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding1(encoding_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl ```
     pub fn GetOpenUrlsAndEncoding2(encoding: []const u8, startDir: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -312,7 +312,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding2(encoding_str, @ptrCast(startDir));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8 ```
     pub fn GetOpenUrlsAndEncoding3(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8) QtC.KEncodingFileDialog__Result {
@@ -327,7 +327,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding3(encoding_str, @ptrCast(startDir), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget ```
     pub fn GetOpenUrlsAndEncoding4(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -342,7 +342,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding4(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget, title: []const u8 ```
     pub fn GetOpenUrlsAndEncoding5(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque, title: []const u8) QtC.KEncodingFileDialog__Result {
@@ -361,7 +361,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding5(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent), title_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8 ```
     pub fn GetSaveFileNameAndEncoding1(encoding: []const u8) QtC.KEncodingFileDialog__Result {
@@ -372,7 +372,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding1(encoding_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl ```
     pub fn GetSaveFileNameAndEncoding2(encoding: []const u8, startDir: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -383,7 +383,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding2(encoding_str, @ptrCast(startDir));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8 ```
     pub fn GetSaveFileNameAndEncoding3(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8) QtC.KEncodingFileDialog__Result {
@@ -398,7 +398,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding3(encoding_str, @ptrCast(startDir), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget ```
     pub fn GetSaveFileNameAndEncoding4(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -413,7 +413,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding4(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget, title: []const u8 ```
     pub fn GetSaveFileNameAndEncoding5(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque, title: []const u8) QtC.KEncodingFileDialog__Result {
@@ -432,7 +432,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding5(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent), title_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     /// ``` encoding: []const u8 ```
     pub fn GetSaveUrlAndEncoding1(encoding: []const u8) QtC.KEncodingFileDialog__Result {
@@ -443,7 +443,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveUrlAndEncoding1(encoding_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl ```
     pub fn GetSaveUrlAndEncoding2(encoding: []const u8, startDir: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -454,7 +454,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveUrlAndEncoding2(encoding_str, @ptrCast(startDir));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8 ```
     pub fn GetSaveUrlAndEncoding3(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8) QtC.KEncodingFileDialog__Result {
@@ -469,7 +469,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveUrlAndEncoding3(encoding_str, @ptrCast(startDir), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget ```
     pub fn GetSaveUrlAndEncoding4(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque) QtC.KEncodingFileDialog__Result {
@@ -484,7 +484,7 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_GetSaveUrlAndEncoding4(encoding_str, @ptrCast(startDir), filter_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     /// ``` encoding: []const u8, startDir: QtC.QUrl, filter: []const u8, parent: QtC.QWidget, title: []const u8 ```
     pub fn GetSaveUrlAndEncoding5(encoding: []const u8, startDir: ?*anyopaque, filter: []const u8, parent: ?*anyopaque, title: []const u8) QtC.KEncodingFileDialog__Result {
@@ -505,7 +505,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#result)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#result)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Result(self: ?*anyopaque) i32 {
@@ -514,7 +514,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setVisible)
     ///
     /// ``` self: QtC.KEncodingFileDialog, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -523,7 +523,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
@@ -532,7 +532,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setSizeGripEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setSizeGripEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog, sizeGripEnabled: bool ```
     pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
@@ -541,7 +541,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#isSizeGripEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#isSizeGripEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
@@ -550,7 +550,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setModal)
     ///
     /// ``` self: QtC.KEncodingFileDialog, modal: bool ```
     pub fn SetModal(self: ?*anyopaque, modal: bool) void {
@@ -559,7 +559,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setResult)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setResult)
     ///
     /// ``` self: QtC.KEncodingFileDialog, r: i32 ```
     pub fn SetResult(self: ?*anyopaque, r: i32) void {
@@ -568,7 +568,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#finished)
     ///
     /// ``` self: QtC.KEncodingFileDialog, result: i32 ```
     pub fn Finished(self: ?*anyopaque, result: i32) void {
@@ -577,7 +577,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#finished)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog, result: i32) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -586,7 +586,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Accepted(self: ?*anyopaque) void {
@@ -595,7 +595,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog) callconv(.c) void ```
     pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -604,7 +604,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#rejected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#rejected)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Rejected(self: ?*anyopaque) void {
@@ -613,7 +613,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#rejected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#rejected)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog) callconv(.c) void ```
     pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -622,7 +622,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#open)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Open(self: ?*anyopaque) void {
@@ -631,7 +631,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#exec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#exec)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Exec(self: ?*anyopaque) i32 {
@@ -640,7 +640,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#done)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#done)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: i32 ```
     pub fn Done(self: ?*anyopaque, param1: i32) void {
@@ -649,7 +649,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Accept(self: ?*anyopaque) void {
@@ -658,7 +658,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#reject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#reject)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Reject(self: ?*anyopaque) void {
@@ -667,7 +667,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn DevType(self: ?*anyopaque) i32 {
@@ -676,7 +676,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -685,7 +685,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -694,7 +694,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -703,7 +703,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -712,7 +712,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -721,7 +721,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.KEncodingFileDialog, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -730,7 +730,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -739,7 +739,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -748,7 +748,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -757,7 +757,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -768,7 +768,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.KEncodingFileDialog, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -777,7 +777,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -786,7 +786,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -795,7 +795,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -804,7 +804,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -813,7 +813,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.KEncodingFileDialog, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -822,7 +822,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -831,7 +831,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -840,7 +840,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -849,7 +849,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -858,7 +858,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -867,7 +867,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -876,7 +876,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -885,7 +885,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -894,7 +894,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -903,7 +903,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -912,7 +912,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -921,7 +921,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -930,7 +930,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -939,7 +939,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -948,7 +948,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -957,7 +957,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -966,7 +966,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -975,7 +975,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -984,7 +984,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -993,7 +993,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -1002,7 +1002,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -1011,7 +1011,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -1020,7 +1020,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -1029,7 +1029,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.KEncodingFileDialog, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -1038,7 +1038,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.KEncodingFileDialog, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -1047,7 +1047,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.KEncodingFileDialog, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -1056,7 +1056,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.KEncodingFileDialog, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -1065,7 +1065,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -1074,7 +1074,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KEncodingFileDialog, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -1083,7 +1083,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.KEncodingFileDialog, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1092,7 +1092,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -1101,7 +1101,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -1110,7 +1110,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -1119,7 +1119,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -1128,7 +1128,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -1137,7 +1137,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.KEncodingFileDialog, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -1146,7 +1146,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.KEncodingFileDialog, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -1155,7 +1155,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1164,7 +1164,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1173,7 +1173,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1182,7 +1182,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1191,7 +1191,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1200,7 +1200,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1209,7 +1209,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -1218,7 +1218,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -1227,7 +1227,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1236,7 +1236,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1245,7 +1245,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -1254,7 +1254,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -1263,7 +1263,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -1272,7 +1272,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1281,7 +1281,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1290,7 +1290,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -1299,7 +1299,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.KEncodingFileDialog, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -1308,7 +1308,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.KEncodingFileDialog, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -1317,7 +1317,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -1328,7 +1328,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.KEncodingFileDialog, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -1337,7 +1337,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -1348,7 +1348,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -1357,7 +1357,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.KEncodingFileDialog, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -1366,7 +1366,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -1375,7 +1375,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -1384,7 +1384,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -1393,7 +1393,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.KEncodingFileDialog, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -1402,7 +1402,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -1411,7 +1411,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.KEncodingFileDialog, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -1420,7 +1420,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -1429,7 +1429,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -1438,7 +1438,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.KEncodingFileDialog, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -1447,7 +1447,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -1456,7 +1456,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KEncodingFileDialog, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1465,7 +1465,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.KEncodingFileDialog, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -1474,7 +1474,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -1483,7 +1483,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -1492,7 +1492,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -1501,7 +1501,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -1510,7 +1510,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -1519,7 +1519,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -1528,7 +1528,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.KEncodingFileDialog, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -1537,7 +1537,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KEncodingFileDialog, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1546,7 +1546,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.KEncodingFileDialog, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1555,7 +1555,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.KEncodingFileDialog, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -1568,7 +1568,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.KEncodingFileDialog, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -1581,7 +1581,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1594,7 +1594,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1607,7 +1607,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.KEncodingFileDialog, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -1616,7 +1616,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -1625,7 +1625,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.KEncodingFileDialog, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -1638,7 +1638,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1651,7 +1651,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.KEncodingFileDialog, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -1664,7 +1664,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1677,7 +1677,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.KEncodingFileDialog, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -1690,7 +1690,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1703,7 +1703,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.KEncodingFileDialog, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -1712,7 +1712,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -1721,7 +1721,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -1730,7 +1730,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.KEncodingFileDialog, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -1743,7 +1743,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1756,7 +1756,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.KEncodingFileDialog, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -1765,7 +1765,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -1774,7 +1774,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.KEncodingFileDialog, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -1787,7 +1787,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1800,7 +1800,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.KEncodingFileDialog, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -1813,7 +1813,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1826,7 +1826,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1839,7 +1839,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.KEncodingFileDialog, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -1852,7 +1852,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1865,7 +1865,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.KEncodingFileDialog, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -1878,7 +1878,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.KEncodingFileDialog, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -1887,7 +1887,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -1898,7 +1898,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -1907,7 +1907,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.KEncodingFileDialog, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -1916,7 +1916,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -1925,7 +1925,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -1934,7 +1934,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -1943,7 +1943,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -1952,7 +1952,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -1961,7 +1961,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -1970,7 +1970,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -1979,7 +1979,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -1988,7 +1988,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.KEncodingFileDialog, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -1997,7 +1997,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -2008,7 +2008,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.KEncodingFileDialog, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2017,7 +2017,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2026,7 +2026,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -2035,7 +2035,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.KEncodingFileDialog, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -2044,7 +2044,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -2053,7 +2053,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -2064,7 +2064,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.KEncodingFileDialog, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2073,7 +2073,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2082,7 +2082,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2091,7 +2091,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -2100,7 +2100,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2109,7 +2109,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -2118,7 +2118,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KEncodingFileDialog, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -2127,7 +2127,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.KEncodingFileDialog, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -2136,7 +2136,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -2145,7 +2145,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KEncodingFileDialog, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -2154,7 +2154,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -2163,7 +2163,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -2172,7 +2172,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -2181,7 +2181,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -2190,7 +2190,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -2199,7 +2199,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Update(self: ?*anyopaque) void {
@@ -2208,7 +2208,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -2217,7 +2217,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KEncodingFileDialog, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2226,7 +2226,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2235,7 +2235,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2244,7 +2244,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KEncodingFileDialog, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2253,7 +2253,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2262,7 +2262,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2271,7 +2271,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.KEncodingFileDialog, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -2280,7 +2280,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Show(self: ?*anyopaque) void {
@@ -2289,7 +2289,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -2298,7 +2298,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -2307,7 +2307,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -2316,7 +2316,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -2325,7 +2325,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -2334,7 +2334,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -2343,7 +2343,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -2352,7 +2352,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -2361,7 +2361,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2370,7 +2370,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KEncodingFileDialog, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -2379,7 +2379,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2388,7 +2388,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2397,7 +2397,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2406,7 +2406,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -2415,7 +2415,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -2424,7 +2424,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -2437,7 +2437,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -2450,7 +2450,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -2459,7 +2459,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -2468,7 +2468,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2477,7 +2477,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -2486,7 +2486,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -2495,7 +2495,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -2504,7 +2504,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -2513,7 +2513,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -2524,7 +2524,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.KEncodingFileDialog, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -2533,7 +2533,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.KEncodingFileDialog, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -2542,7 +2542,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -2551,7 +2551,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KEncodingFileDialog, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -2560,7 +2560,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.KEncodingFileDialog, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -2569,7 +2569,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
@@ -2578,7 +2578,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
@@ -2587,7 +2587,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2596,7 +2596,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KEncodingFileDialog, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -2605,7 +2605,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.KEncodingFileDialog, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -2614,7 +2614,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -2623,7 +2623,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -2632,7 +2632,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -2641,7 +2641,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.KEncodingFileDialog, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -2650,7 +2650,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -2659,7 +2659,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KEncodingFileDialog, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2668,7 +2668,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.KEncodingFileDialog, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -2677,7 +2677,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KEncodingFileDialog, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -2686,7 +2686,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.KEncodingFileDialog, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -2695,7 +2695,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2704,7 +2704,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -2713,7 +2713,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -2722,7 +2722,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -2731,7 +2731,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.KEncodingFileDialog, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -2740,7 +2740,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KEncodingFileDialog, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -2749,7 +2749,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.KEncodingFileDialog, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -2762,7 +2762,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.KEncodingFileDialog, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -2775,7 +2775,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.KEncodingFileDialog, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -2784,7 +2784,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.KEncodingFileDialog, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -2793,7 +2793,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -2807,7 +2807,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KEncodingFileDialog, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -2820,7 +2820,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KEncodingFileDialog, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -2833,7 +2833,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KEncodingFileDialog, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -2846,7 +2846,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.KEncodingFileDialog, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -2859,7 +2859,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2868,7 +2868,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.KEncodingFileDialog, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -2877,7 +2877,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -2888,7 +2888,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -2897,7 +2897,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.KEncodingFileDialog, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -2906,7 +2906,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -2917,7 +2917,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -2926,7 +2926,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KEncodingFileDialog, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -2935,7 +2935,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KEncodingFileDialog, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -2944,7 +2944,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.KEncodingFileDialog, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -2953,7 +2953,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -2962,7 +2962,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -2971,7 +2971,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
@@ -2980,7 +2980,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -2989,7 +2989,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.KEncodingFileDialog, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -2998,7 +2998,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -3007,7 +3007,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.KEncodingFileDialog, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -3016,7 +3016,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -3025,7 +3025,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -3034,7 +3034,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -3043,7 +3043,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.KEncodingFileDialog, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -3052,7 +3052,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -3061,7 +3061,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KEncodingFileDialog, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -3074,7 +3074,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3083,7 +3083,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KEncodingFileDialog, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3092,7 +3092,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3101,7 +3101,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KEncodingFileDialog, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -3114,7 +3114,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -3123,7 +3123,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KEncodingFileDialog, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -3132,7 +3132,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3141,7 +3141,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: qnamespace_enums.InputMethodQuery ```
     pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
@@ -3150,7 +3150,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     ///
@@ -3161,7 +3161,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.KEncodingFileDialog, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3170,7 +3170,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3179,7 +3179,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3188,7 +3188,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3197,7 +3197,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -3206,7 +3206,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -3215,7 +3215,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.KEncodingFileDialog, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -3224,7 +3224,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.KEncodingFileDialog, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -3233,7 +3233,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.KEncodingFileDialog, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -3242,7 +3242,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.KEncodingFileDialog, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -3251,7 +3251,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.KEncodingFileDialog, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3260,7 +3260,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.KEncodingFileDialog, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -3269,7 +3269,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -3278,7 +3278,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -3287,7 +3287,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -3296,7 +3296,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -3305,7 +3305,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3318,7 +3318,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KEncodingFileDialog, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3331,7 +3331,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3340,7 +3340,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3349,7 +3349,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3358,7 +3358,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3367,7 +3367,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KEncodingFileDialog, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3376,7 +3376,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3385,7 +3385,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KEncodingFileDialog, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3394,7 +3394,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KEncodingFileDialog, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3403,7 +3403,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KEncodingFileDialog, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3412,7 +3412,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KEncodingFileDialog, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3421,7 +3421,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3435,7 +3435,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KEncodingFileDialog, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3444,7 +3444,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KEncodingFileDialog, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3453,7 +3453,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3462,7 +3462,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KEncodingFileDialog, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3473,7 +3473,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3482,7 +3482,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3491,7 +3491,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3500,7 +3500,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3509,7 +3509,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KEncodingFileDialog, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3519,7 +3519,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KEncodingFileDialog, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3529,7 +3529,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KEncodingFileDialog, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3553,7 +3553,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3562,7 +3562,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3571,7 +3571,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3580,7 +3580,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3589,7 +3589,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3598,7 +3598,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KEncodingFileDialog, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3608,7 +3608,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3617,7 +3617,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KEncodingFileDialog, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3626,7 +3626,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KEncodingFileDialog, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3635,7 +3635,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3644,7 +3644,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KEncodingFileDialog, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3655,7 +3655,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KEncodingFileDialog, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3664,7 +3664,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KEncodingFileDialog, callback: *const fn (self: QtC.KEncodingFileDialog, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3673,7 +3673,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -3682,7 +3682,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -3691,7 +3691,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -3700,7 +3700,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -3709,7 +3709,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -3718,7 +3718,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -3727,7 +3727,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -3736,7 +3736,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -3745,7 +3745,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -3754,7 +3754,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -3763,7 +3763,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -3772,7 +3772,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -3781,7 +3781,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -3790,7 +3790,7 @@ pub const kencodingfiledialog = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3809,7 +3809,7 @@ pub const kencodingfiledialog__result = struct {
         return qtc.KEncodingFileDialog__Result_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog-result.html#fileNames-var)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#fileNames-var)
     ///
     /// ``` self: QtC.KEncodingFileDialog__Result, allocator: std.mem.Allocator ```
     pub fn FileNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -3831,7 +3831,7 @@ pub const kencodingfiledialog__result = struct {
         return fileNames_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog-result.html#fileNames-var)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#fileNames-var)
     ///
     /// ``` self: QtC.KEncodingFileDialog__Result, fileNames: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFileNames(self: ?*anyopaque, fileNames: [][]const u8, allocator: std.mem.Allocator) void {
@@ -3850,7 +3850,7 @@ pub const kencodingfiledialog__result = struct {
         qtc.KEncodingFileDialog__Result_SetFileNames(@ptrCast(self), fileNames_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog-result.html#URLs-var)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#URLs-var)
     ///
     /// ``` self: QtC.KEncodingFileDialog__Result, allocator: std.mem.Allocator ```
     pub fn URLs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -3862,7 +3862,7 @@ pub const kencodingfiledialog__result = struct {
         return URLs_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog-result.html#URLs-var)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#URLs-var)
     ///
     /// ``` self: QtC.KEncodingFileDialog__Result, URLs: []QtC.QUrl ```
     pub fn SetURLs(self: ?*anyopaque, _URLs: []QtC.QUrl) void {
@@ -3873,7 +3873,7 @@ pub const kencodingfiledialog__result = struct {
         qtc.KEncodingFileDialog__Result_SetURLs(@ptrCast(self), URLs_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog-result.html#encoding-var)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#encoding-var)
     ///
     /// ``` self: QtC.KEncodingFileDialog__Result, allocator: std.mem.Allocator ```
     pub fn Encoding(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3884,7 +3884,7 @@ pub const kencodingfiledialog__result = struct {
         return encoding_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog-result.html#encoding-var)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#encoding-var)
     ///
     /// ``` self: QtC.KEncodingFileDialog__Result, encoding: []const u8 ```
     pub fn SetEncoding(self: ?*anyopaque, encoding: []const u8) void {
@@ -3895,7 +3895,7 @@ pub const kencodingfiledialog__result = struct {
         qtc.KEncodingFileDialog__Result_SetEncoding(@ptrCast(self), encoding_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kencodingfiledialog-result.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#operator-eq)
     ///
     /// ``` self: QtC.KEncodingFileDialog__Result, param1: QtC.KEncodingFileDialog__Result ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

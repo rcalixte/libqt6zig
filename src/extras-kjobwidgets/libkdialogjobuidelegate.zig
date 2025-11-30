@@ -21,7 +21,7 @@ pub const kdialogjobuidelegate = struct {
         return qtc.KDialogJobUiDelegate_new2(@intCast(flags), @ptrCast(window));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -39,7 +39,7 @@ pub const kdialogjobuidelegate = struct {
         return qtc.KDialogJobUiDelegate_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -51,49 +51,49 @@ pub const kdialogjobuidelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#setJob)
+    /// [Upstream resources](https://api.kde.org/kdialogjobuidelegate.html#setJob)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, job: QtC.KJob ```
     pub fn SetJob(self: ?*anyopaque, job: ?*anyopaque) bool {
         return qtc.KDialogJobUiDelegate_SetJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#setWindow)
+    /// [Upstream resources](https://api.kde.org/kdialogjobuidelegate.html#setWindow)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, window: QtC.QWidget ```
     pub fn SetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
         qtc.KDialogJobUiDelegate_SetWindow(@ptrCast(self), @ptrCast(window));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#window)
+    /// [Upstream resources](https://api.kde.org/kdialogjobuidelegate.html#window)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
         return qtc.KDialogJobUiDelegate_Window(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#updateUserTimestamp)
+    /// [Upstream resources](https://api.kde.org/kdialogjobuidelegate.html#updateUserTimestamp)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, time: u64 ```
     pub fn UpdateUserTimestamp(self: ?*anyopaque, time: u64) void {
         qtc.KDialogJobUiDelegate_UpdateUserTimestamp(@ptrCast(self), @intCast(time));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#userTimestamp)
+    /// [Upstream resources](https://api.kde.org/kdialogjobuidelegate.html#userTimestamp)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn UserTimestamp(self: ?*anyopaque) u64 {
         return qtc.KDialogJobUiDelegate_UserTimestamp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#showErrorMessage)
+    /// [Upstream resources](https://api.kde.org/kdialogjobuidelegate.html#showErrorMessage)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn ShowErrorMessage(self: ?*anyopaque) void {
         qtc.KDialogJobUiDelegate_ShowErrorMessage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -106,7 +106,7 @@ pub const kdialogjobuidelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -121,7 +121,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from KJobUiDelegate
     ///
-    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#setAutoErrorHandlingEnabled)
+    /// [Upstream resources](https://api.kde.org/kjobuidelegate.html#setAutoErrorHandlingEnabled)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, enable: bool ```
     pub fn SetAutoErrorHandlingEnabled(self: ?*anyopaque, enable: bool) void {
@@ -130,7 +130,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from KJobUiDelegate
     ///
-    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#isAutoErrorHandlingEnabled)
+    /// [Upstream resources](https://api.kde.org/kjobuidelegate.html#isAutoErrorHandlingEnabled)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn IsAutoErrorHandlingEnabled(self: ?*anyopaque) bool {
@@ -139,7 +139,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from KJobUiDelegate
     ///
-    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#setAutoWarningHandlingEnabled)
+    /// [Upstream resources](https://api.kde.org/kjobuidelegate.html#setAutoWarningHandlingEnabled)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, enable: bool ```
     pub fn SetAutoWarningHandlingEnabled(self: ?*anyopaque, enable: bool) void {
@@ -148,7 +148,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from KJobUiDelegate
     ///
-    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#isAutoWarningHandlingEnabled)
+    /// [Upstream resources](https://api.kde.org/kjobuidelegate.html#isAutoWarningHandlingEnabled)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn IsAutoWarningHandlingEnabled(self: ?*anyopaque) bool {
@@ -157,7 +157,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -166,7 +166,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -175,7 +175,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -201,7 +201,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -210,7 +210,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -219,7 +219,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -228,7 +228,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -237,7 +237,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -246,7 +246,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -255,7 +255,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -264,7 +264,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -273,7 +273,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -282,7 +282,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -291,7 +291,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -305,7 +305,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -314,7 +314,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -323,7 +323,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -332,7 +332,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -341,7 +341,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -352,7 +352,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -361,7 +361,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -370,7 +370,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -379,7 +379,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -388,7 +388,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -398,7 +398,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -408,7 +408,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -432,7 +432,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -441,7 +441,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -450,7 +450,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -459,7 +459,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -468,7 +468,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -477,7 +477,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -487,7 +487,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -496,7 +496,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -505,7 +505,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -514,7 +514,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -523,7 +523,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -534,7 +534,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -543,7 +543,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -552,7 +552,7 @@ pub const kdialogjobuidelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -561,7 +561,7 @@ pub const kdialogjobuidelegate = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#dtor.KDialogJobUiDelegate)
+    /// [Upstream resources](https://api.kde.org/kdialogjobuidelegate.html#dtor.KDialogJobUiDelegate)
     ///
     /// Delete this object from C++ memory.
     ///

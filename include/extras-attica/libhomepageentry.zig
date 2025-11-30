@@ -18,14 +18,14 @@ pub const attica__homepageentry = struct {
         return qtc.Attica__HomePageEntry_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepageentry.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__HomePageEntry, other: QtC.Attica__HomePageEntry ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__HomePageEntry_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepageentry.html#type)
+    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#type)
     ///
     /// ``` self: QtC.Attica__HomePageEntry, allocator: std.mem.Allocator ```
     pub fn Type(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -36,7 +36,7 @@ pub const attica__homepageentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepageentry.html#setType)
+    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#setType)
     ///
     /// ``` self: QtC.Attica__HomePageEntry, typeVal: []const u8 ```
     pub fn SetType(self: ?*anyopaque, typeVal: []const u8) void {
@@ -47,14 +47,14 @@ pub const attica__homepageentry = struct {
         qtc.Attica__HomePageEntry_SetType(@ptrCast(self), typeVal_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepageentry.html#url)
+    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#url)
     ///
     /// ``` self: QtC.Attica__HomePageEntry ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__HomePageEntry_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-homepageentry.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/attica-homepageentry.html#setUrl)
     ///
     /// ``` self: QtC.Attica__HomePageEntry, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {

@@ -22,7 +22,7 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,63 +66,63 @@ pub const ktwofingerswipe = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#pos)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#pos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerSwipe_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setPos)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#setPos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: QtC.QPointF) void {
         qtc.KTwoFingerSwipe_SetPos(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#screenPos)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#screenPos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn ScreenPos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerSwipe_ScreenPos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setScreenPos)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#setScreenPos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, screenPos: QtC.QPointF ```
     pub fn SetScreenPos(self: ?*anyopaque, screenPos: QtC.QPointF) void {
         qtc.KTwoFingerSwipe_SetScreenPos(@ptrCast(self), @ptrCast(screenPos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#scenePos)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#scenePos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
         return qtc.KTwoFingerSwipe_ScenePos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setScenePos)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#setScenePos)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, scenePos: QtC.QPointF ```
     pub fn SetScenePos(self: ?*anyopaque, scenePos: QtC.QPointF) void {
         qtc.KTwoFingerSwipe_SetScenePos(@ptrCast(self), @ptrCast(scenePos));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#swipeAngle)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#swipeAngle)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn SwipeAngle(self: ?*anyopaque) f64 {
         return qtc.KTwoFingerSwipe_SwipeAngle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#setSwipeAngle)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#setSwipeAngle)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, swipeAngle: f64 ```
     pub fn SetSwipeAngle(self: ?*anyopaque, swipeAngle: f64) void {
         qtc.KTwoFingerSwipe_SetSwipeAngle(@ptrCast(self), @floatCast(swipeAngle));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -135,7 +135,7 @@ pub const ktwofingerswipe = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -150,7 +150,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     ///
@@ -161,7 +161,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     ///
@@ -172,7 +172,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
@@ -181,7 +181,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -190,7 +190,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
@@ -199,7 +199,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
@@ -208,7 +208,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
@@ -217,7 +217,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     ///
@@ -228,7 +228,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -241,7 +241,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -254,7 +254,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -263,7 +263,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -272,7 +272,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -281,7 +281,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -290,7 +290,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -299,7 +299,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -308,7 +308,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -317,7 +317,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -326,7 +326,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -335,7 +335,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -344,7 +344,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -358,7 +358,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -367,7 +367,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -376,7 +376,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -385,7 +385,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -394,7 +394,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -405,7 +405,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -414,7 +414,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -423,7 +423,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -432,7 +432,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -441,7 +441,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -451,7 +451,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -461,7 +461,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -485,7 +485,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -494,7 +494,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -503,7 +503,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -512,7 +512,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, callback: *const fn (self: QtC.KTwoFingerSwipe) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -521,7 +521,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -530,7 +530,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -540,7 +540,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KTwoFingerSwipe ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -549,7 +549,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -558,7 +558,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -567,7 +567,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -576,7 +576,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -587,7 +587,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -596,7 +596,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KTwoFingerSwipe, callback: *const fn (self: QtC.KTwoFingerSwipe, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -605,7 +605,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -616,7 +616,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -627,7 +627,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -638,7 +638,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -649,7 +649,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -660,7 +660,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -671,7 +671,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -682,7 +682,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -693,7 +693,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -704,7 +704,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -715,7 +715,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -726,7 +726,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -737,7 +737,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -748,7 +748,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -759,7 +759,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -770,7 +770,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -781,7 +781,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -792,7 +792,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -803,7 +803,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -814,7 +814,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -825,7 +825,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -836,7 +836,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -847,7 +847,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -858,7 +858,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -869,7 +869,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -880,7 +880,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -891,7 +891,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -902,7 +902,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -914,7 +914,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -926,7 +926,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -937,7 +937,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -948,7 +948,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -959,7 +959,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -970,7 +970,7 @@ pub const ktwofingerswipe = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -979,7 +979,7 @@ pub const ktwofingerswipe = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswipe.html#dtor.KTwoFingerSwipe)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswipe.html#dtor.KTwoFingerSwipe)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -998,14 +998,14 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_new();
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#create)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#create)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, target: QtC.QObject ```
     pub fn Create(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
         return qtc.KTwoFingerSwipeRecognizer_Create(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#create)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#create)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1014,7 +1014,7 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#create)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#create)
     ///
     /// Base class method implementation
     ///
@@ -1023,7 +1023,7 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
     ///
@@ -1032,7 +1032,7 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_Recognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1041,7 +1041,7 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnRecognize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
     ///
     /// Base class method implementation
     ///
@@ -1052,28 +1052,28 @@ pub const ktwofingerswiperecognizer = struct {
         return qtc.KTwoFingerSwipeRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#maxSwipeTime)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#maxSwipeTime)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer ```
     pub fn MaxSwipeTime(self: ?*anyopaque) i32 {
         return qtc.KTwoFingerSwipeRecognizer_MaxSwipeTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#setMaxSwipeTime)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#setMaxSwipeTime)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, i: i32 ```
     pub fn SetMaxSwipeTime(self: ?*anyopaque, i: i32) void {
         qtc.KTwoFingerSwipeRecognizer_SetMaxSwipeTime(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#minSswipeDistance)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#minSswipeDistance)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer ```
     pub fn MinSswipeDistance(self: ?*anyopaque) i32 {
         return qtc.KTwoFingerSwipeRecognizer_MinSswipeDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#setSwipeDistance)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#setSwipeDistance)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, i: i32 ```
     pub fn SetSwipeDistance(self: ?*anyopaque, i: i32) void {
@@ -1082,7 +1082,7 @@ pub const ktwofingerswiperecognizer = struct {
 
     /// Inherited from QGestureRecognizer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
     ///
     /// ``` recognizer: QtC.QGestureRecognizer ```
     ///
@@ -1093,7 +1093,7 @@ pub const ktwofingerswiperecognizer = struct {
 
     /// Inherited from QGestureRecognizer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#unregisterRecognizer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#unregisterRecognizer)
     ///
     /// ``` typeVal: qnamespace_enums.GestureType ```
     pub fn UnregisterRecognizer(typeVal: i64) void {
@@ -1102,7 +1102,7 @@ pub const ktwofingerswiperecognizer = struct {
 
     /// Inherited from QGestureRecognizer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)
     ///
     /// ``` self: QtC.KTwoFingerSwipeRecognizer, param1: QtC.QGestureRecognizer ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1111,7 +1111,7 @@ pub const ktwofingerswiperecognizer = struct {
 
     /// Inherited from QGestureRecognizer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1122,7 +1122,7 @@ pub const ktwofingerswiperecognizer = struct {
 
     /// Inherited from QGestureRecognizer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1133,7 +1133,7 @@ pub const ktwofingerswiperecognizer = struct {
 
     /// Inherited from QGestureRecognizer
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1142,7 +1142,7 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktwofingerswiperecognizer.html#dtor.KTwoFingerSwipeRecognizer)
+    /// [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#dtor.KTwoFingerSwipeRecognizer)
     ///
     /// Delete this object from C++ memory.
     ///

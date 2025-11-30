@@ -25,14 +25,14 @@ pub const qopenglpaintdevice = struct {
         return qtc.QOpenGLPaintDevice_new3(@intCast(width), @intCast(height));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn DevType(self: ?*anyopaque) i32 {
         return qtc.QOpenGLPaintDevice_DevType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
     ///
     /// Allows for overriding the related default method
     ///
@@ -41,7 +41,7 @@ pub const qopenglpaintdevice = struct {
         qtc.QOpenGLPaintDevice_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#devType)
     ///
     /// Base class method implementation
     ///
@@ -50,14 +50,14 @@ pub const qopenglpaintdevice = struct {
         return qtc.QOpenGLPaintDevice_QBaseDevType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.QOpenGLPaintDevice_PaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
     ///
     /// Allows for overriding the related default method
     ///
@@ -66,7 +66,7 @@ pub const qopenglpaintdevice = struct {
         qtc.QOpenGLPaintDevice_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintEngine)
     ///
     /// Base class method implementation
     ///
@@ -75,84 +75,84 @@ pub const qopenglpaintdevice = struct {
         return qtc.QOpenGLPaintDevice_QBasePaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#context)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#context)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
         return qtc.QOpenGLPaintDevice_Context(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#size)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QOpenGLPaintDevice_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setSize)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice, size: QtC.QSize ```
     pub fn SetSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QOpenGLPaintDevice_SetSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDevicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDevicePixelRatio)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice, devicePixelRatio: f64 ```
     pub fn SetDevicePixelRatio(self: ?*anyopaque, devicePixelRatio: f64) void {
         qtc.QOpenGLPaintDevice_SetDevicePixelRatio(@ptrCast(self), @floatCast(devicePixelRatio));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dotsPerMeterX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dotsPerMeterX)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn DotsPerMeterX(self: ?*anyopaque) f64 {
         return qtc.QOpenGLPaintDevice_DotsPerMeterX(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dotsPerMeterY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dotsPerMeterY)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn DotsPerMeterY(self: ?*anyopaque) f64 {
         return qtc.QOpenGLPaintDevice_DotsPerMeterY(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDotsPerMeterX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDotsPerMeterX)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice, dotsPerMeterX: f64 ```
     pub fn SetDotsPerMeterX(self: ?*anyopaque, dotsPerMeterX: f64) void {
         qtc.QOpenGLPaintDevice_SetDotsPerMeterX(@ptrCast(self), @floatCast(dotsPerMeterX));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDotsPerMeterY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setDotsPerMeterY)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice, dotsPerMeterY: f64 ```
     pub fn SetDotsPerMeterY(self: ?*anyopaque, dotsPerMeterY: f64) void {
         qtc.QOpenGLPaintDevice_SetDotsPerMeterY(@ptrCast(self), @floatCast(dotsPerMeterY));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setPaintFlipped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#setPaintFlipped)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice, flipped: bool ```
     pub fn SetPaintFlipped(self: ?*anyopaque, flipped: bool) void {
         qtc.QOpenGLPaintDevice_SetPaintFlipped(@ptrCast(self), flipped);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintFlipped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#paintFlipped)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn PaintFlipped(self: ?*anyopaque) bool {
         return qtc.QOpenGLPaintDevice_PaintFlipped(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn EnsureActiveTarget(self: ?*anyopaque) void {
         qtc.QOpenGLPaintDevice_EnsureActiveTarget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -161,7 +161,7 @@ pub const qopenglpaintdevice = struct {
         qtc.QOpenGLPaintDevice_OnEnsureActiveTarget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#ensureActiveTarget)
     ///
     /// Base class method implementation
     ///
@@ -170,14 +170,14 @@ pub const qopenglpaintdevice = struct {
         qtc.QOpenGLPaintDevice_QBaseEnsureActiveTarget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice, metric: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, metric: i32) i32 {
         return qtc.QOpenGLPaintDevice_Metric(@ptrCast(self), @intCast(metric));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
     ///
     /// Allows for overriding the related default method
     ///
@@ -186,7 +186,7 @@ pub const qopenglpaintdevice = struct {
         qtc.QOpenGLPaintDevice_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#metric)
     ///
     /// Base class method implementation
     ///
@@ -197,7 +197,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -206,7 +206,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -215,7 +215,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -224,7 +224,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -233,7 +233,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -242,7 +242,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -251,7 +251,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -260,7 +260,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -269,7 +269,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -278,7 +278,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -287,7 +287,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -296,7 +296,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -305,7 +305,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QOpenGLPaintDevice ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -314,7 +314,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -323,7 +323,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -332,7 +332,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -343,7 +343,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -354,7 +354,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -365,7 +365,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -376,7 +376,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -387,7 +387,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -398,7 +398,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -409,7 +409,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -420,7 +420,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -431,7 +431,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -442,7 +442,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -453,7 +453,7 @@ pub const qopenglpaintdevice = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -462,7 +462,7 @@ pub const qopenglpaintdevice = struct {
         qtc.QOpenGLPaintDevice_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dtor.QOpenGLPaintDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglpaintdevice.html#dtor.QOpenGLPaintDevice)
     ///
     /// Delete this object from C++ memory.
     ///

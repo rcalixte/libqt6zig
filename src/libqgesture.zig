@@ -22,7 +22,7 @@ pub const qgesture = struct {
         return qtc.QGesture_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const qgesture = struct {
         return qtc.QGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const qgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QGesture ```
     ///
@@ -75,7 +75,7 @@ pub const qgesture = struct {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QGesture ```
     ///
@@ -84,42 +84,42 @@ pub const qgesture = struct {
         return qtc.QGesture_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
         return qtc.QGesture_HotSpot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
     /// ``` self: QtC.QGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
         qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
         return qtc.QGesture_HasHotSpot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
         qtc.QGesture_UnsetHotSpot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
     /// ``` self: QtC.QGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QGesture ```
     ///
@@ -128,7 +128,7 @@ pub const qgesture = struct {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -141,7 +141,7 @@ pub const qgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -156,7 +156,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -169,7 +169,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -182,7 +182,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -191,7 +191,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -200,7 +200,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -209,7 +209,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -218,7 +218,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -227,7 +227,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -236,7 +236,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -245,7 +245,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -254,7 +254,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -263,7 +263,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGesture, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -272,7 +272,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -286,7 +286,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -295,7 +295,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -304,7 +304,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -313,7 +313,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -322,7 +322,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -333,7 +333,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -342,7 +342,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -351,7 +351,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -360,7 +360,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -369,7 +369,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -379,7 +379,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGesture, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -389,7 +389,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -413,7 +413,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -422,7 +422,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -431,7 +431,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -440,7 +440,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGesture, callback: *const fn (self: QtC.QGesture) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -449,7 +449,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -458,7 +458,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -468,7 +468,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -477,7 +477,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -486,7 +486,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -495,7 +495,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -504,7 +504,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -515,7 +515,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -524,7 +524,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGesture, callback: *const fn (self: QtC.QGesture, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -533,7 +533,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -544,7 +544,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -555,7 +555,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -566,7 +566,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -577,7 +577,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -588,7 +588,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -599,7 +599,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -610,7 +610,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -621,7 +621,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -632,7 +632,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -643,7 +643,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -654,7 +654,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -665,7 +665,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -676,7 +676,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -687,7 +687,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -698,7 +698,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -709,7 +709,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -720,7 +720,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -731,7 +731,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -742,7 +742,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -753,7 +753,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -764,7 +764,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -775,7 +775,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -786,7 +786,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -797,7 +797,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -808,7 +808,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -819,7 +819,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -830,7 +830,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -842,7 +842,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -854,7 +854,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -865,7 +865,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -876,7 +876,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -887,7 +887,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -898,7 +898,7 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -907,7 +907,7 @@ pub const qgesture = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#dtor.QGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#dtor.QGesture)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -933,7 +933,7 @@ pub const qpangesture = struct {
         return qtc.QPanGesture_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -965,7 +965,7 @@ pub const qpangesture = struct {
         return qtc.QPanGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -977,56 +977,56 @@ pub const qpangesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#lastOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#lastOffset)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn LastOffset(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPanGesture_LastOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#offset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#offset)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn Offset(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPanGesture_Offset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#delta)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#delta)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn Delta(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPanGesture_Delta(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#acceleration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#acceleration)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn Acceleration(self: ?*anyopaque) f64 {
         return qtc.QPanGesture_Acceleration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#setLastOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#setLastOffset)
     ///
     /// ``` self: QtC.QPanGesture, value: QtC.QPointF ```
     pub fn SetLastOffset(self: ?*anyopaque, value: ?*anyopaque) void {
         qtc.QPanGesture_SetLastOffset(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#setOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#setOffset)
     ///
     /// ``` self: QtC.QPanGesture, value: QtC.QPointF ```
     pub fn SetOffset(self: ?*anyopaque, value: ?*anyopaque) void {
         qtc.QPanGesture_SetOffset(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#setAcceleration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#setAcceleration)
     ///
     /// ``` self: QtC.QPanGesture, value: f64 ```
     pub fn SetAcceleration(self: ?*anyopaque, value: f64) void {
         qtc.QPanGesture_SetAcceleration(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1039,7 +1039,7 @@ pub const qpangesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1054,7 +1054,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QPanGesture ```
     ///
@@ -1065,7 +1065,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QPanGesture ```
     ///
@@ -1076,7 +1076,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
@@ -1085,7 +1085,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
     /// ``` self: QtC.QPanGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -1094,7 +1094,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
@@ -1103,7 +1103,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
@@ -1112,7 +1112,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
     /// ``` self: QtC.QPanGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
@@ -1121,7 +1121,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QPanGesture ```
     ///
@@ -1132,7 +1132,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1145,7 +1145,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QPanGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1158,7 +1158,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1167,7 +1167,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1176,7 +1176,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1185,7 +1185,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1194,7 +1194,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QPanGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1203,7 +1203,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1212,7 +1212,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPanGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1221,7 +1221,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPanGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1230,7 +1230,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPanGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1239,7 +1239,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPanGesture, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1248,7 +1248,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1262,7 +1262,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QPanGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1271,7 +1271,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QPanGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1280,7 +1280,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QPanGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1289,7 +1289,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1298,7 +1298,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPanGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1309,7 +1309,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1318,7 +1318,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1327,7 +1327,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1336,7 +1336,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1345,7 +1345,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QPanGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1355,7 +1355,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QPanGesture, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1365,7 +1365,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1389,7 +1389,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1398,7 +1398,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1407,7 +1407,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1416,7 +1416,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPanGesture, callback: *const fn (self: QtC.QPanGesture) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1425,7 +1425,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1434,7 +1434,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QPanGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1444,7 +1444,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QPanGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1453,7 +1453,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPanGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1462,7 +1462,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPanGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1471,7 +1471,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1480,7 +1480,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPanGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1491,7 +1491,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPanGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1500,7 +1500,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPanGesture, callback: *const fn (self: QtC.QPanGesture, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1509,7 +1509,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1520,7 +1520,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1531,7 +1531,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1542,7 +1542,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1553,7 +1553,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1564,7 +1564,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1575,7 +1575,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1586,7 +1586,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1597,7 +1597,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1608,7 +1608,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1619,7 +1619,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1630,7 +1630,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1641,7 +1641,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1652,7 +1652,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1663,7 +1663,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1674,7 +1674,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1685,7 +1685,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1696,7 +1696,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1707,7 +1707,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1718,7 +1718,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1729,7 +1729,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1740,7 +1740,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1751,7 +1751,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1762,7 +1762,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1773,7 +1773,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1784,7 +1784,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1795,7 +1795,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1806,7 +1806,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1818,7 +1818,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1830,7 +1830,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1841,7 +1841,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1852,7 +1852,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1863,7 +1863,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1874,7 +1874,7 @@ pub const qpangesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1883,7 +1883,7 @@ pub const qpangesture = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpangesture.html#dtor.QPanGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpangesture.html#dtor.QPanGesture)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1909,7 +1909,7 @@ pub const qpinchgesture = struct {
         return qtc.QPinchGesture_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1941,7 +1941,7 @@ pub const qpinchgesture = struct {
         return qtc.QPinchGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1953,7 +1953,7 @@ pub const qpinchgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#totalChangeFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#totalChangeFlags)
     ///
     /// ``` self: QtC.QPinchGesture ```
     ///
@@ -1962,14 +1962,14 @@ pub const qpinchgesture = struct {
         return qtc.QPinchGesture_TotalChangeFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalChangeFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalChangeFlags)
     ///
     /// ``` self: QtC.QPinchGesture, value: flag of qgesture_enums.ChangeFlag ```
     pub fn SetTotalChangeFlags(self: ?*anyopaque, value: i32) void {
         qtc.QPinchGesture_SetTotalChangeFlags(@ptrCast(self), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#changeFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#changeFlags)
     ///
     /// ``` self: QtC.QPinchGesture ```
     ///
@@ -1978,140 +1978,140 @@ pub const qpinchgesture = struct {
         return qtc.QPinchGesture_ChangeFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setChangeFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setChangeFlags)
     ///
     /// ``` self: QtC.QPinchGesture, value: flag of qgesture_enums.ChangeFlag ```
     pub fn SetChangeFlags(self: ?*anyopaque, value: i32) void {
         qtc.QPinchGesture_SetChangeFlags(@ptrCast(self), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#startCenterPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#startCenterPoint)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn StartCenterPoint(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPinchGesture_StartCenterPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#lastCenterPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#lastCenterPoint)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn LastCenterPoint(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPinchGesture_LastCenterPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#centerPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#centerPoint)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn CenterPoint(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPinchGesture_CenterPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setStartCenterPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setStartCenterPoint)
     ///
     /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetStartCenterPoint(self: ?*anyopaque, value: ?*anyopaque) void {
         qtc.QPinchGesture_SetStartCenterPoint(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setLastCenterPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setLastCenterPoint)
     ///
     /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetLastCenterPoint(self: ?*anyopaque, value: ?*anyopaque) void {
         qtc.QPinchGesture_SetLastCenterPoint(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setCenterPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setCenterPoint)
     ///
     /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetCenterPoint(self: ?*anyopaque, value: ?*anyopaque) void {
         qtc.QPinchGesture_SetCenterPoint(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#totalScaleFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#totalScaleFactor)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn TotalScaleFactor(self: ?*anyopaque) f64 {
         return qtc.QPinchGesture_TotalScaleFactor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#lastScaleFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#lastScaleFactor)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn LastScaleFactor(self: ?*anyopaque) f64 {
         return qtc.QPinchGesture_LastScaleFactor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#scaleFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#scaleFactor)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn ScaleFactor(self: ?*anyopaque) f64 {
         return qtc.QPinchGesture_ScaleFactor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalScaleFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalScaleFactor)
     ///
     /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetTotalScaleFactor(self: ?*anyopaque, value: f64) void {
         qtc.QPinchGesture_SetTotalScaleFactor(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setLastScaleFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setLastScaleFactor)
     ///
     /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetLastScaleFactor(self: ?*anyopaque, value: f64) void {
         qtc.QPinchGesture_SetLastScaleFactor(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setScaleFactor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setScaleFactor)
     ///
     /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetScaleFactor(self: ?*anyopaque, value: f64) void {
         qtc.QPinchGesture_SetScaleFactor(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#totalRotationAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#totalRotationAngle)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn TotalRotationAngle(self: ?*anyopaque) f64 {
         return qtc.QPinchGesture_TotalRotationAngle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#lastRotationAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#lastRotationAngle)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn LastRotationAngle(self: ?*anyopaque) f64 {
         return qtc.QPinchGesture_LastRotationAngle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#rotationAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#rotationAngle)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn RotationAngle(self: ?*anyopaque) f64 {
         return qtc.QPinchGesture_RotationAngle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalRotationAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalRotationAngle)
     ///
     /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetTotalRotationAngle(self: ?*anyopaque, value: f64) void {
         qtc.QPinchGesture_SetTotalRotationAngle(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setLastRotationAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setLastRotationAngle)
     ///
     /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetLastRotationAngle(self: ?*anyopaque, value: f64) void {
         qtc.QPinchGesture_SetLastRotationAngle(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setRotationAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#setRotationAngle)
     ///
     /// ``` self: QtC.QPinchGesture, value: f64 ```
     pub fn SetRotationAngle(self: ?*anyopaque, value: f64) void {
         qtc.QPinchGesture_SetRotationAngle(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2124,7 +2124,7 @@ pub const qpinchgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2139,7 +2139,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QPinchGesture ```
     ///
@@ -2150,7 +2150,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QPinchGesture ```
     ///
@@ -2161,7 +2161,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
@@ -2170,7 +2170,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
     /// ``` self: QtC.QPinchGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -2179,7 +2179,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
@@ -2188,7 +2188,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
@@ -2197,7 +2197,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
     /// ``` self: QtC.QPinchGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2206,7 +2206,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QPinchGesture ```
     ///
@@ -2217,7 +2217,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2230,7 +2230,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QPinchGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2243,7 +2243,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2252,7 +2252,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2261,7 +2261,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2270,7 +2270,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2279,7 +2279,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QPinchGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2288,7 +2288,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2297,7 +2297,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPinchGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2306,7 +2306,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPinchGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2315,7 +2315,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPinchGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2324,7 +2324,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPinchGesture, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2333,7 +2333,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2347,7 +2347,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QPinchGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2356,7 +2356,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QPinchGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2365,7 +2365,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QPinchGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2374,7 +2374,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2383,7 +2383,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPinchGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2394,7 +2394,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2403,7 +2403,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2412,7 +2412,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2421,7 +2421,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2430,7 +2430,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QPinchGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2440,7 +2440,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QPinchGesture, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2450,7 +2450,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2474,7 +2474,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2483,7 +2483,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2492,7 +2492,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2501,7 +2501,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPinchGesture, callback: *const fn (self: QtC.QPinchGesture) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2510,7 +2510,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2519,7 +2519,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QPinchGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2529,7 +2529,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QPinchGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2538,7 +2538,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPinchGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2547,7 +2547,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPinchGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2556,7 +2556,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2565,7 +2565,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPinchGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2576,7 +2576,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPinchGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2585,7 +2585,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPinchGesture, callback: *const fn (self: QtC.QPinchGesture, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2594,7 +2594,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2605,7 +2605,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2616,7 +2616,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2627,7 +2627,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2638,7 +2638,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2649,7 +2649,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2660,7 +2660,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2671,7 +2671,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2682,7 +2682,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2693,7 +2693,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2704,7 +2704,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2715,7 +2715,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2726,7 +2726,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2737,7 +2737,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2748,7 +2748,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2759,7 +2759,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2770,7 +2770,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2781,7 +2781,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2792,7 +2792,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2803,7 +2803,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2814,7 +2814,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2825,7 +2825,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2836,7 +2836,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2847,7 +2847,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2858,7 +2858,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2869,7 +2869,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2880,7 +2880,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2891,7 +2891,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2903,7 +2903,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2915,7 +2915,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2926,7 +2926,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2937,7 +2937,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2948,7 +2948,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2959,7 +2959,7 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2968,7 +2968,7 @@ pub const qpinchgesture = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#dtor.QPinchGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpinchgesture.html#dtor.QPinchGesture)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2994,7 +2994,7 @@ pub const qswipegesture = struct {
         return qtc.QSwipeGesture_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -3026,7 +3026,7 @@ pub const qswipegesture = struct {
         return qtc.QSwipeGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3038,7 +3038,7 @@ pub const qswipegesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#horizontalDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#horizontalDirection)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     ///
@@ -3047,7 +3047,7 @@ pub const qswipegesture = struct {
         return qtc.QSwipeGesture_HorizontalDirection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#verticalDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#verticalDirection)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     ///
@@ -3056,21 +3056,21 @@ pub const qswipegesture = struct {
         return qtc.QSwipeGesture_VerticalDirection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#swipeAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#swipeAngle)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn SwipeAngle(self: ?*anyopaque) f64 {
         return qtc.QSwipeGesture_SwipeAngle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#setSwipeAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#setSwipeAngle)
     ///
     /// ``` self: QtC.QSwipeGesture, value: f64 ```
     pub fn SetSwipeAngle(self: ?*anyopaque, value: f64) void {
         qtc.QSwipeGesture_SetSwipeAngle(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3083,7 +3083,7 @@ pub const qswipegesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -3098,7 +3098,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     ///
@@ -3109,7 +3109,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     ///
@@ -3120,7 +3120,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
@@ -3129,7 +3129,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
     /// ``` self: QtC.QSwipeGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -3138,7 +3138,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
@@ -3147,7 +3147,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
@@ -3156,7 +3156,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
     /// ``` self: QtC.QSwipeGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3165,7 +3165,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     ///
@@ -3176,7 +3176,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3189,7 +3189,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSwipeGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3202,7 +3202,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3211,7 +3211,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3220,7 +3220,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3229,7 +3229,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3238,7 +3238,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSwipeGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3247,7 +3247,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3256,7 +3256,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSwipeGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3265,7 +3265,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSwipeGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3274,7 +3274,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSwipeGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3283,7 +3283,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSwipeGesture, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3292,7 +3292,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3306,7 +3306,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSwipeGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3315,7 +3315,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSwipeGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3324,7 +3324,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSwipeGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3333,7 +3333,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3342,7 +3342,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSwipeGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3353,7 +3353,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3362,7 +3362,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3371,7 +3371,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3380,7 +3380,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3389,7 +3389,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSwipeGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3399,7 +3399,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSwipeGesture, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3409,7 +3409,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3433,7 +3433,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3442,7 +3442,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3451,7 +3451,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3460,7 +3460,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSwipeGesture, callback: *const fn (self: QtC.QSwipeGesture) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3469,7 +3469,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3478,7 +3478,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSwipeGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3488,7 +3488,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSwipeGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3497,7 +3497,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSwipeGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3506,7 +3506,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSwipeGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3515,7 +3515,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3524,7 +3524,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSwipeGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3535,7 +3535,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSwipeGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3544,7 +3544,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSwipeGesture, callback: *const fn (self: QtC.QSwipeGesture, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3553,7 +3553,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3564,7 +3564,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3575,7 +3575,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3586,7 +3586,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3597,7 +3597,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3608,7 +3608,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3619,7 +3619,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3630,7 +3630,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3641,7 +3641,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3652,7 +3652,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3663,7 +3663,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3674,7 +3674,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3685,7 +3685,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3696,7 +3696,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3707,7 +3707,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3718,7 +3718,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3729,7 +3729,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3740,7 +3740,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3751,7 +3751,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3762,7 +3762,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3773,7 +3773,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3784,7 +3784,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3795,7 +3795,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3806,7 +3806,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3817,7 +3817,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3828,7 +3828,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3839,7 +3839,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3850,7 +3850,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3862,7 +3862,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3874,7 +3874,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3885,7 +3885,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3896,7 +3896,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3907,7 +3907,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3918,7 +3918,7 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3927,7 +3927,7 @@ pub const qswipegesture = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#dtor.QSwipeGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qswipegesture.html#dtor.QSwipeGesture)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -3953,7 +3953,7 @@ pub const qtapgesture = struct {
         return qtc.QTapGesture_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -3985,7 +3985,7 @@ pub const qtapgesture = struct {
         return qtc.QTapGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3997,21 +3997,21 @@ pub const qtapgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapgesture.html#position)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapgesture.html#position)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn Position(self: ?*anyopaque) QtC.QPointF {
         return qtc.QTapGesture_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapgesture.html#setPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapgesture.html#setPosition)
     ///
     /// ``` self: QtC.QTapGesture, pos: QtC.QPointF ```
     pub fn SetPosition(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QTapGesture_SetPosition(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4024,7 +4024,7 @@ pub const qtapgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -4039,7 +4039,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QTapGesture ```
     ///
@@ -4050,7 +4050,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QTapGesture ```
     ///
@@ -4061,7 +4061,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
@@ -4070,7 +4070,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
     /// ``` self: QtC.QTapGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -4079,7 +4079,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
@@ -4088,7 +4088,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
@@ -4097,7 +4097,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
     /// ``` self: QtC.QTapGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
@@ -4106,7 +4106,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QTapGesture ```
     ///
@@ -4117,7 +4117,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4130,7 +4130,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QTapGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -4143,7 +4143,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4152,7 +4152,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4161,7 +4161,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4170,7 +4170,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4179,7 +4179,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QTapGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4188,7 +4188,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4197,7 +4197,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTapGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4206,7 +4206,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTapGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4215,7 +4215,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTapGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4224,7 +4224,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTapGesture, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4233,7 +4233,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4247,7 +4247,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QTapGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4256,7 +4256,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QTapGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4265,7 +4265,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QTapGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4274,7 +4274,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4283,7 +4283,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTapGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4294,7 +4294,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4303,7 +4303,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4312,7 +4312,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4321,7 +4321,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4330,7 +4330,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QTapGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4340,7 +4340,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QTapGesture, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4350,7 +4350,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4374,7 +4374,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4383,7 +4383,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4392,7 +4392,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4401,7 +4401,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapGesture, callback: *const fn (self: QtC.QTapGesture) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4410,7 +4410,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -4419,7 +4419,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QTapGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4429,7 +4429,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QTapGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4438,7 +4438,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTapGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4447,7 +4447,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTapGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4456,7 +4456,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4465,7 +4465,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTapGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4476,7 +4476,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4485,7 +4485,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapGesture, callback: *const fn (self: QtC.QTapGesture, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4494,7 +4494,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4505,7 +4505,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4516,7 +4516,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4527,7 +4527,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4538,7 +4538,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4549,7 +4549,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4560,7 +4560,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4571,7 +4571,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4582,7 +4582,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4593,7 +4593,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4604,7 +4604,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4615,7 +4615,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4626,7 +4626,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4637,7 +4637,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4648,7 +4648,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4659,7 +4659,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4670,7 +4670,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4681,7 +4681,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4692,7 +4692,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4703,7 +4703,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4714,7 +4714,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4725,7 +4725,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4736,7 +4736,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4747,7 +4747,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4758,7 +4758,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4769,7 +4769,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4780,7 +4780,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4791,7 +4791,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4803,7 +4803,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4815,7 +4815,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4826,7 +4826,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4837,7 +4837,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4848,7 +4848,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4859,7 +4859,7 @@ pub const qtapgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -4868,7 +4868,7 @@ pub const qtapgesture = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapgesture.html#dtor.QTapGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapgesture.html#dtor.QTapGesture)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -4894,7 +4894,7 @@ pub const qtapandholdgesture = struct {
         return qtc.QTapAndHoldGesture_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -4926,7 +4926,7 @@ pub const qtapandholdgesture = struct {
         return qtc.QTapAndHoldGesture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4938,35 +4938,35 @@ pub const qtapandholdgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#position)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#position)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn Position(self: ?*anyopaque) QtC.QPointF {
         return qtc.QTapAndHoldGesture_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#setPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#setPosition)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, pos: QtC.QPointF ```
     pub fn SetPosition(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QTapAndHoldGesture_SetPosition(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#setTimeout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#setTimeout)
     ///
     /// ``` msecs: i32 ```
     pub fn SetTimeout(msecs: i32) void {
         qtc.QTapAndHoldGesture_SetTimeout(@intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#timeout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#timeout)
     ///
     ///
     pub fn Timeout() i32 {
         return qtc.QTapAndHoldGesture_Timeout();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -4979,7 +4979,7 @@ pub const qtapandholdgesture = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -4994,7 +4994,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     ///
@@ -5005,7 +5005,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     ///
@@ -5016,7 +5016,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hotSpot)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
@@ -5025,7 +5025,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setHotSpot)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, value: QtC.QPointF ```
     pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -5034,7 +5034,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#hasHotSpot)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn HasHotSpot(self: ?*anyopaque) bool {
@@ -5043,7 +5043,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#unsetHotSpot)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn UnsetHotSpot(self: ?*anyopaque) void {
@@ -5052,7 +5052,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#setGestureCancelPolicy)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, policy: qgesture_enums.GestureCancelPolicy ```
     pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
@@ -5061,7 +5061,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QGesture
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     ///
@@ -5072,7 +5072,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5085,7 +5085,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -5098,7 +5098,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -5107,7 +5107,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -5116,7 +5116,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -5125,7 +5125,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -5134,7 +5134,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -5143,7 +5143,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -5152,7 +5152,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -5161,7 +5161,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -5170,7 +5170,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -5179,7 +5179,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -5188,7 +5188,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -5202,7 +5202,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -5211,7 +5211,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -5220,7 +5220,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -5229,7 +5229,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -5238,7 +5238,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -5249,7 +5249,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -5258,7 +5258,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -5267,7 +5267,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -5276,7 +5276,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -5285,7 +5285,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -5295,7 +5295,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -5305,7 +5305,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5329,7 +5329,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5338,7 +5338,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5347,7 +5347,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5356,7 +5356,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, callback: *const fn (self: QtC.QTapAndHoldGesture) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5365,7 +5365,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5374,7 +5374,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5384,7 +5384,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5393,7 +5393,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5402,7 +5402,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5411,7 +5411,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5420,7 +5420,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5431,7 +5431,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5440,7 +5440,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, callback: *const fn (self: QtC.QTapAndHoldGesture, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5449,7 +5449,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5460,7 +5460,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5471,7 +5471,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5482,7 +5482,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5493,7 +5493,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5504,7 +5504,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5515,7 +5515,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5526,7 +5526,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5537,7 +5537,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5548,7 +5548,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5559,7 +5559,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5570,7 +5570,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5581,7 +5581,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5592,7 +5592,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5603,7 +5603,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5614,7 +5614,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5625,7 +5625,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5636,7 +5636,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5647,7 +5647,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5658,7 +5658,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5669,7 +5669,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5680,7 +5680,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5691,7 +5691,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5702,7 +5702,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5713,7 +5713,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5724,7 +5724,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5735,7 +5735,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5746,7 +5746,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5758,7 +5758,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5770,7 +5770,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5781,7 +5781,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5792,7 +5792,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5803,7 +5803,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5814,7 +5814,7 @@ pub const qtapandholdgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -5823,7 +5823,7 @@ pub const qtapandholdgesture = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtapandholdgesture.html#dtor.QTapAndHoldGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtapandholdgesture.html#dtor.QTapAndHoldGesture)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -5854,7 +5854,7 @@ pub const qgestureevent = struct {
         return qtc.QGestureEvent_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#gestures)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#gestures)
     ///
     /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
     pub fn Gestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
@@ -5866,14 +5866,14 @@ pub const qgestureevent = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#gesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#gesture)
     ///
     /// ``` self: QtC.QGestureEvent, typeVal: qnamespace_enums.GestureType ```
     pub fn Gesture(self: ?*anyopaque, typeVal: i64) QtC.QGesture {
         return qtc.QGestureEvent_Gesture(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#activeGestures)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#activeGestures)
     ///
     /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
     pub fn ActiveGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
@@ -5885,7 +5885,7 @@ pub const qgestureevent = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#canceledGestures)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#canceledGestures)
     ///
     /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
     pub fn CanceledGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
@@ -5897,77 +5897,77 @@ pub const qgestureevent = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
     ///
     /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture, param2: bool ```
     pub fn SetAccepted(self: ?*anyopaque, param1: ?*anyopaque, param2: bool) void {
         qtc.QGestureEvent_SetAccepted(@ptrCast(self), @ptrCast(param1), param2);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#accept)
     ///
     /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture ```
     pub fn Accept(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QGestureEvent_Accept(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
     ///
     /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture ```
     pub fn Ignore(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QGestureEvent_Ignore(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGestureEvent, param1: QtC.QGesture ```
     pub fn IsAccepted(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QGestureEvent_IsAccepted(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#setAccepted)
     ///
     /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType, param2: bool ```
     pub fn SetAccepted2(self: ?*anyopaque, param1: i64, param2: bool) void {
         qtc.QGestureEvent_SetAccepted2(@ptrCast(self), @intCast(param1), param2);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#accept)
     ///
     /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType ```
     pub fn Accept2(self: ?*anyopaque, param1: i64) void {
         qtc.QGestureEvent_Accept2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#ignore)
     ///
     /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType ```
     pub fn Ignore2(self: ?*anyopaque, param1: i64) void {
         qtc.QGestureEvent_Ignore2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#isAccepted)
     ///
     /// ``` self: QtC.QGestureEvent, param1: qnamespace_enums.GestureType ```
     pub fn IsAccepted2(self: ?*anyopaque, param1: i64) bool {
         return qtc.QGestureEvent_IsAccepted2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#setWidget)
     ///
     /// ``` self: QtC.QGestureEvent, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QGestureEvent_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#widget)
     ///
     /// ``` self: QtC.QGestureEvent ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QGestureEvent_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#mapToGraphicsScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#mapToGraphicsScene)
     ///
     /// ``` self: QtC.QGestureEvent, gesturePoint: QtC.QPointF ```
     pub fn MapToGraphicsScene(self: ?*anyopaque, gesturePoint: ?*anyopaque) QtC.QPointF {
@@ -5976,7 +5976,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGestureEvent ```
     ///
@@ -5987,7 +5987,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
     /// ``` self: QtC.QGestureEvent ```
     pub fn Spontaneous(self: ?*anyopaque) bool {
@@ -5996,7 +5996,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
     /// ``` self: QtC.QGestureEvent ```
     pub fn IsInputEvent(self: ?*anyopaque) bool {
@@ -6005,7 +6005,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
     /// ``` self: QtC.QGestureEvent ```
     pub fn IsPointerEvent(self: ?*anyopaque) bool {
@@ -6014,7 +6014,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
     /// ``` self: QtC.QGestureEvent ```
     pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
@@ -6023,7 +6023,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     ///
     pub fn RegisterEventType() i32 {
@@ -6032,7 +6032,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
     /// ``` hint: i32 ```
     pub fn RegisterEventType1(hint: i32) i32 {
@@ -6041,7 +6041,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6052,7 +6052,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6063,7 +6063,7 @@ pub const qgestureevent = struct {
 
     /// Inherited from QEvent
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6072,7 +6072,7 @@ pub const qgestureevent = struct {
         qtc.QGestureEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgestureevent.html#dtor.QGestureEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgestureevent.html#dtor.QGestureEvent)
     ///
     /// Delete this object from C++ memory.
     ///

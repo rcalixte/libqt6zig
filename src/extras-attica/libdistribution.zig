@@ -18,28 +18,28 @@ pub const attica__distribution = struct {
         return qtc.Attica__Distribution_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-distribution.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-distribution.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__Distribution, other: QtC.Attica__Distribution ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Distribution_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-distribution.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-distribution.html#id)
     ///
     /// ``` self: QtC.Attica__Distribution ```
     pub fn Id(self: ?*anyopaque) u32 {
         return qtc.Attica__Distribution_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-distribution.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-distribution.html#setId)
     ///
     /// ``` self: QtC.Attica__Distribution, id: u32 ```
     pub fn SetId(self: ?*anyopaque, id: u32) void {
         qtc.Attica__Distribution_SetId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-distribution.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-distribution.html#name)
     ///
     /// ``` self: QtC.Attica__Distribution, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -50,7 +50,7 @@ pub const attica__distribution = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-distribution.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-distribution.html#setName)
     ///
     /// ``` self: QtC.Attica__Distribution, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {

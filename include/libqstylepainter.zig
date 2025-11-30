@@ -30,42 +30,42 @@ pub const qstylepainter = struct {
         return qtc.QStylePainter_new3(@ptrCast(pd), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#begin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#begin)
     ///
     /// ``` self: QtC.QStylePainter, w: QtC.QWidget ```
     pub fn Begin(self: ?*anyopaque, w: ?*anyopaque) bool {
         return qtc.QStylePainter_Begin(@ptrCast(self), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#begin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#begin)
     ///
     /// ``` self: QtC.QStylePainter, pd: QtC.QPaintDevice, w: QtC.QWidget ```
     pub fn Begin2(self: ?*anyopaque, pd: ?*anyopaque, w: ?*anyopaque) bool {
         return qtc.QStylePainter_Begin2(@ptrCast(self), @ptrCast(pd), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawPrimitive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawPrimitive)
     ///
     /// ``` self: QtC.QStylePainter, pe: qstyle_enums.PrimitiveElement, opt: QtC.QStyleOption ```
     pub fn DrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque) void {
         qtc.QStylePainter_DrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawControl)
     ///
     /// ``` self: QtC.QStylePainter, ce: qstyle_enums.ControlElement, opt: QtC.QStyleOption ```
     pub fn DrawControl(self: ?*anyopaque, ce: i64, opt: ?*anyopaque) void {
         qtc.QStylePainter_DrawControl(@ptrCast(self), @intCast(ce), @ptrCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawComplexControl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawComplexControl)
     ///
     /// ``` self: QtC.QStylePainter, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex ```
     pub fn DrawComplexControl(self: ?*anyopaque, cc: i64, opt: ?*anyopaque) void {
         qtc.QStylePainter_DrawComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawItemText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawItemText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8 ```
     pub fn DrawItemText(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8) void {
@@ -76,21 +76,21 @@ pub const qstylepainter = struct {
         qtc.QStylePainter_DrawItemText(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pal), enabled, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawItemPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawItemPixmap)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, flags: i32, pixmap: QtC.QPixmap ```
     pub fn DrawItemPixmap(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pixmap: ?*anyopaque) void {
         qtc.QStylePainter_DrawItemPixmap(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#style)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
         return qtc.QStylePainter_Style(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawItemText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawItemText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole ```
     pub fn DrawItemText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
@@ -103,7 +103,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#device)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#device)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Device(self: ?*anyopaque) QtC.QPaintDevice {
@@ -112,7 +112,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#end)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#end)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn End(self: ?*anyopaque) bool {
@@ -121,7 +121,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#isActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#isActive)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn IsActive(self: ?*anyopaque) bool {
@@ -130,7 +130,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setCompositionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setCompositionMode)
     ///
     /// ``` self: QtC.QStylePainter, mode: qpainter_enums.CompositionMode ```
     pub fn SetCompositionMode(self: ?*anyopaque, mode: i32) void {
@@ -139,7 +139,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#compositionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#compositionMode)
     ///
     /// ``` self: QtC.QStylePainter ```
     ///
@@ -150,7 +150,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#font)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -159,7 +159,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setFont)
     ///
     /// ``` self: QtC.QStylePainter, f: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque) void {
@@ -168,7 +168,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fontMetrics)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -177,7 +177,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fontInfo)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -186,7 +186,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
     /// ``` self: QtC.QStylePainter, color: QtC.QColor ```
     pub fn SetPen(self: ?*anyopaque, color: ?*anyopaque) void {
@@ -195,7 +195,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
     /// ``` self: QtC.QStylePainter, pen: QtC.QPen ```
     pub fn SetPen2(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -204,7 +204,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
     /// ``` self: QtC.QStylePainter, style: qnamespace_enums.PenStyle ```
     pub fn SetPen3(self: ?*anyopaque, style: i32) void {
@@ -213,7 +213,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#pen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#pen)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
@@ -222,7 +222,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrush)
     ///
     /// ``` self: QtC.QStylePainter, brush: QtC.QBrush ```
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -231,7 +231,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrush)
     ///
     /// ``` self: QtC.QStylePainter, style: qnamespace_enums.BrushStyle ```
     pub fn SetBrush2(self: ?*anyopaque, style: i32) void {
@@ -240,7 +240,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#brush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#brush)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
@@ -249,7 +249,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBackgroundMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBackgroundMode)
     ///
     /// ``` self: QtC.QStylePainter, mode: qnamespace_enums.BGMode ```
     pub fn SetBackgroundMode(self: ?*anyopaque, mode: i32) void {
@@ -258,7 +258,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#backgroundMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#backgroundMode)
     ///
     /// ``` self: QtC.QStylePainter ```
     ///
@@ -269,7 +269,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#brushOrigin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#brushOrigin)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn BrushOrigin(self: ?*anyopaque) QtC.QPoint {
@@ -278,7 +278,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32 ```
     pub fn SetBrushOrigin(self: ?*anyopaque, x: i32, y: i32) void {
@@ -287,7 +287,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
     ///
     /// ``` self: QtC.QStylePainter, brushOrigin: QtC.QPoint ```
     pub fn SetBrushOrigin2(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
@@ -296,7 +296,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
     ///
     /// ``` self: QtC.QStylePainter, brushOrigin: QtC.QPointF ```
     pub fn SetBrushOrigin3(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
@@ -305,7 +305,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBackground)
     ///
     /// ``` self: QtC.QStylePainter, bg: QtC.QBrush ```
     pub fn SetBackground(self: ?*anyopaque, bg: ?*anyopaque) void {
@@ -314,7 +314,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#background)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#background)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Background(self: ?*anyopaque) QtC.QBrush {
@@ -323,7 +323,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#opacity)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Opacity(self: ?*anyopaque) f64 {
@@ -332,7 +332,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setOpacity)
     ///
     /// ``` self: QtC.QStylePainter, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
@@ -341,7 +341,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#clipRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#clipRegion)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn ClipRegion(self: ?*anyopaque) QtC.QRegion {
@@ -350,7 +350,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#clipPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#clipPath)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn ClipPath(self: ?*anyopaque) QtC.QPainterPath {
@@ -359,7 +359,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRectF ```
     pub fn SetClipRect(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -368,7 +368,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect ```
     pub fn SetClipRect2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -377,7 +377,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetClipRect3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -386,7 +386,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRegion ```
     pub fn SetClipRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -395,7 +395,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipPath)
     ///
     /// ``` self: QtC.QStylePainter, path: QtC.QPainterPath ```
     pub fn SetClipPath(self: ?*anyopaque, path: ?*anyopaque) void {
@@ -404,7 +404,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipping)
     ///
     /// ``` self: QtC.QStylePainter, enable: bool ```
     pub fn SetClipping(self: ?*anyopaque, enable: bool) void {
@@ -413,7 +413,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#hasClipping)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#hasClipping)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn HasClipping(self: ?*anyopaque) bool {
@@ -422,7 +422,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#clipBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#clipBoundingRect)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn ClipBoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -431,7 +431,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#save)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Save(self: ?*anyopaque) void {
@@ -440,7 +440,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#restore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#restore)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Restore(self: ?*anyopaque) void {
@@ -449,7 +449,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setTransform)
     ///
     /// ``` self: QtC.QStylePainter, transform: QtC.QTransform ```
     pub fn SetTransform(self: ?*anyopaque, transform: ?*anyopaque) void {
@@ -458,7 +458,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#transform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#transform)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Transform(self: ?*anyopaque) QtC.QTransform {
@@ -467,7 +467,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#deviceTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#deviceTransform)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn DeviceTransform(self: ?*anyopaque) QtC.QTransform {
@@ -476,7 +476,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#resetTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#resetTransform)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn ResetTransform(self: ?*anyopaque) void {
@@ -485,7 +485,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setWorldTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWorldTransform)
     ///
     /// ``` self: QtC.QStylePainter, matrix: QtC.QTransform ```
     pub fn SetWorldTransform(self: ?*anyopaque, matrix: ?*anyopaque) void {
@@ -494,7 +494,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#worldTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#worldTransform)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn WorldTransform(self: ?*anyopaque) QtC.QTransform {
@@ -503,7 +503,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#combinedTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#combinedTransform)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn CombinedTransform(self: ?*anyopaque) QtC.QTransform {
@@ -512,7 +512,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setWorldMatrixEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWorldMatrixEnabled)
     ///
     /// ``` self: QtC.QStylePainter, enabled: bool ```
     pub fn SetWorldMatrixEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -521,7 +521,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#worldMatrixEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#worldMatrixEnabled)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn WorldMatrixEnabled(self: ?*anyopaque) bool {
@@ -530,7 +530,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#scale)
     ///
     /// ``` self: QtC.QStylePainter, sx: f64, sy: f64 ```
     pub fn Scale(self: ?*anyopaque, sx: f64, sy: f64) void {
@@ -539,7 +539,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#shear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#shear)
     ///
     /// ``` self: QtC.QStylePainter, sh: f64, sv: f64 ```
     pub fn Shear(self: ?*anyopaque, sh: f64, sv: f64) void {
@@ -548,7 +548,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#rotate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#rotate)
     ///
     /// ``` self: QtC.QStylePainter, a: f64 ```
     pub fn Rotate(self: ?*anyopaque, a: f64) void {
@@ -557,7 +557,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
     /// ``` self: QtC.QStylePainter, offset: QtC.QPointF ```
     pub fn Translate(self: ?*anyopaque, offset: ?*anyopaque) void {
@@ -566,7 +566,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
     /// ``` self: QtC.QStylePainter, offset: QtC.QPoint ```
     pub fn Translate2(self: ?*anyopaque, offset: ?*anyopaque) void {
@@ -575,7 +575,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
     /// ``` self: QtC.QStylePainter, dx: f64, dy: f64 ```
     pub fn Translate3(self: ?*anyopaque, dx: f64, dy: f64) void {
@@ -584,7 +584,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#window)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Window(self: ?*anyopaque) QtC.QRect {
@@ -593,7 +593,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWindow)
     ///
     /// ``` self: QtC.QStylePainter, window: QtC.QRect ```
     pub fn SetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
@@ -602,7 +602,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWindow)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetWindow2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -611,7 +611,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#viewport)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn Viewport(self: ?*anyopaque) QtC.QRect {
@@ -620,7 +620,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setViewport)
     ///
     /// ``` self: QtC.QStylePainter, viewport: QtC.QRect ```
     pub fn SetViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
@@ -629,7 +629,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setViewport)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetViewport2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -638,7 +638,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setViewTransformEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setViewTransformEnabled)
     ///
     /// ``` self: QtC.QStylePainter, enable: bool ```
     pub fn SetViewTransformEnabled(self: ?*anyopaque, enable: bool) void {
@@ -647,7 +647,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#viewTransformEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#viewTransformEnabled)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn ViewTransformEnabled(self: ?*anyopaque) bool {
@@ -656,7 +656,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#strokePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#strokePath)
     ///
     /// ``` self: QtC.QStylePainter, path: QtC.QPainterPath, pen: QtC.QPen ```
     pub fn StrokePath(self: ?*anyopaque, path: ?*anyopaque, pen: ?*anyopaque) void {
@@ -665,7 +665,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillPath)
     ///
     /// ``` self: QtC.QStylePainter, path: QtC.QPainterPath, brush: QtC.QBrush ```
     pub fn FillPath(self: ?*anyopaque, path: ?*anyopaque, brush: ?*anyopaque) void {
@@ -674,7 +674,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPath)
     ///
     /// ``` self: QtC.QStylePainter, path: QtC.QPainterPath ```
     pub fn DrawPath(self: ?*anyopaque, path: ?*anyopaque) void {
@@ -683,7 +683,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
     /// ``` self: QtC.QStylePainter, pt: QtC.QPointF ```
     pub fn DrawPoint(self: ?*anyopaque, pt: ?*anyopaque) void {
@@ -692,7 +692,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint ```
     pub fn DrawPoint2(self: ?*anyopaque, p: ?*anyopaque) void {
@@ -701,7 +701,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32 ```
     pub fn DrawPoint3(self: ?*anyopaque, x: i32, y: i32) void {
@@ -710,7 +710,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPointF, pointCount: i32 ```
     pub fn DrawPoints(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -719,7 +719,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPoint, pointCount: i32 ```
     pub fn DrawPoints3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -728,7 +728,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QStylePainter, line: QtC.QLineF ```
     pub fn DrawLine(self: ?*anyopaque, line: ?*anyopaque) void {
@@ -737,7 +737,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QStylePainter, line: QtC.QLine ```
     pub fn DrawLine2(self: ?*anyopaque, line: ?*anyopaque) void {
@@ -746,7 +746,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QStylePainter, x1: i32, y1: i32, x2: i32, y2: i32 ```
     pub fn DrawLine3(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
@@ -755,7 +755,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QStylePainter, p1: QtC.QPoint, p2: QtC.QPoint ```
     pub fn DrawLine4(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
@@ -764,7 +764,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QStylePainter, p1: QtC.QPointF, p2: QtC.QPointF ```
     pub fn DrawLine5(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
@@ -773,7 +773,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, lines: QtC.QLineF, lineCount: i32 ```
     pub fn DrawLines(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
@@ -782,7 +782,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, lines: []QtC.QLineF ```
     pub fn DrawLines2(self: ?*anyopaque, lines: []QtC.QLineF) void {
@@ -795,7 +795,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, pointPairs: QtC.QPointF, lineCount: i32 ```
     pub fn DrawLines3(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
@@ -804,7 +804,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, pointPairs: []QtC.QPointF ```
     pub fn DrawLines4(self: ?*anyopaque, pointPairs: []QtC.QPointF) void {
@@ -817,7 +817,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, lines: QtC.QLine, lineCount: i32 ```
     pub fn DrawLines5(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
@@ -826,7 +826,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, lines: []QtC.QLine ```
     pub fn DrawLines6(self: ?*anyopaque, lines: []QtC.QLine) void {
@@ -839,7 +839,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, pointPairs: QtC.QPoint, lineCount: i32 ```
     pub fn DrawLines7(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
@@ -848,7 +848,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QStylePainter, pointPairs: []QtC.QPoint ```
     pub fn DrawLines8(self: ?*anyopaque, pointPairs: []QtC.QPoint) void {
@@ -861,7 +861,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF ```
     pub fn DrawRect(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -870,7 +870,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRect)
     ///
     /// ``` self: QtC.QStylePainter, x1: i32, y1: i32, w: i32, h: i32 ```
     pub fn DrawRect2(self: ?*anyopaque, x1: i32, y1: i32, w: i32, h: i32) void {
@@ -879,7 +879,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRect ```
     pub fn DrawRect3(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -888,7 +888,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
     /// ``` self: QtC.QStylePainter, rects: QtC.QRectF, rectCount: i32 ```
     pub fn DrawRects(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
@@ -897,7 +897,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
     /// ``` self: QtC.QStylePainter, rectangles: []QtC.QRectF ```
     pub fn DrawRects2(self: ?*anyopaque, rectangles: []QtC.QRectF) void {
@@ -910,7 +910,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
     /// ``` self: QtC.QStylePainter, rects: QtC.QRect, rectCount: i32 ```
     pub fn DrawRects3(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
@@ -919,7 +919,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
     /// ``` self: QtC.QStylePainter, rectangles: []QtC.QRect ```
     pub fn DrawRects4(self: ?*anyopaque, rectangles: []QtC.QRect) void {
@@ -932,7 +932,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF ```
     pub fn DrawEllipse(self: ?*anyopaque, r: ?*anyopaque) void {
@@ -941,7 +941,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect ```
     pub fn DrawEllipse2(self: ?*anyopaque, r: ?*anyopaque) void {
@@ -950,7 +950,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32 ```
     pub fn DrawEllipse3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -959,7 +959,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QStylePainter, center: QtC.QPointF, rx: f64, ry: f64 ```
     pub fn DrawEllipse4(self: ?*anyopaque, center: ?*anyopaque, rx: f64, ry: f64) void {
@@ -968,7 +968,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QStylePainter, center: QtC.QPoint, rx: i32, ry: i32 ```
     pub fn DrawEllipse5(self: ?*anyopaque, center: ?*anyopaque, rx: i32, ry: i32) void {
@@ -977,7 +977,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPointF, pointCount: i32 ```
     pub fn DrawPolyline(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -986,7 +986,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPoint, pointCount: i32 ```
     pub fn DrawPolyline3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -995,7 +995,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPointF, pointCount: i32 ```
     pub fn DrawPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -1004,7 +1004,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPoint, pointCount: i32 ```
     pub fn DrawPolygon3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -1013,7 +1013,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPointF, pointCount: i32 ```
     pub fn DrawConvexPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -1022,7 +1022,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPoint, pointCount: i32 ```
     pub fn DrawConvexPolygon3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
@@ -1031,7 +1031,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawArc)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawArc)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, a: i32, alen: i32 ```
     pub fn DrawArc(self: ?*anyopaque, rect: ?*anyopaque, a: i32, alen: i32) void {
@@ -1040,7 +1040,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawArc)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawArc)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, a: i32, alen: i32 ```
     pub fn DrawArc2(self: ?*anyopaque, param1: ?*anyopaque, a: i32, alen: i32) void {
@@ -1049,7 +1049,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawArc)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawArc)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32 ```
     pub fn DrawArc3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
@@ -1058,7 +1058,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPie)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPie)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, a: i32, alen: i32 ```
     pub fn DrawPie(self: ?*anyopaque, rect: ?*anyopaque, a: i32, alen: i32) void {
@@ -1067,7 +1067,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPie)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPie)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32 ```
     pub fn DrawPie2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
@@ -1076,7 +1076,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPie)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPie)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, a: i32, alen: i32 ```
     pub fn DrawPie3(self: ?*anyopaque, param1: ?*anyopaque, a: i32, alen: i32) void {
@@ -1085,7 +1085,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawChord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawChord)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, a: i32, alen: i32 ```
     pub fn DrawChord(self: ?*anyopaque, rect: ?*anyopaque, a: i32, alen: i32) void {
@@ -1094,7 +1094,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawChord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawChord)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32 ```
     pub fn DrawChord2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
@@ -1103,7 +1103,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawChord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawChord)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, a: i32, alen: i32 ```
     pub fn DrawChord3(self: ?*anyopaque, param1: ?*anyopaque, a: i32, alen: i32) void {
@@ -1112,7 +1112,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, xRadius: f64, yRadius: f64 ```
     pub fn DrawRoundedRect(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64) void {
@@ -1121,7 +1121,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64 ```
     pub fn DrawRoundedRect2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64) void {
@@ -1130,7 +1130,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRect, xRadius: f64, yRadius: f64 ```
     pub fn DrawRoundedRect3(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64) void {
@@ -1139,7 +1139,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, pm: QtC.QPixmap ```
     pub fn DrawTiledPixmap(self: ?*anyopaque, rect: ?*anyopaque, pm: ?*anyopaque) void {
@@ -1148,7 +1148,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: QtC.QPixmap ```
     pub fn DrawTiledPixmap2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque) void {
@@ -1157,7 +1157,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, param2: QtC.QPixmap ```
     pub fn DrawTiledPixmap3(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -1166,7 +1166,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, picture: QtC.QPicture ```
     pub fn DrawPicture(self: ?*anyopaque, p: ?*anyopaque, picture: ?*anyopaque) void {
@@ -1175,7 +1175,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, picture: QtC.QPicture ```
     pub fn DrawPicture2(self: ?*anyopaque, x: i32, y: i32, picture: ?*anyopaque) void {
@@ -1184,7 +1184,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, picture: QtC.QPicture ```
     pub fn DrawPicture3(self: ?*anyopaque, p: ?*anyopaque, picture: ?*anyopaque) void {
@@ -1193,7 +1193,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRectF, pixmap: QtC.QPixmap, sourceRect: QtC.QRectF ```
     pub fn DrawPixmap(self: ?*anyopaque, targetRect: ?*anyopaque, pixmap: ?*anyopaque, sourceRect: ?*anyopaque) void {
@@ -1202,7 +1202,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRect, pixmap: QtC.QPixmap, sourceRect: QtC.QRect ```
     pub fn DrawPixmap2(self: ?*anyopaque, targetRect: ?*anyopaque, pixmap: ?*anyopaque, sourceRect: ?*anyopaque) void {
@@ -1211,7 +1211,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, pm: QtC.QPixmap, sx: i32, sy: i32, sw: i32, sh: i32 ```
     pub fn DrawPixmap3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, pm: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32) void {
@@ -1220,7 +1220,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, pm: QtC.QPixmap, sx: i32, sy: i32, sw: i32, sh: i32 ```
     pub fn DrawPixmap4(self: ?*anyopaque, x: i32, y: i32, pm: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32) void {
@@ -1229,7 +1229,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, pm: QtC.QPixmap, sr: QtC.QRectF ```
     pub fn DrawPixmap5(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque) void {
@@ -1238,7 +1238,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, pm: QtC.QPixmap, sr: QtC.QRect ```
     pub fn DrawPixmap6(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque) void {
@@ -1247,7 +1247,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, pm: QtC.QPixmap ```
     pub fn DrawPixmap7(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque) void {
@@ -1256,7 +1256,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, pm: QtC.QPixmap ```
     pub fn DrawPixmap8(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque) void {
@@ -1265,7 +1265,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, pm: QtC.QPixmap ```
     pub fn DrawPixmap9(self: ?*anyopaque, x: i32, y: i32, pm: ?*anyopaque) void {
@@ -1274,7 +1274,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, pm: QtC.QPixmap ```
     pub fn DrawPixmap10(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque) void {
@@ -1283,7 +1283,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, pm: QtC.QPixmap ```
     pub fn DrawPixmap11(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, pm: ?*anyopaque) void {
@@ -1292,7 +1292,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments)
     ///
     /// ``` self: QtC.QStylePainter, fragments: QtC.QPainter__PixmapFragment, fragmentCount: i32, pixmap: QtC.QPixmap ```
     pub fn DrawPixmapFragments(self: ?*anyopaque, fragments: ?*anyopaque, fragmentCount: i32, pixmap: ?*anyopaque) void {
@@ -1301,7 +1301,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRectF, image: QtC.QImage, sourceRect: QtC.QRectF ```
     pub fn DrawImage(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque) void {
@@ -1310,7 +1310,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRect, image: QtC.QImage, sourceRect: QtC.QRect ```
     pub fn DrawImage2(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque) void {
@@ -1319,7 +1319,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, image: QtC.QImage, sr: QtC.QRectF ```
     pub fn DrawImage3(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque) void {
@@ -1328,7 +1328,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, image: QtC.QImage, sr: QtC.QRect ```
     pub fn DrawImage4(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque) void {
@@ -1337,7 +1337,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, image: QtC.QImage ```
     pub fn DrawImage5(self: ?*anyopaque, r: ?*anyopaque, image: ?*anyopaque) void {
@@ -1346,7 +1346,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, image: QtC.QImage ```
     pub fn DrawImage6(self: ?*anyopaque, r: ?*anyopaque, image: ?*anyopaque) void {
@@ -1355,7 +1355,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, image: QtC.QImage ```
     pub fn DrawImage7(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque) void {
@@ -1364,7 +1364,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, image: QtC.QImage ```
     pub fn DrawImage8(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque) void {
@@ -1373,7 +1373,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, image: QtC.QImage ```
     pub fn DrawImage9(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque) void {
@@ -1382,7 +1382,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QStylePainter, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -1391,7 +1391,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#layoutDirection)
     ///
     /// ``` self: QtC.QStylePainter ```
     ///
@@ -1402,7 +1402,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawGlyphRun)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawGlyphRun)
     ///
     /// ``` self: QtC.QStylePainter, position: QtC.QPointF, glyphRun: QtC.QGlyphRun ```
     pub fn DrawGlyphRun(self: ?*anyopaque, position: ?*anyopaque, glyphRun: ?*anyopaque) void {
@@ -1411,7 +1411,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
     ///
     /// ``` self: QtC.QStylePainter, topLeftPosition: QtC.QPointF, staticText: QtC.QStaticText ```
     pub fn DrawStaticText(self: ?*anyopaque, topLeftPosition: ?*anyopaque, staticText: ?*anyopaque) void {
@@ -1420,7 +1420,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
     ///
     /// ``` self: QtC.QStylePainter, topLeftPosition: QtC.QPoint, staticText: QtC.QStaticText ```
     pub fn DrawStaticText2(self: ?*anyopaque, topLeftPosition: ?*anyopaque, staticText: ?*anyopaque) void {
@@ -1429,7 +1429,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
     ///
     /// ``` self: QtC.QStylePainter, left: i32, top: i32, staticText: QtC.QStaticText ```
     pub fn DrawStaticText3(self: ?*anyopaque, left: i32, top: i32, staticText: ?*anyopaque) void {
@@ -1438,7 +1438,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, s: []const u8 ```
     pub fn DrawText(self: ?*anyopaque, p: ?*anyopaque, s: []const u8) void {
@@ -1451,7 +1451,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, s: []const u8 ```
     pub fn DrawText2(self: ?*anyopaque, p: ?*anyopaque, s: []const u8) void {
@@ -1464,7 +1464,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, s: []const u8 ```
     pub fn DrawText3(self: ?*anyopaque, x: i32, y: i32, s: []const u8) void {
@@ -1477,7 +1477,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, str: []const u8, tf: i32, justificationPadding: i32 ```
     pub fn DrawText4(self: ?*anyopaque, p: ?*anyopaque, str: []const u8, tf: i32, justificationPadding: i32) void {
@@ -1490,7 +1490,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, flags: i32, text: []const u8 ```
     pub fn DrawText5(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) void {
@@ -1503,7 +1503,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, flags: i32, text: []const u8 ```
     pub fn DrawText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) void {
@@ -1516,7 +1516,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8 ```
     pub fn DrawText7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) void {
@@ -1529,7 +1529,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, text: []const u8 ```
     pub fn DrawText8(self: ?*anyopaque, r: ?*anyopaque, text: []const u8) void {
@@ -1542,7 +1542,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, flags: i32, text: []const u8 ```
     pub fn BoundingRect(self: ?*anyopaque, rect: ?*anyopaque, flags: i32, text: []const u8) QtC.QRectF {
@@ -1555,7 +1555,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRect, flags: i32, text: []const u8 ```
     pub fn BoundingRect2(self: ?*anyopaque, rect: ?*anyopaque, flags: i32, text: []const u8) QtC.QRect {
@@ -1568,7 +1568,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8 ```
     pub fn BoundingRect3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QtC.QRect {
@@ -1581,7 +1581,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, text: []const u8 ```
     pub fn BoundingRect4(self: ?*anyopaque, rect: ?*anyopaque, text: []const u8) QtC.QRectF {
@@ -1594,7 +1594,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, ti: QtC.QTextItem ```
     pub fn DrawTextItem(self: ?*anyopaque, p: ?*anyopaque, ti: ?*anyopaque) void {
@@ -1603,7 +1603,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, ti: QtC.QTextItem ```
     pub fn DrawTextItem2(self: ?*anyopaque, x: i32, y: i32, ti: ?*anyopaque) void {
@@ -1612,7 +1612,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, ti: QtC.QTextItem ```
     pub fn DrawTextItem3(self: ?*anyopaque, p: ?*anyopaque, ti: ?*anyopaque) void {
@@ -1621,7 +1621,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRectF, param2: QtC.QBrush ```
     pub fn FillRect(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -1630,7 +1630,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: QtC.QBrush ```
     pub fn FillRect2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque) void {
@@ -1639,7 +1639,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, param2: QtC.QBrush ```
     pub fn FillRect3(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -1648,7 +1648,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRectF, color: QtC.QColor ```
     pub fn FillRect4(self: ?*anyopaque, param1: ?*anyopaque, color: ?*anyopaque) void {
@@ -1657,7 +1657,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, color: QtC.QColor ```
     pub fn FillRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, color: ?*anyopaque) void {
@@ -1666,7 +1666,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, color: QtC.QColor ```
     pub fn FillRect6(self: ?*anyopaque, param1: ?*anyopaque, color: ?*anyopaque) void {
@@ -1675,7 +1675,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, c: qnamespace_enums.GlobalColor ```
     pub fn FillRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, c: i32) void {
@@ -1684,7 +1684,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, c: qnamespace_enums.GlobalColor ```
     pub fn FillRect8(self: ?*anyopaque, r: ?*anyopaque, c: i32) void {
@@ -1693,7 +1693,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, c: qnamespace_enums.GlobalColor ```
     pub fn FillRect9(self: ?*anyopaque, r: ?*anyopaque, c: i32) void {
@@ -1702,7 +1702,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, style: qnamespace_enums.BrushStyle ```
     pub fn FillRect10(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, style: i32) void {
@@ -1711,7 +1711,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, style: qnamespace_enums.BrushStyle ```
     pub fn FillRect11(self: ?*anyopaque, r: ?*anyopaque, style: i32) void {
@@ -1720,7 +1720,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, style: qnamespace_enums.BrushStyle ```
     pub fn FillRect12(self: ?*anyopaque, r: ?*anyopaque, style: i32) void {
@@ -1729,7 +1729,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, preset: qbrush_enums.Preset ```
     pub fn FillRect13(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, preset: i32) void {
@@ -1738,7 +1738,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, preset: qbrush_enums.Preset ```
     pub fn FillRect14(self: ?*anyopaque, r: ?*anyopaque, preset: i32) void {
@@ -1747,7 +1747,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, preset: qbrush_enums.Preset ```
     pub fn FillRect15(self: ?*anyopaque, r: ?*anyopaque, preset: i32) void {
@@ -1756,7 +1756,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRectF ```
     pub fn EraseRect(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1765,7 +1765,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32 ```
     pub fn EraseRect2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -1774,7 +1774,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect ```
     pub fn EraseRect3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1783,7 +1783,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
     ///
     /// ``` self: QtC.QStylePainter, hint: qpainter_enums.RenderHint ```
     pub fn SetRenderHint(self: ?*anyopaque, hint: i32) void {
@@ -1792,7 +1792,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
     ///
     /// ``` self: QtC.QStylePainter, hints: flag of qpainter_enums.RenderHint ```
     pub fn SetRenderHints(self: ?*anyopaque, hints: i32) void {
@@ -1801,7 +1801,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#renderHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#renderHints)
     ///
     /// ``` self: QtC.QStylePainter ```
     ///
@@ -1812,7 +1812,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#testRenderHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#testRenderHint)
     ///
     /// ``` self: QtC.QStylePainter, hint: qpainter_enums.RenderHint ```
     pub fn TestRenderHint(self: ?*anyopaque, hint: i32) bool {
@@ -1821,7 +1821,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#paintEngine)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
@@ -1830,7 +1830,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#beginNativePainting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#beginNativePainting)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn BeginNativePainting(self: ?*anyopaque) void {
@@ -1839,7 +1839,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#endNativePainting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#endNativePainting)
     ///
     /// ``` self: QtC.QStylePainter ```
     pub fn EndNativePainting(self: ?*anyopaque) void {
@@ -1848,7 +1848,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRectF, op: qnamespace_enums.ClipOperation ```
     pub fn SetClipRect22(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
@@ -1857,7 +1857,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, op: qnamespace_enums.ClipOperation ```
     pub fn SetClipRect23(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
@@ -1866,7 +1866,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, op: qnamespace_enums.ClipOperation ```
     pub fn SetClipRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, op: i32) void {
@@ -1875,7 +1875,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRegion, op: qnamespace_enums.ClipOperation ```
     pub fn SetClipRegion2(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
@@ -1884,7 +1884,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipPath)
     ///
     /// ``` self: QtC.QStylePainter, path: QtC.QPainterPath, op: qnamespace_enums.ClipOperation ```
     pub fn SetClipPath2(self: ?*anyopaque, path: ?*anyopaque, op: i32) void {
@@ -1893,7 +1893,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setTransform)
     ///
     /// ``` self: QtC.QStylePainter, transform: QtC.QTransform, combine: bool ```
     pub fn SetTransform2(self: ?*anyopaque, transform: ?*anyopaque, combine: bool) void {
@@ -1902,7 +1902,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setWorldTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWorldTransform)
     ///
     /// ``` self: QtC.QStylePainter, matrix: QtC.QTransform, combine: bool ```
     pub fn SetWorldTransform2(self: ?*anyopaque, matrix: ?*anyopaque, combine: bool) void {
@@ -1911,7 +1911,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPointF, pointCount: i32, fillRule: qnamespace_enums.FillRule ```
     pub fn DrawPolygon32(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i32) void {
@@ -1920,7 +1920,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPoint, pointCount: i32, fillRule: qnamespace_enums.FillRule ```
     pub fn DrawPolygon33(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i32) void {
@@ -1929,7 +1929,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
     pub fn DrawRoundedRect4(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
@@ -1938,7 +1938,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
     pub fn DrawRoundedRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: i32) void {
@@ -1947,7 +1947,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRect, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
     pub fn DrawRoundedRect42(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
@@ -1956,7 +1956,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, pm: QtC.QPixmap, offset: QtC.QPointF ```
     pub fn DrawTiledPixmap32(self: ?*anyopaque, rect: ?*anyopaque, pm: ?*anyopaque, offset: ?*anyopaque) void {
@@ -1965,7 +1965,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: QtC.QPixmap, sx: i32 ```
     pub fn DrawTiledPixmap6(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque, sx: i32) void {
@@ -1974,7 +1974,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: QtC.QPixmap, sx: i32, sy: i32 ```
     pub fn DrawTiledPixmap7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque, sx: i32, sy: i32) void {
@@ -1983,7 +1983,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, param2: QtC.QPixmap, param3: QtC.QPoint ```
     pub fn DrawTiledPixmap33(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque) void {
@@ -1992,7 +1992,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments)
     ///
     /// ``` self: QtC.QStylePainter, fragments: QtC.QPainter__PixmapFragment, fragmentCount: i32, pixmap: QtC.QPixmap, hints: flag of qpainter_enums.PixmapFragmentHint ```
     pub fn DrawPixmapFragments4(self: ?*anyopaque, fragments: ?*anyopaque, fragmentCount: i32, pixmap: ?*anyopaque, hints: i32) void {
@@ -2001,7 +2001,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRectF, image: QtC.QImage, sourceRect: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn DrawImage42(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i32) void {
@@ -2010,7 +2010,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, targetRect: QtC.QRect, image: QtC.QImage, sourceRect: QtC.QRect, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn DrawImage43(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i32) void {
@@ -2019,7 +2019,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPointF, image: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn DrawImage44(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
@@ -2028,7 +2028,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, p: QtC.QPoint, image: QtC.QImage, sr: QtC.QRect, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn DrawImage45(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
@@ -2037,7 +2037,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, image: QtC.QImage, sx: i32 ```
     pub fn DrawImage46(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32) void {
@@ -2046,7 +2046,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, image: QtC.QImage, sx: i32, sy: i32 ```
     pub fn DrawImage52(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32) void {
@@ -2055,7 +2055,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, image: QtC.QImage, sx: i32, sy: i32, sw: i32 ```
     pub fn DrawImage62(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32) void {
@@ -2064,7 +2064,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, image: QtC.QImage, sx: i32, sy: i32, sw: i32, sh: i32 ```
     pub fn DrawImage72(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32) void {
@@ -2073,7 +2073,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, image: QtC.QImage, sx: i32, sy: i32, sw: i32, sh: i32, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn DrawImage82(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32, flags: i32) void {
@@ -2082,7 +2082,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, flags: i32, text: []const u8, br: QtC.QRectF ```
     pub fn DrawText42(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, br: ?*anyopaque) void {
@@ -2095,7 +2095,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, flags: i32, text: []const u8, br: QtC.QRect ```
     pub fn DrawText43(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, br: ?*anyopaque) void {
@@ -2108,7 +2108,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, br: QtC.QRect ```
     pub fn DrawText72(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, br: ?*anyopaque) void {
@@ -2121,7 +2121,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, text: []const u8, o: QtC.QTextOption ```
     pub fn DrawText32(self: ?*anyopaque, r: ?*anyopaque, text: []const u8, o: ?*anyopaque) void {
@@ -2134,7 +2134,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, text: []const u8, o: QtC.QTextOption ```
     pub fn BoundingRect32(self: ?*anyopaque, rect: ?*anyopaque, text: []const u8, o: ?*anyopaque) QtC.QRectF {
@@ -2147,7 +2147,7 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
     ///
     /// ``` self: QtC.QStylePainter, hint: qpainter_enums.RenderHint, on: bool ```
     pub fn SetRenderHint2(self: ?*anyopaque, hint: i32, on: bool) void {
@@ -2156,14 +2156,14 @@ pub const qstylepainter = struct {
 
     /// Inherited from QPainter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
     ///
     /// ``` self: QtC.QStylePainter, hints: flag of qpainter_enums.RenderHint, on: bool ```
     pub fn SetRenderHints2(self: ?*anyopaque, hints: i32, on: bool) void {
         qtc.QPainter_SetRenderHints2(@ptrCast(self), @intCast(hints), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#dtor.QStylePainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#dtor.QStylePainter)
     ///
     /// Delete this object from C++ memory.
     ///

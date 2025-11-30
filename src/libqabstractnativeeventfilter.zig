@@ -10,7 +10,7 @@ pub const qabstractnativeeventfilter = struct {
         return qtc.QAbstractNativeEventFilter_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
     /// ``` self: QtC.QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEventFilter(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
@@ -21,7 +21,7 @@ pub const qabstractnativeeventfilter = struct {
         return qtc.QAbstractNativeEventFilter_NativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -30,7 +30,7 @@ pub const qabstractnativeeventfilter = struct {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
     /// Base class method implementation
     ///
@@ -43,7 +43,7 @@ pub const qabstractnativeeventfilter = struct {
         return qtc.QAbstractNativeEventFilter_QBaseNativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#dtor.QAbstractNativeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#dtor.QAbstractNativeEventFilter)
     ///
     /// Delete this object from C++ memory.
     ///

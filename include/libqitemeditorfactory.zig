@@ -4,14 +4,14 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qitemeditorcreatorbase.html
 pub const qitemeditorcreatorbase = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#createWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#createWidget)
     ///
     /// ``` self: QtC.QItemEditorCreatorBase, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.QItemEditorCreatorBase_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#valuePropertyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#valuePropertyName)
     ///
     /// ``` self: QtC.QItemEditorCreatorBase, allocator: std.mem.Allocator ```
     pub fn ValuePropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -22,14 +22,14 @@ pub const qitemeditorcreatorbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#operator-eq)
     ///
     /// ``` self: QtC.QItemEditorCreatorBase, param1: QtC.QItemEditorCreatorBase ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QItemEditorCreatorBase_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#dtor.QItemEditorCreatorBase)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#dtor.QItemEditorCreatorBase)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -55,14 +55,14 @@ pub const qitemeditorfactory = struct {
         return qtc.QItemEditorFactory_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
     ///
     /// ``` self: QtC.QItemEditorFactory, userType: i32, parent: QtC.QWidget ```
     pub fn CreateEditor(self: ?*anyopaque, userType: i32, parent: ?*anyopaque) QtC.QWidget {
         return qtc.QItemEditorFactory_CreateEditor(@ptrCast(self), @intCast(userType), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -71,7 +71,7 @@ pub const qitemeditorfactory = struct {
         qtc.QItemEditorFactory_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
     ///
     /// Base class method implementation
     ///
@@ -80,7 +80,7 @@ pub const qitemeditorfactory = struct {
         return qtc.QItemEditorFactory_QBaseCreateEditor(@ptrCast(self), @intCast(userType), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
     ///
     /// ``` self: QtC.QItemEditorFactory, userType: i32, allocator: std.mem.Allocator ```
     pub fn ValuePropertyName(self: ?*anyopaque, userType: i32, allocator: std.mem.Allocator) []u8 {
@@ -91,7 +91,7 @@ pub const qitemeditorfactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
     ///
     /// Allows for overriding the related default method
     ///
@@ -100,7 +100,7 @@ pub const qitemeditorfactory = struct {
         qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
     ///
     /// Base class method implementation
     ///
@@ -113,28 +113,28 @@ pub const qitemeditorfactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#registerEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#registerEditor)
     ///
     /// ``` self: QtC.QItemEditorFactory, userType: i32, creator: QtC.QItemEditorCreatorBase ```
     pub fn RegisterEditor(self: ?*anyopaque, userType: i32, creator: ?*anyopaque) void {
         qtc.QItemEditorFactory_RegisterEditor(@ptrCast(self), @intCast(userType), @ptrCast(creator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#defaultFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#defaultFactory)
     ///
     ///
     pub fn DefaultFactory() QtC.QItemEditorFactory {
         return qtc.QItemEditorFactory_DefaultFactory();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#setDefaultFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#setDefaultFactory)
     ///
     /// ``` factory: QtC.QItemEditorFactory ```
     pub fn SetDefaultFactory(factory: ?*anyopaque) void {
         qtc.QItemEditorFactory_SetDefaultFactory(@ptrCast(factory));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#dtor.QItemEditorFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#dtor.QItemEditorFactory)
     ///
     /// Delete this object from C++ memory.
     ///

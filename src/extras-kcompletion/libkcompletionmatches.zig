@@ -18,21 +18,21 @@ pub const kcompletionmatches = struct {
         return qtc.KCompletionMatches_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionmatches.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#operator-eq)
     ///
     /// ``` self: QtC.KCompletionMatches, param1: QtC.KCompletionMatches ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KCompletionMatches_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionmatches.html#removeDuplicates)
+    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#removeDuplicates)
     ///
     /// ``` self: QtC.KCompletionMatches ```
     pub fn RemoveDuplicates(self: ?*anyopaque) void {
         qtc.KCompletionMatches_RemoveDuplicates(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionmatches.html#list)
+    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
     ///
     /// ``` self: QtC.KCompletionMatches, allocator: std.mem.Allocator ```
     pub fn List(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -54,14 +54,14 @@ pub const kcompletionmatches = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionmatches.html#sorting)
+    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#sorting)
     ///
     /// ``` self: QtC.KCompletionMatches ```
     pub fn Sorting(self: ?*anyopaque) bool {
         return qtc.KCompletionMatches_Sorting(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionmatches.html#list)
+    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#list)
     ///
     /// ``` self: QtC.KCompletionMatches, sort: bool, allocator: std.mem.Allocator ```
     pub fn List1(self: ?*anyopaque, sort: bool, allocator: std.mem.Allocator) [][]const u8 {
@@ -83,7 +83,7 @@ pub const kcompletionmatches = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionmatches.html#dtor.KCompletionMatches)
+    /// [Upstream resources](https://api.kde.org/kcompletionmatches.html#dtor.KCompletionMatches)
     ///
     /// Delete this object from C++ memory.
     ///

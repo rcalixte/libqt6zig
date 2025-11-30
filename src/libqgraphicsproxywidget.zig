@@ -29,7 +29,7 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_new3(@ptrCast(parent), @intCast(wFlags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -61,7 +61,7 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -73,35 +73,35 @@ pub const qgraphicsproxywidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setWidget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_SetWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#widget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QGraphicsProxyWidget_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#subWidgetRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#subWidgetRect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, widget: QtC.QWidget ```
     pub fn SubWidgetRect(self: ?*anyopaque, widget: ?*anyopaque) QtC.QRectF {
         return qtc.QGraphicsProxyWidget_SubWidgetRect(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setGeometry)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn SetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_SetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -110,7 +110,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setGeometry)
     ///
     /// Base class method implementation
     ///
@@ -119,14 +119,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseSetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -135,7 +135,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -144,14 +144,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGraphicsProxyWidget_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -160,7 +160,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
     ///
     /// Base class method implementation
     ///
@@ -169,21 +169,21 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#createProxyForChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#createProxyForChildWidget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, child: QtC.QWidget ```
     pub fn CreateProxyForChildWidget(self: ?*anyopaque, child: ?*anyopaque) QtC.QGraphicsProxyWidget {
         return qtc.QGraphicsProxyWidget_CreateProxyForChildWidget(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#itemChange)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant ```
     pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
         return qtc.QGraphicsProxyWidget_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#itemChange)
     ///
     /// Allows for overriding the related default method
     ///
@@ -192,7 +192,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#itemChange)
     ///
     /// Base class method implementation
     ///
@@ -201,14 +201,14 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsProxyWidget_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -217,7 +217,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
     ///
     /// Base class method implementation
     ///
@@ -226,14 +226,14 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QGraphicsProxyWidget_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -242,7 +242,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -251,14 +251,14 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -267,7 +267,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -276,14 +276,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QHideEvent ```
     pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -292,7 +292,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
     ///
     /// Base class method implementation
     ///
@@ -301,14 +301,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -317,7 +317,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -326,14 +326,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneDragDropEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -342,7 +342,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -351,14 +351,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneDragDropEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -367,7 +367,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -376,14 +376,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneDragDropEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -392,7 +392,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -401,14 +401,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneDragDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -417,7 +417,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -426,14 +426,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneHoverEvent ```
     pub fn HoverEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_HoverEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -442,7 +442,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -451,14 +451,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseHoverEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneHoverEvent ```
     pub fn HoverLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_HoverLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -467,7 +467,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -476,14 +476,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseHoverLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneHoverEvent ```
     pub fn HoverMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_HoverMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -492,7 +492,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -501,14 +501,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseHoverMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QEvent ```
     pub fn GrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_GrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -517,7 +517,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnGrabMouseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
     ///
     /// Base class method implementation
     ///
@@ -526,14 +526,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseGrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QEvent ```
     pub fn UngrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_UngrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -542,7 +542,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnUngrabMouseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
     ///
     /// Base class method implementation
     ///
@@ -551,14 +551,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseUngrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -567,7 +567,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -576,14 +576,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -592,7 +592,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -601,14 +601,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -617,7 +617,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -626,14 +626,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -642,7 +642,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
     ///
@@ -651,14 +651,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -667,7 +667,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -676,14 +676,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -692,7 +692,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -701,14 +701,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QKeyEvent ```
     pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -717,7 +717,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -726,14 +726,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -742,7 +742,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -751,14 +751,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -767,7 +767,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -776,14 +776,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, next: bool ```
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
         return qtc.QGraphicsProxyWidget_FocusNextPrevChild(@ptrCast(self), next);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
     ///
     /// Allows for overriding the related default method
     ///
@@ -792,7 +792,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
     ///
     /// Base class method implementation
     ///
@@ -801,14 +801,14 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, query: qnamespace_enums.InputMethodQuery ```
     pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
         return qtc.QGraphicsProxyWidget_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
     ///
     /// Allows for overriding the related default method
     ///
@@ -817,7 +817,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
     ///
     /// Base class method implementation
     ///
@@ -826,14 +826,14 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QInputMethodEvent ```
     pub fn InputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_InputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -842,7 +842,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
     ///
     /// Base class method implementation
     ///
@@ -851,14 +851,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
     pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsProxyWidget_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -867,7 +867,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -876,14 +876,14 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, event: QtC.QGraphicsSceneResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -892,7 +892,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -901,14 +901,14 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, param1: QtC.QWidget ```
     pub fn NewProxyWidget(self: ?*anyopaque, param1: ?*anyopaque) QtC.QGraphicsProxyWidget {
         return qtc.QGraphicsProxyWidget_NewProxyWidget(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -917,7 +917,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnNewProxyWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
     ///
     /// Base class method implementation
     ///
@@ -926,7 +926,7 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_QBaseNewProxyWidget(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -939,7 +939,7 @@ pub const qgraphicsproxywidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -954,7 +954,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layout)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Layout(self: ?*anyopaque) QtC.QGraphicsLayout {
@@ -963,7 +963,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayout)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, layout: QtC.QGraphicsLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -972,7 +972,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#adjustSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -981,7 +981,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -992,7 +992,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -1001,7 +1001,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -1010,7 +1010,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#style)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -1019,7 +1019,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setStyle)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -1028,7 +1028,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#font)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -1037,7 +1037,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setFont)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -1046,7 +1046,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#palette)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -1055,7 +1055,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setPalette)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -1064,7 +1064,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -1073,7 +1073,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -1082,7 +1082,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, size: QtC.QSizeF ```
     pub fn Resize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -1091,7 +1091,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, w: f64, h: f64 ```
     pub fn Resize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -1100,7 +1100,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#size)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Size(self: ?*anyopaque) QtC.QSizeF {
@@ -1109,7 +1109,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64 ```
     pub fn SetGeometry2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
@@ -1118,7 +1118,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#rect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Rect(self: ?*anyopaque) QtC.QRectF {
@@ -1127,7 +1127,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, left: f64, top: f64, right: f64, bottom: f64 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
@@ -1136,7 +1136,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, margins: QtC.QMarginsF ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: QtC.QMarginsF) void {
@@ -1145,7 +1145,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, left: f64, top: f64, right: f64, bottom: f64 ```
     pub fn SetWindowFrameMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
@@ -1154,7 +1154,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, margins: QtC.QMarginsF ```
     pub fn SetWindowFrameMargins2(self: ?*anyopaque, margins: QtC.QMarginsF) void {
@@ -1163,7 +1163,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getWindowFrameMargins)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
     pub fn GetWindowFrameMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
@@ -1172,7 +1172,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetWindowFrameMargins)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn UnsetWindowFrameMargins(self: ?*anyopaque) void {
@@ -1181,7 +1181,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameGeometry)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn WindowFrameGeometry(self: ?*anyopaque) QtC.QRectF {
@@ -1190,7 +1190,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameRect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn WindowFrameRect(self: ?*anyopaque) QtC.QRectF {
@@ -1199,7 +1199,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFlags)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -1210,7 +1210,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowType)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -1221,7 +1221,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, wFlags: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, wFlags: i64) void {
@@ -1230,7 +1230,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -1239,7 +1239,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, title: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, title: []const u8) void {
@@ -1252,7 +1252,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowTitle)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1265,7 +1265,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -1276,7 +1276,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -1285,7 +1285,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setTabOrder)
     ///
     /// ``` first: QtC.QGraphicsWidget, second: QtC.QGraphicsWidget ```
     pub fn SetTabOrder(first: ?*anyopaque, second: ?*anyopaque) void {
@@ -1294,7 +1294,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusWidget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -1303,7 +1303,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, sequence: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, sequence: ?*anyopaque) i32 {
@@ -1312,7 +1312,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -1321,7 +1321,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -1330,7 +1330,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -1339,7 +1339,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#addAction)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -1348,7 +1348,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#addActions)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -1361,7 +1361,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#insertActions)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -1374,7 +1374,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#insertAction)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -1383,7 +1383,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#removeAction)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -1392,7 +1392,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#actions)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -1406,7 +1406,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, attribute: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, attribute: i32) void {
@@ -1415,7 +1415,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#testAttribute)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, attribute: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, attribute: i32) bool {
@@ -1424,7 +1424,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn GeometryChanged(self: ?*anyopaque) void {
@@ -1433,7 +1433,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1442,7 +1442,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -1451,7 +1451,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1460,7 +1460,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#close)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -1469,7 +1469,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, sequence: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, sequence: ?*anyopaque, context: i32) i32 {
@@ -1478,7 +1478,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, id: i32, enabled: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enabled: bool) void {
@@ -1487,7 +1487,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, id: i32, enabled: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enabled: bool) void {
@@ -1496,7 +1496,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, attribute: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, attribute: i32, on: bool) void {
@@ -1505,7 +1505,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1514,7 +1514,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#ungrabGesture)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1523,7 +1523,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ParentChanged(self: ?*anyopaque) void {
@@ -1532,7 +1532,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1541,7 +1541,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn OpacityChanged(self: ?*anyopaque) void {
@@ -1550,7 +1550,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1559,7 +1559,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -1568,7 +1568,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1577,7 +1577,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn EnabledChanged(self: ?*anyopaque) void {
@@ -1586,7 +1586,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1595,7 +1595,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn XChanged(self: ?*anyopaque) void {
@@ -1604,7 +1604,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1613,7 +1613,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn YChanged(self: ?*anyopaque) void {
@@ -1622,7 +1622,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1631,7 +1631,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ZChanged(self: ?*anyopaque) void {
@@ -1640,7 +1640,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1649,7 +1649,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn RotationChanged(self: ?*anyopaque) void {
@@ -1658,7 +1658,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1667,7 +1667,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ScaleChanged(self: ?*anyopaque) void {
@@ -1676,7 +1676,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1685,7 +1685,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ChildrenChanged(self: ?*anyopaque) void {
@@ -1694,7 +1694,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1703,7 +1703,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn WidthChanged(self: ?*anyopaque) void {
@@ -1712,7 +1712,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1721,7 +1721,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn HeightChanged(self: ?*anyopaque) void {
@@ -1730,7 +1730,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1739,7 +1739,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -1748,7 +1748,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1761,7 +1761,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1774,7 +1774,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1783,7 +1783,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1792,7 +1792,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1801,7 +1801,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1810,7 +1810,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1819,7 +1819,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1828,7 +1828,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1837,7 +1837,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1846,7 +1846,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1855,7 +1855,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1864,7 +1864,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1878,7 +1878,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1887,7 +1887,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1896,7 +1896,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1905,7 +1905,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1914,7 +1914,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1925,7 +1925,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1934,7 +1934,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1943,7 +1943,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1952,7 +1952,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1961,7 +1961,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1971,7 +1971,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1981,7 +1981,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2005,7 +2005,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2014,7 +2014,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2023,7 +2023,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2032,7 +2032,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2041,7 +2041,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2050,7 +2050,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2060,7 +2060,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2069,7 +2069,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2078,7 +2078,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2087,7 +2087,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2096,7 +2096,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2107,7 +2107,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2116,7 +2116,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, callback: *const fn (self: QtC.QGraphicsProxyWidget, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2125,7 +2125,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Scene(self: ?*anyopaque) QtC.QGraphicsScene {
@@ -2134,7 +2134,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ParentItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2143,7 +2143,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn TopLevelItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2152,7 +2152,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentObject)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ParentObject(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -2161,7 +2161,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentWidget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -2170,7 +2170,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelWidget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -2179,7 +2179,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#window)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Window(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -2188,7 +2188,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#panel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#panel)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Panel(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2197,7 +2197,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setParentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setParentItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, parent: QtC.QGraphicsItem ```
     pub fn SetParentItem(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2206,7 +2206,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#childItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#childItems)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn ChildItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -2220,7 +2220,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsWidget(self: ?*anyopaque) bool {
@@ -2229,7 +2229,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2238,7 +2238,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsPanel(self: ?*anyopaque) bool {
@@ -2247,7 +2247,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ToGraphicsObject(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -2256,7 +2256,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ToGraphicsObject2(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -2265,7 +2265,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#group)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#group)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Group(self: ?*anyopaque) QtC.QGraphicsItemGroup {
@@ -2274,7 +2274,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setGroup)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, group: QtC.QGraphicsItemGroup ```
     pub fn SetGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -2283,7 +2283,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#flags)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -2294,7 +2294,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, flag: qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
@@ -2303,7 +2303,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
@@ -2312,7 +2312,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -2323,7 +2323,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, mode: qgraphicsitem_enums.CacheMode ```
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
@@ -2332,7 +2332,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -2343,7 +2343,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, panelModality: qgraphicsitem_enums.PanelModality ```
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
@@ -2352,7 +2352,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsBlockedByModalPanel(self: ?*anyopaque) bool {
@@ -2361,7 +2361,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toolTip)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2374,7 +2374,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setToolTip)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -2387,7 +2387,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#cursor)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2396,7 +2396,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCursor)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2405,7 +2405,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn HasCursor(self: ?*anyopaque) bool {
@@ -2414,7 +2414,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2423,7 +2423,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -2432,7 +2432,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisibleTo)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, parent: QtC.QGraphicsItem ```
     pub fn IsVisibleTo(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -2441,7 +2441,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -2450,7 +2450,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hide)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -2459,7 +2459,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#show)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Show(self: ?*anyopaque) void {
@@ -2468,7 +2468,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2477,7 +2477,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setEnabled)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2486,7 +2486,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsSelected(self: ?*anyopaque) bool {
@@ -2495,7 +2495,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setSelected)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, selected: bool ```
     pub fn SetSelected(self: ?*anyopaque, selected: bool) void {
@@ -2504,7 +2504,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -2513,7 +2513,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -2522,7 +2522,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opacity)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Opacity(self: ?*anyopaque) f64 {
@@ -2531,7 +2531,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn EffectiveOpacity(self: ?*anyopaque) f64 {
@@ -2540,7 +2540,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
@@ -2549,7 +2549,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -2558,7 +2558,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -2567,7 +2567,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -2578,7 +2578,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
@@ -2587,7 +2587,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn AcceptHoverEvents(self: ?*anyopaque) bool {
@@ -2596,7 +2596,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptHoverEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptHoverEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, enabled: bool ```
     pub fn SetAcceptHoverEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2605,7 +2605,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn AcceptTouchEvents(self: ?*anyopaque) bool {
@@ -2614,7 +2614,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptTouchEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptTouchEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, enabled: bool ```
     pub fn SetAcceptTouchEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2623,7 +2623,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn FiltersChildEvents(self: ?*anyopaque) bool {
@@ -2632,7 +2632,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFiltersChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFiltersChildEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, enabled: bool ```
     pub fn SetFiltersChildEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2641,7 +2641,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn HandlesChildEvents(self: ?*anyopaque) bool {
@@ -2650,7 +2650,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setHandlesChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setHandlesChildEvents)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, enabled: bool ```
     pub fn SetHandlesChildEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2659,7 +2659,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isActive)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsActive(self: ?*anyopaque) bool {
@@ -2668,7 +2668,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setActive)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, active: bool ```
     pub fn SetActive(self: ?*anyopaque, active: bool) void {
@@ -2677,7 +2677,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2686,7 +2686,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -2695,7 +2695,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -2704,7 +2704,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusProxy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2713,7 +2713,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocusProxy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem ```
     pub fn SetFocusProxy(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -2722,7 +2722,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn FocusItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2731,7 +2731,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusScopeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusScopeItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn FocusScopeItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2740,7 +2740,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2749,7 +2749,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn UngrabMouse(self: ?*anyopaque) void {
@@ -2758,7 +2758,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2767,7 +2767,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn UngrabKeyboard(self: ?*anyopaque) void {
@@ -2776,7 +2776,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#pos)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
@@ -2785,7 +2785,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#x)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn X(self: ?*anyopaque) f64 {
@@ -2794,7 +2794,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setX)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64 ```
     pub fn SetX(self: ?*anyopaque, x: f64) void {
@@ -2803,7 +2803,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#y)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Y(self: ?*anyopaque) f64 {
@@ -2812,7 +2812,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setY)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, y: f64 ```
     pub fn SetY(self: ?*anyopaque, y: f64) void {
@@ -2821,7 +2821,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
@@ -2830,7 +2830,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -2839,7 +2839,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64 ```
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
@@ -2848,7 +2848,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, dx: f64, dy: f64 ```
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
@@ -2857,7 +2857,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn EnsureVisible(self: ?*anyopaque) void {
@@ -2866,7 +2866,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64 ```
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
@@ -2875,7 +2875,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Transform(self: ?*anyopaque) QtC.QTransform {
@@ -2884,7 +2884,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneTransform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn SceneTransform(self: ?*anyopaque) QtC.QTransform {
@@ -2893,7 +2893,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#deviceTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#deviceTransform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, viewportTransform: QtC.QTransform ```
     pub fn DeviceTransform(self: ?*anyopaque, viewportTransform: ?*anyopaque) QtC.QTransform {
@@ -2902,7 +2902,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, other: QtC.QGraphicsItem ```
     pub fn ItemTransform(self: ?*anyopaque, other: ?*anyopaque) QtC.QTransform {
@@ -2911,7 +2911,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, matrix: QtC.QTransform ```
     pub fn SetTransform(self: ?*anyopaque, matrix: ?*anyopaque) void {
@@ -2920,7 +2920,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ResetTransform(self: ?*anyopaque) void {
@@ -2929,7 +2929,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setRotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setRotation)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, angle: f64 ```
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
@@ -2938,7 +2938,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#rotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#rotation)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Rotation(self: ?*anyopaque) f64 {
@@ -2947,7 +2947,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setScale)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, scale: f64 ```
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
@@ -2956,7 +2956,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scale)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Scale(self: ?*anyopaque) f64 {
@@ -2965,7 +2965,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transformations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transformations)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn Transformations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsTransform {
@@ -2979,7 +2979,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformations)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, transformations: []QtC.QGraphicsTransform ```
     pub fn SetTransformations(self: ?*anyopaque, transformations: []?*anyopaque) void {
@@ -2992,7 +2992,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transformOriginPoint)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn TransformOriginPoint(self: ?*anyopaque) QtC.QPointF {
@@ -3001,7 +3001,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, origin: QtC.QPointF ```
     pub fn SetTransformOriginPoint(self: ?*anyopaque, origin: ?*anyopaque) void {
@@ -3010,7 +3010,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, ax: f64, ay: f64 ```
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
@@ -3019,7 +3019,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#zValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#zValue)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ZValue(self: ?*anyopaque) f64 {
@@ -3028,7 +3028,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, z: f64 ```
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
@@ -3037,7 +3037,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, sibling: QtC.QGraphicsItem ```
     pub fn StackBefore(self: ?*anyopaque, sibling: ?*anyopaque) void {
@@ -3046,7 +3046,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#childrenBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#childrenBoundingRect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ChildrenBoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -3055,7 +3055,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneBoundingRect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn SceneBoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -3064,7 +3064,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsClipped(self: ?*anyopaque) bool {
@@ -3073,7 +3073,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#clipPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#clipPath)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ClipPath(self: ?*anyopaque) QtC.QPainterPath {
@@ -3082,7 +3082,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, allocator: std.mem.Allocator ```
     pub fn CollidingItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -3096,7 +3096,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsObscured(self: ?*anyopaque) bool {
@@ -3105,7 +3105,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64 ```
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
@@ -3114,7 +3114,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegion)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, itemToDeviceTransform: QtC.QTransform ```
     pub fn BoundingRegion(self: ?*anyopaque, itemToDeviceTransform: ?*anyopaque) QtC.QRegion {
@@ -3123,7 +3123,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn BoundingRegionGranularity(self: ?*anyopaque) f64 {
@@ -3132,7 +3132,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setBoundingRegionGranularity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setBoundingRegionGranularity)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, granularity: f64 ```
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
@@ -3141,7 +3141,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Update(self: ?*anyopaque) void {
@@ -3150,7 +3150,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, width: f64, height: f64 ```
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
@@ -3159,7 +3159,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, dx: f64, dy: f64 ```
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
@@ -3168,7 +3168,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, point: QtC.QPointF ```
     pub fn MapToItem(self: ?*anyopaque, item: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3177,7 +3177,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, point: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3186,7 +3186,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, point: QtC.QPointF ```
     pub fn MapToScene(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3195,7 +3195,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, rect: QtC.QRectF ```
     pub fn MapRectToItem(self: ?*anyopaque, item: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3204,7 +3204,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn MapRectToParent(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3213,7 +3213,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn MapRectToScene(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3222,7 +3222,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, path: QtC.QPainterPath ```
     pub fn MapToItem4(self: ?*anyopaque, item: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3231,7 +3231,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, path: QtC.QPainterPath ```
     pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3240,7 +3240,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, path: QtC.QPainterPath ```
     pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3249,7 +3249,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, point: QtC.QPointF ```
     pub fn MapFromItem(self: ?*anyopaque, item: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3258,7 +3258,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, point: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3267,7 +3267,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, point: QtC.QPointF ```
     pub fn MapFromScene(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3276,7 +3276,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, rect: QtC.QRectF ```
     pub fn MapRectFromItem(self: ?*anyopaque, item: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3285,7 +3285,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn MapRectFromParent(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3294,7 +3294,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn MapRectFromScene(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3303,7 +3303,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, path: QtC.QPainterPath ```
     pub fn MapFromItem4(self: ?*anyopaque, item: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3312,7 +3312,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, path: QtC.QPainterPath ```
     pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3321,7 +3321,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, path: QtC.QPainterPath ```
     pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3330,7 +3330,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, x: f64, y: f64 ```
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3339,7 +3339,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64 ```
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3348,7 +3348,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64 ```
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3357,7 +3357,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3366,7 +3366,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3375,7 +3375,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3384,7 +3384,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, x: f64, y: f64 ```
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3393,7 +3393,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64 ```
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3402,7 +3402,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64 ```
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3411,7 +3411,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, item: QtC.QGraphicsItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3420,7 +3420,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3429,7 +3429,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3438,7 +3438,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, child: QtC.QGraphicsItem ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -3447,7 +3447,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#commonAncestorItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#commonAncestorItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, other: QtC.QGraphicsItem ```
     pub fn CommonAncestorItem(self: ?*anyopaque, other: ?*anyopaque) QtC.QGraphicsItem {
@@ -3456,7 +3456,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsUnderMouse(self: ?*anyopaque) bool {
@@ -3465,7 +3465,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#data)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, key: i32 ```
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
@@ -3474,7 +3474,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setData)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, key: i32, value: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
@@ -3483,7 +3483,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     ///
@@ -3494,7 +3494,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3503,7 +3503,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#installSceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#installSceneEventFilter)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, filterItem: QtC.QGraphicsItem ```
     pub fn InstallSceneEventFilter(self: ?*anyopaque, filterItem: ?*anyopaque) void {
@@ -3512,7 +3512,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeSceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeSceneEventFilter)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, filterItem: QtC.QGraphicsItem ```
     pub fn RemoveSceneEventFilter(self: ?*anyopaque, filterItem: ?*anyopaque) void {
@@ -3521,7 +3521,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, flag: qgraphicsitem_enums.GraphicsItemFlag, enabled: bool ```
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
@@ -3530,7 +3530,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, mode: qgraphicsitem_enums.CacheMode, cacheSize: QtC.QSize ```
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
@@ -3539,7 +3539,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, focusReason: qnamespace_enums.FocusReason ```
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
@@ -3548,7 +3548,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn EnsureVisible1(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -3557,7 +3557,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF, xmargin: i32 ```
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
@@ -3566,7 +3566,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF, xmargin: i32, ymargin: i32 ```
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
@@ -3575,7 +3575,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64, xmargin: i32 ```
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
@@ -3584,7 +3584,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32 ```
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
@@ -3593,7 +3593,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, other: QtC.QGraphicsItem, ok: *bool ```
     pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
@@ -3602,7 +3602,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, matrix: QtC.QTransform, combine: bool ```
     pub fn SetTransform2(self: ?*anyopaque, matrix: ?*anyopaque, combine: bool) void {
@@ -3611,7 +3611,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -3625,7 +3625,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn IsObscured1(self: ?*anyopaque, rect: ?*anyopaque) bool {
@@ -3634,7 +3634,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, rect: QtC.QRectF ```
     pub fn Update1(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -3643,7 +3643,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, dx: f64, dy: f64, rect: QtC.QRectF ```
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
@@ -3652,7 +3652,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, policy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, policy: ?*anyopaque) void {
@@ -3661,7 +3661,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
@@ -3670,7 +3670,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizePolicy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -3679,7 +3679,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, size: QtC.QSizeF ```
     pub fn SetMinimumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -3688,7 +3688,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, w: f64, h: f64 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -3697,7 +3697,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSizeF {
@@ -3706,7 +3706,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, width: f64 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
@@ -3715,7 +3715,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn MinimumWidth(self: ?*anyopaque) f64 {
@@ -3724,7 +3724,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, height: f64 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
@@ -3733,7 +3733,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn MinimumHeight(self: ?*anyopaque) f64 {
@@ -3742,7 +3742,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, size: QtC.QSizeF ```
     pub fn SetPreferredSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -3751,7 +3751,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, w: f64, h: f64 ```
     pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -3760,7 +3760,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn PreferredSize(self: ?*anyopaque) QtC.QSizeF {
@@ -3769,7 +3769,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredWidth)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, width: f64 ```
     pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
@@ -3778,7 +3778,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn PreferredWidth(self: ?*anyopaque) f64 {
@@ -3787,7 +3787,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredHeight)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, height: f64 ```
     pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
@@ -3796,7 +3796,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn PreferredHeight(self: ?*anyopaque) f64 {
@@ -3805,7 +3805,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, size: QtC.QSizeF ```
     pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -3814,7 +3814,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, w: f64, h: f64 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -3823,7 +3823,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumSize)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSizeF {
@@ -3832,7 +3832,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, width: f64 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
@@ -3841,7 +3841,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn MaximumWidth(self: ?*anyopaque) f64 {
@@ -3850,7 +3850,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, height: f64 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
@@ -3859,7 +3859,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn MaximumHeight(self: ?*anyopaque) f64 {
@@ -3868,7 +3868,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#geometry)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRectF {
@@ -3877,7 +3877,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRectF {
@@ -3886,7 +3886,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, which: qnamespace_enums.SizeHint ```
     pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
@@ -3895,7 +3895,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#parentLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#parentLayoutItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn ParentLayoutItem(self: ?*anyopaque) QtC.QGraphicsLayoutItem {
@@ -3904,7 +3904,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setParentLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setParentLayoutItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, parent: QtC.QGraphicsLayoutItem ```
     pub fn SetParentLayoutItem(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3913,7 +3913,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isLayout)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn IsLayout(self: ?*anyopaque) bool {
@@ -3922,7 +3922,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#graphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#graphicsItem)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn GraphicsItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -3931,7 +3931,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#ownedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#ownedByLayout)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget ```
     pub fn OwnedByLayout(self: ?*anyopaque) bool {
@@ -3940,7 +3940,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy, controlType: qsizepolicy_enums.ControlType ```
     pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
@@ -3949,7 +3949,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsProxyWidget, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
     pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
@@ -3958,7 +3958,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3969,7 +3969,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3980,7 +3980,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3991,7 +3991,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4002,7 +4002,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4013,7 +4013,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4024,7 +4024,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4035,7 +4035,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4046,7 +4046,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4057,7 +4057,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4068,7 +4068,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4079,7 +4079,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4090,7 +4090,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4101,7 +4101,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4112,7 +4112,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4123,7 +4123,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4134,7 +4134,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4145,7 +4145,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4156,7 +4156,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4171,7 +4171,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4186,7 +4186,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4197,7 +4197,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4208,7 +4208,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4219,7 +4219,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4230,7 +4230,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4241,7 +4241,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4252,7 +4252,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4263,7 +4263,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4276,7 +4276,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4289,7 +4289,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4300,7 +4300,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4311,7 +4311,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4322,7 +4322,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4333,7 +4333,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4344,7 +4344,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4355,7 +4355,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4366,7 +4366,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4377,7 +4377,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4388,7 +4388,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4399,7 +4399,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4410,7 +4410,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4421,7 +4421,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4432,7 +4432,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4443,7 +4443,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4454,7 +4454,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4465,7 +4465,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4476,7 +4476,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4487,7 +4487,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4498,7 +4498,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4509,7 +4509,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4520,7 +4520,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4531,7 +4531,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4542,7 +4542,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4553,7 +4553,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4564,7 +4564,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4575,7 +4575,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4586,7 +4586,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4597,7 +4597,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4608,7 +4608,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4619,7 +4619,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4630,7 +4630,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4641,7 +4641,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4652,7 +4652,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4663,7 +4663,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4674,7 +4674,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4685,7 +4685,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4696,7 +4696,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4707,7 +4707,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4718,7 +4718,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4729,7 +4729,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4740,7 +4740,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4751,7 +4751,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4762,7 +4762,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4773,7 +4773,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4784,7 +4784,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4795,7 +4795,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4806,7 +4806,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4817,7 +4817,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4828,7 +4828,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4839,7 +4839,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4850,7 +4850,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4861,7 +4861,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4872,7 +4872,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4883,7 +4883,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4894,7 +4894,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4905,7 +4905,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4916,7 +4916,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4927,7 +4927,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4938,7 +4938,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4949,7 +4949,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4960,7 +4960,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4971,7 +4971,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4982,7 +4982,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4993,7 +4993,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5004,7 +5004,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5015,7 +5015,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5026,7 +5026,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5037,7 +5037,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5048,7 +5048,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5059,7 +5059,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5070,7 +5070,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5081,7 +5081,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5092,7 +5092,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5103,7 +5103,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5114,7 +5114,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5125,7 +5125,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5137,7 +5137,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5149,7 +5149,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5160,7 +5160,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5171,7 +5171,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5182,7 +5182,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5193,7 +5193,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5204,7 +5204,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5215,7 +5215,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5226,7 +5226,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5237,7 +5237,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5248,7 +5248,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5259,7 +5259,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5270,7 +5270,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5281,7 +5281,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5292,7 +5292,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5303,7 +5303,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5314,7 +5314,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5325,7 +5325,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5336,7 +5336,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5347,7 +5347,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5358,7 +5358,7 @@ pub const qgraphicsproxywidget = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -5367,7 +5367,7 @@ pub const qgraphicsproxywidget = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dtor.QGraphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dtor.QGraphicsProxyWidget)
     ///
     /// Delete this object from C++ memory.
     ///

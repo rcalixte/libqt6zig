@@ -137,7 +137,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_new9(title_str, text_str, @intCast(icon), @intCast(button0), @intCast(button1), @intCast(button2), @ptrCast(parent), @intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -169,7 +169,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -181,14 +181,14 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton, role: qmessagebox_enums.ButtonRole ```
     pub fn AddButton(self: ?*anyopaque, button: ?*anyopaque, role: i32) void {
         qtc.QMessageBox_AddButton(@ptrCast(self), @ptrCast(button), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
     ///
     /// ``` self: QtC.QMessageBox, text: []const u8, role: qmessagebox_enums.ButtonRole ```
     pub fn AddButton2(self: ?*anyopaque, text: []const u8, role: i32) QtC.QPushButton {
@@ -199,21 +199,21 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_AddButton2(@ptrCast(self), text_str, @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
     ///
     /// ``` self: QtC.QMessageBox, button: qmessagebox_enums.StandardButton ```
     pub fn AddButton3(self: ?*anyopaque, button: i32) QtC.QPushButton {
         return qtc.QMessageBox_AddButton3(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#removeButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#removeButton)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton ```
     pub fn RemoveButton(self: ?*anyopaque, button: ?*anyopaque) void {
         qtc.QMessageBox_RemoveButton(@ptrCast(self), @ptrCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#buttons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#buttons)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn Buttons(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractButton {
@@ -225,7 +225,7 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#buttonRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#buttonRole)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton ```
     ///
@@ -234,14 +234,14 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_ButtonRole(@ptrCast(self), @ptrCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setStandardButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setStandardButtons)
     ///
     /// ``` self: QtC.QMessageBox, buttons: flag of qmessagebox_enums.StandardButton ```
     pub fn SetStandardButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QMessageBox_SetStandardButtons(@ptrCast(self), @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#standardButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#standardButtons)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -250,7 +250,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_StandardButtons(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#standardButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#standardButton)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton ```
     ///
@@ -259,63 +259,63 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_StandardButton(@ptrCast(self), @ptrCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#button)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#button)
     ///
     /// ``` self: QtC.QMessageBox, which: qmessagebox_enums.StandardButton ```
     pub fn Button(self: ?*anyopaque, which: i32) QtC.QAbstractButton {
         return qtc.QMessageBox_Button(@ptrCast(self), @intCast(which));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#defaultButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#defaultButton)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn DefaultButton(self: ?*anyopaque) QtC.QPushButton {
         return qtc.QMessageBox_DefaultButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setDefaultButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setDefaultButton)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QPushButton ```
     pub fn SetDefaultButton(self: ?*anyopaque, button: ?*anyopaque) void {
         qtc.QMessageBox_SetDefaultButton(@ptrCast(self), @ptrCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setDefaultButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setDefaultButton)
     ///
     /// ``` self: QtC.QMessageBox, button: qmessagebox_enums.StandardButton ```
     pub fn SetDefaultButton2(self: ?*anyopaque, button: i32) void {
         qtc.QMessageBox_SetDefaultButton2(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#escapeButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#escapeButton)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn EscapeButton(self: ?*anyopaque) QtC.QAbstractButton {
         return qtc.QMessageBox_EscapeButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setEscapeButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setEscapeButton)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton ```
     pub fn SetEscapeButton(self: ?*anyopaque, button: ?*anyopaque) void {
         qtc.QMessageBox_SetEscapeButton(@ptrCast(self), @ptrCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setEscapeButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setEscapeButton)
     ///
     /// ``` self: QtC.QMessageBox, button: qmessagebox_enums.StandardButton ```
     pub fn SetEscapeButton2(self: ?*anyopaque, button: i32) void {
         qtc.QMessageBox_SetEscapeButton2(@ptrCast(self), @intCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#clickedButton)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#clickedButton)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ClickedButton(self: ?*anyopaque) QtC.QAbstractButton {
         return qtc.QMessageBox_ClickedButton(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#text)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -326,7 +326,7 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setText)
     ///
     /// ``` self: QtC.QMessageBox, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -337,7 +337,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#icon)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -346,28 +346,28 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setIcon)
     ///
     /// ``` self: QtC.QMessageBox, icon: qmessagebox_enums.Icon ```
     pub fn SetIcon(self: ?*anyopaque, icon: i32) void {
         qtc.QMessageBox_SetIcon(@ptrCast(self), @intCast(icon));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#iconPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#iconPixmap)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IconPixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QMessageBox_IconPixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setIconPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setIconPixmap)
     ///
     /// ``` self: QtC.QMessageBox, pixmap: QtC.QPixmap ```
     pub fn SetIconPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
         qtc.QMessageBox_SetIconPixmap(@ptrCast(self), @ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#textFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#textFormat)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -376,21 +376,21 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_TextFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setTextFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setTextFormat)
     ///
     /// ``` self: QtC.QMessageBox, format: qnamespace_enums.TextFormat ```
     pub fn SetTextFormat(self: ?*anyopaque, format: i32) void {
         qtc.QMessageBox_SetTextFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setTextInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.QMessageBox, flags: flag of qnamespace_enums.TextInteractionFlag ```
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QMessageBox_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#textInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#textInteractionFlags)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -399,42 +399,42 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_TextInteractionFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setCheckBox)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setCheckBox)
     ///
     /// ``` self: QtC.QMessageBox, cb: QtC.QCheckBox ```
     pub fn SetCheckBox(self: ?*anyopaque, cb: ?*anyopaque) void {
         qtc.QMessageBox_SetCheckBox(@ptrCast(self), @ptrCast(cb));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#checkBox)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#checkBox)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn CheckBox(self: ?*anyopaque) QtC.QCheckBox {
         return qtc.QMessageBox_CheckBox(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
     ///
     /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option ```
     pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QMessageBox_SetOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#testOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#testOption)
     ///
     /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option ```
     pub fn TestOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QMessageBox_TestOption(@ptrCast(self), @intCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setOptions)
     ///
     /// ``` self: QtC.QMessageBox, options: flag of qmessagebox_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i32) void {
         qtc.QMessageBox_SetOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#options)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#options)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -443,7 +443,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Options(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
@@ -460,7 +460,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information(@ptrCast(parent), title_str, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton ```
     ///
@@ -477,7 +477,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information2(@ptrCast(parent), title_str, text_str, @intCast(button0));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
@@ -494,7 +494,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question(@ptrCast(parent), title_str, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
     pub fn Question2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
@@ -509,7 +509,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question2(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
@@ -526,7 +526,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning(@ptrCast(parent), title_str, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
     pub fn Warning2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
@@ -541,7 +541,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning2(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
@@ -558,7 +558,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical(@ptrCast(parent), title_str, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
     pub fn Critical2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
@@ -573,7 +573,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical2(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#about)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#about)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     pub fn About(parent: ?*anyopaque, title: []const u8, text: []const u8) void {
@@ -588,14 +588,14 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_About(@ptrCast(parent), title_str, text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#aboutQt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#aboutQt)
     ///
     /// ``` parent: QtC.QWidget ```
     pub fn AboutQt(parent: ?*anyopaque) void {
         qtc.QMessageBox_AboutQt(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32 ```
     pub fn Information3(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32) i32 {
@@ -610,7 +610,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information3(@ptrCast(parent), title_str, text_str, @intCast(button0));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8 ```
     pub fn Information4(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8) i32 {
@@ -629,7 +629,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information4(@ptrCast(parent), title_str, text_str, button0Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32 ```
     pub fn Question3(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32) i32 {
@@ -644,7 +644,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question3(@ptrCast(parent), title_str, text_str, @intCast(button0));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8 ```
     pub fn Question4(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8) i32 {
@@ -663,7 +663,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question4(@ptrCast(parent), title_str, text_str, button0Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32 ```
     pub fn Warning3(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
@@ -678,7 +678,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning3(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8 ```
     pub fn Warning4(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8) i32 {
@@ -697,7 +697,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning4(@ptrCast(parent), title_str, text_str, button0Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32 ```
     pub fn Critical3(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
@@ -712,7 +712,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical3(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8 ```
     pub fn Critical4(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8) i32 {
@@ -731,7 +731,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical4(@ptrCast(parent), title_str, text_str, button0Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#buttonText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#buttonText)
     ///
     /// ``` self: QtC.QMessageBox, button: i32, allocator: std.mem.Allocator ```
     pub fn ButtonText(self: ?*anyopaque, button: i32, allocator: std.mem.Allocator) []const u8 {
@@ -742,7 +742,7 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setButtonText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setButtonText)
     ///
     /// ``` self: QtC.QMessageBox, button: i32, text: []const u8 ```
     pub fn SetButtonText(self: ?*anyopaque, button: i32, text: []const u8) void {
@@ -753,7 +753,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_SetButtonText(@ptrCast(self), @intCast(button), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#informativeText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#informativeText)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn InformativeText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -764,7 +764,7 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setInformativeText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setInformativeText)
     ///
     /// ``` self: QtC.QMessageBox, text: []const u8 ```
     pub fn SetInformativeText(self: ?*anyopaque, text: []const u8) void {
@@ -775,7 +775,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_SetInformativeText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#detailedText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#detailedText)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn DetailedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -786,7 +786,7 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setDetailedText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setDetailedText)
     ///
     /// ``` self: QtC.QMessageBox, text: []const u8 ```
     pub fn SetDetailedText(self: ?*anyopaque, text: []const u8) void {
@@ -797,7 +797,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_SetDetailedText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setWindowTitle)
     ///
     /// ``` self: QtC.QMessageBox, title: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, title: []const u8) void {
@@ -808,42 +808,42 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_SetWindowTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setWindowModality)
     ///
     /// ``` self: QtC.QMessageBox, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QMessageBox_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#standardIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#standardIcon)
     ///
     /// ``` icon: qmessagebox_enums.Icon ```
     pub fn StandardIcon(icon: i32) QtC.QPixmap {
         return qtc.QMessageBox_StandardIcon(@intCast(icon));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#buttonClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#buttonClicked)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton ```
     pub fn ButtonClicked(self: ?*anyopaque, button: ?*anyopaque) void {
         qtc.QMessageBox_ButtonClicked(@ptrCast(self), @ptrCast(button));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#buttonClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#buttonClicked)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox, button: QtC.QAbstractButton) callconv(.c) void ```
     pub fn OnButtonClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMessageBox_Connect_ButtonClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#event)
     ///
     /// ``` self: QtC.QMessageBox, e: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QMessageBox_Event(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -852,7 +852,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#event)
     ///
     /// Base class method implementation
     ///
@@ -861,14 +861,14 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_QBaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#resizeEvent)
     ///
     /// ``` self: QtC.QMessageBox, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QMessageBox_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -877,7 +877,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -886,14 +886,14 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#showEvent)
     ///
     /// ``` self: QtC.QMessageBox, event: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QMessageBox_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -902,7 +902,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -911,14 +911,14 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#closeEvent)
     ///
     /// ``` self: QtC.QMessageBox, event: QtC.QCloseEvent ```
     pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QMessageBox_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#closeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -927,7 +927,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#closeEvent)
     ///
     /// Base class method implementation
     ///
@@ -936,14 +936,14 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#keyPressEvent)
     ///
     /// ``` self: QtC.QMessageBox, event: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QMessageBox_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -952,7 +952,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -961,14 +961,14 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#changeEvent)
     ///
     /// ``` self: QtC.QMessageBox, event: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QMessageBox_ChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#changeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -977,7 +977,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#changeEvent)
     ///
     /// Base class method implementation
     ///
@@ -986,7 +986,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_QBaseChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -999,7 +999,7 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1012,14 +1012,14 @@ pub const qmessagebox = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
     ///
     /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option, on: bool ```
     pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
         qtc.QMessageBox_SetOption2(@ptrCast(self), @intCast(option), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
@@ -1036,7 +1036,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information42(@ptrCast(parent), title_str, text_str, @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
@@ -1053,7 +1053,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information5(@ptrCast(parent), title_str, text_str, @intCast(buttons), @intCast(defaultButton));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
     ///
@@ -1070,7 +1070,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information52(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
@@ -1087,7 +1087,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question42(@ptrCast(parent), title_str, text_str, @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
@@ -1104,7 +1104,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question5(@ptrCast(parent), title_str, text_str, @intCast(buttons), @intCast(defaultButton));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
@@ -1121,7 +1121,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning42(@ptrCast(parent), title_str, text_str, @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
@@ -1138,7 +1138,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning5(@ptrCast(parent), title_str, text_str, @intCast(buttons), @intCast(defaultButton));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
@@ -1155,7 +1155,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical42(@ptrCast(parent), title_str, text_str, @intCast(buttons));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
@@ -1172,7 +1172,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical5(@ptrCast(parent), title_str, text_str, @intCast(buttons), @intCast(defaultButton));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#aboutQt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#aboutQt)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8 ```
     pub fn AboutQt2(parent: ?*anyopaque, title: []const u8) void {
@@ -1183,7 +1183,7 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_AboutQt2(@ptrCast(parent), title_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32 ```
     pub fn Information53(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
@@ -1198,7 +1198,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information53(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32 ```
     pub fn Information6(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32) i32 {
@@ -1213,7 +1213,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information6(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1), @intCast(button2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8 ```
     pub fn Information54(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8) i32 {
@@ -1236,7 +1236,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information54(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8 ```
     pub fn Information62(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8) i32 {
@@ -1263,7 +1263,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information62(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32 ```
     pub fn Information7(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32) i32 {
@@ -1290,7 +1290,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information7(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str, @intCast(defaultButtonNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32 ```
     pub fn Information8(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32) i32 {
@@ -1317,7 +1317,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Information8(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str, @intCast(defaultButtonNumber), @intCast(escapeButtonNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32 ```
     pub fn Question52(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
@@ -1332,7 +1332,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question52(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32 ```
     pub fn Question6(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32) i32 {
@@ -1347,7 +1347,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question6(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1), @intCast(button2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8 ```
     pub fn Question53(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8) i32 {
@@ -1370,7 +1370,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question53(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8 ```
     pub fn Question62(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8) i32 {
@@ -1397,7 +1397,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question62(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32 ```
     pub fn Question7(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32) i32 {
@@ -1424,7 +1424,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question7(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str, @intCast(defaultButtonNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32 ```
     pub fn Question8(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32) i32 {
@@ -1451,7 +1451,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Question8(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str, @intCast(defaultButtonNumber), @intCast(escapeButtonNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32 ```
     pub fn Warning6(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32) i32 {
@@ -1466,7 +1466,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning6(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1), @intCast(button2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8 ```
     pub fn Warning52(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8) i32 {
@@ -1489,7 +1489,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning52(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8 ```
     pub fn Warning62(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8) i32 {
@@ -1516,7 +1516,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning62(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32 ```
     pub fn Warning7(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32) i32 {
@@ -1543,7 +1543,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning7(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str, @intCast(defaultButtonNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32 ```
     pub fn Warning8(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32) i32 {
@@ -1570,7 +1570,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Warning8(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str, @intCast(defaultButtonNumber), @intCast(escapeButtonNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32 ```
     pub fn Critical6(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32, button2: i32) i32 {
@@ -1585,7 +1585,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical6(@ptrCast(parent), title_str, text_str, @intCast(button0), @intCast(button1), @intCast(button2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8 ```
     pub fn Critical52(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8) i32 {
@@ -1608,7 +1608,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical52(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8 ```
     pub fn Critical62(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8) i32 {
@@ -1635,7 +1635,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical62(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32 ```
     pub fn Critical7(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32) i32 {
@@ -1662,7 +1662,7 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_Critical7(@ptrCast(parent), title_str, text_str, button0Text_str, button1Text_str, button2Text_str, @intCast(defaultButtonNumber));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32 ```
     pub fn Critical8(parent: ?*anyopaque, title: []const u8, text: []const u8, button0Text: []const u8, button1Text: []const u8, button2Text: []const u8, defaultButtonNumber: i32, escapeButtonNumber: i32) i32 {
@@ -1691,7 +1691,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#result)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#result)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Result(self: ?*anyopaque) i32 {
@@ -1700,7 +1700,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setSizeGripEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setSizeGripEnabled)
     ///
     /// ``` self: QtC.QMessageBox, sizeGripEnabled: bool ```
     pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
@@ -1709,7 +1709,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#isSizeGripEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#isSizeGripEnabled)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
@@ -1718,7 +1718,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setModal)
     ///
     /// ``` self: QtC.QMessageBox, modal: bool ```
     pub fn SetModal(self: ?*anyopaque, modal: bool) void {
@@ -1727,7 +1727,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setResult)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setResult)
     ///
     /// ``` self: QtC.QMessageBox, r: i32 ```
     pub fn SetResult(self: ?*anyopaque, r: i32) void {
@@ -1736,7 +1736,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#finished)
     ///
     /// ``` self: QtC.QMessageBox, result: i32 ```
     pub fn Finished(self: ?*anyopaque, result: i32) void {
@@ -1745,7 +1745,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#finished)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox, result: i32) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1754,7 +1754,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Accepted(self: ?*anyopaque) void {
@@ -1763,7 +1763,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accepted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox) callconv(.c) void ```
     pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1772,7 +1772,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#rejected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#rejected)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Rejected(self: ?*anyopaque) void {
@@ -1781,7 +1781,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#rejected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#rejected)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox) callconv(.c) void ```
     pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1790,7 +1790,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -1799,7 +1799,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -1808,7 +1808,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -1817,7 +1817,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -1826,7 +1826,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -1835,7 +1835,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QMessageBox, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -1844,7 +1844,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -1853,7 +1853,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -1862,7 +1862,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -1871,7 +1871,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -1882,7 +1882,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1891,7 +1891,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -1900,7 +1900,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QMessageBox, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1909,7 +1909,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QMessageBox, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -1918,7 +1918,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QMessageBox, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -1927,7 +1927,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1936,7 +1936,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -1945,7 +1945,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -1954,7 +1954,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -1963,7 +1963,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -1972,7 +1972,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -1981,7 +1981,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -1990,7 +1990,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -1999,7 +1999,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -2008,7 +2008,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -2017,7 +2017,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -2026,7 +2026,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -2035,7 +2035,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2044,7 +2044,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2053,7 +2053,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2062,7 +2062,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -2071,7 +2071,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -2080,7 +2080,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -2089,7 +2089,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -2098,7 +2098,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QMessageBox, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -2107,7 +2107,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QMessageBox, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -2116,7 +2116,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QMessageBox, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -2125,7 +2125,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QMessageBox, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -2134,7 +2134,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QMessageBox, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -2143,7 +2143,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QMessageBox, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -2152,7 +2152,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QMessageBox, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -2161,7 +2161,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QMessageBox, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -2170,7 +2170,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -2179,7 +2179,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QMessageBox, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -2188,7 +2188,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QMessageBox, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2197,7 +2197,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -2206,7 +2206,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QMessageBox, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -2215,7 +2215,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QMessageBox, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -2224,7 +2224,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QMessageBox, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -2233,7 +2233,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QMessageBox, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2242,7 +2242,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QMessageBox, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -2251,7 +2251,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QMessageBox, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -2260,7 +2260,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2269,7 +2269,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2278,7 +2278,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2287,7 +2287,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2296,7 +2296,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2305,7 +2305,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2314,7 +2314,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2323,7 +2323,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2332,7 +2332,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2341,7 +2341,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2350,7 +2350,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2359,7 +2359,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2368,7 +2368,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -2377,7 +2377,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2386,7 +2386,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2395,7 +2395,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -2404,7 +2404,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QMessageBox, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -2413,7 +2413,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QMessageBox, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -2422,7 +2422,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -2433,7 +2433,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QMessageBox, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -2442,7 +2442,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -2453,7 +2453,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -2462,7 +2462,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.QMessageBox, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -2471,7 +2471,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -2480,7 +2480,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -2489,7 +2489,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2498,7 +2498,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QMessageBox, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2507,7 +2507,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2516,7 +2516,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QMessageBox, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -2525,7 +2525,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -2534,7 +2534,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -2543,7 +2543,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QMessageBox, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -2552,7 +2552,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -2561,7 +2561,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QMessageBox, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2570,7 +2570,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QMessageBox, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2579,7 +2579,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -2588,7 +2588,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -2597,7 +2597,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -2606,7 +2606,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -2615,7 +2615,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -2624,7 +2624,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -2633,7 +2633,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QMessageBox, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -2642,7 +2642,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QMessageBox, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2651,7 +2651,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QMessageBox, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2660,7 +2660,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QMessageBox, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -2673,7 +2673,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2686,7 +2686,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2699,7 +2699,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QMessageBox, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -2708,7 +2708,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -2717,7 +2717,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QMessageBox, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -2730,7 +2730,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2743,7 +2743,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QMessageBox, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -2756,7 +2756,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2769,7 +2769,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QMessageBox, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -2782,7 +2782,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2795,7 +2795,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QMessageBox, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -2804,7 +2804,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -2813,7 +2813,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -2822,7 +2822,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QMessageBox, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -2835,7 +2835,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2848,7 +2848,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QMessageBox, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -2857,7 +2857,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -2866,7 +2866,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QMessageBox, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -2879,7 +2879,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2892,7 +2892,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QMessageBox, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -2905,7 +2905,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2918,7 +2918,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2931,7 +2931,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QMessageBox, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -2944,7 +2944,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2957,7 +2957,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QMessageBox, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -2970,7 +2970,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QMessageBox, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -2979,7 +2979,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -2990,7 +2990,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -2999,7 +2999,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QMessageBox, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3008,7 +3008,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3017,7 +3017,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -3026,7 +3026,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -3035,7 +3035,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -3044,7 +3044,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -3053,7 +3053,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -3062,7 +3062,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -3071,7 +3071,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -3080,7 +3080,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QMessageBox, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -3089,7 +3089,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -3100,7 +3100,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QMessageBox, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3109,7 +3109,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -3118,7 +3118,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -3127,7 +3127,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QMessageBox, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -3136,7 +3136,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -3145,7 +3145,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -3156,7 +3156,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QMessageBox, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3165,7 +3165,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -3174,7 +3174,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3183,7 +3183,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -3192,7 +3192,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -3201,7 +3201,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -3210,7 +3210,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QMessageBox, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -3219,7 +3219,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QMessageBox, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -3228,7 +3228,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QMessageBox, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -3237,7 +3237,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QMessageBox, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -3246,7 +3246,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -3255,7 +3255,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -3264,7 +3264,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -3273,7 +3273,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QMessageBox, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -3282,7 +3282,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -3291,7 +3291,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Update(self: ?*anyopaque) void {
@@ -3300,7 +3300,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -3309,7 +3309,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMessageBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3318,7 +3318,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3327,7 +3327,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3336,7 +3336,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMessageBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3345,7 +3345,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3354,7 +3354,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3363,7 +3363,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QMessageBox, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -3372,7 +3372,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Show(self: ?*anyopaque) void {
@@ -3381,7 +3381,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -3390,7 +3390,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -3399,7 +3399,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -3408,7 +3408,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -3417,7 +3417,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -3426,7 +3426,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -3435,7 +3435,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -3444,7 +3444,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -3453,7 +3453,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3462,7 +3462,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QMessageBox, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -3471,7 +3471,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3480,7 +3480,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QMessageBox, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3489,7 +3489,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3498,7 +3498,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QMessageBox, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3507,7 +3507,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QMessageBox, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -3516,7 +3516,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -3529,7 +3529,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QMessageBox, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -3542,7 +3542,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -3551,7 +3551,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -3560,7 +3560,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -3569,7 +3569,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -3578,7 +3578,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -3587,7 +3587,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -3596,7 +3596,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -3605,7 +3605,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -3616,7 +3616,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QMessageBox, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -3625,7 +3625,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QMessageBox, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -3634,7 +3634,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -3643,7 +3643,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QMessageBox, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -3652,7 +3652,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QMessageBox, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -3661,7 +3661,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -3670,7 +3670,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QMessageBox, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -3679,7 +3679,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QMessageBox, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -3688,7 +3688,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -3697,7 +3697,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -3706,7 +3706,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -3715,7 +3715,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QMessageBox, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -3724,7 +3724,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -3733,7 +3733,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QMessageBox, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3742,7 +3742,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QMessageBox, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -3751,7 +3751,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QMessageBox, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -3760,7 +3760,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QMessageBox, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -3769,7 +3769,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3778,7 +3778,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3787,7 +3787,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -3796,7 +3796,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -3805,7 +3805,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QMessageBox, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -3814,7 +3814,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMessageBox, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3823,7 +3823,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QMessageBox, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3836,7 +3836,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QMessageBox, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -3849,7 +3849,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QMessageBox, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -3858,7 +3858,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QMessageBox, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -3867,7 +3867,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -3881,7 +3881,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMessageBox, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3894,7 +3894,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMessageBox, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -3907,7 +3907,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMessageBox, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3920,7 +3920,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QMessageBox, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -3933,7 +3933,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3942,7 +3942,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QMessageBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3951,7 +3951,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -3962,7 +3962,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -3971,7 +3971,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QMessageBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -3980,7 +3980,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -3991,7 +3991,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -4000,7 +4000,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMessageBox, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -4009,7 +4009,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMessageBox, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4018,7 +4018,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QMessageBox, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4027,7 +4027,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -4036,7 +4036,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -4045,7 +4045,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -4054,7 +4054,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QMessageBox, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -4063,7 +4063,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -4072,7 +4072,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QMessageBox, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -4081,7 +4081,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -4090,7 +4090,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -4099,7 +4099,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -4108,7 +4108,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QMessageBox, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -4117,7 +4117,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -4126,7 +4126,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QMessageBox, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -4139,7 +4139,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4148,7 +4148,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QMessageBox, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -4157,7 +4157,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4166,7 +4166,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QMessageBox, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -4179,7 +4179,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4188,7 +4188,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QMessageBox, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -4197,7 +4197,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4206,7 +4206,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QMessageBox ```
     ///
@@ -4217,7 +4217,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QMessageBox, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -4226,7 +4226,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4235,7 +4235,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4244,7 +4244,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4253,7 +4253,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4262,7 +4262,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4271,7 +4271,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QMessageBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4280,7 +4280,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QMessageBox, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -4289,7 +4289,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QMessageBox, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -4298,7 +4298,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QMessageBox, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -4307,7 +4307,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QMessageBox, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4316,7 +4316,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QMessageBox, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4325,7 +4325,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -4334,7 +4334,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -4343,7 +4343,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -4352,7 +4352,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -4361,7 +4361,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4374,7 +4374,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QMessageBox, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -4387,7 +4387,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4396,7 +4396,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4405,7 +4405,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4414,7 +4414,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4423,7 +4423,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QMessageBox, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4432,7 +4432,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4441,7 +4441,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMessageBox, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4450,7 +4450,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMessageBox, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4459,7 +4459,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMessageBox, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4468,7 +4468,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMessageBox, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4477,7 +4477,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4491,7 +4491,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QMessageBox, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4500,7 +4500,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QMessageBox, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4509,7 +4509,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4518,7 +4518,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMessageBox, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4529,7 +4529,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4538,7 +4538,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4547,7 +4547,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4556,7 +4556,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4565,7 +4565,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QMessageBox, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4575,7 +4575,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QMessageBox, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4585,7 +4585,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QMessageBox, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4609,7 +4609,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4618,7 +4618,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4627,7 +4627,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4636,7 +4636,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4645,7 +4645,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -4654,7 +4654,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QMessageBox, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4664,7 +4664,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4673,7 +4673,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMessageBox, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4682,7 +4682,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMessageBox, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4691,7 +4691,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4700,7 +4700,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMessageBox, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4711,7 +4711,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMessageBox, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4720,7 +4720,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMessageBox, callback: *const fn (self: QtC.QMessageBox, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4729,7 +4729,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -4738,7 +4738,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -4747,7 +4747,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -4756,7 +4756,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -4765,7 +4765,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -4774,7 +4774,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -4783,7 +4783,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -4792,7 +4792,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -4801,7 +4801,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -4810,7 +4810,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -4819,7 +4819,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QMessageBox ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -4828,7 +4828,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -4837,7 +4837,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -4846,7 +4846,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4857,7 +4857,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4868,7 +4868,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4879,7 +4879,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4890,7 +4890,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4901,7 +4901,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4912,7 +4912,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4923,7 +4923,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4934,7 +4934,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4945,7 +4945,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#open)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4956,7 +4956,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#open)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4967,7 +4967,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#open)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4978,7 +4978,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#exec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#exec)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4989,7 +4989,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#exec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#exec)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5000,7 +5000,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#exec)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#exec)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5011,7 +5011,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#done)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#done)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5022,7 +5022,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#done)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#done)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5033,7 +5033,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#done)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#done)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5044,7 +5044,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5055,7 +5055,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5066,7 +5066,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accept)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5077,7 +5077,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#reject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#reject)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5088,7 +5088,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#reject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#reject)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5099,7 +5099,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#reject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#reject)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5110,7 +5110,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5121,7 +5121,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5132,7 +5132,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5143,7 +5143,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5154,7 +5154,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5165,7 +5165,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5176,7 +5176,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5187,7 +5187,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5198,7 +5198,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5209,7 +5209,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5220,7 +5220,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5231,7 +5231,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5242,7 +5242,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5253,7 +5253,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5264,7 +5264,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5275,7 +5275,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5286,7 +5286,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5297,7 +5297,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5308,7 +5308,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5319,7 +5319,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5330,7 +5330,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5341,7 +5341,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5352,7 +5352,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5363,7 +5363,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5374,7 +5374,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5385,7 +5385,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5396,7 +5396,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5407,7 +5407,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5418,7 +5418,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5429,7 +5429,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5440,7 +5440,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5451,7 +5451,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5462,7 +5462,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5473,7 +5473,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5484,7 +5484,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5495,7 +5495,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5506,7 +5506,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5517,7 +5517,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5528,7 +5528,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5539,7 +5539,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5550,7 +5550,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5561,7 +5561,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5572,7 +5572,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5583,7 +5583,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5594,7 +5594,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5605,7 +5605,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5616,7 +5616,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5627,7 +5627,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5638,7 +5638,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5649,7 +5649,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5660,7 +5660,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5671,7 +5671,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5682,7 +5682,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5693,7 +5693,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5704,7 +5704,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5715,7 +5715,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5726,7 +5726,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5737,7 +5737,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5748,7 +5748,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5759,7 +5759,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5770,7 +5770,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5781,7 +5781,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5792,7 +5792,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5803,7 +5803,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5814,7 +5814,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5825,7 +5825,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5836,7 +5836,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5847,7 +5847,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5858,7 +5858,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5869,7 +5869,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5880,7 +5880,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5891,7 +5891,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5902,7 +5902,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5913,7 +5913,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5924,7 +5924,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5935,7 +5935,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5950,7 +5950,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5965,7 +5965,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5976,7 +5976,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5987,7 +5987,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5998,7 +5998,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6009,7 +6009,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6020,7 +6020,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6031,7 +6031,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6042,7 +6042,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6053,7 +6053,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6064,7 +6064,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6075,7 +6075,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6086,7 +6086,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6097,7 +6097,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6108,7 +6108,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6119,7 +6119,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6130,7 +6130,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6141,7 +6141,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6152,7 +6152,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6163,7 +6163,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6174,7 +6174,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6185,7 +6185,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6196,7 +6196,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6207,7 +6207,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6218,7 +6218,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6229,7 +6229,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6240,7 +6240,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6251,7 +6251,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6262,7 +6262,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6273,7 +6273,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6284,7 +6284,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6295,7 +6295,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6306,7 +6306,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6317,7 +6317,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6328,7 +6328,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6339,7 +6339,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6350,7 +6350,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6361,7 +6361,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6372,7 +6372,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6383,7 +6383,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6394,7 +6394,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QDialog
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6405,7 +6405,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6416,7 +6416,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6427,7 +6427,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6438,7 +6438,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6449,7 +6449,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6460,7 +6460,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6471,7 +6471,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6482,7 +6482,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6493,7 +6493,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6504,7 +6504,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6515,7 +6515,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6526,7 +6526,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6537,7 +6537,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6548,7 +6548,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6559,7 +6559,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6570,7 +6570,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6581,7 +6581,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6592,7 +6592,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6603,7 +6603,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6614,7 +6614,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6625,7 +6625,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6636,7 +6636,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6648,7 +6648,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6660,7 +6660,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6671,7 +6671,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6682,7 +6682,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6693,7 +6693,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6704,7 +6704,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6715,7 +6715,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6726,7 +6726,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6737,7 +6737,7 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6746,7 +6746,7 @@ pub const qmessagebox = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#dtor.QMessageBox)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#dtor.QMessageBox)
     ///
     /// Delete this object from C++ memory.
     ///

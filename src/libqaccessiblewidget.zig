@@ -32,14 +32,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_new3(@ptrCast(o), @intCast(r), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QAccessibleWidget_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
     ///
     /// Allows for overriding the related default method
     ///
@@ -48,7 +48,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnIsValid(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
     ///
     /// Base class method implementation
     ///
@@ -57,14 +57,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseIsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn Window(self: ?*anyopaque) QtC.QWindow {
         return qtc.QAccessibleWidget_Window(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
     ///
     /// Allows for overriding the related default method
     ///
@@ -73,7 +73,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
     ///
     /// Base class method implementation
     ///
@@ -82,14 +82,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseWindow(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn ChildCount(self: ?*anyopaque) i32 {
         return qtc.QAccessibleWidget_ChildCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -98,7 +98,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnChildCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
     ///
     /// Base class method implementation
     ///
@@ -107,14 +107,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseChildCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
     ///
     /// ``` self: QtC.QAccessibleWidget, child: QtC.QAccessibleInterface ```
     pub fn IndexOfChild(self: ?*anyopaque, child: ?*anyopaque) i32 {
         return qtc.QAccessibleWidget_IndexOfChild(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
     ///
     /// Allows for overriding the related default method
     ///
@@ -123,7 +123,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnIndexOfChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
     ///
     /// Base class method implementation
     ///
@@ -132,7 +132,7 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseIndexOfChild(@ptrCast(self), @ptrCast(child));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
     ///
     /// ``` self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
     pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
@@ -151,7 +151,7 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
     ///
     /// Allows for overriding the related default method
     ///
@@ -160,7 +160,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
     ///
     /// Base class method implementation
     ///
@@ -181,14 +181,14 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn FocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleWidget_FocusChild(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
     ///
     /// Allows for overriding the related default method
     ///
@@ -197,7 +197,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnFocusChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
     ///
     /// Base class method implementation
     ///
@@ -206,14 +206,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseFocusChild(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
         return qtc.QAccessibleWidget_Rect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -222,7 +222,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
     ///
     /// Base class method implementation
     ///
@@ -231,14 +231,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn Parent(self: ?*anyopaque) QtC.QAccessibleInterface {
         return qtc.QAccessibleWidget_Parent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -247,7 +247,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -256,14 +256,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseParent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
     ///
     /// ``` self: QtC.QAccessibleWidget, index: i32 ```
     pub fn Child(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
         return qtc.QAccessibleWidget_Child(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
     ///
     /// Allows for overriding the related default method
     ///
@@ -272,7 +272,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
     ///
     /// Base class method implementation
     ///
@@ -281,7 +281,7 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseChild(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
@@ -292,7 +292,7 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
     ///
     /// Allows for overriding the related default method
     ///
@@ -301,7 +301,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
     ///
     /// Base class method implementation
     ///
@@ -314,7 +314,7 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     ///
@@ -323,7 +323,7 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_Role(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
     ///
     /// Allows for overriding the related default method
     ///
@@ -332,7 +332,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnRole(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
     ///
     /// Base class method implementation
     ///
@@ -343,14 +343,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseRole(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn State(self: ?*anyopaque) QtC.QAccessible__State {
         return qtc.QAccessibleWidget_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
     ///
     /// Allows for overriding the related default method
     ///
@@ -359,7 +359,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
     ///
     /// Base class method implementation
     ///
@@ -368,14 +368,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn ForegroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleWidget_ForegroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -384,7 +384,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
     ///
     /// Base class method implementation
     ///
@@ -393,14 +393,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseForegroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QAccessibleWidget_BackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -409,7 +409,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
     ///
     /// Base class method implementation
     ///
@@ -418,14 +418,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseBackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.InterfaceType ```
     pub fn InterfaceCast(self: ?*anyopaque, t: i32) ?*anyopaque {
         return qtc.QAccessibleWidget_InterfaceCast(@ptrCast(self), @intCast(t));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
     ///
     /// Allows for overriding the related default method
     ///
@@ -434,7 +434,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnInterfaceCast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
     ///
     /// Base class method implementation
     ///
@@ -443,7 +443,7 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseInterfaceCast(@ptrCast(self), @intCast(t));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
     ///
     /// ``` self: QtC.QAccessibleWidget, allocator: std.mem.Allocator ```
     pub fn ActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -465,7 +465,7 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
     ///
     /// Allows for overriding the related default method
     ///
@@ -474,7 +474,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnActionNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
     ///
     /// Base class method implementation
     ///
@@ -498,7 +498,7 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
     ///
     /// ``` self: QtC.QAccessibleWidget, actionName: []const u8 ```
     pub fn DoAction(self: ?*anyopaque, actionName: []const u8) void {
@@ -509,7 +509,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_DoAction(@ptrCast(self), actionName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -518,7 +518,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnDoAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
     ///
     /// Base class method implementation
     ///
@@ -531,7 +531,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_QBaseDoAction(@ptrCast(self), actionName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
     ///
     /// ``` self: QtC.QAccessibleWidget, actionName: []const u8, allocator: std.mem.Allocator ```
     pub fn KeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -557,7 +557,7 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -566,7 +566,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
     ///
     /// Base class method implementation
     ///
@@ -594,14 +594,14 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn Widget(self: ?*anyopaque) QtC.QWidget {
         return qtc.QAccessibleWidget_Widget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -610,7 +610,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
     ///
     /// Base class method implementation
     ///
@@ -619,14 +619,14 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseWidget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn ParentObject(self: ?*anyopaque) QtC.QObject {
         return qtc.QAccessibleWidget_ParentObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
     ///
     /// Allows for overriding the related default method
     ///
@@ -635,7 +635,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnParentObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
     ///
     /// Base class method implementation
     ///
@@ -644,7 +644,7 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_QBaseParentObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
     ///
     /// ``` self: QtC.QAccessibleWidget, signal: []const u8 ```
     pub fn AddControllingSignal(self: ?*anyopaque, signal: []const u8) void {
@@ -655,7 +655,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_AddControllingSignal(@ptrCast(self), signal_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
     ///
     /// Allows for overriding the related default method
     ///
@@ -664,7 +664,7 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
     ///
     /// Base class method implementation
     ///
@@ -679,7 +679,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#textInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#textInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn TextInterface(self: ?*anyopaque) QtC.QAccessibleTextInterface {
@@ -688,7 +688,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#editableTextInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#editableTextInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn EditableTextInterface(self: ?*anyopaque) QtC.QAccessibleEditableTextInterface {
@@ -697,7 +697,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#valueInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#valueInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn ValueInterface(self: ?*anyopaque) QtC.QAccessibleValueInterface {
@@ -706,7 +706,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#actionInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#actionInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn ActionInterface(self: ?*anyopaque) QtC.QAccessibleActionInterface {
@@ -715,7 +715,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#imageInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#imageInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn ImageInterface(self: ?*anyopaque) QtC.QAccessibleImageInterface {
@@ -724,7 +724,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn TableInterface(self: ?*anyopaque) QtC.QAccessibleTableInterface {
@@ -733,7 +733,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableCellInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#tableCellInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn TableCellInterface(self: ?*anyopaque) QtC.QAccessibleTableCellInterface {
@@ -742,7 +742,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#hyperlinkInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#hyperlinkInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn HyperlinkInterface(self: ?*anyopaque) QtC.QAccessibleHyperlinkInterface {
@@ -751,7 +751,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn SelectionInterface(self: ?*anyopaque) QtC.QAccessibleSelectionInterface {
@@ -760,7 +760,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
     pub fn AttributesInterface(self: ?*anyopaque) QtC.QAccessibleAttributesInterface {
@@ -769,7 +769,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -783,7 +783,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#pressAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#pressAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn PressAction(allocator: std.mem.Allocator) []const u8 {
@@ -796,7 +796,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#increaseAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#increaseAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn IncreaseAction(allocator: std.mem.Allocator) []const u8 {
@@ -809,7 +809,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#decreaseAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#decreaseAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DecreaseAction(allocator: std.mem.Allocator) []const u8 {
@@ -822,7 +822,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#showMenuAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#showMenuAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ShowMenuAction(allocator: std.mem.Allocator) []const u8 {
@@ -835,7 +835,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#setFocusAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#setFocusAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SetFocusAction(allocator: std.mem.Allocator) []const u8 {
@@ -848,7 +848,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#toggleAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#toggleAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ToggleAction(allocator: std.mem.Allocator) []const u8 {
@@ -861,7 +861,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollLeftAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollLeftAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollLeftAction(allocator: std.mem.Allocator) []const u8 {
@@ -874,7 +874,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollRightAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollRightAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollRightAction(allocator: std.mem.Allocator) []const u8 {
@@ -887,7 +887,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollUpAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollUpAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollUpAction(allocator: std.mem.Allocator) []const u8 {
@@ -900,7 +900,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollDownAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#scrollDownAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ScrollDownAction(allocator: std.mem.Allocator) []const u8 {
@@ -913,7 +913,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#nextPageAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#nextPageAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn NextPageAction(allocator: std.mem.Allocator) []const u8 {
@@ -926,7 +926,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#previousPageAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#previousPageAction)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn PreviousPageAction(allocator: std.mem.Allocator) []const u8 {
@@ -939,7 +939,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -954,7 +954,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -969,7 +969,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -980,7 +980,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -991,7 +991,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1002,7 +1002,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1017,7 +1017,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1032,7 +1032,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1043,7 +1043,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1054,7 +1054,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1065,7 +1065,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1076,7 +1076,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1087,7 +1087,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1098,7 +1098,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1109,7 +1109,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1128,7 +1128,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1147,7 +1147,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1158,7 +1158,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1177,7 +1177,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1196,7 +1196,7 @@ pub const qaccessiblewidget = struct {
 
     /// Inherited from QAccessibleActionInterface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///

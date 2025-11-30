@@ -29,7 +29,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -61,7 +61,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -73,14 +73,14 @@ pub const qabstractitemview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
     ///
     /// ``` self: QtC.QAbstractItemView, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
         qtc.QAbstractItemView_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -89,7 +89,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
     ///
     /// Base class method implementation
     ///
@@ -98,21 +98,21 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#model)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
         return qtc.QAbstractItemView_Model(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// ``` self: QtC.QAbstractItemView, selectionModel: QtC.QItemSelectionModel ```
     pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
         qtc.QAbstractItemView_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Allows for overriding the related default method
     ///
@@ -121,7 +121,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetSelectionModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Base class method implementation
     ///
@@ -130,35 +130,35 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
         return qtc.QAbstractItemView_SelectionModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
     ///
     /// ``` self: QtC.QAbstractItemView, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
         qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
         return qtc.QAbstractItemView_ItemDelegate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qabstractitemview_enums.SelectionMode ```
     pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -167,14 +167,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ``` self: QtC.QAbstractItemView, behavior: qabstractitemview_enums.SelectionBehavior ```
     pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -183,28 +183,28 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemView_CurrentIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemView_RootIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ``` self: QtC.QAbstractItemView, triggers: flag of qabstractitemview_enums.EditTrigger ```
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -213,14 +213,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -229,21 +229,21 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qabstractitemview_enums.ScrollMode ```
     pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -252,105 +252,105 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
         qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn HasAutoScroll(self: ?*anyopaque) bool {
         return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
     ///
     /// ``` self: QtC.QAbstractItemView, margin: i32 ```
     pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
         qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
         qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn TabKeyNavigation(self: ?*anyopaque) bool {
         return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
         qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ShowDropIndicator(self: ?*anyopaque) bool {
         return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DragEnabled(self: ?*anyopaque) bool {
         return qtc.QAbstractItemView_DragEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
     ///
     /// ``` self: QtC.QAbstractItemView, overwrite: bool ```
     pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
         qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self), overwrite);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
         return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ``` self: QtC.QAbstractItemView, behavior: qabstractitemview_enums.DragDropMode ```
     pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -359,14 +359,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ``` self: QtC.QAbstractItemView, dropAction: qnamespace_enums.DropAction ```
     pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -375,42 +375,42 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
         qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn AlternatingRowColors(self: ?*anyopaque) bool {
         return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
     ///
     /// ``` self: QtC.QAbstractItemView, size: QtC.QSize ```
     pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QAbstractItemView_SetIconSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IconSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QAbstractItemView_IconSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qnamespace_enums.TextElideMode ```
     pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -419,7 +419,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// ``` self: QtC.QAbstractItemView, search: []const u8 ```
     pub fn KeyboardSearch(self: ?*anyopaque, search: []const u8) void {
@@ -430,7 +430,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_KeyboardSearch(@ptrCast(self), search_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Allows for overriding the related default method
     ///
@@ -439,7 +439,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnKeyboardSearch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Base class method implementation
     ///
@@ -452,14 +452,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseKeyboardSearch(@ptrCast(self), search_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
         return qtc.QAbstractItemView_VisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
     ///
     /// Allows for overriding the related default method
     ///
@@ -468,7 +468,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVisualRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
     ///
     /// Base class method implementation
     ///
@@ -477,14 +477,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
     pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
         qtc.QAbstractItemView_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
     ///
     /// Allows for overriding the related default method
     ///
@@ -493,7 +493,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnScrollTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
     ///
     /// Base class method implementation
     ///
@@ -502,14 +502,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
     ///
     /// ``` self: QtC.QAbstractItemView, point: QtC.QPoint ```
     pub fn IndexAt(self: ?*anyopaque, point: ?*anyopaque) QtC.QModelIndex {
         return qtc.QAbstractItemView_IndexAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -518,7 +518,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnIndexAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
     ///
     /// Base class method implementation
     ///
@@ -527,21 +527,21 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseIndexAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
         return qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// ``` self: QtC.QAbstractItemView, row: i32 ```
     pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
         return qtc.QAbstractItemView_SizeHintForRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Allows for overriding the related default method
     ///
@@ -550,7 +550,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSizeHintForRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Base class method implementation
     ///
@@ -559,14 +559,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseSizeHintForRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// ``` self: QtC.QAbstractItemView, column: i32 ```
     pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
         return qtc.QAbstractItemView_SizeHintForColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Allows for overriding the related default method
     ///
@@ -575,7 +575,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSizeHintForColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Base class method implementation
     ///
@@ -584,84 +584,84 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseSizeHintForColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn OpenPersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn ClosePersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn IsPersistentEditorOpen(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, widget: QtC.QWidget ```
     pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self), @ptrCast(index), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
         return qtc.QAbstractItemView_IndexWidget(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
     ///
     /// ``` self: QtC.QAbstractItemView, row: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
         qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @intCast(row), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
     ///
     /// ``` self: QtC.QAbstractItemView, row: i32 ```
     pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
         return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
     ///
     /// ``` self: QtC.QAbstractItemView, column: i32, delegate: QtC.QAbstractItemDelegate ```
     pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
         qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @intCast(column), @ptrCast(delegate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
     ///
     /// ``` self: QtC.QAbstractItemView, column: i32 ```
     pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
         return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @intCast(column));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
         return qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn ItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
         return qtc.QAbstractItemView_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -670,7 +670,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnItemDelegateForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Base class method implementation
     ///
@@ -679,14 +679,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// ``` self: QtC.QAbstractItemView, query: qnamespace_enums.InputMethodQuery ```
     pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
         return qtc.QAbstractItemView_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Allows for overriding the related default method
     ///
@@ -695,7 +695,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Base class method implementation
     ///
@@ -704,14 +704,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QAbstractItemView_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -720,7 +720,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// Base class method implementation
     ///
@@ -729,14 +729,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseReset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn SetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_SetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -745,7 +745,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetRootIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// Base class method implementation
     ///
@@ -754,14 +754,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DoItemsLayout(self: ?*anyopaque) void {
         qtc.QAbstractItemView_DoItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
     ///
     /// Allows for overriding the related default method
     ///
@@ -770,7 +770,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDoItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
     ///
     /// Base class method implementation
     ///
@@ -779,14 +779,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseDoItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn SelectAll(self: ?*anyopaque) void {
         qtc.QAbstractItemView_SelectAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Allows for overriding the related default method
     ///
@@ -795,7 +795,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Base class method implementation
     ///
@@ -804,49 +804,49 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSelectAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_Edit(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ClearSelection(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ClearSelection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ScrollToTop(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ScrollToTop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ScrollToBottom(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#update)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_Update(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -857,7 +857,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -866,7 +866,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// Base class method implementation
     ///
@@ -879,14 +879,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// ``` self: QtC.QAbstractItemView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
         qtc.QAbstractItemView_RowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// Allows for overriding the related default method
     ///
@@ -895,7 +895,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnRowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// Base class method implementation
     ///
@@ -904,14 +904,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// ``` self: QtC.QAbstractItemView, parent: QtC.QModelIndex, start: i32, end: i32 ```
     pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
         qtc.QAbstractItemView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Allows for overriding the related default method
     ///
@@ -920,7 +920,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnRowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Base class method implementation
     ///
@@ -929,14 +929,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection ```
     pub fn SelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
         qtc.QAbstractItemView_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -945,7 +945,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// Base class method implementation
     ///
@@ -954,14 +954,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
     pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
         qtc.QAbstractItemView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -970,7 +970,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnCurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
     ///
     /// Base class method implementation
     ///
@@ -979,14 +979,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UpdateEditorData(self: ?*anyopaque) void {
         qtc.QAbstractItemView_UpdateEditorData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -995,7 +995,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnUpdateEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Base class method implementation
     ///
@@ -1004,14 +1004,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseUpdateEditorData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UpdateEditorGeometries(self: ?*anyopaque) void {
         qtc.QAbstractItemView_UpdateEditorGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1020,7 +1020,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnUpdateEditorGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Base class method implementation
     ///
@@ -1029,14 +1029,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseUpdateEditorGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UpdateGeometries(self: ?*anyopaque) void {
         qtc.QAbstractItemView_UpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1045,7 +1045,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnUpdateGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
     ///
     /// Base class method implementation
     ///
@@ -1054,14 +1054,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseUpdateGeometries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// ``` self: QtC.QAbstractItemView, action: i32 ```
     pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
         qtc.QAbstractItemView_VerticalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1070,7 +1070,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVerticalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Base class method implementation
     ///
@@ -1079,14 +1079,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseVerticalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// ``` self: QtC.QAbstractItemView, action: i32 ```
     pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
         qtc.QAbstractItemView_HorizontalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1095,7 +1095,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnHorizontalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Base class method implementation
     ///
@@ -1104,14 +1104,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseHorizontalScrollbarAction(@ptrCast(self), @intCast(action));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, value: i32 ```
     pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
         qtc.QAbstractItemView_VerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1120,7 +1120,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVerticalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Base class method implementation
     ///
@@ -1129,14 +1129,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, value: i32 ```
     pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
         qtc.QAbstractItemView_HorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1145,7 +1145,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Base class method implementation
     ///
@@ -1154,14 +1154,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// ``` self: QtC.QAbstractItemView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
         qtc.QAbstractItemView_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1170,7 +1170,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnCloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Base class method implementation
     ///
@@ -1179,14 +1179,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// ``` self: QtC.QAbstractItemView, editor: QtC.QWidget ```
     pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
         qtc.QAbstractItemView_CommitData(@ptrCast(self), @ptrCast(editor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1195,7 +1195,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnCommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Base class method implementation
     ///
@@ -1204,14 +1204,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseCommitData(@ptrCast(self), @ptrCast(editor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// ``` self: QtC.QAbstractItemView, editor: QtC.QObject ```
     pub fn EditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
         qtc.QAbstractItemView_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1220,7 +1220,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEditorDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Base class method implementation
     ///
@@ -1229,112 +1229,112 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseEditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_Pressed(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_Clicked(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_DoubleClicked(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_Activated(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
         qtc.QAbstractItemView_Entered(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ViewportEntered(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ViewportEntered(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView) callconv(.c) void ```
     pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, size: QtC.QSize ```
     pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, size: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
     ///
     /// ``` self: QtC.QAbstractItemView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i64) QtC.QModelIndex {
         return qtc.QAbstractItemView_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1343,7 +1343,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMoveCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
     ///
     /// Base class method implementation
     ///
@@ -1352,14 +1352,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn HorizontalOffset(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_HorizontalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1368,7 +1368,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnHorizontalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
     ///
     /// Base class method implementation
     ///
@@ -1377,14 +1377,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseHorizontalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn VerticalOffset(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_VerticalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1393,7 +1393,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVerticalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
     ///
     /// Base class method implementation
     ///
@@ -1402,14 +1402,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseVerticalOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex ```
     pub fn IsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QAbstractItemView_IsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1418,7 +1418,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnIsIndexHidden(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
     ///
     /// Base class method implementation
     ///
@@ -1427,14 +1427,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseIsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
     ///
     /// ``` self: QtC.QAbstractItemView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
         qtc.QAbstractItemView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1443,7 +1443,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
     ///
     /// Base class method implementation
     ///
@@ -1452,14 +1452,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
     ///
     /// ``` self: QtC.QAbstractItemView, selection: QtC.QItemSelection ```
     pub fn VisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
         return qtc.QAbstractItemView_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1468,7 +1468,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVisualRegionForSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
     ///
     /// Base class method implementation
     ///
@@ -1477,7 +1477,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -1489,7 +1489,7 @@ pub const qabstractitemview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1498,7 +1498,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// Base class method implementation
     ///
@@ -1512,14 +1512,14 @@ pub const qabstractitemview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent ```
     pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
         return qtc.QAbstractItemView_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1528,7 +1528,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEdit2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Base class method implementation
     ///
@@ -1537,7 +1537,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, event: QtC.QEvent ```
     ///
@@ -1546,7 +1546,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1555,7 +1555,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectionCommand(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Base class method implementation
     ///
@@ -1566,14 +1566,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// ``` self: QtC.QAbstractItemView, supportedActions: flag of qnamespace_enums.DropAction ```
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
         qtc.QAbstractItemView_StartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1582,7 +1582,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnStartDrag(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Base class method implementation
     ///
@@ -1591,14 +1591,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// ``` self: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem ```
     pub fn InitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
         qtc.QAbstractItemView_InitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1607,7 +1607,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnInitViewItemOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// Base class method implementation
     ///
@@ -1616,7 +1616,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseInitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -1625,7 +1625,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1634,7 +1634,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Base class method implementation
     ///
@@ -1645,14 +1645,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// ``` self: QtC.QAbstractItemView, state: qabstractitemview_enums.State ```
     pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QAbstractItemView_SetState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1661,7 +1661,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Base class method implementation
     ///
@@ -1670,14 +1670,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSetState(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ScheduleDelayedItemsLayout(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1686,7 +1686,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnScheduleDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Base class method implementation
     ///
@@ -1695,14 +1695,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ExecuteDelayedItemsLayout(self: ?*anyopaque) void {
         qtc.QAbstractItemView_ExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1711,7 +1711,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnExecuteDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Base class method implementation
     ///
@@ -1720,14 +1720,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// ``` self: QtC.QAbstractItemView, region: QtC.QRegion ```
     pub fn SetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
         qtc.QAbstractItemView_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1736,7 +1736,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Base class method implementation
     ///
@@ -1745,14 +1745,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseSetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// ``` self: QtC.QAbstractItemView, dx: i32, dy: i32 ```
     pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QAbstractItemView_ScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1761,7 +1761,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnScrollDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Base class method implementation
     ///
@@ -1770,14 +1770,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseScrollDirtyRegion(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
         return qtc.QAbstractItemView_DirtyRegionOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1786,7 +1786,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDirtyRegionOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Base class method implementation
     ///
@@ -1795,14 +1795,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseDirtyRegionOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn StartAutoScroll(self: ?*anyopaque) void {
         qtc.QAbstractItemView_StartAutoScroll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1811,7 +1811,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnStartAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Base class method implementation
     ///
@@ -1820,14 +1820,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseStartAutoScroll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn StopAutoScroll(self: ?*anyopaque) void {
         qtc.QAbstractItemView_StopAutoScroll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1836,7 +1836,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnStopAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Base class method implementation
     ///
@@ -1845,14 +1845,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseStopAutoScroll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DoAutoScroll(self: ?*anyopaque) void {
         qtc.QAbstractItemView_DoAutoScroll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1861,7 +1861,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDoAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Base class method implementation
     ///
@@ -1870,14 +1870,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseDoAutoScroll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// ``` self: QtC.QAbstractItemView, next: bool ```
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
         return qtc.QAbstractItemView_FocusNextPrevChild(@ptrCast(self), next);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1886,7 +1886,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Base class method implementation
     ///
@@ -1895,14 +1895,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractItemView_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1911,7 +1911,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
     ///
     /// Base class method implementation
     ///
@@ -1920,14 +1920,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QEvent ```
     pub fn ViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractItemView_ViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1936,7 +1936,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Base class method implementation
     ///
@@ -1945,14 +1945,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1961,7 +1961,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -1970,14 +1970,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1986,7 +1986,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -1995,14 +1995,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2011,7 +2011,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -2020,14 +2020,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2036,7 +2036,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
     ///
@@ -2045,14 +2045,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2061,7 +2061,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -2070,14 +2070,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2086,7 +2086,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -2095,14 +2095,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2111,7 +2111,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -2120,14 +2120,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2136,7 +2136,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -2145,14 +2145,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2161,7 +2161,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -2170,14 +2170,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2186,7 +2186,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -2195,14 +2195,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2211,7 +2211,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -2220,14 +2220,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2236,7 +2236,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -2245,14 +2245,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2261,7 +2261,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// Base class method implementation
     ///
@@ -2270,14 +2270,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// ``` self: QtC.QAbstractItemView, event: QtC.QInputMethodEvent ```
     pub fn InputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QAbstractItemView_InputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2286,7 +2286,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Base class method implementation
     ///
@@ -2295,14 +2295,14 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// ``` self: QtC.QAbstractItemView, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractItemView_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2311,7 +2311,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -2320,7 +2320,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -2329,7 +2329,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_DropIndicatorPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2338,7 +2338,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDropIndicatorPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Base class method implementation
     ///
@@ -2349,14 +2349,14 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseDropIndicatorPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QAbstractItemView_ViewportSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2365,7 +2365,7 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// Base class method implementation
     ///
@@ -2374,7 +2374,7 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_QBaseViewportSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2387,7 +2387,7 @@ pub const qabstractitemview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2402,7 +2402,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -2413,7 +2413,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -2422,7 +2422,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2431,7 +2431,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.QAbstractItemView, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2440,7 +2440,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -2451,7 +2451,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -2460,7 +2460,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -2469,7 +2469,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.QAbstractItemView, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -2478,7 +2478,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2487,7 +2487,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.QAbstractItemView, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2496,7 +2496,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QAbstractItemView, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -2505,7 +2505,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QAbstractItemView, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -2519,7 +2519,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -2528,7 +2528,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.QAbstractItemView, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -2537,7 +2537,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -2546,7 +2546,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -2557,7 +2557,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -2566,7 +2566,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -2575,7 +2575,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.QAbstractItemView, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -2584,7 +2584,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -2593,7 +2593,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -2604,7 +2604,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QAbstractItemView, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -2613,7 +2613,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -2624,7 +2624,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QAbstractItemView, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -2633,7 +2633,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -2642,7 +2642,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.QAbstractItemView, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -2651,7 +2651,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -2660,7 +2660,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.QAbstractItemView, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -2669,7 +2669,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -2678,7 +2678,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.QAbstractItemView, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -2687,7 +2687,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -2696,7 +2696,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -2705,7 +2705,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -2714,7 +2714,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -2723,7 +2723,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -2732,7 +2732,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QAbstractItemView, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -2741,7 +2741,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -2750,7 +2750,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2759,7 +2759,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -2768,7 +2768,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -2779,7 +2779,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QAbstractItemView, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -2788,7 +2788,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2797,7 +2797,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2806,7 +2806,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2815,7 +2815,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QAbstractItemView, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -2824,7 +2824,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QAbstractItemView, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -2833,7 +2833,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2842,7 +2842,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -2851,7 +2851,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2860,7 +2860,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -2869,7 +2869,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -2878,7 +2878,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -2887,7 +2887,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -2896,7 +2896,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -2905,7 +2905,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -2914,7 +2914,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -2923,7 +2923,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -2932,7 +2932,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -2941,7 +2941,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2950,7 +2950,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2959,7 +2959,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2968,7 +2968,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -2977,7 +2977,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -2986,7 +2986,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -2995,7 +2995,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -3004,7 +3004,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QAbstractItemView, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -3013,7 +3013,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QAbstractItemView, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -3022,7 +3022,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QAbstractItemView, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -3031,7 +3031,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QAbstractItemView, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -3040,7 +3040,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QAbstractItemView, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -3049,7 +3049,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QAbstractItemView, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -3058,7 +3058,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QAbstractItemView, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -3067,7 +3067,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QAbstractItemView, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -3076,7 +3076,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -3085,7 +3085,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QAbstractItemView, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -3094,7 +3094,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QAbstractItemView, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3103,7 +3103,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -3112,7 +3112,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QAbstractItemView, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -3121,7 +3121,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QAbstractItemView, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -3130,7 +3130,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QAbstractItemView, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -3139,7 +3139,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QAbstractItemView, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3148,7 +3148,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QAbstractItemView, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -3157,7 +3157,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QAbstractItemView, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -3166,7 +3166,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3175,7 +3175,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3184,7 +3184,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3193,7 +3193,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3202,7 +3202,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3211,7 +3211,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3220,7 +3220,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -3229,7 +3229,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -3238,7 +3238,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -3247,7 +3247,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -3256,7 +3256,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -3265,7 +3265,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -3274,7 +3274,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -3283,7 +3283,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3292,7 +3292,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -3301,7 +3301,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -3310,7 +3310,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QAbstractItemView, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -3319,7 +3319,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QAbstractItemView, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -3328,7 +3328,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -3339,7 +3339,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QAbstractItemView, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -3348,7 +3348,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -3359,7 +3359,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -3368,7 +3368,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.QAbstractItemView, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -3377,7 +3377,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -3386,7 +3386,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -3395,7 +3395,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -3404,7 +3404,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QAbstractItemView, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -3413,7 +3413,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -3422,7 +3422,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -3431,7 +3431,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -3440,7 +3440,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -3449,7 +3449,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -3458,7 +3458,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -3467,7 +3467,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QAbstractItemView, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3476,7 +3476,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QAbstractItemView, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -3485,7 +3485,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -3494,7 +3494,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -3503,7 +3503,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -3512,7 +3512,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -3521,7 +3521,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -3530,7 +3530,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -3539,7 +3539,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QAbstractItemView, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -3548,7 +3548,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QAbstractItemView, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3557,7 +3557,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QAbstractItemView, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -3566,7 +3566,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QAbstractItemView, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -3579,7 +3579,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QAbstractItemView, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -3592,7 +3592,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3605,7 +3605,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3618,7 +3618,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QAbstractItemView, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -3627,7 +3627,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -3636,7 +3636,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QAbstractItemView, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -3649,7 +3649,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3662,7 +3662,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QAbstractItemView, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -3675,7 +3675,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3688,7 +3688,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QAbstractItemView, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -3701,7 +3701,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3714,7 +3714,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QAbstractItemView, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -3723,7 +3723,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -3732,7 +3732,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -3741,7 +3741,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QAbstractItemView, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -3754,7 +3754,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3767,7 +3767,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QAbstractItemView, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -3776,7 +3776,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -3785,7 +3785,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QAbstractItemView, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -3798,7 +3798,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3811,7 +3811,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QAbstractItemView, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -3824,7 +3824,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3837,7 +3837,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3850,7 +3850,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QAbstractItemView, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -3863,7 +3863,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3876,7 +3876,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QAbstractItemView, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -3889,7 +3889,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QAbstractItemView, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -3898,7 +3898,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -3909,7 +3909,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -3918,7 +3918,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QAbstractItemView, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3927,7 +3927,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3936,7 +3936,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -3945,7 +3945,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -3954,7 +3954,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -3963,7 +3963,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -3972,7 +3972,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -3981,7 +3981,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -3990,7 +3990,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -3999,7 +3999,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QAbstractItemView, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -4008,7 +4008,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -4019,7 +4019,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -4028,7 +4028,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -4037,7 +4037,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -4046,7 +4046,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QAbstractItemView, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -4055,7 +4055,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -4064,7 +4064,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -4075,7 +4075,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -4084,7 +4084,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -4093,7 +4093,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4102,7 +4102,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -4111,7 +4111,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -4120,7 +4120,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -4129,7 +4129,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QAbstractItemView, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -4138,7 +4138,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QAbstractItemView, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -4147,7 +4147,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -4156,7 +4156,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QAbstractItemView, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -4165,7 +4165,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -4174,7 +4174,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -4183,7 +4183,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -4192,7 +4192,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -4201,7 +4201,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -4210,7 +4210,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -4219,7 +4219,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QAbstractItemView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4228,7 +4228,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4237,7 +4237,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4246,7 +4246,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QAbstractItemView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4255,7 +4255,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4264,7 +4264,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4273,7 +4273,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QAbstractItemView, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -4282,7 +4282,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Show(self: ?*anyopaque) void {
@@ -4291,7 +4291,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -4300,7 +4300,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -4309,7 +4309,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -4318,7 +4318,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -4327,7 +4327,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -4336,7 +4336,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -4345,7 +4345,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -4354,7 +4354,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -4363,7 +4363,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4372,7 +4372,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QAbstractItemView, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -4381,7 +4381,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4390,7 +4390,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QAbstractItemView, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -4399,7 +4399,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4408,7 +4408,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QAbstractItemView, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -4417,7 +4417,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QAbstractItemView, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -4426,7 +4426,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -4439,7 +4439,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QAbstractItemView, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -4452,7 +4452,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -4461,7 +4461,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -4470,7 +4470,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -4479,7 +4479,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -4488,7 +4488,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -4497,7 +4497,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -4506,7 +4506,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -4515,7 +4515,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -4526,7 +4526,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QAbstractItemView, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -4535,7 +4535,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QAbstractItemView, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -4544,7 +4544,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -4553,7 +4553,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -4562,7 +4562,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -4571,7 +4571,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -4580,7 +4580,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -4589,7 +4589,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QAbstractItemView, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -4598,7 +4598,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -4607,7 +4607,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -4616,7 +4616,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -4625,7 +4625,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QAbstractItemView, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -4634,7 +4634,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -4643,7 +4643,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QAbstractItemView, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -4652,7 +4652,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QAbstractItemView, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -4661,7 +4661,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QAbstractItemView, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -4670,7 +4670,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QAbstractItemView, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -4679,7 +4679,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4688,7 +4688,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4697,7 +4697,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4706,7 +4706,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -4715,7 +4715,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QAbstractItemView, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -4724,7 +4724,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QAbstractItemView, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4733,7 +4733,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QAbstractItemView, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4746,7 +4746,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QAbstractItemView, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4759,7 +4759,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QAbstractItemView, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -4768,7 +4768,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QAbstractItemView, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4777,7 +4777,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4791,7 +4791,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QAbstractItemView, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4804,7 +4804,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QAbstractItemView, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4817,7 +4817,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QAbstractItemView, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4830,7 +4830,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QAbstractItemView, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4843,7 +4843,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4852,7 +4852,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QAbstractItemView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4861,7 +4861,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -4872,7 +4872,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -4881,7 +4881,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QAbstractItemView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4890,7 +4890,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -4901,7 +4901,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -4910,7 +4910,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QAbstractItemView, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -4919,7 +4919,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QAbstractItemView, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4928,7 +4928,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QAbstractItemView, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4937,7 +4937,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -4946,7 +4946,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -4955,7 +4955,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -4964,7 +4964,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QAbstractItemView, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -4973,7 +4973,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -4982,7 +4982,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QAbstractItemView, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -4991,7 +4991,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -5000,7 +5000,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -5009,7 +5009,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -5018,7 +5018,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QAbstractItemView, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -5027,7 +5027,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -5036,7 +5036,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -5049,7 +5049,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5058,7 +5058,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -5067,7 +5067,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5076,7 +5076,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -5089,7 +5089,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -5098,7 +5098,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QAbstractItemView, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -5107,7 +5107,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5116,7 +5116,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     ///
@@ -5127,7 +5127,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QAbstractItemView, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -5136,7 +5136,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -5145,7 +5145,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -5154,7 +5154,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -5163,7 +5163,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -5172,7 +5172,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -5181,7 +5181,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QAbstractItemView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -5190,7 +5190,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QAbstractItemView, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -5199,7 +5199,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QAbstractItemView, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -5208,7 +5208,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QAbstractItemView, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -5217,7 +5217,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QAbstractItemView, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -5226,7 +5226,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QAbstractItemView, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -5235,7 +5235,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -5244,7 +5244,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -5253,7 +5253,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -5262,7 +5262,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -5271,7 +5271,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5284,7 +5284,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractItemView, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -5297,7 +5297,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -5306,7 +5306,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -5315,7 +5315,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -5324,7 +5324,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -5333,7 +5333,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractItemView, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -5342,7 +5342,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -5351,7 +5351,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractItemView, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -5360,7 +5360,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractItemView, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -5369,7 +5369,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractItemView, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -5378,7 +5378,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractItemView, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -5387,7 +5387,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -5401,7 +5401,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractItemView, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -5410,7 +5410,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractItemView, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -5419,7 +5419,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -5428,7 +5428,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractItemView, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -5439,7 +5439,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -5448,7 +5448,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -5457,7 +5457,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -5466,7 +5466,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -5475,7 +5475,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractItemView, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -5485,7 +5485,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractItemView, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -5495,7 +5495,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractItemView, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -5519,7 +5519,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5528,7 +5528,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -5537,7 +5537,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -5546,7 +5546,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -5555,7 +5555,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -5564,7 +5564,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractItemView, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -5574,7 +5574,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -5583,7 +5583,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractItemView, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -5592,7 +5592,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractItemView, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -5601,7 +5601,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5610,7 +5610,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractItemView, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -5621,7 +5621,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -5630,7 +5630,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractItemView, callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -5639,7 +5639,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -5648,7 +5648,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -5657,7 +5657,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -5666,7 +5666,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -5675,7 +5675,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -5684,7 +5684,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -5693,7 +5693,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -5702,7 +5702,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -5711,7 +5711,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -5720,7 +5720,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -5729,7 +5729,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QAbstractItemView ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -5738,7 +5738,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -5747,7 +5747,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -5756,7 +5756,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5767,7 +5767,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5778,7 +5778,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5789,7 +5789,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5800,7 +5800,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5811,7 +5811,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5822,7 +5822,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5833,7 +5833,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5844,7 +5844,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5855,7 +5855,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5866,7 +5866,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5877,7 +5877,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5888,7 +5888,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5899,7 +5899,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5910,7 +5910,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5921,7 +5921,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5932,7 +5932,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5943,7 +5943,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5954,7 +5954,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5965,7 +5965,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5976,7 +5976,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5987,7 +5987,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5998,7 +5998,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6009,7 +6009,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6020,7 +6020,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6031,7 +6031,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6042,7 +6042,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6053,7 +6053,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6064,7 +6064,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6075,7 +6075,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6086,7 +6086,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6097,7 +6097,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6108,7 +6108,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6119,7 +6119,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6130,7 +6130,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6141,7 +6141,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6152,7 +6152,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6163,7 +6163,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6174,7 +6174,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6185,7 +6185,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6196,7 +6196,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6207,7 +6207,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6218,7 +6218,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6229,7 +6229,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6240,7 +6240,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6251,7 +6251,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6262,7 +6262,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6273,7 +6273,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6284,7 +6284,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6295,7 +6295,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6306,7 +6306,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6317,7 +6317,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6328,7 +6328,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6339,7 +6339,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6350,7 +6350,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6361,7 +6361,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6372,7 +6372,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6383,7 +6383,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6394,7 +6394,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6405,7 +6405,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6416,7 +6416,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6427,7 +6427,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6438,7 +6438,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6449,7 +6449,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6460,7 +6460,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6471,7 +6471,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6482,7 +6482,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6493,7 +6493,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6504,7 +6504,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6515,7 +6515,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6530,7 +6530,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6545,7 +6545,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6556,7 +6556,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6567,7 +6567,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6578,7 +6578,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6589,7 +6589,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6600,7 +6600,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6611,7 +6611,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6622,7 +6622,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6633,7 +6633,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6644,7 +6644,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6655,7 +6655,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6666,7 +6666,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6677,7 +6677,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6688,7 +6688,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6699,7 +6699,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6710,7 +6710,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6721,7 +6721,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6732,7 +6732,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6743,7 +6743,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6754,7 +6754,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6765,7 +6765,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6776,7 +6776,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6787,7 +6787,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6798,7 +6798,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6809,7 +6809,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6820,7 +6820,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6831,7 +6831,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6842,7 +6842,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6853,7 +6853,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6864,7 +6864,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6875,7 +6875,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6886,7 +6886,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6897,7 +6897,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6908,7 +6908,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6919,7 +6919,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6930,7 +6930,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6941,7 +6941,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6952,7 +6952,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6963,7 +6963,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6974,7 +6974,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6985,7 +6985,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6996,7 +6996,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7007,7 +7007,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7018,7 +7018,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7029,7 +7029,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7040,7 +7040,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7051,7 +7051,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7062,7 +7062,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7073,7 +7073,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7084,7 +7084,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7095,7 +7095,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7106,7 +7106,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7117,7 +7117,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7128,7 +7128,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7139,7 +7139,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7150,7 +7150,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7162,7 +7162,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7174,7 +7174,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7185,7 +7185,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7196,7 +7196,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7207,7 +7207,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7218,7 +7218,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7229,7 +7229,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7240,7 +7240,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7251,7 +7251,7 @@ pub const qabstractitemview = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -7260,7 +7260,7 @@ pub const qabstractitemview = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dtor.QAbstractItemView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dtor.QAbstractItemView)
     ///
     /// Delete this object from C++ memory.
     ///

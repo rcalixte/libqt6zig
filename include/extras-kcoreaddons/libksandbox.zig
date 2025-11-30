@@ -4,35 +4,35 @@ const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 
 /// https://api.kde.org/ksandbox.html
 pub const ksandbox = struct {
-    /// [Qt documentation](https://api.kde.org/ksandbox.html#isInside)
+    /// [Upstream resources](https://api.kde.org/ksandbox.html#isInside)
     ///
     ///
     pub fn IsInside() bool {
         return qtc.KSandbox_IsInside();
     }
 
-    /// [Qt documentation](https://api.kde.org/ksandbox.html#isFlatpak)
+    /// [Upstream resources](https://api.kde.org/ksandbox.html#isFlatpak)
     ///
     ///
     pub fn IsFlatpak() bool {
         return qtc.KSandbox_IsFlatpak();
     }
 
-    /// [Qt documentation](https://api.kde.org/ksandbox.html#isSnap)
+    /// [Upstream resources](https://api.kde.org/ksandbox.html#isSnap)
     ///
     ///
     pub fn IsSnap() bool {
         return qtc.KSandbox_IsSnap();
     }
 
-    /// [Qt documentation](https://api.kde.org/ksandbox.html#makeHostContext)
+    /// [Upstream resources](https://api.kde.org/ksandbox.html#makeHostContext)
     ///
     /// ``` param1: QtC.QProcess ```
     pub fn MakeHostContext(param1: ?*anyopaque) QtC.KSandbox__ProcessContext {
         return qtc.KSandbox_MakeHostContext(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksandbox.html#startHostProcess)
+    /// [Upstream resources](https://api.kde.org/ksandbox.html#startHostProcess)
     ///
     /// ``` param1: QtC.QProcess, param2: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn StartHostProcess(param1: ?*anyopaque, param2: i32) void {

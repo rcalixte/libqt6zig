@@ -11,14 +11,14 @@ pub const kcursorsaver = struct {
         return qtc.KCursorSaver_new(@intCast(shape));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursorsaver.html#restoreCursor)
+    /// [Upstream resources](https://api.kde.org/kcursorsaver.html#restoreCursor)
     ///
     /// ``` self: QtC.KCursorSaver ```
     pub fn RestoreCursor(self: ?*anyopaque) void {
         qtc.KCursorSaver_RestoreCursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursorsaver.html#dtor.KCursorSaver)
+    /// [Upstream resources](https://api.kde.org/kcursorsaver.html#dtor.KCursorSaver)
     ///
     /// Delete this object from C++ memory.
     ///

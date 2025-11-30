@@ -46,7 +46,7 @@ pub const disambiguated_t = struct {
         qtc.Disambiguated_t_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/disambiguated-t.html#dtor.Disambiguated_t)
+    /// [Upstream resources](https://doc.qt.io/qt-6/disambiguated-t.html#dtor.Disambiguated_t)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -86,14 +86,14 @@ pub const qinternal = struct {
         qtc.QInternal_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinternal.html#activateCallbacks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinternal.html#activateCallbacks)
     ///
     /// ``` param1: qnamespace_enums.Callback, param2: ?*anyopaque ```
     pub fn ActivateCallbacks(param1: i32, param2: ?*anyopaque) bool {
         return qtc.QInternal_ActivateCallbacks(@intCast(param1), @ptrCast(@alignCast(param2)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinternal.html#dtor.QInternal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qinternal.html#dtor.QInternal)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -182,7 +182,7 @@ pub const qkeycombination = struct {
         qtc.QKeyCombination_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#keyboardModifiers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#keyboardModifiers)
     ///
     /// ``` self: QtC.QKeyCombination ```
     ///
@@ -191,7 +191,7 @@ pub const qkeycombination = struct {
         return qtc.QKeyCombination_KeyboardModifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#key)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#key)
     ///
     /// ``` self: QtC.QKeyCombination ```
     ///
@@ -200,28 +200,28 @@ pub const qkeycombination = struct {
         return qtc.QKeyCombination_Key(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#fromCombined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#fromCombined)
     ///
     /// ``` combined: i32 ```
     pub fn FromCombined(combined: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_FromCombined(@intCast(combined));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#toCombined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#toCombined)
     ///
     /// ``` self: QtC.QKeyCombination ```
     pub fn ToCombined(self: ?*anyopaque) i32 {
         return qtc.QKeyCombination_ToCombined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#operator)
     ///
     /// ``` self: QtC.QKeyCombination ```
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QKeyCombination_ToInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#dtor.QKeyCombination)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#dtor.QKeyCombination)
     ///
     /// Delete this object from C++ memory.
     ///

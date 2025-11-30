@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 
 /// https://api.kde.org/kpixmapsequenceloader.html
 pub const kpixmapsequenceloader = struct {
-    /// [Qt documentation](https://api.kde.org/kpixmapsequenceloader.html#load)
+    /// [Upstream resources](https://api.kde.org/kpixmapsequenceloader.html#load)
     ///
     /// ``` param1: []const u8, param2: i32 ```
     pub fn Load(param1: []const u8, param2: i32) QtC.KPixmapSequence {

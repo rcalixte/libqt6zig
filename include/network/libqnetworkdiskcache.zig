@@ -20,7 +20,7 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -52,7 +52,7 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -64,7 +64,7 @@ pub const qnetworkdiskcache = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheDirectory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheDirectory)
     ///
     /// ``` self: QtC.QNetworkDiskCache, allocator: std.mem.Allocator ```
     pub fn CacheDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -75,7 +75,7 @@ pub const qnetworkdiskcache = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#setCacheDirectory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#setCacheDirectory)
     ///
     /// ``` self: QtC.QNetworkDiskCache, cacheDir: []const u8 ```
     pub fn SetCacheDirectory(self: ?*anyopaque, cacheDir: []const u8) void {
@@ -86,28 +86,28 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_SetCacheDirectory(@ptrCast(self), cacheDir_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#maximumCacheSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#maximumCacheSize)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn MaximumCacheSize(self: ?*anyopaque) i64 {
         return qtc.QNetworkDiskCache_MaximumCacheSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#setMaximumCacheSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#setMaximumCacheSize)
     ///
     /// ``` self: QtC.QNetworkDiskCache, size: i64 ```
     pub fn SetMaximumCacheSize(self: ?*anyopaque, size: i64) void {
         qtc.QNetworkDiskCache_SetMaximumCacheSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn CacheSize(self: ?*anyopaque) i64 {
         return qtc.QNetworkDiskCache_CacheSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -116,7 +116,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnCacheSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#cacheSize)
     ///
     /// Base class method implementation
     ///
@@ -125,14 +125,14 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_QBaseCacheSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
     ///
     /// ``` self: QtC.QNetworkDiskCache, url: QtC.QUrl ```
     pub fn MetaData(self: ?*anyopaque, url: ?*anyopaque) QtC.QNetworkCacheMetaData {
         return qtc.QNetworkDiskCache_MetaData(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -141,7 +141,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnMetaData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#metaData)
     ///
     /// Base class method implementation
     ///
@@ -150,14 +150,14 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_QBaseMetaData(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
     ///
     /// ``` self: QtC.QNetworkDiskCache, metaData: QtC.QNetworkCacheMetaData ```
     pub fn UpdateMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.QNetworkDiskCache_UpdateMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -166,7 +166,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnUpdateMetaData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#updateMetaData)
     ///
     /// Base class method implementation
     ///
@@ -175,14 +175,14 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_QBaseUpdateMetaData(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
     ///
     /// ``` self: QtC.QNetworkDiskCache, url: QtC.QUrl ```
     pub fn Data(self: ?*anyopaque, url: ?*anyopaque) QtC.QIODevice {
         return qtc.QNetworkDiskCache_Data(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -191,7 +191,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#data)
     ///
     /// Base class method implementation
     ///
@@ -200,14 +200,14 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_QBaseData(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
     ///
     /// ``` self: QtC.QNetworkDiskCache, url: QtC.QUrl ```
     pub fn Remove(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.QNetworkDiskCache_Remove(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
     ///
     /// Allows for overriding the related default method
     ///
@@ -216,7 +216,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnRemove(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#remove)
     ///
     /// Base class method implementation
     ///
@@ -225,14 +225,14 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_QBaseRemove(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
     ///
     /// ``` self: QtC.QNetworkDiskCache, metaData: QtC.QNetworkCacheMetaData ```
     pub fn Prepare(self: ?*anyopaque, metaData: ?*anyopaque) QtC.QIODevice {
         return qtc.QNetworkDiskCache_Prepare(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
     ///
     /// Allows for overriding the related default method
     ///
@@ -241,7 +241,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnPrepare(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#prepare)
     ///
     /// Base class method implementation
     ///
@@ -250,14 +250,14 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_QBasePrepare(@ptrCast(self), @ptrCast(metaData));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
     ///
     /// ``` self: QtC.QNetworkDiskCache, device: QtC.QIODevice ```
     pub fn Insert(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QNetworkDiskCache_Insert(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
     ///
     /// Allows for overriding the related default method
     ///
@@ -266,7 +266,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnInsert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#insert)
     ///
     /// Base class method implementation
     ///
@@ -275,7 +275,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_QBaseInsert(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#fileMetaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#fileMetaData)
     ///
     /// ``` self: QtC.QNetworkDiskCache, fileName: []const u8 ```
     pub fn FileMetaData(self: ?*anyopaque, fileName: []const u8) QtC.QNetworkCacheMetaData {
@@ -286,14 +286,14 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_FileMetaData(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QNetworkDiskCache_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
     ///
     /// Allows for overriding the related default method
     ///
@@ -302,7 +302,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#clear)
     ///
     /// Base class method implementation
     ///
@@ -311,14 +311,14 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_QBaseClear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn Expire(self: ?*anyopaque) i64 {
         return qtc.QNetworkDiskCache_Expire(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
     ///
     /// Allows for overriding the related default method
     ///
@@ -327,7 +327,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QNetworkDiskCache_OnExpire(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#expire)
     ///
     /// Base class method implementation
     ///
@@ -336,7 +336,7 @@ pub const qnetworkdiskcache = struct {
         return qtc.QNetworkDiskCache_QBaseExpire(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -349,7 +349,7 @@ pub const qnetworkdiskcache = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -364,7 +364,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QNetworkDiskCache, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -377,7 +377,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QNetworkDiskCache, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -390,7 +390,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -399,7 +399,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -408,7 +408,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -417,7 +417,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -426,7 +426,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QNetworkDiskCache, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -435,7 +435,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -444,7 +444,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QNetworkDiskCache, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -453,7 +453,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QNetworkDiskCache, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -462,7 +462,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QNetworkDiskCache, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -471,7 +471,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QNetworkDiskCache, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -480,7 +480,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QNetworkDiskCache, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -494,7 +494,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QNetworkDiskCache, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -503,7 +503,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QNetworkDiskCache, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -512,7 +512,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QNetworkDiskCache, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -521,7 +521,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -530,7 +530,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QNetworkDiskCache, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -541,7 +541,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -550,7 +550,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -559,7 +559,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -568,7 +568,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -577,7 +577,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QNetworkDiskCache, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -587,7 +587,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QNetworkDiskCache, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -597,7 +597,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QNetworkDiskCache, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -621,7 +621,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -630,7 +630,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -639,7 +639,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -648,7 +648,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkDiskCache, callback: *const fn (self: QtC.QNetworkDiskCache) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -657,7 +657,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -666,7 +666,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QNetworkDiskCache, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -676,7 +676,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QNetworkDiskCache ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -685,7 +685,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QNetworkDiskCache, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -694,7 +694,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QNetworkDiskCache, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -703,7 +703,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -712,7 +712,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QNetworkDiskCache, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -723,7 +723,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkDiskCache, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -732,7 +732,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QNetworkDiskCache, callback: *const fn (self: QtC.QNetworkDiskCache, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -741,7 +741,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -752,7 +752,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -763,7 +763,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -774,7 +774,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -785,7 +785,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -796,7 +796,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -807,7 +807,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -818,7 +818,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -829,7 +829,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -840,7 +840,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -851,7 +851,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -862,7 +862,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -873,7 +873,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -884,7 +884,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -895,7 +895,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -906,7 +906,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -917,7 +917,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -928,7 +928,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -939,7 +939,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -950,7 +950,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -961,7 +961,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -972,7 +972,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -983,7 +983,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -994,7 +994,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1005,7 +1005,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1016,7 +1016,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1027,7 +1027,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1038,7 +1038,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1050,7 +1050,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1062,7 +1062,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1073,7 +1073,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1084,7 +1084,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1095,7 +1095,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1106,7 +1106,7 @@ pub const qnetworkdiskcache = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1115,7 +1115,7 @@ pub const qnetworkdiskcache = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdiskcache.html#dtor.QNetworkDiskCache)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qnetworkdiskcache.html#dtor.QNetworkDiskCache)
     ///
     /// Delete this object from C++ memory.
     ///

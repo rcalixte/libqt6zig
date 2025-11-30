@@ -10,14 +10,14 @@ pub const ktexteditor__movingrangefeedback = struct {
         return qtc.KTextEditor__MovingRangeFeedback_new();
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
     ///
     /// ``` self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange ```
     pub fn RangeEmpty(self: ?*anyopaque, range: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_RangeEmpty(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
     ///
     /// Allows for overriding the related default method
     ///
@@ -26,7 +26,7 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnRangeEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
     ///
     /// Base class method implementation
     ///
@@ -35,14 +35,14 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_QBaseRangeEmpty(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
     ///
     /// ``` self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange ```
     pub fn RangeInvalid(self: ?*anyopaque, range: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_RangeInvalid(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
     ///
     /// Allows for overriding the related default method
     ///
@@ -51,7 +51,7 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnRangeInvalid(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
     ///
     /// Base class method implementation
     ///
@@ -60,14 +60,14 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_QBaseRangeInvalid(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
     ///
     /// ``` self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View ```
     pub fn MouseEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_MouseEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
     ///
     /// Allows for overriding the related default method
     ///
@@ -76,7 +76,7 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
     ///
     /// Base class method implementation
     ///
@@ -85,14 +85,14 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_QBaseMouseEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
     ///
     /// ``` self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View ```
     pub fn MouseExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_MouseExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
     ///
     /// Allows for overriding the related default method
     ///
@@ -101,7 +101,7 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnMouseExitedRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
     ///
     /// Base class method implementation
     ///
@@ -110,14 +110,14 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_QBaseMouseExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
     ///
     /// ``` self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View ```
     pub fn CaretEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_CaretEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
     ///
     /// Allows for overriding the related default method
     ///
@@ -126,7 +126,7 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
     ///
     /// Base class method implementation
     ///
@@ -135,14 +135,14 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_QBaseCaretEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
     ///
     /// ``` self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View ```
     pub fn CaretExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_CaretExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
     ///
     /// Allows for overriding the related default method
     ///
@@ -151,7 +151,7 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnCaretExitedRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
     ///
     /// Base class method implementation
     ///

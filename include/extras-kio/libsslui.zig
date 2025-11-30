@@ -4,7 +4,7 @@ const sslui_enums = enums;
 
 /// https://api.kde.org/kio-sslui.html
 pub const kio__sslui = struct {
-    /// [Qt documentation](https://api.kde.org/kio-sslui.html#askIgnoreSslErrors)
+    /// [Upstream resources](https://api.kde.org/kio-sslui.html#askIgnoreSslErrors)
     ///
     /// ``` param1: QtC.KSslErrorUiData, param2: sslui_enums.RulesStorage ```
     pub fn AskIgnoreSslErrors(param1: ?*anyopaque, param2: i32) bool {

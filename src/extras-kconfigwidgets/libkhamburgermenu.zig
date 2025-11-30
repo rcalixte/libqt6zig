@@ -15,7 +15,7 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_new(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -47,7 +47,7 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -59,91 +59,91 @@ pub const khamburgermenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#setMenuBar)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#setMenuBar)
     ///
     /// ``` self: QtC.KHamburgerMenu, menuBar: QtC.QMenuBar ```
     pub fn SetMenuBar(self: ?*anyopaque, menuBar: ?*anyopaque) void {
         qtc.KHamburgerMenu_SetMenuBar(@ptrCast(self), @ptrCast(menuBar));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#menuBar)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#menuBar)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn MenuBar(self: ?*anyopaque) QtC.QMenuBar {
         return qtc.KHamburgerMenu_MenuBar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#setMenuBarAdvertised)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#setMenuBarAdvertised)
     ///
     /// ``` self: QtC.KHamburgerMenu, advertise: bool ```
     pub fn SetMenuBarAdvertised(self: ?*anyopaque, advertise: bool) void {
         qtc.KHamburgerMenu_SetMenuBarAdvertised(@ptrCast(self), advertise);
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#menuBarAdvertised)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#menuBarAdvertised)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn MenuBarAdvertised(self: ?*anyopaque) bool {
         return qtc.KHamburgerMenu_MenuBarAdvertised(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#setShowMenuBarAction)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#setShowMenuBarAction)
     ///
     /// ``` self: QtC.KHamburgerMenu, showMenuBarAction: QtC.QAction ```
     pub fn SetShowMenuBarAction(self: ?*anyopaque, showMenuBarAction: ?*anyopaque) void {
         qtc.KHamburgerMenu_SetShowMenuBarAction(@ptrCast(self), @ptrCast(showMenuBarAction));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#addToMenu)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#addToMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu, menu: QtC.QMenu ```
     pub fn AddToMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
         qtc.KHamburgerMenu_AddToMenu(@ptrCast(self), @ptrCast(menu));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#insertIntoMenuBefore)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#insertIntoMenuBefore)
     ///
     /// ``` self: QtC.KHamburgerMenu, menu: QtC.QMenu, before: QtC.QAction ```
     pub fn InsertIntoMenuBefore(self: ?*anyopaque, menu: ?*anyopaque, before: ?*anyopaque) void {
         qtc.KHamburgerMenu_InsertIntoMenuBefore(@ptrCast(self), @ptrCast(menu), @ptrCast(before));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#hideActionsOf)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#hideActionsOf)
     ///
     /// ``` self: QtC.KHamburgerMenu, widget: QtC.QWidget ```
     pub fn HideActionsOf(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KHamburgerMenu_HideActionsOf(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#showActionsOf)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#showActionsOf)
     ///
     /// ``` self: QtC.KHamburgerMenu, widget: QtC.QWidget ```
     pub fn ShowActionsOf(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KHamburgerMenu_ShowActionsOf(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#aboutToShowMenu)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#aboutToShowMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn AboutToShowMenu(self: ?*anyopaque) void {
         qtc.KHamburgerMenu_AboutToShowMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#aboutToShowMenu)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#aboutToShowMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu) callconv(.c) void ```
     pub fn OnAboutToShowMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KHamburgerMenu_Connect_AboutToShowMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#createWidget)
     ///
     /// ``` self: QtC.KHamburgerMenu, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KHamburgerMenu_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -152,7 +152,7 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -161,7 +161,7 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -174,7 +174,7 @@ pub const khamburgermenu = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -189,7 +189,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
     ///
     /// ``` self: QtC.KHamburgerMenu, w: QtC.QWidget ```
     pub fn SetDefaultWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -198,7 +198,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn DefaultWidget(self: ?*anyopaque) QtC.QWidget {
@@ -207,7 +207,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
     ///
     /// ``` self: QtC.KHamburgerMenu, parent: QtC.QWidget ```
     pub fn RequestWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -216,7 +216,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
     ///
     /// ``` self: QtC.KHamburgerMenu, widget: QtC.QWidget ```
     pub fn ReleaseWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -225,7 +225,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -239,7 +239,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
     ///
     /// ``` self: QtC.KHamburgerMenu, group: QtC.QActionGroup ```
     pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -248,7 +248,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#actionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -257,7 +257,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
     ///
     /// ``` self: QtC.KHamburgerMenu, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -266,7 +266,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
@@ -275,7 +275,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
     ///
     /// ``` self: QtC.KHamburgerMenu, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -288,7 +288,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -301,7 +301,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
     ///
     /// ``` self: QtC.KHamburgerMenu, text: []const u8 ```
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
@@ -314,7 +314,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#iconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -327,7 +327,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
     ///
     /// ``` self: QtC.KHamburgerMenu, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -340,7 +340,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -353,7 +353,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
     ///
     /// ``` self: QtC.KHamburgerMenu, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -366,7 +366,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -379,7 +379,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
     ///
     /// ``` self: QtC.KHamburgerMenu, what: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
@@ -392,7 +392,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -405,7 +405,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setPriority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
     /// ``` self: QtC.KHamburgerMenu, priority: qaction_enums.Priority ```
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
@@ -414,7 +414,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#priority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     ///
@@ -425,7 +425,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
     ///
     /// ``` self: QtC.KHamburgerMenu, b: bool ```
     pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
@@ -434,7 +434,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
@@ -443,7 +443,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
     ///
     /// ``` self: QtC.KHamburgerMenu, shortcut: QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
@@ -452,7 +452,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
@@ -461,7 +461,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KHamburgerMenu, shortcuts: []QtC.QKeySequence ```
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
@@ -474,7 +474,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KHamburgerMenu, shortcuts: qkeysequence_enums.StandardKey ```
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
@@ -483,7 +483,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -497,7 +497,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
     /// ``` self: QtC.KHamburgerMenu, context: qnamespace_enums.ShortcutContext ```
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
@@ -506,7 +506,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     ///
@@ -517,7 +517,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
     ///
     /// ``` self: QtC.KHamburgerMenu, autoRepeat: bool ```
     pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
@@ -526,7 +526,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn AutoRepeat(self: ?*anyopaque) bool {
@@ -535,7 +535,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setFont)
     ///
     /// ``` self: QtC.KHamburgerMenu, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -544,7 +544,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#font)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -553,7 +553,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
     ///
     /// ``` self: QtC.KHamburgerMenu, checkable: bool ```
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
@@ -562,7 +562,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsCheckable(self: ?*anyopaque) bool {
@@ -571,7 +571,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
@@ -580,7 +580,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
     ///
     /// ``` self: QtC.KHamburgerMenu, varVal: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
@@ -589,7 +589,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsChecked(self: ?*anyopaque) bool {
@@ -598,7 +598,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -607,7 +607,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -616,7 +616,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
     /// ``` self: QtC.KHamburgerMenu, event: qaction_enums.ActionEvent ```
     pub fn Activate(self: ?*anyopaque, event: i32) void {
@@ -625,7 +625,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
     /// ``` self: QtC.KHamburgerMenu, menuRole: qaction_enums.MenuRole ```
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
@@ -634,7 +634,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#menuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     ///
@@ -645,7 +645,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu, visible: bool ```
     pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
@@ -654,7 +654,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
@@ -663,7 +663,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu, show: bool ```
     pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
@@ -672,7 +672,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
@@ -681,7 +681,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn ShowStatusText(self: ?*anyopaque) bool {
@@ -690,7 +690,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#trigger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Trigger(self: ?*anyopaque) void {
@@ -699,7 +699,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hover)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Hover(self: ?*anyopaque) void {
@@ -708,7 +708,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
     ///
     /// ``` self: QtC.KHamburgerMenu, checked: bool ```
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
@@ -717,7 +717,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Toggle(self: ?*anyopaque) void {
@@ -726,7 +726,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
     ///
     /// ``` self: QtC.KHamburgerMenu, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -735,7 +735,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn ResetEnabled(self: ?*anyopaque) void {
@@ -744,7 +744,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
     ///
     /// ``` self: QtC.KHamburgerMenu, b: bool ```
     pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
@@ -753,7 +753,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
     ///
     /// ``` self: QtC.KHamburgerMenu, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -762,7 +762,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -771,7 +771,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -780,7 +780,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KHamburgerMenu, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -789,7 +789,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -798,7 +798,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KHamburgerMenu, checkable: bool ```
     pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
@@ -807,7 +807,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu, checkable: bool) callconv(.c) void ```
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -816,7 +816,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -825,7 +825,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -834,7 +834,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Triggered(self: ?*anyopaque) void {
@@ -843,7 +843,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu) callconv(.c) void ```
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -852,7 +852,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Hovered(self: ?*anyopaque) void {
@@ -861,7 +861,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -870,7 +870,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KHamburgerMenu, param1: bool ```
     pub fn Toggled(self: ?*anyopaque, param1: bool) void {
@@ -879,7 +879,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu, param1: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -888,7 +888,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KHamburgerMenu, object: QtC.QObject ```
     pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
@@ -897,7 +897,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KHamburgerMenu, checked: bool ```
     pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
@@ -906,7 +906,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu, checked: bool) callconv(.c) void ```
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -915,7 +915,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -928,7 +928,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KHamburgerMenu, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -941,7 +941,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -950,7 +950,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -959,7 +959,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -968,7 +968,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -977,7 +977,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KHamburgerMenu, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -986,7 +986,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -995,7 +995,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KHamburgerMenu, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1004,7 +1004,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KHamburgerMenu, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1013,7 +1013,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KHamburgerMenu, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1022,7 +1022,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KHamburgerMenu, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1031,7 +1031,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1045,7 +1045,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KHamburgerMenu, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1054,7 +1054,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KHamburgerMenu, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1063,7 +1063,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KHamburgerMenu, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1072,7 +1072,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1081,7 +1081,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KHamburgerMenu, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1092,7 +1092,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1101,7 +1101,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1110,7 +1110,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1119,7 +1119,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1128,7 +1128,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KHamburgerMenu, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1138,7 +1138,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KHamburgerMenu, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1148,7 +1148,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KHamburgerMenu, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1172,7 +1172,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1181,7 +1181,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1190,7 +1190,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1199,7 +1199,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1208,7 +1208,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1217,7 +1217,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KHamburgerMenu, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1227,7 +1227,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KHamburgerMenu ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1236,7 +1236,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KHamburgerMenu, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1245,7 +1245,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KHamburgerMenu, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1254,7 +1254,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1263,7 +1263,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KHamburgerMenu, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1274,7 +1274,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KHamburgerMenu, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1283,7 +1283,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KHamburgerMenu, callback: *const fn (self: QtC.KHamburgerMenu, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1292,7 +1292,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1303,7 +1303,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1314,7 +1314,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1325,7 +1325,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1336,7 +1336,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1347,7 +1347,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1358,7 +1358,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1369,7 +1369,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1380,7 +1380,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1391,7 +1391,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1402,7 +1402,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1413,7 +1413,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1424,7 +1424,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1435,7 +1435,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1457,7 +1457,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1468,7 +1468,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1479,7 +1479,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1490,7 +1490,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1501,7 +1501,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1512,7 +1512,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1523,7 +1523,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1534,7 +1534,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1545,7 +1545,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1556,7 +1556,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1572,7 +1572,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1588,7 +1588,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1599,7 +1599,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1610,7 +1610,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1621,7 +1621,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1632,7 +1632,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1643,7 +1643,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1654,7 +1654,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1665,7 +1665,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1677,7 +1677,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1689,7 +1689,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1700,7 +1700,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1711,7 +1711,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1722,7 +1722,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1733,7 +1733,7 @@ pub const khamburgermenu = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1742,7 +1742,7 @@ pub const khamburgermenu = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/khamburgermenu.html#dtor.KHamburgerMenu)
+    /// [Upstream resources](https://api.kde.org/khamburgermenu.html#dtor.KHamburgerMenu)
     ///
     /// Delete this object from C++ memory.
     ///

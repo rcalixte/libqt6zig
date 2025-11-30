@@ -31,42 +31,42 @@ pub const kcursor = struct {
         qtc.KCursor_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursor.html#setAutoHideCursor)
+    /// [Upstream resources](https://api.kde.org/kcursor.html#setAutoHideCursor)
     ///
     /// ``` w: QtC.QWidget, enable: bool ```
     pub fn SetAutoHideCursor(w: ?*anyopaque, enable: bool) void {
         qtc.KCursor_SetAutoHideCursor(@ptrCast(w), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursor.html#setHideCursorDelay)
+    /// [Upstream resources](https://api.kde.org/kcursor.html#setHideCursorDelay)
     ///
     /// ``` ms: i32 ```
     pub fn SetHideCursorDelay(ms: i32) void {
         qtc.KCursor_SetHideCursorDelay(@intCast(ms));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursor.html#hideCursorDelay)
+    /// [Upstream resources](https://api.kde.org/kcursor.html#hideCursorDelay)
     ///
     ///
     pub fn HideCursorDelay() i32 {
         return qtc.KCursor_HideCursorDelay();
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursor.html#autoHideEventFilter)
+    /// [Upstream resources](https://api.kde.org/kcursor.html#autoHideEventFilter)
     ///
     /// ``` param1: QtC.QObject, param2: QtC.QEvent ```
     pub fn AutoHideEventFilter(param1: ?*anyopaque, param2: ?*anyopaque) void {
         qtc.KCursor_AutoHideEventFilter(@ptrCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursor.html#setAutoHideCursor)
+    /// [Upstream resources](https://api.kde.org/kcursor.html#setAutoHideCursor)
     ///
     /// ``` w: QtC.QWidget, enable: bool, customEventFilter: bool ```
     pub fn SetAutoHideCursor3(w: ?*anyopaque, enable: bool, customEventFilter: bool) void {
         qtc.KCursor_SetAutoHideCursor3(@ptrCast(w), enable, customEventFilter);
     }
 
-    /// [Qt documentation](https://api.kde.org/kcursor.html#dtor.KCursor)
+    /// [Upstream resources](https://api.kde.org/kcursor.html#dtor.KCursor)
     ///
     /// Delete this object from C++ memory.
     ///

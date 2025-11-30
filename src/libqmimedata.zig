@@ -13,7 +13,7 @@ pub const qmimedata = struct {
         return qtc.QMimeData_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -45,7 +45,7 @@ pub const qmimedata = struct {
         return qtc.QMimeData_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -57,7 +57,7 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#urls)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#urls)
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -69,7 +69,7 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#setUrls)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setUrls)
     ///
     /// ``` self: QtC.QMimeData, urls: []QtC.QUrl ```
     pub fn SetUrls(self: ?*anyopaque, urls: []QtC.QUrl) void {
@@ -80,14 +80,14 @@ pub const qmimedata = struct {
         qtc.QMimeData_SetUrls(@ptrCast(self), urls_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasUrls)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasUrls)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn HasUrls(self: ?*anyopaque) bool {
         return qtc.QMimeData_HasUrls(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#text)
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -98,7 +98,7 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setText)
     ///
     /// ``` self: QtC.QMimeData, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -109,14 +109,14 @@ pub const qmimedata = struct {
         qtc.QMimeData_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasText)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn HasText(self: ?*anyopaque) bool {
         return qtc.QMimeData_HasText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#html)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#html)
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Html(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -127,7 +127,7 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#setHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setHtml)
     ///
     /// ``` self: QtC.QMimeData, html: []const u8 ```
     pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
@@ -138,56 +138,56 @@ pub const qmimedata = struct {
         qtc.QMimeData_SetHtml(@ptrCast(self), html_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasHtml)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn HasHtml(self: ?*anyopaque) bool {
         return qtc.QMimeData_HasHtml(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#imageData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#imageData)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn ImageData(self: ?*anyopaque) QtC.QVariant {
         return qtc.QMimeData_ImageData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#setImageData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setImageData)
     ///
     /// ``` self: QtC.QMimeData, image: QtC.QVariant ```
     pub fn SetImageData(self: ?*anyopaque, image: ?*anyopaque) void {
         qtc.QMimeData_SetImageData(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasImage)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn HasImage(self: ?*anyopaque) bool {
         return qtc.QMimeData_HasImage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#colorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#colorData)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn ColorData(self: ?*anyopaque) QtC.QVariant {
         return qtc.QMimeData_ColorData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#setColorData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setColorData)
     ///
     /// ``` self: QtC.QMimeData, color: QtC.QVariant ```
     pub fn SetColorData(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.QMimeData_SetColorData(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasColor)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn HasColor(self: ?*anyopaque) bool {
         return qtc.QMimeData_HasColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#data)
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8, allocator: std.mem.Allocator ```
     pub fn Data(self: ?*anyopaque, mimetype: []const u8, allocator: std.mem.Allocator) []u8 {
@@ -202,7 +202,7 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setData)
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8, data: []u8 ```
     pub fn SetData(self: ?*anyopaque, mimetype: []const u8, data: []u8) void {
@@ -217,7 +217,7 @@ pub const qmimedata = struct {
         qtc.QMimeData_SetData(@ptrCast(self), mimetype_str, data_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#removeFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#removeFormat)
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8 ```
     pub fn RemoveFormat(self: ?*anyopaque, mimetype: []const u8) void {
@@ -228,7 +228,7 @@ pub const qmimedata = struct {
         qtc.QMimeData_RemoveFormat(@ptrCast(self), mimetype_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8 ```
     pub fn HasFormat(self: ?*anyopaque, mimetype: []const u8) bool {
@@ -239,7 +239,7 @@ pub const qmimedata = struct {
         return qtc.QMimeData_HasFormat(@ptrCast(self), mimetype_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
     ///
     /// Allows for overriding the related default method
     ///
@@ -248,7 +248,7 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnHasFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
     ///
     /// Base class method implementation
     ///
@@ -261,7 +261,7 @@ pub const qmimedata = struct {
         return qtc.QMimeData_QBaseHasFormat(@ptrCast(self), mimetype_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#formats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#formats)
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Formats(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -283,7 +283,7 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#formats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#formats)
     ///
     /// Allows for overriding the related default method
     ///
@@ -292,7 +292,7 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnFormats(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#formats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#formats)
     ///
     /// Base class method implementation
     ///
@@ -316,14 +316,14 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#clear)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QMimeData_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8, preferredType: QtC.QMetaType ```
     pub fn RetrieveData(self: ?*anyopaque, mimetype: []const u8, preferredType: QtC.QMetaType) QtC.QVariant {
@@ -334,7 +334,7 @@ pub const qmimedata = struct {
         return qtc.QMimeData_RetrieveData(@ptrCast(self), mimetype_str, @ptrCast(preferredType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -343,7 +343,7 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnRetrieveData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
     ///
     /// Base class method implementation
     ///
@@ -356,7 +356,7 @@ pub const qmimedata = struct {
         return qtc.QMimeData_QBaseRetrieveData(@ptrCast(self), mimetype_str, @ptrCast(preferredType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -369,7 +369,7 @@ pub const qmimedata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -384,7 +384,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -397,7 +397,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QMimeData, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -410,7 +410,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -419,7 +419,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -428,7 +428,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -437,7 +437,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -446,7 +446,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QMimeData, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -455,7 +455,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -464,7 +464,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMimeData, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -473,7 +473,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMimeData, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -482,7 +482,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMimeData, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -491,7 +491,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMimeData, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -500,7 +500,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -514,7 +514,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QMimeData, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -523,7 +523,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QMimeData, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -532,7 +532,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QMimeData, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -541,7 +541,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -550,7 +550,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMimeData, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -561,7 +561,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -570,7 +570,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -579,7 +579,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -588,7 +588,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -597,7 +597,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QMimeData, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -607,7 +607,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QMimeData, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -617,7 +617,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -641,7 +641,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -650,7 +650,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -659,7 +659,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -668,7 +668,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMimeData, callback: *const fn (self: QtC.QMimeData) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -677,7 +677,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -686,7 +686,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QMimeData, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -696,7 +696,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QMimeData ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -705,7 +705,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMimeData, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -714,7 +714,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMimeData, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -723,7 +723,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -732,7 +732,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMimeData, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -743,7 +743,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMimeData, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -752,7 +752,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QMimeData, callback: *const fn (self: QtC.QMimeData, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -761,7 +761,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -772,7 +772,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -783,7 +783,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -794,7 +794,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -805,7 +805,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -816,7 +816,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -827,7 +827,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -838,7 +838,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -849,7 +849,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -860,7 +860,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -871,7 +871,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -882,7 +882,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -893,7 +893,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -904,7 +904,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -915,7 +915,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -926,7 +926,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -937,7 +937,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -948,7 +948,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -959,7 +959,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -970,7 +970,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -981,7 +981,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -992,7 +992,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1003,7 +1003,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1014,7 +1014,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1025,7 +1025,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1036,7 +1036,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1047,7 +1047,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1058,7 +1058,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1070,7 +1070,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1082,7 +1082,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1093,7 +1093,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1104,7 +1104,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1115,7 +1115,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1126,7 +1126,7 @@ pub const qmimedata = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1135,7 +1135,7 @@ pub const qmimedata = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimedata.html#dtor.QMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#dtor.QMimeData)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -31,28 +31,28 @@ pub const qwhatsthis = struct {
         qtc.QWhatsThis_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#enterWhatsThisMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#enterWhatsThisMode)
     ///
     ///
     pub fn EnterWhatsThisMode() void {
         qtc.QWhatsThis_EnterWhatsThisMode();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#inWhatsThisMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#inWhatsThisMode)
     ///
     ///
     pub fn InWhatsThisMode() bool {
         return qtc.QWhatsThis_InWhatsThisMode();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#leaveWhatsThisMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#leaveWhatsThisMode)
     ///
     ///
     pub fn LeaveWhatsThisMode() void {
         qtc.QWhatsThis_LeaveWhatsThisMode();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
     ///
     /// ``` pos: QtC.QPoint, text: []const u8 ```
     pub fn ShowText(pos: ?*anyopaque, text: []const u8) void {
@@ -63,21 +63,21 @@ pub const qwhatsthis = struct {
         qtc.QWhatsThis_ShowText(@ptrCast(pos), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#hideText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#hideText)
     ///
     ///
     pub fn HideText() void {
         qtc.QWhatsThis_HideText();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
     ///
     ///
     pub fn CreateAction() QtC.QAction {
         return qtc.QWhatsThis_CreateAction();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#showText)
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget ```
     pub fn ShowText3(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque) void {
@@ -88,14 +88,14 @@ pub const qwhatsthis = struct {
         qtc.QWhatsThis_ShowText3(@ptrCast(pos), text_str, @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#createAction)
     ///
     /// ``` parent: QtC.QObject ```
     pub fn CreateAction1(parent: ?*anyopaque) QtC.QAction {
         return qtc.QWhatsThis_CreateAction1(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwhatsthis.html#dtor.QWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#dtor.QWhatsThis)
     ///
     /// Delete this object from C++ memory.
     ///

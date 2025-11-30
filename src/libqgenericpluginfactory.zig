@@ -32,7 +32,7 @@ pub const qgenericpluginfactory = struct {
         qtc.QGenericPluginFactory_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgenericpluginfactory.html#keys)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgenericpluginfactory.html#keys)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Keys(allocator: std.mem.Allocator) [][]const u8 {
@@ -54,7 +54,7 @@ pub const qgenericpluginfactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgenericpluginfactory.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgenericpluginfactory.html#create)
     ///
     /// ``` param1: []const u8, param2: []const u8 ```
     pub fn Create(param1: []const u8, param2: []const u8) QtC.QObject {
@@ -69,7 +69,7 @@ pub const qgenericpluginfactory = struct {
         return qtc.QGenericPluginFactory_Create(param1_str, param2_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgenericpluginfactory.html#dtor.QGenericPluginFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgenericpluginfactory.html#dtor.QGenericPluginFactory)
     ///
     /// Delete this object from C++ memory.
     ///

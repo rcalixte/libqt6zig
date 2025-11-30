@@ -24,63 +24,63 @@ pub const qdbusunixfiledescriptor = struct {
         return qtc.QDBusUnixFileDescriptor_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#operator-eq)
     ///
     /// ``` self: QtC.QDBusUnixFileDescriptor, other: QtC.QDBusUnixFileDescriptor ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusUnixFileDescriptor_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#swap)
     ///
     /// ``` self: QtC.QDBusUnixFileDescriptor, other: QtC.QDBusUnixFileDescriptor ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusUnixFileDescriptor_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#isValid)
     ///
     /// ``` self: QtC.QDBusUnixFileDescriptor ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QDBusUnixFileDescriptor_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#fileDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#fileDescriptor)
     ///
     /// ``` self: QtC.QDBusUnixFileDescriptor ```
     pub fn FileDescriptor(self: ?*anyopaque) i32 {
         return qtc.QDBusUnixFileDescriptor_FileDescriptor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#setFileDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#setFileDescriptor)
     ///
     /// ``` self: QtC.QDBusUnixFileDescriptor, fileDescriptor: i32 ```
     pub fn SetFileDescriptor(self: ?*anyopaque, fileDescriptor: i32) void {
         qtc.QDBusUnixFileDescriptor_SetFileDescriptor(@ptrCast(self), @intCast(fileDescriptor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#giveFileDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#giveFileDescriptor)
     ///
     /// ``` self: QtC.QDBusUnixFileDescriptor, fileDescriptor: i32 ```
     pub fn GiveFileDescriptor(self: ?*anyopaque, fileDescriptor: i32) void {
         qtc.QDBusUnixFileDescriptor_GiveFileDescriptor(@ptrCast(self), @intCast(fileDescriptor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#takeFileDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#takeFileDescriptor)
     ///
     /// ``` self: QtC.QDBusUnixFileDescriptor ```
     pub fn TakeFileDescriptor(self: ?*anyopaque) i32 {
         return qtc.QDBusUnixFileDescriptor_TakeFileDescriptor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#isSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#isSupported)
     ///
     ///
     pub fn IsSupported() bool {
         return qtc.QDBusUnixFileDescriptor_IsSupported();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#dtor.QDBusUnixFileDescriptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#dtor.QDBusUnixFileDescriptor)
     ///
     /// Delete this object from C++ memory.
     ///

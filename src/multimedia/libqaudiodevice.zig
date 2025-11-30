@@ -20,42 +20,42 @@ pub const qaudiodevice = struct {
         return qtc.QAudioDevice_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#swap)
     ///
     /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAudioDevice_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#operator-eq)
     ///
     /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAudioDevice_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QAudioDevice_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#operator-not-eq)
     ///
     /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QAudioDevice_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#isNull)
     ///
     /// ``` self: QtC.QAudioDevice ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QAudioDevice_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#id)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#id)
     ///
     /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -66,7 +66,7 @@ pub const qaudiodevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#description)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#description)
     ///
     /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -77,14 +77,14 @@ pub const qaudiodevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#isDefault)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#isDefault)
     ///
     /// ``` self: QtC.QAudioDevice ```
     pub fn IsDefault(self: ?*anyopaque) bool {
         return qtc.QAudioDevice_IsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#mode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#mode)
     ///
     /// ``` self: QtC.QAudioDevice ```
     ///
@@ -93,49 +93,49 @@ pub const qaudiodevice = struct {
         return qtc.QAudioDevice_Mode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#isFormatSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#isFormatSupported)
     ///
     /// ``` self: QtC.QAudioDevice, format: QtC.QAudioFormat ```
     pub fn IsFormatSupported(self: ?*anyopaque, format: ?*anyopaque) bool {
         return qtc.QAudioDevice_IsFormatSupported(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#preferredFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#preferredFormat)
     ///
     /// ``` self: QtC.QAudioDevice ```
     pub fn PreferredFormat(self: ?*anyopaque) QtC.QAudioFormat {
         return qtc.QAudioDevice_PreferredFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#minimumSampleRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#minimumSampleRate)
     ///
     /// ``` self: QtC.QAudioDevice ```
     pub fn MinimumSampleRate(self: ?*anyopaque) i32 {
         return qtc.QAudioDevice_MinimumSampleRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#maximumSampleRate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#maximumSampleRate)
     ///
     /// ``` self: QtC.QAudioDevice ```
     pub fn MaximumSampleRate(self: ?*anyopaque) i32 {
         return qtc.QAudioDevice_MaximumSampleRate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#minimumChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#minimumChannelCount)
     ///
     /// ``` self: QtC.QAudioDevice ```
     pub fn MinimumChannelCount(self: ?*anyopaque) i32 {
         return qtc.QAudioDevice_MinimumChannelCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#maximumChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#maximumChannelCount)
     ///
     /// ``` self: QtC.QAudioDevice ```
     pub fn MaximumChannelCount(self: ?*anyopaque) i32 {
         return qtc.QAudioDevice_MaximumChannelCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#supportedSampleFormats)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#supportedSampleFormats)
     ///
     /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
     ///
@@ -149,7 +149,7 @@ pub const qaudiodevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#channelConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#channelConfiguration)
     ///
     /// ``` self: QtC.QAudioDevice ```
     ///
@@ -158,7 +158,7 @@ pub const qaudiodevice = struct {
         return qtc.QAudioDevice_ChannelConfiguration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#dtor.QAudioDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#dtor.QAudioDevice)
     ///
     /// Delete this object from C++ memory.
     ///

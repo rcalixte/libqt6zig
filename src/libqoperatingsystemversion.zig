@@ -33,14 +33,14 @@ pub const qoperatingsystemversionbase = struct {
         return qtc.QOperatingSystemVersionBase_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
     ///
     ///
     pub fn Current() QtC.QOperatingSystemVersionBase {
         return qtc.QOperatingSystemVersionBase_Current();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
     /// ``` osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
     pub fn Name(osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
@@ -51,7 +51,7 @@ pub const qoperatingsystemversionbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#currentType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#currentType)
     ///
     ///
     ///
@@ -60,42 +60,42 @@ pub const qoperatingsystemversionbase = struct {
         return qtc.QOperatingSystemVersionBase_CurrentType();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#version)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#version)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn Version(self: ?*anyopaque) QtC.QVersionNumber {
         return qtc.QOperatingSystemVersionBase_Version(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#majorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#majorVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn MajorVersion(self: ?*anyopaque) i32 {
         return qtc.QOperatingSystemVersionBase_MajorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#minorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#minorVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn MinorVersion(self: ?*anyopaque) i32 {
         return qtc.QOperatingSystemVersionBase_MinorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#microVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#microVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn MicroVersion(self: ?*anyopaque) i32 {
         return qtc.QOperatingSystemVersionBase_MicroVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#segmentCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#segmentCount)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase ```
     pub fn SegmentCount(self: ?*anyopaque) i32 {
         return qtc.QOperatingSystemVersionBase_SegmentCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#type)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase ```
     ///
@@ -104,7 +104,7 @@ pub const qoperatingsystemversionbase = struct {
         return qtc.QOperatingSystemVersionBase_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,7 +115,7 @@ pub const qoperatingsystemversionbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#dtor.QOperatingSystemVersionBase)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#dtor.QOperatingSystemVersionBase)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -150,7 +150,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
     ///
     ///
     pub fn Current() QtC.QOperatingSystemVersionBase {
@@ -159,7 +159,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
     /// ``` osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
     pub fn Name(osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
@@ -172,7 +172,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#currentType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#currentType)
     ///
     ///
     ///
@@ -183,7 +183,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#version)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#version)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
     pub fn Version(self: ?*anyopaque) QtC.QVersionNumber {
@@ -192,7 +192,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#majorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#majorVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
     pub fn MajorVersion(self: ?*anyopaque) i32 {
@@ -201,7 +201,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#minorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#minorVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
     pub fn MinorVersion(self: ?*anyopaque) i32 {
@@ -210,7 +210,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#microVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#microVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
     pub fn MicroVersion(self: ?*anyopaque) i32 {
@@ -219,7 +219,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#segmentCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#segmentCount)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
     pub fn SegmentCount(self: ?*anyopaque) i32 {
@@ -228,7 +228,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#type)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
     ///
@@ -239,7 +239,7 @@ pub const qoperatingsystemversionunexported = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported, allocator: std.mem.Allocator ```
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -250,7 +250,7 @@ pub const qoperatingsystemversionunexported = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionunexported.html#dtor.QOperatingSystemVersionUnexported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionunexported.html#dtor.QOperatingSystemVersionUnexported)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -297,7 +297,7 @@ pub const qoperatingsystemversion = struct {
         return qtc.QOperatingSystemVersion_new5(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#currentType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversion.html#currentType)
     ///
     ///
     ///
@@ -306,7 +306,7 @@ pub const qoperatingsystemversion = struct {
         return qtc.QOperatingSystemVersion_CurrentType();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversion.html#type)
     ///
     /// ``` self: QtC.QOperatingSystemVersion ```
     ///
@@ -317,7 +317,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#current)
     ///
     ///
     pub fn Current() QtC.QOperatingSystemVersionBase {
@@ -326,7 +326,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
     /// ``` osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator ```
     pub fn Name(osversion: QtC.QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
@@ -339,7 +339,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#version)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#version)
     ///
     /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn Version(self: ?*anyopaque) QtC.QVersionNumber {
@@ -348,7 +348,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#majorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#majorVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn MajorVersion(self: ?*anyopaque) i32 {
@@ -357,7 +357,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#minorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#minorVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn MinorVersion(self: ?*anyopaque) i32 {
@@ -366,7 +366,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#microVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#microVersion)
     ///
     /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn MicroVersion(self: ?*anyopaque) i32 {
@@ -375,7 +375,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#segmentCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#segmentCount)
     ///
     /// ``` self: QtC.QOperatingSystemVersion ```
     pub fn SegmentCount(self: ?*anyopaque) i32 {
@@ -384,7 +384,7 @@ pub const qoperatingsystemversion = struct {
 
     /// Inherited from QOperatingSystemVersionBase
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#name)
     ///
     /// ``` self: QtC.QOperatingSystemVersion, allocator: std.mem.Allocator ```
     pub fn Name2(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -395,7 +395,7 @@ pub const qoperatingsystemversion = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#dtor.QOperatingSystemVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversion.html#dtor.QOperatingSystemVersion)
     ///
     /// Delete this object from C++ memory.
     ///

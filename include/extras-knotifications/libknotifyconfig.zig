@@ -27,14 +27,14 @@ pub const knotifyconfig = struct {
         return qtc.KNotifyConfig_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#operator-eq)
     ///
     /// ``` self: QtC.KNotifyConfig, other: QtC.KNotifyConfig ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KNotifyConfig_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#applicationName)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#applicationName)
     ///
     /// ``` self: QtC.KNotifyConfig, allocator: std.mem.Allocator ```
     pub fn ApplicationName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -45,7 +45,7 @@ pub const knotifyconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#eventId)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#eventId)
     ///
     /// ``` self: QtC.KNotifyConfig, allocator: std.mem.Allocator ```
     pub fn EventId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -56,14 +56,14 @@ pub const knotifyconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#isValid)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#isValid)
     ///
     /// ``` self: QtC.KNotifyConfig ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KNotifyConfig_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#readGlobalEntry)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#readGlobalEntry)
     ///
     /// ``` self: QtC.KNotifyConfig, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ReadGlobalEntry(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -78,7 +78,7 @@ pub const knotifyconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#readEntry)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#readEntry)
     ///
     /// ``` self: QtC.KNotifyConfig, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ReadEntry(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -93,7 +93,7 @@ pub const knotifyconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#readPathEntry)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#readPathEntry)
     ///
     /// ``` self: QtC.KNotifyConfig, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ReadPathEntry(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -108,14 +108,14 @@ pub const knotifyconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#reparseConfiguration)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#reparseConfiguration)
     ///
     ///
     pub fn ReparseConfiguration() void {
         qtc.KNotifyConfig_ReparseConfiguration();
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#reparseSingleConfiguration)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#reparseSingleConfiguration)
     ///
     /// ``` app: []const u8 ```
     pub fn ReparseSingleConfiguration(app: []const u8) void {
@@ -126,7 +126,7 @@ pub const knotifyconfig = struct {
         qtc.KNotifyConfig_ReparseSingleConfiguration(app_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knotifyconfig.html#dtor.KNotifyConfig)
+    /// [Upstream resources](https://api.kde.org/knotifyconfig.html#dtor.KNotifyConfig)
     ///
     /// Delete this object from C++ memory.
     ///

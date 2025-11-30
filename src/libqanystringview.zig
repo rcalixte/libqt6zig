@@ -86,7 +86,7 @@ pub const qanystringview = struct {
         qtc.QAnyStringView_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#mid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#mid)
     ///
     /// ``` self: QtC.QAnyStringView, pos: i64, allocator: std.mem.Allocator ```
     pub fn Mid(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
@@ -97,7 +97,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#left)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#left)
     ///
     /// ``` self: QtC.QAnyStringView, n: i64, allocator: std.mem.Allocator ```
     pub fn Left(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -108,7 +108,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#right)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#right)
     ///
     /// ``` self: QtC.QAnyStringView, n: i64, allocator: std.mem.Allocator ```
     pub fn Right(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -119,7 +119,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#sliced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#sliced)
     ///
     /// ``` self: QtC.QAnyStringView, pos: i64, allocator: std.mem.Allocator ```
     pub fn Sliced(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
@@ -130,7 +130,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#sliced)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#sliced)
     ///
     /// ``` self: QtC.QAnyStringView, pos: i64, n: i64, allocator: std.mem.Allocator ```
     pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -141,7 +141,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#first)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#first)
     ///
     /// ``` self: QtC.QAnyStringView, n: i64, allocator: std.mem.Allocator ```
     pub fn First(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -152,7 +152,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#last)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#last)
     ///
     /// ``` self: QtC.QAnyStringView, n: i64, allocator: std.mem.Allocator ```
     pub fn Last(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -163,7 +163,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#chopped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#chopped)
     ///
     /// ``` self: QtC.QAnyStringView, n: i64, allocator: std.mem.Allocator ```
     pub fn Chopped(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -174,7 +174,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#slice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#slice)
     ///
     /// ``` self: QtC.QAnyStringView, pos: i64, allocator: std.mem.Allocator ```
     pub fn Slice(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
@@ -185,7 +185,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#slice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#slice)
     ///
     /// ``` self: QtC.QAnyStringView, pos: i64, n: i64, allocator: std.mem.Allocator ```
     pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -196,21 +196,21 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#truncate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#truncate)
     ///
     /// ``` self: QtC.QAnyStringView, n: i64 ```
     pub fn Truncate(self: ?*anyopaque, n: i64) void {
         qtc.QAnyStringView_Truncate(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#chop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#chop)
     ///
     /// ``` self: QtC.QAnyStringView, n: i64 ```
     pub fn Chop(self: ?*anyopaque, n: i64) void {
         qtc.QAnyStringView_Chop(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#toString)
     ///
     /// ``` self: QtC.QAnyStringView, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -221,21 +221,21 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#size)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn Size(self: ?*anyopaque) i64 {
         return qtc.QAnyStringView_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#data)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn Data(self: ?*anyopaque) ?*const anyopaque {
         return qtc.QAnyStringView_Data(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#compare)
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Compare(lhs: []const u8, rhs: []const u8) i32 {
@@ -250,7 +250,7 @@ pub const qanystringview = struct {
         return qtc.QAnyStringView_Compare(lhs_str, rhs_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#equal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#equal)
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Equal(lhs: []const u8, rhs: []const u8) bool {
@@ -265,63 +265,63 @@ pub const qanystringview = struct {
         return qtc.QAnyStringView_Equal(lhs_str, rhs_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#front)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#front)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn Front(self: ?*anyopaque) QtC.QChar {
         return qtc.QAnyStringView_Front(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#back)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#back)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn Back(self: ?*anyopaque) QtC.QChar {
         return qtc.QAnyStringView_Back(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#empty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#empty)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn Empty(self: ?*anyopaque) bool {
         return qtc.QAnyStringView_Empty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#size_bytes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#size_bytes)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn SizeBytes(self: ?*anyopaque) i64 {
         return qtc.QAnyStringView_SizeBytes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#max_size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#max_size)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn MaxSize(self: ?*anyopaque) i64 {
         return qtc.QAnyStringView_MaxSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#isNull)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QAnyStringView_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#isEmpty)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QAnyStringView_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#length)
     ///
     /// ``` self: QtC.QAnyStringView ```
     pub fn Length(self: ?*anyopaque) i64 {
         return qtc.QAnyStringView_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#mid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#mid)
     ///
     /// ``` self: QtC.QAnyStringView, pos: i64, n: i64, allocator: std.mem.Allocator ```
     pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
@@ -332,7 +332,7 @@ pub const qanystringview = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#compare)
     ///
     /// ``` lhs: []const u8, rhs: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i32) i32 {
@@ -347,7 +347,7 @@ pub const qanystringview = struct {
         return qtc.QAnyStringView_Compare3(lhs_str, rhs_str, @intCast(cs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#dtor.QAnyStringView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#dtor.QAnyStringView)
     ///
     /// Delete this object from C++ memory.
     ///

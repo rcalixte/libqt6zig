@@ -22,7 +22,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,14 +66,14 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn IsOpen(self: ?*anyopaque) bool {
         return qtc.QSqlDriver_IsOpen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
     ///
     /// Allows for overriding the related default method
     ///
@@ -82,7 +82,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnIsOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isOpen)
     ///
     /// Base class method implementation
     ///
@@ -91,21 +91,21 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseIsOpen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#isOpenError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isOpenError)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn IsOpenError(self: ?*anyopaque) bool {
         return qtc.QSqlDriver_IsOpenError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn BeginTransaction(self: ?*anyopaque) bool {
         return qtc.QSqlDriver_BeginTransaction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -114,7 +114,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnBeginTransaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#beginTransaction)
     ///
     /// Base class method implementation
     ///
@@ -123,14 +123,14 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseBeginTransaction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn CommitTransaction(self: ?*anyopaque) bool {
         return qtc.QSqlDriver_CommitTransaction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -139,7 +139,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnCommitTransaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#commitTransaction)
     ///
     /// Base class method implementation
     ///
@@ -148,14 +148,14 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseCommitTransaction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn RollbackTransaction(self: ?*anyopaque) bool {
         return qtc.QSqlDriver_RollbackTransaction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -164,7 +164,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnRollbackTransaction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#rollbackTransaction)
     ///
     /// Base class method implementation
     ///
@@ -173,7 +173,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseRollbackTransaction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#tables)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#tables)
     ///
     /// ``` self: QtC.QSqlDriver, tableType: qtsqlglobal_enums.TableType, allocator: std.mem.Allocator ```
     pub fn Tables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -195,7 +195,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#tables)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#tables)
     ///
     /// Allows for overriding the related default method
     ///
@@ -204,7 +204,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnTables(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#tables)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#tables)
     ///
     /// Base class method implementation
     ///
@@ -228,7 +228,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
     ///
     /// ``` self: QtC.QSqlDriver, tableName: []const u8 ```
     pub fn PrimaryIndex(self: ?*anyopaque, tableName: []const u8) QtC.QSqlIndex {
@@ -239,7 +239,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_PrimaryIndex(@ptrCast(self), tableName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
     ///
     /// Allows for overriding the related default method
     ///
@@ -248,7 +248,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnPrimaryIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#primaryIndex)
     ///
     /// Base class method implementation
     ///
@@ -261,7 +261,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBasePrimaryIndex(@ptrCast(self), tableName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#record)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#record)
     ///
     /// ``` self: QtC.QSqlDriver, tableName: []const u8 ```
     pub fn Record(self: ?*anyopaque, tableName: []const u8) QtC.QSqlRecord {
@@ -272,7 +272,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_Record(@ptrCast(self), tableName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#record)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#record)
     ///
     /// Allows for overriding the related default method
     ///
@@ -281,7 +281,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnRecord(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#record)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#record)
     ///
     /// Base class method implementation
     ///
@@ -294,7 +294,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseRecord(@ptrCast(self), tableName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
     ///
     /// ``` self: QtC.QSqlDriver, field: QtC.QSqlField, trimStrings: bool, allocator: std.mem.Allocator ```
     pub fn FormatValue(self: ?*anyopaque, field: ?*anyopaque, trimStrings: bool, allocator: std.mem.Allocator) []const u8 {
@@ -305,7 +305,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
     ///
     /// Allows for overriding the related default method
     ///
@@ -314,7 +314,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnFormatValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#formatValue)
     ///
     /// Base class method implementation
     ///
@@ -327,7 +327,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
     ///
     /// ``` self: QtC.QSqlDriver, identifier: []const u8, typeVal: qsqldriver_enums.IdentifierType, allocator: std.mem.Allocator ```
     pub fn EscapeIdentifier(self: ?*anyopaque, identifier: []const u8, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -342,7 +342,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
     ///
     /// Allows for overriding the related default method
     ///
@@ -351,7 +351,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnEscapeIdentifier(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#escapeIdentifier)
     ///
     /// Base class method implementation
     ///
@@ -368,7 +368,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
     ///
     /// ``` self: QtC.QSqlDriver, typeVal: qsqldriver_enums.StatementType, tableName: []const u8, rec: QtC.QSqlRecord, preparedStatement: bool, allocator: std.mem.Allocator ```
     pub fn SqlStatement(self: ?*anyopaque, typeVal: i32, tableName: []const u8, rec: ?*anyopaque, preparedStatement: bool, allocator: std.mem.Allocator) []const u8 {
@@ -383,7 +383,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
     ///
     /// Allows for overriding the related default method
     ///
@@ -392,7 +392,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSqlStatement(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#sqlStatement)
     ///
     /// Base class method implementation
     ///
@@ -409,21 +409,21 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#lastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#lastError)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn LastError(self: ?*anyopaque) QtC.QSqlError {
         return qtc.QSqlDriver_LastError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#handle)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn Handle(self: ?*anyopaque) QtC.QVariant {
         return qtc.QSqlDriver_Handle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#handle)
     ///
     /// Allows for overriding the related default method
     ///
@@ -432,7 +432,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnHandle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#handle)
     ///
     /// Base class method implementation
     ///
@@ -441,14 +441,14 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseHandle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
     ///
     /// ``` self: QtC.QSqlDriver, f: qsqldriver_enums.DriverFeature ```
     pub fn HasFeature(self: ?*anyopaque, f: i32) bool {
         return qtc.QSqlDriver_HasFeature(@ptrCast(self), @intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
     ///
     /// Allows for overriding the related default method
     ///
@@ -457,7 +457,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnHasFeature(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#hasFeature)
     ///
     /// Base class method implementation
     ///
@@ -466,14 +466,14 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseHasFeature(@ptrCast(self), @intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#close)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QSqlDriver_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#close)
     ///
     /// Allows for overriding the related default method
     ///
@@ -482,7 +482,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#close)
     ///
     /// Base class method implementation
     ///
@@ -491,14 +491,14 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_QBaseClose(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn CreateResult(self: ?*anyopaque) QtC.QSqlResult {
         return qtc.QSqlDriver_CreateResult(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
     ///
     /// Allows for overriding the related default method
     ///
@@ -507,7 +507,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnCreateResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#createResult)
     ///
     /// Base class method implementation
     ///
@@ -516,7 +516,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseCreateResult(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#open)
     ///
     /// ``` self: QtC.QSqlDriver, db: []const u8, user: []const u8, password: []const u8, host: []const u8, port: i32, connOpts: []const u8 ```
     pub fn Open(self: ?*anyopaque, db: []const u8, user: []const u8, password: []const u8, host: []const u8, port: i32, connOpts: []const u8) bool {
@@ -543,7 +543,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_Open(@ptrCast(self), db_str, user_str, password_str, host_str, @intCast(port), connOpts_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#open)
     ///
     /// Allows for overriding the related default method
     ///
@@ -552,7 +552,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#open)
     ///
     /// Base class method implementation
     ///
@@ -581,7 +581,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseOpen(@ptrCast(self), db_str, user_str, password_str, host_str, @intCast(port), connOpts_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
     ///
     /// ``` self: QtC.QSqlDriver, name: []const u8 ```
     pub fn SubscribeToNotification(self: ?*anyopaque, name: []const u8) bool {
@@ -592,7 +592,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_SubscribeToNotification(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
     ///
     /// Allows for overriding the related default method
     ///
@@ -601,7 +601,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSubscribeToNotification(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribeToNotification)
     ///
     /// Base class method implementation
     ///
@@ -614,7 +614,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseSubscribeToNotification(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
     ///
     /// ``` self: QtC.QSqlDriver, name: []const u8 ```
     pub fn UnsubscribeFromNotification(self: ?*anyopaque, name: []const u8) bool {
@@ -625,7 +625,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_UnsubscribeFromNotification(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
     ///
     /// Allows for overriding the related default method
     ///
@@ -634,7 +634,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnUnsubscribeFromNotification(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#unsubscribeFromNotification)
     ///
     /// Base class method implementation
     ///
@@ -647,7 +647,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseUnsubscribeFromNotification(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
     ///
     /// ``` self: QtC.QSqlDriver, allocator: std.mem.Allocator ```
     pub fn SubscribedToNotifications(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -669,7 +669,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
     ///
     /// Allows for overriding the related default method
     ///
@@ -678,7 +678,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSubscribedToNotifications(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#subscribedToNotifications)
     ///
     /// Base class method implementation
     ///
@@ -702,7 +702,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
     ///
     /// ``` self: QtC.QSqlDriver, identifier: []const u8, typeVal: qsqldriver_enums.IdentifierType ```
     pub fn IsIdentifierEscaped(self: ?*anyopaque, identifier: []const u8, typeVal: i32) bool {
@@ -713,7 +713,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_IsIdentifierEscaped(@ptrCast(self), identifier_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
     ///
     /// Allows for overriding the related default method
     ///
@@ -722,7 +722,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnIsIdentifierEscaped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#isIdentifierEscaped)
     ///
     /// Base class method implementation
     ///
@@ -735,7 +735,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseIsIdentifierEscaped(@ptrCast(self), identifier_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
     ///
     /// ``` self: QtC.QSqlDriver, identifier: []const u8, typeVal: qsqldriver_enums.IdentifierType, allocator: std.mem.Allocator ```
     pub fn StripDelimiters(self: ?*anyopaque, identifier: []const u8, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -750,7 +750,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
     ///
     /// Allows for overriding the related default method
     ///
@@ -759,7 +759,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnStripDelimiters(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#stripDelimiters)
     ///
     /// Base class method implementation
     ///
@@ -776,14 +776,14 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setNumericalPrecisionPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setNumericalPrecisionPolicy)
     ///
     /// ``` self: QtC.QSqlDriver, precisionPolicy: qtsqlglobal_enums.NumericalPrecisionPolicy ```
     pub fn SetNumericalPrecisionPolicy(self: ?*anyopaque, precisionPolicy: i32) void {
         qtc.QSqlDriver_SetNumericalPrecisionPolicy(@ptrCast(self), @intCast(precisionPolicy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#numericalPrecisionPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#numericalPrecisionPolicy)
     ///
     /// ``` self: QtC.QSqlDriver ```
     ///
@@ -792,7 +792,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_NumericalPrecisionPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#dbmsType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#dbmsType)
     ///
     /// ``` self: QtC.QSqlDriver ```
     ///
@@ -801,14 +801,14 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_DbmsType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
     ///
     /// ``` self: QtC.QSqlDriver, typeVal: qsqldriver_enums.IdentifierType ```
     pub fn MaximumIdentifierLength(self: ?*anyopaque, typeVal: i32) i32 {
         return qtc.QSqlDriver_MaximumIdentifierLength(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
     ///
     /// Allows for overriding the related default method
     ///
@@ -817,7 +817,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnMaximumIdentifierLength(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#maximumIdentifierLength)
     ///
     /// Base class method implementation
     ///
@@ -826,14 +826,14 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseMaximumIdentifierLength(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn CancelQuery(self: ?*anyopaque) bool {
         return qtc.QSqlDriver_CancelQuery(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
     ///
     /// Allows for overriding the related default method
     ///
@@ -842,7 +842,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnCancelQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#cancelQuery)
     ///
     /// Base class method implementation
     ///
@@ -851,7 +851,7 @@ pub const qsqldriver = struct {
         return qtc.QSqlDriver_QBaseCancelQuery(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#notification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#notification)
     ///
     /// ``` self: QtC.QSqlDriver, name: []const u8, source: qsqldriver_enums.NotificationSource, payload: QtC.QVariant ```
     pub fn Notification(self: ?*anyopaque, name: []const u8, source: i32, payload: ?*anyopaque) void {
@@ -862,21 +862,21 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_Notification(@ptrCast(self), name_str, @intCast(source), @ptrCast(payload));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#notification)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#notification)
     ///
     /// ``` self: QtC.QSqlDriver, callback: *const fn (self: QtC.QSqlDriver, name: [*:0]const u8, source: qsqldriver_enums.NotificationSource, payload: QtC.QVariant) callconv(.c) void ```
     pub fn OnNotification(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QSqlDriver_Connect_Notification(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
     ///
     /// ``` self: QtC.QSqlDriver, o: bool ```
     pub fn SetOpen(self: ?*anyopaque, o: bool) void {
         qtc.QSqlDriver_SetOpen(@ptrCast(self), o);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
     ///
     /// Allows for overriding the related default method
     ///
@@ -885,7 +885,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSetOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpen)
     ///
     /// Base class method implementation
     ///
@@ -894,14 +894,14 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_QBaseSetOpen(@ptrCast(self), o);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
     ///
     /// ``` self: QtC.QSqlDriver, e: bool ```
     pub fn SetOpenError(self: ?*anyopaque, e: bool) void {
         qtc.QSqlDriver_SetOpenError(@ptrCast(self), e);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
     ///
     /// Allows for overriding the related default method
     ///
@@ -910,7 +910,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSetOpenError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setOpenError)
     ///
     /// Base class method implementation
     ///
@@ -919,14 +919,14 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_QBaseSetOpenError(@ptrCast(self), e);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
     ///
     /// ``` self: QtC.QSqlDriver, e: QtC.QSqlError ```
     pub fn SetLastError(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QSqlDriver_SetLastError(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
     ///
     /// Allows for overriding the related default method
     ///
@@ -935,7 +935,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_OnSetLastError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#setLastError)
     ///
     /// Base class method implementation
     ///
@@ -944,7 +944,7 @@ pub const qsqldriver = struct {
         qtc.QSqlDriver_QBaseSetLastError(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -957,7 +957,7 @@ pub const qsqldriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -972,7 +972,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSqlDriver, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -985,7 +985,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSqlDriver, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -998,7 +998,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1007,7 +1007,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1016,7 +1016,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1025,7 +1025,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1034,7 +1034,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSqlDriver, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1043,7 +1043,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1052,7 +1052,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSqlDriver, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1061,7 +1061,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSqlDriver, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1070,7 +1070,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSqlDriver, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1079,7 +1079,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSqlDriver, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1088,7 +1088,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSqlDriver, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1102,7 +1102,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSqlDriver, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1111,7 +1111,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSqlDriver, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1120,7 +1120,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSqlDriver, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1129,7 +1129,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1138,7 +1138,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSqlDriver, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1149,7 +1149,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1158,7 +1158,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1167,7 +1167,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1176,7 +1176,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1185,7 +1185,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSqlDriver, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1195,7 +1195,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSqlDriver, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1205,7 +1205,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSqlDriver, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1229,7 +1229,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1238,7 +1238,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1247,7 +1247,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1256,7 +1256,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlDriver, callback: *const fn (self: QtC.QSqlDriver) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1265,7 +1265,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1274,7 +1274,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSqlDriver, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1284,7 +1284,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSqlDriver ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1293,7 +1293,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSqlDriver, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1302,7 +1302,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSqlDriver, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1311,7 +1311,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1320,7 +1320,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSqlDriver, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1331,7 +1331,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlDriver, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1340,7 +1340,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlDriver, callback: *const fn (self: QtC.QSqlDriver, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1349,7 +1349,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1360,7 +1360,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1371,7 +1371,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1382,7 +1382,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1393,7 +1393,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1404,7 +1404,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1415,7 +1415,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1426,7 +1426,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1437,7 +1437,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1448,7 +1448,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1459,7 +1459,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1470,7 +1470,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1481,7 +1481,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1492,7 +1492,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1503,7 +1503,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1514,7 +1514,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1525,7 +1525,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1536,7 +1536,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1547,7 +1547,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1558,7 +1558,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1569,7 +1569,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1580,7 +1580,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1591,7 +1591,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1602,7 +1602,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1613,7 +1613,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1624,7 +1624,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1635,7 +1635,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1646,7 +1646,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1658,7 +1658,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1670,7 +1670,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1681,7 +1681,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1692,7 +1692,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1703,7 +1703,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1714,7 +1714,7 @@ pub const qsqldriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1723,7 +1723,7 @@ pub const qsqldriver = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#dtor.QSqlDriver)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqldriver.html#dtor.QSqlDriver)
     ///
     /// Delete this object from C++ memory.
     ///

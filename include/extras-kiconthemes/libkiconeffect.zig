@@ -11,21 +11,21 @@ pub const kiconeffect = struct {
         return qtc.KIconEffect_new();
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#init)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#init)
     ///
     /// ``` self: QtC.KIconEffect ```
     pub fn Init(self: ?*anyopaque) void {
         qtc.KIconEffect_Init(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#hasEffect)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#hasEffect)
     ///
     /// ``` self: QtC.KIconEffect, group: i32, state: i32 ```
     pub fn HasEffect(self: ?*anyopaque, group: i32, state: i32) bool {
         return qtc.KIconEffect_HasEffect(@ptrCast(self), @intCast(group), @intCast(state));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#fingerprint)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#fingerprint)
     ///
     /// ``` self: QtC.KIconEffect, group: i32, state: i32, allocator: std.mem.Allocator ```
     pub fn Fingerprint(self: ?*anyopaque, group: i32, state: i32, allocator: std.mem.Allocator) []const u8 {
@@ -36,140 +36,140 @@ pub const kiconeffect = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#apply)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#apply)
     ///
     /// ``` self: QtC.KIconEffect, src: QtC.QImage, group: i32, state: i32 ```
     pub fn Apply(self: ?*anyopaque, src: ?*anyopaque, group: i32, state: i32) QtC.QImage {
         return qtc.KIconEffect_Apply(@ptrCast(self), @ptrCast(src), @intCast(group), @intCast(state));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#apply)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#apply)
     ///
     /// ``` self: QtC.KIconEffect, src: QtC.QImage, effect: i32, value: f32, rgb: QtC.QColor, trans: bool ```
     pub fn Apply2(self: ?*anyopaque, src: ?*anyopaque, effect: i32, value: f32, rgb: ?*anyopaque, trans: bool) QtC.QImage {
         return qtc.KIconEffect_Apply2(@ptrCast(self), @ptrCast(src), @intCast(effect), @floatCast(value), @ptrCast(rgb), trans);
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#apply)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#apply)
     ///
     /// ``` self: QtC.KIconEffect, src: QtC.QImage, effect: i32, value: f32, rgb: QtC.QColor, rgb2: QtC.QColor, trans: bool ```
     pub fn Apply3(self: ?*anyopaque, src: ?*anyopaque, effect: i32, value: f32, rgb: ?*anyopaque, rgb2: ?*anyopaque, trans: bool) QtC.QImage {
         return qtc.KIconEffect_Apply3(@ptrCast(self), @ptrCast(src), @intCast(effect), @floatCast(value), @ptrCast(rgb), @ptrCast(rgb2), trans);
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#apply)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#apply)
     ///
     /// ``` self: QtC.KIconEffect, src: QtC.QPixmap, group: i32, state: i32 ```
     pub fn Apply4(self: ?*anyopaque, src: ?*anyopaque, group: i32, state: i32) QtC.QPixmap {
         return qtc.KIconEffect_Apply4(@ptrCast(self), @ptrCast(src), @intCast(group), @intCast(state));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#apply)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#apply)
     ///
     /// ``` self: QtC.KIconEffect, src: QtC.QPixmap, effect: i32, value: f32, rgb: QtC.QColor, trans: bool ```
     pub fn Apply5(self: ?*anyopaque, src: ?*anyopaque, effect: i32, value: f32, rgb: ?*anyopaque, trans: bool) QtC.QPixmap {
         return qtc.KIconEffect_Apply5(@ptrCast(self), @ptrCast(src), @intCast(effect), @floatCast(value), @ptrCast(rgb), trans);
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#apply)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#apply)
     ///
     /// ``` self: QtC.KIconEffect, src: QtC.QPixmap, effect: i32, value: f32, rgb: QtC.QColor, rgb2: QtC.QColor, trans: bool ```
     pub fn Apply6(self: ?*anyopaque, src: ?*anyopaque, effect: i32, value: f32, rgb: ?*anyopaque, rgb2: ?*anyopaque, trans: bool) QtC.QPixmap {
         return qtc.KIconEffect_Apply6(@ptrCast(self), @ptrCast(src), @intCast(effect), @floatCast(value), @ptrCast(rgb), @ptrCast(rgb2), trans);
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#doublePixels)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#doublePixels)
     ///
     /// ``` self: QtC.KIconEffect, src: QtC.QImage ```
     pub fn DoublePixels(self: ?*anyopaque, src: ?*anyopaque) QtC.QImage {
         return qtc.KIconEffect_DoublePixels(@ptrCast(self), @ptrCast(src));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#toGray)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#toGray)
     ///
     /// ``` image: QtC.QImage, value: f32 ```
     pub fn ToGray(image: ?*anyopaque, value: f32) void {
         qtc.KIconEffect_ToGray(@ptrCast(image), @floatCast(value));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#colorize)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#colorize)
     ///
     /// ``` image: QtC.QImage, col: QtC.QColor, value: f32 ```
     pub fn Colorize(image: ?*anyopaque, col: ?*anyopaque, value: f32) void {
         qtc.KIconEffect_Colorize(@ptrCast(image), @ptrCast(col), @floatCast(value));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#toMonochrome)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#toMonochrome)
     ///
     /// ``` image: QtC.QImage, black: QtC.QColor, white: QtC.QColor, value: f32 ```
     pub fn ToMonochrome(image: ?*anyopaque, black: ?*anyopaque, white: ?*anyopaque, value: f32) void {
         qtc.KIconEffect_ToMonochrome(@ptrCast(image), @ptrCast(black), @ptrCast(white), @floatCast(value));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#deSaturate)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#deSaturate)
     ///
     /// ``` image: QtC.QImage, value: f32 ```
     pub fn DeSaturate(image: ?*anyopaque, value: f32) void {
         qtc.KIconEffect_DeSaturate(@ptrCast(image), @floatCast(value));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#toGamma)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#toGamma)
     ///
     /// ``` image: QtC.QImage, value: f32 ```
     pub fn ToGamma(image: ?*anyopaque, value: f32) void {
         qtc.KIconEffect_ToGamma(@ptrCast(image), @floatCast(value));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#semiTransparent)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#semiTransparent)
     ///
     /// ``` image: QtC.QImage ```
     pub fn SemiTransparent(image: ?*anyopaque) void {
         qtc.KIconEffect_SemiTransparent(@ptrCast(image));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#semiTransparent)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#semiTransparent)
     ///
     /// ``` pixmap: QtC.QPixmap ```
     pub fn SemiTransparent2(pixmap: ?*anyopaque) void {
         qtc.KIconEffect_SemiTransparent2(@ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#overlay)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#overlay)
     ///
     /// ``` src: QtC.QImage, overlay: QtC.QImage ```
     pub fn Overlay(src: ?*anyopaque, overlay: ?*anyopaque) void {
         qtc.KIconEffect_Overlay(@ptrCast(src), @ptrCast(overlay));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#toDisabled)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#toDisabled)
     ///
     /// ``` image: QtC.QImage ```
     pub fn ToDisabled(image: ?*anyopaque) void {
         qtc.KIconEffect_ToDisabled(@ptrCast(image));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#toDisabled)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#toDisabled)
     ///
     /// ``` pixmap: QtC.QPixmap ```
     pub fn ToDisabled2(pixmap: ?*anyopaque) void {
         qtc.KIconEffect_ToDisabled2(@ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#toActive)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#toActive)
     ///
     /// ``` image: QtC.QImage ```
     pub fn ToActive(image: ?*anyopaque) void {
         qtc.KIconEffect_ToActive(@ptrCast(image));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#toActive)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#toActive)
     ///
     /// ``` pixmap: QtC.QPixmap ```
     pub fn ToActive2(pixmap: ?*anyopaque) void {
         qtc.KIconEffect_ToActive2(@ptrCast(pixmap));
     }
 
-    /// [Qt documentation](https://api.kde.org/kiconeffect.html#dtor.KIconEffect)
+    /// [Upstream resources](https://api.kde.org/kiconeffect.html#dtor.KIconEffect)
     ///
     /// Delete this object from C++ memory.
     ///

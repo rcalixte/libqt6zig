@@ -21,7 +21,7 @@ pub const qpdfdocument = struct {
         return qtc.QPdfDocument_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qpdfdocument = struct {
         return qtc.QPdfDocument_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const qpdfdocument = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#load)
     ///
     /// ``` self: QtC.QPdfDocument, fileName: []const u8 ```
     ///
@@ -78,7 +78,7 @@ pub const qpdfdocument = struct {
         return qtc.QPdfDocument_Load(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#status)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#status)
     ///
     /// ``` self: QtC.QPdfDocument ```
     ///
@@ -87,14 +87,14 @@ pub const qpdfdocument = struct {
         return qtc.QPdfDocument_Status(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#load)
     ///
     /// ``` self: QtC.QPdfDocument, device: QtC.QIODevice ```
     pub fn Load2(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QPdfDocument_Load2(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#setPassword)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#setPassword)
     ///
     /// ``` self: QtC.QPdfDocument, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
@@ -105,7 +105,7 @@ pub const qpdfdocument = struct {
         qtc.QPdfDocument_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#password)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#password)
     ///
     /// ``` self: QtC.QPdfDocument, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -116,14 +116,14 @@ pub const qpdfdocument = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#metaData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#metaData)
     ///
     /// ``` self: QtC.QPdfDocument, field: qpdfdocument_enums.MetaDataField ```
     pub fn MetaData(self: ?*anyopaque, field: i32) QtC.QVariant {
         return qtc.QPdfDocument_MetaData(@ptrCast(self), @intCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#error)
     ///
     /// ``` self: QtC.QPdfDocument ```
     ///
@@ -132,28 +132,28 @@ pub const qpdfdocument = struct {
         return qtc.QPdfDocument_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#close)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QPdfDocument_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageCount)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn PageCount(self: ?*anyopaque) i32 {
         return qtc.QPdfDocument_PageCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pagePointSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pagePointSize)
     ///
     /// ``` self: QtC.QPdfDocument, page: i32 ```
     pub fn PagePointSize(self: ?*anyopaque, page: i32) QtC.QSizeF {
         return qtc.QPdfDocument_PagePointSize(@ptrCast(self), @intCast(page));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageLabel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageLabel)
     ///
     /// ``` self: QtC.QPdfDocument, page: i32, allocator: std.mem.Allocator ```
     pub fn PageLabel(self: ?*anyopaque, page: i32, allocator: std.mem.Allocator) []const u8 {
@@ -164,7 +164,7 @@ pub const qpdfdocument = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageIndexForLabel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageIndexForLabel)
     ///
     /// ``` self: QtC.QPdfDocument, label: []const u8 ```
     pub fn PageIndexForLabel(self: ?*anyopaque, label: []const u8) i32 {
@@ -175,112 +175,112 @@ pub const qpdfdocument = struct {
         return qtc.QPdfDocument_PageIndexForLabel(@ptrCast(self), label_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageModel)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn PageModel(self: ?*anyopaque) QtC.QAbstractListModel {
         return qtc.QPdfDocument_PageModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#render)
     ///
     /// ``` self: QtC.QPdfDocument, page: i32, imageSize: QtC.QSize ```
     pub fn Render(self: ?*anyopaque, page: i32, imageSize: QtC.QSize) QtC.QImage {
         return qtc.QPdfDocument_Render(@ptrCast(self), @intCast(page), @ptrCast(imageSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#getSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#getSelection)
     ///
     /// ``` self: QtC.QPdfDocument, page: i32, start: QtC.QPointF, end: QtC.QPointF ```
     pub fn GetSelection(self: ?*anyopaque, page: i32, start: QtC.QPointF, end: QtC.QPointF) QtC.QPdfSelection {
         return qtc.QPdfDocument_GetSelection(@ptrCast(self), @intCast(page), @ptrCast(start), @ptrCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#getSelectionAtIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#getSelectionAtIndex)
     ///
     /// ``` self: QtC.QPdfDocument, page: i32, startIndex: i32, maxLength: i32 ```
     pub fn GetSelectionAtIndex(self: ?*anyopaque, page: i32, startIndex: i32, maxLength: i32) QtC.QPdfSelection {
         return qtc.QPdfDocument_GetSelectionAtIndex(@ptrCast(self), @intCast(page), @intCast(startIndex), @intCast(maxLength));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#getAllText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#getAllText)
     ///
     /// ``` self: QtC.QPdfDocument, page: i32 ```
     pub fn GetAllText(self: ?*anyopaque, page: i32) QtC.QPdfSelection {
         return qtc.QPdfDocument_GetAllText(@ptrCast(self), @intCast(page));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#passwordChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#passwordChanged)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn PasswordChanged(self: ?*anyopaque) void {
         qtc.QPdfDocument_PasswordChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#passwordChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#passwordChanged)
     ///
     /// ``` self: QtC.QPdfDocument, callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void ```
     pub fn OnPasswordChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPdfDocument_Connect_PasswordChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#passwordRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#passwordRequired)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn PasswordRequired(self: ?*anyopaque) void {
         qtc.QPdfDocument_PasswordRequired(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#passwordRequired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#passwordRequired)
     ///
     /// ``` self: QtC.QPdfDocument, callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void ```
     pub fn OnPasswordRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPdfDocument_Connect_PasswordRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#statusChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#statusChanged)
     ///
     /// ``` self: QtC.QPdfDocument, status: qpdfdocument_enums.Status ```
     pub fn StatusChanged(self: ?*anyopaque, status: i32) void {
         qtc.QPdfDocument_StatusChanged(@ptrCast(self), @intCast(status));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#statusChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#statusChanged)
     ///
     /// ``` self: QtC.QPdfDocument, callback: *const fn (self: QtC.QPdfDocument, status: qpdfdocument_enums.Status) callconv(.c) void ```
     pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfDocument_Connect_StatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageCountChanged)
     ///
     /// ``` self: QtC.QPdfDocument, pageCount: i32 ```
     pub fn PageCountChanged(self: ?*anyopaque, pageCount: i32) void {
         qtc.QPdfDocument_PageCountChanged(@ptrCast(self), @intCast(pageCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageCountChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageCountChanged)
     ///
     /// ``` self: QtC.QPdfDocument, callback: *const fn (self: QtC.QPdfDocument, pageCount: i32) callconv(.c) void ```
     pub fn OnPageCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPdfDocument_Connect_PageCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageModelChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageModelChanged)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn PageModelChanged(self: ?*anyopaque) void {
         qtc.QPdfDocument_PageModelChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageModelChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#pageModelChanged)
     ///
     /// ``` self: QtC.QPdfDocument, callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void ```
     pub fn OnPageModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPdfDocument_Connect_PageModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -293,7 +293,7 @@ pub const qpdfdocument = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -306,7 +306,7 @@ pub const qpdfdocument = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#render)
     ///
     /// ``` self: QtC.QPdfDocument, page: i32, imageSize: QtC.QSize, options: QtC.QPdfDocumentRenderOptions ```
     pub fn Render3(self: ?*anyopaque, page: i32, imageSize: QtC.QSize, options: QtC.QPdfDocumentRenderOptions) QtC.QImage {
@@ -315,7 +315,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QPdfDocument, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -328,7 +328,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QPdfDocument, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -341,7 +341,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -350,7 +350,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -359,7 +359,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -368,7 +368,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -377,7 +377,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QPdfDocument, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -386,7 +386,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -395,7 +395,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPdfDocument, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -404,7 +404,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPdfDocument, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -413,7 +413,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPdfDocument, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -422,7 +422,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPdfDocument, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -431,7 +431,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QPdfDocument, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -445,7 +445,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QPdfDocument, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -454,7 +454,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QPdfDocument, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -463,7 +463,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QPdfDocument, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -472,7 +472,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -481,7 +481,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPdfDocument, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -492,7 +492,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -501,7 +501,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -510,7 +510,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -519,7 +519,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -528,7 +528,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QPdfDocument, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -538,7 +538,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QPdfDocument, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -548,7 +548,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QPdfDocument, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -572,7 +572,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -581,7 +581,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -590,7 +590,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -599,7 +599,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPdfDocument, callback: *const fn (self: QtC.QPdfDocument) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -608,7 +608,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -617,7 +617,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QPdfDocument, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -627,7 +627,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QPdfDocument ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -636,7 +636,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPdfDocument, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -645,7 +645,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPdfDocument, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -654,7 +654,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -663,7 +663,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPdfDocument, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -674,7 +674,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPdfDocument, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -683,7 +683,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPdfDocument, callback: *const fn (self: QtC.QPdfDocument, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -692,7 +692,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -703,7 +703,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -714,7 +714,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -725,7 +725,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -736,7 +736,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -747,7 +747,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -758,7 +758,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -769,7 +769,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -780,7 +780,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -791,7 +791,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -802,7 +802,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -813,7 +813,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -824,7 +824,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -835,7 +835,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -846,7 +846,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -857,7 +857,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -868,7 +868,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -879,7 +879,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -890,7 +890,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -901,7 +901,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -912,7 +912,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -923,7 +923,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -934,7 +934,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -945,7 +945,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -956,7 +956,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -967,7 +967,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -978,7 +978,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -989,7 +989,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1001,7 +1001,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1013,7 +1013,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1024,7 +1024,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1035,7 +1035,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1046,7 +1046,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1057,7 +1057,7 @@ pub const qpdfdocument = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1066,7 +1066,7 @@ pub const qpdfdocument = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#dtor.QPdfDocument)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#dtor.QPdfDocument)
     ///
     /// Delete this object from C++ memory.
     ///

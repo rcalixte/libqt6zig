@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://api.kde.org/ktexttohtml.html
 pub const ktexttohtml = struct {
-    /// [Qt documentation](https://api.kde.org/ktexttohtml.html#convertToHtml)
+    /// [Upstream resources](https://api.kde.org/ktexttohtml.html#convertToHtml)
     ///
     /// ``` param1: []const u8, param2: *const flag of ktexttohtml_enums.Option, param3: i32, param4: i32, allocator: std.mem.Allocator ```
     pub fn ConvertToHtml(param1: []const u8, param2: *const i32, param3: i32, param4: i32, allocator: std.mem.Allocator) []const u8 {

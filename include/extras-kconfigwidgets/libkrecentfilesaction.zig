@@ -41,7 +41,7 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_new3(@ptrCast(icon), text_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -73,7 +73,7 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -85,7 +85,7 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addAction)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction, url: QtC.QUrl, name: []const u8 ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque, url: ?*anyopaque, name: []const u8) void {
@@ -96,14 +96,14 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_AddAction(@ptrCast(self), @ptrCast(action), @ptrCast(url), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeAction)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#removeAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
         return qtc.KRecentFilesAction_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeAction)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#removeAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -112,7 +112,7 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnRemoveAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeAction)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#removeAction)
     ///
     /// Base class method implementation
     ///
@@ -121,42 +121,42 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_QBaseRemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#maxItems)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#maxItems)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn MaxItems(self: ?*anyopaque) i32 {
         return qtc.KRecentFilesAction_MaxItems(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#setMaxItems)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#setMaxItems)
     ///
     /// ``` self: QtC.KRecentFilesAction, maxItems: i32 ```
     pub fn SetMaxItems(self: ?*anyopaque, maxItems: i32) void {
         qtc.KRecentFilesAction_SetMaxItems(@ptrCast(self), @intCast(maxItems));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#loadEntries)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#loadEntries)
     ///
     /// ``` self: QtC.KRecentFilesAction, config: QtC.KConfigGroup ```
     pub fn LoadEntries(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KRecentFilesAction_LoadEntries(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#saveEntries)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#saveEntries)
     ///
     /// ``` self: QtC.KRecentFilesAction, config: QtC.KConfigGroup ```
     pub fn SaveEntries(self: ?*anyopaque, config: ?*anyopaque) void {
         qtc.KRecentFilesAction_SaveEntries(@ptrCast(self), @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addUrl)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl ```
     pub fn AddUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesAction_AddUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addUrl)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl, name: []const u8, mimeType: []const u8 ```
     pub fn AddUrl2(self: ?*anyopaque, url: ?*anyopaque, name: []const u8, mimeType: []const u8) void {
@@ -171,14 +171,14 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_AddUrl2(@ptrCast(self), @ptrCast(url), name_str, mimeType_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeUrl)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#removeUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl ```
     pub fn RemoveUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesAction_RemoveUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#urls)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#urls)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
@@ -190,14 +190,14 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#clear)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#clear)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KRecentFilesAction_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#clear)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#clear)
     ///
     /// Allows for overriding the related default method
     ///
@@ -206,7 +206,7 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#clear)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#clear)
     ///
     /// Base class method implementation
     ///
@@ -215,35 +215,35 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_QBaseClear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#urlSelected)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#urlSelected)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl ```
     pub fn UrlSelected(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KRecentFilesAction_UrlSelected(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#urlSelected)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#urlSelected)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnUrlSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KRecentFilesAction_Connect_UrlSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#recentListCleared)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#recentListCleared)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn RecentListCleared(self: ?*anyopaque) void {
         qtc.KRecentFilesAction_RecentListCleared(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#recentListCleared)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#recentListCleared)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
     pub fn OnRecentListCleared(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KRecentFilesAction_Connect_RecentListCleared(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -256,7 +256,7 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -269,7 +269,7 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addAction)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction, url: QtC.QUrl, name: []const u8, mimeType: QtC.QMimeType ```
     pub fn AddAction4(self: ?*anyopaque, action: ?*anyopaque, url: ?*anyopaque, name: []const u8, mimeType: ?*anyopaque) void {
@@ -280,7 +280,7 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_AddAction4(@ptrCast(self), @ptrCast(action), @ptrCast(url), name_str, @ptrCast(mimeType));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#addUrl)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#addUrl)
     ///
     /// ``` self: QtC.KRecentFilesAction, url: QtC.QUrl, name: []const u8 ```
     pub fn AddUrl22(self: ?*anyopaque, url: ?*anyopaque, name: []const u8) void {
@@ -293,7 +293,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolBarMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#toolBarMode)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     ///
@@ -304,7 +304,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolBarMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setToolBarMode)
     ///
     /// ``` self: QtC.KRecentFilesAction, mode: kselectaction_enums.ToolBarMode ```
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
@@ -313,7 +313,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     ///
@@ -324,7 +324,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
     ///
     /// ``` self: QtC.KRecentFilesAction, mode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
@@ -333,7 +333,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#selectableActionGroup)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#selectableActionGroup)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn SelectableActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -342,7 +342,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn CurrentAction(self: ?*anyopaque) QtC.QAction {
@@ -351,7 +351,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentItem)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentItem)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn CurrentItem(self: ?*anyopaque) i32 {
@@ -360,7 +360,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentText)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentText)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -373,7 +373,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#actions)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#actions)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -387,7 +387,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32 ```
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
@@ -396,7 +396,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn Action2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -409,7 +409,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction ```
     pub fn SetCurrentAction(self: ?*anyopaque, action: ?*anyopaque) bool {
@@ -418,7 +418,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentItem)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentItem)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32 ```
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
@@ -427,7 +427,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn SetCurrentAction2(self: ?*anyopaque, text: []const u8) bool {
@@ -440,7 +440,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -453,7 +453,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -466,7 +466,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setItems)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setItems)
     ///
     /// ``` self: QtC.KRecentFilesAction, lst: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, lst: [][]const u8, allocator: std.mem.Allocator) void {
@@ -487,7 +487,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#items)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#items)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -511,7 +511,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#isEditable)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#isEditable)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsEditable(self: ?*anyopaque) bool {
@@ -520,7 +520,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setEditable)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setEditable)
     ///
     /// ``` self: QtC.KRecentFilesAction, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
@@ -529,7 +529,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#comboWidth)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#comboWidth)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn ComboWidth(self: ?*anyopaque) i32 {
@@ -538,7 +538,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setComboWidth)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setComboWidth)
     ///
     /// ``` self: QtC.KRecentFilesAction, width: i32 ```
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
@@ -547,7 +547,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
     ///
     /// ``` self: QtC.KRecentFilesAction, n: i32 ```
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
@@ -556,7 +556,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAllActions)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAllActions)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn RemoveAllActions(self: ?*anyopaque) void {
@@ -565,7 +565,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
     ///
     /// ``` self: QtC.KRecentFilesAction, b: bool ```
     pub fn SetMenuAccelsEnabled(self: ?*anyopaque, b: bool) void {
@@ -574,7 +574,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn MenuAccelsEnabled(self: ?*anyopaque) bool {
@@ -583,7 +583,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#changeItem)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#changeItem)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32, text: []const u8 ```
     pub fn ChangeItem(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -596,7 +596,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, action: QtC.QAction ```
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -605,7 +605,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -614,7 +614,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, index: i32 ```
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
@@ -623,7 +623,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, index: i32) callconv(.c) void ```
     pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -632,7 +632,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn TextTriggered(self: ?*anyopaque, text: []const u8) void {
@@ -645,7 +645,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -654,7 +654,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Action22(self: ?*anyopaque, text: []const u8, cs: i32) QtC.QAction {
@@ -667,7 +667,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCurrentAction22(self: ?*anyopaque, text: []const u8, cs: i32) bool {
@@ -680,7 +680,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
     ///
     /// ``` self: QtC.KRecentFilesAction, w: QtC.QWidget ```
     pub fn SetDefaultWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -689,7 +689,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn DefaultWidget(self: ?*anyopaque) QtC.QWidget {
@@ -698,7 +698,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
     ///
     /// ``` self: QtC.KRecentFilesAction, parent: QtC.QWidget ```
     pub fn RequestWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -707,7 +707,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
     ///
     /// ``` self: QtC.KRecentFilesAction, widget: QtC.QWidget ```
     pub fn ReleaseWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -716,7 +716,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -730,7 +730,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
     ///
     /// ``` self: QtC.KRecentFilesAction, group: QtC.QActionGroup ```
     pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -739,7 +739,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#actionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -748,7 +748,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
     ///
     /// ``` self: QtC.KRecentFilesAction, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -757,7 +757,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
@@ -766,7 +766,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -779,7 +779,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -792,7 +792,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
     ///
     /// ``` self: QtC.KRecentFilesAction, text: []const u8 ```
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
@@ -805,7 +805,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#iconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -818,7 +818,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
     ///
     /// ``` self: QtC.KRecentFilesAction, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -831,7 +831,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -844,7 +844,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
     ///
     /// ``` self: QtC.KRecentFilesAction, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -857,7 +857,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -870,7 +870,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
     ///
     /// ``` self: QtC.KRecentFilesAction, what: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
@@ -883,7 +883,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -896,7 +896,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setPriority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
     /// ``` self: QtC.KRecentFilesAction, priority: qaction_enums.Priority ```
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
@@ -905,7 +905,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#priority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     ///
@@ -916,7 +916,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
     ///
     /// ``` self: QtC.KRecentFilesAction, b: bool ```
     pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
@@ -925,7 +925,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
@@ -934,7 +934,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
     ///
     /// ``` self: QtC.KRecentFilesAction, shortcut: QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
@@ -943,7 +943,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
@@ -952,7 +952,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KRecentFilesAction, shortcuts: []QtC.QKeySequence ```
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
@@ -965,7 +965,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KRecentFilesAction, shortcuts: qkeysequence_enums.StandardKey ```
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
@@ -974,7 +974,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -988,7 +988,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
     /// ``` self: QtC.KRecentFilesAction, context: qnamespace_enums.ShortcutContext ```
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
@@ -997,7 +997,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     ///
@@ -1008,7 +1008,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
     ///
     /// ``` self: QtC.KRecentFilesAction, autoRepeat: bool ```
     pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
@@ -1017,7 +1017,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn AutoRepeat(self: ?*anyopaque) bool {
@@ -1026,7 +1026,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setFont)
     ///
     /// ``` self: QtC.KRecentFilesAction, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -1035,7 +1035,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#font)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -1044,7 +1044,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
     ///
     /// ``` self: QtC.KRecentFilesAction, checkable: bool ```
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
@@ -1053,7 +1053,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsCheckable(self: ?*anyopaque) bool {
@@ -1062,7 +1062,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
@@ -1071,7 +1071,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
     ///
     /// ``` self: QtC.KRecentFilesAction, varVal: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
@@ -1080,7 +1080,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsChecked(self: ?*anyopaque) bool {
@@ -1089,7 +1089,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1098,7 +1098,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -1107,7 +1107,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
     /// ``` self: QtC.KRecentFilesAction, event: qaction_enums.ActionEvent ```
     pub fn Activate(self: ?*anyopaque, event: i32) void {
@@ -1116,7 +1116,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
     /// ``` self: QtC.KRecentFilesAction, menuRole: qaction_enums.MenuRole ```
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
@@ -1125,7 +1125,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#menuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     ///
@@ -1136,7 +1136,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
     ///
     /// ``` self: QtC.KRecentFilesAction, visible: bool ```
     pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
@@ -1145,7 +1145,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
@@ -1154,7 +1154,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KRecentFilesAction, show: bool ```
     pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
@@ -1163,7 +1163,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
@@ -1172,7 +1172,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn ShowStatusText(self: ?*anyopaque) bool {
@@ -1181,7 +1181,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#trigger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Trigger(self: ?*anyopaque) void {
@@ -1190,7 +1190,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hover)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Hover(self: ?*anyopaque) void {
@@ -1199,7 +1199,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
     ///
     /// ``` self: QtC.KRecentFilesAction, checked: bool ```
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
@@ -1208,7 +1208,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Toggle(self: ?*anyopaque) void {
@@ -1217,7 +1217,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
     ///
     /// ``` self: QtC.KRecentFilesAction, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1226,7 +1226,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn ResetEnabled(self: ?*anyopaque) void {
@@ -1235,7 +1235,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
     ///
     /// ``` self: QtC.KRecentFilesAction, b: bool ```
     pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
@@ -1244,7 +1244,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
     ///
     /// ``` self: QtC.KRecentFilesAction, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -1253,7 +1253,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -1262,7 +1262,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1271,7 +1271,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KRecentFilesAction, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -1280,7 +1280,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1289,7 +1289,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KRecentFilesAction, checkable: bool ```
     pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
@@ -1298,7 +1298,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, checkable: bool) callconv(.c) void ```
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1307,7 +1307,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -1316,7 +1316,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1325,7 +1325,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Triggered(self: ?*anyopaque) void {
@@ -1334,7 +1334,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1343,7 +1343,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Hovered(self: ?*anyopaque) void {
@@ -1352,7 +1352,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1361,7 +1361,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KRecentFilesAction, param1: bool ```
     pub fn Toggled(self: ?*anyopaque, param1: bool) void {
@@ -1370,7 +1370,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, param1: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1379,7 +1379,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KRecentFilesAction, object: QtC.QObject ```
     pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
@@ -1388,7 +1388,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, checked: bool ```
     pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
@@ -1397,7 +1397,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, checked: bool) callconv(.c) void ```
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1406,7 +1406,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1419,7 +1419,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KRecentFilesAction, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1432,7 +1432,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1441,7 +1441,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1450,7 +1450,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1459,7 +1459,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1468,7 +1468,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KRecentFilesAction, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1477,7 +1477,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1486,7 +1486,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KRecentFilesAction, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1495,7 +1495,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KRecentFilesAction, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1504,7 +1504,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KRecentFilesAction, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1513,7 +1513,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KRecentFilesAction, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1522,7 +1522,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1536,7 +1536,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KRecentFilesAction, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1545,7 +1545,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KRecentFilesAction, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1554,7 +1554,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KRecentFilesAction, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1563,7 +1563,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1572,7 +1572,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KRecentFilesAction, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1583,7 +1583,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1592,7 +1592,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1601,7 +1601,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1610,7 +1610,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1619,7 +1619,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KRecentFilesAction, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1629,7 +1629,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KRecentFilesAction, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1639,7 +1639,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KRecentFilesAction, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1663,7 +1663,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1672,7 +1672,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1681,7 +1681,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1690,7 +1690,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1699,7 +1699,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1708,7 +1708,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KRecentFilesAction, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1718,7 +1718,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KRecentFilesAction ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1727,7 +1727,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KRecentFilesAction, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1736,7 +1736,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KRecentFilesAction, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1745,7 +1745,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1754,7 +1754,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KRecentFilesAction, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1765,7 +1765,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRecentFilesAction, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1774,7 +1774,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1783,7 +1783,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1794,7 +1794,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1805,7 +1805,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1816,7 +1816,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1827,7 +1827,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1838,7 +1838,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1849,7 +1849,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1860,7 +1860,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1871,7 +1871,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1882,7 +1882,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1893,7 +1893,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1904,7 +1904,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1915,7 +1915,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1926,7 +1926,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1937,7 +1937,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1948,7 +1948,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1959,7 +1959,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1970,7 +1970,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1981,7 +1981,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1992,7 +1992,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2003,7 +2003,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2014,7 +2014,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2025,7 +2025,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2036,7 +2036,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2047,7 +2047,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2058,7 +2058,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2069,7 +2069,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2080,7 +2080,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2091,7 +2091,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2102,7 +2102,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2113,7 +2113,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2124,7 +2124,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2135,7 +2135,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2146,7 +2146,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2157,7 +2157,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2168,7 +2168,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from KSelectAction
     ///
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2179,7 +2179,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2195,7 +2195,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2211,7 +2211,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2222,7 +2222,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2233,7 +2233,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2244,7 +2244,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2255,7 +2255,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2266,7 +2266,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2277,7 +2277,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2288,7 +2288,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2300,7 +2300,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2312,7 +2312,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2323,7 +2323,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2334,7 +2334,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2345,7 +2345,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2356,7 +2356,7 @@ pub const krecentfilesaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2365,7 +2365,7 @@ pub const krecentfilesaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#dtor.KRecentFilesAction)
+    /// [Upstream resources](https://api.kde.org/krecentfilesaction.html#dtor.KRecentFilesAction)
     ///
     /// Delete this object from C++ memory.
     ///

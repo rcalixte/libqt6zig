@@ -54,42 +54,42 @@ pub const kuser = struct {
         return qtc.KUser_new6(@intCast(mode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kuser.html#operator-eq)
     ///
     /// ``` self: QtC.KUser, user: QtC.KUser ```
     pub fn OperatorAssign(self: ?*anyopaque, user: ?*anyopaque) void {
         qtc.KUser_OperatorAssign(@ptrCast(self), @ptrCast(user));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/kuser.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KUser, user: QtC.KUser ```
     pub fn OperatorEqual(self: ?*anyopaque, user: ?*anyopaque) bool {
         return qtc.KUser_OperatorEqual(@ptrCast(self), @ptrCast(user));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#operator-not-eq)
+    /// [Upstream resources](https://api.kde.org/kuser.html#operator-not-eq)
     ///
     /// ``` self: QtC.KUser, user: QtC.KUser ```
     pub fn OperatorNotEqual(self: ?*anyopaque, user: ?*anyopaque) bool {
         return qtc.KUser_OperatorNotEqual(@ptrCast(self), @ptrCast(user));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#isValid)
+    /// [Upstream resources](https://api.kde.org/kuser.html#isValid)
     ///
     /// ``` self: QtC.KUser ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KUser_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#isSuperUser)
+    /// [Upstream resources](https://api.kde.org/kuser.html#isSuperUser)
     ///
     /// ``` self: QtC.KUser ```
     pub fn IsSuperUser(self: ?*anyopaque) bool {
         return qtc.KUser_IsSuperUser(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#loginName)
+    /// [Upstream resources](https://api.kde.org/kuser.html#loginName)
     ///
     /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
     pub fn LoginName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -100,7 +100,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#homeDir)
+    /// [Upstream resources](https://api.kde.org/kuser.html#homeDir)
     ///
     /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
     pub fn HomeDir(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -111,7 +111,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#faceIconPath)
+    /// [Upstream resources](https://api.kde.org/kuser.html#faceIconPath)
     ///
     /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
     pub fn FaceIconPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -122,7 +122,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#shell)
+    /// [Upstream resources](https://api.kde.org/kuser.html#shell)
     ///
     /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
     pub fn Shell(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -133,7 +133,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#groups)
+    /// [Upstream resources](https://api.kde.org/kuser.html#groups)
     ///
     /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
     pub fn Groups(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KUserGroup {
@@ -145,7 +145,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#groupNames)
+    /// [Upstream resources](https://api.kde.org/kuser.html#groupNames)
     ///
     /// ``` self: QtC.KUser, allocator: std.mem.Allocator ```
     pub fn GroupNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -167,14 +167,14 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#property)
+    /// [Upstream resources](https://api.kde.org/kuser.html#property)
     ///
     /// ``` self: QtC.KUser, which: kuser_enums.UserProperty ```
     pub fn Property(self: ?*anyopaque, which: i32) QtC.QVariant {
         return qtc.KUser_Property(@ptrCast(self), @intCast(which));
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#allUsers)
+    /// [Upstream resources](https://api.kde.org/kuser.html#allUsers)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllUsers(allocator: std.mem.Allocator) []QtC.KUser {
@@ -186,7 +186,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#allUserNames)
+    /// [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllUserNames(allocator: std.mem.Allocator) [][]const u8 {
@@ -208,7 +208,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#groups)
+    /// [Upstream resources](https://api.kde.org/kuser.html#groups)
     ///
     /// ``` self: QtC.KUser, maxCount: u32, allocator: std.mem.Allocator ```
     pub fn Groups1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []QtC.KUserGroup {
@@ -220,7 +220,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#groupNames)
+    /// [Upstream resources](https://api.kde.org/kuser.html#groupNames)
     ///
     /// ``` self: QtC.KUser, maxCount: u32, allocator: std.mem.Allocator ```
     pub fn GroupNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
@@ -242,7 +242,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#allUsers)
+    /// [Upstream resources](https://api.kde.org/kuser.html#allUsers)
     ///
     /// ``` maxCount: u32, allocator: std.mem.Allocator ```
     pub fn AllUsers1(maxCount: u32, allocator: std.mem.Allocator) []QtC.KUser {
@@ -254,7 +254,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#allUserNames)
+    /// [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
     ///
     /// ``` maxCount: u32, allocator: std.mem.Allocator ```
     pub fn AllUserNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
@@ -276,7 +276,7 @@ pub const kuser = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kuser.html#dtor.KUser)
+    /// [Upstream resources](https://api.kde.org/kuser.html#dtor.KUser)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -337,35 +337,35 @@ pub const kusergroup = struct {
         return qtc.KUserGroup_new6(@intCast(mode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq)
     ///
     /// ``` self: QtC.KUserGroup, group: QtC.KUserGroup ```
     pub fn OperatorAssign(self: ?*anyopaque, group: ?*anyopaque) void {
         qtc.KUserGroup_OperatorAssign(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KUserGroup, group: QtC.KUserGroup ```
     pub fn OperatorEqual(self: ?*anyopaque, group: ?*anyopaque) bool {
         return qtc.KUserGroup_OperatorEqual(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#operator-not-eq)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#operator-not-eq)
     ///
     /// ``` self: QtC.KUserGroup, group: QtC.KUserGroup ```
     pub fn OperatorNotEqual(self: ?*anyopaque, group: ?*anyopaque) bool {
         return qtc.KUserGroup_OperatorNotEqual(@ptrCast(self), @ptrCast(group));
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#isValid)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#isValid)
     ///
     /// ``` self: QtC.KUserGroup ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KUserGroup_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#name)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#name)
     ///
     /// ``` self: QtC.KUserGroup, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -376,7 +376,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#users)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#users)
     ///
     /// ``` self: QtC.KUserGroup, allocator: std.mem.Allocator ```
     pub fn Users(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KUser {
@@ -388,7 +388,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#userNames)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
     ///
     /// ``` self: QtC.KUserGroup, allocator: std.mem.Allocator ```
     pub fn UserNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -410,7 +410,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#allGroups)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllGroups(allocator: std.mem.Allocator) []QtC.KUserGroup {
@@ -422,7 +422,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#allGroupNames)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AllGroupNames(allocator: std.mem.Allocator) [][]const u8 {
@@ -444,7 +444,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#users)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#users)
     ///
     /// ``` self: QtC.KUserGroup, maxCount: u32, allocator: std.mem.Allocator ```
     pub fn Users1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []QtC.KUser {
@@ -456,7 +456,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#userNames)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
     ///
     /// ``` self: QtC.KUserGroup, maxCount: u32, allocator: std.mem.Allocator ```
     pub fn UserNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
@@ -478,7 +478,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#allGroups)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
     ///
     /// ``` maxCount: u32, allocator: std.mem.Allocator ```
     pub fn AllGroups1(maxCount: u32, allocator: std.mem.Allocator) []QtC.KUserGroup {
@@ -490,7 +490,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#allGroupNames)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
     ///
     /// ``` maxCount: u32, allocator: std.mem.Allocator ```
     pub fn AllGroupNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
@@ -512,7 +512,7 @@ pub const kusergroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kusergroup.html#dtor.KUserGroup)
+    /// [Upstream resources](https://api.kde.org/kusergroup.html#dtor.KUserGroup)
     ///
     /// Delete this object from C++ memory.
     ///

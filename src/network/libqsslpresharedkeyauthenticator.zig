@@ -18,21 +18,21 @@ pub const qsslpresharedkeyauthenticator = struct {
         return qtc.QSslPreSharedKeyAuthenticator_new2(@ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#operator-eq)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, authenticator: QtC.QSslPreSharedKeyAuthenticator ```
     pub fn OperatorAssign(self: ?*anyopaque, authenticator: ?*anyopaque) void {
         qtc.QSslPreSharedKeyAuthenticator_OperatorAssign(@ptrCast(self), @ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#swap)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, other: QtC.QSslPreSharedKeyAuthenticator ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslPreSharedKeyAuthenticator_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#identityHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#identityHint)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator ```
     pub fn IdentityHint(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -43,7 +43,7 @@ pub const qsslpresharedkeyauthenticator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#setIdentity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#setIdentity)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, identity: []u8 ```
     pub fn SetIdentity(self: ?*anyopaque, identity: []u8) void {
@@ -54,7 +54,7 @@ pub const qsslpresharedkeyauthenticator = struct {
         qtc.QSslPreSharedKeyAuthenticator_SetIdentity(@ptrCast(self), identity_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#identity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#identity)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator ```
     pub fn Identity(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -65,14 +65,14 @@ pub const qsslpresharedkeyauthenticator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#maximumIdentityLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#maximumIdentityLength)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator ```
     pub fn MaximumIdentityLength(self: ?*anyopaque) i32 {
         return qtc.QSslPreSharedKeyAuthenticator_MaximumIdentityLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#setPreSharedKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#setPreSharedKey)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, preSharedKey: []u8 ```
     pub fn SetPreSharedKey(self: ?*anyopaque, preSharedKey: []u8) void {
@@ -83,7 +83,7 @@ pub const qsslpresharedkeyauthenticator = struct {
         qtc.QSslPreSharedKeyAuthenticator_SetPreSharedKey(@ptrCast(self), preSharedKey_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#preSharedKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#preSharedKey)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator ```
     pub fn PreSharedKey(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -94,14 +94,14 @@ pub const qsslpresharedkeyauthenticator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#maximumPreSharedKeyLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#maximumPreSharedKeyLength)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator ```
     pub fn MaximumPreSharedKeyLength(self: ?*anyopaque) i32 {
         return qtc.QSslPreSharedKeyAuthenticator_MaximumPreSharedKeyLength(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#dtor.QSslPreSharedKeyAuthenticator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#dtor.QSslPreSharedKeyAuthenticator)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -31,28 +31,28 @@ pub const qopenglversionfunctionsfactory = struct {
         qtc.QOpenGLVersionFunctionsFactory_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
     ///
     ///
     pub fn Get() QtC.QAbstractOpenGLFunctions {
         return qtc.QOpenGLVersionFunctionsFactory_Get();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
     ///
     /// ``` versionProfile: QtC.QOpenGLVersionProfile ```
     pub fn Get1(versionProfile: ?*anyopaque) QtC.QAbstractOpenGLFunctions {
         return qtc.QOpenGLVersionFunctionsFactory_Get1(@ptrCast(versionProfile));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
     ///
     /// ``` versionProfile: QtC.QOpenGLVersionProfile, context: QtC.QOpenGLContext ```
     pub fn Get2(versionProfile: ?*anyopaque, context: ?*anyopaque) QtC.QAbstractOpenGLFunctions {
         return qtc.QOpenGLVersionFunctionsFactory_Get2(@ptrCast(versionProfile), @ptrCast(context));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#dtor.QOpenGLVersionFunctionsFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#dtor.QOpenGLVersionFunctionsFactory)
     ///
     /// Delete this object from C++ memory.
     ///

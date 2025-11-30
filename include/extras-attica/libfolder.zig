@@ -18,14 +18,14 @@ pub const attica__folder = struct {
         return qtc.Attica__Folder_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__Folder, other: QtC.Attica__Folder ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Folder_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#setId)
     ///
     /// ``` self: QtC.Attica__Folder, id: []const u8 ```
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
@@ -36,7 +36,7 @@ pub const attica__folder = struct {
         qtc.Attica__Folder_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#id)
     ///
     /// ``` self: QtC.Attica__Folder, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,7 +47,7 @@ pub const attica__folder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#setName)
     ///
     /// ``` self: QtC.Attica__Folder, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -58,7 +58,7 @@ pub const attica__folder = struct {
         qtc.Attica__Folder_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#name)
     ///
     /// ``` self: QtC.Attica__Folder, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -69,21 +69,21 @@ pub const attica__folder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#setMessageCount)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#setMessageCount)
     ///
     /// ``` self: QtC.Attica__Folder, messageCount: i32 ```
     pub fn SetMessageCount(self: ?*anyopaque, messageCount: i32) void {
         qtc.Attica__Folder_SetMessageCount(@ptrCast(self), @intCast(messageCount));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#messageCount)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#messageCount)
     ///
     /// ``` self: QtC.Attica__Folder ```
     pub fn MessageCount(self: ?*anyopaque) i32 {
         return qtc.Attica__Folder_MessageCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#setType)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#setType)
     ///
     /// ``` self: QtC.Attica__Folder, typeVal: []const u8 ```
     pub fn SetType(self: ?*anyopaque, typeVal: []const u8) void {
@@ -94,7 +94,7 @@ pub const attica__folder = struct {
         qtc.Attica__Folder_SetType(@ptrCast(self), typeVal_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#type)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#type)
     ///
     /// ``` self: QtC.Attica__Folder, allocator: std.mem.Allocator ```
     pub fn Type(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -105,7 +105,7 @@ pub const attica__folder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-folder.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-folder.html#isValid)
     ///
     /// ``` self: QtC.Attica__Folder ```
     pub fn IsValid(self: ?*anyopaque) bool {

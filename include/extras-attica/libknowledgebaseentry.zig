@@ -19,14 +19,14 @@ pub const attica__knowledgebaseentry = struct {
         return qtc.Attica__KnowledgeBaseEntry_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, other: QtC.Attica__KnowledgeBaseEntry ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__KnowledgeBaseEntry_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setId)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, id: []const u8 ```
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
@@ -37,7 +37,7 @@ pub const attica__knowledgebaseentry = struct {
         qtc.Attica__KnowledgeBaseEntry_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#id)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,21 +48,21 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setContentId)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setContentId)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, id: i32 ```
     pub fn SetContentId(self: ?*anyopaque, id: i32) void {
         qtc.Attica__KnowledgeBaseEntry_SetContentId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#contentId)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#contentId)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry ```
     pub fn ContentId(self: ?*anyopaque) i32 {
         return qtc.Attica__KnowledgeBaseEntry_ContentId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setUser)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setUser)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, user: []const u8 ```
     pub fn SetUser(self: ?*anyopaque, user: []const u8) void {
@@ -73,7 +73,7 @@ pub const attica__knowledgebaseentry = struct {
         qtc.Attica__KnowledgeBaseEntry_SetUser(@ptrCast(self), user_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#user)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#user)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, allocator: std.mem.Allocator ```
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -84,7 +84,7 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setStatus)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setStatus)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, status: []const u8 ```
     pub fn SetStatus(self: ?*anyopaque, status: []const u8) void {
@@ -95,7 +95,7 @@ pub const attica__knowledgebaseentry = struct {
         qtc.Attica__KnowledgeBaseEntry_SetStatus(@ptrCast(self), status_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#status)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#status)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, allocator: std.mem.Allocator ```
     pub fn Status(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -106,21 +106,21 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setChanged)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setChanged)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, changed: QtC.QDateTime ```
     pub fn SetChanged(self: ?*anyopaque, changed: ?*anyopaque) void {
         qtc.Attica__KnowledgeBaseEntry_SetChanged(@ptrCast(self), @ptrCast(changed));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#changed)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#changed)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry ```
     pub fn Changed(self: ?*anyopaque) QtC.QDateTime {
         return qtc.Attica__KnowledgeBaseEntry_Changed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setName)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -131,7 +131,7 @@ pub const attica__knowledgebaseentry = struct {
         qtc.Attica__KnowledgeBaseEntry_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#name)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -142,7 +142,7 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setDescription)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setDescription)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -153,7 +153,7 @@ pub const attica__knowledgebaseentry = struct {
         qtc.Attica__KnowledgeBaseEntry_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#description)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#description)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -164,7 +164,7 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setAnswer)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setAnswer)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, answer: []const u8 ```
     pub fn SetAnswer(self: ?*anyopaque, answer: []const u8) void {
@@ -175,7 +175,7 @@ pub const attica__knowledgebaseentry = struct {
         qtc.Attica__KnowledgeBaseEntry_SetAnswer(@ptrCast(self), answer_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#answer)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#answer)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, allocator: std.mem.Allocator ```
     pub fn Answer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -186,35 +186,35 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setComments)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setComments)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, comments: i32 ```
     pub fn SetComments(self: ?*anyopaque, comments: i32) void {
         qtc.Attica__KnowledgeBaseEntry_SetComments(@ptrCast(self), @intCast(comments));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#comments)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#comments)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry ```
     pub fn Comments(self: ?*anyopaque) i32 {
         return qtc.Attica__KnowledgeBaseEntry_Comments(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#setDetailPage)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#setDetailPage)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, detailPage: QtC.QUrl ```
     pub fn SetDetailPage(self: ?*anyopaque, detailPage: ?*anyopaque) void {
         qtc.Attica__KnowledgeBaseEntry_SetDetailPage(@ptrCast(self), @ptrCast(detailPage));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#detailPage)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#detailPage)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry ```
     pub fn DetailPage(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__KnowledgeBaseEntry_DetailPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#addExtendedAttribute)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#addExtendedAttribute)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, key: []const u8, value: []const u8 ```
     pub fn AddExtendedAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -229,7 +229,7 @@ pub const attica__knowledgebaseentry = struct {
         qtc.Attica__KnowledgeBaseEntry_AddExtendedAttribute(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#extendedAttribute)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#extendedAttribute)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ExtendedAttribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -244,7 +244,7 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#extendedAttributes)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#extendedAttributes)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry, allocator: std.mem.Allocator ```
     pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -270,7 +270,7 @@ pub const attica__knowledgebaseentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-knowledgebaseentry.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-knowledgebaseentry.html#isValid)
     ///
     /// ``` self: QtC.Attica__KnowledgeBaseEntry ```
     pub fn IsValid(self: ?*anyopaque) bool {

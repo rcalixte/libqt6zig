@@ -23,7 +23,7 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -55,7 +55,7 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -67,14 +67,14 @@ pub const qformlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setFieldGrowthPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setFieldGrowthPolicy)
     ///
     /// ``` self: QtC.QFormLayout, policy: qformlayout_enums.FieldGrowthPolicy ```
     pub fn SetFieldGrowthPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QFormLayout_SetFieldGrowthPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#fieldGrowthPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#fieldGrowthPolicy)
     ///
     /// ``` self: QtC.QFormLayout ```
     ///
@@ -83,14 +83,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_FieldGrowthPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setRowWrapPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowWrapPolicy)
     ///
     /// ``` self: QtC.QFormLayout, policy: qformlayout_enums.RowWrapPolicy ```
     pub fn SetRowWrapPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QFormLayout_SetRowWrapPolicy(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#rowWrapPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#rowWrapPolicy)
     ///
     /// ``` self: QtC.QFormLayout ```
     ///
@@ -99,14 +99,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_RowWrapPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setLabelAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setLabelAlignment)
     ///
     /// ``` self: QtC.QFormLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetLabelAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QFormLayout_SetLabelAlignment(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#labelAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelAlignment)
     ///
     /// ``` self: QtC.QFormLayout ```
     ///
@@ -115,14 +115,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_LabelAlignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setFormAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setFormAlignment)
     ///
     /// ``` self: QtC.QFormLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetFormAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QFormLayout_SetFormAlignment(@ptrCast(self), @intCast(alignment));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#formAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#formAlignment)
     ///
     /// ``` self: QtC.QFormLayout ```
     ///
@@ -131,42 +131,42 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_FormAlignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setHorizontalSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setHorizontalSpacing)
     ///
     /// ``` self: QtC.QFormLayout, spacing: i32 ```
     pub fn SetHorizontalSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QFormLayout_SetHorizontalSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#horizontalSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#horizontalSpacing)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn HorizontalSpacing(self: ?*anyopaque) i32 {
         return qtc.QFormLayout_HorizontalSpacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setVerticalSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setVerticalSpacing)
     ///
     /// ``` self: QtC.QFormLayout, spacing: i32 ```
     pub fn SetVerticalSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QFormLayout_SetVerticalSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#verticalSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#verticalSpacing)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn VerticalSpacing(self: ?*anyopaque) i32 {
         return qtc.QFormLayout_VerticalSpacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Spacing(self: ?*anyopaque) i32 {
         return qtc.QFormLayout_Spacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -175,7 +175,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#spacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
     ///
     /// Base class method implementation
     ///
@@ -184,14 +184,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseSpacing(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
     ///
     /// ``` self: QtC.QFormLayout, spacing: i32 ```
     pub fn SetSpacing(self: ?*anyopaque, spacing: i32) void {
         qtc.QFormLayout_SetSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
     ///
     /// Allows for overriding the related default method
     ///
@@ -200,7 +200,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
     ///
     /// Base class method implementation
     ///
@@ -209,21 +209,21 @@ pub const qformlayout = struct {
         qtc.QFormLayout_QBaseSetSpacing(@ptrCast(self), @intCast(spacing));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, label: QtC.QWidget, field: QtC.QWidget ```
     pub fn AddRow(self: ?*anyopaque, label: ?*anyopaque, field: ?*anyopaque) void {
         qtc.QFormLayout_AddRow(@ptrCast(self), @ptrCast(label), @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, label: QtC.QWidget, field: QtC.QLayout ```
     pub fn AddRow2(self: ?*anyopaque, label: ?*anyopaque, field: ?*anyopaque) void {
         qtc.QFormLayout_AddRow2(@ptrCast(self), @ptrCast(label), @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, labelText: []const u8, field: QtC.QWidget ```
     pub fn AddRow3(self: ?*anyopaque, labelText: []const u8, field: ?*anyopaque) void {
@@ -234,7 +234,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_AddRow3(@ptrCast(self), labelText_str, @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, labelText: []const u8, field: QtC.QLayout ```
     pub fn AddRow4(self: ?*anyopaque, labelText: []const u8, field: ?*anyopaque) void {
@@ -245,35 +245,35 @@ pub const qformlayout = struct {
         qtc.QFormLayout_AddRow4(@ptrCast(self), labelText_str, @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
     pub fn AddRow5(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QFormLayout_AddRow5(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
     pub fn AddRow6(self: ?*anyopaque, layout: ?*anyopaque) void {
         qtc.QFormLayout_AddRow6(@ptrCast(self), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, label: QtC.QWidget, field: QtC.QWidget ```
     pub fn InsertRow(self: ?*anyopaque, row: i32, label: ?*anyopaque, field: ?*anyopaque) void {
         qtc.QFormLayout_InsertRow(@ptrCast(self), @intCast(row), @ptrCast(label), @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, label: QtC.QWidget, field: QtC.QLayout ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, label: ?*anyopaque, field: ?*anyopaque) void {
         qtc.QFormLayout_InsertRow2(@ptrCast(self), @intCast(row), @ptrCast(label), @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, labelText: []const u8, field: QtC.QWidget ```
     pub fn InsertRow3(self: ?*anyopaque, row: i32, labelText: []const u8, field: ?*anyopaque) void {
@@ -284,7 +284,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_InsertRow3(@ptrCast(self), @intCast(row), labelText_str, @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, labelText: []const u8, field: QtC.QLayout ```
     pub fn InsertRow4(self: ?*anyopaque, row: i32, labelText: []const u8, field: ?*anyopaque) void {
@@ -295,154 +295,154 @@ pub const qformlayout = struct {
         qtc.QFormLayout_InsertRow4(@ptrCast(self), @intCast(row), labelText_str, @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, widget: QtC.QWidget ```
     pub fn InsertRow5(self: ?*anyopaque, row: i32, widget: ?*anyopaque) void {
         qtc.QFormLayout_InsertRow5(@ptrCast(self), @intCast(row), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, layout: QtC.QLayout ```
     pub fn InsertRow6(self: ?*anyopaque, row: i32, layout: ?*anyopaque) void {
         qtc.QFormLayout_InsertRow6(@ptrCast(self), @intCast(row), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) void {
         qtc.QFormLayout_RemoveRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
     pub fn RemoveRow2(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.QFormLayout_RemoveRow2(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
     pub fn RemoveRow3(self: ?*anyopaque, layout: ?*anyopaque) void {
         qtc.QFormLayout_RemoveRow3(@ptrCast(self), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
     ///
     /// ``` self: QtC.QFormLayout, row: i32 ```
     pub fn TakeRow(self: ?*anyopaque, row: i32) QtC.QFormLayout__TakeRowResult {
         return qtc.QFormLayout_TakeRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
     pub fn TakeRow2(self: ?*anyopaque, widget: ?*anyopaque) QtC.QFormLayout__TakeRowResult {
         return qtc.QFormLayout_TakeRow2(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
     pub fn TakeRow3(self: ?*anyopaque, layout: ?*anyopaque) QtC.QFormLayout__TakeRowResult {
         return qtc.QFormLayout_TakeRow3(@ptrCast(self), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setItem)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole, item: QtC.QLayoutItem ```
     pub fn SetItem(self: ?*anyopaque, row: i32, role: i32, item: ?*anyopaque) void {
         qtc.QFormLayout_SetItem(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setWidget)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole, widget: QtC.QWidget ```
     pub fn SetWidget(self: ?*anyopaque, row: i32, role: i32, widget: ?*anyopaque) void {
         qtc.QFormLayout_SetWidget(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setLayout)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, row: i32, role: i32, layout: ?*anyopaque) void {
         qtc.QFormLayout_SetLayout(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, on: bool ```
     pub fn SetRowVisible(self: ?*anyopaque, row: i32, on: bool) void {
         qtc.QFormLayout_SetRowVisible(@ptrCast(self), @intCast(row), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget, on: bool ```
     pub fn SetRowVisible2(self: ?*anyopaque, widget: ?*anyopaque, on: bool) void {
         qtc.QFormLayout_SetRowVisible2(@ptrCast(self), @ptrCast(widget), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout, on: bool ```
     pub fn SetRowVisible3(self: ?*anyopaque, layout: ?*anyopaque, on: bool) void {
         qtc.QFormLayout_SetRowVisible3(@ptrCast(self), @ptrCast(layout), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, row: i32 ```
     pub fn IsRowVisible(self: ?*anyopaque, row: i32) bool {
         return qtc.QFormLayout_IsRowVisible(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
     pub fn IsRowVisible2(self: ?*anyopaque, widget: ?*anyopaque) bool {
         return qtc.QFormLayout_IsRowVisible2(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
     pub fn IsRowVisible3(self: ?*anyopaque, layout: ?*anyopaque) bool {
         return qtc.QFormLayout_IsRowVisible3(@ptrCast(self), @ptrCast(layout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole ```
     pub fn ItemAt(self: ?*anyopaque, row: i32, role: i32) QtC.QLayoutItem {
         return qtc.QFormLayout_ItemAt(@ptrCast(self), @intCast(row), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
     ///
     /// ``` self: QtC.QFormLayout, field: QtC.QWidget ```
     pub fn LabelForField(self: ?*anyopaque, field: ?*anyopaque) QtC.QWidget {
         return qtc.QFormLayout_LabelForField(@ptrCast(self), @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
     ///
     /// ``` self: QtC.QFormLayout, field: QtC.QLayout ```
     pub fn LabelForField2(self: ?*anyopaque, field: ?*anyopaque) QtC.QWidget {
         return qtc.QFormLayout_LabelForField2(@ptrCast(self), @ptrCast(field));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
     ///
     /// ``` self: QtC.QFormLayout, item: QtC.QLayoutItem ```
     pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.QFormLayout_AddItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
     ///
     /// Allows for overriding the related default method
     ///
@@ -451,7 +451,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnAddItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
     ///
     /// Base class method implementation
     ///
@@ -460,14 +460,14 @@ pub const qformlayout = struct {
         qtc.QFormLayout_QBaseAddItem(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// ``` self: QtC.QFormLayout, index: i32 ```
     pub fn ItemAt2(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
         return qtc.QFormLayout_ItemAt2(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -476,7 +476,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnItemAt2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// Base class method implementation
     ///
@@ -485,14 +485,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseItemAt2(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
     ///
     /// ``` self: QtC.QFormLayout, index: i32 ```
     pub fn TakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
         return qtc.QFormLayout_TakeAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -501,7 +501,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
     ///
     /// Base class method implementation
     ///
@@ -510,14 +510,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseTakeAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
     ///
     /// ``` self: QtC.QFormLayout, rect: QtC.QRect ```
     pub fn SetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QFormLayout_SetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -526,7 +526,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
     ///
     /// Base class method implementation
     ///
@@ -535,14 +535,14 @@ pub const qformlayout = struct {
         qtc.QFormLayout_QBaseSetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QFormLayout_MinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
     ///
     /// Allows for overriding the related default method
     ///
@@ -551,7 +551,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
     ///
     /// Base class method implementation
     ///
@@ -560,14 +560,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseMinimumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.QFormLayout_SizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -576,7 +576,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -585,14 +585,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseSizeHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Invalidate(self: ?*anyopaque) void {
         qtc.QFormLayout_Invalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
     ///
     /// Allows for overriding the related default method
     ///
@@ -601,7 +601,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
     ///
     /// Base class method implementation
     ///
@@ -610,14 +610,14 @@ pub const qformlayout = struct {
         qtc.QFormLayout_QBaseInvalidate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn HasHeightForWidth(self: ?*anyopaque) bool {
         return qtc.QFormLayout_HasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -626,7 +626,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -635,14 +635,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseHasHeightForWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
     ///
     /// ``` self: QtC.QFormLayout, width: i32 ```
     pub fn HeightForWidth(self: ?*anyopaque, width: i32) i32 {
         return qtc.QFormLayout_HeightForWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
     ///
     /// Allows for overriding the related default method
     ///
@@ -651,7 +651,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
     ///
     /// Base class method implementation
     ///
@@ -660,7 +660,7 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseHeightForWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
     /// ``` self: QtC.QFormLayout ```
     ///
@@ -669,7 +669,7 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_ExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
     /// Allows for overriding the related default method
     ///
@@ -678,7 +678,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
     /// Base class method implementation
     ///
@@ -689,14 +689,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseExpandingDirections(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QFormLayout_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
     ///
     /// Allows for overriding the related default method
     ///
@@ -705,7 +705,7 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
     ///
     /// Base class method implementation
     ///
@@ -714,14 +714,14 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_QBaseCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#rowCount)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn RowCount(self: ?*anyopaque) i32 {
         return qtc.QFormLayout_RowCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -734,7 +734,7 @@ pub const qformlayout = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -749,7 +749,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QFormLayout, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -758,7 +758,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QFormLayout, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -767,7 +767,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn UnsetContentsMargins(self: ?*anyopaque) void {
@@ -776,7 +776,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
     /// ``` self: QtC.QFormLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
     pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
@@ -785,7 +785,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsMargins)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -794,7 +794,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#contentsRect)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -803,7 +803,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QFormLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i32) bool {
@@ -812,7 +812,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
     /// ``` self: QtC.QFormLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i32) bool {
@@ -821,7 +821,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QFormLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
     pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
@@ -830,7 +830,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QFormLayout ```
     ///
@@ -841,7 +841,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setMenuBar)
     ///
     /// ``` self: QtC.QFormLayout, w: QtC.QWidget ```
     pub fn SetMenuBar(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -850,7 +850,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#menuBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#menuBar)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn MenuBar(self: ?*anyopaque) QtC.QWidget {
@@ -859,7 +859,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#parentWidget)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -868,7 +868,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#activate)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Activate(self: ?*anyopaque) bool {
@@ -877,7 +877,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#update)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Update(self: ?*anyopaque) void {
@@ -886,7 +886,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addWidget)
     ///
     /// ``` self: QtC.QFormLayout, w: QtC.QWidget ```
     pub fn AddWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -895,7 +895,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
     ///
     /// ``` self: QtC.QFormLayout, w: QtC.QWidget ```
     pub fn RemoveWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -904,7 +904,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#removeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeItem)
     ///
     /// ``` self: QtC.QFormLayout, param1: QtC.QLayoutItem ```
     pub fn RemoveItem(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -913,7 +913,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// ``` self: QtC.QFormLayout, param1: QtC.QLayoutItem ```
     pub fn IndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
@@ -922,7 +922,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Allows for overriding the related default method
     ///
@@ -933,7 +933,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Base class method implementation
     ///
@@ -944,7 +944,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
     ///
     /// ``` self: QtC.QFormLayout, w: i32 ```
     pub fn TotalMinimumHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -953,7 +953,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalHeightForWidth)
     ///
     /// ``` self: QtC.QFormLayout, w: i32 ```
     pub fn TotalHeightForWidth(self: ?*anyopaque, w: i32) i32 {
@@ -962,7 +962,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumSize)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn TotalMinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -971,7 +971,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMaximumSize)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn TotalMaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -980,7 +980,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalSizeHint)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn TotalSizeHint(self: ?*anyopaque) QtC.QSize {
@@ -989,7 +989,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
     ///
     /// ``` self: QtC.QFormLayout, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -998,7 +998,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEnabled)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1007,7 +1007,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#closestAcceptableSize)
     ///
     /// ``` w: QtC.QWidget, s: QtC.QSize ```
     pub fn ClosestAcceptableSize(w: ?*anyopaque, s: ?*anyopaque) QtC.QSize {
@@ -1016,7 +1016,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QFormLayout, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1029,7 +1029,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QFormLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1042,7 +1042,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1051,7 +1051,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1060,7 +1060,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1069,7 +1069,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1078,7 +1078,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QFormLayout, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1087,7 +1087,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1096,7 +1096,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFormLayout, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1105,7 +1105,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFormLayout, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1114,7 +1114,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFormLayout, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1123,7 +1123,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFormLayout, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1132,7 +1132,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QFormLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1146,7 +1146,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QFormLayout, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1155,7 +1155,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QFormLayout, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1164,7 +1164,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QFormLayout, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1173,7 +1173,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1182,7 +1182,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFormLayout, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1193,7 +1193,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1202,7 +1202,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1211,7 +1211,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1220,7 +1220,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1229,7 +1229,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QFormLayout, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1239,7 +1239,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QFormLayout, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1249,7 +1249,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QFormLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1273,7 +1273,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1282,7 +1282,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1291,7 +1291,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1300,7 +1300,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFormLayout, callback: *const fn (self: QtC.QFormLayout) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1309,7 +1309,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1318,7 +1318,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QFormLayout, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1328,7 +1328,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QFormLayout ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1337,7 +1337,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFormLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1346,7 +1346,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFormLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1355,7 +1355,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1364,7 +1364,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFormLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1375,7 +1375,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFormLayout, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1384,7 +1384,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFormLayout, callback: *const fn (self: QtC.QFormLayout, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1393,7 +1393,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QFormLayout ```
     ///
@@ -1404,7 +1404,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1415,7 +1415,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1426,7 +1426,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1437,7 +1437,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1448,7 +1448,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1459,7 +1459,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1470,7 +1470,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1481,7 +1481,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1492,7 +1492,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1503,7 +1503,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1514,7 +1514,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1525,7 +1525,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1536,7 +1536,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1549,7 +1549,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1562,7 +1562,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1573,7 +1573,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1584,7 +1584,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1595,7 +1595,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1606,7 +1606,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1617,7 +1617,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1628,7 +1628,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1639,7 +1639,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1650,7 +1650,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1661,7 +1661,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1672,7 +1672,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1683,7 +1683,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1694,7 +1694,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1705,7 +1705,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1716,7 +1716,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1727,7 +1727,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1738,7 +1738,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1749,7 +1749,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1760,7 +1760,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1771,7 +1771,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1782,7 +1782,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1793,7 +1793,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1804,7 +1804,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1815,7 +1815,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1826,7 +1826,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1837,7 +1837,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1848,7 +1848,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1859,7 +1859,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1870,7 +1870,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1881,7 +1881,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1892,7 +1892,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1903,7 +1903,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1914,7 +1914,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1925,7 +1925,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1936,7 +1936,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1947,7 +1947,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1958,7 +1958,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1969,7 +1969,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1980,7 +1980,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1991,7 +1991,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2002,7 +2002,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2013,7 +2013,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2024,7 +2024,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2035,7 +2035,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2046,7 +2046,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2057,7 +2057,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2068,7 +2068,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2079,7 +2079,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2090,7 +2090,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2101,7 +2101,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2112,7 +2112,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2123,7 +2123,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QLayout
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2134,7 +2134,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2145,7 +2145,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2156,7 +2156,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2167,7 +2167,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2178,7 +2178,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2189,7 +2189,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2200,7 +2200,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2212,7 +2212,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2224,7 +2224,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2235,7 +2235,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2246,7 +2246,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2257,7 +2257,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2268,7 +2268,7 @@ pub const qformlayout = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2277,7 +2277,7 @@ pub const qformlayout = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#dtor.QFormLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#dtor.QFormLayout)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -2303,28 +2303,28 @@ pub const qformlayout__takerowresult = struct {
         return qtc.QFormLayout__TakeRowResult_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
     ///
     /// ``` self: QtC.QFormLayout__TakeRowResult ```
     pub fn LabelItem(self: ?*anyopaque) QtC.QLayoutItem {
         return qtc.QFormLayout__TakeRowResult_LabelItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
     ///
     /// ``` self: QtC.QFormLayout__TakeRowResult, labelItem: QtC.QLayoutItem ```
     pub fn SetLabelItem(self: ?*anyopaque, labelItem: ?*anyopaque) void {
         qtc.QFormLayout__TakeRowResult_SetLabelItem(@ptrCast(self), @ptrCast(labelItem));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
     ///
     /// ``` self: QtC.QFormLayout__TakeRowResult ```
     pub fn FieldItem(self: ?*anyopaque) QtC.QLayoutItem {
         return qtc.QFormLayout__TakeRowResult_FieldItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
     ///
     /// ``` self: QtC.QFormLayout__TakeRowResult, fieldItem: QtC.QLayoutItem ```
     pub fn SetFieldItem(self: ?*anyopaque, fieldItem: ?*anyopaque) void {

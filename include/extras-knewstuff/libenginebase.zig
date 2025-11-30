@@ -22,7 +22,7 @@ pub const knscore__enginebase = struct {
         return qtc.KNSCore__EngineBase_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const knscore__enginebase = struct {
         return qtc.KNSCore__EngineBase_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#availableConfigFiles)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#availableConfigFiles)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableConfigFiles(allocator: std.mem.Allocator) [][]const u8 {
@@ -88,7 +88,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#init)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#init)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, configfile: []const u8 ```
     pub fn Init(self: ?*anyopaque, configfile: []const u8) bool {
@@ -99,7 +99,7 @@ pub const knscore__enginebase = struct {
         return qtc.KNSCore__EngineBase_Init(@ptrCast(self), configfile_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#init)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#init)
     ///
     /// Allows for overriding the related default method
     ///
@@ -108,7 +108,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_OnInit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#init)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#init)
     ///
     /// Base class method implementation
     ///
@@ -121,7 +121,7 @@ pub const knscore__enginebase = struct {
         return qtc.KNSCore__EngineBase_QBaseInit(@ptrCast(self), configfile_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#name)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#name)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -132,7 +132,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#useLabel)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#useLabel)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn UseLabel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -143,28 +143,28 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#useLabelChanged)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#useLabelChanged)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn UseLabelChanged(self: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_UseLabelChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#uploadEnabled)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#uploadEnabled)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn UploadEnabled(self: ?*anyopaque) bool {
         return qtc.KNSCore__EngineBase_UploadEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#uploadEnabledChanged)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#uploadEnabledChanged)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn UploadEnabledChanged(self: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_UploadEnabledChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#categories)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#categories)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -186,7 +186,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#categoriesMetadata)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#categoriesMetadata)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn CategoriesMetadata(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KNSCore__Provider__CategoryMetadata {
@@ -198,7 +198,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#categoriesMetadata2)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#categoriesMetadata2)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn CategoriesMetadata2(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KNSCore__CategoryMetadata {
@@ -210,7 +210,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#searchPresets)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#searchPresets)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn SearchPresets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KNSCore__Provider__SearchPreset {
@@ -222,7 +222,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#searchPresets2)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#searchPresets2)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn SearchPresets2(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KNSCore__SearchPreset {
@@ -234,7 +234,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#atticaProviders)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#atticaProviders)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn AtticaProviders(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Attica__Provider {
@@ -246,7 +246,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#setTagFilter)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#setTagFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, filter: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetTagFilter(self: ?*anyopaque, filter: [][]const u8, allocator: std.mem.Allocator) void {
@@ -265,7 +265,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SetTagFilter(@ptrCast(self), filter_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#tagFilter)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#tagFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn TagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -287,7 +287,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#addTagFilter)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#addTagFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, filter: []const u8 ```
     pub fn AddTagFilter(self: ?*anyopaque, filter: []const u8) void {
@@ -298,7 +298,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_AddTagFilter(@ptrCast(self), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#setDownloadTagFilter)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#setDownloadTagFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, filter: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetDownloadTagFilter(self: ?*anyopaque, filter: [][]const u8, allocator: std.mem.Allocator) void {
@@ -317,7 +317,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SetDownloadTagFilter(@ptrCast(self), filter_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#downloadTagFilter)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#downloadTagFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn DownloadTagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -339,7 +339,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#addDownloadTagFilter)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#addDownloadTagFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, filter: []const u8 ```
     pub fn AddDownloadTagFilter(self: ?*anyopaque, filter: []const u8) void {
@@ -350,35 +350,35 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_AddDownloadTagFilter(@ptrCast(self), filter_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#userCanVote)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#userCanVote)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, entry: QtC.KNSCore__Entry ```
     pub fn UserCanVote(self: ?*anyopaque, entry: ?*anyopaque) bool {
         return qtc.KNSCore__EngineBase_UserCanVote(@ptrCast(self), @ptrCast(entry));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#vote)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#vote)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, entry: QtC.KNSCore__Entry, rating: u32 ```
     pub fn Vote(self: ?*anyopaque, entry: ?*anyopaque, rating: u32) void {
         qtc.KNSCore__EngineBase_Vote(@ptrCast(self), @ptrCast(entry), @intCast(rating));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#userCanBecomeFan)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#userCanBecomeFan)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, entry: QtC.KNSCore__Entry ```
     pub fn UserCanBecomeFan(self: ?*anyopaque, entry: ?*anyopaque) bool {
         return qtc.KNSCore__EngineBase_UserCanBecomeFan(@ptrCast(self), @ptrCast(entry));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#becomeFan)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#becomeFan)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, entry: QtC.KNSCore__Entry ```
     pub fn BecomeFan(self: ?*anyopaque, entry: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_BecomeFan(@ptrCast(self), @ptrCast(entry));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#providerIDs)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#providerIDs)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn ProviderIDs(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -400,28 +400,28 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#hasAdoptionCommand)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#hasAdoptionCommand)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn HasAdoptionCommand(self: ?*anyopaque) bool {
         return qtc.KNSCore__EngineBase_HasAdoptionCommand(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#search)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#search)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, request: QtC.KNSCore__Provider__SearchRequest ```
     pub fn Search(self: ?*anyopaque, request: ?*anyopaque) QtC.KNSCore__ResultsStream {
         return qtc.KNSCore__EngineBase_Search(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#search)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#search)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, request: QtC.KNSCore__SearchRequest ```
     pub fn Search2(self: ?*anyopaque, request: ?*anyopaque) QtC.KNSCore__ResultsStream {
         return qtc.KNSCore__EngineBase_Search2(@ptrCast(self), @ptrCast(request));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#contentWarningType)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#contentWarningType)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     ///
@@ -430,14 +430,14 @@ pub const knscore__enginebase = struct {
         return qtc.KNSCore__EngineBase_ContentWarningType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#contentWarningTypeChanged)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#contentWarningTypeChanged)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn ContentWarningTypeChanged(self: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_ContentWarningTypeChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#signalMessage)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalMessage)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, message: []const u8 ```
     pub fn SignalMessage(self: ?*anyopaque, message: []const u8) void {
@@ -448,14 +448,14 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SignalMessage(@ptrCast(self), message_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#signalProvidersLoaded)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalProvidersLoaded)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn SignalProvidersLoaded(self: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_SignalProvidersLoaded(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#signalErrorCode)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalErrorCode)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, errorCode: errorcode_enums.ErrorCode, message: []const u8, metadata: QtC.QVariant ```
     pub fn SignalErrorCode(self: ?*anyopaque, errorCode: i32, message: []const u8, metadata: ?*anyopaque) void {
@@ -466,7 +466,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SignalErrorCode(@ptrCast(self), @intCast(errorCode), message_str, @ptrCast(metadata));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoded)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoded)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, categories: []QtC.KNSCore__Provider__CategoryMetadata ```
     pub fn SignalCategoriesMetadataLoded(self: ?*anyopaque, categories: []QtC.KNSCore__Provider__CategoryMetadata) void {
@@ -477,7 +477,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SignalCategoriesMetadataLoded(@ptrCast(self), categories_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoaded)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoaded)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, categories: []QtC.KNSCore__CategoryMetadata ```
     pub fn SignalCategoriesMetadataLoaded(self: ?*anyopaque, categories: []QtC.KNSCore__CategoryMetadata) void {
@@ -488,7 +488,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SignalCategoriesMetadataLoaded(@ptrCast(self), categories_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, presets: []QtC.KNSCore__Provider__SearchPreset ```
     pub fn SignalSearchPresetsLoaded(self: ?*anyopaque, presets: []QtC.KNSCore__Provider__SearchPreset) void {
@@ -499,7 +499,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SignalSearchPresetsLoaded(@ptrCast(self), presets_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, presets: []QtC.KNSCore__SearchPreset ```
     pub fn SignalSearchPresetsLoaded2(self: ?*anyopaque, presets: []QtC.KNSCore__SearchPreset) void {
@@ -510,35 +510,35 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_SignalSearchPresetsLoaded2(@ptrCast(self), presets_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#providersChanged)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#providersChanged)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn ProvidersChanged(self: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_ProvidersChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#loadingProvider)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#loadingProvider)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn LoadingProvider(self: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_LoadingProvider(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#providerAdded)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#providerAdded)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, provider: QtC.KNSCore__ProviderCore ```
     pub fn ProviderAdded(self: ?*anyopaque, provider: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_ProviderAdded(@ptrCast(self), @ptrCast(provider));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#updateStatus)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#updateStatus)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn UpdateStatus(self: ?*anyopaque) void {
         qtc.KNSCore__EngineBase_UpdateStatus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#updateStatus)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#updateStatus)
     ///
     /// Allows for overriding the related default method
     ///
@@ -547,7 +547,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_OnUpdateStatus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-enginebase.html#updateStatus)
+    /// [Upstream resources](https://api.kde.org/knscore-enginebase.html#updateStatus)
     ///
     /// Base class method implementation
     ///
@@ -556,7 +556,7 @@ pub const knscore__enginebase = struct {
         qtc.KNSCore__EngineBase_QBaseUpdateStatus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -569,7 +569,7 @@ pub const knscore__enginebase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -584,7 +584,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -597,7 +597,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -610,7 +610,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -619,7 +619,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -628,7 +628,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -637,7 +637,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -646,7 +646,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -655,7 +655,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -664,7 +664,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -673,7 +673,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -682,7 +682,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -691,7 +691,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -700,7 +700,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -714,7 +714,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -723,7 +723,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -732,7 +732,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -741,7 +741,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -750,7 +750,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -761,7 +761,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -770,7 +770,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -779,7 +779,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -788,7 +788,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -797,7 +797,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -807,7 +807,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -817,7 +817,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -841,7 +841,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -850,7 +850,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -859,7 +859,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -868,7 +868,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, callback: *const fn (self: QtC.KNSCore__EngineBase) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -877,7 +877,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -886,7 +886,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -896,7 +896,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KNSCore__EngineBase ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -905,7 +905,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -914,7 +914,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -923,7 +923,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -932,7 +932,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -943,7 +943,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -952,7 +952,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KNSCore__EngineBase, callback: *const fn (self: QtC.KNSCore__EngineBase, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -961,7 +961,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -972,7 +972,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -983,7 +983,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -994,7 +994,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1005,7 +1005,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1016,7 +1016,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1027,7 +1027,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1038,7 +1038,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1049,7 +1049,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1060,7 +1060,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1071,7 +1071,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1082,7 +1082,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1093,7 +1093,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1104,7 +1104,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1115,7 +1115,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1126,7 +1126,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1137,7 +1137,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1148,7 +1148,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1159,7 +1159,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1170,7 +1170,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1181,7 +1181,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1192,7 +1192,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1203,7 +1203,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1214,7 +1214,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1225,7 +1225,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1236,7 +1236,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1247,7 +1247,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1258,7 +1258,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1270,7 +1270,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1282,7 +1282,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1293,7 +1293,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1304,7 +1304,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1315,7 +1315,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1326,7 +1326,7 @@ pub const knscore__enginebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

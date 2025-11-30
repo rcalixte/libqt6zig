@@ -131,21 +131,21 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_new14(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction), @floatCast(gamma));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#operator-eq)
     ///
     /// ``` self: QtC.QColorSpace, colorSpace: QtC.QColorSpace ```
     pub fn OperatorAssign(self: ?*anyopaque, colorSpace: ?*anyopaque) void {
         qtc.QColorSpace_OperatorAssign(@ptrCast(self), @ptrCast(colorSpace));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#swap)
     ///
     /// ``` self: QtC.QColorSpace, colorSpace: QtC.QColorSpace ```
     pub fn Swap(self: ?*anyopaque, colorSpace: ?*anyopaque) void {
         qtc.QColorSpace_Swap(@ptrCast(self), @ptrCast(colorSpace));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#primaries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#primaries)
     ///
     /// ``` self: QtC.QColorSpace ```
     ///
@@ -154,7 +154,7 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_Primaries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#transferFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#transferFunction)
     ///
     /// ``` self: QtC.QColorSpace ```
     ///
@@ -163,14 +163,14 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_TransferFunction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#gamma)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#gamma)
     ///
     /// ``` self: QtC.QColorSpace ```
     pub fn Gamma(self: ?*anyopaque) f32 {
         return qtc.QColorSpace_Gamma(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#description)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#description)
     ///
     /// ``` self: QtC.QColorSpace, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -181,7 +181,7 @@ pub const qcolorspace = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setDescription)
     ///
     /// ``` self: QtC.QColorSpace, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -192,14 +192,14 @@ pub const qcolorspace = struct {
         qtc.QColorSpace_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunction)
     ///
     /// ``` self: QtC.QColorSpace, transferFunction: qcolorspace_enums.TransferFunction ```
     pub fn SetTransferFunction(self: ?*anyopaque, transferFunction: i32) void {
         qtc.QColorSpace_SetTransferFunction(@ptrCast(self), @intCast(transferFunction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunction)
     ///
     /// ``` self: QtC.QColorSpace, transferFunctionTable: []u16 ```
     pub fn SetTransferFunction2(self: ?*anyopaque, transferFunctionTable: []u16) void {
@@ -210,7 +210,7 @@ pub const qcolorspace = struct {
         qtc.QColorSpace_SetTransferFunction2(@ptrCast(self), transferFunctionTable_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunctions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunctions)
     ///
     /// ``` self: QtC.QColorSpace, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16 ```
     pub fn SetTransferFunctions(self: ?*anyopaque, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16) void {
@@ -229,14 +229,14 @@ pub const qcolorspace = struct {
         qtc.QColorSpace_SetTransferFunctions(@ptrCast(self), redTransferFunctionTable_list, greenTransferFunctionTable_list, blueTransferFunctionTable_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
     ///
     /// ``` self: QtC.QColorSpace, transferFunction: qcolorspace_enums.TransferFunction ```
     pub fn WithTransferFunction(self: ?*anyopaque, transferFunction: i32) QtC.QColorSpace {
         return qtc.QColorSpace_WithTransferFunction(@ptrCast(self), @intCast(transferFunction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
     ///
     /// ``` self: QtC.QColorSpace, transferFunctionTable: []u16 ```
     pub fn WithTransferFunction2(self: ?*anyopaque, transferFunctionTable: []u16) QtC.QColorSpace {
@@ -247,7 +247,7 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_WithTransferFunction2(@ptrCast(self), transferFunctionTable_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunctions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunctions)
     ///
     /// ``` self: QtC.QColorSpace, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16 ```
     pub fn WithTransferFunctions(self: ?*anyopaque, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16) QtC.QColorSpace {
@@ -266,35 +266,35 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_WithTransferFunctions(@ptrCast(self), redTransferFunctionTable_list, greenTransferFunctionTable_list, blueTransferFunctionTable_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setPrimaries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setPrimaries)
     ///
     /// ``` self: QtC.QColorSpace, primariesId: qcolorspace_enums.Primaries ```
     pub fn SetPrimaries(self: ?*anyopaque, primariesId: i32) void {
         qtc.QColorSpace_SetPrimaries(@ptrCast(self), @intCast(primariesId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setPrimaries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setPrimaries)
     ///
     /// ``` self: QtC.QColorSpace, whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF ```
     pub fn SetPrimaries2(self: ?*anyopaque, whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque) void {
         qtc.QColorSpace_SetPrimaries2(@ptrCast(self), @ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setWhitePoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setWhitePoint)
     ///
     /// ``` self: QtC.QColorSpace, whitePoint: QtC.QPointF ```
     pub fn SetWhitePoint(self: ?*anyopaque, whitePoint: QtC.QPointF) void {
         qtc.QColorSpace_SetWhitePoint(@ptrCast(self), @ptrCast(whitePoint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#whitePoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#whitePoint)
     ///
     /// ``` self: QtC.QColorSpace ```
     pub fn WhitePoint(self: ?*anyopaque) QtC.QPointF {
         return qtc.QColorSpace_WhitePoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#transformModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#transformModel)
     ///
     /// ``` self: QtC.QColorSpace ```
     ///
@@ -303,7 +303,7 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_TransformModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#colorModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#colorModel)
     ///
     /// ``` self: QtC.QColorSpace ```
     ///
@@ -312,28 +312,28 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_ColorModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#detach)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#detach)
     ///
     /// ``` self: QtC.QColorSpace ```
     pub fn Detach(self: ?*anyopaque) void {
         qtc.QColorSpace_Detach(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#isValid)
     ///
     /// ``` self: QtC.QColorSpace ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QColorSpace_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#isValidTarget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#isValidTarget)
     ///
     /// ``` self: QtC.QColorSpace ```
     pub fn IsValidTarget(self: ?*anyopaque) bool {
         return qtc.QColorSpace_IsValidTarget(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#fromIccProfile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#fromIccProfile)
     ///
     /// ``` iccProfile: []u8 ```
     pub fn FromIccProfile(iccProfile: []u8) QtC.QColorSpace {
@@ -344,7 +344,7 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_FromIccProfile(iccProfile_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#iccProfile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#iccProfile)
     ///
     /// ``` self: QtC.QColorSpace, allocator: std.mem.Allocator ```
     pub fn IccProfile(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -355,35 +355,35 @@ pub const qcolorspace = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#transformationToColorSpace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#transformationToColorSpace)
     ///
     /// ``` self: QtC.QColorSpace, colorspace: QtC.QColorSpace ```
     pub fn TransformationToColorSpace(self: ?*anyopaque, colorspace: ?*anyopaque) QtC.QColorTransform {
         return qtc.QColorSpace_TransformationToColorSpace(@ptrCast(self), @ptrCast(colorspace));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#operator)
     ///
     /// ``` self: QtC.QColorSpace ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QColorSpace_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#setTransferFunction)
     ///
     /// ``` self: QtC.QColorSpace, transferFunction: qcolorspace_enums.TransferFunction, gamma: f32 ```
     pub fn SetTransferFunction22(self: ?*anyopaque, transferFunction: i32, gamma: f32) void {
         qtc.QColorSpace_SetTransferFunction22(@ptrCast(self), @intCast(transferFunction), @floatCast(gamma));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#withTransferFunction)
     ///
     /// ``` self: QtC.QColorSpace, transferFunction: qcolorspace_enums.TransferFunction, gamma: f32 ```
     pub fn WithTransferFunction22(self: ?*anyopaque, transferFunction: i32, gamma: f32) QtC.QColorSpace {
         return qtc.QColorSpace_WithTransferFunction22(@ptrCast(self), @intCast(transferFunction), @floatCast(gamma));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#dtor.QColorSpace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#dtor.QColorSpace)
     ///
     /// Delete this object from C++ memory.
     ///

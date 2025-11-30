@@ -21,7 +21,7 @@ pub const qsequentialanimationgroup = struct {
         return qtc.QSequentialAnimationGroup_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qsequentialanimationgroup = struct {
         return qtc.QSequentialAnimationGroup_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,35 +65,35 @@ pub const qsequentialanimationgroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#addPause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#addPause)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, msecs: i32 ```
     pub fn AddPause(self: ?*anyopaque, msecs: i32) QtC.QPauseAnimation {
         return qtc.QSequentialAnimationGroup_AddPause(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#insertPause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#insertPause)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, index: i32, msecs: i32 ```
     pub fn InsertPause(self: ?*anyopaque, index: i32, msecs: i32) QtC.QPauseAnimation {
         return qtc.QSequentialAnimationGroup_InsertPause(@ptrCast(self), @intCast(index), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimation)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn CurrentAnimation(self: ?*anyopaque) QtC.QAbstractAnimation {
         return qtc.QSequentialAnimationGroup_CurrentAnimation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Duration(self: ?*anyopaque) i32 {
         return qtc.QSequentialAnimationGroup_Duration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
     ///
     /// Allows for overriding the related default method
     ///
@@ -102,7 +102,7 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_OnDuration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#duration)
     ///
     /// Base class method implementation
     ///
@@ -111,28 +111,28 @@ pub const qsequentialanimationgroup = struct {
         return qtc.QSequentialAnimationGroup_QBaseDuration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, current: QtC.QAbstractAnimation ```
     pub fn CurrentAnimationChanged(self: ?*anyopaque, current: ?*anyopaque) void {
         qtc.QSequentialAnimationGroup_CurrentAnimationChanged(@ptrCast(self), @ptrCast(current));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimationChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, current: QtC.QAbstractAnimation) callconv(.c) void ```
     pub fn OnCurrentAnimationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSequentialAnimationGroup_Connect_CurrentAnimationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QSequentialAnimationGroup_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -141,7 +141,7 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#event)
     ///
     /// Base class method implementation
     ///
@@ -150,14 +150,14 @@ pub const qsequentialanimationgroup = struct {
         return qtc.QSequentialAnimationGroup_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, param1: i32 ```
     pub fn UpdateCurrentTime(self: ?*anyopaque, param1: i32) void {
         qtc.QSequentialAnimationGroup_UpdateCurrentTime(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
     ///
     /// Allows for overriding the related default method
     ///
@@ -166,7 +166,7 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_OnUpdateCurrentTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateCurrentTime)
     ///
     /// Base class method implementation
     ///
@@ -175,14 +175,14 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_QBaseUpdateCurrentTime(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
     pub fn UpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QSequentialAnimationGroup_UpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -191,7 +191,7 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateState)
     ///
     /// Base class method implementation
     ///
@@ -200,14 +200,14 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_QBaseUpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction ```
     pub fn UpdateDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QSequentialAnimationGroup_UpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -216,7 +216,7 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_OnUpdateDirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#updateDirection)
     ///
     /// Base class method implementation
     ///
@@ -225,7 +225,7 @@ pub const qsequentialanimationgroup = struct {
         qtc.QSequentialAnimationGroup_QBaseUpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -238,7 +238,7 @@ pub const qsequentialanimationgroup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -253,7 +253,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#animationAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#animationAt)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, index: i32 ```
     pub fn AnimationAt(self: ?*anyopaque, index: i32) QtC.QAbstractAnimation {
@@ -262,7 +262,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#animationCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#animationCount)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn AnimationCount(self: ?*anyopaque) i32 {
@@ -271,7 +271,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#indexOfAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#indexOfAnimation)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, animation: QtC.QAbstractAnimation ```
     pub fn IndexOfAnimation(self: ?*anyopaque, animation: ?*anyopaque) i32 {
@@ -280,7 +280,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#addAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#addAnimation)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, animation: QtC.QAbstractAnimation ```
     pub fn AddAnimation(self: ?*anyopaque, animation: ?*anyopaque) void {
@@ -289,7 +289,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#insertAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#insertAnimation)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, index: i32, animation: QtC.QAbstractAnimation ```
     pub fn InsertAnimation(self: ?*anyopaque, index: i32, animation: ?*anyopaque) void {
@@ -298,7 +298,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#removeAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#removeAnimation)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, animation: QtC.QAbstractAnimation ```
     pub fn RemoveAnimation(self: ?*anyopaque, animation: ?*anyopaque) void {
@@ -307,7 +307,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#takeAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#takeAnimation)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, index: i32 ```
     pub fn TakeAnimation(self: ?*anyopaque, index: i32) QtC.QAbstractAnimation {
@@ -316,7 +316,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAnimationGroup
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationgroup.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#clear)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -325,7 +325,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#state)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     ///
@@ -336,7 +336,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#group)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#group)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Group(self: ?*anyopaque) QtC.QAnimationGroup {
@@ -345,7 +345,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     ///
@@ -356,7 +356,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, direction: qabstractanimation_enums.Direction ```
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
@@ -365,7 +365,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn CurrentTime(self: ?*anyopaque) i32 {
@@ -374,7 +374,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn CurrentLoopTime(self: ?*anyopaque) i32 {
@@ -383,7 +383,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn LoopCount(self: ?*anyopaque) i32 {
@@ -392,7 +392,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, loopCount: i32 ```
     pub fn SetLoopCount(self: ?*anyopaque, loopCount: i32) void {
@@ -401,7 +401,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn CurrentLoop(self: ?*anyopaque) i32 {
@@ -410,7 +410,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn TotalDuration(self: ?*anyopaque) i32 {
@@ -419,7 +419,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Finished(self: ?*anyopaque) void {
@@ -428,7 +428,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -437,7 +437,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
     pub fn StateChanged(self: ?*anyopaque, newState: i32, oldState: i32) void {
@@ -446,7 +446,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
@@ -455,7 +455,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, currentLoop: i32 ```
     pub fn CurrentLoopChanged(self: ?*anyopaque, currentLoop: i32) void {
@@ -464,7 +464,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, currentLoop: i32) callconv(.c) void ```
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -473,7 +473,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, param1: qabstractanimation_enums.Direction ```
     pub fn DirectionChanged(self: ?*anyopaque, param1: i32) void {
@@ -482,7 +482,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: qabstractanimation_enums.Direction) callconv(.c) void ```
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -491,7 +491,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Start(self: ?*anyopaque) void {
@@ -500,7 +500,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Pause(self: ?*anyopaque) void {
@@ -509,7 +509,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Resume(self: ?*anyopaque) void {
@@ -518,7 +518,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, paused: bool ```
     pub fn SetPaused(self: ?*anyopaque, paused: bool) void {
@@ -527,7 +527,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Stop(self: ?*anyopaque) void {
@@ -536,7 +536,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, msecs: i32 ```
     pub fn SetCurrentTime(self: ?*anyopaque, msecs: i32) void {
@@ -545,7 +545,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, policy: qabstractanimation_enums.DeletionPolicy ```
     pub fn Start1(self: ?*anyopaque, policy: i32) void {
@@ -554,7 +554,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -567,7 +567,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -580,7 +580,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -589,7 +589,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -598,7 +598,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -607,7 +607,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -616,7 +616,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -625,7 +625,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -634,7 +634,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -643,7 +643,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -652,7 +652,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -661,7 +661,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -670,7 +670,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -684,7 +684,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -693,7 +693,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -702,7 +702,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -711,7 +711,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -720,7 +720,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -731,7 +731,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -740,7 +740,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -749,7 +749,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -758,7 +758,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -767,7 +767,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -777,7 +777,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -787,7 +787,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -811,7 +811,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -820,7 +820,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -829,7 +829,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -838,7 +838,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -847,7 +847,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -856,7 +856,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -866,7 +866,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -875,7 +875,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -884,7 +884,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -893,7 +893,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -902,7 +902,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -913,7 +913,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -922,7 +922,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSequentialAnimationGroup, callback: *const fn (self: QtC.QSequentialAnimationGroup, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -931,7 +931,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -942,7 +942,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -953,7 +953,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -964,7 +964,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -975,7 +975,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -986,7 +986,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -997,7 +997,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1008,7 +1008,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1019,7 +1019,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1030,7 +1030,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1041,7 +1041,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1052,7 +1052,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1063,7 +1063,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1074,7 +1074,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1085,7 +1085,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1096,7 +1096,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1107,7 +1107,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1118,7 +1118,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1129,7 +1129,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1140,7 +1140,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1151,7 +1151,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1162,7 +1162,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1173,7 +1173,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1184,7 +1184,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1195,7 +1195,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1207,7 +1207,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1219,7 +1219,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1230,7 +1230,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1241,7 +1241,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1252,7 +1252,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1263,7 +1263,7 @@ pub const qsequentialanimationgroup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1272,7 +1272,7 @@ pub const qsequentialanimationgroup = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#dtor.QSequentialAnimationGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsequentialanimationgroup.html#dtor.QSequentialAnimationGroup)
     ///
     /// Delete this object from C++ memory.
     ///

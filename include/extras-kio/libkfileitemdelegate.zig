@@ -23,7 +23,7 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -55,7 +55,7 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -67,14 +67,14 @@ pub const kfileitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#sizeHint)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
     /// ``` self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn SizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
         return qtc.KFileItemDelegate_SizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#sizeHint)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -83,7 +83,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#sizeHint)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#sizeHint)
     ///
     /// Base class method implementation
     ///
@@ -92,14 +92,14 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_QBaseSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#paint)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
     /// ``` self: QtC.KFileItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#paint)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -108,7 +108,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#paint)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#paint)
     ///
     /// Base class method implementation
     ///
@@ -117,14 +117,14 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#createEditor)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
     /// ``` self: QtC.KFileItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn CreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
         return qtc.KFileItemDelegate_CreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#createEditor)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -133,7 +133,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#createEditor)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#createEditor)
     ///
     /// Base class method implementation
     ///
@@ -142,14 +142,14 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_QBaseCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#editorEvent)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
     /// ``` self: QtC.KFileItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn EditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_EditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#editorEvent)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -158,7 +158,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnEditorEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#editorEvent)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#editorEvent)
     ///
     /// Base class method implementation
     ///
@@ -167,14 +167,14 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_QBaseEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setEditorData)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
     /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex ```
     pub fn SetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setEditorData)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -183,7 +183,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnSetEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setEditorData)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setEditorData)
     ///
     /// Base class method implementation
     ///
@@ -192,14 +192,14 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_QBaseSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setModelData)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
     /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
     pub fn SetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setModelData)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -208,7 +208,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnSetModelData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setModelData)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setModelData)
     ///
     /// Base class method implementation
     ///
@@ -217,14 +217,14 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_QBaseSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
     /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn UpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
         qtc.KFileItemDelegate_UpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
     /// Allows for overriding the related default method
     ///
@@ -233,7 +233,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#updateEditorGeometry)
     ///
     /// Base class method implementation
     ///
@@ -242,7 +242,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_QBaseUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
     ///
     /// ``` self: QtC.KFileItemDelegate, list: []kfileitemdelegate_enums.Information ```
     pub fn SetShowInformation(self: ?*anyopaque, list: []i32) void {
@@ -253,14 +253,14 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_SetShowInformation(@ptrCast(self), list_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowInformation)
     ///
     /// ``` self: QtC.KFileItemDelegate, information: kfileitemdelegate_enums.Information ```
     pub fn SetShowInformation2(self: ?*anyopaque, information: i32) void {
         qtc.KFileItemDelegate_SetShowInformation2(@ptrCast(self), @intCast(information));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#showInformation)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showInformation)
     ///
     /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
     ///
@@ -274,91 +274,91 @@ pub const kfileitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setShadowColor)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowColor)
     ///
     /// ``` self: QtC.KFileItemDelegate, color: QtC.QColor ```
     pub fn SetShadowColor(self: ?*anyopaque, color: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetShadowColor(@ptrCast(self), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#shadowColor)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowColor)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn ShadowColor(self: ?*anyopaque) QtC.QColor {
         return qtc.KFileItemDelegate_ShadowColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setShadowOffset)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowOffset)
     ///
     /// ``` self: QtC.KFileItemDelegate, offset: QtC.QPointF ```
     pub fn SetShadowOffset(self: ?*anyopaque, offset: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetShadowOffset(@ptrCast(self), @ptrCast(offset));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#shadowOffset)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowOffset)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn ShadowOffset(self: ?*anyopaque) QtC.QPointF {
         return qtc.KFileItemDelegate_ShadowOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setShadowBlur)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShadowBlur)
     ///
     /// ``` self: QtC.KFileItemDelegate, radius: f64 ```
     pub fn SetShadowBlur(self: ?*anyopaque, radius: f64) void {
         qtc.KFileItemDelegate_SetShadowBlur(@ptrCast(self), @floatCast(radius));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#shadowBlur)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shadowBlur)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn ShadowBlur(self: ?*anyopaque) f64 {
         return qtc.KFileItemDelegate_ShadowBlur(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setMaximumSize)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setMaximumSize)
     ///
     /// ``` self: QtC.KFileItemDelegate, size: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
         qtc.KFileItemDelegate_SetMaximumSize(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#maximumSize)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#maximumSize)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
         return qtc.KFileItemDelegate_MaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setShowToolTipWhenElided)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setShowToolTipWhenElided)
     ///
     /// ``` self: QtC.KFileItemDelegate, showToolTip: bool ```
     pub fn SetShowToolTipWhenElided(self: ?*anyopaque, showToolTip: bool) void {
         qtc.KFileItemDelegate_SetShowToolTipWhenElided(@ptrCast(self), showToolTip);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#showToolTipWhenElided)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#showToolTipWhenElided)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn ShowToolTipWhenElided(self: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_ShowToolTipWhenElided(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#iconRect)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#iconRect)
     ///
     /// ``` self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn IconRect(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
         return qtc.KFileItemDelegate_IconRect(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setWrapMode)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setWrapMode)
     ///
     /// ``` self: QtC.KFileItemDelegate, wrapMode: qtextoption_enums.WrapMode ```
     pub fn SetWrapMode(self: ?*anyopaque, wrapMode: i32) void {
         qtc.KFileItemDelegate_SetWrapMode(@ptrCast(self), @intCast(wrapMode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#wrapMode)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#wrapMode)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     ///
@@ -367,28 +367,28 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_WrapMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setJobTransfersVisible)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setJobTransfersVisible)
     ///
     /// ``` self: QtC.KFileItemDelegate, jobTransfersVisible: bool ```
     pub fn SetJobTransfersVisible(self: ?*anyopaque, jobTransfersVisible: bool) void {
         qtc.KFileItemDelegate_SetJobTransfersVisible(@ptrCast(self), jobTransfersVisible);
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#jobTransfersVisible)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#jobTransfersVisible)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn JobTransfersVisible(self: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_JobTransfersVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
     /// ``` self: QtC.KFileItemDelegate, object: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -397,7 +397,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -406,35 +406,35 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#selectionEmblemRect)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#selectionEmblemRect)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn SelectionEmblemRect(self: ?*anyopaque) QtC.QRect {
         return qtc.KFileItemDelegate_SelectionEmblemRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#setSelectionEmblemRect)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#setSelectionEmblemRect)
     ///
     /// ``` self: QtC.KFileItemDelegate, rect: QtC.QRect, iconSize: i32 ```
     pub fn SetSelectionEmblemRect(self: ?*anyopaque, rect: QtC.QRect, iconSize: i32) void {
         qtc.KFileItemDelegate_SetSelectionEmblemRect(@ptrCast(self), @ptrCast(rect), @intCast(iconSize));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#fileItem)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#fileItem)
     ///
     /// ``` self: QtC.KFileItemDelegate, index: QtC.QModelIndex ```
     pub fn FileItem(self: ?*anyopaque, index: ?*anyopaque) QtC.KFileItem {
         return qtc.KFileItemDelegate_FileItem(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#helpEvent)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
     /// ``` self: QtC.KFileItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn HelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.KFileItemDelegate_HelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#helpEvent)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -443,7 +443,7 @@ pub const kfileitemdelegate = struct {
         qtc.KFileItemDelegate_OnHelpEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#helpEvent)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#helpEvent)
     ///
     /// Base class method implementation
     ///
@@ -452,14 +452,14 @@ pub const kfileitemdelegate = struct {
         return qtc.KFileItemDelegate_QBaseHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#shape)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#shape)
     ///
     /// ``` self: QtC.KFileItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex ```
     pub fn Shape(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QRegion {
         return qtc.KFileItemDelegate_Shape(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -472,7 +472,7 @@ pub const kfileitemdelegate = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -487,7 +487,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
     /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget ```
     pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
@@ -496,7 +496,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
     /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
     pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -505,7 +505,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget ```
     pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
@@ -514,7 +514,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
     pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -523,7 +523,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
     /// ``` self: QtC.KFileItemDelegate, param1: QtC.QModelIndex ```
     pub fn SizeHintChanged(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -532,7 +532,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
     /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -541,7 +541,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.KFileItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
     pub fn CloseEditor2(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
@@ -550,7 +550,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
     /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
     pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
@@ -559,7 +559,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -572,7 +572,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KFileItemDelegate, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -585,7 +585,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -594,7 +594,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -603,7 +603,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -612,7 +612,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -621,7 +621,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KFileItemDelegate, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -630,7 +630,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -639,7 +639,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KFileItemDelegate, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -648,7 +648,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KFileItemDelegate, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -657,7 +657,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KFileItemDelegate, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -666,7 +666,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KFileItemDelegate, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -675,7 +675,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -689,7 +689,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KFileItemDelegate, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -698,7 +698,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KFileItemDelegate, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -707,7 +707,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KFileItemDelegate, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -716,7 +716,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -725,7 +725,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KFileItemDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -736,7 +736,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -745,7 +745,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -754,7 +754,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -763,7 +763,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -772,7 +772,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KFileItemDelegate, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -782,7 +782,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KFileItemDelegate, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -792,7 +792,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KFileItemDelegate, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -816,7 +816,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -825,7 +825,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -834,7 +834,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -843,7 +843,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -852,7 +852,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -861,7 +861,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KFileItemDelegate, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -871,7 +871,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KFileItemDelegate ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -880,7 +880,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KFileItemDelegate, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -889,7 +889,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KFileItemDelegate, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -898,7 +898,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -907,7 +907,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KFileItemDelegate, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -918,7 +918,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFileItemDelegate, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -927,7 +927,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KFileItemDelegate, callback: *const fn (self: QtC.KFileItemDelegate, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -936,7 +936,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -947,7 +947,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -958,7 +958,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -969,7 +969,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -985,7 +985,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1001,7 +1001,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QAbstractItemDelegate
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1012,7 +1012,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1023,7 +1023,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1034,7 +1034,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1045,7 +1045,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1056,7 +1056,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1067,7 +1067,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1078,7 +1078,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1089,7 +1089,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1100,7 +1100,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1111,7 +1111,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1122,7 +1122,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1133,7 +1133,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1144,7 +1144,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1155,7 +1155,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1166,7 +1166,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1177,7 +1177,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1188,7 +1188,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1199,7 +1199,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1210,7 +1210,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1221,7 +1221,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1232,7 +1232,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1243,7 +1243,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1254,7 +1254,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1265,7 +1265,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1276,7 +1276,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1288,7 +1288,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1300,7 +1300,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1311,7 +1311,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1322,7 +1322,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1333,7 +1333,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1344,7 +1344,7 @@ pub const kfileitemdelegate = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1353,7 +1353,7 @@ pub const kfileitemdelegate = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kfileitemdelegate.html#dtor.KFileItemDelegate)
+    /// [Upstream resources](https://api.kde.org/kfileitemdelegate.html#dtor.KFileItemDelegate)
     ///
     /// Delete this object from C++ memory.
     ///

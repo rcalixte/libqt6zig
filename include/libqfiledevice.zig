@@ -8,7 +8,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qfiledevice.html
 pub const qfiledevice = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -26,7 +26,7 @@ pub const qfiledevice = struct {
         return qtc.QFileDevice_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -38,7 +38,7 @@ pub const qfiledevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#error)
     ///
     /// ``` self: QtC.QFileDevice ```
     ///
@@ -47,35 +47,35 @@ pub const qfiledevice = struct {
         return qtc.QFileDevice_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn UnsetError(self: ?*anyopaque) void {
         qtc.QFileDevice_UnsetError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Close(self: ?*anyopaque) void {
         qtc.QFileDevice_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsSequential(self: ?*anyopaque) bool {
         return qtc.QFileDevice_IsSequential(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#handle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#handle)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Handle(self: ?*anyopaque) i32 {
         return qtc.QFileDevice_Handle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#fileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileName)
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -86,49 +86,49 @@ pub const qfiledevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Pos(self: ?*anyopaque) i64 {
         return qtc.QFileDevice_Pos(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#seek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// ``` self: QtC.QFileDevice, offset: i64 ```
     pub fn Seek(self: ?*anyopaque, offset: i64) bool {
         return qtc.QFileDevice_Seek(@ptrCast(self), @intCast(offset));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.QFileDevice_AtEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#flush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#flush)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Flush(self: ?*anyopaque) bool {
         return qtc.QFileDevice_Flush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#size)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Size(self: ?*anyopaque) i64 {
         return qtc.QFileDevice_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#resize)
     ///
     /// ``` self: QtC.QFileDevice, sz: i64 ```
     pub fn Resize(self: ?*anyopaque, sz: i64) bool {
         return qtc.QFileDevice_Resize(@ptrCast(self), @intCast(sz));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
     ///
     /// ``` self: QtC.QFileDevice ```
     ///
@@ -137,42 +137,42 @@ pub const qfiledevice = struct {
         return qtc.QFileDevice_Permissions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
     ///
     /// ``` self: QtC.QFileDevice, permissionSpec: flag of qfiledevice_enums.Permission ```
     pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
         return qtc.QFileDevice_SetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QFileDevice, offset: i64, size: i64 ```
     pub fn Map(self: ?*anyopaque, offset: i64, size: i64) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self), @intCast(offset), @intCast(size)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
     ///
     /// ``` self: QtC.QFileDevice, address: *u8 ```
     pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
         return qtc.QFileDevice_Unmap(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
     ///
     /// ``` self: QtC.QFileDevice, time: qfiledevice_enums.FileTime ```
     pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
         return qtc.QFileDevice_FileTime(@ptrCast(self), @intCast(time));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
     ///
     /// ``` self: QtC.QFileDevice, newDate: QtC.QDateTime, fileTime: qfiledevice_enums.FileTime ```
     pub fn SetFileTime(self: ?*anyopaque, newDate: ?*anyopaque, fileTime: i32) bool {
         return qtc.QFileDevice_SetFileTime(@ptrCast(self), @ptrCast(newDate), @intCast(fileTime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -185,7 +185,7 @@ pub const qfiledevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -198,7 +198,7 @@ pub const qfiledevice = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ``` self: QtC.QFileDevice, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
     pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
@@ -207,7 +207,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QFileDevice ```
     ///
@@ -218,7 +218,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setTextModeEnabled)
     ///
     /// ``` self: QtC.QFileDevice, enabled: bool ```
     pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -227,7 +227,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTextModeEnabled)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
@@ -236,7 +236,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isOpen)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsOpen(self: ?*anyopaque) bool {
@@ -245,7 +245,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isReadable)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsReadable(self: ?*anyopaque) bool {
@@ -254,7 +254,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isWritable)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsWritable(self: ?*anyopaque) bool {
@@ -263,7 +263,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelCount)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn ReadChannelCount(self: ?*anyopaque) i32 {
@@ -272,7 +272,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeChannelCount)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn WriteChannelCount(self: ?*anyopaque) i32 {
@@ -281,7 +281,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentReadChannel)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
@@ -290,7 +290,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentReadChannel)
     ///
     /// ``` self: QtC.QFileDevice, channel: i32 ```
     pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
@@ -299,7 +299,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#currentWriteChannel)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
@@ -308,7 +308,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setCurrentWriteChannel)
     ///
     /// ``` self: QtC.QFileDevice, channel: i32 ```
     pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
@@ -317,7 +317,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
     /// ``` self: QtC.QFileDevice, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, mode: i32) bool {
@@ -326,7 +326,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Reset(self: ?*anyopaque) bool {
@@ -335,7 +335,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn BytesAvailable(self: ?*anyopaque) i64 {
@@ -344,7 +344,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn BytesToWrite(self: ?*anyopaque) i64 {
@@ -353,7 +353,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QFileDevice, data: []u8, maxlen: i64 ```
     pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -363,7 +363,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QFileDevice, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -376,7 +376,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readAll)
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -389,7 +389,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QFileDevice, data: []u8, maxlen: i64 ```
     pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -399,7 +399,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -412,7 +412,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn CanReadLine(self: ?*anyopaque) bool {
@@ -421,7 +421,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#startTransaction)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn StartTransaction(self: ?*anyopaque) void {
@@ -430,7 +430,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#commitTransaction)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn CommitTransaction(self: ?*anyopaque) void {
@@ -439,7 +439,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#rollbackTransaction)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn RollbackTransaction(self: ?*anyopaque) void {
@@ -448,7 +448,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isTransactionStarted)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsTransactionStarted(self: ?*anyopaque) bool {
@@ -457,7 +457,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QFileDevice, data: []const u8, lenVal: i64 ```
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
@@ -467,7 +467,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QFileDevice, data: []const u8 ```
     pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
@@ -477,7 +477,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QFileDevice, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
@@ -490,7 +490,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QFileDevice, data: []u8, maxlen: i64 ```
     pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
@@ -500,7 +500,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QFileDevice, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -513,7 +513,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#skip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skip)
     ///
     /// ``` self: QtC.QFileDevice, maxSize: i64 ```
     pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
@@ -522,7 +522,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
     ///
     /// ``` self: QtC.QFileDevice, msecs: i32 ```
     pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
@@ -531,7 +531,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
     ///
     /// ``` self: QtC.QFileDevice, msecs: i32 ```
     pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
@@ -540,7 +540,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
     /// ``` self: QtC.QFileDevice, c: u8 ```
     pub fn UngetChar(self: ?*anyopaque, c: u8) void {
@@ -549,7 +549,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
     /// ``` self: QtC.QFileDevice, c: u8 ```
     pub fn PutChar(self: ?*anyopaque, c: u8) bool {
@@ -558,7 +558,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
     /// ``` self: QtC.QFileDevice, c: []u8 ```
     pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
@@ -568,7 +568,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#errorString)
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -581,7 +581,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn ReadyRead(self: ?*anyopaque) void {
@@ -590,7 +590,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -599,7 +599,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QFileDevice, channel: i32 ```
     pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
@@ -608,7 +608,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -617,7 +617,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QFileDevice, bytes: i64 ```
     pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
@@ -626,7 +626,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
@@ -635,7 +635,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QFileDevice, channel: i32, bytes: i64 ```
     pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
@@ -644,7 +644,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
@@ -653,7 +653,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn AboutToClose(self: ?*anyopaque) void {
@@ -662,7 +662,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -671,7 +671,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn ReadChannelFinished(self: ?*anyopaque) void {
@@ -680,7 +680,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -689,7 +689,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QIODevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
     /// ``` self: QtC.QFileDevice, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
@@ -702,7 +702,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QFileDevice, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -711,7 +711,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QFileDevice, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -720,7 +720,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -733,7 +733,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QFileDevice, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -746,7 +746,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -755,7 +755,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -764,7 +764,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -773,7 +773,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -782,7 +782,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QFileDevice, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -791,7 +791,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -800,7 +800,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFileDevice, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -809,7 +809,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFileDevice, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -818,7 +818,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFileDevice, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -827,7 +827,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFileDevice, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -836,7 +836,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -850,7 +850,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QFileDevice, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -859,7 +859,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QFileDevice, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -868,7 +868,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QFileDevice, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -877,7 +877,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -886,7 +886,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFileDevice, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -897,7 +897,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -906,7 +906,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -915,7 +915,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -924,7 +924,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -933,7 +933,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QFileDevice, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -943,7 +943,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QFileDevice, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -953,7 +953,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -977,7 +977,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -986,7 +986,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -995,7 +995,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1004,7 +1004,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1013,7 +1013,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1022,7 +1022,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QFileDevice, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1032,7 +1032,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QFileDevice ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1041,7 +1041,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFileDevice, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1050,7 +1050,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFileDevice, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1059,7 +1059,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1068,7 +1068,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFileDevice, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1079,7 +1079,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileDevice, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1088,7 +1088,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFileDevice, callback: *const fn (self: QtC.QFileDevice, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1097,7 +1097,7 @@ pub const qfiledevice = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1106,7 +1106,7 @@ pub const qfiledevice = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#dtor.QFileDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#dtor.QFileDevice)
     ///
     /// Delete this object from C++ memory.
     ///

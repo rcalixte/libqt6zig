@@ -31,7 +31,7 @@ pub const qpolarchart = struct {
         return qtc.QPolarChart_new3(@ptrCast(parent), @intCast(wFlags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -63,7 +63,7 @@ pub const qpolarchart = struct {
         return qtc.QPolarChart_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -75,14 +75,14 @@ pub const qpolarchart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#addAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#addAxis)
     ///
     /// ``` self: QtC.QPolarChart, axis: QtC.QAbstractAxis, polarOrientation: qpolarchart_enums.PolarOrientation ```
     pub fn AddAxis(self: ?*anyopaque, axis: ?*anyopaque, polarOrientation: i32) void {
         qtc.QPolarChart_AddAxis(@ptrCast(self), @ptrCast(axis), @intCast(polarOrientation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn Axes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
@@ -94,7 +94,7 @@ pub const qpolarchart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axisPolarOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axisPolarOrientation)
     ///
     /// ``` axis: QtC.QAbstractAxis ```
     ///
@@ -103,7 +103,7 @@ pub const qpolarchart = struct {
         return qtc.QPolarChart_AxisPolarOrientation(@ptrCast(axis));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -116,7 +116,7 @@ pub const qpolarchart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -129,7 +129,7 @@ pub const qpolarchart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
     ///
     /// ``` self: QtC.QPolarChart, polarOrientation: flag of qpolarchart_enums.PolarOrientation, allocator: std.mem.Allocator ```
     pub fn Axes1(self: ?*anyopaque, polarOrientation: i32, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
@@ -141,7 +141,7 @@ pub const qpolarchart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#axes)
     ///
     /// ``` self: QtC.QPolarChart, polarOrientation: flag of qpolarchart_enums.PolarOrientation, series: QtC.QAbstractSeries, allocator: std.mem.Allocator ```
     pub fn Axes2(self: ?*anyopaque, polarOrientation: i32, series: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
@@ -155,7 +155,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#addSeries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#addSeries)
     ///
     /// ``` self: QtC.QPolarChart, series: QtC.QAbstractSeries ```
     pub fn AddSeries(self: ?*anyopaque, series: ?*anyopaque) void {
@@ -164,7 +164,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#removeSeries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#removeSeries)
     ///
     /// ``` self: QtC.QPolarChart, series: QtC.QAbstractSeries ```
     pub fn RemoveSeries(self: ?*anyopaque, series: ?*anyopaque) void {
@@ -173,7 +173,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#removeAllSeries)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#removeAllSeries)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn RemoveAllSeries(self: ?*anyopaque) void {
@@ -182,7 +182,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#series)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#series)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn Series(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractSeries {
@@ -196,7 +196,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAxisX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setAxisX)
     ///
     /// ``` self: QtC.QPolarChart, axis: QtC.QAbstractAxis ```
     pub fn SetAxisX(self: ?*anyopaque, axis: ?*anyopaque) void {
@@ -205,7 +205,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAxisY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setAxisY)
     ///
     /// ``` self: QtC.QPolarChart, axis: QtC.QAbstractAxis ```
     pub fn SetAxisY(self: ?*anyopaque, axis: ?*anyopaque) void {
@@ -214,7 +214,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#axisX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#axisX)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AxisX(self: ?*anyopaque) QtC.QAbstractAxis {
@@ -223,7 +223,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#axisY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#axisY)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AxisY(self: ?*anyopaque) QtC.QAbstractAxis {
@@ -232,7 +232,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#removeAxis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#removeAxis)
     ///
     /// ``` self: QtC.QPolarChart, axis: QtC.QAbstractAxis ```
     pub fn RemoveAxis(self: ?*anyopaque, axis: ?*anyopaque) void {
@@ -241,7 +241,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#createDefaultAxes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#createDefaultAxes)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn CreateDefaultAxes(self: ?*anyopaque) void {
@@ -250,7 +250,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setTheme)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setTheme)
     ///
     /// ``` self: QtC.QPolarChart, theme: qchart_enums.ChartTheme ```
     pub fn SetTheme(self: ?*anyopaque, theme: i32) void {
@@ -259,7 +259,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#theme)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#theme)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -270,7 +270,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setTitle)
     ///
     /// ``` self: QtC.QPolarChart, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
@@ -283,7 +283,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#title)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#title)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -296,7 +296,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setTitleFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setTitleFont)
     ///
     /// ``` self: QtC.QPolarChart, font: QtC.QFont ```
     pub fn SetTitleFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -305,7 +305,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#titleFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#titleFont)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn TitleFont(self: ?*anyopaque) QtC.QFont {
@@ -314,7 +314,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setTitleBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setTitleBrush)
     ///
     /// ``` self: QtC.QPolarChart, brush: QtC.QBrush ```
     pub fn SetTitleBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -323,7 +323,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#titleBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#titleBrush)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn TitleBrush(self: ?*anyopaque) QtC.QBrush {
@@ -332,7 +332,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setBackgroundBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setBackgroundBrush)
     ///
     /// ``` self: QtC.QPolarChart, brush: QtC.QBrush ```
     pub fn SetBackgroundBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -341,7 +341,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#backgroundBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#backgroundBrush)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn BackgroundBrush(self: ?*anyopaque) QtC.QBrush {
@@ -350,7 +350,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setBackgroundPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setBackgroundPen)
     ///
     /// ``` self: QtC.QPolarChart, pen: QtC.QPen ```
     pub fn SetBackgroundPen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -359,7 +359,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#backgroundPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#backgroundPen)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn BackgroundPen(self: ?*anyopaque) QtC.QPen {
@@ -368,7 +368,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setBackgroundVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setBackgroundVisible)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SetBackgroundVisible(self: ?*anyopaque) void {
@@ -377,7 +377,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#isBackgroundVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#isBackgroundVisible)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsBackgroundVisible(self: ?*anyopaque) bool {
@@ -386,7 +386,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setDropShadowEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setDropShadowEnabled)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SetDropShadowEnabled(self: ?*anyopaque) void {
@@ -395,7 +395,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#isDropShadowEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#isDropShadowEnabled)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsDropShadowEnabled(self: ?*anyopaque) bool {
@@ -404,7 +404,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setBackgroundRoundness)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setBackgroundRoundness)
     ///
     /// ``` self: QtC.QPolarChart, diameter: f64 ```
     pub fn SetBackgroundRoundness(self: ?*anyopaque, diameter: f64) void {
@@ -413,7 +413,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#backgroundRoundness)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#backgroundRoundness)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn BackgroundRoundness(self: ?*anyopaque) f64 {
@@ -422,7 +422,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAnimationOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setAnimationOptions)
     ///
     /// ``` self: QtC.QPolarChart, options: flag of qchart_enums.AnimationOption ```
     pub fn SetAnimationOptions(self: ?*anyopaque, options: i32) void {
@@ -431,7 +431,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#animationOptions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#animationOptions)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -442,7 +442,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAnimationDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setAnimationDuration)
     ///
     /// ``` self: QtC.QPolarChart, msecs: i32 ```
     pub fn SetAnimationDuration(self: ?*anyopaque, msecs: i32) void {
@@ -451,7 +451,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#animationDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#animationDuration)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AnimationDuration(self: ?*anyopaque) i32 {
@@ -460,7 +460,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAnimationEasingCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setAnimationEasingCurve)
     ///
     /// ``` self: QtC.QPolarChart, curve: QtC.QEasingCurve ```
     pub fn SetAnimationEasingCurve(self: ?*anyopaque, curve: ?*anyopaque) void {
@@ -469,7 +469,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#animationEasingCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#animationEasingCurve)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AnimationEasingCurve(self: ?*anyopaque) QtC.QEasingCurve {
@@ -478,7 +478,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#zoomIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#zoomIn)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ZoomIn(self: ?*anyopaque) void {
@@ -487,7 +487,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#zoomOut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#zoomOut)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ZoomOut(self: ?*anyopaque) void {
@@ -496,7 +496,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#zoomIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#zoomIn)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn ZoomIn2(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -505,7 +505,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#zoom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#zoom)
     ///
     /// ``` self: QtC.QPolarChart, factor: f64 ```
     pub fn Zoom(self: ?*anyopaque, factor: f64) void {
@@ -514,7 +514,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#zoomReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#zoomReset)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ZoomReset(self: ?*anyopaque) void {
@@ -523,7 +523,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#isZoomed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#isZoomed)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsZoomed(self: ?*anyopaque) bool {
@@ -532,7 +532,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#scroll)
     ///
     /// ``` self: QtC.QPolarChart, dx: f64, dy: f64 ```
     pub fn Scroll(self: ?*anyopaque, dx: f64, dy: f64) void {
@@ -541,7 +541,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#legend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#legend)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Legend(self: ?*anyopaque) QtC.QLegend {
@@ -550,7 +550,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setMargins)
     ///
     /// ``` self: QtC.QPolarChart, margins: QtC.QMargins ```
     pub fn SetMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -559,7 +559,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#margins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#margins)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Margins(self: ?*anyopaque) QtC.QMargins {
@@ -568,7 +568,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#plotArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#plotArea)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn PlotArea(self: ?*anyopaque) QtC.QRectF {
@@ -577,7 +577,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setPlotArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setPlotArea)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn SetPlotArea(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -586,7 +586,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundBrush)
     ///
     /// ``` self: QtC.QPolarChart, brush: QtC.QBrush ```
     pub fn SetPlotAreaBackgroundBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -595,7 +595,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#plotAreaBackgroundBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#plotAreaBackgroundBrush)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn PlotAreaBackgroundBrush(self: ?*anyopaque) QtC.QBrush {
@@ -604,7 +604,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundPen)
     ///
     /// ``` self: QtC.QPolarChart, pen: QtC.QPen ```
     pub fn SetPlotAreaBackgroundPen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -613,7 +613,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#plotAreaBackgroundPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#plotAreaBackgroundPen)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn PlotAreaBackgroundPen(self: ?*anyopaque) QtC.QPen {
@@ -622,7 +622,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundVisible)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SetPlotAreaBackgroundVisible(self: ?*anyopaque) void {
@@ -631,7 +631,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#isPlotAreaBackgroundVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#isPlotAreaBackgroundVisible)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsPlotAreaBackgroundVisible(self: ?*anyopaque) bool {
@@ -640,7 +640,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setLocalizeNumbers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setLocalizeNumbers)
     ///
     /// ``` self: QtC.QPolarChart, localize: bool ```
     pub fn SetLocalizeNumbers(self: ?*anyopaque, localize: bool) void {
@@ -649,7 +649,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#localizeNumbers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#localizeNumbers)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn LocalizeNumbers(self: ?*anyopaque) bool {
@@ -658,7 +658,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setLocale)
     ///
     /// ``` self: QtC.QPolarChart, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -667,7 +667,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#locale)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -676,7 +676,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#mapToValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#mapToValue)
     ///
     /// ``` self: QtC.QPolarChart, position: QtC.QPointF ```
     pub fn MapToValue(self: ?*anyopaque, position: ?*anyopaque) QtC.QPointF {
@@ -685,7 +685,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#mapToPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#mapToPosition)
     ///
     /// ``` self: QtC.QPolarChart, value: QtC.QPointF ```
     pub fn MapToPosition(self: ?*anyopaque, value: ?*anyopaque) QtC.QPointF {
@@ -694,7 +694,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#chartType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#chartType)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -705,7 +705,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#plotAreaChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#plotAreaChanged)
     ///
     /// ``` self: QtC.QPolarChart, plotArea: QtC.QRectF ```
     pub fn PlotAreaChanged(self: ?*anyopaque, plotArea: ?*anyopaque) void {
@@ -714,7 +714,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#plotAreaChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#plotAreaChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, plotArea: QtC.QRectF) callconv(.c) void ```
     pub fn OnPlotAreaChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -723,7 +723,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAxisX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setAxisX)
     ///
     /// ``` self: QtC.QPolarChart, axis: QtC.QAbstractAxis, series: QtC.QAbstractSeries ```
     pub fn SetAxisX2(self: ?*anyopaque, axis: ?*anyopaque, series: ?*anyopaque) void {
@@ -732,7 +732,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setAxisY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setAxisY)
     ///
     /// ``` self: QtC.QPolarChart, axis: QtC.QAbstractAxis, series: QtC.QAbstractSeries ```
     pub fn SetAxisY2(self: ?*anyopaque, axis: ?*anyopaque, series: ?*anyopaque) void {
@@ -741,7 +741,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#axisX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#axisX)
     ///
     /// ``` self: QtC.QPolarChart, series: QtC.QAbstractSeries ```
     pub fn AxisX1(self: ?*anyopaque, series: ?*anyopaque) QtC.QAbstractAxis {
@@ -750,7 +750,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#axisY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#axisY)
     ///
     /// ``` self: QtC.QPolarChart, series: QtC.QAbstractSeries ```
     pub fn AxisY1(self: ?*anyopaque, series: ?*anyopaque) QtC.QAbstractAxis {
@@ -759,7 +759,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setBackgroundVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setBackgroundVisible)
     ///
     /// ``` self: QtC.QPolarChart, visible: bool ```
     pub fn SetBackgroundVisible1(self: ?*anyopaque, visible: bool) void {
@@ -768,7 +768,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setDropShadowEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setDropShadowEnabled)
     ///
     /// ``` self: QtC.QPolarChart, enabled: bool ```
     pub fn SetDropShadowEnabled1(self: ?*anyopaque, enabled: bool) void {
@@ -777,7 +777,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#setPlotAreaBackgroundVisible)
     ///
     /// ``` self: QtC.QPolarChart, visible: bool ```
     pub fn SetPlotAreaBackgroundVisible1(self: ?*anyopaque, visible: bool) void {
@@ -786,7 +786,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#mapToValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#mapToValue)
     ///
     /// ``` self: QtC.QPolarChart, position: QtC.QPointF, series: QtC.QAbstractSeries ```
     pub fn MapToValue2(self: ?*anyopaque, position: ?*anyopaque, series: ?*anyopaque) QtC.QPointF {
@@ -795,7 +795,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QChart
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#mapToPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qchart.html#mapToPosition)
     ///
     /// ``` self: QtC.QPolarChart, value: QtC.QPointF, series: QtC.QAbstractSeries ```
     pub fn MapToPosition2(self: ?*anyopaque, value: ?*anyopaque, series: ?*anyopaque) QtC.QPointF {
@@ -804,7 +804,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layout)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Layout(self: ?*anyopaque) QtC.QGraphicsLayout {
@@ -813,7 +813,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayout)
     ///
     /// ``` self: QtC.QPolarChart, layout: QtC.QGraphicsLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -822,7 +822,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#adjustSize)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -831,7 +831,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -842,7 +842,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QPolarChart, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -851,7 +851,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -860,7 +860,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#style)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -869,7 +869,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setStyle)
     ///
     /// ``` self: QtC.QPolarChart, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -878,7 +878,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#font)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -887,7 +887,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setFont)
     ///
     /// ``` self: QtC.QPolarChart, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -896,7 +896,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#palette)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -905,7 +905,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setPalette)
     ///
     /// ``` self: QtC.QPolarChart, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -914,7 +914,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -923,7 +923,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QPolarChart, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -932,7 +932,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
     ///
     /// ``` self: QtC.QPolarChart, size: QtC.QSizeF ```
     pub fn Resize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -941,7 +941,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resize)
     ///
     /// ``` self: QtC.QPolarChart, w: f64, h: f64 ```
     pub fn Resize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -950,7 +950,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#size)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Size(self: ?*anyopaque) QtC.QSizeF {
@@ -959,7 +959,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64 ```
     pub fn SetGeometry2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
@@ -968,7 +968,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#rect)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Rect(self: ?*anyopaque) QtC.QRectF {
@@ -977,7 +977,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QPolarChart, left: f64, top: f64, right: f64, bottom: f64 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
@@ -986,7 +986,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QPolarChart, margins: QtC.QMarginsF ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: QtC.QMarginsF) void {
@@ -995,7 +995,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
     ///
     /// ``` self: QtC.QPolarChart, left: f64, top: f64, right: f64, bottom: f64 ```
     pub fn SetWindowFrameMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
@@ -1004,7 +1004,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
     ///
     /// ``` self: QtC.QPolarChart, margins: QtC.QMarginsF ```
     pub fn SetWindowFrameMargins2(self: ?*anyopaque, margins: QtC.QMarginsF) void {
@@ -1013,7 +1013,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getWindowFrameMargins)
     ///
     /// ``` self: QtC.QPolarChart, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
     pub fn GetWindowFrameMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
@@ -1022,7 +1022,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetWindowFrameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetWindowFrameMargins)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn UnsetWindowFrameMargins(self: ?*anyopaque) void {
@@ -1031,7 +1031,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameGeometry)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn WindowFrameGeometry(self: ?*anyopaque) QtC.QRectF {
@@ -1040,7 +1040,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameRect)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn WindowFrameRect(self: ?*anyopaque) QtC.QRectF {
@@ -1049,7 +1049,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFlags)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -1060,7 +1060,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowType)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -1071,7 +1071,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QPolarChart, wFlags: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, wFlags: i64) void {
@@ -1080,7 +1080,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -1089,7 +1089,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QPolarChart, title: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, title: []const u8) void {
@@ -1102,7 +1102,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowTitle)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1115,7 +1115,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -1126,7 +1126,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QPolarChart, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -1135,7 +1135,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setTabOrder)
     ///
     /// ``` first: QtC.QGraphicsWidget, second: QtC.QGraphicsWidget ```
     pub fn SetTabOrder(first: ?*anyopaque, second: ?*anyopaque) void {
@@ -1144,7 +1144,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusWidget)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -1153,7 +1153,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QPolarChart, sequence: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, sequence: ?*anyopaque) i32 {
@@ -1162,7 +1162,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QPolarChart, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -1171,7 +1171,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QPolarChart, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -1180,7 +1180,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QPolarChart, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -1189,7 +1189,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#addAction)
     ///
     /// ``` self: QtC.QPolarChart, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -1198,7 +1198,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#addActions)
     ///
     /// ``` self: QtC.QPolarChart, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -1211,7 +1211,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#insertActions)
     ///
     /// ``` self: QtC.QPolarChart, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -1224,7 +1224,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#insertAction)
     ///
     /// ``` self: QtC.QPolarChart, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -1233,7 +1233,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#removeAction)
     ///
     /// ``` self: QtC.QPolarChart, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -1242,7 +1242,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#actions)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -1256,7 +1256,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QPolarChart, attribute: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, attribute: i32) void {
@@ -1265,7 +1265,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#testAttribute)
     ///
     /// ``` self: QtC.QPolarChart, attribute: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, attribute: i32) bool {
@@ -1274,7 +1274,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn GeometryChanged(self: ?*anyopaque) void {
@@ -1283,7 +1283,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1292,7 +1292,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -1301,7 +1301,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1310,7 +1310,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#close)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -1319,7 +1319,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QPolarChart, sequence: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, sequence: ?*anyopaque, context: i32) i32 {
@@ -1328,7 +1328,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QPolarChart, id: i32, enabled: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enabled: bool) void {
@@ -1337,7 +1337,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QPolarChart, id: i32, enabled: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enabled: bool) void {
@@ -1346,7 +1346,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QPolarChart, attribute: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, attribute: i32, on: bool) void {
@@ -1355,7 +1355,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QPolarChart, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1364,7 +1364,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#ungrabGesture)
     ///
     /// ``` self: QtC.QPolarChart, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -1373,7 +1373,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ParentChanged(self: ?*anyopaque) void {
@@ -1382,7 +1382,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1391,7 +1391,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn OpacityChanged(self: ?*anyopaque) void {
@@ -1400,7 +1400,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1409,7 +1409,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -1418,7 +1418,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1427,7 +1427,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn EnabledChanged(self: ?*anyopaque) void {
@@ -1436,7 +1436,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1445,7 +1445,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn XChanged(self: ?*anyopaque) void {
@@ -1454,7 +1454,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1463,7 +1463,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn YChanged(self: ?*anyopaque) void {
@@ -1472,7 +1472,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1481,7 +1481,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ZChanged(self: ?*anyopaque) void {
@@ -1490,7 +1490,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1499,7 +1499,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn RotationChanged(self: ?*anyopaque) void {
@@ -1508,7 +1508,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1517,7 +1517,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ScaleChanged(self: ?*anyopaque) void {
@@ -1526,7 +1526,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1535,7 +1535,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ChildrenChanged(self: ?*anyopaque) void {
@@ -1544,7 +1544,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1553,7 +1553,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn WidthChanged(self: ?*anyopaque) void {
@@ -1562,7 +1562,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1571,7 +1571,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn HeightChanged(self: ?*anyopaque) void {
@@ -1580,7 +1580,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1589,7 +1589,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
     /// ``` self: QtC.QPolarChart, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -1598,7 +1598,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1611,7 +1611,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QPolarChart, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1624,7 +1624,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1633,7 +1633,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1642,7 +1642,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1651,7 +1651,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1660,7 +1660,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QPolarChart, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1669,7 +1669,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1678,7 +1678,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPolarChart, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1687,7 +1687,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPolarChart, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1696,7 +1696,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPolarChart, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1705,7 +1705,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPolarChart, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1714,7 +1714,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1728,7 +1728,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QPolarChart, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1737,7 +1737,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QPolarChart, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1746,7 +1746,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QPolarChart, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1755,7 +1755,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1764,7 +1764,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPolarChart, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1775,7 +1775,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1784,7 +1784,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1793,7 +1793,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1802,7 +1802,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1811,7 +1811,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QPolarChart, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1821,7 +1821,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QPolarChart, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1831,7 +1831,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1855,7 +1855,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1864,7 +1864,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1873,7 +1873,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1882,7 +1882,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1891,7 +1891,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1900,7 +1900,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QPolarChart, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1910,7 +1910,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1919,7 +1919,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPolarChart, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1928,7 +1928,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPolarChart, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1937,7 +1937,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1946,7 +1946,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPolarChart, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1957,7 +1957,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPolarChart, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1966,7 +1966,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1975,7 +1975,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scene)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Scene(self: ?*anyopaque) QtC.QGraphicsScene {
@@ -1984,7 +1984,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentItem)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ParentItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -1993,7 +1993,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelItem)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn TopLevelItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2002,7 +2002,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentObject)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ParentObject(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -2011,7 +2011,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#parentWidget)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -2020,7 +2020,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#topLevelWidget)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -2029,7 +2029,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#window)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Window(self: ?*anyopaque) QtC.QGraphicsWidget {
@@ -2038,7 +2038,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#panel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#panel)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Panel(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2047,7 +2047,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setParentItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setParentItem)
     ///
     /// ``` self: QtC.QPolarChart, parent: QtC.QGraphicsItem ```
     pub fn SetParentItem(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2056,7 +2056,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#childItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#childItems)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn ChildItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -2070,7 +2070,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isWidget)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsWidget(self: ?*anyopaque) bool {
@@ -2079,7 +2079,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isWindow)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2088,7 +2088,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isPanel)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsPanel(self: ?*anyopaque) bool {
@@ -2097,7 +2097,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ToGraphicsObject(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -2106,7 +2106,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toGraphicsObject)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ToGraphicsObject2(self: ?*anyopaque) QtC.QGraphicsObject {
@@ -2115,7 +2115,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#group)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#group)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Group(self: ?*anyopaque) QtC.QGraphicsItemGroup {
@@ -2124,7 +2124,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setGroup)
     ///
     /// ``` self: QtC.QPolarChart, group: QtC.QGraphicsItemGroup ```
     pub fn SetGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -2133,7 +2133,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#flags)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -2144,7 +2144,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QPolarChart, flag: qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
@@ -2153,7 +2153,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
     /// ``` self: QtC.QPolarChart, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
@@ -2162,7 +2162,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -2173,7 +2173,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QPolarChart, mode: qgraphicsitem_enums.CacheMode ```
     pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
@@ -2182,7 +2182,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -2193,7 +2193,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
     ///
     /// ``` self: QtC.QPolarChart, panelModality: qgraphicsitem_enums.PanelModality ```
     pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
@@ -2202,7 +2202,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsBlockedByModalPanel(self: ?*anyopaque) bool {
@@ -2211,7 +2211,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#toolTip)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2224,7 +2224,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setToolTip)
     ///
     /// ``` self: QtC.QPolarChart, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -2237,7 +2237,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#cursor)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2246,7 +2246,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCursor)
     ///
     /// ``` self: QtC.QPolarChart, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2255,7 +2255,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hasCursor)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn HasCursor(self: ?*anyopaque) bool {
@@ -2264,7 +2264,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#unsetCursor)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2273,7 +2273,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisible)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -2282,7 +2282,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isVisibleTo)
     ///
     /// ``` self: QtC.QPolarChart, parent: QtC.QGraphicsItem ```
     pub fn IsVisibleTo(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -2291,7 +2291,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setVisible)
     ///
     /// ``` self: QtC.QPolarChart, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -2300,7 +2300,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hide)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -2309,7 +2309,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#show)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Show(self: ?*anyopaque) void {
@@ -2318,7 +2318,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isEnabled)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2327,7 +2327,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setEnabled)
     ///
     /// ``` self: QtC.QPolarChart, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2336,7 +2336,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isSelected)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsSelected(self: ?*anyopaque) bool {
@@ -2345,7 +2345,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setSelected)
     ///
     /// ``` self: QtC.QPolarChart, selected: bool ```
     pub fn SetSelected(self: ?*anyopaque, selected: bool) void {
@@ -2354,7 +2354,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptDrops)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -2363,7 +2363,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QPolarChart, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -2372,7 +2372,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opacity)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Opacity(self: ?*anyopaque) f64 {
@@ -2381,7 +2381,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#effectiveOpacity)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn EffectiveOpacity(self: ?*anyopaque) f64 {
@@ -2390,7 +2390,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setOpacity)
     ///
     /// ``` self: QtC.QPolarChart, opacity: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
@@ -2399,7 +2399,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#graphicsEffect)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -2408,7 +2408,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QPolarChart, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -2417,7 +2417,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -2428,7 +2428,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)
     ///
     /// ``` self: QtC.QPolarChart, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
@@ -2437,7 +2437,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptHoverEvents)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AcceptHoverEvents(self: ?*anyopaque) bool {
@@ -2446,7 +2446,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptHoverEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptHoverEvents)
     ///
     /// ``` self: QtC.QPolarChart, enabled: bool ```
     pub fn SetAcceptHoverEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2455,7 +2455,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptTouchEvents)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn AcceptTouchEvents(self: ?*anyopaque) bool {
@@ -2464,7 +2464,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptTouchEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptTouchEvents)
     ///
     /// ``` self: QtC.QPolarChart, enabled: bool ```
     pub fn SetAcceptTouchEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2473,7 +2473,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#filtersChildEvents)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn FiltersChildEvents(self: ?*anyopaque) bool {
@@ -2482,7 +2482,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFiltersChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFiltersChildEvents)
     ///
     /// ``` self: QtC.QPolarChart, enabled: bool ```
     pub fn SetFiltersChildEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2491,7 +2491,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#handlesChildEvents)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn HandlesChildEvents(self: ?*anyopaque) bool {
@@ -2500,7 +2500,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setHandlesChildEvents)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setHandlesChildEvents)
     ///
     /// ``` self: QtC.QPolarChart, enabled: bool ```
     pub fn SetHandlesChildEvents(self: ?*anyopaque, enabled: bool) void {
@@ -2509,7 +2509,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isActive)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsActive(self: ?*anyopaque) bool {
@@ -2518,7 +2518,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setActive)
     ///
     /// ``` self: QtC.QPolarChart, active: bool ```
     pub fn SetActive(self: ?*anyopaque, active: bool) void {
@@ -2527,7 +2527,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hasFocus)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -2536,7 +2536,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -2545,7 +2545,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#clearFocus)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -2554,7 +2554,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusProxy)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2563,7 +2563,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocusProxy)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem ```
     pub fn SetFocusProxy(self: ?*anyopaque, item: ?*anyopaque) void {
@@ -2572,7 +2572,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusItem)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn FocusItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2581,7 +2581,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusScopeItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusScopeItem)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn FocusScopeItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -2590,7 +2590,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#grabMouse)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -2599,7 +2599,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabMouse)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn UngrabMouse(self: ?*anyopaque) void {
@@ -2608,7 +2608,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#grabKeyboard)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -2617,7 +2617,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ungrabKeyboard)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn UngrabKeyboard(self: ?*anyopaque) void {
@@ -2626,7 +2626,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#pos)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Pos(self: ?*anyopaque) QtC.QPointF {
@@ -2635,7 +2635,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#x)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn X(self: ?*anyopaque) f64 {
@@ -2644,7 +2644,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setX)
     ///
     /// ``` self: QtC.QPolarChart, x: f64 ```
     pub fn SetX(self: ?*anyopaque, x: f64) void {
@@ -2653,7 +2653,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#y)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Y(self: ?*anyopaque) f64 {
@@ -2662,7 +2662,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setY)
     ///
     /// ``` self: QtC.QPolarChart, y: f64 ```
     pub fn SetY(self: ?*anyopaque, y: f64) void {
@@ -2671,7 +2671,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scenePos)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
@@ -2680,7 +2680,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
     ///
     /// ``` self: QtC.QPolarChart, pos: QtC.QPointF ```
     pub fn SetPos(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -2689,7 +2689,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setPos)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64 ```
     pub fn SetPos2(self: ?*anyopaque, x: f64, y: f64) void {
@@ -2698,7 +2698,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#moveBy)
     ///
     /// ``` self: QtC.QPolarChart, dx: f64, dy: f64 ```
     pub fn MoveBy(self: ?*anyopaque, dx: f64, dy: f64) void {
@@ -2707,7 +2707,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn EnsureVisible(self: ?*anyopaque) void {
@@ -2716,7 +2716,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64 ```
     pub fn EnsureVisible2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) void {
@@ -2725,7 +2725,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transform)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Transform(self: ?*anyopaque) QtC.QTransform {
@@ -2734,7 +2734,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneTransform)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SceneTransform(self: ?*anyopaque) QtC.QTransform {
@@ -2743,7 +2743,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#deviceTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#deviceTransform)
     ///
     /// ``` self: QtC.QPolarChart, viewportTransform: QtC.QTransform ```
     pub fn DeviceTransform(self: ?*anyopaque, viewportTransform: ?*anyopaque) QtC.QTransform {
@@ -2752,7 +2752,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QPolarChart, other: QtC.QGraphicsItem ```
     pub fn ItemTransform(self: ?*anyopaque, other: ?*anyopaque) QtC.QTransform {
@@ -2761,7 +2761,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
     ///
     /// ``` self: QtC.QPolarChart, matrix: QtC.QTransform ```
     pub fn SetTransform(self: ?*anyopaque, matrix: ?*anyopaque) void {
@@ -2770,7 +2770,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#resetTransform)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ResetTransform(self: ?*anyopaque) void {
@@ -2779,7 +2779,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setRotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setRotation)
     ///
     /// ``` self: QtC.QPolarChart, angle: f64 ```
     pub fn SetRotation(self: ?*anyopaque, angle: f64) void {
@@ -2788,7 +2788,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#rotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#rotation)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Rotation(self: ?*anyopaque) f64 {
@@ -2797,7 +2797,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setScale)
     ///
     /// ``` self: QtC.QPolarChart, scale: f64 ```
     pub fn SetScale(self: ?*anyopaque, scale: f64) void {
@@ -2806,7 +2806,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scale)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Scale(self: ?*anyopaque) f64 {
@@ -2815,7 +2815,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transformations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transformations)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn Transformations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsTransform {
@@ -2829,7 +2829,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformations)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformations)
     ///
     /// ``` self: QtC.QPolarChart, transformations: []QtC.QGraphicsTransform ```
     pub fn SetTransformations(self: ?*anyopaque, transformations: []?*anyopaque) void {
@@ -2842,7 +2842,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#transformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#transformOriginPoint)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn TransformOriginPoint(self: ?*anyopaque) QtC.QPointF {
@@ -2851,7 +2851,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
     ///
     /// ``` self: QtC.QPolarChart, origin: QtC.QPointF ```
     pub fn SetTransformOriginPoint(self: ?*anyopaque, origin: ?*anyopaque) void {
@@ -2860,7 +2860,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransformOriginPoint)
     ///
     /// ``` self: QtC.QPolarChart, ax: f64, ay: f64 ```
     pub fn SetTransformOriginPoint2(self: ?*anyopaque, ax: f64, ay: f64) void {
@@ -2869,7 +2869,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#zValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#zValue)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ZValue(self: ?*anyopaque) f64 {
@@ -2878,7 +2878,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setZValue)
     ///
     /// ``` self: QtC.QPolarChart, z: f64 ```
     pub fn SetZValue(self: ?*anyopaque, z: f64) void {
@@ -2887,7 +2887,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#stackBefore)
     ///
     /// ``` self: QtC.QPolarChart, sibling: QtC.QGraphicsItem ```
     pub fn StackBefore(self: ?*anyopaque, sibling: ?*anyopaque) void {
@@ -2896,7 +2896,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#childrenBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#childrenBoundingRect)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ChildrenBoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -2905,7 +2905,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneBoundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneBoundingRect)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SceneBoundingRect(self: ?*anyopaque) QtC.QRectF {
@@ -2914,7 +2914,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isClipped)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsClipped(self: ?*anyopaque) bool {
@@ -2923,7 +2923,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#clipPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#clipPath)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ClipPath(self: ?*anyopaque) QtC.QPainterPath {
@@ -2932,7 +2932,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QPolarChart, allocator: std.mem.Allocator ```
     pub fn CollidingItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -2946,7 +2946,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsObscured(self: ?*anyopaque) bool {
@@ -2955,7 +2955,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64 ```
     pub fn IsObscured2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) bool {
@@ -2964,7 +2964,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegion)
     ///
     /// ``` self: QtC.QPolarChart, itemToDeviceTransform: QtC.QTransform ```
     pub fn BoundingRegion(self: ?*anyopaque, itemToDeviceTransform: ?*anyopaque) QtC.QRegion {
@@ -2973,7 +2973,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRegionGranularity)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn BoundingRegionGranularity(self: ?*anyopaque) f64 {
@@ -2982,7 +2982,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setBoundingRegionGranularity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setBoundingRegionGranularity)
     ///
     /// ``` self: QtC.QPolarChart, granularity: f64 ```
     pub fn SetBoundingRegionGranularity(self: ?*anyopaque, granularity: f64) void {
@@ -2991,7 +2991,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Update(self: ?*anyopaque) void {
@@ -3000,7 +3000,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, width: f64, height: f64 ```
     pub fn Update2(self: ?*anyopaque, x: f64, y: f64, width: f64, height: f64) void {
@@ -3009,7 +3009,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, point: QtC.QPointF ```
     pub fn MapToItem(self: ?*anyopaque, item: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3018,7 +3018,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QPolarChart, point: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3027,7 +3027,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QPolarChart, point: QtC.QPointF ```
     pub fn MapToScene(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3036,7 +3036,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, rect: QtC.QRectF ```
     pub fn MapRectToItem(self: ?*anyopaque, item: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3045,7 +3045,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn MapRectToParent(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3054,7 +3054,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn MapRectToScene(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3063,7 +3063,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, path: QtC.QPainterPath ```
     pub fn MapToItem4(self: ?*anyopaque, item: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3072,7 +3072,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QPolarChart, path: QtC.QPainterPath ```
     pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3081,7 +3081,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QPolarChart, path: QtC.QPainterPath ```
     pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3090,7 +3090,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, point: QtC.QPointF ```
     pub fn MapFromItem(self: ?*anyopaque, item: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3099,7 +3099,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QPolarChart, point: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3108,7 +3108,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QPolarChart, point: QtC.QPointF ```
     pub fn MapFromScene(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
@@ -3117,7 +3117,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, rect: QtC.QRectF ```
     pub fn MapRectFromItem(self: ?*anyopaque, item: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3126,7 +3126,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn MapRectFromParent(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3135,7 +3135,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn MapRectFromScene(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
@@ -3144,7 +3144,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, path: QtC.QPainterPath ```
     pub fn MapFromItem4(self: ?*anyopaque, item: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3153,7 +3153,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QPolarChart, path: QtC.QPainterPath ```
     pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3162,7 +3162,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QPolarChart, path: QtC.QPainterPath ```
     pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
@@ -3171,7 +3171,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, x: f64, y: f64 ```
     pub fn MapToItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3180,7 +3180,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64 ```
     pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3189,7 +3189,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64 ```
     pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3198,7 +3198,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3207,7 +3207,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToParent)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3216,7 +3216,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToScene)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectToScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3225,7 +3225,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, x: f64, y: f64 ```
     pub fn MapFromItem5(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3234,7 +3234,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64 ```
     pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3243,7 +3243,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64 ```
     pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
@@ -3252,7 +3252,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
     ///
     /// ``` self: QtC.QPolarChart, item: QtC.QGraphicsItem, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromItem2(self: ?*anyopaque, item: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3261,7 +3261,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromParent)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromParent2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3270,7 +3270,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromScene)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64 ```
     pub fn MapRectFromScene2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64) QtC.QRectF {
@@ -3279,7 +3279,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isAncestorOf)
     ///
     /// ``` self: QtC.QPolarChart, child: QtC.QGraphicsItem ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -3288,7 +3288,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#commonAncestorItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#commonAncestorItem)
     ///
     /// ``` self: QtC.QPolarChart, other: QtC.QGraphicsItem ```
     pub fn CommonAncestorItem(self: ?*anyopaque, other: ?*anyopaque) QtC.QGraphicsItem {
@@ -3297,7 +3297,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isUnderMouse)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsUnderMouse(self: ?*anyopaque) bool {
@@ -3306,7 +3306,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#data)
     ///
     /// ``` self: QtC.QPolarChart, key: i32 ```
     pub fn Data(self: ?*anyopaque, key: i32) QtC.QVariant {
@@ -3315,7 +3315,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setData)
     ///
     /// ``` self: QtC.QPolarChart, key: i32, value: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, key: i32, value: ?*anyopaque) void {
@@ -3324,7 +3324,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
     ///
     /// ``` self: QtC.QPolarChart ```
     ///
@@ -3335,7 +3335,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QPolarChart, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -3344,7 +3344,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#installSceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#installSceneEventFilter)
     ///
     /// ``` self: QtC.QPolarChart, filterItem: QtC.QGraphicsItem ```
     pub fn InstallSceneEventFilter(self: ?*anyopaque, filterItem: ?*anyopaque) void {
@@ -3353,7 +3353,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeSceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeSceneEventFilter)
     ///
     /// ``` self: QtC.QPolarChart, filterItem: QtC.QGraphicsItem ```
     pub fn RemoveSceneEventFilter(self: ?*anyopaque, filterItem: ?*anyopaque) void {
@@ -3362,7 +3362,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QPolarChart, flag: qgraphicsitem_enums.GraphicsItemFlag, enabled: bool ```
     pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
@@ -3371,7 +3371,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QPolarChart, mode: qgraphicsitem_enums.CacheMode, cacheSize: QtC.QSize ```
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
@@ -3380,7 +3380,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QPolarChart, focusReason: qnamespace_enums.FocusReason ```
     pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
@@ -3389,7 +3389,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn EnsureVisible1(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -3398,7 +3398,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF, xmargin: i32 ```
     pub fn EnsureVisible22(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32) void {
@@ -3407,7 +3407,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF, xmargin: i32, ymargin: i32 ```
     pub fn EnsureVisible3(self: ?*anyopaque, rect: ?*anyopaque, xmargin: i32, ymargin: i32) void {
@@ -3416,7 +3416,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64, xmargin: i32 ```
     pub fn EnsureVisible5(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32) void {
@@ -3425,7 +3425,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#ensureVisible)
     ///
     /// ``` self: QtC.QPolarChart, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32 ```
     pub fn EnsureVisible6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xmargin: i32, ymargin: i32) void {
@@ -3434,7 +3434,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QPolarChart, other: QtC.QGraphicsItem, ok: *bool ```
     pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
@@ -3443,7 +3443,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setTransform)
     ///
     /// ``` self: QtC.QPolarChart, matrix: QtC.QTransform, combine: bool ```
     pub fn SetTransform2(self: ?*anyopaque, matrix: ?*anyopaque, combine: bool) void {
@@ -3452,7 +3452,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QPolarChart, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
     pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
@@ -3466,7 +3466,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscured)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn IsObscured1(self: ?*anyopaque, rect: ?*anyopaque) bool {
@@ -3475,7 +3475,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#update)
     ///
     /// ``` self: QtC.QPolarChart, rect: QtC.QRectF ```
     pub fn Update1(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -3484,7 +3484,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#scroll)
     ///
     /// ``` self: QtC.QPolarChart, dx: f64, dy: f64, rect: QtC.QRectF ```
     pub fn Scroll3(self: ?*anyopaque, dx: f64, dy: f64, rect: ?*anyopaque) void {
@@ -3493,7 +3493,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QPolarChart, policy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, policy: ?*anyopaque) void {
@@ -3502,7 +3502,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QPolarChart, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
@@ -3511,7 +3511,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizePolicy)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -3520,7 +3520,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
     ///
     /// ``` self: QtC.QPolarChart, size: QtC.QSizeF ```
     pub fn SetMinimumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -3529,7 +3529,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumSize)
     ///
     /// ``` self: QtC.QPolarChart, w: f64, h: f64 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -3538,7 +3538,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumSize)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSizeF {
@@ -3547,7 +3547,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QPolarChart, width: f64 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
@@ -3556,7 +3556,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumWidth)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn MinimumWidth(self: ?*anyopaque) f64 {
@@ -3565,7 +3565,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QPolarChart, height: f64 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
@@ -3574,7 +3574,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#minimumHeight)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn MinimumHeight(self: ?*anyopaque) f64 {
@@ -3583,7 +3583,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
     ///
     /// ``` self: QtC.QPolarChart, size: QtC.QSizeF ```
     pub fn SetPreferredSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -3592,7 +3592,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredSize)
     ///
     /// ``` self: QtC.QPolarChart, w: f64, h: f64 ```
     pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -3601,7 +3601,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredSize)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn PreferredSize(self: ?*anyopaque) QtC.QSizeF {
@@ -3610,7 +3610,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredWidth)
     ///
     /// ``` self: QtC.QPolarChart, width: f64 ```
     pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
@@ -3619,7 +3619,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredWidth)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn PreferredWidth(self: ?*anyopaque) f64 {
@@ -3628,7 +3628,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setPreferredHeight)
     ///
     /// ``` self: QtC.QPolarChart, height: f64 ```
     pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
@@ -3637,7 +3637,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#preferredHeight)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn PreferredHeight(self: ?*anyopaque) f64 {
@@ -3646,7 +3646,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
     ///
     /// ``` self: QtC.QPolarChart, size: QtC.QSizeF ```
     pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -3655,7 +3655,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumSize)
     ///
     /// ``` self: QtC.QPolarChart, w: f64, h: f64 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
@@ -3664,7 +3664,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumSize)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSizeF {
@@ -3673,7 +3673,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QPolarChart, width: f64 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
@@ -3682,7 +3682,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumWidth)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn MaximumWidth(self: ?*anyopaque) f64 {
@@ -3691,7 +3691,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QPolarChart, height: f64 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
@@ -3700,7 +3700,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#maximumHeight)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn MaximumHeight(self: ?*anyopaque) f64 {
@@ -3709,7 +3709,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#geometry)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRectF {
@@ -3718,7 +3718,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRectF {
@@ -3727,7 +3727,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QPolarChart, which: qnamespace_enums.SizeHint ```
     pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
@@ -3736,7 +3736,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#parentLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#parentLayoutItem)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn ParentLayoutItem(self: ?*anyopaque) QtC.QGraphicsLayoutItem {
@@ -3745,7 +3745,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setParentLayoutItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setParentLayoutItem)
     ///
     /// ``` self: QtC.QPolarChart, parent: QtC.QGraphicsLayoutItem ```
     pub fn SetParentLayoutItem(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3754,7 +3754,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isLayout)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn IsLayout(self: ?*anyopaque) bool {
@@ -3763,7 +3763,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#graphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#graphicsItem)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn GraphicsItem(self: ?*anyopaque) QtC.QGraphicsItem {
@@ -3772,7 +3772,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#ownedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#ownedByLayout)
     ///
     /// ``` self: QtC.QPolarChart ```
     pub fn OwnedByLayout(self: ?*anyopaque) bool {
@@ -3781,7 +3781,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QPolarChart, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy, controlType: qsizepolicy_enums.ControlType ```
     pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
@@ -3790,7 +3790,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QPolarChart, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
     pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
@@ -3799,7 +3799,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3810,7 +3810,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3821,7 +3821,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#setGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3832,7 +3832,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3843,7 +3843,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3854,7 +3854,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3865,7 +3865,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#type)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3876,7 +3876,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#type)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3887,7 +3887,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#type)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3898,7 +3898,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3909,7 +3909,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3920,7 +3920,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3931,7 +3931,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3942,7 +3942,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3953,7 +3953,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3964,7 +3964,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3975,7 +3975,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3986,7 +3986,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3997,7 +3997,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4008,7 +4008,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4019,7 +4019,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4030,7 +4030,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4041,7 +4041,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4052,7 +4052,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4063,7 +4063,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4074,7 +4074,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4085,7 +4085,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4096,7 +4096,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4107,7 +4107,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4118,7 +4118,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4129,7 +4129,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4140,7 +4140,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4151,7 +4151,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4162,7 +4162,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4177,7 +4177,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4192,7 +4192,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4203,7 +4203,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4214,7 +4214,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4225,7 +4225,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4236,7 +4236,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4247,7 +4247,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4258,7 +4258,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4269,7 +4269,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4282,7 +4282,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4295,7 +4295,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4306,7 +4306,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4317,7 +4317,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4328,7 +4328,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4339,7 +4339,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4350,7 +4350,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4361,7 +4361,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4372,7 +4372,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4383,7 +4383,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4394,7 +4394,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4405,7 +4405,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4416,7 +4416,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4427,7 +4427,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4438,7 +4438,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4449,7 +4449,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4460,7 +4460,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusNextPrevChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4471,7 +4471,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4482,7 +4482,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4493,7 +4493,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4504,7 +4504,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4515,7 +4515,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4526,7 +4526,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4537,7 +4537,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4548,7 +4548,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4559,7 +4559,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4570,7 +4570,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4581,7 +4581,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4592,7 +4592,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4603,7 +4603,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4614,7 +4614,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4625,7 +4625,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#resizeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4636,7 +4636,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4647,7 +4647,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4658,7 +4658,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4669,7 +4669,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4680,7 +4680,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4691,7 +4691,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4702,7 +4702,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4713,7 +4713,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4724,7 +4724,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#hoverLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4735,7 +4735,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4746,7 +4746,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4757,7 +4757,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabMouseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4768,7 +4768,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4779,7 +4779,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4790,7 +4790,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabMouseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4801,7 +4801,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4812,7 +4812,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4823,7 +4823,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4834,7 +4834,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4845,7 +4845,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4856,7 +4856,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4867,7 +4867,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4878,7 +4878,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4889,7 +4889,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4900,7 +4900,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4911,7 +4911,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4922,7 +4922,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4933,7 +4933,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4944,7 +4944,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4955,7 +4955,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4966,7 +4966,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4977,7 +4977,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4988,7 +4988,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4999,7 +4999,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5010,7 +5010,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5021,7 +5021,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5032,7 +5032,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5043,7 +5043,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5054,7 +5054,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5065,7 +5065,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5076,7 +5076,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5087,7 +5087,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5098,7 +5098,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5109,7 +5109,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5120,7 +5120,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5131,7 +5131,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5142,7 +5142,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5153,7 +5153,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5164,7 +5164,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5175,7 +5175,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5186,7 +5186,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5197,7 +5197,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5208,7 +5208,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5219,7 +5219,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5230,7 +5230,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5241,7 +5241,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5252,7 +5252,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5263,7 +5263,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5274,7 +5274,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5285,7 +5285,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5296,7 +5296,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5307,7 +5307,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5318,7 +5318,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5329,7 +5329,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5340,7 +5340,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5351,7 +5351,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5362,7 +5362,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5373,7 +5373,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5384,7 +5384,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5395,7 +5395,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5406,7 +5406,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5417,7 +5417,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5428,7 +5428,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5439,7 +5439,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5450,7 +5450,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5461,7 +5461,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5472,7 +5472,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5483,7 +5483,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5494,7 +5494,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5505,7 +5505,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5516,7 +5516,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5527,7 +5527,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5538,7 +5538,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5549,7 +5549,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5560,7 +5560,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5571,7 +5571,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5582,7 +5582,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5593,7 +5593,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5604,7 +5604,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5615,7 +5615,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5626,7 +5626,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5637,7 +5637,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5648,7 +5648,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5659,7 +5659,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5670,7 +5670,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5681,7 +5681,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5692,7 +5692,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5703,7 +5703,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5714,7 +5714,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5725,7 +5725,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5736,7 +5736,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5747,7 +5747,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5758,7 +5758,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5769,7 +5769,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5780,7 +5780,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5791,7 +5791,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5802,7 +5802,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5813,7 +5813,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5824,7 +5824,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5835,7 +5835,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5846,7 +5846,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5857,7 +5857,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5868,7 +5868,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5879,7 +5879,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5890,7 +5890,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5901,7 +5901,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5912,7 +5912,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5923,7 +5923,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5934,7 +5934,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5945,7 +5945,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5956,7 +5956,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5967,7 +5967,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5978,7 +5978,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5989,7 +5989,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6000,7 +6000,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6011,7 +6011,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6022,7 +6022,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6034,7 +6034,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6046,7 +6046,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6057,7 +6057,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6068,7 +6068,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6079,7 +6079,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6090,7 +6090,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6101,7 +6101,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6112,7 +6112,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6123,7 +6123,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6134,7 +6134,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6145,7 +6145,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6156,7 +6156,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6167,7 +6167,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6178,7 +6178,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6189,7 +6189,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6200,7 +6200,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6211,7 +6211,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6222,7 +6222,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6233,7 +6233,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6244,7 +6244,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsLayoutItem
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6255,7 +6255,7 @@ pub const qpolarchart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6264,7 +6264,7 @@ pub const qpolarchart = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#dtor.QPolarChart)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#dtor.QPolarChart)
     ///
     /// Delete this object from C++ memory.
     ///

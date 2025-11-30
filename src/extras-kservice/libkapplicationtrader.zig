@@ -4,7 +4,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 
 /// https://api.kde.org/kapplicationtrader.html
 pub const kapplicationtrader = struct {
-    /// [Qt documentation](https://api.kde.org/kapplicationtrader.html#isSubsequence)
+    /// [Upstream resources](https://api.kde.org/kapplicationtrader.html#isSubsequence)
     ///
     /// ``` param1: []const u8, param2: []const u8, param3: qnamespace_enums.CaseSensitivity ```
     pub fn IsSubsequence(param1: []const u8, param2: []const u8, param3: i32) bool {

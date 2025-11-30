@@ -26,14 +26,14 @@ pub const qprinterinfo = struct {
         return qtc.QPrinterInfo_new3(@ptrCast(printer));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#operator-eq)
     ///
     /// ``` self: QtC.QPrinterInfo, other: QtC.QPrinterInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPrinterInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#printerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#printerName)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn PrinterName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -44,7 +44,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#description)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#description)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -55,7 +55,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#location)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#location)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn Location(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#makeAndModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#makeAndModel)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn MakeAndModel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -77,28 +77,28 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#isNull)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QPrinterInfo_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#isDefault)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#isDefault)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     pub fn IsDefault(self: ?*anyopaque) bool {
         return qtc.QPrinterInfo_IsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#isRemote)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#isRemote)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     pub fn IsRemote(self: ?*anyopaque) bool {
         return qtc.QPrinterInfo_IsRemote(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#state)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     ///
@@ -107,7 +107,7 @@ pub const qprinterinfo = struct {
         return qtc.QPrinterInfo_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#supportedPageSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#supportedPageSizes)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn SupportedPageSizes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPageSize {
@@ -119,35 +119,35 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#defaultPageSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#defaultPageSize)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     pub fn DefaultPageSize(self: ?*anyopaque) QtC.QPageSize {
         return qtc.QPrinterInfo_DefaultPageSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#supportsCustomPageSizes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#supportsCustomPageSizes)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     pub fn SupportsCustomPageSizes(self: ?*anyopaque) bool {
         return qtc.QPrinterInfo_SupportsCustomPageSizes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#minimumPhysicalPageSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#minimumPhysicalPageSize)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     pub fn MinimumPhysicalPageSize(self: ?*anyopaque) QtC.QPageSize {
         return qtc.QPrinterInfo_MinimumPhysicalPageSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#maximumPhysicalPageSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#maximumPhysicalPageSize)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     pub fn MaximumPhysicalPageSize(self: ?*anyopaque) QtC.QPageSize {
         return qtc.QPrinterInfo_MaximumPhysicalPageSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#supportedResolutions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#supportedResolutions)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn SupportedResolutions(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
@@ -159,7 +159,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#defaultDuplexMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#defaultDuplexMode)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     ///
@@ -168,7 +168,7 @@ pub const qprinterinfo = struct {
         return qtc.QPrinterInfo_DefaultDuplexMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#supportedDuplexModes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#supportedDuplexModes)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     ///
@@ -182,7 +182,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#defaultColorMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#defaultColorMode)
     ///
     /// ``` self: QtC.QPrinterInfo ```
     ///
@@ -191,7 +191,7 @@ pub const qprinterinfo = struct {
         return qtc.QPrinterInfo_DefaultColorMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#supportedColorModes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#supportedColorModes)
     ///
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     ///
@@ -205,7 +205,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#availablePrinterNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#availablePrinterNames)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailablePrinterNames(allocator: std.mem.Allocator) [][]const u8 {
@@ -227,7 +227,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#availablePrinters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#availablePrinters)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailablePrinters(allocator: std.mem.Allocator) []QtC.QPrinterInfo {
@@ -239,7 +239,7 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#defaultPrinterName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#defaultPrinterName)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultPrinterName(allocator: std.mem.Allocator) []const u8 {
@@ -250,14 +250,14 @@ pub const qprinterinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#defaultPrinter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#defaultPrinter)
     ///
     ///
     pub fn DefaultPrinter() QtC.QPrinterInfo {
         return qtc.QPrinterInfo_DefaultPrinter();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#printerInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#printerInfo)
     ///
     /// ``` printerName: []const u8 ```
     pub fn PrinterInfo(printerName: []const u8) QtC.QPrinterInfo {
@@ -268,7 +268,7 @@ pub const qprinterinfo = struct {
         return qtc.QPrinterInfo_PrinterInfo(printerName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#dtor.QPrinterInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#dtor.QPrinterInfo)
     ///
     /// Delete this object from C++ memory.
     ///

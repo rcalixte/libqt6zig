@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html
 pub const qwebengineurlrequestinfo = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#resourceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#resourceType)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     ///
@@ -14,7 +14,7 @@ pub const qwebengineurlrequestinfo = struct {
         return qtc.QWebEngineUrlRequestInfo_ResourceType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#navigationType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#navigationType)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     ///
@@ -23,28 +23,28 @@ pub const qwebengineurlrequestinfo = struct {
         return qtc.QWebEngineUrlRequestInfo_NavigationType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestUrl)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     pub fn RequestUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineUrlRequestInfo_RequestUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#firstPartyUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#firstPartyUrl)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     pub fn FirstPartyUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineUrlRequestInfo_FirstPartyUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#initiator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#initiator)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     pub fn Initiator(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineUrlRequestInfo_Initiator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestMethod)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestMethod)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo, allocator: std.mem.Allocator ```
     pub fn RequestMethod(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -55,35 +55,35 @@ pub const qwebengineurlrequestinfo = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestBody)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestBody)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     pub fn RequestBody(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QWebEngineUrlRequestInfo_RequestBody(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#changed)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     pub fn Changed(self: ?*anyopaque) bool {
         return qtc.QWebEngineUrlRequestInfo_Changed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#block)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#block)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo, shouldBlock: bool ```
     pub fn Block(self: ?*anyopaque, shouldBlock: bool) void {
         qtc.QWebEngineUrlRequestInfo_Block(@ptrCast(self), shouldBlock);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#redirect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#redirect)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo, url: QtC.QUrl ```
     pub fn Redirect(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEngineUrlRequestInfo_Redirect(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#setHttpHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#setHttpHeader)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo, name: []u8, value: []u8 ```
     pub fn SetHttpHeader(self: ?*anyopaque, name: []u8, value: []u8) void {

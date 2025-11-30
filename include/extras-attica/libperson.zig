@@ -19,14 +19,14 @@ pub const attica__person = struct {
         return qtc.Attica__Person_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__Person, other: QtC.Attica__Person ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Person_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setId)
     ///
     /// ``` self: QtC.Attica__Person, id: []const u8 ```
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
@@ -37,7 +37,7 @@ pub const attica__person = struct {
         qtc.Attica__Person_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#id)
     ///
     /// ``` self: QtC.Attica__Person, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,7 +48,7 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setFirstName)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setFirstName)
     ///
     /// ``` self: QtC.Attica__Person, firstName: []const u8 ```
     pub fn SetFirstName(self: ?*anyopaque, firstName: []const u8) void {
@@ -59,7 +59,7 @@ pub const attica__person = struct {
         qtc.Attica__Person_SetFirstName(@ptrCast(self), firstName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#firstName)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#firstName)
     ///
     /// ``` self: QtC.Attica__Person, allocator: std.mem.Allocator ```
     pub fn FirstName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -70,7 +70,7 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setLastName)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setLastName)
     ///
     /// ``` self: QtC.Attica__Person, lastName: []const u8 ```
     pub fn SetLastName(self: ?*anyopaque, lastName: []const u8) void {
@@ -81,7 +81,7 @@ pub const attica__person = struct {
         qtc.Attica__Person_SetLastName(@ptrCast(self), lastName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#lastName)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#lastName)
     ///
     /// ``` self: QtC.Attica__Person, allocator: std.mem.Allocator ```
     pub fn LastName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -92,21 +92,21 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setBirthday)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setBirthday)
     ///
     /// ``` self: QtC.Attica__Person, birthday: QtC.QDate ```
     pub fn SetBirthday(self: ?*anyopaque, birthday: ?*anyopaque) void {
         qtc.Attica__Person_SetBirthday(@ptrCast(self), @ptrCast(birthday));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#birthday)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#birthday)
     ///
     /// ``` self: QtC.Attica__Person ```
     pub fn Birthday(self: ?*anyopaque) QtC.QDate {
         return qtc.Attica__Person_Birthday(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setCountry)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setCountry)
     ///
     /// ``` self: QtC.Attica__Person, country: []const u8 ```
     pub fn SetCountry(self: ?*anyopaque, country: []const u8) void {
@@ -117,7 +117,7 @@ pub const attica__person = struct {
         qtc.Attica__Person_SetCountry(@ptrCast(self), country_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#country)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#country)
     ///
     /// ``` self: QtC.Attica__Person, allocator: std.mem.Allocator ```
     pub fn Country(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -128,49 +128,49 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setLatitude)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setLatitude)
     ///
     /// ``` self: QtC.Attica__Person, latitude: f64 ```
     pub fn SetLatitude(self: ?*anyopaque, latitude: f64) void {
         qtc.Attica__Person_SetLatitude(@ptrCast(self), @floatCast(latitude));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#latitude)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#latitude)
     ///
     /// ``` self: QtC.Attica__Person ```
     pub fn Latitude(self: ?*anyopaque) f64 {
         return qtc.Attica__Person_Latitude(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setLongitude)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setLongitude)
     ///
     /// ``` self: QtC.Attica__Person, longitude: f64 ```
     pub fn SetLongitude(self: ?*anyopaque, longitude: f64) void {
         qtc.Attica__Person_SetLongitude(@ptrCast(self), @floatCast(longitude));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#longitude)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#longitude)
     ///
     /// ``` self: QtC.Attica__Person ```
     pub fn Longitude(self: ?*anyopaque) f64 {
         return qtc.Attica__Person_Longitude(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setAvatarUrl)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setAvatarUrl)
     ///
     /// ``` self: QtC.Attica__Person, avatarUrl: QtC.QUrl ```
     pub fn SetAvatarUrl(self: ?*anyopaque, avatarUrl: ?*anyopaque) void {
         qtc.Attica__Person_SetAvatarUrl(@ptrCast(self), @ptrCast(avatarUrl));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#avatarUrl)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#avatarUrl)
     ///
     /// ``` self: QtC.Attica__Person ```
     pub fn AvatarUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__Person_AvatarUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setHomepage)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setHomepage)
     ///
     /// ``` self: QtC.Attica__Person, homepage: []const u8 ```
     pub fn SetHomepage(self: ?*anyopaque, homepage: []const u8) void {
@@ -181,7 +181,7 @@ pub const attica__person = struct {
         qtc.Attica__Person_SetHomepage(@ptrCast(self), homepage_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#homepage)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#homepage)
     ///
     /// ``` self: QtC.Attica__Person, allocator: std.mem.Allocator ```
     pub fn Homepage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -192,7 +192,7 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#setCity)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#setCity)
     ///
     /// ``` self: QtC.Attica__Person, city: []const u8 ```
     pub fn SetCity(self: ?*anyopaque, city: []const u8) void {
@@ -203,7 +203,7 @@ pub const attica__person = struct {
         qtc.Attica__Person_SetCity(@ptrCast(self), city_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#city)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#city)
     ///
     /// ``` self: QtC.Attica__Person, allocator: std.mem.Allocator ```
     pub fn City(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -214,7 +214,7 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#addExtendedAttribute)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#addExtendedAttribute)
     ///
     /// ``` self: QtC.Attica__Person, key: []const u8, value: []const u8 ```
     pub fn AddExtendedAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -229,7 +229,7 @@ pub const attica__person = struct {
         qtc.Attica__Person_AddExtendedAttribute(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#extendedAttribute)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#extendedAttribute)
     ///
     /// ``` self: QtC.Attica__Person, key: []const u8, allocator: std.mem.Allocator ```
     pub fn ExtendedAttribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -244,7 +244,7 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#extendedAttributes)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#extendedAttributes)
     ///
     /// ``` self: QtC.Attica__Person, allocator: std.mem.Allocator ```
     pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -270,7 +270,7 @@ pub const attica__person = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-person.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-person.html#isValid)
     ///
     /// ``` self: QtC.Attica__Person ```
     pub fn IsValid(self: ?*anyopaque) bool {

@@ -22,7 +22,7 @@ pub const qboxplotlegendmarker = struct {
         return qtc.QBoxPlotLegendMarker_new2(@ptrCast(series), @ptrCast(legend), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -54,7 +54,7 @@ pub const qboxplotlegendmarker = struct {
         return qtc.QBoxPlotLegendMarker_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -66,7 +66,7 @@ pub const qboxplotlegendmarker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#type)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     ///
@@ -75,7 +75,7 @@ pub const qboxplotlegendmarker = struct {
         return qtc.QBoxPlotLegendMarker_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -84,7 +84,7 @@ pub const qboxplotlegendmarker = struct {
         qtc.QBoxPlotLegendMarker_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#type)
     ///
     /// Base class method implementation
     ///
@@ -95,14 +95,14 @@ pub const qboxplotlegendmarker = struct {
         return qtc.QBoxPlotLegendMarker_QBaseType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#series)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#series)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Series(self: ?*anyopaque) QtC.QBoxPlotSeries {
         return qtc.QBoxPlotLegendMarker_Series(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#series)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#series)
     ///
     /// Allows for overriding the related default method
     ///
@@ -111,7 +111,7 @@ pub const qboxplotlegendmarker = struct {
         qtc.QBoxPlotLegendMarker_OnSeries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#series)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#series)
     ///
     /// Base class method implementation
     ///
@@ -120,7 +120,7 @@ pub const qboxplotlegendmarker = struct {
         return qtc.QBoxPlotLegendMarker_QBaseSeries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -133,7 +133,7 @@ pub const qboxplotlegendmarker = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -148,7 +148,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#label)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#label)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, allocator: std.mem.Allocator ```
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -161,7 +161,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#setLabel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setLabel)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, label: []const u8 ```
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
@@ -174,7 +174,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrush)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn LabelBrush(self: ?*anyopaque) QtC.QBrush {
@@ -183,7 +183,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#setLabelBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setLabelBrush)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, brush: QtC.QBrush ```
     pub fn SetLabelBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -192,7 +192,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#font)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -201,7 +201,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setFont)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -210,7 +210,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#pen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#pen)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
@@ -219,7 +219,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setPen)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, pen: QtC.QPen ```
     pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -228,7 +228,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#brush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brush)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
@@ -237,7 +237,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setBrush)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, brush: QtC.QBrush ```
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -246,7 +246,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#isVisible)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -255,7 +255,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setVisible)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -264,7 +264,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#shape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shape)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     ///
@@ -275,7 +275,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#setShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#setShape)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, shape: qlegend_enums.MarkerShape ```
     pub fn SetShape(self: ?*anyopaque, shape: i32) void {
@@ -284,7 +284,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Clicked(self: ?*anyopaque) void {
@@ -293,7 +293,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -302,7 +302,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, status: bool ```
     pub fn Hovered(self: ?*anyopaque, status: bool) void {
@@ -311,7 +311,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker, status: bool) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -320,7 +320,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn LabelChanged(self: ?*anyopaque) void {
@@ -329,7 +329,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -338,7 +338,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn LabelBrushChanged(self: ?*anyopaque) void {
@@ -347,7 +347,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnLabelBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -356,7 +356,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn FontChanged(self: ?*anyopaque) void {
@@ -365,7 +365,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -374,7 +374,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn PenChanged(self: ?*anyopaque) void {
@@ -383,7 +383,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -392,7 +392,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn BrushChanged(self: ?*anyopaque) void {
@@ -401,7 +401,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -410,7 +410,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -419,7 +419,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -428,7 +428,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn ShapeChanged(self: ?*anyopaque) void {
@@ -437,7 +437,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QLegendMarker
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnShapeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -446,7 +446,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -459,7 +459,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -472,7 +472,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -481,7 +481,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -490,7 +490,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -499,7 +499,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -508,7 +508,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -517,7 +517,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -526,7 +526,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -535,7 +535,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -544,7 +544,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -553,7 +553,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -562,7 +562,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -576,7 +576,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -585,7 +585,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -594,7 +594,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -603,7 +603,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -612,7 +612,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -623,7 +623,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -632,7 +632,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -641,7 +641,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -650,7 +650,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -659,7 +659,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -669,7 +669,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -679,7 +679,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -703,7 +703,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -712,7 +712,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -721,7 +721,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -730,7 +730,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -739,7 +739,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -748,7 +748,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -758,7 +758,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -767,7 +767,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -776,7 +776,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -785,7 +785,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -794,7 +794,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -805,7 +805,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -814,7 +814,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxPlotLegendMarker, callback: *const fn (self: QtC.QBoxPlotLegendMarker, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -823,7 +823,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -834,7 +834,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -845,7 +845,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -856,7 +856,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -867,7 +867,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -878,7 +878,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -889,7 +889,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -900,7 +900,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -911,7 +911,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -922,7 +922,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -933,7 +933,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -944,7 +944,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -955,7 +955,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -966,7 +966,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -977,7 +977,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -988,7 +988,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -999,7 +999,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1010,7 +1010,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1021,7 +1021,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1032,7 +1032,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1043,7 +1043,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1054,7 +1054,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1065,7 +1065,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1076,7 +1076,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1087,7 +1087,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1098,7 +1098,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1109,7 +1109,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1120,7 +1120,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1132,7 +1132,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1144,7 +1144,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1155,7 +1155,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1166,7 +1166,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1177,7 +1177,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1188,7 +1188,7 @@ pub const qboxplotlegendmarker = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1197,7 +1197,7 @@ pub const qboxplotlegendmarker = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#dtor.QBoxPlotLegendMarker)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxplotlegendmarker-qtcharts.html#dtor.QBoxPlotLegendMarker)
     ///
     /// Delete this object from C++ memory.
     ///

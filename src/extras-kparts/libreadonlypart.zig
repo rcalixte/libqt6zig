@@ -28,7 +28,7 @@ pub const kparts__readonlypart = struct {
         return qtc.KParts__ReadOnlyPart_new3(@ptrCast(parent), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -60,7 +60,7 @@ pub const kparts__readonlypart = struct {
         return qtc.KParts__ReadOnlyPart_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -72,28 +72,28 @@ pub const kparts__readonlypart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setProgressInfoEnabled)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setProgressInfoEnabled)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, show: bool ```
     pub fn SetProgressInfoEnabled(self: ?*anyopaque, show: bool) void {
         qtc.KParts__ReadOnlyPart_SetProgressInfoEnabled(@ptrCast(self), show);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#isProgressInfoEnabled)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#isProgressInfoEnabled)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn IsProgressInfoEnabled(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_IsProgressInfoEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#openUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, url: QtC.QUrl ```
     pub fn OpenUrl(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_OpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#openUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -102,7 +102,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnOpenUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#openUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openUrl)
     ///
     /// Base class method implementation
     ///
@@ -111,21 +111,21 @@ pub const kparts__readonlypart = struct {
         return qtc.KParts__ReadOnlyPart_QBaseOpenUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#url)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#url)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KParts__ReadOnlyPart_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#closeUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeUrl)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn CloseUrl(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_CloseUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#closeUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeUrl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -134,7 +134,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnCloseUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#closeUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeUrl)
     ///
     /// Base class method implementation
     ///
@@ -143,28 +143,28 @@ pub const kparts__readonlypart = struct {
         return qtc.KParts__ReadOnlyPart_QBaseCloseUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#navigationExtension)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#navigationExtension)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn NavigationExtension(self: ?*anyopaque) QtC.KParts__NavigationExtension {
         return qtc.KParts__ReadOnlyPart_NavigationExtension(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setArguments)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setArguments)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, arguments: QtC.KParts__OpenUrlArguments ```
     pub fn SetArguments(self: ?*anyopaque, arguments: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_SetArguments(@ptrCast(self), @ptrCast(arguments));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#arguments)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#arguments)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Arguments(self: ?*anyopaque) QtC.KParts__OpenUrlArguments {
         return qtc.KParts__ReadOnlyPart_Arguments(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#openStream)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openStream)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, mimeType: []const u8, url: QtC.QUrl ```
     pub fn OpenStream(self: ?*anyopaque, mimeType: []const u8, url: ?*anyopaque) bool {
@@ -175,7 +175,7 @@ pub const kparts__readonlypart = struct {
         return qtc.KParts__ReadOnlyPart_OpenStream(@ptrCast(self), mimeType_str, @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#writeStream)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#writeStream)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, data: []u8 ```
     pub fn WriteStream(self: ?*anyopaque, data: []u8) bool {
@@ -186,56 +186,56 @@ pub const kparts__readonlypart = struct {
         return qtc.KParts__ReadOnlyPart_WriteStream(@ptrCast(self), data_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#closeStream)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#closeStream)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn CloseStream(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_CloseStream(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#started)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, job: QtC.KIO__Job ```
     pub fn Started(self: ?*anyopaque, job: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_Started(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#started)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#started)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart, job: QtC.KIO__Job) callconv(.c) void ```
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#completed)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Completed(self: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_Completed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#completed)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completed)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart) callconv(.c) void ```
     pub fn OnCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Completed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn CompletedWithPendingAction(self: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_CompletedWithPendingAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#completedWithPendingAction)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart) callconv(.c) void ```
     pub fn OnCompletedWithPendingAction(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_CompletedWithPendingAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#canceled)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, errMsg: []const u8 ```
     pub fn Canceled(self: ?*anyopaque, errMsg: []const u8) void {
@@ -246,35 +246,35 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_Canceled(@ptrCast(self), errMsg_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#canceled)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#canceled)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart, errMsg: [*:0]const u8) callconv(.c) void ```
     pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#urlChanged)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, url: QtC.QUrl ```
     pub fn UrlChanged(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_UrlChanged(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#urlChanged)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#urlChanged)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart, url: QtC.QUrl) callconv(.c) void ```
     pub fn OnUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KParts__ReadOnlyPart_Connect_UrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#openFile)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn OpenFile(self: ?*anyopaque) bool {
         return qtc.KParts__ReadOnlyPart_OpenFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#openFile)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
     ///
     /// Allows for overriding the related default method
     ///
@@ -283,7 +283,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnOpenFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#openFile)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#openFile)
     ///
     /// Base class method implementation
     ///
@@ -292,14 +292,14 @@ pub const kparts__readonlypart = struct {
         return qtc.KParts__ReadOnlyPart_QBaseOpenFile(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#abortLoad)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn AbortLoad(self: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_AbortLoad(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#abortLoad)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
     ///
     /// Allows for overriding the related default method
     ///
@@ -308,7 +308,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnAbortLoad(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#abortLoad)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#abortLoad)
     ///
     /// Base class method implementation
     ///
@@ -317,14 +317,14 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_QBaseAbortLoad(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, event: QtC.KParts__GUIActivateEvent ```
     pub fn GuiActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_GuiActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -333,7 +333,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnGuiActivateEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#guiActivateEvent)
     ///
     /// Base class method implementation
     ///
@@ -342,14 +342,14 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_QBaseGuiActivateEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__ReadOnlyPart_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -358,7 +358,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnSetUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setUrl)
     ///
     /// Base class method implementation
     ///
@@ -367,7 +367,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_QBaseSetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#localFilePath)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, allocator: std.mem.Allocator ```
     pub fn LocalFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -378,7 +378,7 @@ pub const kparts__readonlypart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#localFilePath)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
     ///
     /// Allows for overriding the related default method
     ///
@@ -387,7 +387,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnLocalFilePath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#localFilePath)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#localFilePath)
     ///
     /// Base class method implementation
     ///
@@ -400,7 +400,7 @@ pub const kparts__readonlypart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, localFilePath: []const u8 ```
     pub fn SetLocalFilePath(self: ?*anyopaque, localFilePath: []const u8) void {
@@ -411,7 +411,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_SetLocalFilePath(@ptrCast(self), localFilePath_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
     ///
     /// Allows for overriding the related default method
     ///
@@ -420,7 +420,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_OnSetLocalFilePath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
+    /// [Upstream resources](https://api.kde.org/kparts-readonlypart.html#setLocalFilePath)
     ///
     /// Base class method implementation
     ///
@@ -433,7 +433,7 @@ pub const kparts__readonlypart = struct {
         qtc.KParts__ReadOnlyPart_QBaseSetLocalFilePath(@ptrCast(self), localFilePath_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -446,7 +446,7 @@ pub const kparts__readonlypart = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -461,7 +461,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#manager)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#manager)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Manager(self: ?*anyopaque) QtC.KParts__PartManager {
@@ -470,7 +470,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setAutoDeleteWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeleteWidget)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, autoDeleteWidget: bool ```
     pub fn SetAutoDeleteWidget(self: ?*anyopaque, autoDeleteWidget: bool) void {
@@ -479,7 +479,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setAutoDeletePart)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeletePart)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, autoDeletePart: bool ```
     pub fn SetAutoDeletePart(self: ?*anyopaque, autoDeletePart: bool) void {
@@ -488,7 +488,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#metaData)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#metaData)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn MetaData(self: ?*anyopaque) QtC.KPluginMetaData {
@@ -497,7 +497,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setWindowCaption)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, caption: []const u8 ```
     pub fn SetWindowCaption(self: ?*anyopaque, caption: []const u8) void {
@@ -510,7 +510,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setWindowCaption)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart, caption: [*:0]const u8) callconv(.c) void ```
     pub fn OnSetWindowCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -519,7 +519,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setStatusBarText)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, text: []const u8 ```
     pub fn SetStatusBarText(self: ?*anyopaque, text: []const u8) void {
@@ -532,7 +532,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setStatusBarText)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -541,7 +541,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -554,7 +554,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -567,7 +567,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -576,7 +576,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -585,7 +585,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -594,7 +594,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -603,7 +603,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -612,7 +612,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -621,7 +621,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -630,7 +630,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -639,7 +639,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -648,7 +648,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -657,7 +657,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -671,7 +671,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -680,7 +680,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -689,7 +689,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -698,7 +698,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -707,7 +707,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -718,7 +718,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -727,7 +727,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -736,7 +736,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -745,7 +745,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -754,7 +754,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -764,7 +764,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -774,7 +774,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -798,7 +798,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -807,7 +807,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -816,7 +816,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -825,7 +825,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -834,7 +834,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -843,7 +843,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -853,7 +853,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -862,7 +862,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -871,7 +871,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -880,7 +880,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -889,7 +889,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -900,7 +900,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -909,7 +909,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, callback: *const fn (self: QtC.KParts__ReadOnlyPart, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -918,7 +918,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-partbase.html#setPartObject)
+    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#setPartObject)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, object: QtC.QObject ```
     pub fn SetPartObject(self: ?*anyopaque, object: ?*anyopaque) void {
@@ -927,7 +927,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::PartBase
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-partbase.html#partObject)
+    /// [Upstream resources](https://api.kde.org/kparts-partbase.html#partObject)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn PartObject(self: ?*anyopaque) QtC.QObject {
@@ -936,7 +936,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, name: []const u8 ```
     pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
@@ -949,7 +949,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLGUIBuildDocument)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, doc: QtC.QDomDocument ```
     pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
@@ -958,7 +958,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlguiBuildDocument)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
@@ -967,7 +967,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setFactory)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setFactory)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, factory: QtC.KXMLGUIFactory ```
     pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
@@ -976,7 +976,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#factory)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#factory)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
@@ -985,7 +985,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#parentClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#parentClient)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
@@ -994,7 +994,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#insertChildClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#insertChildClient)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, child: QtC.KXMLGUIClient ```
     pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
@@ -1003,7 +1003,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#removeChildClient)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#removeChildClient)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, child: QtC.KXMLGUIClient ```
     pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
@@ -1012,7 +1012,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#childClients)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#childClients)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, allocator: std.mem.Allocator ```
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
@@ -1026,7 +1026,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setClientBuilder)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, builder: QtC.KXMLGUIBuilder ```
     pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
@@ -1035,7 +1035,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#clientBuilder)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#clientBuilder)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
@@ -1044,7 +1044,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#reloadXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#reloadXML)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn ReloadXML(self: ?*anyopaque) void {
@@ -1053,7 +1053,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#plugActionList)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#plugActionList)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, name: []const u8, actionList: []QtC.QAction ```
     pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
@@ -1070,7 +1070,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#unplugActionList)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#unplugActionList)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, name: []const u8 ```
     pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
@@ -1083,7 +1083,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findMostRecentXMLFile)
     ///
     /// ``` files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator ```
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1112,7 +1112,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionEnabled)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, state: []const u8, action: []const u8 ```
     pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
@@ -1129,7 +1129,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#addStateActionDisabled)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, state: []const u8, action: []const u8 ```
     pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
@@ -1146,7 +1146,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#getActionsToChangeForState)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, state: []const u8 ```
     pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
@@ -1159,7 +1159,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#beginXMLPlug)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, param1: QtC.QWidget ```
     pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1168,7 +1168,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#endXMLPlug)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart ```
     pub fn EndXMLPlug(self: ?*anyopaque) void {
@@ -1177,7 +1177,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#prepareXMLUnplug)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, param1: QtC.QWidget ```
     pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1186,7 +1186,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, xmlfile: []const u8, localxmlfile: []const u8 ```
     pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
@@ -1203,7 +1203,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#findVersionNumber)
     ///
     /// ``` xml: []const u8, allocator: std.mem.Allocator ```
     pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1220,7 +1220,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
     ///
     /// ``` self: QtC.KParts__ReadOnlyPart, xmlfile: []const u8, localxmlfile: []const u8, merge: bool ```
     pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
@@ -1237,7 +1237,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#widget)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#widget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1248,7 +1248,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#widget)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#widget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1259,7 +1259,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#widget)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#widget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1270,7 +1270,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setManager)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1281,7 +1281,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setManager)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1292,7 +1292,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setManager)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1303,7 +1303,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#hitTest)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1314,7 +1314,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#hitTest)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1325,7 +1325,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#hitTest)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1336,7 +1336,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1347,7 +1347,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1358,7 +1358,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#setWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1369,7 +1369,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#customEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1380,7 +1380,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#customEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1391,7 +1391,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#customEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1402,7 +1402,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#partActivateEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1413,7 +1413,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#partActivateEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1424,7 +1424,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#partActivateEvent)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1435,7 +1435,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1457,7 +1457,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1468,7 +1468,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1479,7 +1479,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1490,7 +1490,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1501,7 +1501,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1512,7 +1512,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1523,7 +1523,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1534,7 +1534,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1545,7 +1545,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1556,7 +1556,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1567,7 +1567,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1578,7 +1578,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1589,7 +1589,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1600,7 +1600,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1611,7 +1611,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1622,7 +1622,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1633,7 +1633,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1644,7 +1644,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1655,7 +1655,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#action)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1666,7 +1666,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1677,7 +1677,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1688,7 +1688,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#actionCollection)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1699,7 +1699,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1714,7 +1714,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1729,7 +1729,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#componentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1740,7 +1740,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1751,7 +1751,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1762,7 +1762,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#domDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1773,7 +1773,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1788,7 +1788,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1803,7 +1803,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#xmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1814,7 +1814,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1829,7 +1829,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1844,7 +1844,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#localXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1855,7 +1855,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1874,7 +1874,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1893,7 +1893,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setComponentName)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1904,7 +1904,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1919,7 +1919,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1934,7 +1934,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1945,7 +1945,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1960,7 +1960,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1975,7 +1975,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1986,7 +1986,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2001,7 +2001,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2016,7 +2016,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setXML)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2027,7 +2027,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2038,7 +2038,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2049,7 +2049,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2060,7 +2060,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2075,7 +2075,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2090,7 +2090,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#stateChanged)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2101,7 +2101,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#hostContainer)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2116,7 +2116,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#hostContainer)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2131,7 +2131,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#hostContainer)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2142,7 +2142,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2153,7 +2153,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2164,7 +2164,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KParts::Part
     ///
-    /// [Qt documentation](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
+    /// [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2175,7 +2175,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2186,7 +2186,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2197,7 +2197,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2208,7 +2208,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2219,7 +2219,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2230,7 +2230,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2241,7 +2241,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2253,7 +2253,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2265,7 +2265,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2276,7 +2276,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2287,7 +2287,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2298,7 +2298,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2309,7 +2309,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2324,7 +2324,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2339,7 +2339,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2350,7 +2350,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2361,7 +2361,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2372,7 +2372,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from KXMLGUIClient
     ///
-    /// [Qt documentation](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
+    /// [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2383,7 +2383,7 @@ pub const kparts__readonlypart = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

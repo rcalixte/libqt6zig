@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://api.kde.org/knscore.html
 pub const knscore = struct {
-    /// [Qt documentation](https://api.kde.org/knscore.html#replaceBBCode)
+    /// [Upstream resources](https://api.kde.org/knscore.html#replaceBBCode)
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn ReplaceBBCode(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -20,7 +20,7 @@ pub const knscore = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore.html#qHash)
+    /// [Upstream resources](https://api.kde.org/knscore.html#qHash)
     ///
     /// ``` param1: QtC.KNSCore__Entry, param2: u64 ```
     pub fn QHash(param1: ?*anyopaque, param2: u64) u64 {
@@ -44,35 +44,35 @@ pub const knscore__entry = struct {
         return qtc.KNSCore__Entry_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#operator-eq)
     ///
     /// ``` self: QtC.KNSCore__Entry, other: QtC.KNSCore__Entry ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KNSCore__Entry_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KNSCore__Entry, other: QtC.KNSCore__Entry ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KNSCore__Entry_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#operator-lt)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#operator-lt)
     ///
     /// ``` self: QtC.KNSCore__Entry, other: QtC.KNSCore__Entry ```
     pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KNSCore__Entry_OperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#isValid)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#isValid)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KNSCore__Entry_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setName)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setName)
     ///
     /// ``` self: QtC.KNSCore__Entry, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -83,7 +83,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#name)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#name)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -94,7 +94,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setUniqueId)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setUniqueId)
     ///
     /// ``` self: QtC.KNSCore__Entry, id: []const u8 ```
     pub fn SetUniqueId(self: ?*anyopaque, id: []const u8) void {
@@ -105,7 +105,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetUniqueId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#uniqueId)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#uniqueId)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn UniqueId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -116,7 +116,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setCategory)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setCategory)
     ///
     /// ``` self: QtC.KNSCore__Entry, category: []const u8 ```
     pub fn SetCategory(self: ?*anyopaque, category: []const u8) void {
@@ -127,7 +127,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetCategory(@ptrCast(self), category_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#category)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#category)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn Category(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -138,35 +138,35 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setHomepage)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setHomepage)
     ///
     /// ``` self: QtC.KNSCore__Entry, page: QtC.QUrl ```
     pub fn SetHomepage(self: ?*anyopaque, page: ?*anyopaque) void {
         qtc.KNSCore__Entry_SetHomepage(@ptrCast(self), @ptrCast(page));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#homepage)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#homepage)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn Homepage(self: ?*anyopaque) QtC.QUrl {
         return qtc.KNSCore__Entry_Homepage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setAuthor)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setAuthor)
     ///
     /// ``` self: QtC.KNSCore__Entry, author: QtC.KNSCore__Author ```
     pub fn SetAuthor(self: ?*anyopaque, author: ?*anyopaque) void {
         qtc.KNSCore__Entry_SetAuthor(@ptrCast(self), @ptrCast(author));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#author)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#author)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn Author(self: ?*anyopaque) QtC.KNSCore__Author {
         return qtc.KNSCore__Entry_Author(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setLicense)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setLicense)
     ///
     /// ``` self: QtC.KNSCore__Entry, license: []const u8 ```
     pub fn SetLicense(self: ?*anyopaque, license: []const u8) void {
@@ -177,7 +177,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetLicense(@ptrCast(self), license_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#license)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#license)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setSummary)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setSummary)
     ///
     /// ``` self: QtC.KNSCore__Entry, summary: []const u8 ```
     pub fn SetSummary(self: ?*anyopaque, summary: []const u8) void {
@@ -199,7 +199,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetSummary(@ptrCast(self), summary_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#shortSummary)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#shortSummary)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn ShortSummary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -210,7 +210,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setShortSummary)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setShortSummary)
     ///
     /// ``` self: QtC.KNSCore__Entry, summary: []const u8 ```
     pub fn SetShortSummary(self: ?*anyopaque, summary: []const u8) void {
@@ -221,7 +221,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetShortSummary(@ptrCast(self), summary_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#summary)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#summary)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -232,7 +232,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setChangelog)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setChangelog)
     ///
     /// ``` self: QtC.KNSCore__Entry, changelog: []const u8 ```
     pub fn SetChangelog(self: ?*anyopaque, changelog: []const u8) void {
@@ -243,7 +243,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetChangelog(@ptrCast(self), changelog_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#changelog)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#changelog)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn Changelog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -254,7 +254,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setVersion)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setVersion)
     ///
     /// ``` self: QtC.KNSCore__Entry, version: []const u8 ```
     pub fn SetVersion(self: ?*anyopaque, version: []const u8) void {
@@ -265,7 +265,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetVersion(@ptrCast(self), version_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#version)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#version)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -276,21 +276,21 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setReleaseDate)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setReleaseDate)
     ///
     /// ``` self: QtC.KNSCore__Entry, releasedate: QtC.QDate ```
     pub fn SetReleaseDate(self: ?*anyopaque, releasedate: ?*anyopaque) void {
         qtc.KNSCore__Entry_SetReleaseDate(@ptrCast(self), @ptrCast(releasedate));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#releaseDate)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#releaseDate)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn ReleaseDate(self: ?*anyopaque) QtC.QDate {
         return qtc.KNSCore__Entry_ReleaseDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setUpdateVersion)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setUpdateVersion)
     ///
     /// ``` self: QtC.KNSCore__Entry, version: []const u8 ```
     pub fn SetUpdateVersion(self: ?*anyopaque, version: []const u8) void {
@@ -301,7 +301,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetUpdateVersion(@ptrCast(self), version_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#updateVersion)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#updateVersion)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn UpdateVersion(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -312,21 +312,21 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setUpdateReleaseDate)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setUpdateReleaseDate)
     ///
     /// ``` self: QtC.KNSCore__Entry, releasedate: QtC.QDate ```
     pub fn SetUpdateReleaseDate(self: ?*anyopaque, releasedate: ?*anyopaque) void {
         qtc.KNSCore__Entry_SetUpdateReleaseDate(@ptrCast(self), @ptrCast(releasedate));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#updateReleaseDate)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#updateReleaseDate)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn UpdateReleaseDate(self: ?*anyopaque) QtC.QDate {
         return qtc.KNSCore__Entry_UpdateReleaseDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setPayload)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setPayload)
     ///
     /// ``` self: QtC.KNSCore__Entry, url: []const u8 ```
     pub fn SetPayload(self: ?*anyopaque, url: []const u8) void {
@@ -337,7 +337,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetPayload(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#payload)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#payload)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn Payload(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -348,7 +348,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setPreviewUrl)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setPreviewUrl)
     ///
     /// ``` self: QtC.KNSCore__Entry, url: []const u8 ```
     pub fn SetPreviewUrl(self: ?*anyopaque, url: []const u8) void {
@@ -359,7 +359,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetPreviewUrl(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#previewUrl)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#previewUrl)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn PreviewUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -370,21 +370,21 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#previewImage)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#previewImage)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn PreviewImage(self: ?*anyopaque) QtC.QImage {
         return qtc.KNSCore__Entry_PreviewImage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setPreviewImage)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setPreviewImage)
     ///
     /// ``` self: QtC.KNSCore__Entry, image: QtC.QImage ```
     pub fn SetPreviewImage(self: ?*anyopaque, image: ?*anyopaque) void {
         qtc.KNSCore__Entry_SetPreviewImage(@ptrCast(self), @ptrCast(image));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setInstalledFiles)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setInstalledFiles)
     ///
     /// ``` self: QtC.KNSCore__Entry, files: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetInstalledFiles(self: ?*anyopaque, files: [][]const u8, allocator: std.mem.Allocator) void {
@@ -403,7 +403,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetInstalledFiles(@ptrCast(self), files_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#installedFiles)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#installedFiles)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn InstalledFiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -425,7 +425,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#uninstalledFiles)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#uninstalledFiles)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn UninstalledFiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -447,77 +447,77 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setRating)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setRating)
     ///
     /// ``` self: QtC.KNSCore__Entry, rating: i32 ```
     pub fn SetRating(self: ?*anyopaque, rating: i32) void {
         qtc.KNSCore__Entry_SetRating(@ptrCast(self), @intCast(rating));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#rating)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#rating)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn Rating(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Entry_Rating(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setNumberOfComments)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setNumberOfComments)
     ///
     /// ``` self: QtC.KNSCore__Entry, comments: i32 ```
     pub fn SetNumberOfComments(self: ?*anyopaque, comments: i32) void {
         qtc.KNSCore__Entry_SetNumberOfComments(@ptrCast(self), @intCast(comments));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#numberOfComments)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#numberOfComments)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn NumberOfComments(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Entry_NumberOfComments(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setDownloadCount)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setDownloadCount)
     ///
     /// ``` self: QtC.KNSCore__Entry, downloads: i32 ```
     pub fn SetDownloadCount(self: ?*anyopaque, downloads: i32) void {
         qtc.KNSCore__Entry_SetDownloadCount(@ptrCast(self), @intCast(downloads));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#downloadCount)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#downloadCount)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn DownloadCount(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Entry_DownloadCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#numberFans)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#numberFans)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn NumberFans(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Entry_NumberFans(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setNumberFans)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setNumberFans)
     ///
     /// ``` self: QtC.KNSCore__Entry, fans: i32 ```
     pub fn SetNumberFans(self: ?*anyopaque, fans: i32) void {
         qtc.KNSCore__Entry_SetNumberFans(@ptrCast(self), @intCast(fans));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#numberKnowledgebaseEntries)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#numberKnowledgebaseEntries)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn NumberKnowledgebaseEntries(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Entry_NumberKnowledgebaseEntries(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setNumberKnowledgebaseEntries)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setNumberKnowledgebaseEntries)
     ///
     /// ``` self: QtC.KNSCore__Entry, num: i32 ```
     pub fn SetNumberKnowledgebaseEntries(self: ?*anyopaque, num: i32) void {
         qtc.KNSCore__Entry_SetNumberKnowledgebaseEntries(@ptrCast(self), @intCast(num));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#knowledgebaseLink)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#knowledgebaseLink)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn KnowledgebaseLink(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -528,7 +528,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setKnowledgebaseLink)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setKnowledgebaseLink)
     ///
     /// ``` self: QtC.KNSCore__Entry, link: []const u8 ```
     pub fn SetKnowledgebaseLink(self: ?*anyopaque, link: []const u8) void {
@@ -539,14 +539,14 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetKnowledgebaseLink(@ptrCast(self), link_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#downloadLinkCount)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#downloadLinkCount)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn DownloadLinkCount(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Entry_DownloadLinkCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#downloadLinkInformationList)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#downloadLinkInformationList)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn DownloadLinkInformationList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KNSCore__Entry__DownloadLinkInformation {
@@ -558,21 +558,21 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#appendDownloadLinkInformation)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#appendDownloadLinkInformation)
     ///
     /// ``` self: QtC.KNSCore__Entry, info: QtC.KNSCore__Entry__DownloadLinkInformation ```
     pub fn AppendDownloadLinkInformation(self: ?*anyopaque, info: ?*anyopaque) void {
         qtc.KNSCore__Entry_AppendDownloadLinkInformation(@ptrCast(self), @ptrCast(info));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#clearDownloadLinkInformation)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#clearDownloadLinkInformation)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn ClearDownloadLinkInformation(self: ?*anyopaque) void {
         qtc.KNSCore__Entry_ClearDownloadLinkInformation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#donationLink)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#donationLink)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn DonationLink(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -583,7 +583,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setDonationLink)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setDonationLink)
     ///
     /// ``` self: QtC.KNSCore__Entry, link: []const u8 ```
     pub fn SetDonationLink(self: ?*anyopaque, link: []const u8) void {
@@ -594,7 +594,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetDonationLink(@ptrCast(self), link_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#tags)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#tags)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -616,7 +616,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setTags)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setTags)
     ///
     /// ``` self: QtC.KNSCore__Entry, tags: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
@@ -635,7 +635,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetTags(@ptrCast(self), tags_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#providerId)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#providerId)
     ///
     /// ``` self: QtC.KNSCore__Entry, allocator: std.mem.Allocator ```
     pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -646,7 +646,7 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setProviderId)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setProviderId)
     ///
     /// ``` self: QtC.KNSCore__Entry, id: []const u8 ```
     pub fn SetProviderId(self: ?*anyopaque, id: []const u8) void {
@@ -657,14 +657,14 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetProviderId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setSource)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setSource)
     ///
     /// ``` self: QtC.KNSCore__Entry, source: entry_enums.Source ```
     pub fn SetSource(self: ?*anyopaque, source: i32) void {
         qtc.KNSCore__Entry_SetSource(@ptrCast(self), @intCast(source));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#source)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#source)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     ///
@@ -673,14 +673,14 @@ pub const knscore__entry = struct {
         return qtc.KNSCore__Entry_Source(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setEntryType)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setEntryType)
     ///
     /// ``` self: QtC.KNSCore__Entry, typeVal: entry_enums.EntryType ```
     pub fn SetEntryType(self: ?*anyopaque, typeVal: i32) void {
         qtc.KNSCore__Entry_SetEntryType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#entryType)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#entryType)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     ///
@@ -689,21 +689,21 @@ pub const knscore__entry = struct {
         return qtc.KNSCore__Entry_EntryType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setEntryXML)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setEntryXML)
     ///
     /// ``` self: QtC.KNSCore__Entry, reader: QtC.QXmlStreamReader ```
     pub fn SetEntryXML(self: ?*anyopaque, reader: ?*anyopaque) bool {
         return qtc.KNSCore__Entry_SetEntryXML(@ptrCast(self), @ptrCast(reader));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setStatus)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setStatus)
     ///
     /// ``` self: QtC.KNSCore__Entry, status: entry_enums.Status ```
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
         qtc.KNSCore__Entry_SetStatus(@ptrCast(self), @intCast(status));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#status)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#status)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     ///
@@ -712,14 +712,14 @@ pub const knscore__entry = struct {
         return qtc.KNSCore__Entry_Status(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setEntryDeleted)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setEntryDeleted)
     ///
     /// ``` self: QtC.KNSCore__Entry ```
     pub fn SetEntryDeleted(self: ?*anyopaque) void {
         qtc.KNSCore__Entry_SetEntryDeleted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setPreviewUrl)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setPreviewUrl)
     ///
     /// ``` self: QtC.KNSCore__Entry, url: []const u8, typeVal: entry_enums.PreviewType ```
     pub fn SetPreviewUrl2(self: ?*anyopaque, url: []const u8, typeVal: i32) void {
@@ -730,7 +730,7 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetPreviewUrl2(@ptrCast(self), url_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#previewUrl)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#previewUrl)
     ///
     /// ``` self: QtC.KNSCore__Entry, typeVal: entry_enums.PreviewType, allocator: std.mem.Allocator ```
     pub fn PreviewUrl1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -741,14 +741,14 @@ pub const knscore__entry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#previewImage)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#previewImage)
     ///
     /// ``` self: QtC.KNSCore__Entry, typeVal: entry_enums.PreviewType ```
     pub fn PreviewImage1(self: ?*anyopaque, typeVal: i32) QtC.QImage {
         return qtc.KNSCore__Entry_PreviewImage1(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry.html#setPreviewImage)
+    /// [Upstream resources](https://api.kde.org/knscore-entry.html#setPreviewImage)
     ///
     /// ``` self: QtC.KNSCore__Entry, image: QtC.QImage, typeVal: entry_enums.PreviewType ```
     pub fn SetPreviewImage2(self: ?*anyopaque, image: ?*anyopaque, typeVal: i32) void {
@@ -772,7 +772,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         return qtc.KNSCore__Entry__DownloadLinkInformation_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#name-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#name-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -783,7 +783,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         return name_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#name-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#name-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -794,7 +794,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#priceAmount-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#priceAmount-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, allocator: std.mem.Allocator ```
     pub fn PriceAmount(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -805,7 +805,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         return priceAmount_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#priceAmount-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#priceAmount-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, priceAmount: []const u8 ```
     pub fn SetPriceAmount(self: ?*anyopaque, priceAmount: []const u8) void {
@@ -816,7 +816,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetPriceAmount(@ptrCast(self), priceAmount_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#distributionType-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#distributionType-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, allocator: std.mem.Allocator ```
     pub fn DistributionType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -827,7 +827,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         return distributionType_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#distributionType-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#distributionType-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, distributionType: []const u8 ```
     pub fn SetDistributionType(self: ?*anyopaque, distributionType: []const u8) void {
@@ -838,7 +838,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetDistributionType(@ptrCast(self), distributionType_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#descriptionLink-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#descriptionLink-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, allocator: std.mem.Allocator ```
     pub fn DescriptionLink(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -849,7 +849,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         return descriptionLink_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#descriptionLink-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#descriptionLink-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, descriptionLink: []const u8 ```
     pub fn SetDescriptionLink(self: ?*anyopaque, descriptionLink: []const u8) void {
@@ -860,49 +860,49 @@ pub const knscore__entry__downloadlinkinformation = struct {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetDescriptionLink(@ptrCast(self), descriptionLink_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#id-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#id-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation ```
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.KNSCore__Entry__DownloadLinkInformation_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#id-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#id-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, id: i32 ```
     pub fn SetId(self: ?*anyopaque, id: i32) void {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetId(@ptrCast(self), @intCast(id));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#isDownloadtypeLink-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#isDownloadtypeLink-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation ```
     pub fn IsDownloadtypeLink(self: ?*anyopaque) bool {
         return qtc.KNSCore__Entry__DownloadLinkInformation_IsDownloadtypeLink(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#isDownloadtypeLink-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#isDownloadtypeLink-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, isDownloadtypeLink: bool ```
     pub fn SetIsDownloadtypeLink(self: ?*anyopaque, isDownloadtypeLink: bool) void {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetIsDownloadtypeLink(@ptrCast(self), isDownloadtypeLink);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#size-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#size-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation ```
     pub fn Size(self: ?*anyopaque) u64 {
         return qtc.KNSCore__Entry__DownloadLinkInformation_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#size-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#size-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, size: u64 ```
     pub fn SetSize(self: ?*anyopaque, size: u64) void {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#tags-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#tags-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, allocator: std.mem.Allocator ```
     pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -924,7 +924,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         return tags_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#tags-var)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#tags-var)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, tags: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
@@ -943,7 +943,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
         qtc.KNSCore__Entry__DownloadLinkInformation_SetTags(@ptrCast(self), tags_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-entry-downloadlinkinformation.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#operator-eq)
     ///
     /// ``` self: QtC.KNSCore__Entry__DownloadLinkInformation, param1: QtC.KNSCore__Entry__DownloadLinkInformation ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

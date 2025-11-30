@@ -6,14 +6,14 @@ const std = @import("std");
 
 /// https://api.kde.org/kstandardactions.html
 pub const kstandardactions = struct {
-    /// [Qt documentation](https://api.kde.org/kstandardactions.html#_kgui_createInternal)
+    /// [Upstream resources](https://api.kde.org/kstandardactions.html#_kgui_createInternal)
     ///
     /// ``` param1: kstandardactions_enums.StandardAction, param2: QtC.QObject ```
     pub fn KguiCreateInternal(param1: i32, param2: ?*anyopaque) QtC.QAction {
         return qtc.KStandardActions_KguiCreateInternal(@intCast(param1), @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://api.kde.org/kstandardactions.html#name)
+    /// [Upstream resources](https://api.kde.org/kstandardactions.html#name)
     ///
     /// ``` param1: kstandardactions_enums.StandardAction, allocator: std.mem.Allocator ```
     pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
@@ -24,7 +24,7 @@ pub const kstandardactions = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kstandardactions.html#actionIds)
+    /// [Upstream resources](https://api.kde.org/kstandardactions.html#actionIds)
     ///
     /// ``` allocator: std.mem.Allocator ```
     ///
@@ -38,7 +38,7 @@ pub const kstandardactions = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kstandardactions.html#shortcutForActionId)
+    /// [Upstream resources](https://api.kde.org/kstandardactions.html#shortcutForActionId)
     ///
     /// ``` param1: kstandardactions_enums.StandardAction ```
     ///

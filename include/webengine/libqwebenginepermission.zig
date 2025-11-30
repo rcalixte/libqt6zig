@@ -18,28 +18,28 @@ pub const qwebenginepermission = struct {
         return qtc.QWebEnginePermission_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEnginePermission, other: QtC.QWebEnginePermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEnginePermission_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#swap)
     ///
     /// ``` self: QtC.QWebEnginePermission, other: QtC.QWebEnginePermission ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEnginePermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#origin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#origin)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
     pub fn Origin(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEnginePermission_Origin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#permissionType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#permissionType)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
     ///
@@ -48,7 +48,7 @@ pub const qwebenginepermission = struct {
         return qtc.QWebEnginePermission_PermissionType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#state)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
     ///
@@ -57,42 +57,42 @@ pub const qwebenginepermission = struct {
         return qtc.QWebEnginePermission_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isValid)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QWebEnginePermission_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#grant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#grant)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
     pub fn Grant(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Grant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#deny)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#deny)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
     pub fn Deny(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Deny(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#reset)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QWebEnginePermission_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#isPersistent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#isPersistent)
     ///
     /// ``` permissionType: qwebenginepermission_enums.PermissionType ```
     pub fn IsPersistent(permissionType: u8) bool {
         return qtc.QWebEnginePermission_IsPersistent(@intCast(permissionType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#dtor.QWebEnginePermission)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginepermission.html#dtor.QWebEnginePermission)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -11,7 +11,7 @@ pub const ktexteditor__texthintprovider = struct {
         return qtc.KTextEditor__TextHintProvider_new();
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
     /// ``` self: QtC.KTextEditor__TextHintProvider, view: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor, allocator: std.mem.Allocator ```
     pub fn TextHint(self: ?*anyopaque, view: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -22,7 +22,7 @@ pub const ktexteditor__texthintprovider = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
     /// Allows for overriding the related default method
     ///
@@ -31,7 +31,7 @@ pub const ktexteditor__texthintprovider = struct {
         qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
     /// Base class method implementation
     ///

@@ -83,7 +83,7 @@ pub const kconfig = struct {
         return qtc.KConfig_new6(file_str, backend_str, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#locationType)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#locationType)
     ///
     /// ``` self: QtC.KConfig ```
     ///
@@ -92,7 +92,7 @@ pub const kconfig = struct {
         return qtc.KConfig_LocationType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#name)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#name)
     ///
     /// ``` self: QtC.KConfig, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -103,7 +103,7 @@ pub const kconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#openFlags)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#openFlags)
     ///
     /// ``` self: QtC.KConfig ```
     ///
@@ -112,14 +112,14 @@ pub const kconfig = struct {
         return qtc.KConfig_OpenFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
     /// ``` self: QtC.KConfig ```
     pub fn Sync(self: ?*anyopaque) bool {
         return qtc.KConfig_Sync(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
     /// Allows for overriding the related default method
     ///
@@ -128,7 +128,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnSync(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
     /// Base class method implementation
     ///
@@ -137,21 +137,21 @@ pub const kconfig = struct {
         return qtc.KConfig_QBaseSync(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isDirty)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isDirty)
     ///
     /// ``` self: QtC.KConfig ```
     pub fn IsDirty(self: ?*anyopaque) bool {
         return qtc.KConfig_IsDirty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// ``` self: QtC.KConfig ```
     pub fn MarkAsClean(self: ?*anyopaque) void {
         qtc.KConfig_MarkAsClean(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// Allows for overriding the related default method
     ///
@@ -160,7 +160,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnMarkAsClean(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// Base class method implementation
     ///
@@ -169,7 +169,7 @@ pub const kconfig = struct {
         qtc.KConfig_QBaseMarkAsClean(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// ``` self: QtC.KConfig ```
     ///
@@ -178,7 +178,7 @@ pub const kconfig = struct {
         return qtc.KConfig_AccessMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// Allows for overriding the related default method
     ///
@@ -187,7 +187,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnAccessMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// Base class method implementation
     ///
@@ -198,14 +198,14 @@ pub const kconfig = struct {
         return qtc.KConfig_QBaseAccessMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isConfigWritable)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isConfigWritable)
     ///
     /// ``` self: QtC.KConfig, warnUser: bool ```
     pub fn IsConfigWritable(self: ?*anyopaque, warnUser: bool) bool {
         return qtc.KConfig_IsConfigWritable(@ptrCast(self), warnUser);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#copyTo)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#copyTo)
     ///
     /// ``` self: QtC.KConfig, file: []const u8 ```
     pub fn CopyTo(self: ?*anyopaque, file: []const u8) QtC.KConfig {
@@ -216,7 +216,7 @@ pub const kconfig = struct {
         return qtc.KConfig_CopyTo(@ptrCast(self), file_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#checkUpdate)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#checkUpdate)
     ///
     /// ``` self: QtC.KConfig, id: []const u8, updateFile: []const u8 ```
     pub fn CheckUpdate(self: ?*anyopaque, id: []const u8, updateFile: []const u8) void {
@@ -231,14 +231,14 @@ pub const kconfig = struct {
         qtc.KConfig_CheckUpdate(@ptrCast(self), id_str, updateFile_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#reparseConfiguration)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#reparseConfiguration)
     ///
     /// ``` self: QtC.KConfig ```
     pub fn ReparseConfiguration(self: ?*anyopaque) void {
         qtc.KConfig_ReparseConfiguration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#addConfigSources)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#addConfigSources)
     ///
     /// ``` self: QtC.KConfig, sources: [][]const u8, allocator: std.mem.Allocator ```
     pub fn AddConfigSources(self: ?*anyopaque, sources: [][]const u8, allocator: std.mem.Allocator) void {
@@ -257,7 +257,7 @@ pub const kconfig = struct {
         qtc.KConfig_AddConfigSources(@ptrCast(self), sources_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#additionalConfigSources)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#additionalConfigSources)
     ///
     /// ``` self: QtC.KConfig, allocator: std.mem.Allocator ```
     pub fn AdditionalConfigSources(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -279,7 +279,7 @@ pub const kconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#locale)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#locale)
     ///
     /// ``` self: QtC.KConfig, allocator: std.mem.Allocator ```
     pub fn Locale(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -290,7 +290,7 @@ pub const kconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#setLocale)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#setLocale)
     ///
     /// ``` self: QtC.KConfig, aLocale: []const u8 ```
     pub fn SetLocale(self: ?*anyopaque, aLocale: []const u8) bool {
@@ -301,28 +301,28 @@ pub const kconfig = struct {
         return qtc.KConfig_SetLocale(@ptrCast(self), aLocale_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#setReadDefaults)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#setReadDefaults)
     ///
     /// ``` self: QtC.KConfig, b: bool ```
     pub fn SetReadDefaults(self: ?*anyopaque, b: bool) void {
         qtc.KConfig_SetReadDefaults(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#readDefaults)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#readDefaults)
     ///
     /// ``` self: QtC.KConfig ```
     pub fn ReadDefaults(self: ?*anyopaque) bool {
         return qtc.KConfig_ReadDefaults(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// ``` self: QtC.KConfig ```
     pub fn IsImmutable(self: ?*anyopaque) bool {
         return qtc.KConfig_IsImmutable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// Allows for overriding the related default method
     ///
@@ -331,7 +331,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnIsImmutable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// Base class method implementation
     ///
@@ -340,7 +340,7 @@ pub const kconfig = struct {
         return qtc.KConfig_QBaseIsImmutable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
     /// ``` self: QtC.KConfig, allocator: std.mem.Allocator ```
     pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -362,7 +362,7 @@ pub const kconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
     /// Allows for overriding the related default method
     ///
@@ -371,7 +371,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnGroupList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
     /// Base class method implementation
     ///
@@ -395,7 +395,7 @@ pub const kconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#entryMap)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#entryMap)
     ///
     /// ``` self: QtC.KConfig, allocator: std.mem.Allocator ```
     pub fn EntryMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -421,7 +421,7 @@ pub const kconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#setMainConfigName)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#setMainConfigName)
     ///
     /// ``` str: []const u8 ```
     pub fn SetMainConfigName(str: []const u8) void {
@@ -432,7 +432,7 @@ pub const kconfig = struct {
         qtc.KConfig_SetMainConfigName(str_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#mainConfigName)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#mainConfigName)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
@@ -443,7 +443,7 @@ pub const kconfig = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#hasGroupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
     /// ``` self: QtC.KConfig, groupName: []const u8 ```
     pub fn HasGroupImpl(self: ?*anyopaque, groupName: []const u8) bool {
@@ -454,7 +454,7 @@ pub const kconfig = struct {
         return qtc.KConfig_HasGroupImpl(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#hasGroupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -463,7 +463,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnHasGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#hasGroupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
     /// Base class method implementation
     ///
@@ -476,7 +476,7 @@ pub const kconfig = struct {
         return qtc.KConfig_QBaseHasGroupImpl(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// ``` self: QtC.KConfig, groupName: []const u8 ```
     pub fn GroupImpl(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
@@ -487,7 +487,7 @@ pub const kconfig = struct {
         return qtc.KConfig_GroupImpl(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -496,7 +496,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Base class method implementation
     ///
@@ -509,7 +509,7 @@ pub const kconfig = struct {
         return qtc.KConfig_QBaseGroupImpl(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// ``` self: QtC.KConfig, groupName: []const u8 ```
     pub fn GroupImpl2(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
@@ -520,7 +520,7 @@ pub const kconfig = struct {
         return qtc.KConfig_GroupImpl2(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -529,7 +529,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnGroupImpl2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Base class method implementation
     ///
@@ -542,7 +542,7 @@ pub const kconfig = struct {
         return qtc.KConfig_QBaseGroupImpl2(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#deleteGroupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// ``` self: QtC.KConfig, groupName: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
     pub fn DeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
@@ -553,7 +553,7 @@ pub const kconfig = struct {
         qtc.KConfig_DeleteGroupImpl(@ptrCast(self), groupName_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#deleteGroupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -562,7 +562,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnDeleteGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#deleteGroupImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// Base class method implementation
     ///
@@ -575,7 +575,7 @@ pub const kconfig = struct {
         qtc.KConfig_QBaseDeleteGroupImpl(@ptrCast(self), groupName_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
     /// ``` self: QtC.KConfig, groupName: []const u8 ```
     pub fn IsGroupImmutableImpl(self: ?*anyopaque, groupName: []const u8) bool {
@@ -586,7 +586,7 @@ pub const kconfig = struct {
         return qtc.KConfig_IsGroupImmutableImpl(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
     /// Allows for overriding the related default method
     ///
@@ -595,7 +595,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnIsGroupImmutableImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
     /// Base class method implementation
     ///
@@ -608,14 +608,14 @@ pub const kconfig = struct {
         return qtc.KConfig_QBaseIsGroupImmutableImpl(@ptrCast(self), groupName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
     ///
     /// ``` self: QtC.KConfig, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
         qtc.KConfig_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
     ///
     /// Allows for overriding the related default method
     ///
@@ -624,7 +624,7 @@ pub const kconfig = struct {
         qtc.KConfig_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
     ///
     /// Base class method implementation
     ///
@@ -633,7 +633,7 @@ pub const kconfig = struct {
         qtc.KConfig_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#copyTo)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#copyTo)
     ///
     /// ``` self: QtC.KConfig, file: []const u8, config: QtC.KConfig ```
     pub fn CopyTo2(self: ?*anyopaque, file: []const u8, config: ?*anyopaque) QtC.KConfig {
@@ -644,7 +644,7 @@ pub const kconfig = struct {
         return qtc.KConfig_CopyTo2(@ptrCast(self), file_str, @ptrCast(config));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#entryMap)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#entryMap)
     ///
     /// ``` self: QtC.KConfig, aGroup: []const u8, allocator: std.mem.Allocator ```
     pub fn EntryMap1(self: ?*anyopaque, aGroup: []const u8, allocator: std.mem.Allocator) map_constu8_constu8 {
@@ -676,7 +676,7 @@ pub const kconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#hasGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#hasGroup)
     ///
     /// ``` self: QtC.KConfig, group: []const u8 ```
     pub fn HasGroup(self: ?*anyopaque, group: []const u8) bool {
@@ -689,7 +689,7 @@ pub const kconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KConfig, group: []const u8 ```
     pub fn Group(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -702,7 +702,7 @@ pub const kconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KConfig, group: []const u8 ```
     pub fn Group2(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -715,7 +715,7 @@ pub const kconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfig, group: []const u8 ```
     pub fn DeleteGroup(self: ?*anyopaque, group: []const u8) void {
@@ -728,7 +728,7 @@ pub const kconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#isGroupImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#isGroupImmutable)
     ///
     /// ``` self: QtC.KConfig, group: []const u8 ```
     pub fn IsGroupImmutable(self: ?*anyopaque, group: []const u8) bool {
@@ -741,7 +741,7 @@ pub const kconfig = struct {
 
     /// Inherited from KConfigBase
     ///
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfig, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
     pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
@@ -752,7 +752,7 @@ pub const kconfig = struct {
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfig.html#dtor.KConfig)
+    /// [Upstream resources](https://api.kde.org/kconfig.html#dtor.KConfig)
     ///
     /// Delete this object from C++ memory.
     ///

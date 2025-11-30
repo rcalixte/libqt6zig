@@ -19,42 +19,42 @@ pub const kio__authinfo = struct {
         return qtc.KIO__AuthInfo_new2(@ptrCast(info));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#operator-eq)
     ///
     /// ``` self: QtC.KIO__AuthInfo, info: QtC.KIO__AuthInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, info: ?*anyopaque) void {
         qtc.KIO__AuthInfo_OperatorAssign(@ptrCast(self), @ptrCast(info));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#isModified)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#isModified)
     ///
     /// ``` self: QtC.KIO__AuthInfo ```
     pub fn IsModified(self: ?*anyopaque) bool {
         return qtc.KIO__AuthInfo_IsModified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#setModified)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#setModified)
     ///
     /// ``` self: QtC.KIO__AuthInfo, flag: bool ```
     pub fn SetModified(self: ?*anyopaque, flag: bool) void {
         qtc.KIO__AuthInfo_SetModified(@ptrCast(self), flag);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#url-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#url-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.KIO__AuthInfo_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#url-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#url-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: QtC.QUrl) void {
         qtc.KIO__AuthInfo_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#username-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#username-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn Username(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const kio__authinfo = struct {
         return username_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#username-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#username-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, username: []const u8 ```
     pub fn SetUsername(self: ?*anyopaque, username: []const u8) void {
@@ -76,7 +76,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetUsername(@ptrCast(self), username_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#password-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#password-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -87,7 +87,7 @@ pub const kio__authinfo = struct {
         return password_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#password-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#password-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
@@ -98,7 +98,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#prompt-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#prompt-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn Prompt(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -109,7 +109,7 @@ pub const kio__authinfo = struct {
         return prompt_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#prompt-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#prompt-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, prompt: []const u8 ```
     pub fn SetPrompt(self: ?*anyopaque, prompt: []const u8) void {
@@ -120,7 +120,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetPrompt(@ptrCast(self), prompt_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#caption-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#caption-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -131,7 +131,7 @@ pub const kio__authinfo = struct {
         return caption_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#caption-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#caption-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, caption: []const u8 ```
     pub fn SetCaption(self: ?*anyopaque, caption: []const u8) void {
@@ -142,7 +142,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetCaption(@ptrCast(self), caption_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#comment-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#comment-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -153,7 +153,7 @@ pub const kio__authinfo = struct {
         return comment_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#comment-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#comment-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, comment: []const u8 ```
     pub fn SetComment(self: ?*anyopaque, comment: []const u8) void {
@@ -164,7 +164,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetComment(@ptrCast(self), comment_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#commentLabel-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#commentLabel-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn CommentLabel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -175,7 +175,7 @@ pub const kio__authinfo = struct {
         return commentLabel_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#commentLabel-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#commentLabel-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, commentLabel: []const u8 ```
     pub fn SetCommentLabel(self: ?*anyopaque, commentLabel: []const u8) void {
@@ -186,7 +186,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetCommentLabel(@ptrCast(self), commentLabel_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#realmValue-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#realmValue-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn RealmValue(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -197,7 +197,7 @@ pub const kio__authinfo = struct {
         return realmValue_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#realmValue-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#realmValue-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, realmValue: []const u8 ```
     pub fn SetRealmValue(self: ?*anyopaque, realmValue: []const u8) void {
@@ -208,7 +208,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetRealmValue(@ptrCast(self), realmValue_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#digestInfo-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#digestInfo-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, allocator: std.mem.Allocator ```
     pub fn DigestInfo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -219,7 +219,7 @@ pub const kio__authinfo = struct {
         return digestInfo_ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#digestInfo-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#digestInfo-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, digestInfo: []const u8 ```
     pub fn SetDigestInfo(self: ?*anyopaque, digestInfo: []const u8) void {
@@ -230,49 +230,49 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetDigestInfo(@ptrCast(self), digestInfo_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#verifyPath-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#verifyPath-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo ```
     pub fn VerifyPath(self: ?*anyopaque) bool {
         return qtc.KIO__AuthInfo_VerifyPath(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#verifyPath-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#verifyPath-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, verifyPath: bool ```
     pub fn SetVerifyPath(self: ?*anyopaque, verifyPath: bool) void {
         qtc.KIO__AuthInfo_SetVerifyPath(@ptrCast(self), verifyPath);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#readOnly-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#readOnly-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo ```
     pub fn ReadOnly(self: ?*anyopaque) bool {
         return qtc.KIO__AuthInfo_ReadOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#readOnly-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#readOnly-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, readOnly: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
         qtc.KIO__AuthInfo_SetReadOnly(@ptrCast(self), readOnly);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#keepPassword-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#keepPassword-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo ```
     pub fn KeepPassword(self: ?*anyopaque) bool {
         return qtc.KIO__AuthInfo_KeepPassword(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#keepPassword-var)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#keepPassword-var)
     ///
     /// ``` self: QtC.KIO__AuthInfo, keepPassword: bool ```
     pub fn SetKeepPassword(self: ?*anyopaque, keepPassword: bool) void {
         qtc.KIO__AuthInfo_SetKeepPassword(@ptrCast(self), keepPassword);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#setExtraField)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#setExtraField)
     ///
     /// ``` self: QtC.KIO__AuthInfo, fieldName: []const u8, value: QtC.QVariant ```
     pub fn SetExtraField(self: ?*anyopaque, fieldName: []const u8, value: ?*anyopaque) void {
@@ -283,7 +283,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetExtraField(@ptrCast(self), fieldName_str, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#setExtraFieldFlags)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#setExtraFieldFlags)
     ///
     /// ``` self: QtC.KIO__AuthInfo, fieldName: []const u8, flags: authinfo_enums.FieldFlags ```
     pub fn SetExtraFieldFlags(self: ?*anyopaque, fieldName: []const u8, flags: i32) void {
@@ -294,7 +294,7 @@ pub const kio__authinfo = struct {
         qtc.KIO__AuthInfo_SetExtraFieldFlags(@ptrCast(self), fieldName_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#getExtraField)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#getExtraField)
     ///
     /// ``` self: QtC.KIO__AuthInfo, fieldName: []const u8 ```
     pub fn GetExtraField(self: ?*anyopaque, fieldName: []const u8) QtC.QVariant {
@@ -305,7 +305,7 @@ pub const kio__authinfo = struct {
         return qtc.KIO__AuthInfo_GetExtraField(@ptrCast(self), fieldName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#getExtraFieldFlags)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#getExtraFieldFlags)
     ///
     /// ``` self: QtC.KIO__AuthInfo, fieldName: []const u8 ```
     ///
@@ -318,7 +318,7 @@ pub const kio__authinfo = struct {
         return qtc.KIO__AuthInfo_GetExtraFieldFlags(@ptrCast(self), fieldName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-authinfo.html#registerMetaTypes)
+    /// [Upstream resources](https://api.kde.org/kio-authinfo.html#registerMetaTypes)
     ///
     ///
     pub fn RegisterMetaTypes() void {

@@ -21,7 +21,7 @@ pub const qabstractanimation = struct {
         return qtc.QAbstractAnimation_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qabstractanimation = struct {
         return qtc.QAbstractAnimation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const qabstractanimation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#state)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     ///
@@ -74,14 +74,14 @@ pub const qabstractanimation = struct {
         return qtc.QAbstractAnimation_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#group)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#group)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Group(self: ?*anyopaque) QtC.QAnimationGroup {
         return qtc.QAbstractAnimation_Group(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     ///
@@ -90,56 +90,56 @@ pub const qabstractanimation = struct {
         return qtc.QAbstractAnimation_Direction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
     ///
     /// ``` self: QtC.QAbstractAnimation, direction: qabstractanimation_enums.Direction ```
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QAbstractAnimation_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn CurrentTime(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_CurrentTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn CurrentLoopTime(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_CurrentLoopTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn LoopCount(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_LoopCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
     ///
     /// ``` self: QtC.QAbstractAnimation, loopCount: i32 ```
     pub fn SetLoopCount(self: ?*anyopaque, loopCount: i32) void {
         qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self), @intCast(loopCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn CurrentLoop(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_CurrentLoop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Duration(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_Duration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
     ///
     /// Allows for overriding the related default method
     ///
@@ -148,7 +148,7 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_OnDuration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
     ///
     /// Base class method implementation
     ///
@@ -157,119 +157,119 @@ pub const qabstractanimation = struct {
         return qtc.QAbstractAnimation_QBaseDuration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn TotalDuration(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_TotalDuration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Finished(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Finished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
     /// ``` self: QtC.QAbstractAnimation, callback: *const fn (self: QtC.QAbstractAnimation) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QAbstractAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
     pub fn StateChanged(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QAbstractAnimation_StateChanged(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QAbstractAnimation, callback: *const fn (self: QtC.QAbstractAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
     /// ``` self: QtC.QAbstractAnimation, currentLoop: i32 ```
     pub fn CurrentLoopChanged(self: ?*anyopaque, currentLoop: i32) void {
         qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self), @intCast(currentLoop));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
     /// ``` self: QtC.QAbstractAnimation, callback: *const fn (self: QtC.QAbstractAnimation, currentLoop: i32) callconv(.c) void ```
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QAbstractAnimation, param1: qabstractanimation_enums.Direction ```
     pub fn DirectionChanged(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QAbstractAnimation, callback: *const fn (self: QtC.QAbstractAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void ```
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Pause(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Pause(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
     ///
     /// ``` self: QtC.QAbstractAnimation, paused: bool ```
     pub fn SetPaused(self: ?*anyopaque, paused: bool) void {
         qtc.QAbstractAnimation_SetPaused(@ptrCast(self), paused);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QAbstractAnimation_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
     ///
     /// ``` self: QtC.QAbstractAnimation, msecs: i32 ```
     pub fn SetCurrentTime(self: ?*anyopaque, msecs: i32) void {
         qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#event)
     ///
     /// ``` self: QtC.QAbstractAnimation, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QAbstractAnimation_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -278,7 +278,7 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#event)
     ///
     /// Base class method implementation
     ///
@@ -287,14 +287,14 @@ pub const qabstractanimation = struct {
         return qtc.QAbstractAnimation_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
     ///
     /// ``` self: QtC.QAbstractAnimation, currentTime: i32 ```
     pub fn UpdateCurrentTime(self: ?*anyopaque, currentTime: i32) void {
         qtc.QAbstractAnimation_UpdateCurrentTime(@ptrCast(self), @intCast(currentTime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
     ///
     /// Allows for overriding the related default method
     ///
@@ -303,7 +303,7 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_OnUpdateCurrentTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
     ///
     /// Base class method implementation
     ///
@@ -312,14 +312,14 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_QBaseUpdateCurrentTime(@ptrCast(self), @intCast(currentTime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateState)
     ///
     /// ``` self: QtC.QAbstractAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
     pub fn UpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QAbstractAnimation_UpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -328,7 +328,7 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateState)
     ///
     /// Base class method implementation
     ///
@@ -337,14 +337,14 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_QBaseUpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
     ///
     /// ``` self: QtC.QAbstractAnimation, direction: qabstractanimation_enums.Direction ```
     pub fn UpdateDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QAbstractAnimation_UpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -353,7 +353,7 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_OnUpdateDirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
     ///
     /// Base class method implementation
     ///
@@ -362,7 +362,7 @@ pub const qabstractanimation = struct {
         qtc.QAbstractAnimation_QBaseUpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -375,7 +375,7 @@ pub const qabstractanimation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -388,7 +388,7 @@ pub const qabstractanimation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
     /// ``` self: QtC.QAbstractAnimation, policy: qabstractanimation_enums.DeletionPolicy ```
     pub fn Start1(self: ?*anyopaque, policy: i32) void {
@@ -397,7 +397,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAbstractAnimation, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -410,7 +410,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAbstractAnimation, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -423,7 +423,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -432,7 +432,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -441,7 +441,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -450,7 +450,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -459,7 +459,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAbstractAnimation, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -468,7 +468,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -477,7 +477,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractAnimation, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -486,7 +486,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractAnimation, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -495,7 +495,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractAnimation, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -504,7 +504,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractAnimation, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -513,7 +513,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAbstractAnimation, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -527,7 +527,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAbstractAnimation, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -536,7 +536,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAbstractAnimation, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -545,7 +545,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAbstractAnimation, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -554,7 +554,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -563,7 +563,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractAnimation, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -574,7 +574,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -583,7 +583,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -592,7 +592,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -601,7 +601,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -610,7 +610,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAbstractAnimation, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -620,7 +620,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAbstractAnimation, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -630,7 +630,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAbstractAnimation, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -654,7 +654,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -663,7 +663,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -672,7 +672,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -681,7 +681,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractAnimation, callback: *const fn (self: QtC.QAbstractAnimation) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -690,7 +690,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -699,7 +699,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAbstractAnimation, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -709,7 +709,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAbstractAnimation ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -718,7 +718,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractAnimation, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -727,7 +727,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractAnimation, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -736,7 +736,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -745,7 +745,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractAnimation, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -756,7 +756,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractAnimation, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -765,7 +765,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAbstractAnimation, callback: *const fn (self: QtC.QAbstractAnimation, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -774,7 +774,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -785,7 +785,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -796,7 +796,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -807,7 +807,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -818,7 +818,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -829,7 +829,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -840,7 +840,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -851,7 +851,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -862,7 +862,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -873,7 +873,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -884,7 +884,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -895,7 +895,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -906,7 +906,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -917,7 +917,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -928,7 +928,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -939,7 +939,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -950,7 +950,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -961,7 +961,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -972,7 +972,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -983,7 +983,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -994,7 +994,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1005,7 +1005,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1016,7 +1016,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1027,7 +1027,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1038,7 +1038,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1050,7 +1050,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1062,7 +1062,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1073,7 +1073,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1084,7 +1084,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1095,7 +1095,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1106,7 +1106,7 @@ pub const qabstractanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1115,7 +1115,7 @@ pub const qabstractanimation = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#dtor.QAbstractAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#dtor.QAbstractAnimation)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1141,7 +1141,7 @@ pub const qanimationdriver = struct {
         return qtc.QAnimationDriver_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1173,7 +1173,7 @@ pub const qanimationdriver = struct {
         return qtc.QAnimationDriver_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1185,14 +1185,14 @@ pub const qanimationdriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advance)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Advance(self: ?*anyopaque) void {
         qtc.QAnimationDriver_Advance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advance)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1201,7 +1201,7 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#advance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advance)
     ///
     /// Base class method implementation
     ///
@@ -1210,35 +1210,35 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_QBaseAdvance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#install)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#install)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Install(self: ?*anyopaque) void {
         qtc.QAnimationDriver_Install(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#uninstall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#uninstall)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Uninstall(self: ?*anyopaque) void {
         qtc.QAnimationDriver_Uninstall(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#isRunning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#isRunning)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn IsRunning(self: ?*anyopaque) bool {
         return qtc.QAnimationDriver_IsRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#elapsed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#elapsed)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Elapsed(self: ?*anyopaque) i64 {
         return qtc.QAnimationDriver_Elapsed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#elapsed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#elapsed)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1247,7 +1247,7 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_OnElapsed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#elapsed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#elapsed)
     ///
     /// Base class method implementation
     ///
@@ -1256,42 +1256,42 @@ pub const qanimationdriver = struct {
         return qtc.QAnimationDriver_QBaseElapsed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#started)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#started)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Started(self: ?*anyopaque) void {
         qtc.QAnimationDriver_Started(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#started)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#started)
     ///
     /// ``` self: QtC.QAnimationDriver, callback: *const fn (self: QtC.QAnimationDriver) callconv(.c) void ```
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAnimationDriver_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#stopped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#stopped)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Stopped(self: ?*anyopaque) void {
         qtc.QAnimationDriver_Stopped(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#stopped)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#stopped)
     ///
     /// ``` self: QtC.QAnimationDriver, callback: *const fn (self: QtC.QAnimationDriver) callconv(.c) void ```
     pub fn OnStopped(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAnimationDriver_Connect_Stopped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn AdvanceAnimation(self: ?*anyopaque) void {
         qtc.QAnimationDriver_AdvanceAnimation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1300,7 +1300,7 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_OnAdvanceAnimation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
     ///
     /// Base class method implementation
     ///
@@ -1309,14 +1309,14 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_QBaseAdvanceAnimation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#start)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.QAnimationDriver_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#start)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1325,7 +1325,7 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_OnStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#start)
     ///
     /// Base class method implementation
     ///
@@ -1334,14 +1334,14 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_QBaseStart(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#stop)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QAnimationDriver_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#stop)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1350,7 +1350,7 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_OnStop(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#stop)
     ///
     /// Base class method implementation
     ///
@@ -1359,7 +1359,7 @@ pub const qanimationdriver = struct {
         qtc.QAnimationDriver_QBaseStop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1372,7 +1372,7 @@ pub const qanimationdriver = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1387,7 +1387,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAnimationDriver, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1400,7 +1400,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAnimationDriver, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1413,7 +1413,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1422,7 +1422,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1431,7 +1431,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1440,7 +1440,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1449,7 +1449,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAnimationDriver, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1458,7 +1458,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1467,7 +1467,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAnimationDriver, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1476,7 +1476,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAnimationDriver, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1485,7 +1485,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAnimationDriver, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1494,7 +1494,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAnimationDriver, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1503,7 +1503,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAnimationDriver, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1517,7 +1517,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAnimationDriver, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1526,7 +1526,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAnimationDriver, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1535,7 +1535,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAnimationDriver, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1544,7 +1544,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1553,7 +1553,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAnimationDriver, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1564,7 +1564,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1573,7 +1573,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1582,7 +1582,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1591,7 +1591,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1600,7 +1600,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAnimationDriver, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1610,7 +1610,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAnimationDriver, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1620,7 +1620,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAnimationDriver, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1644,7 +1644,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1653,7 +1653,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1662,7 +1662,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1671,7 +1671,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAnimationDriver, callback: *const fn (self: QtC.QAnimationDriver) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1680,7 +1680,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1689,7 +1689,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAnimationDriver, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1699,7 +1699,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAnimationDriver ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1708,7 +1708,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAnimationDriver, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1717,7 +1717,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAnimationDriver, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1726,7 +1726,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1735,7 +1735,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAnimationDriver, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1746,7 +1746,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAnimationDriver, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1755,7 +1755,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAnimationDriver, callback: *const fn (self: QtC.QAnimationDriver, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1764,7 +1764,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1775,7 +1775,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1786,7 +1786,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1797,7 +1797,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1808,7 +1808,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1819,7 +1819,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1830,7 +1830,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1841,7 +1841,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1852,7 +1852,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1863,7 +1863,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1874,7 +1874,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1885,7 +1885,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1896,7 +1896,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1907,7 +1907,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1918,7 +1918,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1929,7 +1929,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1940,7 +1940,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1951,7 +1951,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1962,7 +1962,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1973,7 +1973,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1984,7 +1984,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1995,7 +1995,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2006,7 +2006,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2017,7 +2017,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2028,7 +2028,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2039,7 +2039,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2050,7 +2050,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2061,7 +2061,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2073,7 +2073,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2085,7 +2085,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2096,7 +2096,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2107,7 +2107,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2118,7 +2118,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2129,7 +2129,7 @@ pub const qanimationdriver = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2138,7 +2138,7 @@ pub const qanimationdriver = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qanimationdriver.html#dtor.QAnimationDriver)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#dtor.QAnimationDriver)
     ///
     /// Delete this object from C++ memory.
     ///

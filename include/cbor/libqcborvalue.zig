@@ -34,35 +34,35 @@ pub const qcborparsererror = struct {
         qtc.QCborParserError_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
     ///
     /// ``` self: QtC.QCborParserError ```
     pub fn Offset(self: ?*anyopaque) i64 {
         return qtc.QCborParserError_Offset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
     ///
     /// ``` self: QtC.QCborParserError, offset: i64 ```
     pub fn SetOffset(self: ?*anyopaque, offset: i64) void {
         qtc.QCborParserError_SetOffset(@ptrCast(self), @intCast(offset));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
     ///
     /// ``` self: QtC.QCborParserError ```
     pub fn Error(self: ?*anyopaque) QtC.QCborError {
         return qtc.QCborParserError_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
     ///
     /// ``` self: QtC.QCborParserError, error: QtC.QCborError ```
     pub fn SetError(self: ?*anyopaque, _error: QtC.QCborError) void {
         qtc.QCborParserError_SetError(@ptrCast(self), @ptrCast(_error));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#errorString)
     ///
     /// ``` self: QtC.QCborParserError, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -73,7 +73,7 @@ pub const qcborparsererror = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#dtor.QCborParserError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#dtor.QCborParserError)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -251,21 +251,21 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_new22(@intCast(t_), @ptrCast(tv));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-eq)
     ///
     /// ``` self: QtC.QCborValue, other: QtC.QCborValue ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborValue_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#swap)
     ///
     /// ``` self: QtC.QCborValue, other: QtC.QCborValue ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborValue_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#type)
     ///
     /// ``` self: QtC.QCborValue ```
     ///
@@ -274,147 +274,147 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isInteger)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsInteger(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isByteArray)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsByteArray(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsByteArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isString)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsString(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsString(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isArray)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsArray(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isMap)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsMap(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsMap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isTag)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsTag(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsTag(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isFalse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isFalse)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsFalse(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsFalse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isTrue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isTrue)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsTrue(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsTrue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isBool)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsBool(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isNull)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isUndefined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isUndefined)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsUndefined(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsUndefined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isDouble)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsDouble(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isDateTime)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsDateTime(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isUrl)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsUrl(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isRegularExpression)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsRegularExpression(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsRegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isUuid)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsUuid(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsUuid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isInvalid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isInvalid)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsInvalid(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsInvalid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isContainer)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsContainer(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsContainer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn IsSimpleType(self: ?*anyopaque) bool {
         return qtc.QCborValue_IsSimpleType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValue, st: qcborcommon_enums.QCborSimpleType ```
     pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
         return qtc.QCborValue_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValue ```
     ///
@@ -423,28 +423,28 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_ToSimpleType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toInteger)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToInteger(self: ?*anyopaque) i64 {
         return qtc.QCborValue_ToInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toBool)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QCborValue_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDouble)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QCborValue_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#tag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#tag)
     ///
     /// ``` self: QtC.QCborValue ```
     ///
@@ -453,14 +453,14 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_Tag(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#taggedValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#taggedValue)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn TaggedValue(self: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_TaggedValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toByteArray)
     ///
     /// ``` self: QtC.QCborValue, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -471,7 +471,7 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toString)
     ///
     /// ``` self: QtC.QCborValue, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -482,63 +482,63 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDateTime)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QCborValue_ToDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUrl)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QCborValue_ToUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toRegularExpression)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToRegularExpression(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QCborValue_ToRegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUuid)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToUuid(self: ?*anyopaque) QtC.QUuid {
         return qtc.QCborValue_ToUuid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toArray)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToArray(self: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborValue_ToArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toArray)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: QtC.QCborArray ```
     pub fn ToArray2(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborValue_ToArray2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toMap)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToMap(self: ?*anyopaque) QtC.QCborMap {
         return qtc.QCborValue_ToMap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toMap)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: QtC.QCborMap ```
     pub fn ToMap2(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QCborMap {
         return qtc.QCborValue_ToMap2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
@@ -549,21 +549,21 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_OperatorSubscript(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: i64) QtC.QCborValue {
         return qtc.QCborValue_OperatorSubscript3(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: i64 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, key: i64) QtC.QCborValueRef {
         return qtc.QCborValue_OperatorSubscript4(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: []const u8 ```
     pub fn OperatorSubscript6(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
@@ -574,49 +574,49 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_OperatorSubscript6(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#compare)
     ///
     /// ``` self: QtC.QCborValue, other: QtC.QCborValue ```
     pub fn Compare(self: ?*anyopaque, other: ?*anyopaque) i32 {
         return qtc.QCborValue_Compare(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromVariant)
     ///
     /// ``` variant: QtC.QVariant ```
     pub fn FromVariant(variant: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_FromVariant(@ptrCast(variant));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toVariant)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QCborValue_ToVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromJsonValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromJsonValue)
     ///
     /// ``` v: QtC.QJsonValue ```
     pub fn FromJsonValue(v: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_FromJsonValue(@ptrCast(v));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toJsonValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toJsonValue)
     ///
     /// ``` self: QtC.QCborValue ```
     pub fn ToJsonValue(self: ?*anyopaque) QtC.QJsonValue {
         return qtc.QCborValue_ToJsonValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
     /// ``` reader: QtC.QCborStreamReader ```
     pub fn FromCbor(reader: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_FromCbor(@ptrCast(reader));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
     /// ``` ba: []u8 ```
     pub fn FromCbor2(ba: []u8) QtC.QCborValue {
@@ -627,7 +627,7 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_FromCbor2(ba_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
     /// ``` data: []const u8, lenVal: i64 ```
     pub fn FromCbor3(data: []const u8, lenVal: i64) QtC.QCborValue {
@@ -635,14 +635,14 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_FromCbor3(data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
     /// ``` data: *const u8, lenVal: i64 ```
     pub fn FromCbor4(data: *const u8, lenVal: i64) QtC.QCborValue {
         return qtc.QCborValue_FromCbor4(@ptrCast(data), @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
     /// ``` self: QtC.QCborValue, allocator: std.mem.Allocator ```
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -653,14 +653,14 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
     /// ``` self: QtC.QCborValue, writer: QtC.QCborStreamWriter ```
     pub fn ToCbor2(self: ?*anyopaque, writer: ?*anyopaque) void {
         qtc.QCborValue_ToCbor2(@ptrCast(self), @ptrCast(writer));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValue, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -671,7 +671,7 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: qcborcommon_enums.QCborSimpleType ```
     ///
@@ -680,28 +680,28 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toInteger)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: i64 ```
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValue_ToInteger1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toBool)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: bool ```
     pub fn ToBool1(self: ?*anyopaque, defaultValue: bool) bool {
         return qtc.QCborValue_ToBool1(@ptrCast(self), defaultValue);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDouble)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: f64 ```
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
         return qtc.QCborValue_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#tag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#tag)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: qcborcommon_enums.QCborTag ```
     ///
@@ -710,14 +710,14 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#taggedValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#taggedValue)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: QtC.QCborValue ```
     pub fn TaggedValue1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_TaggedValue1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toByteArray)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: []u8, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
@@ -732,7 +732,7 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toString)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -747,35 +747,35 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDateTime)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: QtC.QDateTime ```
     pub fn ToDateTime1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QDateTime {
         return qtc.QCborValue_ToDateTime1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUrl)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: QtC.QUrl ```
     pub fn ToUrl1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QUrl {
         return qtc.QCborValue_ToUrl1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toRegularExpression)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: QtC.QRegularExpression ```
     pub fn ToRegularExpression1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QCborValue_ToRegularExpression1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUuid)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: QtC.QUuid ```
     pub fn ToUuid1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QUuid {
         return qtc.QCborValue_ToUuid1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
     /// ``` ba: []u8, errorVal: QtC.QCborParserError ```
     pub fn FromCbor22(ba: []u8, errorVal: ?*anyopaque) QtC.QCborValue {
@@ -786,7 +786,7 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_FromCbor22(ba_str, @ptrCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
     /// ``` data: []const u8, lenVal: i64, errorVal: QtC.QCborParserError ```
     pub fn FromCbor32(data: []const u8, lenVal: i64, errorVal: ?*anyopaque) QtC.QCborValue {
@@ -794,14 +794,14 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_FromCbor32(data_Cstring, @intCast(lenVal), @ptrCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
     /// ``` data: *const u8, lenVal: i64, errorVal: QtC.QCborParserError ```
     pub fn FromCbor33(data: *const u8, lenVal: i64, errorVal: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_FromCbor33(@ptrCast(data), @intCast(lenVal), @ptrCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
     /// ``` self: QtC.QCborValue, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
     pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
@@ -812,14 +812,14 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
     /// ``` self: QtC.QCborValue, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
     pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i32) void {
         qtc.QCborValue_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValue, opts: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opts: i32, allocator: std.mem.Allocator) []const u8 {
@@ -830,7 +830,7 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#dtor.QCborValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#dtor.QCborValue)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -856,14 +856,14 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToQCborValue(self: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValueConstRef_ToQCborValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#type)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     ///
@@ -872,147 +872,147 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isInteger)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsInteger(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isByteArray)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsByteArray(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsByteArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isString)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsString(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsString(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isArray)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsArray(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isMap)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsMap(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsMap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isTag)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsTag(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsTag(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isFalse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isFalse)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsFalse(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsFalse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isTrue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isTrue)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsTrue(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsTrue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isBool)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsBool(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isNull)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUndefined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUndefined)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsUndefined(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsUndefined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isDouble)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsDouble(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isDateTime)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsDateTime(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUrl)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsUrl(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isRegularExpression)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsRegularExpression(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsRegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUuid)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsUuid(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsUuid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isInvalid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isInvalid)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsInvalid(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsInvalid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isContainer)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsContainer(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsContainer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn IsSimpleType(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_IsSimpleType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValueConstRef, st: qcborcommon_enums.QCborSimpleType ```
     pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
         return qtc.QCborValueConstRef_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     ///
@@ -1021,7 +1021,7 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_ToSimpleType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     ///
@@ -1030,35 +1030,35 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_Tag(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#taggedValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#taggedValue)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn TaggedValue(self: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValueConstRef_TaggedValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toInteger)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToInteger(self: ?*anyopaque) i64 {
         return qtc.QCborValueConstRef_ToInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toBool)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QCborValueConstRef_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDouble)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QCborValueConstRef_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toByteArray)
     ///
     /// ``` self: QtC.QCborValueConstRef, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1069,7 +1069,7 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toString)
     ///
     /// ``` self: QtC.QCborValueConstRef, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1080,63 +1080,63 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDateTime)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QCborValueConstRef_ToDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUrl)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QCborValueConstRef_ToUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toRegularExpression)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToRegularExpression(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QCborValueConstRef_ToRegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUuid)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToUuid(self: ?*anyopaque) QtC.QUuid {
         return qtc.QCborValueConstRef_ToUuid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toArray)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToArray(self: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborValueConstRef_ToArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toArray)
     ///
     /// ``` self: QtC.QCborValueConstRef, a: QtC.QCborArray ```
     pub fn ToArray2(self: ?*anyopaque, a: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborValueConstRef_ToArray2(@ptrCast(self), @ptrCast(a));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toMap)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToMap(self: ?*anyopaque) QtC.QCborMap {
         return qtc.QCborValueConstRef_ToMap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toMap)
     ///
     /// ``` self: QtC.QCborValueConstRef, m: QtC.QCborMap ```
     pub fn ToMap2(self: ?*anyopaque, m: ?*anyopaque) QtC.QCborMap {
         return qtc.QCborValueConstRef_ToMap2(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueConstRef, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
@@ -1147,35 +1147,35 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_OperatorSubscript(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueConstRef, key: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: i64) QtC.QCborValue {
         return qtc.QCborValueConstRef_OperatorSubscript3(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#compare)
     ///
     /// ``` self: QtC.QCborValueConstRef, other: QtC.QCborValue ```
     pub fn Compare(self: ?*anyopaque, other: ?*anyopaque) i32 {
         return qtc.QCborValueConstRef_Compare(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toVariant)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QCborValueConstRef_ToVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toJsonValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toJsonValue)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToJsonValue(self: ?*anyopaque) QtC.QJsonValue {
         return qtc.QCborValueConstRef_ToJsonValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueConstRef, allocator: std.mem.Allocator ```
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1186,14 +1186,14 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueConstRef, writer: QtC.QCborStreamWriter ```
     pub fn ToCbor2(self: ?*anyopaque, writer: ?*anyopaque) void {
         qtc.QCborValueConstRef_ToCbor2(@ptrCast(self), @ptrCast(writer));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValueConstRef, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1204,7 +1204,7 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: qcborcommon_enums.QCborSimpleType ```
     ///
@@ -1213,7 +1213,7 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: qcborcommon_enums.QCborTag ```
     ///
@@ -1222,35 +1222,35 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#taggedValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#taggedValue)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: QtC.QCborValue ```
     pub fn TaggedValue1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValueConstRef_TaggedValue1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toInteger)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: i64 ```
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValueConstRef_ToInteger1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toBool)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: bool ```
     pub fn ToBool1(self: ?*anyopaque, defaultValue: bool) bool {
         return qtc.QCborValueConstRef_ToBool1(@ptrCast(self), defaultValue);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDouble)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: f64 ```
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
         return qtc.QCborValueConstRef_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toByteArray)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: []u8, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
@@ -1265,7 +1265,7 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toString)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1280,35 +1280,35 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDateTime)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: QtC.QDateTime ```
     pub fn ToDateTime1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QDateTime {
         return qtc.QCborValueConstRef_ToDateTime1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUrl)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: QtC.QUrl ```
     pub fn ToUrl1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QUrl {
         return qtc.QCborValueConstRef_ToUrl1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toRegularExpression)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: QtC.QRegularExpression ```
     pub fn ToRegularExpression1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QCborValueConstRef_ToRegularExpression1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUuid)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: QtC.QUuid ```
     pub fn ToUuid1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QUuid {
         return qtc.QCborValueConstRef_ToUuid1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueConstRef, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
     pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
@@ -1319,14 +1319,14 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueConstRef, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
     pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i32) void {
         qtc.QCborValueConstRef_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValueConstRef, opt: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1337,7 +1337,7 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#dtor.QCborValueConstRef)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#dtor.QCborValueConstRef)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -1370,28 +1370,28 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QCborValueRef, other: QtC.QCborValue ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborValueRef_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QCborValueRef, other: QtC.QCborValueRef ```
     pub fn OperatorAssign2(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborValueRef_OperatorAssign2(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: i64) QtC.QCborValueRef {
         return qtc.QCborValueRef_OperatorSubscript(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: []const u8 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
@@ -1402,14 +1402,14 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_OperatorSubscript3(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToQCborValue(self: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValueRef_ToQCborValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#type)
     ///
     /// ``` self: QtC.QCborValueRef ```
     ///
@@ -1418,147 +1418,147 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isInteger)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsInteger(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isByteArray)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsByteArray(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsByteArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isString)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsString(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsString(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isArray)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsArray(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isMap)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsMap(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsMap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isTag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isTag)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsTag(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsTag(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isFalse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isFalse)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsFalse(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsFalse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isTrue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isTrue)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsTrue(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsTrue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isBool)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsBool(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isNull)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isUndefined)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isUndefined)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsUndefined(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsUndefined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isDouble)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsDouble(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isDateTime)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsDateTime(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isUrl)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsUrl(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isRegularExpression)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsRegularExpression(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsRegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isUuid)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsUuid(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsUuid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isInvalid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isInvalid)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsInvalid(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsInvalid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isContainer)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsContainer(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsContainer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn IsSimpleType(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_IsSimpleType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValueRef, st: qcborcommon_enums.QCborSimpleType ```
     pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
         return qtc.QCborValueRef_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueRef ```
     ///
@@ -1567,7 +1567,7 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_ToSimpleType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
     ///
     /// ``` self: QtC.QCborValueRef ```
     ///
@@ -1576,35 +1576,35 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_Tag(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#taggedValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#taggedValue)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn TaggedValue(self: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValueRef_TaggedValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toInteger)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToInteger(self: ?*anyopaque) i64 {
         return qtc.QCborValueRef_ToInteger(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toBool)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QCborValueRef_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDouble)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QCborValueRef_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toByteArray)
     ///
     /// ``` self: QtC.QCborValueRef, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1615,7 +1615,7 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toString)
     ///
     /// ``` self: QtC.QCborValueRef, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1626,63 +1626,63 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDateTime)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QCborValueRef_ToDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUrl)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QCborValueRef_ToUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toRegularExpression)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToRegularExpression(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QCborValueRef_ToRegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUuid)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToUuid(self: ?*anyopaque) QtC.QUuid {
         return qtc.QCborValueRef_ToUuid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toArray)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToArray(self: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborValueRef_ToArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toArray)
     ///
     /// ``` self: QtC.QCborValueRef, a: QtC.QCborArray ```
     pub fn ToArray2(self: ?*anyopaque, a: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborValueRef_ToArray2(@ptrCast(self), @ptrCast(a));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toMap)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToMap(self: ?*anyopaque) QtC.QCborMap {
         return qtc.QCborValueRef_ToMap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toMap)
     ///
     /// ``` self: QtC.QCborValueRef, m: QtC.QCborMap ```
     pub fn ToMap2(self: ?*anyopaque, m: ?*anyopaque) QtC.QCborMap {
         return qtc.QCborValueRef_ToMap2(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: []const u8 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
@@ -1693,35 +1693,35 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_OperatorSubscript4(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: i64 ```
     pub fn OperatorSubscript6(self: ?*anyopaque, key: i64) QtC.QCborValue {
         return qtc.QCborValueRef_OperatorSubscript6(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#compare)
     ///
     /// ``` self: QtC.QCborValueRef, other: QtC.QCborValue ```
     pub fn Compare(self: ?*anyopaque, other: ?*anyopaque) i32 {
         return qtc.QCborValueRef_Compare(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toVariant)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QCborValueRef_ToVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toJsonValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toJsonValue)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToJsonValue(self: ?*anyopaque) QtC.QJsonValue {
         return qtc.QCborValueRef_ToJsonValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueRef, allocator: std.mem.Allocator ```
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -1732,14 +1732,14 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueRef, writer: QtC.QCborStreamWriter ```
     pub fn ToCbor2(self: ?*anyopaque, writer: ?*anyopaque) void {
         qtc.QCborValueRef_ToCbor2(@ptrCast(self), @ptrCast(writer));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValueRef, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1750,7 +1750,7 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: qcborcommon_enums.QCborSimpleType ```
     ///
@@ -1759,7 +1759,7 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: qcborcommon_enums.QCborTag ```
     ///
@@ -1768,35 +1768,35 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#taggedValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#taggedValue)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: QtC.QCborValue ```
     pub fn TaggedValue1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValueRef_TaggedValue1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toInteger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toInteger)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: i64 ```
     pub fn ToInteger1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValueRef_ToInteger1(@ptrCast(self), @intCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toBool)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: bool ```
     pub fn ToBool1(self: ?*anyopaque, defaultValue: bool) bool {
         return qtc.QCborValueRef_ToBool1(@ptrCast(self), defaultValue);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDouble)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: f64 ```
     pub fn ToDouble1(self: ?*anyopaque, defaultValue: f64) f64 {
         return qtc.QCborValueRef_ToDouble1(@ptrCast(self), @floatCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toByteArray)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: []u8, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
@@ -1811,7 +1811,7 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toString)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1826,35 +1826,35 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDateTime)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: QtC.QDateTime ```
     pub fn ToDateTime1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QDateTime {
         return qtc.QCborValueRef_ToDateTime1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUrl)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: QtC.QUrl ```
     pub fn ToUrl1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QUrl {
         return qtc.QCborValueRef_ToUrl1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toRegularExpression)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: QtC.QRegularExpression ```
     pub fn ToRegularExpression1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QCborValueRef_ToRegularExpression1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUuid)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: QtC.QUuid ```
     pub fn ToUuid1(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QUuid {
         return qtc.QCborValueRef_ToUuid1(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueRef, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
     pub fn ToCbor1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []u8 {
@@ -1865,14 +1865,14 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
     /// ``` self: QtC.QCborValueRef, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
     pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i32) void {
         qtc.QCborValueRef_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
     ///
     /// ``` self: QtC.QCborValueRef, opt: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1883,7 +1883,7 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#dtor.QCborValueRef)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#dtor.QCborValueRef)
     ///
     /// Delete this object from C++ memory.
     ///

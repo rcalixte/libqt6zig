@@ -4,7 +4,7 @@ const std = @import("std");
 
 /// https://api.kde.org/terminalinterface.html
 pub const terminalinterface = struct {
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#startProgram)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#startProgram)
     ///
     /// ``` self: QtC.TerminalInterface, program: []const u8, args: [][]const u8, allocator: std.mem.Allocator ```
     pub fn StartProgram(self: ?*anyopaque, program: []const u8, args: [][]const u8, allocator: std.mem.Allocator) void {
@@ -27,7 +27,7 @@ pub const terminalinterface = struct {
         qtc.TerminalInterface_StartProgram(@ptrCast(self), program_str, args_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#showShellInDir)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#showShellInDir)
     ///
     /// ``` self: QtC.TerminalInterface, dir: []const u8 ```
     pub fn ShowShellInDir(self: ?*anyopaque, dir: []const u8) void {
@@ -38,7 +38,7 @@ pub const terminalinterface = struct {
         qtc.TerminalInterface_ShowShellInDir(@ptrCast(self), dir_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#sendInput)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#sendInput)
     ///
     /// ``` self: QtC.TerminalInterface, text: []const u8 ```
     pub fn SendInput(self: ?*anyopaque, text: []const u8) void {
@@ -49,21 +49,21 @@ pub const terminalinterface = struct {
         qtc.TerminalInterface_SendInput(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#terminalProcessId)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#terminalProcessId)
     ///
     /// ``` self: QtC.TerminalInterface ```
     pub fn TerminalProcessId(self: ?*anyopaque) i32 {
         return qtc.TerminalInterface_TerminalProcessId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#foregroundProcessId)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#foregroundProcessId)
     ///
     /// ``` self: QtC.TerminalInterface ```
     pub fn ForegroundProcessId(self: ?*anyopaque) i32 {
         return qtc.TerminalInterface_ForegroundProcessId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#foregroundProcessName)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#foregroundProcessName)
     ///
     /// ``` self: QtC.TerminalInterface, allocator: std.mem.Allocator ```
     pub fn ForegroundProcessName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -74,7 +74,7 @@ pub const terminalinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#currentWorkingDirectory)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#currentWorkingDirectory)
     ///
     /// ``` self: QtC.TerminalInterface, allocator: std.mem.Allocator ```
     pub fn CurrentWorkingDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -85,7 +85,7 @@ pub const terminalinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#availableProfiles)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#availableProfiles)
     ///
     /// ``` self: QtC.TerminalInterface, allocator: std.mem.Allocator ```
     pub fn AvailableProfiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -107,7 +107,7 @@ pub const terminalinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#currentProfileName)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#currentProfileName)
     ///
     /// ``` self: QtC.TerminalInterface, allocator: std.mem.Allocator ```
     pub fn CurrentProfileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -118,7 +118,7 @@ pub const terminalinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#setCurrentProfile)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#setCurrentProfile)
     ///
     /// ``` self: QtC.TerminalInterface, profileName: []const u8 ```
     pub fn SetCurrentProfile(self: ?*anyopaque, profileName: []const u8) bool {
@@ -129,7 +129,7 @@ pub const terminalinterface = struct {
         return qtc.TerminalInterface_SetCurrentProfile(@ptrCast(self), profileName_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#profileProperty)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#profileProperty)
     ///
     /// ``` self: QtC.TerminalInterface, profileProperty: []const u8 ```
     pub fn ProfileProperty(self: ?*anyopaque, profileProperty: []const u8) QtC.QVariant {
@@ -140,14 +140,14 @@ pub const terminalinterface = struct {
         return qtc.TerminalInterface_ProfileProperty(@ptrCast(self), profileProperty_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#operator-eq)
     ///
     /// ``` self: QtC.TerminalInterface, param1: QtC.TerminalInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.TerminalInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/terminalinterface.html#dtor.TerminalInterface)
+    /// [Upstream resources](https://api.kde.org/terminalinterface.html#dtor.TerminalInterface)
     ///
     /// Delete this object from C++ memory.
     ///

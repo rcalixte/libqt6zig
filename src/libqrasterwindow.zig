@@ -23,7 +23,7 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -55,7 +55,7 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -67,14 +67,14 @@ pub const qrasterwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#metric)
     ///
     /// ``` self: QtC.QRasterWindow, metric: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, metric: i32) i32 {
         return qtc.QRasterWindow_Metric(@ptrCast(self), @intCast(metric));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#metric)
     ///
     /// Allows for overriding the related default method
     ///
@@ -83,7 +83,7 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#metric)
     ///
     /// Base class method implementation
     ///
@@ -92,14 +92,14 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_QBaseMetric(@ptrCast(self), @intCast(metric));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
     ///
     /// ``` self: QtC.QRasterWindow, param1: QtC.QPoint ```
     pub fn Redirected(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPaintDevice {
         return qtc.QRasterWindow_Redirected(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
     ///
     /// Allows for overriding the related default method
     ///
@@ -108,7 +108,7 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#redirected)
     ///
     /// Base class method implementation
     ///
@@ -117,14 +117,14 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_QBaseRedirected(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
     ///
     /// ``` self: QtC.QRasterWindow, event: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
         qtc.QRasterWindow_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -133,7 +133,7 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -142,7 +142,7 @@ pub const qrasterwindow = struct {
         qtc.QRasterWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -155,7 +155,7 @@ pub const qrasterwindow = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -170,7 +170,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
     /// ``` self: QtC.QRasterWindow, rect: QtC.QRect ```
     pub fn Update(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -179,7 +179,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
     /// ``` self: QtC.QRasterWindow, region: QtC.QRegion ```
     pub fn Update2(self: ?*anyopaque, region: ?*anyopaque) void {
@@ -188,7 +188,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Update3(self: ?*anyopaque) void {
@@ -197,7 +197,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setSurfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setSurfaceType)
     ///
     /// ``` self: QtC.QRasterWindow, surfaceType: qsurface_enums.SurfaceType ```
     pub fn SetSurfaceType(self: ?*anyopaque, surfaceType: i32) void {
@@ -206,7 +206,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isVisible)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -215,7 +215,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibility)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibility)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -226,7 +226,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setVisibility)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setVisibility)
     ///
     /// ``` self: QtC.QRasterWindow, v: qwindow_enums.Visibility ```
     pub fn SetVisibility(self: ?*anyopaque, v: i32) void {
@@ -235,7 +235,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#create)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Create(self: ?*anyopaque) void {
@@ -244,7 +244,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#winId)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -253,7 +253,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#parent)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Parent(self: ?*anyopaque) QtC.QWindow {
@@ -262,7 +262,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setParent)
     ///
     /// ``` self: QtC.QRasterWindow, parent: QtC.QWindow ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -271,7 +271,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isTopLevel)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -280,7 +280,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isModal)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -289,7 +289,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#modality)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -300,7 +300,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setModality)
     ///
     /// ``` self: QtC.QRasterWindow, modality: qnamespace_enums.WindowModality ```
     pub fn SetModality(self: ?*anyopaque, modality: i32) void {
@@ -309,7 +309,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFormat)
     ///
     /// ``` self: QtC.QRasterWindow, format: QtC.QSurfaceFormat ```
     pub fn SetFormat(self: ?*anyopaque, format: ?*anyopaque) void {
@@ -318,7 +318,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#requestedFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestedFormat)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn RequestedFormat(self: ?*anyopaque) QtC.QSurfaceFormat {
@@ -327,7 +327,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFlags)
     ///
     /// ``` self: QtC.QRasterWindow, flags: flag of qnamespace_enums.WindowType ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
@@ -336,7 +336,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#flags)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -347,7 +347,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFlag)
     ///
     /// ``` self: QtC.QRasterWindow, param1: qnamespace_enums.WindowType ```
     pub fn SetFlag(self: ?*anyopaque, param1: i64) void {
@@ -356,7 +356,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#type)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -367,7 +367,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#title)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#title)
     ///
     /// ``` self: QtC.QRasterWindow, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -380,7 +380,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setOpacity)
     ///
     /// ``` self: QtC.QRasterWindow, level: f64 ```
     pub fn SetOpacity(self: ?*anyopaque, level: f64) void {
@@ -389,7 +389,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#opacity)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Opacity(self: ?*anyopaque) f64 {
@@ -398,7 +398,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMask)
     ///
     /// ``` self: QtC.QRasterWindow, region: QtC.QRegion ```
     pub fn SetMask(self: ?*anyopaque, region: ?*anyopaque) void {
@@ -407,7 +407,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mask)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -416,7 +416,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isActive)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsActive(self: ?*anyopaque) bool {
@@ -425,7 +425,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#reportContentOrientationChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#reportContentOrientationChange)
     ///
     /// ``` self: QtC.QRasterWindow, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn ReportContentOrientationChange(self: ?*anyopaque, orientation: i32) void {
@@ -434,7 +434,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#contentOrientation)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -445,7 +445,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -454,7 +454,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowState)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -465,7 +465,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStates)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowStates)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -476,7 +476,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setWindowState)
     ///
     /// ``` self: QtC.QRasterWindow, state: qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -485,7 +485,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWindowStates)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setWindowStates)
     ///
     /// ``` self: QtC.QRasterWindow, states: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowStates(self: ?*anyopaque, states: i32) void {
@@ -494,7 +494,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setTransientParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setTransientParent)
     ///
     /// ``` self: QtC.QRasterWindow, parent: QtC.QWindow ```
     pub fn SetTransientParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -503,7 +503,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#transientParent)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn TransientParent(self: ?*anyopaque) QtC.QWindow {
@@ -512,7 +512,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
     ///
     /// ``` self: QtC.QRasterWindow, child: QtC.QWindow ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -521,7 +521,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isExposed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isExposed)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsExposed(self: ?*anyopaque) bool {
@@ -530,7 +530,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidth)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -539,7 +539,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeight)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -548,7 +548,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidth)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -557,7 +557,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumHeight)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -566,7 +566,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumSize)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -575,7 +575,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumSize)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -584,7 +584,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#baseSize)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -593,7 +593,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#sizeIncrement)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -602,7 +602,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMinimumSize)
     ///
     /// ``` self: QtC.QRasterWindow, size: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -611,7 +611,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMaximumSize)
     ///
     /// ``` self: QtC.QRasterWindow, size: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -620,7 +620,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setBaseSize)
     ///
     /// ``` self: QtC.QRasterWindow, size: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -629,7 +629,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QRasterWindow, size: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, size: ?*anyopaque) void {
@@ -638,7 +638,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#geometry)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -647,7 +647,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#frameMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#frameMargins)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn FrameMargins(self: ?*anyopaque) QtC.QMargins {
@@ -656,7 +656,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#frameGeometry)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -665,7 +665,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#framePosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#framePosition)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn FramePosition(self: ?*anyopaque) QtC.QPoint {
@@ -674,7 +674,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFramePosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFramePosition)
     ///
     /// ``` self: QtC.QRasterWindow, point: QtC.QPoint ```
     pub fn SetFramePosition(self: ?*anyopaque, point: ?*anyopaque) void {
@@ -683,7 +683,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#width)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -692,7 +692,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#height)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -701,7 +701,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#x)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -710,7 +710,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#y)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -719,7 +719,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#position)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#position)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Position(self: ?*anyopaque) QtC.QPoint {
@@ -728,7 +728,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setPosition)
     ///
     /// ``` self: QtC.QRasterWindow, pt: QtC.QPoint ```
     pub fn SetPosition(self: ?*anyopaque, pt: ?*anyopaque) void {
@@ -737,7 +737,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setPosition)
     ///
     /// ``` self: QtC.QRasterWindow, posx: i32, posy: i32 ```
     pub fn SetPosition2(self: ?*anyopaque, posx: i32, posy: i32) void {
@@ -746,7 +746,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resize)
     ///
     /// ``` self: QtC.QRasterWindow, newSize: QtC.QSize ```
     pub fn Resize(self: ?*anyopaque, newSize: ?*anyopaque) void {
@@ -755,7 +755,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resize)
     ///
     /// ``` self: QtC.QRasterWindow, w: i32, h: i32 ```
     pub fn Resize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -764,7 +764,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFilePath)
     ///
     /// ``` self: QtC.QRasterWindow, filePath: []const u8 ```
     pub fn SetFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -777,7 +777,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#filePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#filePath)
     ///
     /// ``` self: QtC.QRasterWindow, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -790,7 +790,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setIcon)
     ///
     /// ``` self: QtC.QRasterWindow, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -799,7 +799,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#icon)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
@@ -808,7 +808,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#destroy)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Destroy(self: ?*anyopaque) void {
@@ -817,7 +817,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setKeyboardGrabEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setKeyboardGrabEnabled)
     ///
     /// ``` self: QtC.QRasterWindow, grab: bool ```
     pub fn SetKeyboardGrabEnabled(self: ?*anyopaque, grab: bool) bool {
@@ -826,7 +826,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMouseGrabEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMouseGrabEnabled)
     ///
     /// ``` self: QtC.QRasterWindow, grab: bool ```
     pub fn SetMouseGrabEnabled(self: ?*anyopaque, grab: bool) bool {
@@ -835,7 +835,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#screen)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -844,7 +844,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setScreen)
     ///
     /// ``` self: QtC.QRasterWindow, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -853,7 +853,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
     ///
     /// ``` self: QtC.QRasterWindow, pos: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPointF {
@@ -862,7 +862,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QRasterWindow, pos: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPointF {
@@ -871,7 +871,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
     ///
     /// ``` self: QtC.QRasterWindow, pos: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
@@ -880,7 +880,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QRasterWindow, pos: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
@@ -889,7 +889,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#cursor)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -898,7 +898,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setCursor)
     ///
     /// ``` self: QtC.QRasterWindow, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -907,7 +907,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#unsetCursor)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -916,7 +916,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#fromWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#fromWinId)
     ///
     /// ``` id: usize ```
     pub fn FromWinId(id: usize) QtC.QWindow {
@@ -925,7 +925,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#requestActivate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestActivate)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn RequestActivate(self: ?*anyopaque) void {
@@ -934,7 +934,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setVisible)
     ///
     /// ``` self: QtC.QRasterWindow, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -943,7 +943,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#show)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Show(self: ?*anyopaque) void {
@@ -952,7 +952,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hide)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -961,7 +961,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showMinimized)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -970,7 +970,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showMaximized)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -979,7 +979,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showFullScreen)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -988,7 +988,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showNormal)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -997,7 +997,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#close)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -1006,7 +1006,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#raise)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -1015,7 +1015,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#lower)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -1024,7 +1024,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#startSystemResize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#startSystemResize)
     ///
     /// ``` self: QtC.QRasterWindow, edges: flag of qnamespace_enums.Edge ```
     pub fn StartSystemResize(self: ?*anyopaque, edges: i32) bool {
@@ -1033,7 +1033,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#startSystemMove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#startSystemMove)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn StartSystemMove(self: ?*anyopaque) bool {
@@ -1042,7 +1042,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setTitle)
     ///
     /// ``` self: QtC.QRasterWindow, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
@@ -1055,7 +1055,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setX)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn SetX(self: ?*anyopaque, arg: i32) void {
@@ -1064,7 +1064,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setY)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn SetY(self: ?*anyopaque, arg: i32) void {
@@ -1073,7 +1073,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setWidth)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn SetWidth(self: ?*anyopaque, arg: i32) void {
@@ -1082,7 +1082,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setHeight)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn SetHeight(self: ?*anyopaque, arg: i32) void {
@@ -1091,7 +1091,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
     ///
     /// ``` self: QtC.QRasterWindow, posx: i32, posy: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, posx: i32, posy: i32, w: i32, h: i32) void {
@@ -1100,7 +1100,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
     ///
     /// ``` self: QtC.QRasterWindow, rect: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, rect: ?*anyopaque) void {
@@ -1109,7 +1109,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QRasterWindow, w: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, w: i32) void {
@@ -1118,7 +1118,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QRasterWindow, h: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, h: i32) void {
@@ -1127,7 +1127,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QRasterWindow, w: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, w: i32) void {
@@ -1136,7 +1136,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QRasterWindow, h: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, h: i32) void {
@@ -1145,7 +1145,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#alert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#alert)
     ///
     /// ``` self: QtC.QRasterWindow, msec: i32 ```
     pub fn Alert(self: ?*anyopaque, msec: i32) void {
@@ -1154,7 +1154,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#requestUpdate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#requestUpdate)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn RequestUpdate(self: ?*anyopaque) void {
@@ -1163,7 +1163,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
     ///
     /// ``` self: QtC.QRasterWindow, screen: QtC.QScreen ```
     pub fn ScreenChanged(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -1172,7 +1172,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, screen: QtC.QScreen) callconv(.c) void ```
     pub fn OnScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1181,7 +1181,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
     /// ``` self: QtC.QRasterWindow, modality: qnamespace_enums.WindowModality ```
     pub fn ModalityChanged(self: ?*anyopaque, modality: i32) void {
@@ -1190,7 +1190,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void ```
     pub fn OnModalityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1199,7 +1199,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QRasterWindow, windowState: qnamespace_enums.WindowState ```
     pub fn WindowStateChanged(self: ?*anyopaque, windowState: i32) void {
@@ -1208,7 +1208,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void ```
     pub fn OnWindowStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1217,7 +1217,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QRasterWindow, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -1230,7 +1230,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -1239,7 +1239,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#xChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn XChanged(self: ?*anyopaque, arg: i32) void {
@@ -1248,7 +1248,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#xChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#xChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1257,7 +1257,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#yChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn YChanged(self: ?*anyopaque, arg: i32) void {
@@ -1266,7 +1266,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#yChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#yChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1275,7 +1275,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn WidthChanged(self: ?*anyopaque, arg: i32) void {
@@ -1284,7 +1284,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1293,7 +1293,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn HeightChanged(self: ?*anyopaque, arg: i32) void {
@@ -1302,7 +1302,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1311,7 +1311,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn MinimumWidthChanged(self: ?*anyopaque, arg: i32) void {
@@ -1320,7 +1320,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMinimumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1329,7 +1329,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn MinimumHeightChanged(self: ?*anyopaque, arg: i32) void {
@@ -1338,7 +1338,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMinimumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1347,7 +1347,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn MaximumWidthChanged(self: ?*anyopaque, arg: i32) void {
@@ -1356,7 +1356,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMaximumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1365,7 +1365,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: i32 ```
     pub fn MaximumHeightChanged(self: ?*anyopaque, arg: i32) void {
@@ -1374,7 +1374,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMaximumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1383,7 +1383,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
     ///
     /// ``` self: QtC.QRasterWindow, arg: bool ```
     pub fn VisibleChanged(self: ?*anyopaque, arg: bool) void {
@@ -1392,7 +1392,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, arg: bool) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1401,7 +1401,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
     /// ``` self: QtC.QRasterWindow, visibility: qwindow_enums.Visibility ```
     pub fn VisibilityChanged(self: ?*anyopaque, visibility: i32) void {
@@ -1410,7 +1410,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, visibility: qwindow_enums.Visibility) callconv(.c) void ```
     pub fn OnVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1419,7 +1419,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn ActiveChanged(self: ?*anyopaque) void {
@@ -1428,7 +1428,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow) callconv(.c) void ```
     pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1437,7 +1437,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
     /// ``` self: QtC.QRasterWindow, orientation: qnamespace_enums.ScreenOrientation ```
     pub fn ContentOrientationChanged(self: ?*anyopaque, orientation: i32) void {
@@ -1446,7 +1446,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
     pub fn OnContentOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -1455,7 +1455,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
     ///
     /// ``` self: QtC.QRasterWindow, object: QtC.QObject ```
     pub fn FocusObjectChanged(self: ?*anyopaque, object: ?*anyopaque) void {
@@ -1464,7 +1464,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, object: QtC.QObject) callconv(.c) void ```
     pub fn OnFocusObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1473,7 +1473,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
     ///
     /// ``` self: QtC.QRasterWindow, opacity: f64 ```
     pub fn OpacityChanged(self: ?*anyopaque, opacity: f64) void {
@@ -1482,7 +1482,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, opacity: f64) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
@@ -1491,7 +1491,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
     ///
     /// ``` self: QtC.QRasterWindow, transientParent: QtC.QWindow ```
     pub fn TransientParentChanged(self: ?*anyopaque, transientParent: ?*anyopaque) void {
@@ -1500,7 +1500,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, transientParent: QtC.QWindow) callconv(.c) void ```
     pub fn OnTransientParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1509,7 +1509,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#parent)
     ///
     /// ``` self: QtC.QRasterWindow, mode: qwindow_enums.AncestorMode ```
     pub fn Parent1(self: ?*anyopaque, mode: i32) QtC.QWindow {
@@ -1518,7 +1518,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#setFlag)
     ///
     /// ``` self: QtC.QRasterWindow, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -1527,7 +1527,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
     ///
     /// ``` self: QtC.QRasterWindow, child: QtC.QWindow, mode: qwindow_enums.AncestorMode ```
     pub fn IsAncestorOf2(self: ?*anyopaque, child: ?*anyopaque, mode: i32) bool {
@@ -1536,7 +1536,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QRasterWindow, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1549,7 +1549,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QRasterWindow, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1562,7 +1562,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1571,7 +1571,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1580,7 +1580,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1589,7 +1589,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1598,7 +1598,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QRasterWindow, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1607,7 +1607,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1616,7 +1616,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QRasterWindow, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1625,7 +1625,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QRasterWindow, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1634,7 +1634,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QRasterWindow, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1643,7 +1643,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QRasterWindow, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1652,7 +1652,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QRasterWindow, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1666,7 +1666,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QRasterWindow, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1675,7 +1675,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QRasterWindow, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1684,7 +1684,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1693,7 +1693,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QRasterWindow, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1704,7 +1704,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1713,7 +1713,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1722,7 +1722,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1731,7 +1731,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1740,7 +1740,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QRasterWindow, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1750,7 +1750,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QRasterWindow, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1760,7 +1760,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QRasterWindow, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1784,7 +1784,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1793,7 +1793,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1802,7 +1802,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1811,7 +1811,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1820,7 +1820,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QRasterWindow, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1830,7 +1830,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1839,7 +1839,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QRasterWindow, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1848,7 +1848,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QRasterWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1857,7 +1857,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1866,7 +1866,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QRasterWindow, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1877,7 +1877,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRasterWindow, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1886,7 +1886,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QRasterWindow, callback: *const fn (self: QtC.QRasterWindow, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1895,7 +1895,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QSurface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
     /// ``` self: QtC.QRasterWindow ```
     ///
@@ -1906,7 +1906,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QSurface
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn SupportsOpenGL(self: ?*anyopaque) bool {
@@ -1915,7 +1915,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -1924,7 +1924,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
@@ -1933,7 +1933,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -1942,7 +1942,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -1951,7 +1951,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -1960,7 +1960,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -1969,7 +1969,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -1978,7 +1978,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -1987,7 +1987,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -1996,7 +1996,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -2005,7 +2005,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QRasterWindow ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -2014,7 +2014,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -2023,7 +2023,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -2032,7 +2032,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2043,7 +2043,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2054,7 +2054,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#exposeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2065,7 +2065,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2076,7 +2076,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2087,7 +2087,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#paintEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2098,7 +2098,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2109,7 +2109,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2120,7 +2120,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDeviceWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevicewindow.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2131,7 +2131,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2144,7 +2144,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2157,7 +2157,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2168,7 +2168,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2179,7 +2179,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2190,7 +2190,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#format)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2201,7 +2201,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2212,7 +2212,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2223,7 +2223,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#size)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2234,7 +2234,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2245,7 +2245,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2256,7 +2256,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2267,7 +2267,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2278,7 +2278,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2289,7 +2289,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusObject)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2300,7 +2300,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2311,7 +2311,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2322,7 +2322,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2333,7 +2333,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2344,7 +2344,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2355,7 +2355,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2366,7 +2366,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2377,7 +2377,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2388,7 +2388,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2399,7 +2399,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2410,7 +2410,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2421,7 +2421,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2432,7 +2432,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2443,7 +2443,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2454,7 +2454,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2465,7 +2465,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2476,7 +2476,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2487,7 +2487,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2498,7 +2498,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2509,7 +2509,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2520,7 +2520,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2531,7 +2531,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2542,7 +2542,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2553,7 +2553,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2564,7 +2564,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2575,7 +2575,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2586,7 +2586,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2597,7 +2597,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2608,7 +2608,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2619,7 +2619,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2630,7 +2630,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2641,7 +2641,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2652,7 +2652,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2663,7 +2663,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2674,7 +2674,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2685,7 +2685,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2696,7 +2696,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2707,7 +2707,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2718,7 +2718,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2729,7 +2729,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2740,7 +2740,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2751,7 +2751,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2762,7 +2762,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2773,7 +2773,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2784,7 +2784,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2795,7 +2795,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2810,7 +2810,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2825,7 +2825,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2836,7 +2836,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2847,7 +2847,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2858,7 +2858,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2869,7 +2869,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2880,7 +2880,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2891,7 +2891,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2902,7 +2902,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2913,7 +2913,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2924,7 +2924,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2935,7 +2935,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2946,7 +2946,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2957,7 +2957,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2968,7 +2968,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2979,7 +2979,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2990,7 +2990,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3001,7 +3001,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3012,7 +3012,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3023,7 +3023,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3034,7 +3034,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3045,7 +3045,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3056,7 +3056,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3067,7 +3067,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3078,7 +3078,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3089,7 +3089,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3100,7 +3100,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3111,7 +3111,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3122,7 +3122,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3133,7 +3133,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3145,7 +3145,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3157,7 +3157,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QWindow
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3168,7 +3168,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3179,7 +3179,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3190,7 +3190,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3201,7 +3201,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3212,7 +3212,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3223,7 +3223,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3234,7 +3234,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3246,7 +3246,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3258,7 +3258,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3269,7 +3269,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3280,7 +3280,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3291,7 +3291,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3302,7 +3302,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3313,7 +3313,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3324,7 +3324,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3335,7 +3335,7 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3344,7 +3344,7 @@ pub const qrasterwindow = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#dtor.QRasterWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qrasterwindow.html#dtor.QRasterWindow)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -34,14 +34,14 @@ pub const qwebenginehttprequest = struct {
         return qtc.QWebEngineHttpRequest_new4(@ptrCast(url), @ptrCast(method));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, other: QtC.QWebEngineHttpRequest ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineHttpRequest_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#postRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#postRequest)
     ///
     /// ``` url: QtC.QUrl, postData: map_constu8_constu8, allocator: std.mem.Allocator ```
     pub fn PostRequest(url: ?*anyopaque, postData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.QWebEngineHttpRequest {
@@ -68,28 +68,28 @@ pub const qwebenginehttprequest = struct {
         return qtc.QWebEngineHttpRequest_PostRequest(@ptrCast(url), postData_map);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#swap)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, other: QtC.QWebEngineHttpRequest ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QWebEngineHttpRequest_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, other: QtC.QWebEngineHttpRequest ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QWebEngineHttpRequest_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-not-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, other: QtC.QWebEngineHttpRequest ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QWebEngineHttpRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#method)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#method)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest ```
     ///
@@ -98,28 +98,28 @@ pub const qwebenginehttprequest = struct {
         return qtc.QWebEngineHttpRequest_Method(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setMethod)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setMethod)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, method: qwebenginehttprequest_enums.Method ```
     pub fn SetMethod(self: ?*anyopaque, method: i32) void {
         qtc.QWebEngineHttpRequest_SetMethod(@ptrCast(self), @intCast(method));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#url)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#url)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest ```
     pub fn Url(self: ?*anyopaque) QtC.QUrl {
         return qtc.QWebEngineHttpRequest_Url(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setUrl)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, url: QtC.QUrl ```
     pub fn SetUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.QWebEngineHttpRequest_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#postData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#postData)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, allocator: std.mem.Allocator ```
     pub fn PostData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -130,7 +130,7 @@ pub const qwebenginehttprequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setPostData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setPostData)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, postData: []u8 ```
     pub fn SetPostData(self: ?*anyopaque, postData: []u8) void {
@@ -141,7 +141,7 @@ pub const qwebenginehttprequest = struct {
         qtc.QWebEngineHttpRequest_SetPostData(@ptrCast(self), postData_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#hasHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#hasHeader)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, headerName: []u8 ```
     pub fn HasHeader(self: ?*anyopaque, headerName: []u8) bool {
@@ -152,7 +152,7 @@ pub const qwebenginehttprequest = struct {
         return qtc.QWebEngineHttpRequest_HasHeader(@ptrCast(self), headerName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#headers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#headers)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, allocator: std.mem.Allocator ```
     pub fn Headers(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -174,7 +174,7 @@ pub const qwebenginehttprequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#header)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#header)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, headerName: []u8, allocator: std.mem.Allocator ```
     pub fn Header(self: ?*anyopaque, headerName: []u8, allocator: std.mem.Allocator) []u8 {
@@ -189,7 +189,7 @@ pub const qwebenginehttprequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setHeader)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, headerName: []u8, value: []u8 ```
     pub fn SetHeader(self: ?*anyopaque, headerName: []u8, value: []u8) void {
@@ -204,7 +204,7 @@ pub const qwebenginehttprequest = struct {
         qtc.QWebEngineHttpRequest_SetHeader(@ptrCast(self), headerName_str, value_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#unsetHeader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#unsetHeader)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, headerName: []u8 ```
     pub fn UnsetHeader(self: ?*anyopaque, headerName: []u8) void {
@@ -215,7 +215,7 @@ pub const qwebenginehttprequest = struct {
         qtc.QWebEngineHttpRequest_UnsetHeader(@ptrCast(self), headerName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#dtor.QWebEngineHttpRequest)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebenginehttprequest.html#dtor.QWebEngineHttpRequest)
     ///
     /// Delete this object from C++ memory.
     ///

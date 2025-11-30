@@ -45,49 +45,49 @@ pub const qversionnumber = struct {
         return qtc.QVersionNumber_new5(@intCast(maj), @intCast(min), @intCast(mic));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isNull)
     ///
     /// ``` self: QtC.QVersionNumber ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QVersionNumber_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#isNormalized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isNormalized)
     ///
     /// ``` self: QtC.QVersionNumber ```
     pub fn IsNormalized(self: ?*anyopaque) bool {
         return qtc.QVersionNumber_IsNormalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#majorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#majorVersion)
     ///
     /// ``` self: QtC.QVersionNumber ```
     pub fn MajorVersion(self: ?*anyopaque) i32 {
         return qtc.QVersionNumber_MajorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#minorVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#minorVersion)
     ///
     /// ``` self: QtC.QVersionNumber ```
     pub fn MinorVersion(self: ?*anyopaque) i32 {
         return qtc.QVersionNumber_MinorVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#microVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#microVersion)
     ///
     /// ``` self: QtC.QVersionNumber ```
     pub fn MicroVersion(self: ?*anyopaque) i32 {
         return qtc.QVersionNumber_MicroVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#normalized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#normalized)
     ///
     /// ``` self: QtC.QVersionNumber ```
     pub fn Normalized(self: ?*anyopaque) QtC.QVersionNumber {
         return qtc.QVersionNumber_Normalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#segments)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segments)
     ///
     /// ``` self: QtC.QVersionNumber, allocator: std.mem.Allocator ```
     pub fn Segments(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
@@ -99,42 +99,42 @@ pub const qversionnumber = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#segmentAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segmentAt)
     ///
     /// ``` self: QtC.QVersionNumber, index: i64 ```
     pub fn SegmentAt(self: ?*anyopaque, index: i64) i32 {
         return qtc.QVersionNumber_SegmentAt(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#segmentCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#segmentCount)
     ///
     /// ``` self: QtC.QVersionNumber ```
     pub fn SegmentCount(self: ?*anyopaque) i64 {
         return qtc.QVersionNumber_SegmentCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#isPrefixOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#isPrefixOf)
     ///
     /// ``` self: QtC.QVersionNumber, other: QtC.QVersionNumber ```
     pub fn IsPrefixOf(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QVersionNumber_IsPrefixOf(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#compare)
     ///
     /// ``` v1: QtC.QVersionNumber, v2: QtC.QVersionNumber ```
     pub fn Compare(v1: ?*anyopaque, v2: ?*anyopaque) i32 {
         return qtc.QVersionNumber_Compare(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#commonPrefix)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#commonPrefix)
     ///
     /// ``` v1: QtC.QVersionNumber, v2: QtC.QVersionNumber ```
     pub fn CommonPrefix(v1: ?*anyopaque, v2: ?*anyopaque) QtC.QVersionNumber {
         return qtc.QVersionNumber_CommonPrefix(@ptrCast(v1), @ptrCast(v2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#toString)
     ///
     /// ``` self: QtC.QVersionNumber, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -145,7 +145,7 @@ pub const qversionnumber = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) QtC.QVersionNumber {
@@ -156,7 +156,7 @@ pub const qversionnumber = struct {
         return qtc.QVersionNumber_FromString(stringVal_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
     /// ``` stringVal: []const u8, suffixIndex: *i64 ```
     pub fn FromString2(stringVal: []const u8, suffixIndex: *i64) QtC.QVersionNumber {
@@ -172,7 +172,7 @@ pub const qversionnumber = struct {
         return qtc.QVersionNumber_FromString2(stringVal_str, @ptrCast(suffixIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)
     ///
     /// Delete this object from C++ memory.
     ///

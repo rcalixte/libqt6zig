@@ -46,7 +46,7 @@ pub const qpropertyanimation = struct {
         return qtc.QPropertyAnimation_new4(@ptrCast(target), propertyName_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -78,7 +78,7 @@ pub const qpropertyanimation = struct {
         return qtc.QPropertyAnimation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -90,21 +90,21 @@ pub const qpropertyanimation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#targetObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#targetObject)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn TargetObject(self: ?*anyopaque) QtC.QObject {
         return qtc.QPropertyAnimation_TargetObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#setTargetObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#setTargetObject)
     ///
     /// ``` self: QtC.QPropertyAnimation, target: QtC.QObject ```
     pub fn SetTargetObject(self: ?*anyopaque, target: ?*anyopaque) void {
         qtc.QPropertyAnimation_SetTargetObject(@ptrCast(self), @ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#propertyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#propertyName)
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn PropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -115,7 +115,7 @@ pub const qpropertyanimation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#setPropertyName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#setPropertyName)
     ///
     /// ``` self: QtC.QPropertyAnimation, propertyName: []u8 ```
     pub fn SetPropertyName(self: ?*anyopaque, propertyName: []u8) void {
@@ -126,14 +126,14 @@ pub const qpropertyanimation = struct {
         qtc.QPropertyAnimation_SetPropertyName(@ptrCast(self), propertyName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
     ///
     /// ``` self: QtC.QPropertyAnimation, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QPropertyAnimation_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -142,7 +142,7 @@ pub const qpropertyanimation = struct {
         qtc.QPropertyAnimation_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
     ///
     /// Base class method implementation
     ///
@@ -151,14 +151,14 @@ pub const qpropertyanimation = struct {
         return qtc.QPropertyAnimation_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
     ///
     /// ``` self: QtC.QPropertyAnimation, value: QtC.QVariant ```
     pub fn UpdateCurrentValue(self: ?*anyopaque, value: ?*anyopaque) void {
         qtc.QPropertyAnimation_UpdateCurrentValue(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
     ///
     /// Allows for overriding the related default method
     ///
@@ -167,7 +167,7 @@ pub const qpropertyanimation = struct {
         qtc.QPropertyAnimation_OnUpdateCurrentValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
     ///
     /// Base class method implementation
     ///
@@ -176,14 +176,14 @@ pub const qpropertyanimation = struct {
         qtc.QPropertyAnimation_QBaseUpdateCurrentValue(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
     ///
     /// ``` self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
     pub fn UpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QPropertyAnimation_UpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -192,7 +192,7 @@ pub const qpropertyanimation = struct {
         qtc.QPropertyAnimation_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
     ///
     /// Base class method implementation
     ///
@@ -201,7 +201,7 @@ pub const qpropertyanimation = struct {
         qtc.QPropertyAnimation_QBaseUpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -214,7 +214,7 @@ pub const qpropertyanimation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -229,7 +229,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#startValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#startValue)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn StartValue(self: ?*anyopaque) QtC.QVariant {
@@ -238,7 +238,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#setStartValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#setStartValue)
     ///
     /// ``` self: QtC.QPropertyAnimation, value: QtC.QVariant ```
     pub fn SetStartValue(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -247,7 +247,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#endValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#endValue)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn EndValue(self: ?*anyopaque) QtC.QVariant {
@@ -256,7 +256,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#setEndValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#setEndValue)
     ///
     /// ``` self: QtC.QPropertyAnimation, value: QtC.QVariant ```
     pub fn SetEndValue(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -265,7 +265,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#keyValueAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#keyValueAt)
     ///
     /// ``` self: QtC.QPropertyAnimation, step: f64 ```
     pub fn KeyValueAt(self: ?*anyopaque, step: f64) QtC.QVariant {
@@ -274,7 +274,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#setKeyValueAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#setKeyValueAt)
     ///
     /// ``` self: QtC.QPropertyAnimation, step: f64, value: QtC.QVariant ```
     pub fn SetKeyValueAt(self: ?*anyopaque, step: f64, value: ?*anyopaque) void {
@@ -283,7 +283,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#keyValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#keyValues)
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn KeyValues(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqvariant {
@@ -304,7 +304,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#currentValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#currentValue)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn CurrentValue(self: ?*anyopaque) QtC.QVariant {
@@ -313,7 +313,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#setDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#setDuration)
     ///
     /// ``` self: QtC.QPropertyAnimation, msecs: i32 ```
     pub fn SetDuration(self: ?*anyopaque, msecs: i32) void {
@@ -322,7 +322,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#easingCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#easingCurve)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn EasingCurve(self: ?*anyopaque) QtC.QEasingCurve {
@@ -331,7 +331,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#setEasingCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#setEasingCurve)
     ///
     /// ``` self: QtC.QPropertyAnimation, easing: QtC.QEasingCurve ```
     pub fn SetEasingCurve(self: ?*anyopaque, easing: ?*anyopaque) void {
@@ -340,7 +340,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#valueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#valueChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, value: QtC.QVariant ```
     pub fn ValueChanged(self: ?*anyopaque, value: ?*anyopaque) void {
@@ -349,7 +349,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#valueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#valueChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, callback: *const fn (self: QtC.QPropertyAnimation, value: QtC.QVariant) callconv(.c) void ```
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -358,7 +358,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#state)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     ///
@@ -369,7 +369,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#group)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#group)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Group(self: ?*anyopaque) QtC.QAnimationGroup {
@@ -378,7 +378,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     ///
@@ -389,7 +389,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
     ///
     /// ``` self: QtC.QPropertyAnimation, direction: qabstractanimation_enums.Direction ```
     pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
@@ -398,7 +398,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentTime)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn CurrentTime(self: ?*anyopaque) i32 {
@@ -407,7 +407,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopTime)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn CurrentLoopTime(self: ?*anyopaque) i32 {
@@ -416,7 +416,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#loopCount)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn LoopCount(self: ?*anyopaque) i32 {
@@ -425,7 +425,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setLoopCount)
     ///
     /// ``` self: QtC.QPropertyAnimation, loopCount: i32 ```
     pub fn SetLoopCount(self: ?*anyopaque, loopCount: i32) void {
@@ -434,7 +434,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn CurrentLoop(self: ?*anyopaque) i32 {
@@ -443,7 +443,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#totalDuration)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn TotalDuration(self: ?*anyopaque) i32 {
@@ -452,7 +452,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Finished(self: ?*anyopaque) void {
@@ -461,7 +461,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
     /// ``` self: QtC.QPropertyAnimation, callback: *const fn (self: QtC.QPropertyAnimation) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -470,7 +470,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
     pub fn StateChanged(self: ?*anyopaque, newState: i32, oldState: i32) void {
@@ -479,7 +479,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, callback: *const fn (self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
@@ -488,7 +488,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, currentLoop: i32 ```
     pub fn CurrentLoopChanged(self: ?*anyopaque, currentLoop: i32) void {
@@ -497,7 +497,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, callback: *const fn (self: QtC.QPropertyAnimation, currentLoop: i32) callconv(.c) void ```
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -506,7 +506,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, param1: qabstractanimation_enums.Direction ```
     pub fn DirectionChanged(self: ?*anyopaque, param1: i32) void {
@@ -515,7 +515,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, callback: *const fn (self: QtC.QPropertyAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void ```
     pub fn OnDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
@@ -524,7 +524,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Start(self: ?*anyopaque) void {
@@ -533,7 +533,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#pause)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Pause(self: ?*anyopaque) void {
@@ -542,7 +542,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#resume)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Resume(self: ?*anyopaque) void {
@@ -551,7 +551,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setPaused)
     ///
     /// ``` self: QtC.QPropertyAnimation, paused: bool ```
     pub fn SetPaused(self: ?*anyopaque, paused: bool) void {
@@ -560,7 +560,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#stop)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Stop(self: ?*anyopaque) void {
@@ -569,7 +569,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#setCurrentTime)
     ///
     /// ``` self: QtC.QPropertyAnimation, msecs: i32 ```
     pub fn SetCurrentTime(self: ?*anyopaque, msecs: i32) void {
@@ -578,7 +578,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
     /// ``` self: QtC.QPropertyAnimation, policy: qabstractanimation_enums.DeletionPolicy ```
     pub fn Start1(self: ?*anyopaque, policy: i32) void {
@@ -587,7 +587,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -600,7 +600,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QPropertyAnimation, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -613,7 +613,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -622,7 +622,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -631,7 +631,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -640,7 +640,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -649,7 +649,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QPropertyAnimation, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -658,7 +658,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -667,7 +667,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPropertyAnimation, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -676,7 +676,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPropertyAnimation, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -685,7 +685,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPropertyAnimation, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -694,7 +694,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPropertyAnimation, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -703,7 +703,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -717,7 +717,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QPropertyAnimation, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -726,7 +726,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QPropertyAnimation, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -735,7 +735,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QPropertyAnimation, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -744,7 +744,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -753,7 +753,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPropertyAnimation, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -764,7 +764,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -773,7 +773,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -782,7 +782,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -791,7 +791,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -800,7 +800,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QPropertyAnimation, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -810,7 +810,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QPropertyAnimation, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -820,7 +820,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -844,7 +844,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -853,7 +853,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -862,7 +862,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -871,7 +871,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPropertyAnimation, callback: *const fn (self: QtC.QPropertyAnimation) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -880,7 +880,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -889,7 +889,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QPropertyAnimation, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -899,7 +899,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -908,7 +908,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPropertyAnimation, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -917,7 +917,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPropertyAnimation, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -926,7 +926,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -935,7 +935,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPropertyAnimation, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -946,7 +946,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPropertyAnimation, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -955,7 +955,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QPropertyAnimation, callback: *const fn (self: QtC.QPropertyAnimation, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -964,7 +964,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#duration)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -975,7 +975,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#duration)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -986,7 +986,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#duration)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -997,7 +997,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentTime)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1008,7 +1008,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentTime)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1019,7 +1019,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#updateCurrentTime)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1030,7 +1030,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#interpolated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#interpolated)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1041,7 +1041,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#interpolated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#interpolated)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1052,7 +1052,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QVariantAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#interpolated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariantanimation.html#interpolated)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1063,7 +1063,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1074,7 +1074,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1085,7 +1085,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QAbstractAnimation
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1096,7 +1096,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1107,7 +1107,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1118,7 +1118,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1129,7 +1129,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1140,7 +1140,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1151,7 +1151,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1162,7 +1162,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1173,7 +1173,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1184,7 +1184,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1195,7 +1195,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1206,7 +1206,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1217,7 +1217,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1228,7 +1228,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1239,7 +1239,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1250,7 +1250,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1261,7 +1261,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1272,7 +1272,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1283,7 +1283,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1294,7 +1294,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1305,7 +1305,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1316,7 +1316,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1327,7 +1327,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1338,7 +1338,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1349,7 +1349,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1360,7 +1360,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1372,7 +1372,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1384,7 +1384,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1395,7 +1395,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1406,7 +1406,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1417,7 +1417,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1428,7 +1428,7 @@ pub const qpropertyanimation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1437,7 +1437,7 @@ pub const qpropertyanimation = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#dtor.QPropertyAnimation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#dtor.QPropertyAnimation)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -48,7 +48,7 @@ pub const qcandlestickset = struct {
         return qtc.QCandlestickSet_new6(@floatCast(open), @floatCast(high), @floatCast(low), @floatCast(close), @floatCast(timestamp), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -80,7 +80,7 @@ pub const qcandlestickset = struct {
         return qtc.QCandlestickSet_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -92,273 +92,273 @@ pub const qcandlestickset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setTimestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setTimestamp)
     ///
     /// ``` self: QtC.QCandlestickSet, timestamp: f64 ```
     pub fn SetTimestamp(self: ?*anyopaque, timestamp: f64) void {
         qtc.QCandlestickSet_SetTimestamp(@ptrCast(self), @floatCast(timestamp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestamp)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestamp)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Timestamp(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSet_Timestamp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setOpen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setOpen)
     ///
     /// ``` self: QtC.QCandlestickSet, open: f64 ```
     pub fn SetOpen(self: ?*anyopaque, open: f64) void {
         qtc.QCandlestickSet_SetOpen(@ptrCast(self), @floatCast(open));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#open)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#open)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Open(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSet_Open(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setHigh)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setHigh)
     ///
     /// ``` self: QtC.QCandlestickSet, high: f64 ```
     pub fn SetHigh(self: ?*anyopaque, high: f64) void {
         qtc.QCandlestickSet_SetHigh(@ptrCast(self), @floatCast(high));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#high)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#high)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn High(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSet_High(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setLow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setLow)
     ///
     /// ``` self: QtC.QCandlestickSet, low: f64 ```
     pub fn SetLow(self: ?*anyopaque, low: f64) void {
         qtc.QCandlestickSet_SetLow(@ptrCast(self), @floatCast(low));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#low)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#low)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Low(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSet_Low(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setClose)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setClose)
     ///
     /// ``` self: QtC.QCandlestickSet, close: f64 ```
     pub fn SetClose(self: ?*anyopaque, close: f64) void {
         qtc.QCandlestickSet_SetClose(@ptrCast(self), @floatCast(close));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#close)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Close(self: ?*anyopaque) f64 {
         return qtc.QCandlestickSet_Close(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setBrush)
     ///
     /// ``` self: QtC.QCandlestickSet, brush: QtC.QBrush ```
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QCandlestickSet_SetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brush)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QCandlestickSet_Brush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#setPen)
     ///
     /// ``` self: QtC.QCandlestickSet, pen: QtC.QPen ```
     pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QCandlestickSet_SetPen(@ptrCast(self), @ptrCast(pen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pen)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
         return qtc.QCandlestickSet_Pen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#clicked)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Clicked(self: ?*anyopaque) void {
         qtc.QCandlestickSet_Clicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#clicked)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#hovered)
     ///
     /// ``` self: QtC.QCandlestickSet, status: bool ```
     pub fn Hovered(self: ?*anyopaque, status: bool) void {
         qtc.QCandlestickSet_Hovered(@ptrCast(self), status);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#hovered)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet, status: bool) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pressed)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Pressed(self: ?*anyopaque) void {
         qtc.QCandlestickSet_Pressed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#pressed)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#released)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Released(self: ?*anyopaque) void {
         qtc.QCandlestickSet_Released(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#released)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#doubleClicked)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn DoubleClicked(self: ?*anyopaque) void {
         qtc.QCandlestickSet_DoubleClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#doubleClicked)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestampChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestampChanged)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn TimestampChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSet_TimestampChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestampChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#timestampChanged)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnTimestampChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_TimestampChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#openChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#openChanged)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn OpenChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSet_OpenChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#openChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#openChanged)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnOpenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_OpenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#highChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#highChanged)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn HighChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSet_HighChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#highChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#highChanged)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnHighChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_HighChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#lowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#lowChanged)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn LowChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSet_LowChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#lowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#lowChanged)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnLowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_LowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#closeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#closeChanged)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn CloseChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSet_CloseChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#closeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#closeChanged)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnCloseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_CloseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brushChanged)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn BrushChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSet_BrushChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#brushChanged)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#penChanged)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn PenChanged(self: ?*anyopaque) void {
         qtc.QCandlestickSet_PenChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#penChanged)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSet_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -371,7 +371,7 @@ pub const qcandlestickset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -386,7 +386,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QCandlestickSet, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -399,7 +399,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QCandlestickSet, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -412,7 +412,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -421,7 +421,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -430,7 +430,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -439,7 +439,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -448,7 +448,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QCandlestickSet, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -457,7 +457,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -466,7 +466,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QCandlestickSet, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -475,7 +475,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCandlestickSet, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -484,7 +484,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCandlestickSet, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -493,7 +493,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCandlestickSet, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -502,7 +502,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QCandlestickSet, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -516,7 +516,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QCandlestickSet, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -525,7 +525,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QCandlestickSet, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -534,7 +534,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QCandlestickSet, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -543,7 +543,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -552,7 +552,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCandlestickSet, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -563,7 +563,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -572,7 +572,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -581,7 +581,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -590,7 +590,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -599,7 +599,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QCandlestickSet, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -609,7 +609,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QCandlestickSet, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -619,7 +619,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QCandlestickSet, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -643,7 +643,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -652,7 +652,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -661,7 +661,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -670,7 +670,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -679,7 +679,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -688,7 +688,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QCandlestickSet, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -698,7 +698,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QCandlestickSet ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -707,7 +707,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QCandlestickSet, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -716,7 +716,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCandlestickSet, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -725,7 +725,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -734,7 +734,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCandlestickSet, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -745,7 +745,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCandlestickSet, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -754,7 +754,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QCandlestickSet, callback: *const fn (self: QtC.QCandlestickSet, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -763,7 +763,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -774,7 +774,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -785,7 +785,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -796,7 +796,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -807,7 +807,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -818,7 +818,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -829,7 +829,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -840,7 +840,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -851,7 +851,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -862,7 +862,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -873,7 +873,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -884,7 +884,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -895,7 +895,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -906,7 +906,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -917,7 +917,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -928,7 +928,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -939,7 +939,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -950,7 +950,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -961,7 +961,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -972,7 +972,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -983,7 +983,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -994,7 +994,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1005,7 +1005,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1016,7 +1016,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1027,7 +1027,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1038,7 +1038,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1049,7 +1049,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1060,7 +1060,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1072,7 +1072,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1084,7 +1084,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1095,7 +1095,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1106,7 +1106,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1117,7 +1117,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1128,7 +1128,7 @@ pub const qcandlestickset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1137,7 +1137,7 @@ pub const qcandlestickset = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#dtor.QCandlestickSet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qcandlestickset-qtcharts.html#dtor.QCandlestickSet)
     ///
     /// Delete this object from C++ memory.
     ///

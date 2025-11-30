@@ -60,140 +60,140 @@ pub const qline = struct {
         qtc.QLine_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#isNull)
     ///
     /// ``` self: QtC.QLine ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QLine_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#p1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#p1)
     ///
     /// ``` self: QtC.QLine ```
     pub fn P1(self: ?*anyopaque) QtC.QPoint {
         return qtc.QLine_P1(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#p2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#p2)
     ///
     /// ``` self: QtC.QLine ```
     pub fn P2(self: ?*anyopaque) QtC.QPoint {
         return qtc.QLine_P2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#x1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#x1)
     ///
     /// ``` self: QtC.QLine ```
     pub fn X1(self: ?*anyopaque) i32 {
         return qtc.QLine_X1(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#y1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#y1)
     ///
     /// ``` self: QtC.QLine ```
     pub fn Y1(self: ?*anyopaque) i32 {
         return qtc.QLine_Y1(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#x2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#x2)
     ///
     /// ``` self: QtC.QLine ```
     pub fn X2(self: ?*anyopaque) i32 {
         return qtc.QLine_X2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#y2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#y2)
     ///
     /// ``` self: QtC.QLine ```
     pub fn Y2(self: ?*anyopaque) i32 {
         return qtc.QLine_Y2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#dx)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#dx)
     ///
     /// ``` self: QtC.QLine ```
     pub fn Dx(self: ?*anyopaque) i32 {
         return qtc.QLine_Dx(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#dy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#dy)
     ///
     /// ``` self: QtC.QLine ```
     pub fn Dy(self: ?*anyopaque) i32 {
         return qtc.QLine_Dy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#translate)
     ///
     /// ``` self: QtC.QLine, p: QtC.QPoint ```
     pub fn Translate(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QLine_Translate(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#translate)
     ///
     /// ``` self: QtC.QLine, dx: i32, dy: i32 ```
     pub fn Translate2(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QLine_Translate2(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#translated)
     ///
     /// ``` self: QtC.QLine, p: QtC.QPoint ```
     pub fn Translated(self: ?*anyopaque, p: ?*anyopaque) QtC.QLine {
         return qtc.QLine_Translated(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#translated)
     ///
     /// ``` self: QtC.QLine, dx: i32, dy: i32 ```
     pub fn Translated2(self: ?*anyopaque, dx: i32, dy: i32) QtC.QLine {
         return qtc.QLine_Translated2(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#center)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#center)
     ///
     /// ``` self: QtC.QLine ```
     pub fn Center(self: ?*anyopaque) QtC.QPoint {
         return qtc.QLine_Center(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setP1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#setP1)
     ///
     /// ``` self: QtC.QLine, p1: QtC.QPoint ```
     pub fn SetP1(self: ?*anyopaque, p1: ?*anyopaque) void {
         qtc.QLine_SetP1(@ptrCast(self), @ptrCast(p1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setP2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#setP2)
     ///
     /// ``` self: QtC.QLine, p2: QtC.QPoint ```
     pub fn SetP2(self: ?*anyopaque, p2: ?*anyopaque) void {
         qtc.QLine_SetP2(@ptrCast(self), @ptrCast(p2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#setPoints)
     ///
     /// ``` self: QtC.QLine, p1: QtC.QPoint, p2: QtC.QPoint ```
     pub fn SetPoints(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
         qtc.QLine_SetPoints(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#setLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#setLine)
     ///
     /// ``` self: QtC.QLine, x1: i32, y1: i32, x2: i32, y2: i32 ```
     pub fn SetLine(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
         qtc.QLine_SetLine(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#toLineF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#toLineF)
     ///
     /// ``` self: QtC.QLine ```
     pub fn ToLineF(self: ?*anyopaque) QtC.QLineF {
         return qtc.QLine_ToLineF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#dtor.QLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qline.html#dtor.QLine)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -268,126 +268,126 @@ pub const qlinef = struct {
         qtc.QLineF_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#fromPolar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#fromPolar)
     ///
     /// ``` length: f64, angle: f64 ```
     pub fn FromPolar(length: f64, angle: f64) QtC.QLineF {
         return qtc.QLineF_FromPolar(@floatCast(length), @floatCast(angle));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#isNull)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QLineF_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#p1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#p1)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn P1(self: ?*anyopaque) QtC.QPointF {
         return qtc.QLineF_P1(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#p2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#p2)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn P2(self: ?*anyopaque) QtC.QPointF {
         return qtc.QLineF_P2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#x1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#x1)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn X1(self: ?*anyopaque) f64 {
         return qtc.QLineF_X1(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#y1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#y1)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn Y1(self: ?*anyopaque) f64 {
         return qtc.QLineF_Y1(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#x2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#x2)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn X2(self: ?*anyopaque) f64 {
         return qtc.QLineF_X2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#y2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#y2)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn Y2(self: ?*anyopaque) f64 {
         return qtc.QLineF_Y2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#dx)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#dx)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn Dx(self: ?*anyopaque) f64 {
         return qtc.QLineF_Dx(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#dy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#dy)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn Dy(self: ?*anyopaque) f64 {
         return qtc.QLineF_Dy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#length)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#length)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn Length(self: ?*anyopaque) f64 {
         return qtc.QLineF_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setLength)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#setLength)
     ///
     /// ``` self: QtC.QLineF, lenVal: f64 ```
     pub fn SetLength(self: ?*anyopaque, lenVal: f64) void {
         qtc.QLineF_SetLength(@ptrCast(self), @floatCast(lenVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#angle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#angle)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn Angle(self: ?*anyopaque) f64 {
         return qtc.QLineF_Angle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setAngle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#setAngle)
     ///
     /// ``` self: QtC.QLineF, angle: f64 ```
     pub fn SetAngle(self: ?*anyopaque, angle: f64) void {
         qtc.QLineF_SetAngle(@ptrCast(self), @floatCast(angle));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#angleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#angleTo)
     ///
     /// ``` self: QtC.QLineF, l: QtC.QLineF ```
     pub fn AngleTo(self: ?*anyopaque, l: ?*anyopaque) f64 {
         return qtc.QLineF_AngleTo(@ptrCast(self), @ptrCast(l));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#unitVector)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#unitVector)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn UnitVector(self: ?*anyopaque) QtC.QLineF {
         return qtc.QLineF_UnitVector(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#normalVector)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#normalVector)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn NormalVector(self: ?*anyopaque) QtC.QLineF {
         return qtc.QLineF_NormalVector(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#intersects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#intersects)
     ///
     /// ``` self: QtC.QLineF, l: QtC.QLineF ```
     ///
@@ -396,84 +396,84 @@ pub const qlinef = struct {
         return qtc.QLineF_Intersects(@ptrCast(self), @ptrCast(l));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#pointAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#pointAt)
     ///
     /// ``` self: QtC.QLineF, t: f64 ```
     pub fn PointAt(self: ?*anyopaque, t: f64) QtC.QPointF {
         return qtc.QLineF_PointAt(@ptrCast(self), @floatCast(t));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#translate)
     ///
     /// ``` self: QtC.QLineF, p: QtC.QPointF ```
     pub fn Translate(self: ?*anyopaque, p: ?*anyopaque) void {
         qtc.QLineF_Translate(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#translate)
     ///
     /// ``` self: QtC.QLineF, dx: f64, dy: f64 ```
     pub fn Translate2(self: ?*anyopaque, dx: f64, dy: f64) void {
         qtc.QLineF_Translate2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#translated)
     ///
     /// ``` self: QtC.QLineF, p: QtC.QPointF ```
     pub fn Translated(self: ?*anyopaque, p: ?*anyopaque) QtC.QLineF {
         return qtc.QLineF_Translated(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#translated)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#translated)
     ///
     /// ``` self: QtC.QLineF, dx: f64, dy: f64 ```
     pub fn Translated2(self: ?*anyopaque, dx: f64, dy: f64) QtC.QLineF {
         return qtc.QLineF_Translated2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#center)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#center)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn Center(self: ?*anyopaque) QtC.QPointF {
         return qtc.QLineF_Center(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setP1)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#setP1)
     ///
     /// ``` self: QtC.QLineF, p1: QtC.QPointF ```
     pub fn SetP1(self: ?*anyopaque, p1: ?*anyopaque) void {
         qtc.QLineF_SetP1(@ptrCast(self), @ptrCast(p1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setP2)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#setP2)
     ///
     /// ``` self: QtC.QLineF, p2: QtC.QPointF ```
     pub fn SetP2(self: ?*anyopaque, p2: ?*anyopaque) void {
         qtc.QLineF_SetP2(@ptrCast(self), @ptrCast(p2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#setPoints)
     ///
     /// ``` self: QtC.QLineF, p1: QtC.QPointF, p2: QtC.QPointF ```
     pub fn SetPoints(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
         qtc.QLineF_SetPoints(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#setLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#setLine)
     ///
     /// ``` self: QtC.QLineF, x1: f64, y1: f64, x2: f64, y2: f64 ```
     pub fn SetLine(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
         qtc.QLineF_SetLine(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#toLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#toLine)
     ///
     /// ``` self: QtC.QLineF ```
     pub fn ToLine(self: ?*anyopaque) QtC.QLine {
         return qtc.QLineF_ToLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#intersects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#intersects)
     ///
     /// ``` self: QtC.QLineF, l: QtC.QLineF, intersectionPoint: QtC.QPointF ```
     ///
@@ -482,7 +482,7 @@ pub const qlinef = struct {
         return qtc.QLineF_Intersects2(@ptrCast(self), @ptrCast(l), @ptrCast(intersectionPoint));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#dtor.QLineF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#dtor.QLineF)
     ///
     /// Delete this object from C++ memory.
     ///

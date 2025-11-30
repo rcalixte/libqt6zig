@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kconfigbase.html
 pub const kconfigbase = struct {
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#groupList)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#groupList)
     ///
     /// ``` self: QtC.KConfigBase, allocator: std.mem.Allocator ```
     pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -27,7 +27,7 @@ pub const kconfigbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#hasGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#hasGroup)
     ///
     /// ``` self: QtC.KConfigBase, group: []const u8 ```
     pub fn HasGroup(self: ?*anyopaque, group: []const u8) bool {
@@ -38,7 +38,7 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_HasGroup(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KConfigBase, group: []const u8 ```
     pub fn Group(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -49,7 +49,7 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_Group(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#group)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#group)
     ///
     /// ``` self: QtC.KConfigBase, group: []const u8 ```
     pub fn Group2(self: ?*anyopaque, group: []const u8) QtC.KConfigGroup {
@@ -60,7 +60,7 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_Group2(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfigBase, group: []const u8 ```
     pub fn DeleteGroup(self: ?*anyopaque, group: []const u8) void {
@@ -71,21 +71,21 @@ pub const kconfigbase = struct {
         qtc.KConfigBase_DeleteGroup(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#sync)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#sync)
     ///
     /// ``` self: QtC.KConfigBase ```
     pub fn Sync(self: ?*anyopaque) bool {
         return qtc.KConfigBase_Sync(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#markAsClean)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#markAsClean)
     ///
     /// ``` self: QtC.KConfigBase ```
     pub fn MarkAsClean(self: ?*anyopaque) void {
         qtc.KConfigBase_MarkAsClean(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#accessMode)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#accessMode)
     ///
     /// ``` self: QtC.KConfigBase ```
     ///
@@ -94,14 +94,14 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_AccessMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#isImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#isImmutable)
     ///
     /// ``` self: QtC.KConfigBase ```
     pub fn IsImmutable(self: ?*anyopaque) bool {
         return qtc.KConfigBase_IsImmutable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#isGroupImmutable)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#isGroupImmutable)
     ///
     /// ``` self: QtC.KConfigBase, group: []const u8 ```
     pub fn IsGroupImmutable(self: ?*anyopaque, group: []const u8) bool {
@@ -112,7 +112,7 @@ pub const kconfigbase = struct {
         return qtc.KConfigBase_IsGroupImmutable(@ptrCast(self), group_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#deleteGroup)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#deleteGroup)
     ///
     /// ``` self: QtC.KConfigBase, group: []const u8, flags: flag of kconfigbase_enums.WriteConfigFlag ```
     pub fn DeleteGroup2(self: ?*anyopaque, group: []const u8, flags: i32) void {
@@ -123,7 +123,7 @@ pub const kconfigbase = struct {
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kconfigbase.html#dtor.KConfigBase)
+    /// [Upstream resources](https://api.kde.org/kconfigbase.html#dtor.KConfigBase)
     ///
     /// Delete this object from C++ memory.
     ///

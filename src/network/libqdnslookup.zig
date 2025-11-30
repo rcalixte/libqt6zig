@@ -21,21 +21,21 @@ pub const qdnsdomainnamerecord = struct {
         return qtc.QDnsDomainNameRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsDomainNameRecord, other: QtC.QDnsDomainNameRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsDomainNameRecord_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#swap)
     ///
     /// ``` self: QtC.QDnsDomainNameRecord, other: QtC.QDnsDomainNameRecord ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsDomainNameRecord_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#name)
     ///
     /// ``` self: QtC.QDnsDomainNameRecord, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -46,14 +46,14 @@ pub const qdnsdomainnamerecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#timeToLive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#timeToLive)
     ///
     /// ``` self: QtC.QDnsDomainNameRecord ```
     pub fn TimeToLive(self: ?*anyopaque) u32 {
         return qtc.QDnsDomainNameRecord_TimeToLive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#value)
     ///
     /// ``` self: QtC.QDnsDomainNameRecord, allocator: std.mem.Allocator ```
     pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -64,7 +64,7 @@ pub const qdnsdomainnamerecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#dtor.QDnsDomainNameRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#dtor.QDnsDomainNameRecord)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -90,21 +90,21 @@ pub const qdnshostaddressrecord = struct {
         return qtc.QDnsHostAddressRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsHostAddressRecord, other: QtC.QDnsHostAddressRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsHostAddressRecord_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#swap)
     ///
     /// ``` self: QtC.QDnsHostAddressRecord, other: QtC.QDnsHostAddressRecord ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsHostAddressRecord_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#name)
     ///
     /// ``` self: QtC.QDnsHostAddressRecord, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,21 +115,21 @@ pub const qdnshostaddressrecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#timeToLive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#timeToLive)
     ///
     /// ``` self: QtC.QDnsHostAddressRecord ```
     pub fn TimeToLive(self: ?*anyopaque) u32 {
         return qtc.QDnsHostAddressRecord_TimeToLive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#value)
     ///
     /// ``` self: QtC.QDnsHostAddressRecord ```
     pub fn Value(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QDnsHostAddressRecord_Value(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#dtor.QDnsHostAddressRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#dtor.QDnsHostAddressRecord)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -155,21 +155,21 @@ pub const qdnsmailexchangerecord = struct {
         return qtc.QDnsMailExchangeRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsMailExchangeRecord, other: QtC.QDnsMailExchangeRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsMailExchangeRecord_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#swap)
     ///
     /// ``` self: QtC.QDnsMailExchangeRecord, other: QtC.QDnsMailExchangeRecord ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsMailExchangeRecord_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#exchange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#exchange)
     ///
     /// ``` self: QtC.QDnsMailExchangeRecord, allocator: std.mem.Allocator ```
     pub fn Exchange(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -180,7 +180,7 @@ pub const qdnsmailexchangerecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#name)
     ///
     /// ``` self: QtC.QDnsMailExchangeRecord, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -191,21 +191,21 @@ pub const qdnsmailexchangerecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#preference)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#preference)
     ///
     /// ``` self: QtC.QDnsMailExchangeRecord ```
     pub fn Preference(self: ?*anyopaque) u16 {
         return qtc.QDnsMailExchangeRecord_Preference(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#timeToLive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#timeToLive)
     ///
     /// ``` self: QtC.QDnsMailExchangeRecord ```
     pub fn TimeToLive(self: ?*anyopaque) u32 {
         return qtc.QDnsMailExchangeRecord_TimeToLive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#dtor.QDnsMailExchangeRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#dtor.QDnsMailExchangeRecord)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -231,21 +231,21 @@ pub const qdnsservicerecord = struct {
         return qtc.QDnsServiceRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsServiceRecord, other: QtC.QDnsServiceRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsServiceRecord_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#swap)
     ///
     /// ``` self: QtC.QDnsServiceRecord, other: QtC.QDnsServiceRecord ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsServiceRecord_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#name)
     ///
     /// ``` self: QtC.QDnsServiceRecord, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -256,21 +256,21 @@ pub const qdnsservicerecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#port)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#port)
     ///
     /// ``` self: QtC.QDnsServiceRecord ```
     pub fn Port(self: ?*anyopaque) u16 {
         return qtc.QDnsServiceRecord_Port(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#priority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#priority)
     ///
     /// ``` self: QtC.QDnsServiceRecord ```
     pub fn Priority(self: ?*anyopaque) u16 {
         return qtc.QDnsServiceRecord_Priority(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#target)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#target)
     ///
     /// ``` self: QtC.QDnsServiceRecord, allocator: std.mem.Allocator ```
     pub fn Target(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -281,21 +281,21 @@ pub const qdnsservicerecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#timeToLive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#timeToLive)
     ///
     /// ``` self: QtC.QDnsServiceRecord ```
     pub fn TimeToLive(self: ?*anyopaque) u32 {
         return qtc.QDnsServiceRecord_TimeToLive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#weight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#weight)
     ///
     /// ``` self: QtC.QDnsServiceRecord ```
     pub fn Weight(self: ?*anyopaque) u16 {
         return qtc.QDnsServiceRecord_Weight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#dtor.QDnsServiceRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#dtor.QDnsServiceRecord)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -321,21 +321,21 @@ pub const qdnstextrecord = struct {
         return qtc.QDnsTextRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsTextRecord, other: QtC.QDnsTextRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsTextRecord_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#swap)
     ///
     /// ``` self: QtC.QDnsTextRecord, other: QtC.QDnsTextRecord ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsTextRecord_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#name)
     ///
     /// ``` self: QtC.QDnsTextRecord, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -346,14 +346,14 @@ pub const qdnstextrecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#timeToLive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#timeToLive)
     ///
     /// ``` self: QtC.QDnsTextRecord ```
     pub fn TimeToLive(self: ?*anyopaque) u32 {
         return qtc.QDnsTextRecord_TimeToLive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#values)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#values)
     ///
     /// ``` self: QtC.QDnsTextRecord, allocator: std.mem.Allocator ```
     pub fn Values(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -375,7 +375,7 @@ pub const qdnstextrecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#dtor.QDnsTextRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#dtor.QDnsTextRecord)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -401,21 +401,21 @@ pub const qdnstlsassociationrecord = struct {
         return qtc.QDnsTlsAssociationRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord, other: QtC.QDnsTlsAssociationRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsTlsAssociationRecord_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#swap)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord, other: QtC.QDnsTlsAssociationRecord ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDnsTlsAssociationRecord_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#name)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -426,14 +426,14 @@ pub const qdnstlsassociationrecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#timeToLive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#timeToLive)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord ```
     pub fn TimeToLive(self: ?*anyopaque) u32 {
         return qtc.QDnsTlsAssociationRecord_TimeToLive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#usage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#usage)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord ```
     ///
@@ -442,7 +442,7 @@ pub const qdnstlsassociationrecord = struct {
         return qtc.QDnsTlsAssociationRecord_Usage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#selector)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#selector)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord ```
     ///
@@ -451,7 +451,7 @@ pub const qdnstlsassociationrecord = struct {
         return qtc.QDnsTlsAssociationRecord_Selector(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#matchType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#matchType)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord ```
     ///
@@ -460,7 +460,7 @@ pub const qdnstlsassociationrecord = struct {
         return qtc.QDnsTlsAssociationRecord_MatchType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#value)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#value)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord, allocator: std.mem.Allocator ```
     pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -471,7 +471,7 @@ pub const qdnstlsassociationrecord = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#dtor.QDnsTlsAssociationRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#dtor.QDnsTlsAssociationRecord)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -605,7 +605,7 @@ pub const qdnslookup = struct {
         return qtc.QDnsLookup_new11(@intCast(typeVal), name_str, @intCast(protocol), @ptrCast(nameserver), @intCast(port), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -637,7 +637,7 @@ pub const qdnslookup = struct {
         return qtc.QDnsLookup_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -649,14 +649,14 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#isAuthenticData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#isAuthenticData)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn IsAuthenticData(self: ?*anyopaque) bool {
         return qtc.QDnsLookup_IsAuthenticData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#error)
     ///
     /// ``` self: QtC.QDnsLookup ```
     ///
@@ -665,7 +665,7 @@ pub const qdnslookup = struct {
         return qtc.QDnsLookup_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#errorString)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -676,14 +676,14 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#isFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#isFinished)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn IsFinished(self: ?*anyopaque) bool {
         return qtc.QDnsLookup_IsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#name)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -694,7 +694,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setName)
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -705,7 +705,7 @@ pub const qdnslookup = struct {
         qtc.QDnsLookup_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#type)
     ///
     /// ``` self: QtC.QDnsLookup ```
     ///
@@ -714,42 +714,42 @@ pub const qdnslookup = struct {
         return qtc.QDnsLookup_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setType)
     ///
     /// ``` self: QtC.QDnsLookup, typeVal: qdnslookup_enums.Type ```
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QDnsLookup_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserver)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserver)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn Nameserver(self: ?*anyopaque) QtC.QHostAddress {
         return qtc.QDnsLookup_Nameserver(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
     /// ``` self: QtC.QDnsLookup, nameserver: QtC.QHostAddress ```
     pub fn SetNameserver(self: ?*anyopaque, nameserver: ?*anyopaque) void {
         qtc.QDnsLookup_SetNameserver(@ptrCast(self), @ptrCast(nameserver));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPort)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn NameserverPort(self: ?*anyopaque) u16 {
         return qtc.QDnsLookup_NameserverPort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverPort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverPort)
     ///
     /// ``` self: QtC.QDnsLookup, port: u16 ```
     pub fn SetNameserverPort(self: ?*anyopaque, port: u16) void {
         qtc.QDnsLookup_SetNameserverPort(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocol)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocol)
     ///
     /// ``` self: QtC.QDnsLookup ```
     ///
@@ -758,28 +758,28 @@ pub const qdnslookup = struct {
         return qtc.QDnsLookup_NameserverProtocol(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverProtocol)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverProtocol)
     ///
     /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol ```
     pub fn SetNameserverProtocol(self: ?*anyopaque, protocol: u8) void {
         qtc.QDnsLookup_SetNameserverProtocol(@ptrCast(self), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
     /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress ```
     pub fn SetNameserver2(self: ?*anyopaque, protocol: u8, nameserver: ?*anyopaque) void {
         qtc.QDnsLookup_SetNameserver2(@ptrCast(self), @intCast(protocol), @ptrCast(nameserver));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
     /// ``` self: QtC.QDnsLookup, nameserver: QtC.QHostAddress, port: u16 ```
     pub fn SetNameserver3(self: ?*anyopaque, nameserver: ?*anyopaque, port: u16) void {
         qtc.QDnsLookup_SetNameserver3(@ptrCast(self), @ptrCast(nameserver), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#canonicalNameRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#canonicalNameRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn CanonicalNameRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsDomainNameRecord {
@@ -791,7 +791,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#hostAddressRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#hostAddressRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn HostAddressRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsHostAddressRecord {
@@ -803,7 +803,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#mailExchangeRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#mailExchangeRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn MailExchangeRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsMailExchangeRecord {
@@ -815,7 +815,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameServerRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameServerRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn NameServerRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsDomainNameRecord {
@@ -827,7 +827,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#pointerRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#pointerRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn PointerRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsDomainNameRecord {
@@ -839,7 +839,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#serviceRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#serviceRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn ServiceRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsServiceRecord {
@@ -851,7 +851,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#textRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#textRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn TextRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsTextRecord {
@@ -863,7 +863,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#tlsAssociationRecords)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#tlsAssociationRecords)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn TlsAssociationRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsTlsAssociationRecord {
@@ -875,63 +875,63 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setSslConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setSslConfiguration)
     ///
     /// ``` self: QtC.QDnsLookup, sslConfiguration: QtC.QSslConfiguration ```
     pub fn SetSslConfiguration(self: ?*anyopaque, sslConfiguration: ?*anyopaque) void {
         qtc.QDnsLookup_SetSslConfiguration(@ptrCast(self), @ptrCast(sslConfiguration));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#sslConfiguration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#sslConfiguration)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn SslConfiguration(self: ?*anyopaque) QtC.QSslConfiguration {
         return qtc.QDnsLookup_SslConfiguration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#isProtocolSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#isProtocolSupported)
     ///
     /// ``` protocol: qdnslookup_enums.Protocol ```
     pub fn IsProtocolSupported(protocol: u8) bool {
         return qtc.QDnsLookup_IsProtocolSupported(@intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#defaultPortForProtocol)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#defaultPortForProtocol)
     ///
     /// ``` protocol: qdnslookup_enums.Protocol ```
     pub fn DefaultPortForProtocol(protocol: u8) u16 {
         return qtc.QDnsLookup_DefaultPortForProtocol(@intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#abort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#abort)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn Abort(self: ?*anyopaque) void {
         qtc.QDnsLookup_Abort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#lookup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#lookup)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn Lookup(self: ?*anyopaque) void {
         qtc.QDnsLookup_Lookup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#finished)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn Finished(self: ?*anyopaque) void {
         qtc.QDnsLookup_Finished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#finished)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8 ```
     pub fn NameChanged(self: ?*anyopaque, name: []const u8) void {
@@ -942,70 +942,70 @@ pub const qdnslookup = struct {
         qtc.QDnsLookup_NameChanged(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup, name: [*:0]const u8) callconv(.c) void ```
     pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
     ///
     /// ``` self: QtC.QDnsLookup, typeVal: qdnslookup_enums.Type ```
     pub fn TypeChanged(self: ?*anyopaque, typeVal: i32) void {
         qtc.QDnsLookup_TypeChanged(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup, typeVal: qdnslookup_enums.Type) callconv(.c) void ```
     pub fn OnTypeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_TypeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverChanged)
     ///
     /// ``` self: QtC.QDnsLookup, nameserver: QtC.QHostAddress ```
     pub fn NameserverChanged(self: ?*anyopaque, nameserver: ?*anyopaque) void {
         qtc.QDnsLookup_NameserverChanged(@ptrCast(self), @ptrCast(nameserver));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverChanged)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup, nameserver: QtC.QHostAddress) callconv(.c) void ```
     pub fn OnNameserverChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
     ///
     /// ``` self: QtC.QDnsLookup, port: u16 ```
     pub fn NameserverPortChanged(self: ?*anyopaque, port: u16) void {
         qtc.QDnsLookup_NameserverPortChanged(@ptrCast(self), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup, port: u16) callconv(.c) void ```
     pub fn OnNameserverPortChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverPortChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
     ///
     /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol ```
     pub fn NameserverProtocolChanged(self: ?*anyopaque, protocol: u8) void {
         qtc.QDnsLookup_NameserverProtocolChanged(@ptrCast(self), @intCast(protocol));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol) callconv(.c) void ```
     pub fn OnNameserverProtocolChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, u8) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverProtocolChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1018,7 +1018,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1031,7 +1031,7 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
     /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress, port: u16 ```
     pub fn SetNameserver32(self: ?*anyopaque, protocol: u8, nameserver: ?*anyopaque, port: u16) void {
@@ -1040,7 +1040,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1053,7 +1053,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1066,7 +1066,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1075,7 +1075,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1084,7 +1084,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1093,7 +1093,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1102,7 +1102,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QDnsLookup, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1111,7 +1111,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1120,7 +1120,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDnsLookup, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1129,7 +1129,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDnsLookup, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1138,7 +1138,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDnsLookup, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1147,7 +1147,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDnsLookup, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1156,7 +1156,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1170,7 +1170,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QDnsLookup, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1179,7 +1179,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QDnsLookup, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1188,7 +1188,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QDnsLookup, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1197,7 +1197,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1206,7 +1206,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDnsLookup, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1217,7 +1217,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1226,7 +1226,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1235,7 +1235,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1244,7 +1244,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1253,7 +1253,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1263,7 +1263,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1273,7 +1273,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1297,7 +1297,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1306,7 +1306,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1315,7 +1315,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1324,7 +1324,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1333,7 +1333,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1342,7 +1342,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QDnsLookup, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1352,7 +1352,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QDnsLookup ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1361,7 +1361,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDnsLookup, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1370,7 +1370,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDnsLookup, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1379,7 +1379,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1388,7 +1388,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDnsLookup, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1399,7 +1399,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDnsLookup, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1408,7 +1408,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDnsLookup, callback: *const fn (self: QtC.QDnsLookup, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1417,7 +1417,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1428,7 +1428,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1439,7 +1439,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1450,7 +1450,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1461,7 +1461,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1472,7 +1472,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1483,7 +1483,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1494,7 +1494,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1505,7 +1505,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1516,7 +1516,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1527,7 +1527,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1538,7 +1538,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1549,7 +1549,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1560,7 +1560,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1571,7 +1571,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1582,7 +1582,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1593,7 +1593,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1604,7 +1604,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1615,7 +1615,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1626,7 +1626,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1637,7 +1637,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1648,7 +1648,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1659,7 +1659,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1670,7 +1670,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1681,7 +1681,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1692,7 +1692,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1703,7 +1703,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1714,7 +1714,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1726,7 +1726,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1738,7 +1738,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1749,7 +1749,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1760,7 +1760,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1771,7 +1771,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1782,7 +1782,7 @@ pub const qdnslookup = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1791,7 +1791,7 @@ pub const qdnslookup = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#dtor.QDnsLookup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#dtor.QDnsLookup)
     ///
     /// Delete this object from C++ memory.
     ///

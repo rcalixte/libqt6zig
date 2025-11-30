@@ -18,28 +18,28 @@ pub const kserviceaction = struct {
         return qtc.KServiceAction_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#operator-eq)
     ///
     /// ``` self: QtC.KServiceAction, other: QtC.KServiceAction ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KServiceAction_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#setData)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#setData)
     ///
     /// ``` self: QtC.KServiceAction, userData: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, userData: ?*anyopaque) void {
         qtc.KServiceAction_SetData(@ptrCast(self), @ptrCast(userData));
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#data)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#data)
     ///
     /// ``` self: QtC.KServiceAction ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
         return qtc.KServiceAction_Data(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#name)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#name)
     ///
     /// ``` self: QtC.KServiceAction, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -50,7 +50,7 @@ pub const kserviceaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#text)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#text)
     ///
     /// ``` self: QtC.KServiceAction, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -61,7 +61,7 @@ pub const kserviceaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#icon)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#icon)
     ///
     /// ``` self: QtC.KServiceAction, allocator: std.mem.Allocator ```
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -72,7 +72,7 @@ pub const kserviceaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#exec)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#exec)
     ///
     /// ``` self: QtC.KServiceAction, allocator: std.mem.Allocator ```
     pub fn Exec(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -83,21 +83,21 @@ pub const kserviceaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#noDisplay)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#noDisplay)
     ///
     /// ``` self: QtC.KServiceAction ```
     pub fn NoDisplay(self: ?*anyopaque) bool {
         return qtc.KServiceAction_NoDisplay(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#isSeparator)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#isSeparator)
     ///
     /// ``` self: QtC.KServiceAction ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
         return qtc.KServiceAction_IsSeparator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kserviceaction.html#dtor.KServiceAction)
+    /// [Upstream resources](https://api.kde.org/kserviceaction.html#dtor.KServiceAction)
     ///
     /// Delete this object from C++ memory.
     ///

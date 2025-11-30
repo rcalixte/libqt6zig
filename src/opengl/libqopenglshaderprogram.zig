@@ -21,7 +21,7 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_new2(@intCast(typeVal), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const qopenglshader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#shaderType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#shaderType)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     ///
@@ -74,7 +74,7 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_ShaderType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShader, source: []const u8 ```
     pub fn CompileSourceCode(self: ?*anyopaque, source: []const u8) bool {
@@ -82,7 +82,7 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_CompileSourceCode(@ptrCast(self), source_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShader, source: []u8 ```
     pub fn CompileSourceCode2(self: ?*anyopaque, source: []u8) bool {
@@ -93,7 +93,7 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_CompileSourceCode2(@ptrCast(self), source_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShader, source: []const u8 ```
     pub fn CompileSourceCode3(self: ?*anyopaque, source: []const u8) bool {
@@ -104,7 +104,7 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_CompileSourceCode3(@ptrCast(self), source_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceFile)
     ///
     /// ``` self: QtC.QOpenGLShader, fileName: []const u8 ```
     pub fn CompileSourceFile(self: ?*anyopaque, fileName: []const u8) bool {
@@ -115,7 +115,7 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_CompileSourceFile(@ptrCast(self), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#sourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#sourceCode)
     ///
     /// ``` self: QtC.QOpenGLShader, allocator: std.mem.Allocator ```
     pub fn SourceCode(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -126,14 +126,14 @@ pub const qopenglshader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#isCompiled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#isCompiled)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn IsCompiled(self: ?*anyopaque) bool {
         return qtc.QOpenGLShader_IsCompiled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#log)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#log)
     ///
     /// ``` self: QtC.QOpenGLShader, allocator: std.mem.Allocator ```
     pub fn Log(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -144,21 +144,21 @@ pub const qopenglshader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#shaderId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#shaderId)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn ShaderId(self: ?*anyopaque) u32 {
         return qtc.QOpenGLShader_ShaderId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#hasOpenGLShaders)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#hasOpenGLShaders)
     ///
     /// ``` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit ```
     pub fn HasOpenGLShaders(typeVal: i32) bool {
         return qtc.QOpenGLShader_HasOpenGLShaders(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -171,7 +171,7 @@ pub const qopenglshader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -184,7 +184,7 @@ pub const qopenglshader = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#hasOpenGLShaders)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#hasOpenGLShaders)
     ///
     /// ``` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, context: QtC.QOpenGLContext ```
     pub fn HasOpenGLShaders2(typeVal: i32, context: ?*anyopaque) bool {
@@ -193,7 +193,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QOpenGLShader, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -206,7 +206,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QOpenGLShader, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -219,7 +219,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -228,7 +228,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -237,7 +237,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -246,7 +246,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -255,7 +255,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QOpenGLShader, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -264,7 +264,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -273,7 +273,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLShader, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -282,7 +282,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLShader, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -291,7 +291,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLShader, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -300,7 +300,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLShader, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -309,7 +309,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QOpenGLShader, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -323,7 +323,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QOpenGLShader, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -332,7 +332,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QOpenGLShader, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -341,7 +341,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QOpenGLShader, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -350,7 +350,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -359,7 +359,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLShader, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -370,7 +370,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -379,7 +379,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -388,7 +388,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -397,7 +397,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -406,7 +406,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QOpenGLShader, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -416,7 +416,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QOpenGLShader, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -426,7 +426,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QOpenGLShader, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -450,7 +450,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -459,7 +459,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -468,7 +468,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -477,7 +477,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShader, callback: *const fn (self: QtC.QOpenGLShader) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -486,7 +486,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -495,7 +495,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QOpenGLShader, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -505,7 +505,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QOpenGLShader ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -514,7 +514,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLShader, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -523,7 +523,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLShader, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -532,7 +532,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -541,7 +541,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLShader, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -552,7 +552,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShader, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -561,7 +561,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShader, callback: *const fn (self: QtC.QOpenGLShader, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -570,7 +570,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -581,7 +581,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -592,7 +592,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -603,7 +603,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -614,7 +614,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -625,7 +625,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -636,7 +636,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -647,7 +647,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -658,7 +658,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -669,7 +669,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -680,7 +680,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -691,7 +691,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -702,7 +702,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -713,7 +713,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -724,7 +724,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -735,7 +735,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -746,7 +746,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -757,7 +757,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -768,7 +768,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -779,7 +779,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -790,7 +790,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -801,7 +801,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -812,7 +812,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -823,7 +823,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -834,7 +834,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -845,7 +845,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -856,7 +856,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -867,7 +867,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -879,7 +879,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -891,7 +891,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -902,7 +902,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -913,7 +913,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -924,7 +924,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -935,7 +935,7 @@ pub const qopenglshader = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -944,7 +944,7 @@ pub const qopenglshader = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshader.html#dtor.QOpenGLShader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#dtor.QOpenGLShader)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -970,7 +970,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1002,7 +1002,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1014,21 +1014,21 @@ pub const qopenglshaderprogram = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShader)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, shader: QtC.QOpenGLShader ```
     pub fn AddShader(self: ?*anyopaque, shader: ?*anyopaque) bool {
         return qtc.QOpenGLShaderProgram_AddShader(@ptrCast(self), @ptrCast(shader));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#removeShader)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#removeShader)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, shader: QtC.QOpenGLShader ```
     pub fn RemoveShader(self: ?*anyopaque, shader: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_RemoveShader(@ptrCast(self), @ptrCast(shader));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#shaders)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#shaders)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, allocator: std.mem.Allocator ```
     pub fn Shaders(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QOpenGLShader {
@@ -1040,7 +1040,7 @@ pub const qopenglshaderprogram = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, source: []const u8 ```
     pub fn AddShaderFromSourceCode(self: ?*anyopaque, typeVal: i32, source: []const u8) bool {
@@ -1048,7 +1048,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceCode(@ptrCast(self), @intCast(typeVal), source_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, source: []u8 ```
     pub fn AddShaderFromSourceCode2(self: ?*anyopaque, typeVal: i32, source: []u8) bool {
@@ -1059,7 +1059,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceCode2(@ptrCast(self), @intCast(typeVal), source_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, source: []const u8 ```
     pub fn AddShaderFromSourceCode3(self: ?*anyopaque, typeVal: i32, source: []const u8) bool {
@@ -1070,7 +1070,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceCode3(@ptrCast(self), @intCast(typeVal), source_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceFile)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, fileName: []const u8 ```
     pub fn AddShaderFromSourceFile(self: ?*anyopaque, typeVal: i32, fileName: []const u8) bool {
@@ -1081,7 +1081,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceFile(@ptrCast(self), @intCast(typeVal), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, source: []const u8 ```
     pub fn AddCacheableShaderFromSourceCode(self: ?*anyopaque, typeVal: i32, source: []const u8) bool {
@@ -1089,7 +1089,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceCode(@ptrCast(self), @intCast(typeVal), source_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, source: []u8 ```
     pub fn AddCacheableShaderFromSourceCode2(self: ?*anyopaque, typeVal: i32, source: []u8) bool {
@@ -1100,7 +1100,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceCode2(@ptrCast(self), @intCast(typeVal), source_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, source: []const u8 ```
     pub fn AddCacheableShaderFromSourceCode3(self: ?*anyopaque, typeVal: i32, source: []const u8) bool {
@@ -1111,7 +1111,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceCode3(@ptrCast(self), @intCast(typeVal), source_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceFile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceFile)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit, fileName: []const u8 ```
     pub fn AddCacheableShaderFromSourceFile(self: ?*anyopaque, typeVal: i32, fileName: []const u8) bool {
@@ -1122,21 +1122,21 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceFile(@ptrCast(self), @intCast(typeVal), fileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#removeAllShaders)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#removeAllShaders)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn RemoveAllShaders(self: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_RemoveAllShaders(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn Link(self: ?*anyopaque) bool {
         return qtc.QOpenGLShaderProgram_Link(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1145,7 +1145,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_OnLink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
     ///
     /// Base class method implementation
     ///
@@ -1154,14 +1154,14 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_QBaseLink(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#isLinked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#isLinked)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn IsLinked(self: ?*anyopaque) bool {
         return qtc.QOpenGLShaderProgram_IsLinked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#log)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#log)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, allocator: std.mem.Allocator ```
     pub fn Log(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1172,56 +1172,56 @@ pub const qopenglshaderprogram = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bind)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bind)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn Bind(self: ?*anyopaque) bool {
         return qtc.QOpenGLShaderProgram_Bind(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#release)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn Release(self: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_Release(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#create)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn Create(self: ?*anyopaque) bool {
         return qtc.QOpenGLShaderProgram_Create(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#programId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#programId)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn ProgramId(self: ?*anyopaque) u32 {
         return qtc.QOpenGLShaderProgram_ProgramId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#maxGeometryOutputVertices)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#maxGeometryOutputVertices)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn MaxGeometryOutputVertices(self: ?*anyopaque) i32 {
         return qtc.QOpenGLShaderProgram_MaxGeometryOutputVertices(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setPatchVertexCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setPatchVertexCount)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, count: i32 ```
     pub fn SetPatchVertexCount(self: ?*anyopaque, count: i32) void {
         qtc.QOpenGLShaderProgram_SetPatchVertexCount(@ptrCast(self), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#patchVertexCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#patchVertexCount)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn PatchVertexCount(self: ?*anyopaque) i32 {
         return qtc.QOpenGLShaderProgram_PatchVertexCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setDefaultOuterTessellationLevels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setDefaultOuterTessellationLevels)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, levels: []f32 ```
     pub fn SetDefaultOuterTessellationLevels(self: ?*anyopaque, levels: []f32) void {
@@ -1232,7 +1232,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetDefaultOuterTessellationLevels(@ptrCast(self), levels_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#defaultOuterTessellationLevels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#defaultOuterTessellationLevels)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, allocator: std.mem.Allocator ```
     pub fn DefaultOuterTessellationLevels(self: ?*anyopaque, allocator: std.mem.Allocator) []f32 {
@@ -1244,7 +1244,7 @@ pub const qopenglshaderprogram = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setDefaultInnerTessellationLevels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setDefaultInnerTessellationLevels)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, levels: []f32 ```
     pub fn SetDefaultInnerTessellationLevels(self: ?*anyopaque, levels: []f32) void {
@@ -1255,7 +1255,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetDefaultInnerTessellationLevels(@ptrCast(self), levels_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#defaultInnerTessellationLevels)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#defaultInnerTessellationLevels)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, allocator: std.mem.Allocator ```
     pub fn DefaultInnerTessellationLevels(self: ?*anyopaque, allocator: std.mem.Allocator) []f32 {
@@ -1267,7 +1267,7 @@ pub const qopenglshaderprogram = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, location: i32 ```
     pub fn BindAttributeLocation(self: ?*anyopaque, name: []const u8, location: i32) void {
@@ -1275,7 +1275,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_BindAttributeLocation(@ptrCast(self), name_Cstring, @intCast(location));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []u8, location: i32 ```
     pub fn BindAttributeLocation2(self: ?*anyopaque, name: []u8, location: i32) void {
@@ -1286,7 +1286,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_BindAttributeLocation2(@ptrCast(self), name_str, @intCast(location));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, location: i32 ```
     pub fn BindAttributeLocation3(self: ?*anyopaque, name: []const u8, location: i32) void {
@@ -1297,7 +1297,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_BindAttributeLocation3(@ptrCast(self), name_str, @intCast(location));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn AttributeLocation(self: ?*anyopaque, name: []const u8) i32 {
@@ -1305,7 +1305,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AttributeLocation(@ptrCast(self), name_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []u8 ```
     pub fn AttributeLocation2(self: ?*anyopaque, name: []u8) i32 {
@@ -1316,7 +1316,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AttributeLocation2(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn AttributeLocation3(self: ?*anyopaque, name: []const u8) i32 {
@@ -1327,70 +1327,70 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_AttributeLocation3(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: f32 ```
     pub fn SetAttributeValue(self: ?*anyopaque, location: i32, value: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue(@ptrCast(self), @intCast(location), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, x: f32, y: f32 ```
     pub fn SetAttributeValue2(self: ?*anyopaque, location: i32, x: f32, y: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue2(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32 ```
     pub fn SetAttributeValue3(self: ?*anyopaque, location: i32, x: f32, y: f32, z: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue3(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y), @floatCast(z));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32, w: f32 ```
     pub fn SetAttributeValue4(self: ?*anyopaque, location: i32, x: f32, y: f32, z: f32, w: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue4(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QVector2D ```
     pub fn SetAttributeValue5(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue5(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QVector3D ```
     pub fn SetAttributeValue6(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue6(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QVector4D ```
     pub fn SetAttributeValue7(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue7(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QColor ```
     pub fn SetAttributeValue8(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue8(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, columns: i32, rows: i32 ```
     pub fn SetAttributeValue9(self: ?*anyopaque, location: i32, values: []const f32, columns: i32, rows: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue9(@ptrCast(self), @intCast(location), values.ptr, @intCast(columns), @intCast(rows));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: f32 ```
     pub fn SetAttributeValue10(self: ?*anyopaque, name: []const u8, value: f32) void {
@@ -1398,7 +1398,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue10(@ptrCast(self), name_Cstring, @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, x: f32, y: f32 ```
     pub fn SetAttributeValue11(self: ?*anyopaque, name: []const u8, x: f32, y: f32) void {
@@ -1406,7 +1406,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue11(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, x: f32, y: f32, z: f32 ```
     pub fn SetAttributeValue12(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32) void {
@@ -1414,7 +1414,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue12(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, x: f32, y: f32, z: f32, w: f32 ```
     pub fn SetAttributeValue13(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32, w: f32) void {
@@ -1422,7 +1422,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue13(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QVector2D ```
     pub fn SetAttributeValue14(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1430,7 +1430,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue14(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QVector3D ```
     pub fn SetAttributeValue15(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1438,7 +1438,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue15(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QVector4D ```
     pub fn SetAttributeValue16(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1446,7 +1446,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue16(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QColor ```
     pub fn SetAttributeValue17(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1454,7 +1454,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue17(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, columns: i32, rows: i32 ```
     pub fn SetAttributeValue18(self: ?*anyopaque, name: []const u8, values: []const f32, columns: i32, rows: i32) void {
@@ -1462,42 +1462,42 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeValue18(@ptrCast(self), name_Cstring, values.ptr, @intCast(columns), @intCast(rows));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32 ```
     pub fn SetAttributeArray(self: ?*anyopaque, location: i32, values: []const f32, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray(@ptrCast(self), @intCast(location), values.ptr, @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector2D ```
     pub fn SetAttributeArray2(self: ?*anyopaque, location: i32, values: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray2(@ptrCast(self), @intCast(location), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector3D ```
     pub fn SetAttributeArray3(self: ?*anyopaque, location: i32, values: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray3(@ptrCast(self), @intCast(location), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector4D ```
     pub fn SetAttributeArray4(self: ?*anyopaque, location: i32, values: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray4(@ptrCast(self), @intCast(location), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, typeVal: u32, values: ?*anyopaque, tupleSize: i32 ```
     pub fn SetAttributeArray5(self: ?*anyopaque, location: i32, typeVal: u32, values: ?*anyopaque, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray5(@ptrCast(self), @intCast(location), @intCast(typeVal), @ptrCast(values), @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, tupleSize: i32 ```
     pub fn SetAttributeArray6(self: ?*anyopaque, name: []const u8, values: []const f32, tupleSize: i32) void {
@@ -1505,7 +1505,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray6(@ptrCast(self), name_Cstring, values.ptr, @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector2D ```
     pub fn SetAttributeArray7(self: ?*anyopaque, name: []const u8, values: ?*anyopaque) void {
@@ -1513,7 +1513,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray7(@ptrCast(self), name_Cstring, @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector3D ```
     pub fn SetAttributeArray8(self: ?*anyopaque, name: []const u8, values: ?*anyopaque) void {
@@ -1521,7 +1521,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray8(@ptrCast(self), name_Cstring, @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector4D ```
     pub fn SetAttributeArray9(self: ?*anyopaque, name: []const u8, values: ?*anyopaque) void {
@@ -1529,7 +1529,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray9(@ptrCast(self), name_Cstring, @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, typeVal: u32, values: ?*anyopaque, tupleSize: i32 ```
     pub fn SetAttributeArray10(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*anyopaque, tupleSize: i32) void {
@@ -1537,14 +1537,14 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray10(@ptrCast(self), name_Cstring, @intCast(typeVal), @ptrCast(values), @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, typeVal: u32, offset: i32, tupleSize: i32 ```
     pub fn SetAttributeBuffer(self: ?*anyopaque, location: i32, typeVal: u32, offset: i32, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeBuffer(@ptrCast(self), @intCast(location), @intCast(typeVal), @intCast(offset), @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, typeVal: u32, offset: i32, tupleSize: i32 ```
     pub fn SetAttributeBuffer2(self: ?*anyopaque, name: []const u8, typeVal: u32, offset: i32, tupleSize: i32) void {
@@ -1552,14 +1552,14 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeBuffer2(@ptrCast(self), name_Cstring, @intCast(typeVal), @intCast(offset), @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#enableAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#enableAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32 ```
     pub fn EnableAttributeArray(self: ?*anyopaque, location: i32) void {
         qtc.QOpenGLShaderProgram_EnableAttributeArray(@ptrCast(self), @intCast(location));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#enableAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#enableAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn EnableAttributeArray2(self: ?*anyopaque, name: []const u8) void {
@@ -1567,14 +1567,14 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_EnableAttributeArray2(@ptrCast(self), name_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#disableAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#disableAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32 ```
     pub fn DisableAttributeArray(self: ?*anyopaque, location: i32) void {
         qtc.QOpenGLShaderProgram_DisableAttributeArray(@ptrCast(self), @intCast(location));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#disableAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#disableAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn DisableAttributeArray2(self: ?*anyopaque, name: []const u8) void {
@@ -1582,7 +1582,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_DisableAttributeArray2(@ptrCast(self), name_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn UniformLocation(self: ?*anyopaque, name: []const u8) i32 {
@@ -1590,7 +1590,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_UniformLocation(@ptrCast(self), name_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []u8 ```
     pub fn UniformLocation2(self: ?*anyopaque, name: []u8) i32 {
@@ -1601,7 +1601,7 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_UniformLocation2(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn UniformLocation3(self: ?*anyopaque, name: []const u8) i32 {
@@ -1612,119 +1612,119 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_UniformLocation3(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: f32 ```
     pub fn SetUniformValue(self: ?*anyopaque, location: i32, value: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue(@ptrCast(self), @intCast(location), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: i32 ```
     pub fn SetUniformValue2(self: ?*anyopaque, location: i32, value: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue2(@ptrCast(self), @intCast(location), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: u32 ```
     pub fn SetUniformValue3(self: ?*anyopaque, location: i32, value: u32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue3(@ptrCast(self), @intCast(location), @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, x: f32, y: f32 ```
     pub fn SetUniformValue4(self: ?*anyopaque, location: i32, x: f32, y: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue4(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32 ```
     pub fn SetUniformValue5(self: ?*anyopaque, location: i32, x: f32, y: f32, z: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue5(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y), @floatCast(z));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32, w: f32 ```
     pub fn SetUniformValue6(self: ?*anyopaque, location: i32, x: f32, y: f32, z: f32, w: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue6(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QVector2D ```
     pub fn SetUniformValue7(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue7(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QVector3D ```
     pub fn SetUniformValue8(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue8(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QVector4D ```
     pub fn SetUniformValue9(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue9(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, color: QtC.QColor ```
     pub fn SetUniformValue10(self: ?*anyopaque, location: i32, color: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue10(@ptrCast(self), @intCast(location), @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, point: QtC.QPoint ```
     pub fn SetUniformValue11(self: ?*anyopaque, location: i32, point: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue11(@ptrCast(self), @intCast(location), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, point: QtC.QPointF ```
     pub fn SetUniformValue12(self: ?*anyopaque, location: i32, point: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue12(@ptrCast(self), @intCast(location), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, size: QtC.QSize ```
     pub fn SetUniformValue13(self: ?*anyopaque, location: i32, size: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue13(@ptrCast(self), @intCast(location), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, size: QtC.QSizeF ```
     pub fn SetUniformValue14(self: ?*anyopaque, location: i32, size: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue14(@ptrCast(self), @intCast(location), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QMatrix4x4 ```
     pub fn SetUniformValue23(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue23(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, value: QtC.QTransform ```
     pub fn SetUniformValue24(self: ?*anyopaque, location: i32, value: ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_SetUniformValue24(@ptrCast(self), @intCast(location), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: f32 ```
     pub fn SetUniformValue25(self: ?*anyopaque, name: []const u8, value: f32) void {
@@ -1732,7 +1732,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue25(@ptrCast(self), name_Cstring, @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: i32 ```
     pub fn SetUniformValue26(self: ?*anyopaque, name: []const u8, value: i32) void {
@@ -1740,7 +1740,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue26(@ptrCast(self), name_Cstring, @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: u32 ```
     pub fn SetUniformValue27(self: ?*anyopaque, name: []const u8, value: u32) void {
@@ -1748,7 +1748,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue27(@ptrCast(self), name_Cstring, @intCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, x: f32, y: f32 ```
     pub fn SetUniformValue28(self: ?*anyopaque, name: []const u8, x: f32, y: f32) void {
@@ -1756,7 +1756,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue28(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, x: f32, y: f32, z: f32 ```
     pub fn SetUniformValue29(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32) void {
@@ -1764,7 +1764,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue29(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, x: f32, y: f32, z: f32, w: f32 ```
     pub fn SetUniformValue30(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32, w: f32) void {
@@ -1772,7 +1772,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue30(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QVector2D ```
     pub fn SetUniformValue31(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1780,7 +1780,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue31(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QVector3D ```
     pub fn SetUniformValue32(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1788,7 +1788,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue32(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QVector4D ```
     pub fn SetUniformValue33(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1796,7 +1796,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue33(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, color: QtC.QColor ```
     pub fn SetUniformValue34(self: ?*anyopaque, name: []const u8, color: ?*anyopaque) void {
@@ -1804,7 +1804,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue34(@ptrCast(self), name_Cstring, @ptrCast(color));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, point: QtC.QPoint ```
     pub fn SetUniformValue35(self: ?*anyopaque, name: []const u8, point: ?*anyopaque) void {
@@ -1812,7 +1812,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue35(@ptrCast(self), name_Cstring, @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, point: QtC.QPointF ```
     pub fn SetUniformValue36(self: ?*anyopaque, name: []const u8, point: ?*anyopaque) void {
@@ -1820,7 +1820,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue36(@ptrCast(self), name_Cstring, @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, size: QtC.QSize ```
     pub fn SetUniformValue37(self: ?*anyopaque, name: []const u8, size: ?*anyopaque) void {
@@ -1828,7 +1828,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue37(@ptrCast(self), name_Cstring, @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, size: QtC.QSizeF ```
     pub fn SetUniformValue38(self: ?*anyopaque, name: []const u8, size: ?*anyopaque) void {
@@ -1836,7 +1836,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue38(@ptrCast(self), name_Cstring, @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QMatrix4x4 ```
     pub fn SetUniformValue47(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1844,7 +1844,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue47(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QTransform ```
     pub fn SetUniformValue48(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
@@ -1852,56 +1852,56 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValue48(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, count: i32, tupleSize: i32 ```
     pub fn SetUniformValueArray(self: ?*anyopaque, location: i32, values: []const f32, count: i32, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray(@ptrCast(self), @intCast(location), values.ptr, @intCast(count), @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const i32, count: i32 ```
     pub fn SetUniformValueArray2(self: ?*anyopaque, location: i32, values: []const i32, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray2(@ptrCast(self), @intCast(location), values.ptr, @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const u32, count: i32 ```
     pub fn SetUniformValueArray3(self: ?*anyopaque, location: i32, values: []const u32, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray3(@ptrCast(self), @intCast(location), values.ptr, @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector2D, count: i32 ```
     pub fn SetUniformValueArray4(self: ?*anyopaque, location: i32, values: ?*anyopaque, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray4(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector3D, count: i32 ```
     pub fn SetUniformValueArray5(self: ?*anyopaque, location: i32, values: ?*anyopaque, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray5(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector4D, count: i32 ```
     pub fn SetUniformValueArray6(self: ?*anyopaque, location: i32, values: ?*anyopaque, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray6(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QMatrix4x4, count: i32 ```
     pub fn SetUniformValueArray15(self: ?*anyopaque, location: i32, values: ?*anyopaque, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray15(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, count: i32, tupleSize: i32 ```
     pub fn SetUniformValueArray16(self: ?*anyopaque, name: []const u8, values: []const f32, count: i32, tupleSize: i32) void {
@@ -1909,7 +1909,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValueArray16(@ptrCast(self), name_Cstring, values.ptr, @intCast(count), @intCast(tupleSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const i32, count: i32 ```
     pub fn SetUniformValueArray17(self: ?*anyopaque, name: []const u8, values: []const i32, count: i32) void {
@@ -1917,7 +1917,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValueArray17(@ptrCast(self), name_Cstring, values.ptr, @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const u32, count: i32 ```
     pub fn SetUniformValueArray18(self: ?*anyopaque, name: []const u8, values: []const u32, count: i32) void {
@@ -1925,7 +1925,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValueArray18(@ptrCast(self), name_Cstring, values.ptr, @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector2D, count: i32 ```
     pub fn SetUniformValueArray19(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
@@ -1933,7 +1933,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValueArray19(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector3D, count: i32 ```
     pub fn SetUniformValueArray20(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
@@ -1941,7 +1941,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValueArray20(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector4D, count: i32 ```
     pub fn SetUniformValueArray21(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
@@ -1949,7 +1949,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValueArray21(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QMatrix4x4, count: i32 ```
     pub fn SetUniformValueArray30(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
@@ -1957,14 +1957,14 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetUniformValueArray30(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#hasOpenGLShaderPrograms)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#hasOpenGLShaderPrograms)
     ///
     ///
     pub fn HasOpenGLShaderPrograms() bool {
         return qtc.QOpenGLShaderProgram_HasOpenGLShaderPrograms();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1977,7 +1977,7 @@ pub const qopenglshaderprogram = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1990,42 +1990,42 @@ pub const qopenglshaderprogram = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32, stride: i32 ```
     pub fn SetAttributeArray42(self: ?*anyopaque, location: i32, values: []const f32, tupleSize: i32, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray42(@ptrCast(self), @intCast(location), values.ptr, @intCast(tupleSize), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector2D, stride: i32 ```
     pub fn SetAttributeArray32(self: ?*anyopaque, location: i32, values: ?*anyopaque, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray32(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector3D, stride: i32 ```
     pub fn SetAttributeArray33(self: ?*anyopaque, location: i32, values: ?*anyopaque, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray33(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: QtC.QVector4D, stride: i32 ```
     pub fn SetAttributeArray34(self: ?*anyopaque, location: i32, values: ?*anyopaque, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray34(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, typeVal: u32, values: ?*anyopaque, tupleSize: i32, stride: i32 ```
     pub fn SetAttributeArray52(self: ?*anyopaque, location: i32, typeVal: u32, values: ?*anyopaque, tupleSize: i32, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray52(@ptrCast(self), @intCast(location), @intCast(typeVal), @ptrCast(values), @intCast(tupleSize), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, tupleSize: i32, stride: i32 ```
     pub fn SetAttributeArray43(self: ?*anyopaque, name: []const u8, values: []const f32, tupleSize: i32, stride: i32) void {
@@ -2033,7 +2033,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray43(@ptrCast(self), name_Cstring, values.ptr, @intCast(tupleSize), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector2D, stride: i32 ```
     pub fn SetAttributeArray35(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, stride: i32) void {
@@ -2041,7 +2041,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray35(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector3D, stride: i32 ```
     pub fn SetAttributeArray36(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, stride: i32) void {
@@ -2049,7 +2049,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray36(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: QtC.QVector4D, stride: i32 ```
     pub fn SetAttributeArray37(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, stride: i32) void {
@@ -2057,7 +2057,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray37(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, typeVal: u32, values: ?*anyopaque, tupleSize: i32, stride: i32 ```
     pub fn SetAttributeArray53(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*anyopaque, tupleSize: i32, stride: i32) void {
@@ -2065,14 +2065,14 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeArray53(@ptrCast(self), name_Cstring, @intCast(typeVal), @ptrCast(values), @intCast(tupleSize), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, location: i32, typeVal: u32, offset: i32, tupleSize: i32, stride: i32 ```
     pub fn SetAttributeBuffer5(self: ?*anyopaque, location: i32, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeBuffer5(@ptrCast(self), @intCast(location), @intCast(typeVal), @intCast(offset), @intCast(tupleSize), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, typeVal: u32, offset: i32, tupleSize: i32, stride: i32 ```
     pub fn SetAttributeBuffer52(self: ?*anyopaque, name: []const u8, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
@@ -2080,7 +2080,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QOpenGLShaderProgram_SetAttributeBuffer52(@ptrCast(self), name_Cstring, @intCast(typeVal), @intCast(offset), @intCast(tupleSize), @intCast(stride));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#hasOpenGLShaderPrograms)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#hasOpenGLShaderPrograms)
     ///
     /// ``` context: QtC.QOpenGLContext ```
     pub fn HasOpenGLShaderPrograms1(context: ?*anyopaque) bool {
@@ -2089,7 +2089,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2102,7 +2102,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2115,7 +2115,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2124,7 +2124,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2133,7 +2133,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2142,7 +2142,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2151,7 +2151,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2160,7 +2160,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2169,7 +2169,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2178,7 +2178,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2187,7 +2187,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2196,7 +2196,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2205,7 +2205,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2219,7 +2219,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2228,7 +2228,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2237,7 +2237,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2246,7 +2246,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2255,7 +2255,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2266,7 +2266,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2275,7 +2275,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2284,7 +2284,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2293,7 +2293,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2302,7 +2302,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2312,7 +2312,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2322,7 +2322,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2346,7 +2346,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2355,7 +2355,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2364,7 +2364,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2373,7 +2373,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, callback: *const fn (self: QtC.QOpenGLShaderProgram) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2382,7 +2382,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2391,7 +2391,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2401,7 +2401,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2410,7 +2410,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2419,7 +2419,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2428,7 +2428,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2437,7 +2437,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2448,7 +2448,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2457,7 +2457,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QOpenGLShaderProgram, callback: *const fn (self: QtC.QOpenGLShaderProgram, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2466,7 +2466,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2477,7 +2477,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2488,7 +2488,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2499,7 +2499,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2510,7 +2510,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2521,7 +2521,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2532,7 +2532,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2543,7 +2543,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2554,7 +2554,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2565,7 +2565,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2576,7 +2576,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2587,7 +2587,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2598,7 +2598,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2609,7 +2609,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2620,7 +2620,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2631,7 +2631,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2642,7 +2642,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2653,7 +2653,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2664,7 +2664,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2675,7 +2675,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2686,7 +2686,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2697,7 +2697,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2708,7 +2708,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2719,7 +2719,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2730,7 +2730,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2741,7 +2741,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2752,7 +2752,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2763,7 +2763,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2775,7 +2775,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2787,7 +2787,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2798,7 +2798,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2809,7 +2809,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2820,7 +2820,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2831,7 +2831,7 @@ pub const qopenglshaderprogram = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2840,7 +2840,7 @@ pub const qopenglshaderprogram = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#dtor.QOpenGLShaderProgram)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#dtor.QOpenGLShaderProgram)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -50,7 +50,7 @@ pub const qstringencoder = struct {
         return qtc.QStringEncoder_new5(name_str, @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringencoder.html#requiredSpace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringencoder.html#requiredSpace)
     ///
     /// ``` self: QtC.QStringEncoder, inputLength: i64 ```
     pub fn RequiredSpace(self: ?*anyopaque, inputLength: i64) i64 {
@@ -59,7 +59,7 @@ pub const qstringencoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
     ///
     /// ``` self: QtC.QStringEncoder ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -68,7 +68,7 @@ pub const qstringencoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
     ///
     /// ``` self: QtC.QStringEncoder ```
     pub fn ResetState(self: ?*anyopaque) void {
@@ -77,7 +77,7 @@ pub const qstringencoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
     ///
     /// ``` self: QtC.QStringEncoder ```
     pub fn HasError(self: ?*anyopaque) bool {
@@ -86,7 +86,7 @@ pub const qstringencoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#name)
     ///
     /// ``` self: QtC.QStringEncoder ```
     pub fn Name(self: ?*anyopaque) []const u8 {
@@ -96,7 +96,7 @@ pub const qstringencoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
     /// ``` e: qstringconverter_base_enums.Encoding ```
     pub fn NameForEncoding(e: i32) []const u8 {
@@ -106,7 +106,7 @@ pub const qstringencoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
@@ -128,7 +128,7 @@ pub const qstringencoder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringencoder.html#dtor.QStringEncoder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringencoder.html#dtor.QStringEncoder)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -185,14 +185,14 @@ pub const qstringdecoder = struct {
         return qtc.QStringDecoder_new5(name_str, @intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#requiredSpace)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#requiredSpace)
     ///
     /// ``` self: QtC.QStringDecoder, inputLength: i64 ```
     pub fn RequiredSpace(self: ?*anyopaque, inputLength: i64) i64 {
         return qtc.QStringDecoder_RequiredSpace(@ptrCast(self), @intCast(inputLength));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#appendToBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#appendToBuffer)
     ///
     /// ``` self: QtC.QStringDecoder, out: QtC.QChar, ba: []const u8 ```
     pub fn AppendToBuffer(self: ?*anyopaque, out: ?*anyopaque, ba: []const u8) QtC.QChar {
@@ -203,7 +203,7 @@ pub const qstringdecoder = struct {
         return qtc.QStringDecoder_AppendToBuffer(@ptrCast(self), @ptrCast(out), ba_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#decoderForHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#decoderForHtml)
     ///
     /// ``` data: []const u8 ```
     pub fn DecoderForHtml(data: []const u8) QtC.QStringDecoder {
@@ -216,7 +216,7 @@ pub const qstringdecoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
     ///
     /// ``` self: QtC.QStringDecoder ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -225,7 +225,7 @@ pub const qstringdecoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
     ///
     /// ``` self: QtC.QStringDecoder ```
     pub fn ResetState(self: ?*anyopaque) void {
@@ -234,7 +234,7 @@ pub const qstringdecoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
     ///
     /// ``` self: QtC.QStringDecoder ```
     pub fn HasError(self: ?*anyopaque) bool {
@@ -243,7 +243,7 @@ pub const qstringdecoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#name)
     ///
     /// ``` self: QtC.QStringDecoder ```
     pub fn Name(self: ?*anyopaque) []const u8 {
@@ -253,7 +253,7 @@ pub const qstringdecoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
     /// ``` e: qstringconverter_base_enums.Encoding ```
     pub fn NameForEncoding(e: i32) []const u8 {
@@ -263,7 +263,7 @@ pub const qstringdecoder = struct {
 
     /// Inherited from QStringConverter
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
@@ -285,7 +285,7 @@ pub const qstringdecoder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#dtor.QStringDecoder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#dtor.QStringDecoder)
     ///
     /// Delete this object from C++ memory.
     ///

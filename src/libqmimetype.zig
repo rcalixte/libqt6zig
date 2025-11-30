@@ -18,35 +18,35 @@ pub const qmimetype = struct {
         return qtc.QMimeType_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#operator-eq)
     ///
     /// ``` self: QtC.QMimeType, other: QtC.QMimeType ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMimeType_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#swap)
     ///
     /// ``` self: QtC.QMimeType, other: QtC.QMimeType ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMimeType_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#isValid)
     ///
     /// ``` self: QtC.QMimeType ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QMimeType_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#isDefault)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#isDefault)
     ///
     /// ``` self: QtC.QMimeType ```
     pub fn IsDefault(self: ?*anyopaque) bool {
         return qtc.QMimeType_IsDefault(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#name)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#name)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -57,7 +57,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#comment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#comment)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -68,7 +68,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#genericIconName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#genericIconName)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn GenericIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -79,7 +79,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#iconName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#iconName)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#globPatterns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#globPatterns)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn GlobPatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -112,7 +112,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#parentMimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#parentMimeTypes)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn ParentMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -134,7 +134,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#allAncestors)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#allAncestors)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn AllAncestors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -156,7 +156,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#aliases)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#aliases)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn Aliases(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -178,7 +178,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#suffixes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#suffixes)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn Suffixes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -200,7 +200,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#preferredSuffix)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#preferredSuffix)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn PreferredSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -211,7 +211,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#inherits)
     ///
     /// ``` self: QtC.QMimeType, mimeTypeName: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, mimeTypeName: []const u8) bool {
@@ -222,7 +222,7 @@ pub const qmimetype = struct {
         return qtc.QMimeType_Inherits(@ptrCast(self), mimeTypeName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#filterString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#filterString)
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn FilterString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -233,7 +233,7 @@ pub const qmimetype = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#dtor.QMimeType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#dtor.QMimeType)
     ///
     /// Delete this object from C++ memory.
     ///

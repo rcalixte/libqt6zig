@@ -15,7 +15,7 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_new();
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -47,7 +47,7 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -59,35 +59,35 @@ pub const konsole__emulation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn ImageSize(self: ?*anyopaque) QtC.QSize {
         return qtc.Konsole__Emulation_ImageSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn LineCount(self: ?*anyopaque) i32 {
         return qtc.Konsole__Emulation_LineCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn ClearHistory(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_ClearHistory(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn EraseChar(self: ?*anyopaque) u8 {
         return qtc.Konsole__Emulation_EraseChar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -96,7 +96,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnEraseChar(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -105,7 +105,7 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_QBaseEraseChar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, name: []const u8 ```
     pub fn SetKeyBindings(self: ?*anyopaque, name: []const u8) void {
@@ -116,7 +116,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_SetKeyBindings(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, allocator: std.mem.Allocator ```
     pub fn KeyBindings(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -127,14 +127,14 @@ pub const konsole__emulation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn ClearEntireScreen(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_ClearEntireScreen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -143,7 +143,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnClearEntireScreen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -152,14 +152,14 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseClearEntireScreen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -168,7 +168,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -177,28 +177,28 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseReset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn ProgramUsesMouse(self: ?*anyopaque) bool {
         return qtc.Konsole__Emulation_ProgramUsesMouse(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn ProgramBracketedPasteMode(self: ?*anyopaque) bool {
         return qtc.Konsole__Emulation_ProgramBracketedPasteMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, lines: i32, columns: i32 ```
     pub fn SetImageSize(self: ?*anyopaque, lines: i32, columns: i32) void {
         qtc.Konsole__Emulation_SetImageSize(@ptrCast(self), @intCast(lines), @intCast(columns));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -207,7 +207,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetImageSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -216,7 +216,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSetImageSize(@ptrCast(self), @intCast(lines), @intCast(columns));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, text: []const u8 ```
     pub fn SendText(self: ?*anyopaque, text: []const u8) void {
@@ -227,7 +227,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_SendText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -236,7 +236,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -249,14 +249,14 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSendText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, param1: QtC.QKeyEvent, fromPaste: bool ```
     pub fn SendKeyEvent(self: ?*anyopaque, param1: ?*anyopaque, fromPaste: bool) void {
         qtc.Konsole__Emulation_SendKeyEvent(@ptrCast(self), @ptrCast(param1), fromPaste);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -265,7 +265,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendKeyEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -274,14 +274,14 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSendKeyEvent(@ptrCast(self), @ptrCast(param1), fromPaste);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, buttons: i32, column: i32, line: i32, eventType: i32 ```
     pub fn SendMouseEvent(self: ?*anyopaque, buttons: i32, column: i32, line: i32, eventType: i32) void {
         qtc.Konsole__Emulation_SendMouseEvent(@ptrCast(self), @intCast(buttons), @intCast(column), @intCast(line), @intCast(eventType));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -290,7 +290,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendMouseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -299,7 +299,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSendMouseEvent(@ptrCast(self), @intCast(buttons), @intCast(column), @intCast(line), @intCast(eventType));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, stringVal: []const u8, length: i32 ```
     pub fn SendString(self: ?*anyopaque, stringVal: []const u8, length: i32) void {
@@ -307,7 +307,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_SendString(@ptrCast(self), stringVal_Cstring, @intCast(length));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -316,7 +316,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -326,7 +326,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSendString(@ptrCast(self), stringVal_Cstring, @intCast(length));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, buffer: []const u8, lenVal: i32 ```
     pub fn ReceiveData(self: ?*anyopaque, buffer: []const u8, lenVal: i32) void {
@@ -334,7 +334,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_ReceiveData(@ptrCast(self), buffer_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, data: []const u8, lenVal: i32 ```
     pub fn SendData(self: ?*anyopaque, data: []const u8, lenVal: i32) void {
@@ -342,126 +342,126 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_SendData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, data: [*:0]const u8, lenVal: i32) callconv(.c) void ```
     pub fn OnSendData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_SendData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, suspendVal: bool ```
     pub fn LockPtyRequest(self: ?*anyopaque, suspendVal: bool) void {
         qtc.Konsole__Emulation_LockPtyRequest(@ptrCast(self), suspendVal);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, suspendVal: bool) callconv(.c) void ```
     pub fn OnLockPtyRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_LockPtyRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, param1: bool ```
     pub fn UseUtf8Request(self: ?*anyopaque, param1: bool) void {
         qtc.Konsole__Emulation_UseUtf8Request(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, param1: bool) callconv(.c) void ```
     pub fn OnUseUtf8Request(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_UseUtf8Request(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, state: i32 ```
     pub fn StateSet(self: ?*anyopaque, state: i32) void {
         qtc.Konsole__Emulation_StateSet(@ptrCast(self), @intCast(state));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, state: i32) callconv(.c) void ```
     pub fn OnStateSet(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_StateSet(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn ZmodemDetected(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_ZmodemDetected(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void ```
     pub fn OnZmodemDetected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ZmodemDetected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, color: i32 ```
     pub fn ChangeTabTextColorRequest(self: ?*anyopaque, color: i32) void {
         qtc.Konsole__Emulation_ChangeTabTextColorRequest(@ptrCast(self), @intCast(color));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, color: i32) callconv(.c) void ```
     pub fn OnChangeTabTextColorRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ChangeTabTextColorRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, usesMouse: bool ```
     pub fn ProgramUsesMouseChanged(self: ?*anyopaque, usesMouse: bool) void {
         qtc.Konsole__Emulation_ProgramUsesMouseChanged(@ptrCast(self), usesMouse);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, usesMouse: bool) callconv(.c) void ```
     pub fn OnProgramUsesMouseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ProgramUsesMouseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, bracketedPasteMode: bool ```
     pub fn ProgramBracketedPasteModeChanged(self: ?*anyopaque, bracketedPasteMode: bool) void {
         qtc.Konsole__Emulation_ProgramBracketedPasteModeChanged(@ptrCast(self), bracketedPasteMode);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, bracketedPasteMode: bool) callconv(.c) void ```
     pub fn OnProgramBracketedPasteModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ProgramBracketedPasteModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn OutputChanged(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_OutputChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void ```
     pub fn OnOutputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_OutputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, title: i32, newTitle: []const u8 ```
     pub fn TitleChanged(self: ?*anyopaque, title: i32, newTitle: []const u8) void {
@@ -472,56 +472,56 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_TitleChanged(@ptrCast(self), @intCast(title), newTitle_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, title: i32, newTitle: [*:0]const u8) callconv(.c) void ```
     pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, lineCount: i32, columnCount: i32 ```
     pub fn ImageSizeChanged(self: ?*anyopaque, lineCount: i32, columnCount: i32) void {
         qtc.Konsole__Emulation_ImageSizeChanged(@ptrCast(self), @intCast(lineCount), @intCast(columnCount));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, lineCount: i32, columnCount: i32) callconv(.c) void ```
     pub fn OnImageSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ImageSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn ImageSizeInitialized(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_ImageSizeInitialized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void ```
     pub fn OnImageSizeInitialized(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ImageSizeInitialized(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, sizz: QtC.QSize ```
     pub fn ImageResizeRequest(self: ?*anyopaque, sizz: ?*anyopaque) void {
         qtc.Konsole__Emulation_ImageResizeRequest(@ptrCast(self), @ptrCast(sizz));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, sizz: QtC.QSize) callconv(.c) void ```
     pub fn OnImageResizeRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ImageResizeRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, text: []const u8 ```
     pub fn ProfileChangeCommandReceived(self: ?*anyopaque, text: []const u8) void {
@@ -532,77 +532,77 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_ProfileChangeCommandReceived(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnProfileChangeCommandReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_ProfileChangeCommandReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, suspendKeyPressed: bool ```
     pub fn FlowControlKeyPressed(self: ?*anyopaque, suspendKeyPressed: bool) void {
         qtc.Konsole__Emulation_FlowControlKeyPressed(@ptrCast(self), suspendKeyPressed);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, suspendKeyPressed: bool) callconv(.c) void ```
     pub fn OnFlowControlKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_FlowControlKeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, cursorShape: Emulation_enums.KeyboardCursorShape, blinkingCursorEnabled: bool ```
     pub fn CursorChanged(self: ?*anyopaque, cursorShape: i32, blinkingCursorEnabled: bool) void {
         qtc.Konsole__Emulation_CursorChanged(@ptrCast(self), @intCast(cursorShape), blinkingCursorEnabled);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, cursorShape: Emulation_enums.KeyboardCursorShape, blinkingCursorEnabled: bool) callconv(.c) void ```
     pub fn OnCursorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_CursorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, command: KeyboardTranslator_enums.Command ```
     pub fn HandleCommandFromKeyboard(self: ?*anyopaque, command: i32) void {
         qtc.Konsole__Emulation_HandleCommandFromKeyboard(@ptrCast(self), @intCast(command));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, command: KeyboardTranslator_enums.Command) callconv(.c) void ```
     pub fn OnHandleCommandFromKeyboard(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_HandleCommandFromKeyboard(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn OutputFromKeypressEvent(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_OutputFromKeypressEvent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void ```
     pub fn OnOutputFromKeypressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_OutputFromKeypressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, mode: i32 ```
     pub fn SetMode(self: ?*anyopaque, mode: i32) void {
         qtc.Konsole__Emulation_SetMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -611,7 +611,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -620,14 +620,14 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSetMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, mode: i32 ```
     pub fn ResetMode(self: ?*anyopaque, mode: i32) void {
         qtc.Konsole__Emulation_ResetMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -636,7 +636,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnResetMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -645,14 +645,14 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseResetMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, index: i32 ```
     pub fn SetScreen(self: ?*anyopaque, index: i32) void {
         qtc.Konsole__Emulation_SetScreen(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -661,7 +661,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetScreen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -670,14 +670,14 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSetScreen(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation, codec: Emulation_enums.EmulationCodec ```
     pub fn SetCodec(self: ?*anyopaque, codec: i32) void {
         qtc.Konsole__Emulation_SetCodec(@ptrCast(self), @intCast(codec));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -686,7 +686,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetCodec(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -695,14 +695,14 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseSetCodec(@ptrCast(self), @intCast(codec));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn BufferedUpdate(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_BufferedUpdate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -711,7 +711,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnBufferedUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -720,7 +720,7 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_QBaseBufferedUpdate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -733,7 +733,7 @@ pub const konsole__emulation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -748,7 +748,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Konsole__Emulation, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -761,7 +761,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Konsole__Emulation, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -774,7 +774,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -783,7 +783,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -792,7 +792,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -801,7 +801,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -810,7 +810,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Konsole__Emulation, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -819,7 +819,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -828,7 +828,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__Emulation, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -837,7 +837,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__Emulation, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -846,7 +846,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__Emulation, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -855,7 +855,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__Emulation, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -864,7 +864,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Konsole__Emulation, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -878,7 +878,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Konsole__Emulation, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -887,7 +887,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Konsole__Emulation, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -896,7 +896,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Konsole__Emulation, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -905,7 +905,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -914,7 +914,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__Emulation, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -925,7 +925,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -934,7 +934,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -943,7 +943,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -952,7 +952,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -961,7 +961,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Konsole__Emulation, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -971,7 +971,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Konsole__Emulation, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -981,7 +981,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Konsole__Emulation, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1005,7 +1005,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1014,7 +1014,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1023,7 +1023,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1032,7 +1032,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1041,7 +1041,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1050,7 +1050,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Konsole__Emulation, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1060,7 +1060,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1069,7 +1069,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__Emulation, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1078,7 +1078,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__Emulation, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1087,7 +1087,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1096,7 +1096,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__Emulation, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1107,7 +1107,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Emulation, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1116,7 +1116,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Emulation, callback: *const fn (self: QtC.Konsole__Emulation, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1125,7 +1125,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1136,7 +1136,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1147,7 +1147,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1158,7 +1158,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1169,7 +1169,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1180,7 +1180,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1191,7 +1191,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1202,7 +1202,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1213,7 +1213,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1224,7 +1224,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1235,7 +1235,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1246,7 +1246,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1257,7 +1257,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1268,7 +1268,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1279,7 +1279,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1290,7 +1290,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1301,7 +1301,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1312,7 +1312,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1323,7 +1323,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1334,7 +1334,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1345,7 +1345,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1356,7 +1356,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1367,7 +1367,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1378,7 +1378,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1389,7 +1389,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1400,7 +1400,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1411,7 +1411,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1422,7 +1422,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1434,7 +1434,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1446,7 +1446,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1457,7 +1457,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1468,7 +1468,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1479,7 +1479,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1490,7 +1490,7 @@ pub const konsole__emulation = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

@@ -82,28 +82,28 @@ pub const qdeadlinetimer = struct {
         qtc.QDeadlineTimer_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#swap)
     ///
     /// ``` self: QtC.QDeadlineTimer, other: QtC.QDeadlineTimer ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDeadlineTimer_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#isForever)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#isForever)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
     pub fn IsForever(self: ?*anyopaque) bool {
         return qtc.QDeadlineTimer_IsForever(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#hasExpired)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#hasExpired)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
     pub fn HasExpired(self: ?*anyopaque) bool {
         return qtc.QDeadlineTimer_HasExpired(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#timerType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#timerType)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
     ///
@@ -112,147 +112,147 @@ pub const qdeadlinetimer = struct {
         return qtc.QDeadlineTimer_TimerType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setTimerType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setTimerType)
     ///
     /// ``` self: QtC.QDeadlineTimer, typeVal: qnamespace_enums.TimerType ```
     pub fn SetTimerType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QDeadlineTimer_SetTimerType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#remainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#remainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
     pub fn RemainingTime(self: ?*anyopaque) i64 {
         return qtc.QDeadlineTimer_RemainingTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#remainingTimeNSecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#remainingTimeNSecs)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
     pub fn RemainingTimeNSecs(self: ?*anyopaque) i64 {
         return qtc.QDeadlineTimer_RemainingTimeNSecs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setRemainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setRemainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64 ```
     pub fn SetRemainingTime(self: ?*anyopaque, msecs: i64) void {
         qtc.QDeadlineTimer_SetRemainingTime(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseRemainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseRemainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64 ```
     pub fn SetPreciseRemainingTime(self: ?*anyopaque, secs: i64) void {
         qtc.QDeadlineTimer_SetPreciseRemainingTime(@ptrCast(self), @intCast(secs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#deadline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#deadline)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
     pub fn Deadline(self: ?*anyopaque) i64 {
         return qtc.QDeadlineTimer_Deadline(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#deadlineNSecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#deadlineNSecs)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
     pub fn DeadlineNSecs(self: ?*anyopaque) i64 {
         return qtc.QDeadlineTimer_DeadlineNSecs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setDeadline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setDeadline)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64 ```
     pub fn SetDeadline(self: ?*anyopaque, msecs: i64) void {
         qtc.QDeadlineTimer_SetDeadline(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseDeadline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseDeadline)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64 ```
     pub fn SetPreciseDeadline(self: ?*anyopaque, secs: i64) void {
         qtc.QDeadlineTimer_SetPreciseDeadline(@ptrCast(self), @intCast(secs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#addNSecs)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#addNSecs)
     ///
     /// ``` dt: QtC.QDeadlineTimer, nsecs: i64 ```
     pub fn AddNSecs(dt: QtC.QDeadlineTimer, nsecs: i64) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_AddNSecs(@ptrCast(dt), @intCast(nsecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#current)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#current)
     ///
     ///
     pub fn Current() QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_Current();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-2b-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, msecs: i64) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_OperatorPlusAssign(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator--eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator--eq)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, msecs: i64) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_OperatorMinusAssign(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setRemainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setRemainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64, typeVal: qnamespace_enums.TimerType ```
     pub fn SetRemainingTime2(self: ?*anyopaque, msecs: i64, typeVal: i32) void {
         qtc.QDeadlineTimer_SetRemainingTime2(@ptrCast(self), @intCast(msecs), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseRemainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseRemainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64, nsecs: i64 ```
     pub fn SetPreciseRemainingTime2(self: ?*anyopaque, secs: i64, nsecs: i64) void {
         qtc.QDeadlineTimer_SetPreciseRemainingTime2(@ptrCast(self), @intCast(secs), @intCast(nsecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseRemainingTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseRemainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64, nsecs: i64, typeVal: qnamespace_enums.TimerType ```
     pub fn SetPreciseRemainingTime3(self: ?*anyopaque, secs: i64, nsecs: i64, typeVal: i32) void {
         qtc.QDeadlineTimer_SetPreciseRemainingTime3(@ptrCast(self), @intCast(secs), @intCast(nsecs), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setDeadline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setDeadline)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64, timerType: qnamespace_enums.TimerType ```
     pub fn SetDeadline2(self: ?*anyopaque, msecs: i64, timerType: i32) void {
         qtc.QDeadlineTimer_SetDeadline2(@ptrCast(self), @intCast(msecs), @intCast(timerType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseDeadline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseDeadline)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64, nsecs: i64 ```
     pub fn SetPreciseDeadline2(self: ?*anyopaque, secs: i64, nsecs: i64) void {
         qtc.QDeadlineTimer_SetPreciseDeadline2(@ptrCast(self), @intCast(secs), @intCast(nsecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseDeadline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseDeadline)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64, nsecs: i64, typeVal: qnamespace_enums.TimerType ```
     pub fn SetPreciseDeadline3(self: ?*anyopaque, secs: i64, nsecs: i64, typeVal: i32) void {
         qtc.QDeadlineTimer_SetPreciseDeadline3(@ptrCast(self), @intCast(secs), @intCast(nsecs), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#current)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#current)
     ///
     /// ``` timerType: qnamespace_enums.TimerType ```
     pub fn Current1(timerType: i32) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_Current1(@intCast(timerType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#dtor.QDeadlineTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#dtor.QDeadlineTimer)
     ///
     /// Delete this object from C++ memory.
     ///

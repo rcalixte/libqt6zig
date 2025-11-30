@@ -49,28 +49,28 @@ pub const qtextitem = struct {
         qtc.QTextItem_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextitem.html#descent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#descent)
     ///
     /// ``` self: QtC.QTextItem ```
     pub fn Descent(self: ?*anyopaque) f64 {
         return qtc.QTextItem_Descent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextitem.html#ascent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#ascent)
     ///
     /// ``` self: QtC.QTextItem ```
     pub fn Ascent(self: ?*anyopaque) f64 {
         return qtc.QTextItem_Ascent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextitem.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#width)
     ///
     /// ``` self: QtC.QTextItem ```
     pub fn Width(self: ?*anyopaque) f64 {
         return qtc.QTextItem_Width(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextitem.html#renderFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#renderFlags)
     ///
     /// ``` self: QtC.QTextItem ```
     ///
@@ -79,7 +79,7 @@ pub const qtextitem = struct {
         return qtc.QTextItem_RenderFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextitem.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#text)
     ///
     /// ``` self: QtC.QTextItem, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,14 +90,14 @@ pub const qtextitem = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextitem.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#font)
     ///
     /// ``` self: QtC.QTextItem ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QTextItem_Font(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextitem.html#dtor.QTextItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextitem.html#dtor.QTextItem)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -123,28 +123,28 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_new2(@intCast(features));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#isActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#isActive)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn IsActive(self: ?*anyopaque) bool {
         return qtc.QPaintEngine_IsActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#setActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setActive)
     ///
     /// ``` self: QtC.QPaintEngine, newState: bool ```
     pub fn SetActive(self: ?*anyopaque, newState: bool) void {
         qtc.QPaintEngine_SetActive(@ptrCast(self), newState);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#begin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
     ///
     /// ``` self: QtC.QPaintEngine, pdev: QtC.QPaintDevice ```
     pub fn Begin(self: ?*anyopaque, pdev: ?*anyopaque) bool {
         return qtc.QPaintEngine_Begin(@ptrCast(self), @ptrCast(pdev));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#begin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
     ///
     /// Allows for overriding the related default method
     ///
@@ -153,7 +153,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnBegin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#begin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
     ///
     /// Base class method implementation
     ///
@@ -162,14 +162,14 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_QBaseBegin(@ptrCast(self), @ptrCast(pdev));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#end)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn End(self: ?*anyopaque) bool {
         return qtc.QPaintEngine_End(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#end)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
     ///
     /// Allows for overriding the related default method
     ///
@@ -178,7 +178,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#end)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
     ///
     /// Base class method implementation
     ///
@@ -187,14 +187,14 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_QBaseEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
     ///
     /// ``` self: QtC.QPaintEngine, state: QtC.QPaintEngineState ```
     pub fn UpdateState(self: ?*anyopaque, state: ?*anyopaque) void {
         qtc.QPaintEngine_UpdateState(@ptrCast(self), @ptrCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -203,7 +203,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
     ///
     /// Base class method implementation
     ///
@@ -212,14 +212,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseUpdateState(@ptrCast(self), @ptrCast(state));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
     /// ``` self: QtC.QPaintEngine, rects: QtC.QRect, rectCount: i32 ```
     pub fn DrawRects(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
         qtc.QPaintEngine_DrawRects(@ptrCast(self), @ptrCast(rects), @intCast(rectCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
     /// Allows for overriding the related default method
     ///
@@ -228,7 +228,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawRects(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
     /// Base class method implementation
     ///
@@ -237,14 +237,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawRects(@ptrCast(self), @ptrCast(rects), @intCast(rectCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
     /// ``` self: QtC.QPaintEngine, rects: QtC.QRectF, rectCount: i32 ```
     pub fn DrawRects2(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
         qtc.QPaintEngine_DrawRects2(@ptrCast(self), @ptrCast(rects), @intCast(rectCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
     /// Allows for overriding the related default method
     ///
@@ -253,7 +253,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawRects2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
     ///
     /// Base class method implementation
     ///
@@ -262,14 +262,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawRects2(@ptrCast(self), @ptrCast(rects), @intCast(rectCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
     /// ``` self: QtC.QPaintEngine, lines: QtC.QLine, lineCount: i32 ```
     pub fn DrawLines(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
         qtc.QPaintEngine_DrawLines(@ptrCast(self), @ptrCast(lines), @intCast(lineCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
     /// Allows for overriding the related default method
     ///
@@ -278,7 +278,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawLines(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
     /// Base class method implementation
     ///
@@ -287,14 +287,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawLines(@ptrCast(self), @ptrCast(lines), @intCast(lineCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
     /// ``` self: QtC.QPaintEngine, lines: QtC.QLineF, lineCount: i32 ```
     pub fn DrawLines2(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
         qtc.QPaintEngine_DrawLines2(@ptrCast(self), @ptrCast(lines), @intCast(lineCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
     /// Allows for overriding the related default method
     ///
@@ -303,7 +303,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawLines2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
     ///
     /// Base class method implementation
     ///
@@ -312,14 +312,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawLines2(@ptrCast(self), @ptrCast(lines), @intCast(lineCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRectF ```
     pub fn DrawEllipse(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QPaintEngine_DrawEllipse(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
     /// Allows for overriding the related default method
     ///
@@ -328,7 +328,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawEllipse(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
     /// Base class method implementation
     ///
@@ -337,14 +337,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawEllipse(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRect ```
     pub fn DrawEllipse2(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QPaintEngine_DrawEllipse2(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
     /// Allows for overriding the related default method
     ///
@@ -353,7 +353,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawEllipse2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
     /// Base class method implementation
     ///
@@ -362,14 +362,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawEllipse2(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
     ///
     /// ``` self: QtC.QPaintEngine, path: QtC.QPainterPath ```
     pub fn DrawPath(self: ?*anyopaque, path: ?*anyopaque) void {
         qtc.QPaintEngine_DrawPath(@ptrCast(self), @ptrCast(path));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
     ///
     /// Allows for overriding the related default method
     ///
@@ -378,7 +378,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
     ///
     /// Base class method implementation
     ///
@@ -387,14 +387,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawPath(@ptrCast(self), @ptrCast(path));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32 ```
     pub fn DrawPoints(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
         qtc.QPaintEngine_DrawPoints(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
     /// Allows for overriding the related default method
     ///
@@ -403,7 +403,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawPoints(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
     /// Base class method implementation
     ///
@@ -412,14 +412,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawPoints(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32 ```
     pub fn DrawPoints2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
         qtc.QPaintEngine_DrawPoints2(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
     /// Allows for overriding the related default method
     ///
@@ -428,7 +428,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawPoints2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
     ///
     /// Base class method implementation
     ///
@@ -437,14 +437,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawPoints2(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode ```
     pub fn DrawPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i32) void {
         qtc.QPaintEngine_DrawPolygon(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -453,7 +453,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawPolygon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// Base class method implementation
     ///
@@ -462,14 +462,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawPolygon(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode ```
     pub fn DrawPolygon2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i32) void {
         qtc.QPaintEngine_DrawPolygon2(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// Allows for overriding the related default method
     ///
@@ -478,7 +478,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawPolygon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// Base class method implementation
     ///
@@ -487,14 +487,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawPolygon2(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QPixmap, sr: QtC.QRectF ```
     pub fn DrawPixmap(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque) void {
         qtc.QPaintEngine_DrawPixmap(@ptrCast(self), @ptrCast(r), @ptrCast(pm), @ptrCast(sr));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -503,7 +503,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
     ///
     /// Base class method implementation
     ///
@@ -512,14 +512,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawPixmap(@ptrCast(self), @ptrCast(r), @ptrCast(pm), @ptrCast(sr));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
     ///
     /// ``` self: QtC.QPaintEngine, p: QtC.QPointF, textItem: QtC.QTextItem ```
     pub fn DrawTextItem(self: ?*anyopaque, p: ?*anyopaque, textItem: ?*anyopaque) void {
         qtc.QPaintEngine_DrawTextItem(@ptrCast(self), @ptrCast(p), @ptrCast(textItem));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
     ///
     /// Allows for overriding the related default method
     ///
@@ -528,7 +528,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawTextItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
     ///
     /// Base class method implementation
     ///
@@ -537,14 +537,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawTextItem(@ptrCast(self), @ptrCast(p), @ptrCast(textItem));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRectF, pixmap: QtC.QPixmap, s: QtC.QPointF ```
     pub fn DrawTiledPixmap(self: ?*anyopaque, r: ?*anyopaque, pixmap: ?*anyopaque, s: ?*anyopaque) void {
         qtc.QPaintEngine_DrawTiledPixmap(@ptrCast(self), @ptrCast(r), @ptrCast(pixmap), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -553,7 +553,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawTiledPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
     ///
     /// Base class method implementation
     ///
@@ -562,14 +562,14 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawTiledPixmap(@ptrCast(self), @ptrCast(r), @ptrCast(pixmap), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn DrawImage(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
         qtc.QPaintEngine_DrawImage(@ptrCast(self), @ptrCast(r), @ptrCast(pm), @ptrCast(sr), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
     ///
     /// Allows for overriding the related default method
     ///
@@ -578,7 +578,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnDrawImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
     ///
     /// Base class method implementation
     ///
@@ -587,56 +587,56 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_QBaseDrawImage(@ptrCast(self), @ptrCast(r), @ptrCast(pm), @ptrCast(sr), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#setPaintDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setPaintDevice)
     ///
     /// ``` self: QtC.QPaintEngine, device: QtC.QPaintDevice ```
     pub fn SetPaintDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QPaintEngine_SetPaintDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#paintDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#paintDevice)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn PaintDevice(self: ?*anyopaque) QtC.QPaintDevice {
         return qtc.QPaintEngine_PaintDevice(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#setSystemClip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setSystemClip)
     ///
     /// ``` self: QtC.QPaintEngine, baseClip: QtC.QRegion ```
     pub fn SetSystemClip(self: ?*anyopaque, baseClip: ?*anyopaque) void {
         qtc.QPaintEngine_SetSystemClip(@ptrCast(self), @ptrCast(baseClip));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#systemClip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#systemClip)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn SystemClip(self: ?*anyopaque) QtC.QRegion {
         return qtc.QPaintEngine_SystemClip(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#setSystemRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setSystemRect)
     ///
     /// ``` self: QtC.QPaintEngine, rect: QtC.QRect ```
     pub fn SetSystemRect(self: ?*anyopaque, rect: ?*anyopaque) void {
         qtc.QPaintEngine_SetSystemRect(@ptrCast(self), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#systemRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#systemRect)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn SystemRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QPaintEngine_SystemRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn CoordinateOffset(self: ?*anyopaque) QtC.QPoint {
         return qtc.QPaintEngine_CoordinateOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -645,7 +645,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnCoordinateOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
     ///
     /// Base class method implementation
     ///
@@ -654,7 +654,7 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_QBaseCoordinateOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
     ///
     /// ``` self: QtC.QPaintEngine ```
     ///
@@ -663,7 +663,7 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
     ///
     /// Allows for overriding the related default method
     ///
@@ -672,7 +672,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
     ///
     /// Base class method implementation
     ///
@@ -683,70 +683,70 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_QBaseType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#fix_neg_rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#fix_neg_rect)
     ///
     /// ``` self: QtC.QPaintEngine, x: *i32, y: *i32, w: *i32, h: *i32 ```
     pub fn FixNegRect(self: ?*anyopaque, x: *i32, y: *i32, w: *i32, h: *i32) void {
         qtc.QPaintEngine_FixNegRect(@ptrCast(self), @ptrCast(x), @ptrCast(y), @ptrCast(w), @ptrCast(h));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#testDirty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#testDirty)
     ///
     /// ``` self: QtC.QPaintEngine, df: flag of qpaintengine_enums.DirtyFlag ```
     pub fn TestDirty(self: ?*anyopaque, df: i32) bool {
         return qtc.QPaintEngine_TestDirty(@ptrCast(self), @intCast(df));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#setDirty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#setDirty)
     ///
     /// ``` self: QtC.QPaintEngine, df: flag of qpaintengine_enums.DirtyFlag ```
     pub fn SetDirty(self: ?*anyopaque, df: i32) void {
         qtc.QPaintEngine_SetDirty(@ptrCast(self), @intCast(df));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#clearDirty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#clearDirty)
     ///
     /// ``` self: QtC.QPaintEngine, df: flag of qpaintengine_enums.DirtyFlag ```
     pub fn ClearDirty(self: ?*anyopaque, df: i32) void {
         qtc.QPaintEngine_ClearDirty(@ptrCast(self), @intCast(df));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#hasFeature)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#hasFeature)
     ///
     /// ``` self: QtC.QPaintEngine, feature: flag of qpaintengine_enums.PaintEngineFeature ```
     pub fn HasFeature(self: ?*anyopaque, feature: i64) bool {
         return qtc.QPaintEngine_HasFeature(@ptrCast(self), @intCast(feature));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#painter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#painter)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn Painter(self: ?*anyopaque) QtC.QPainter {
         return qtc.QPaintEngine_Painter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#syncState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#syncState)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn SyncState(self: ?*anyopaque) void {
         qtc.QPaintEngine_SyncState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#isExtended)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#isExtended)
     ///
     /// ``` self: QtC.QPaintEngine ```
     pub fn IsExtended(self: ?*anyopaque) bool {
         return qtc.QPaintEngine_IsExtended(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
     ///
     /// ``` self: QtC.QPaintEngine, size: QtC.QSize ```
     pub fn CreatePixmap(self: ?*anyopaque, size: QtC.QSize) QtC.QPixmap {
         return qtc.QPaintEngine_CreatePixmap(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
     ///
     /// Allows for overriding the related default method
     ///
@@ -755,7 +755,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnCreatePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
     ///
     /// Base class method implementation
     ///
@@ -764,14 +764,14 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_QBaseCreatePixmap(@ptrCast(self), @ptrCast(size));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
     ///
     /// ``` self: QtC.QPaintEngine, image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn CreatePixmapFromImage(self: ?*anyopaque, image: QtC.QImage, flags: i32) QtC.QPixmap {
         return qtc.QPaintEngine_CreatePixmapFromImage(@ptrCast(self), @ptrCast(image), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
     ///
     /// Allows for overriding the related default method
     ///
@@ -780,7 +780,7 @@ pub const qpaintengine = struct {
         qtc.QPaintEngine_OnCreatePixmapFromImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)
     ///
     /// Base class method implementation
     ///
@@ -789,7 +789,7 @@ pub const qpaintengine = struct {
         return qtc.QPaintEngine_QBaseCreatePixmapFromImage(@ptrCast(self), @ptrCast(image), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#dtor.QPaintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#dtor.QPaintEngine)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -829,7 +829,7 @@ pub const qpaintenginestate = struct {
         qtc.QPaintEngineState_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#state)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     ///
@@ -838,35 +838,35 @@ pub const qpaintenginestate = struct {
         return qtc.QPaintEngineState_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#pen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#pen)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
         return qtc.QPaintEngineState_Pen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#brush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#brush)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QPaintEngineState_Brush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#brushOrigin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#brushOrigin)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn BrushOrigin(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPaintEngineState_BrushOrigin(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#backgroundBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#backgroundBrush)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn BackgroundBrush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QPaintEngineState_BackgroundBrush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#backgroundMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#backgroundMode)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     ///
@@ -875,21 +875,21 @@ pub const qpaintenginestate = struct {
         return qtc.QPaintEngineState_BackgroundMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#font)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
         return qtc.QPaintEngineState_Font(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#transform)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#transform)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn Transform(self: ?*anyopaque) QtC.QTransform {
         return qtc.QPaintEngineState_Transform(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#clipOperation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#clipOperation)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     ///
@@ -898,28 +898,28 @@ pub const qpaintenginestate = struct {
         return qtc.QPaintEngineState_ClipOperation(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#clipRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#clipRegion)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn ClipRegion(self: ?*anyopaque) QtC.QRegion {
         return qtc.QPaintEngineState_ClipRegion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#clipPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#clipPath)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn ClipPath(self: ?*anyopaque) QtC.QPainterPath {
         return qtc.QPaintEngineState_ClipPath(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#isClipEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#isClipEnabled)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn IsClipEnabled(self: ?*anyopaque) bool {
         return qtc.QPaintEngineState_IsClipEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#renderHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#renderHints)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     ///
@@ -928,7 +928,7 @@ pub const qpaintenginestate = struct {
         return qtc.QPaintEngineState_RenderHints(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#compositionMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#compositionMode)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     ///
@@ -937,35 +937,35 @@ pub const qpaintenginestate = struct {
         return qtc.QPaintEngineState_CompositionMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#opacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#opacity)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn Opacity(self: ?*anyopaque) f64 {
         return qtc.QPaintEngineState_Opacity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#painter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#painter)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn Painter(self: ?*anyopaque) QtC.QPainter {
         return qtc.QPaintEngineState_Painter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#brushNeedsResolving)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#brushNeedsResolving)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn BrushNeedsResolving(self: ?*anyopaque) bool {
         return qtc.QPaintEngineState_BrushNeedsResolving(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#penNeedsResolving)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#penNeedsResolving)
     ///
     /// ``` self: QtC.QPaintEngineState ```
     pub fn PenNeedsResolving(self: ?*anyopaque) bool {
         return qtc.QPaintEngineState_PenNeedsResolving(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintenginestate.html#dtor.QPaintEngineState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintenginestate.html#dtor.QPaintEngineState)
     ///
     /// Delete this object from C++ memory.
     ///

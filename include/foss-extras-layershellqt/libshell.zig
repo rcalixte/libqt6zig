@@ -31,14 +31,14 @@ pub const layershellqt__shell = struct {
         qtc.LayerShellQt__Shell_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     ///
     pub fn UseLayerShell() void {
         qtc.LayerShellQt__Shell_UseLayerShell();
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// Delete this object from C++ memory.
     ///

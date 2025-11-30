@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html
 pub const signon__authsession = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const signon__authsession = struct {
         return qtc.SignOn__AuthSession_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,7 +37,7 @@ pub const signon__authsession = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -48,63 +48,63 @@ pub const signon__authsession = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn QueryAvailableMechanisms(self: ?*anyopaque) void {
         qtc.SignOn__AuthSession_QueryAvailableMechanisms(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData ```
     pub fn Process(self: ?*anyopaque, sessionData: ?*anyopaque) void {
         qtc.SignOn__AuthSession_Process(@ptrCast(self), @ptrCast(sessionData));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData ```
     pub fn Challenge(self: ?*anyopaque, sessionData: ?*anyopaque) void {
         qtc.SignOn__AuthSession_Challenge(@ptrCast(self), @ptrCast(sessionData));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData ```
     pub fn Request(self: ?*anyopaque, sessionData: ?*anyopaque) void {
         qtc.SignOn__AuthSession_Request(@ptrCast(self), @ptrCast(sessionData));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn Cancel(self: ?*anyopaque) void {
         qtc.SignOn__AuthSession_Cancel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, params: QtC.SignOn__SessionData ```
     pub fn SignMessage(self: ?*anyopaque, params: ?*anyopaque) void {
         qtc.SignOn__AuthSession_SignMessage(@ptrCast(self), @ptrCast(params));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, err: QtC.SignOn__Error ```
     pub fn Error(self: ?*anyopaque, err: ?*anyopaque) void {
         qtc.SignOn__AuthSession_Error(@ptrCast(self), @ptrCast(err));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, callback: *const fn (self: QtC.SignOn__AuthSession, err: QtC.SignOn__Error) callconv(.c) void ```
     pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, mechanisms: [][]const u8, allocator: std.mem.Allocator ```
     pub fn MechanismsAvailable(self: ?*anyopaque, mechanisms: [][]const u8, allocator: std.mem.Allocator) void {
@@ -123,28 +123,28 @@ pub const signon__authsession = struct {
         qtc.SignOn__AuthSession_MechanismsAvailable(@ptrCast(self), mechanisms_list);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, callback: *const fn (self: QtC.SignOn__AuthSession, mechanisms: [*][*:0]const u8) callconv(.c) void ```
     pub fn OnMechanismsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_MechanismsAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData ```
     pub fn Response(self: ?*anyopaque, sessionData: ?*anyopaque) void {
         qtc.SignOn__AuthSession_Response(@ptrCast(self), @ptrCast(sessionData));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, callback: *const fn (self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData) callconv(.c) void ```
     pub fn OnResponse(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_Response(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, state: authsession_enums.AuthSessionState, message: []const u8 ```
     pub fn StateChanged(self: ?*anyopaque, state: i32, message: []const u8) void {
@@ -155,14 +155,14 @@ pub const signon__authsession = struct {
         qtc.SignOn__AuthSession_StateChanged(@ptrCast(self), @intCast(state), message_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, callback: *const fn (self: QtC.SignOn__AuthSession, state: authsession_enums.AuthSessionState, message: [*:0]const u8) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -175,7 +175,7 @@ pub const signon__authsession = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const signon__authsession = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, wantedMechanisms: [][]const u8, allocator: std.mem.Allocator ```
     pub fn QueryAvailableMechanisms1(self: ?*anyopaque, wantedMechanisms: [][]const u8, allocator: std.mem.Allocator) void {
@@ -207,7 +207,7 @@ pub const signon__authsession = struct {
         qtc.SignOn__AuthSession_QueryAvailableMechanisms1(@ptrCast(self), wantedMechanisms_list);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData, mechanism: []const u8 ```
     pub fn Process2(self: ?*anyopaque, sessionData: ?*anyopaque, mechanism: []const u8) void {
@@ -218,7 +218,7 @@ pub const signon__authsession = struct {
         qtc.SignOn__AuthSession_Process2(@ptrCast(self), @ptrCast(sessionData), mechanism_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData, mechanism: []const u8 ```
     pub fn Challenge2(self: ?*anyopaque, sessionData: ?*anyopaque, mechanism: []const u8) void {
@@ -229,7 +229,7 @@ pub const signon__authsession = struct {
         qtc.SignOn__AuthSession_Challenge2(@ptrCast(self), @ptrCast(sessionData), mechanism_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sessionData: QtC.SignOn__SessionData, mechanism: []const u8 ```
     pub fn Request2(self: ?*anyopaque, sessionData: ?*anyopaque, mechanism: []const u8) void {
@@ -240,7 +240,7 @@ pub const signon__authsession = struct {
         qtc.SignOn__AuthSession_Request2(@ptrCast(self), @ptrCast(sessionData), mechanism_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthSession.html)
     ///
     /// ``` self: QtC.SignOn__AuthSession, params: QtC.SignOn__SessionData, mechanism: []const u8 ```
     pub fn SignMessage2(self: ?*anyopaque, params: ?*anyopaque, mechanism: []const u8) void {
@@ -253,7 +253,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.SignOn__AuthSession, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -262,7 +262,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.SignOn__AuthSession, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -271,7 +271,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.SignOn__AuthSession, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -284,7 +284,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.SignOn__AuthSession, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -297,7 +297,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -306,7 +306,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -315,7 +315,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -324,7 +324,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -333,7 +333,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.SignOn__AuthSession, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -342,7 +342,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -351,7 +351,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.SignOn__AuthSession, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -360,7 +360,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.SignOn__AuthSession, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -369,7 +369,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.SignOn__AuthSession, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -378,7 +378,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.SignOn__AuthSession, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -387,7 +387,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.SignOn__AuthSession, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -401,7 +401,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.SignOn__AuthSession, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -410,7 +410,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.SignOn__AuthSession, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -419,7 +419,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.SignOn__AuthSession, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -428,7 +428,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -437,7 +437,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -448,7 +448,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -457,7 +457,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -466,7 +466,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -475,7 +475,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -484,7 +484,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.SignOn__AuthSession, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -494,7 +494,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.SignOn__AuthSession, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -504,7 +504,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.SignOn__AuthSession, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -528,7 +528,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -537,7 +537,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -546,7 +546,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -555,7 +555,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.SignOn__AuthSession, callback: *const fn (self: QtC.SignOn__AuthSession) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -564,7 +564,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -573,7 +573,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.SignOn__AuthSession, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -583,7 +583,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.SignOn__AuthSession ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -592,7 +592,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.SignOn__AuthSession, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -601,7 +601,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.SignOn__AuthSession, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -610,7 +610,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -619,7 +619,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.SignOn__AuthSession, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -630,7 +630,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.SignOn__AuthSession, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -639,7 +639,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.SignOn__AuthSession, callback: *const fn (self: QtC.SignOn__AuthSession, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -648,7 +648,7 @@ pub const signon__authsession = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

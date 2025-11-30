@@ -21,7 +21,7 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,7 +65,7 @@ pub const qscilexerpython = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn Language(self: ?*anyopaque) []const u8 {
@@ -73,7 +73,7 @@ pub const qscilexerpython = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn Lexer(self: ?*anyopaque) []const u8 {
@@ -81,7 +81,7 @@ pub const qscilexerpython = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, allocator: std.mem.Allocator ```
     pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -103,14 +103,14 @@ pub const qscilexerpython = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn BlockLookback(self: ?*anyopaque) i32 {
         return qtc.QsciLexerPython_BlockLookback(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn BlockStart(self: ?*anyopaque) []const u8 {
@@ -118,49 +118,49 @@ pub const qscilexerpython = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn BraceStyle(self: ?*anyopaque) i32 {
         return qtc.QsciLexerPython_BraceStyle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, style: i32 ```
     pub fn DefaultColor(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerPython_DefaultColor(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, style: i32 ```
     pub fn DefaultEolFill(self: ?*anyopaque, style: i32) bool {
         return qtc.QsciLexerPython_DefaultEolFill(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, style: i32 ```
     pub fn DefaultFont(self: ?*anyopaque, style: i32) QtC.QFont {
         return qtc.QsciLexerPython_DefaultFont(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, style: i32 ```
     pub fn DefaultPaper(self: ?*anyopaque, style: i32) QtC.QColor {
         return qtc.QsciLexerPython_DefaultPaper(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn IndentationGuideView(self: ?*anyopaque) i32 {
         return qtc.QsciLexerPython_IndentationGuideView(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -169,7 +169,7 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_OnIndentationGuideView(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Base class method implementation
     ///
@@ -178,7 +178,7 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_QBaseIndentationGuideView(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, set: i32 ```
     pub fn Keywords(self: ?*anyopaque, set: i32) []const u8 {
@@ -186,7 +186,7 @@ pub const qscilexerpython = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, style: i32, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
@@ -197,42 +197,42 @@ pub const qscilexerpython = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn RefreshProperties(self: ?*anyopaque) void {
         qtc.QsciLexerPython_RefreshProperties(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn FoldComments(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_FoldComments(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, fold: bool ```
     pub fn SetFoldCompact(self: ?*anyopaque, fold: bool) void {
         qtc.QsciLexerPython_SetFoldCompact(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn FoldCompact(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_FoldCompact(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn FoldQuotes(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_FoldQuotes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     ///
@@ -241,84 +241,84 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_IndentationWarning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, enabled: bool ```
     pub fn SetHighlightSubidentifiers(self: ?*anyopaque, enabled: bool) void {
         qtc.QsciLexerPython_SetHighlightSubidentifiers(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn HighlightSubidentifiers(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_HighlightSubidentifiers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, allowed: bool ```
     pub fn SetStringsOverNewlineAllowed(self: ?*anyopaque, allowed: bool) void {
         qtc.QsciLexerPython_SetStringsOverNewlineAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn StringsOverNewlineAllowed(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_StringsOverNewlineAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, allowed: bool ```
     pub fn SetV2UnicodeAllowed(self: ?*anyopaque, allowed: bool) void {
         qtc.QsciLexerPython_SetV2UnicodeAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn V2UnicodeAllowed(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_V2UnicodeAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, allowed: bool ```
     pub fn SetV3BinaryOctalAllowed(self: ?*anyopaque, allowed: bool) void {
         qtc.QsciLexerPython_SetV3BinaryOctalAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn V3BinaryOctalAllowed(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_V3BinaryOctalAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, allowed: bool ```
     pub fn SetV3BytesAllowed(self: ?*anyopaque, allowed: bool) void {
         qtc.QsciLexerPython_SetV3BytesAllowed(@ptrCast(self), allowed);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn V3BytesAllowed(self: ?*anyopaque) bool {
         return qtc.QsciLexerPython_V3BytesAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, fold: bool ```
     pub fn SetFoldComments(self: ?*anyopaque, fold: bool) void {
         qtc.QsciLexerPython_SetFoldComments(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -327,7 +327,7 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_OnSetFoldComments(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Base class method implementation
     ///
@@ -336,14 +336,14 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_QBaseSetFoldComments(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, fold: bool ```
     pub fn SetFoldQuotes(self: ?*anyopaque, fold: bool) void {
         qtc.QsciLexerPython_SetFoldQuotes(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -352,7 +352,7 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_OnSetFoldQuotes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Base class method implementation
     ///
@@ -361,14 +361,14 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_QBaseSetFoldQuotes(@ptrCast(self), fold);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, warn: qscilexerpython_enums.IndentationWarning ```
     pub fn SetIndentationWarning(self: ?*anyopaque, warn: i32) void {
         qtc.QsciLexerPython_SetIndentationWarning(@ptrCast(self), @intCast(warn));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -377,7 +377,7 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_OnSetIndentationWarning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Base class method implementation
     ///
@@ -386,7 +386,7 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_QBaseSetIndentationWarning(@ptrCast(self), @intCast(warn));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn ReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
@@ -397,7 +397,7 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_ReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -406,7 +406,7 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_OnReadProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Base class method implementation
     ///
@@ -419,7 +419,7 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_QBaseReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn WriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
@@ -430,7 +430,7 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_WriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -439,7 +439,7 @@ pub const qscilexerpython = struct {
         qtc.QsciLexerPython_OnWriteProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Base class method implementation
     ///
@@ -452,7 +452,7 @@ pub const qscilexerpython = struct {
         return qtc.QsciLexerPython_QBaseWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -465,7 +465,7 @@ pub const qscilexerpython = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -478,7 +478,7 @@ pub const qscilexerpython = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// ``` self: QtC.QsciLexerPython, style: *i32 ```
     pub fn BlockStart1(self: ?*anyopaque, style: *i32) []const u8 {
@@ -488,7 +488,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn Apis(self: ?*anyopaque) QtC.QsciAbstractAPIs {
@@ -497,7 +497,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn AutoIndentStyle(self: ?*anyopaque) i32 {
@@ -506,7 +506,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn Editor(self: ?*anyopaque) QtC.QsciScintilla {
@@ -515,7 +515,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, apis: QtC.QsciAbstractAPIs ```
     pub fn SetAPIs(self: ?*anyopaque, apis: ?*anyopaque) void {
@@ -524,7 +524,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, c: QtC.QColor ```
     pub fn SetDefaultColor(self: ?*anyopaque, c: ?*anyopaque) void {
@@ -533,7 +533,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, f: QtC.QFont ```
     pub fn SetDefaultFont(self: ?*anyopaque, f: ?*anyopaque) void {
@@ -542,7 +542,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, c: QtC.QColor ```
     pub fn SetDefaultPaper(self: ?*anyopaque, c: ?*anyopaque) void {
@@ -551,7 +551,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, qs: QtC.QSettings ```
     pub fn ReadSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
@@ -560,7 +560,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, qs: QtC.QSettings ```
     pub fn WriteSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
@@ -569,7 +569,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, c: QtC.QColor, style: i32 ```
     pub fn ColorChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
@@ -578,7 +578,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, callback: *const fn (self: QtC.QsciLexerPython, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
@@ -587,7 +587,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, eolfilled: bool, style: i32 ```
     pub fn EolFillChanged(self: ?*anyopaque, eolfilled: bool, style: i32) void {
@@ -596,7 +596,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, callback: *const fn (self: QtC.QsciLexerPython, eolfilled: bool, style: i32) callconv(.c) void ```
     pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
@@ -605,7 +605,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, f: QtC.QFont, style: i32 ```
     pub fn FontChanged(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
@@ -614,7 +614,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, callback: *const fn (self: QtC.QsciLexerPython, f: QtC.QFont, style: i32) callconv(.c) void ```
     pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
@@ -623,7 +623,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, c: QtC.QColor, style: i32 ```
     pub fn PaperChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
@@ -632,7 +632,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, callback: *const fn (self: QtC.QsciLexerPython, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
@@ -641,7 +641,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, prop: []const u8, val: []const u8 ```
     pub fn PropertyChanged(self: ?*anyopaque, prop: []const u8, val: []const u8) void {
@@ -652,7 +652,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, callback: *const fn (self: QtC.QsciLexerPython, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void ```
     pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
@@ -661,7 +661,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
@@ -671,7 +671,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// ``` self: QtC.QsciLexerPython, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
@@ -681,7 +681,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QsciLexerPython, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -694,7 +694,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QsciLexerPython, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -707,7 +707,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -716,7 +716,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -725,7 +725,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -734,7 +734,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -743,7 +743,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QsciLexerPython, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -752,7 +752,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -761,7 +761,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QsciLexerPython, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -770,7 +770,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QsciLexerPython, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -779,7 +779,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QsciLexerPython, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -788,7 +788,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QsciLexerPython, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -797,7 +797,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QsciLexerPython, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -811,7 +811,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QsciLexerPython, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -820,7 +820,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QsciLexerPython, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -829,7 +829,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QsciLexerPython, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -838,7 +838,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -847,7 +847,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QsciLexerPython, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -858,7 +858,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -867,7 +867,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -876,7 +876,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -885,7 +885,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -894,7 +894,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QsciLexerPython, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -904,7 +904,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QsciLexerPython, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -914,7 +914,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QsciLexerPython, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -938,7 +938,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -947,7 +947,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -956,7 +956,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -965,7 +965,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciLexerPython, callback: *const fn (self: QtC.QsciLexerPython) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -974,7 +974,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -983,7 +983,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QsciLexerPython, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -993,7 +993,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QsciLexerPython ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1002,7 +1002,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QsciLexerPython, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1011,7 +1011,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QsciLexerPython, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1020,7 +1020,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1029,7 +1029,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QsciLexerPython, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1040,7 +1040,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciLexerPython, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1049,7 +1049,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciLexerPython, callback: *const fn (self: QtC.QsciLexerPython, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1058,7 +1058,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1069,7 +1069,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1080,7 +1080,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1091,7 +1091,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1103,7 +1103,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1115,7 +1115,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1126,7 +1126,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1138,7 +1138,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1150,7 +1150,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1161,7 +1161,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1173,7 +1173,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1185,7 +1185,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1196,7 +1196,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1207,7 +1207,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1218,7 +1218,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1229,7 +1229,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1240,7 +1240,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1251,7 +1251,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1262,7 +1262,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1273,7 +1273,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1284,7 +1284,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1295,7 +1295,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1306,7 +1306,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1317,7 +1317,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1328,7 +1328,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1339,7 +1339,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1350,7 +1350,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1361,7 +1361,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1372,7 +1372,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1383,7 +1383,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1394,7 +1394,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1405,7 +1405,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1416,7 +1416,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1427,7 +1427,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1438,7 +1438,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1449,7 +1449,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1460,7 +1460,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1471,7 +1471,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1482,7 +1482,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1493,7 +1493,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1504,7 +1504,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1515,7 +1515,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1526,7 +1526,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1537,7 +1537,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1548,7 +1548,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1559,7 +1559,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1571,7 +1571,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1583,7 +1583,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1594,7 +1594,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1605,7 +1605,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1616,7 +1616,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1627,7 +1627,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1638,7 +1638,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1649,7 +1649,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1660,7 +1660,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1671,7 +1671,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1682,7 +1682,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1693,7 +1693,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1704,7 +1704,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1715,7 +1715,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1726,7 +1726,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1737,7 +1737,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1748,7 +1748,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1759,7 +1759,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1770,7 +1770,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1781,7 +1781,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1792,7 +1792,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1803,7 +1803,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1814,7 +1814,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1825,7 +1825,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1836,7 +1836,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1847,7 +1847,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1858,7 +1858,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1869,7 +1869,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1880,7 +1880,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1891,7 +1891,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1902,7 +1902,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1913,7 +1913,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1924,7 +1924,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1935,7 +1935,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1946,7 +1946,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1957,7 +1957,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1968,7 +1968,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1979,7 +1979,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1990,7 +1990,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2009,7 +2009,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2028,7 +2028,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2039,7 +2039,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2055,7 +2055,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2071,7 +2071,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QsciLexer
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2082,7 +2082,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2093,7 +2093,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2104,7 +2104,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2115,7 +2115,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2126,7 +2126,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2137,7 +2137,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2148,7 +2148,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2160,7 +2160,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2172,7 +2172,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2183,7 +2183,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2194,7 +2194,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2205,7 +2205,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2216,7 +2216,7 @@ pub const qscilexerpython = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2225,7 +2225,7 @@ pub const qscilexerpython = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerPython.html)
     ///
     /// Delete this object from C++ memory.
     ///

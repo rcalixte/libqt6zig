@@ -10,35 +10,35 @@ pub const qtest__qtoucheventwidgetsequence = struct {
         return qtc.QTest__QTouchEventWidgetSequence_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#press)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#press)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32, pt: QtC.QPoint ```
     pub fn Press(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
         return qtc.QTest__QTouchEventWidgetSequence_Press(@ptrCast(self), @intCast(touchId), @ptrCast(pt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#move)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32, pt: QtC.QPoint ```
     pub fn Move(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
         return qtc.QTest__QTouchEventWidgetSequence_Move(@ptrCast(self), @intCast(touchId), @ptrCast(pt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#release)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32, pt: QtC.QPoint ```
     pub fn Release(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
         return qtc.QTest__QTouchEventWidgetSequence_Release(@ptrCast(self), @intCast(touchId), @ptrCast(pt));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32 ```
     pub fn Stationary(self: ?*anyopaque, touchId: i32) QtC.QTest__QTouchEventWidgetSequence {
         return qtc.QTest__QTouchEventWidgetSequence_Stationary(@ptrCast(self), @intCast(touchId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
     ///
     /// Allows for overriding the related default method
     ///
@@ -47,7 +47,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
         qtc.QTest__QTouchEventWidgetSequence_OnStationary(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
     ///
     /// Base class method implementation
     ///
@@ -56,14 +56,14 @@ pub const qtest__qtoucheventwidgetsequence = struct {
         return qtc.QTest__QTouchEventWidgetSequence_QBaseStationary(@ptrCast(self), @intCast(touchId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, processEvents: bool ```
     pub fn Commit(self: ?*anyopaque, processEvents: bool) bool {
         return qtc.QTest__QTouchEventWidgetSequence_Commit(@ptrCast(self), processEvents);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -72,7 +72,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
         qtc.QTest__QTouchEventWidgetSequence_OnCommit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
     ///
     /// Base class method implementation
     ///
@@ -81,21 +81,21 @@ pub const qtest__qtoucheventwidgetsequence = struct {
         return qtc.QTest__QTouchEventWidgetSequence_QBaseCommit(@ptrCast(self), processEvents);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#press)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#press)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32, pt: QtC.QPoint, widget: QtC.QWidget ```
     pub fn Press3(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque, widget: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
         return qtc.QTest__QTouchEventWidgetSequence_Press3(@ptrCast(self), @intCast(touchId), @ptrCast(pt), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#move)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32, pt: QtC.QPoint, widget: QtC.QWidget ```
     pub fn Move3(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque, widget: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
         return qtc.QTest__QTouchEventWidgetSequence_Move3(@ptrCast(self), @intCast(touchId), @ptrCast(pt), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#release)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#release)
     ///
     /// ``` self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32, pt: QtC.QPoint, widget: QtC.QWidget ```
     pub fn Release3(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque, widget: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
@@ -104,7 +104,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
 
     /// Inherited from QTest::QTouchEventSequence
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -115,7 +115,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
 
     /// Inherited from QTest::QTouchEventSequence
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -126,7 +126,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
 
     /// Inherited from QTest::QTouchEventSequence
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -137,7 +137,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
 
     /// Inherited from QTest::QTouchEventSequence
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -148,7 +148,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
 
     /// Inherited from QTest::QTouchEventSequence
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -159,7 +159,7 @@ pub const qtest__qtoucheventwidgetsequence = struct {
 
     /// Inherited from QTest::QTouchEventSequence
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///

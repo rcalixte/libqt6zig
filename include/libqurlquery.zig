@@ -39,42 +39,42 @@ pub const qurlquery = struct {
         return qtc.QUrlQuery_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#operator-eq)
     ///
     /// ``` self: QtC.QUrlQuery, other: QtC.QUrlQuery ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QUrlQuery_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#swap)
     ///
     /// ``` self: QtC.QUrlQuery, other: QtC.QUrlQuery ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QUrlQuery_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#isEmpty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#isEmpty)
     ///
     /// ``` self: QtC.QUrlQuery ```
     pub fn IsEmpty(self: ?*anyopaque) bool {
         return qtc.QUrlQuery_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#isDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#isDetached)
     ///
     /// ``` self: QtC.QUrlQuery ```
     pub fn IsDetached(self: ?*anyopaque) bool {
         return qtc.QUrlQuery_IsDetached(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#clear)
     ///
     /// ``` self: QtC.QUrlQuery ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QUrlQuery_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#query)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#query)
     ///
     /// ``` self: QtC.QUrlQuery, allocator: std.mem.Allocator ```
     pub fn Query(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -85,7 +85,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#setQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#setQuery)
     ///
     /// ``` self: QtC.QUrlQuery, queryString: []const u8 ```
     pub fn SetQuery(self: ?*anyopaque, queryString: []const u8) void {
@@ -96,7 +96,7 @@ pub const qurlquery = struct {
         qtc.QUrlQuery_SetQuery(@ptrCast(self), queryString_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#toString)
     ///
     /// ``` self: QtC.QUrlQuery, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -107,28 +107,28 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#setQueryDelimiters)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#setQueryDelimiters)
     ///
     /// ``` self: QtC.QUrlQuery, valueDelimiter: QtC.QChar, pairDelimiter: QtC.QChar ```
     pub fn SetQueryDelimiters(self: ?*anyopaque, valueDelimiter: QtC.QChar, pairDelimiter: QtC.QChar) void {
         qtc.QUrlQuery_SetQueryDelimiters(@ptrCast(self), @ptrCast(valueDelimiter), @ptrCast(pairDelimiter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryValueDelimiter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#queryValueDelimiter)
     ///
     /// ``` self: QtC.QUrlQuery ```
     pub fn QueryValueDelimiter(self: ?*anyopaque) QtC.QChar {
         return qtc.QUrlQuery_QueryValueDelimiter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryPairDelimiter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#queryPairDelimiter)
     ///
     /// ``` self: QtC.QUrlQuery ```
     pub fn QueryPairDelimiter(self: ?*anyopaque) QtC.QChar {
         return qtc.QUrlQuery_QueryPairDelimiter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#queryItems)
     ///
     /// ``` self: QtC.QUrlQuery, allocator: std.mem.Allocator ```
     pub fn QueryItems(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_constu8_constu8 {
@@ -150,7 +150,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#hasQueryItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#hasQueryItem)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8 ```
     pub fn HasQueryItem(self: ?*anyopaque, key: []const u8) bool {
@@ -161,7 +161,7 @@ pub const qurlquery = struct {
         return qtc.QUrlQuery_HasQueryItem(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#addQueryItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#addQueryItem)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, value: []const u8 ```
     pub fn AddQueryItem(self: ?*anyopaque, key: []const u8, value: []const u8) void {
@@ -176,7 +176,7 @@ pub const qurlquery = struct {
         qtc.QUrlQuery_AddQueryItem(@ptrCast(self), key_str, value_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#removeQueryItem)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#removeQueryItem)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8 ```
     pub fn RemoveQueryItem(self: ?*anyopaque, key: []const u8) void {
@@ -187,7 +187,7 @@ pub const qurlquery = struct {
         qtc.QUrlQuery_RemoveQueryItem(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItemValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#queryItemValue)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, allocator: std.mem.Allocator ```
     pub fn QueryItemValue(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -202,7 +202,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#allQueryItemValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#allQueryItemValues)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, allocator: std.mem.Allocator ```
     pub fn AllQueryItemValues(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) [][]const u8 {
@@ -228,7 +228,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#removeAllQueryItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#removeAllQueryItems)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8 ```
     pub fn RemoveAllQueryItems(self: ?*anyopaque, key: []const u8) void {
@@ -239,7 +239,7 @@ pub const qurlquery = struct {
         qtc.QUrlQuery_RemoveAllQueryItems(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#query)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#query)
     ///
     /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Query1(self: ?*anyopaque, encoding: u32, allocator: std.mem.Allocator) []const u8 {
@@ -250,7 +250,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#toString)
     ///
     /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, encoding: u32, allocator: std.mem.Allocator) []const u8 {
@@ -261,7 +261,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItems)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#queryItems)
     ///
     /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn QueryItems1(self: ?*anyopaque, encoding: u32, allocator: std.mem.Allocator) []struct_constu8_constu8 {
@@ -283,7 +283,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItemValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#queryItemValue)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn QueryItemValue2(self: ?*anyopaque, key: []const u8, encoding: u32, allocator: std.mem.Allocator) []const u8 {
@@ -298,7 +298,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#allQueryItemValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#allQueryItemValues)
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn AllQueryItemValues2(self: ?*anyopaque, key: []const u8, encoding: u32, allocator: std.mem.Allocator) [][]const u8 {
@@ -324,7 +324,7 @@ pub const qurlquery = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#dtor.QUrlQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#dtor.QUrlQuery)
     ///
     /// Delete this object from C++ memory.
     ///

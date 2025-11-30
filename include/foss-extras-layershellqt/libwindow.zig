@@ -7,7 +7,7 @@ const window_enums = enums;
 
 /// https://invent.kde.org/plasma/layer-shell-qt
 pub const layershellqt__window = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const layershellqt__window = struct {
         return qtc.LayerShellQt__Window_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,14 +37,14 @@ pub const layershellqt__window = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, anchor: flag of window_enums.Anchor ```
     pub fn SetAnchors(self: ?*anyopaque, anchor: i32) void {
         qtc.LayerShellQt__Window_SetAnchors(@ptrCast(self), @intCast(anchor));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     ///
@@ -53,28 +53,28 @@ pub const layershellqt__window = struct {
         return qtc.LayerShellQt__Window_Anchors(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, zone: i32 ```
     pub fn SetExclusiveZone(self: ?*anyopaque, zone: i32) void {
         qtc.LayerShellQt__Window_SetExclusiveZone(@ptrCast(self), @intCast(zone));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn ExclusionZone(self: ?*anyopaque) i32 {
         return qtc.LayerShellQt__Window_ExclusionZone(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, edge: window_enums.Anchor ```
     pub fn SetExclusiveEdge(self: ?*anyopaque, edge: i32) void {
         qtc.LayerShellQt__Window_SetExclusiveEdge(@ptrCast(self), @intCast(edge));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     ///
@@ -83,28 +83,28 @@ pub const layershellqt__window = struct {
         return qtc.LayerShellQt__Window_ExclusiveEdge(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, margins: QtC.QMargins ```
     pub fn SetMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
         qtc.LayerShellQt__Window_SetMargins(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn Margins(self: ?*anyopaque) QtC.QMargins {
         return qtc.LayerShellQt__Window_Margins(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, interactivity: window_enums.KeyboardInteractivity ```
     pub fn SetKeyboardInteractivity(self: ?*anyopaque, interactivity: i32) void {
         qtc.LayerShellQt__Window_SetKeyboardInteractivity(@ptrCast(self), @intCast(interactivity));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     ///
@@ -113,14 +113,14 @@ pub const layershellqt__window = struct {
         return qtc.LayerShellQt__Window_KeyboardInteractivity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, layer: window_enums.Layer ```
     pub fn SetLayer(self: ?*anyopaque, layer: i32) void {
         qtc.LayerShellQt__Window_SetLayer(@ptrCast(self), @intCast(layer));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     ///
@@ -129,14 +129,14 @@ pub const layershellqt__window = struct {
         return qtc.LayerShellQt__Window_Layer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, screenConfiguration: window_enums.ScreenConfiguration ```
     pub fn SetScreenConfiguration(self: ?*anyopaque, screenConfiguration: i32) void {
         qtc.LayerShellQt__Window_SetScreenConfiguration(@ptrCast(self), @intCast(screenConfiguration));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     ///
@@ -145,7 +145,7 @@ pub const layershellqt__window = struct {
         return qtc.LayerShellQt__Window_ScreenConfiguration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, scope: []const u8 ```
     pub fn SetScope(self: ?*anyopaque, scope: []const u8) void {
@@ -156,7 +156,7 @@ pub const layershellqt__window = struct {
         qtc.LayerShellQt__Window_SetScope(@ptrCast(self), scope_str);
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, allocator: std.mem.Allocator ```
     pub fn Scope(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -167,119 +167,119 @@ pub const layershellqt__window = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, close: bool ```
     pub fn SetCloseOnDismissed(self: ?*anyopaque, close: bool) void {
         qtc.LayerShellQt__Window_SetCloseOnDismissed(@ptrCast(self), close);
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn CloseOnDismissed(self: ?*anyopaque) bool {
         return qtc.LayerShellQt__Window_CloseOnDismissed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn Get(window: ?*anyopaque) QtC.LayerShellQt__Window {
         return qtc.LayerShellQt__Window_Get(@ptrCast(window));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` object: QtC.QObject ```
     pub fn QmlAttachedProperties(object: ?*anyopaque) QtC.LayerShellQt__Window {
         return qtc.LayerShellQt__Window_QmlAttachedProperties(@ptrCast(object));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn AnchorsChanged(self: ?*anyopaque) void {
         qtc.LayerShellQt__Window_AnchorsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window) callconv(.c) void ```
     pub fn OnAnchorsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.LayerShellQt__Window_Connect_AnchorsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn ExclusionZoneChanged(self: ?*anyopaque) void {
         qtc.LayerShellQt__Window_ExclusionZoneChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window) callconv(.c) void ```
     pub fn OnExclusionZoneChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.LayerShellQt__Window_Connect_ExclusionZoneChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn ExclusiveEdgeChanged(self: ?*anyopaque) void {
         qtc.LayerShellQt__Window_ExclusiveEdgeChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window) callconv(.c) void ```
     pub fn OnExclusiveEdgeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.LayerShellQt__Window_Connect_ExclusiveEdgeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn MarginsChanged(self: ?*anyopaque) void {
         qtc.LayerShellQt__Window_MarginsChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window) callconv(.c) void ```
     pub fn OnMarginsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.LayerShellQt__Window_Connect_MarginsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn KeyboardInteractivityChanged(self: ?*anyopaque) void {
         qtc.LayerShellQt__Window_KeyboardInteractivityChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window) callconv(.c) void ```
     pub fn OnKeyboardInteractivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.LayerShellQt__Window_Connect_KeyboardInteractivityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn LayerChanged(self: ?*anyopaque) void {
         qtc.LayerShellQt__Window_LayerChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window) callconv(.c) void ```
     pub fn OnLayerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.LayerShellQt__Window_Connect_LayerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -292,7 +292,7 @@ pub const layershellqt__window = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -307,7 +307,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.LayerShellQt__Window, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -316,7 +316,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.LayerShellQt__Window, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -325,7 +325,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.LayerShellQt__Window, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -338,7 +338,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.LayerShellQt__Window, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -351,7 +351,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -360,7 +360,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -369,7 +369,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -378,7 +378,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -387,7 +387,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.LayerShellQt__Window, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -396,7 +396,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -405,7 +405,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.LayerShellQt__Window, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -414,7 +414,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.LayerShellQt__Window, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -423,7 +423,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.LayerShellQt__Window, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -432,7 +432,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.LayerShellQt__Window, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -441,7 +441,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.LayerShellQt__Window, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -455,7 +455,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.LayerShellQt__Window, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -464,7 +464,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.LayerShellQt__Window, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -473,7 +473,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.LayerShellQt__Window, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -482,7 +482,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -491,7 +491,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.LayerShellQt__Window, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -502,7 +502,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -511,7 +511,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -520,7 +520,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -529,7 +529,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -538,7 +538,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.LayerShellQt__Window, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -548,7 +548,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.LayerShellQt__Window, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -558,7 +558,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.LayerShellQt__Window, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -582,7 +582,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -591,7 +591,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -600,7 +600,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -609,7 +609,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -618,7 +618,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -627,7 +627,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.LayerShellQt__Window, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -637,7 +637,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.LayerShellQt__Window ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -646,7 +646,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.LayerShellQt__Window, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -655,7 +655,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.LayerShellQt__Window, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -664,7 +664,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -673,7 +673,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.LayerShellQt__Window, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -684,7 +684,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.LayerShellQt__Window, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -693,7 +693,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.LayerShellQt__Window, callback: *const fn (self: QtC.LayerShellQt__Window, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -702,7 +702,7 @@ pub const layershellqt__window = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -711,7 +711,7 @@ pub const layershellqt__window = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://invent.kde.org/plasma/layer-shell-qt)
+    /// [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -14,14 +14,14 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_new();
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Process(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -30,7 +30,7 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -39,28 +39,28 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_QBaseProcess(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter, line: i32, column: i32 ```
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__Filter_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot ```
     pub fn AddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.Konsole__Filter_AddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -69,7 +69,7 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -78,7 +78,7 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_QBaseAddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
     pub fn Buffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -89,7 +89,7 @@ pub const konsole__filter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -98,7 +98,7 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -111,14 +111,14 @@ pub const konsole__filter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32 ```
     pub fn GetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__Filter_GetLineColumn(@ptrCast(self), @intCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -127,7 +127,7 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -138,7 +138,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -155,7 +155,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -169,7 +169,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -182,7 +182,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Konsole__Filter, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -195,7 +195,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -204,7 +204,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -213,7 +213,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -222,7 +222,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -231,7 +231,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Konsole__Filter, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -240,7 +240,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -249,7 +249,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__Filter, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -258,7 +258,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__Filter, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -267,7 +267,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__Filter, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -276,7 +276,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__Filter, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -285,7 +285,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -299,7 +299,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Konsole__Filter, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -308,7 +308,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Konsole__Filter, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -317,7 +317,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Konsole__Filter, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -326,7 +326,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -335,7 +335,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__Filter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -346,7 +346,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -355,7 +355,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -364,7 +364,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -373,7 +373,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -382,7 +382,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Konsole__Filter, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -392,7 +392,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Konsole__Filter, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -402,7 +402,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Konsole__Filter, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -426,7 +426,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -435,7 +435,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -444,7 +444,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -453,7 +453,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -462,7 +462,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -471,7 +471,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Konsole__Filter, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -481,7 +481,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Konsole__Filter ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -490,7 +490,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -505,7 +505,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -520,7 +520,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__Filter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -529,7 +529,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__Filter, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -538,7 +538,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -547,7 +547,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__Filter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -558,7 +558,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Filter, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -567,7 +567,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -576,7 +576,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -587,7 +587,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -598,7 +598,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -609,7 +609,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -620,7 +620,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -631,7 +631,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -642,7 +642,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -653,7 +653,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -664,7 +664,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -675,7 +675,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -686,7 +686,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -697,7 +697,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -708,7 +708,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -719,7 +719,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -730,7 +730,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -741,7 +741,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -752,7 +752,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -763,7 +763,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -774,7 +774,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -785,7 +785,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -796,7 +796,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -807,7 +807,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -818,7 +818,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -829,7 +829,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -840,7 +840,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -851,7 +851,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -862,7 +862,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -873,7 +873,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -884,7 +884,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -895,7 +895,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -906,7 +906,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -918,7 +918,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -930,7 +930,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -941,7 +941,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -952,7 +952,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -963,7 +963,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -974,7 +974,7 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1000,28 +1000,28 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_new();
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, text: QtC.QRegularExpression ```
     pub fn SetRegExp(self: ?*anyopaque, text: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_SetRegExp(@ptrCast(self), @ptrCast(text));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn RegExp(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.Konsole__RegExpFilter_RegExp(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_Process(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1030,7 +1030,7 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -1039,14 +1039,14 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_QBaseProcess(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32 ```
     pub fn NewHotSpot(self: ?*anyopaque, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__RegExpFilter_NewHotSpot(@ptrCast(self), @intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1055,7 +1055,7 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -1066,7 +1066,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn Reset(self: ?*anyopaque) void {
@@ -1075,7 +1075,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, line: i32, column: i32 ```
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
@@ -1084,7 +1084,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -1101,7 +1101,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1115,7 +1115,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1128,7 +1128,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1141,7 +1141,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1150,7 +1150,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1159,7 +1159,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1168,7 +1168,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1177,7 +1177,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1186,7 +1186,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1195,7 +1195,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1204,7 +1204,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1213,7 +1213,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1222,7 +1222,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1231,7 +1231,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1245,7 +1245,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1254,7 +1254,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1263,7 +1263,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1272,7 +1272,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1281,7 +1281,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1292,7 +1292,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1301,7 +1301,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1310,7 +1310,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1319,7 +1319,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1328,7 +1328,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1338,7 +1338,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1348,7 +1348,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1372,7 +1372,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1381,7 +1381,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1390,7 +1390,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1399,7 +1399,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1408,7 +1408,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1417,7 +1417,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1427,7 +1427,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1436,7 +1436,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1451,7 +1451,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1466,7 +1466,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1475,7 +1475,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1484,7 +1484,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1493,7 +1493,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1504,7 +1504,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1513,7 +1513,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1522,7 +1522,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1533,7 +1533,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1544,7 +1544,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1555,7 +1555,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1566,7 +1566,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1577,7 +1577,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1588,7 +1588,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1599,7 +1599,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1610,7 +1610,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1621,7 +1621,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1632,7 +1632,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1643,7 +1643,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1654,7 +1654,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1665,7 +1665,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1676,7 +1676,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1687,7 +1687,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1698,7 +1698,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1709,7 +1709,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1720,7 +1720,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1731,7 +1731,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1742,7 +1742,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1753,7 +1753,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1764,7 +1764,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1775,7 +1775,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1786,7 +1786,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1797,7 +1797,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1808,7 +1808,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1819,7 +1819,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1834,7 +1834,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1849,7 +1849,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1860,7 +1860,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1871,7 +1871,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1882,7 +1882,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1893,7 +1893,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1904,7 +1904,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1915,7 +1915,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1926,7 +1926,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1937,7 +1937,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1948,7 +1948,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1959,7 +1959,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1971,7 +1971,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1983,7 +1983,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1994,7 +1994,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2005,7 +2005,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2016,7 +2016,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2027,7 +2027,7 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2053,7 +2053,7 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_new();
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -2085,7 +2085,7 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2097,14 +2097,14 @@ pub const konsole__urlfilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32 ```
     pub fn NewHotSpot(self: ?*anyopaque, param1: i32, param2: i32, param3: i32, param4: i32) QtC.Konsole__RegExpFilter__HotSpot {
         return qtc.Konsole__UrlFilter_NewHotSpot(@ptrCast(self), @intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2113,7 +2113,7 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -2122,21 +2122,21 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_QBaseNewHotSpot(@ptrCast(self), @intCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool ```
     pub fn Activated(self: ?*anyopaque, url: ?*anyopaque, fromContextMenu: bool) void {
         qtc.Konsole__UrlFilter_Activated(@ptrCast(self), @ptrCast(url), fromContextMenu);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -2149,7 +2149,7 @@ pub const konsole__urlfilter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -2164,7 +2164,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, text: QtC.QRegularExpression ```
     pub fn SetRegExp(self: ?*anyopaque, text: ?*anyopaque) void {
@@ -2173,7 +2173,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn RegExp(self: ?*anyopaque) QtC.QRegularExpression {
@@ -2182,7 +2182,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn Reset(self: ?*anyopaque) void {
@@ -2191,7 +2191,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, line: i32, column: i32 ```
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
@@ -2200,7 +2200,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2213,7 +2213,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -2226,7 +2226,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -2235,7 +2235,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -2244,7 +2244,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -2253,7 +2253,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -2262,7 +2262,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -2271,7 +2271,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -2280,7 +2280,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -2289,7 +2289,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -2298,7 +2298,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -2307,7 +2307,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -2316,7 +2316,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -2330,7 +2330,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -2339,7 +2339,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -2348,7 +2348,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -2357,7 +2357,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -2366,7 +2366,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -2377,7 +2377,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -2386,7 +2386,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -2395,7 +2395,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -2404,7 +2404,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -2413,7 +2413,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -2423,7 +2423,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -2433,7 +2433,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -2457,7 +2457,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2466,7 +2466,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -2475,7 +2475,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -2484,7 +2484,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -2493,7 +2493,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -2502,7 +2502,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -2512,7 +2512,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Konsole__UrlFilter ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -2521,7 +2521,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -2530,7 +2530,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -2539,7 +2539,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2548,7 +2548,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -2559,7 +2559,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2568,7 +2568,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -2577,7 +2577,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2588,7 +2588,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2599,7 +2599,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::RegExpFilter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2610,7 +2610,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2621,7 +2621,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2632,7 +2632,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2643,7 +2643,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2654,7 +2654,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2665,7 +2665,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2676,7 +2676,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2687,7 +2687,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2698,7 +2698,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2709,7 +2709,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2720,7 +2720,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2731,7 +2731,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2742,7 +2742,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2753,7 +2753,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2764,7 +2764,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2775,7 +2775,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2786,7 +2786,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2797,7 +2797,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2808,7 +2808,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2819,7 +2819,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2830,7 +2830,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2841,7 +2841,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2852,7 +2852,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2863,7 +2863,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2874,7 +2874,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2889,7 +2889,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2904,7 +2904,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2915,7 +2915,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2926,7 +2926,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2937,7 +2937,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from Konsole::Filter
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2948,7 +2948,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2959,7 +2959,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2970,7 +2970,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2981,7 +2981,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2992,7 +2992,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3003,7 +3003,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3014,7 +3014,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3026,7 +3026,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3038,7 +3038,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3049,7 +3049,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3060,7 +3060,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3071,7 +3071,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3082,7 +3082,7 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3108,7 +3108,7 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_new(@ptrCast(filter));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -3140,7 +3140,7 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3152,35 +3152,35 @@ pub const konsole__filterobject = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool ```
     pub fn EmitActivated(self: ?*anyopaque, url: ?*anyopaque, fromContextMenu: bool) void {
         qtc.Konsole__FilterObject_EmitActivated(@ptrCast(self), @ptrCast(url), fromContextMenu);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn Activate(self: ?*anyopaque) void {
         qtc.Konsole__FilterObject_Activate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool ```
     pub fn Activated(self: ?*anyopaque, url: ?*anyopaque, fromContextMenu: bool) void {
         qtc.Konsole__FilterObject_Activated(@ptrCast(self), @ptrCast(url), fromContextMenu);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
         qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3193,7 +3193,7 @@ pub const konsole__filterobject = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -3208,7 +3208,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Konsole__FilterObject, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3221,7 +3221,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Konsole__FilterObject, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -3234,7 +3234,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -3243,7 +3243,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -3252,7 +3252,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -3261,7 +3261,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -3270,7 +3270,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Konsole__FilterObject, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -3279,7 +3279,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -3288,7 +3288,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__FilterObject, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -3297,7 +3297,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__FilterObject, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -3306,7 +3306,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__FilterObject, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -3315,7 +3315,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Konsole__FilterObject, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -3324,7 +3324,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Konsole__FilterObject, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -3338,7 +3338,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Konsole__FilterObject, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3347,7 +3347,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Konsole__FilterObject, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -3356,7 +3356,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Konsole__FilterObject, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -3365,7 +3365,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -3374,7 +3374,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__FilterObject, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -3385,7 +3385,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -3394,7 +3394,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -3403,7 +3403,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -3412,7 +3412,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -3421,7 +3421,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Konsole__FilterObject, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -3431,7 +3431,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Konsole__FilterObject, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -3441,7 +3441,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Konsole__FilterObject, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -3465,7 +3465,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3474,7 +3474,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -3483,7 +3483,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -3492,7 +3492,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -3501,7 +3501,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -3510,7 +3510,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Konsole__FilterObject, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -3520,7 +3520,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Konsole__FilterObject ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -3529,7 +3529,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Konsole__FilterObject, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -3538,7 +3538,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Konsole__FilterObject, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -3547,7 +3547,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3556,7 +3556,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Konsole__FilterObject, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -3567,7 +3567,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__FilterObject, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3576,7 +3576,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -3585,7 +3585,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3596,7 +3596,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3607,7 +3607,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3618,7 +3618,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3629,7 +3629,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3640,7 +3640,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3651,7 +3651,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3662,7 +3662,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3673,7 +3673,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3684,7 +3684,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3695,7 +3695,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3706,7 +3706,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3717,7 +3717,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3728,7 +3728,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3739,7 +3739,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3750,7 +3750,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3761,7 +3761,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3772,7 +3772,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3783,7 +3783,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3794,7 +3794,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3805,7 +3805,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3816,7 +3816,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3827,7 +3827,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3838,7 +3838,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3849,7 +3849,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3860,7 +3860,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3871,7 +3871,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3882,7 +3882,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3894,7 +3894,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3906,7 +3906,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3917,7 +3917,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3928,7 +3928,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3939,7 +3939,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3950,7 +3950,7 @@ pub const konsole__filterobject = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3976,56 +3976,56 @@ pub const konsole__filterchain = struct {
         return qtc.Konsole__FilterChain_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain, filter: QtC.Konsole__Filter ```
     pub fn AddFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
         qtc.Konsole__FilterChain_AddFilter(@ptrCast(self), @ptrCast(filter));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain, filter: QtC.Konsole__Filter ```
     pub fn RemoveFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
         qtc.Konsole__FilterChain_RemoveFilter(@ptrCast(self), @ptrCast(filter));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain, filter: QtC.Konsole__Filter ```
     pub fn ContainsFilter(self: ?*anyopaque, filter: ?*anyopaque) bool {
         return qtc.Konsole__FilterChain_ContainsFilter(@ptrCast(self), @ptrCast(filter));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Reset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain ```
     pub fn Process(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Process(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain, line: i32, column: i32 ```
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
         return qtc.Konsole__FilterChain_HotSpotAt(@ptrCast(self), @intCast(line), @intCast(column));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain, allocator: std.mem.Allocator ```
     pub fn HotSpots(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Konsole__Filter__HotSpot {
@@ -4037,7 +4037,7 @@ pub const konsole__filterchain = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__FilterChain, param1: QtC.Konsole__FilterChain ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4070,7 +4070,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain, filter: QtC.Konsole__Filter ```
     pub fn AddFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
@@ -4079,7 +4079,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain, filter: QtC.Konsole__Filter ```
     pub fn RemoveFilter(self: ?*anyopaque, filter: ?*anyopaque) void {
@@ -4088,7 +4088,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain, filter: QtC.Konsole__Filter ```
     pub fn ContainsFilter(self: ?*anyopaque, filter: ?*anyopaque) bool {
@@ -4097,7 +4097,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain ```
     pub fn Clear(self: ?*anyopaque) void {
@@ -4106,7 +4106,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain ```
     pub fn Reset(self: ?*anyopaque) void {
@@ -4115,7 +4115,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain ```
     pub fn Process(self: ?*anyopaque) void {
@@ -4124,7 +4124,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain, line: i32, column: i32 ```
     pub fn HotSpotAt(self: ?*anyopaque, line: i32, column: i32) QtC.Konsole__Filter__HotSpot {
@@ -4133,7 +4133,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain, allocator: std.mem.Allocator ```
     pub fn HotSpots(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Konsole__Filter__HotSpot {
@@ -4147,7 +4147,7 @@ pub const konsole__terminalimagefilterchain = struct {
 
     /// Inherited from Konsole::FilterChain
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__TerminalImageFilterChain, param1: QtC.Konsole__FilterChain ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4178,35 +4178,35 @@ pub const konsole__filter__hotspot = struct {
         return qtc.Konsole__Filter__HotSpot_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot ```
     pub fn StartLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot ```
     pub fn EndLine(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot ```
     pub fn StartColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_StartColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot ```
     pub fn EndColumn(self: ?*anyopaque) i32 {
         return qtc.Konsole__Filter__HotSpot_EndColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot ```
     ///
@@ -4215,7 +4215,7 @@ pub const konsole__filter__hotspot = struct {
         return qtc.Konsole__Filter__HotSpot_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot, action: []const u8 ```
     pub fn Activate(self: ?*anyopaque, action: []const u8) void {
@@ -4226,7 +4226,7 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_Activate(@ptrCast(self), action_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -4235,7 +4235,7 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -4248,7 +4248,7 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_QBaseActivate(@ptrCast(self), action_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4260,7 +4260,7 @@ pub const konsole__filter__hotspot = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -4269,7 +4269,7 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -4283,14 +4283,14 @@ pub const konsole__filter__hotspot = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type ```
     pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.Konsole__Filter__HotSpot_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -4299,7 +4299,7 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -4332,7 +4332,7 @@ pub const konsole__regexpfilter__hotspot = struct {
         return qtc.Konsole__RegExpFilter__HotSpot_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, action: []const u8 ```
     pub fn Activate(self: ?*anyopaque, action: []const u8) void {
@@ -4343,7 +4343,7 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_Activate(@ptrCast(self), action_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -4352,7 +4352,7 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -4365,7 +4365,7 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_QBaseActivate(@ptrCast(self), action_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, texts: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetCapturedTexts(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
@@ -4384,7 +4384,7 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_SetCapturedTexts(@ptrCast(self), texts_list);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, allocator: std.mem.Allocator ```
     pub fn CapturedTexts(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -4408,7 +4408,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
     pub fn StartLine(self: ?*anyopaque) i32 {
@@ -4417,7 +4417,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
     pub fn EndLine(self: ?*anyopaque) i32 {
@@ -4426,7 +4426,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
     pub fn StartColumn(self: ?*anyopaque) i32 {
@@ -4435,7 +4435,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
     pub fn EndColumn(self: ?*anyopaque) i32 {
@@ -4444,7 +4444,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__RegExpFilter__HotSpot ```
     ///
@@ -4455,7 +4455,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4471,7 +4471,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4487,7 +4487,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4498,7 +4498,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4509,7 +4509,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4520,7 +4520,7 @@ pub const konsole__regexpfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -4546,14 +4546,14 @@ pub const konsole__urlfilter__hotspot = struct {
         return qtc.Konsole__UrlFilter__HotSpot_new(@intCast(startLine), @intCast(startColumn), @intCast(endLine), @intCast(endColumn));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
     pub fn GetUrlObject(self: ?*anyopaque) QtC.Konsole__FilterObject {
         return qtc.Konsole__UrlFilter__HotSpot_GetUrlObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4565,7 +4565,7 @@ pub const konsole__urlfilter__hotspot = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -4574,7 +4574,7 @@ pub const konsole__urlfilter__hotspot = struct {
         qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -4588,7 +4588,7 @@ pub const konsole__urlfilter__hotspot = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot, action: []const u8 ```
     pub fn Activate(self: ?*anyopaque, action: []const u8) void {
@@ -4599,7 +4599,7 @@ pub const konsole__urlfilter__hotspot = struct {
         qtc.Konsole__UrlFilter__HotSpot_Activate(@ptrCast(self), action_str);
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Allows for overriding the related default method
     ///
@@ -4608,7 +4608,7 @@ pub const konsole__urlfilter__hotspot = struct {
         qtc.Konsole__UrlFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
     ///
@@ -4623,7 +4623,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::RegExpFilter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot, texts: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetCapturedTexts(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
@@ -4644,7 +4644,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::RegExpFilter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator ```
     pub fn CapturedTexts(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -4668,7 +4668,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
     pub fn StartLine(self: ?*anyopaque) i32 {
@@ -4677,7 +4677,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
     pub fn EndLine(self: ?*anyopaque) i32 {
@@ -4686,7 +4686,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
     pub fn StartColumn(self: ?*anyopaque) i32 {
@@ -4695,7 +4695,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
     pub fn EndColumn(self: ?*anyopaque) i32 {
@@ -4704,7 +4704,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__UrlFilter__HotSpot ```
     ///
@@ -4715,7 +4715,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -4726,7 +4726,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -4737,7 +4737,7 @@ pub const konsole__urlfilter__hotspot = struct {
 
     /// Inherited from Konsole::Filter::HotSpot
     ///
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///

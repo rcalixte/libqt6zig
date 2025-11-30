@@ -53,21 +53,21 @@ pub const ktexteditor__linerange = struct {
         qtc.KTextEditor__LineRange_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#isValid)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#isValid)
     ///
     /// ``` self: QtC.KTextEditor__LineRange ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KTextEditor__LineRange_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#invalid)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#invalid)
     ///
     ///
     pub fn Invalid() QtC.KTextEditor__LineRange {
         return qtc.KTextEditor__LineRange_Invalid();
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#toString)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#toString)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -78,119 +78,119 @@ pub const ktexteditor__linerange = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#start)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#start)
     ///
     /// ``` self: QtC.KTextEditor__LineRange ```
     pub fn Start(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__LineRange_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#end)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#end)
     ///
     /// ``` self: QtC.KTextEditor__LineRange ```
     pub fn End(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__LineRange_End(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#setRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setRange)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, range: QtC.KTextEditor__LineRange ```
     pub fn SetRange(self: ?*anyopaque, range: QtC.KTextEditor__LineRange) void {
         qtc.KTextEditor__LineRange_SetRange(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#setRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setRange)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, start: i32, end: i32 ```
     pub fn SetRange2(self: ?*anyopaque, start: i32, end: i32) void {
         qtc.KTextEditor__LineRange_SetRange2(@ptrCast(self), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#setBothLines)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setBothLines)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, line: i32 ```
     pub fn SetBothLines(self: ?*anyopaque, line: i32) void {
         qtc.KTextEditor__LineRange_SetBothLines(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#setStart)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setStart)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, start: i32 ```
     pub fn SetStart(self: ?*anyopaque, start: i32) void {
         qtc.KTextEditor__LineRange_SetStart(@ptrCast(self), @intCast(start));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#setEnd)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#setEnd)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, end: i32 ```
     pub fn SetEnd(self: ?*anyopaque, end: i32) void {
         qtc.KTextEditor__LineRange_SetEnd(@ptrCast(self), @intCast(end));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#expandToRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#expandToRange)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, range: QtC.KTextEditor__LineRange ```
     pub fn ExpandToRange(self: ?*anyopaque, range: QtC.KTextEditor__LineRange) bool {
         return qtc.KTextEditor__LineRange_ExpandToRange(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#confineToRange)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#confineToRange)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, range: QtC.KTextEditor__LineRange ```
     pub fn ConfineToRange(self: ?*anyopaque, range: QtC.KTextEditor__LineRange) bool {
         return qtc.KTextEditor__LineRange_ConfineToRange(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#onSingleLine)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#onSingleLine)
     ///
     /// ``` self: QtC.KTextEditor__LineRange ```
     pub fn OnSingleLine(self: ?*anyopaque) bool {
         return qtc.KTextEditor__LineRange_OnSingleLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#numberOfLines)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#numberOfLines)
     ///
     /// ``` self: QtC.KTextEditor__LineRange ```
     pub fn NumberOfLines(self: ?*anyopaque) i32 {
         return qtc.KTextEditor__LineRange_NumberOfLines(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#contains)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#contains)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, range: QtC.KTextEditor__LineRange ```
     pub fn Contains(self: ?*anyopaque, range: QtC.KTextEditor__LineRange) bool {
         return qtc.KTextEditor__LineRange_Contains(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#containsLine)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#containsLine)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, line: i32 ```
     pub fn ContainsLine(self: ?*anyopaque, line: i32) bool {
         return qtc.KTextEditor__LineRange_ContainsLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#overlaps)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#overlaps)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, range: QtC.KTextEditor__LineRange ```
     pub fn Overlaps(self: ?*anyopaque, range: QtC.KTextEditor__LineRange) bool {
         return qtc.KTextEditor__LineRange_Overlaps(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#overlapsLine)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#overlapsLine)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, line: i32 ```
     pub fn OverlapsLine(self: ?*anyopaque, line: i32) bool {
         return qtc.KTextEditor__LineRange_OverlapsLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#intersect)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#intersect)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, range: QtC.KTextEditor__LineRange ```
     pub fn Intersect(self: ?*anyopaque, range: QtC.KTextEditor__LineRange) QtC.KTextEditor__LineRange {
         return qtc.KTextEditor__LineRange_Intersect(@ptrCast(self), @ptrCast(range));
     }
 
-    /// [Qt documentation](https://api.kde.org/ktexteditor-linerange.html#encompass)
+    /// [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#encompass)
     ///
     /// ``` self: QtC.KTextEditor__LineRange, range: QtC.KTextEditor__LineRange ```
     pub fn Encompass(self: ?*anyopaque, range: QtC.KTextEditor__LineRange) QtC.KTextEditor__LineRange {

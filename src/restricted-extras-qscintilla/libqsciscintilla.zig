@@ -28,7 +28,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -60,7 +60,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -72,7 +72,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator ```
     pub fn ApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) [][]const u8 {
@@ -94,7 +94,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -103,7 +103,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnApiContext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -127,7 +127,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: i32 ```
     pub fn Annotate(self: ?*anyopaque, line: i32, text: []const u8, style: i32) void {
@@ -138,7 +138,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_Annotate(@ptrCast(self), @intCast(line), text_str, @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: QtC.QsciStyle ```
     pub fn Annotate2(self: ?*anyopaque, line: i32, text: []const u8, style: ?*anyopaque) void {
@@ -149,14 +149,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_Annotate2(@ptrCast(self), @intCast(line), text_str, @ptrCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: QtC.QsciStyledText ```
     pub fn Annotate3(self: ?*anyopaque, line: i32, text: ?*anyopaque) void {
         qtc.QsciScintilla_Annotate3(@ptrCast(self), @intCast(line), @ptrCast(text));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, allocator: std.mem.Allocator ```
     pub fn Annotation(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []const u8 {
@@ -167,7 +167,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -176,42 +176,42 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_AnnotationDisplay(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ClearAnnotations(self: ?*anyopaque) void {
         qtc.QsciScintilla_ClearAnnotations(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompletionCaseSensitivity(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_AutoCompletionCaseSensitivity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompletionFillupsEnabled(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_AutoCompletionFillupsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompletionReplaceWord(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_AutoCompletionReplaceWord(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompletionShowSingle(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_AutoCompletionShowSingle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -220,14 +220,14 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_AutoCompletionSource(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompletionThreshold(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_AutoCompletionThreshold(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -236,28 +236,28 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_AutoCompletionUseSingle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoIndent(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_AutoIndent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn BackspaceUnindents(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_BackspaceUnindents(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn BeginUndoAction(self: ?*anyopaque) void {
         qtc.QsciScintilla_BeginUndoAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -266,7 +266,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_BraceMatching(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, start: i32, end: i32, allocator: std.mem.Allocator ```
     pub fn Bytes(self: ?*anyopaque, start: i32, end: i32, allocator: std.mem.Allocator) []u8 {
@@ -277,7 +277,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -286,7 +286,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_CallTipsPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -295,63 +295,63 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_CallTipsStyle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CallTipsVisible(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_CallTipsVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CancelFind(self: ?*anyopaque) void {
         qtc.QsciScintilla_CancelFind(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CancelList(self: ?*anyopaque) void {
         qtc.QsciScintilla_CancelList(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CaseSensitive(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_CaseSensitive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ClearFolds(self: ?*anyopaque) void {
         qtc.QsciScintilla_ClearFolds(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32 ```
     pub fn ClearIndicatorRange(self: ?*anyopaque, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32) void {
         qtc.QsciScintilla_ClearIndicatorRange(@ptrCast(self), @intCast(lineFrom), @intCast(indexFrom), @intCast(lineTo), @intCast(indexTo), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ClearRegisteredImages(self: ?*anyopaque) void {
         qtc.QsciScintilla_ClearRegisteredImages(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Color(self: ?*anyopaque) QtC.QColor {
         return qtc.QsciScintilla_Color(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn ContractedFolds(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
@@ -363,49 +363,49 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mode: qsciscintilla_enums.EolMode ```
     pub fn ConvertEols(self: ?*anyopaque, mode: i32) void {
         qtc.QsciScintilla_ConvertEols(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.QsciScintilla_CreateStandardContextMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Document(self: ?*anyopaque) QtC.QsciDocument {
         return qtc.QsciScintilla_Document(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn EndUndoAction(self: ?*anyopaque) void {
         qtc.QsciScintilla_EndUndoAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn EdgeColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QsciScintilla_EdgeColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn EdgeColumn(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_EdgeColumn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -414,14 +414,14 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_EdgeMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, f: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque) void {
         qtc.QsciScintilla_SetFont(@ptrCast(self), @ptrCast(f));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -430,35 +430,35 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_EolMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn EolVisibility(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_EolVisibility(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ExtraAscent(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_ExtraAscent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ExtraDescent(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_ExtraDescent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32 ```
     pub fn FillIndicatorRange(self: ?*anyopaque, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32) void {
         qtc.QsciScintilla_FillIndicatorRange(@ptrCast(self), @intCast(lineFrom), @intCast(indexFrom), @intCast(lineTo), @intCast(indexTo), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool ```
     pub fn FindFirst(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) bool {
@@ -469,7 +469,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_FindFirst(@ptrCast(self), expr_str, re, cs, wo, wrap, forward, @intCast(line), @intCast(index), show, posix, cxx11);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -478,7 +478,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnFindFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -491,7 +491,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_QBaseFindFirst(@ptrCast(self), expr_str, re, cs, wo, wrap, forward, @intCast(line), @intCast(index), show, posix, cxx11);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool ```
     pub fn FindFirstInSelection(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) bool {
@@ -502,7 +502,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_FindFirstInSelection(@ptrCast(self), expr_str, re, cs, wo, forward, show, posix, cxx11);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -511,7 +511,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnFindFirstInSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -524,14 +524,14 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_QBaseFindFirstInSelection(@ptrCast(self), expr_str, re, cs, wo, forward, show, posix, cxx11);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FindNext(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_FindNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -540,7 +540,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnFindNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -549,7 +549,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_QBaseFindNext(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, brace: *i64, other: *i64, mode: qsciscintilla_enums.BraceMatch ```
     pub fn FindMatchingBrace(self: ?*anyopaque, brace: *i64, other: *i64, mode: i32) bool {
@@ -561,14 +561,14 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_FindMatchingBrace(@ptrCast(self), @ptrCast(brace), @ptrCast(other), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FirstVisibleLine(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_FirstVisibleLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -577,203 +577,203 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_Folding(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: *i32, index: *i32 ```
     pub fn GetCursorPosition(self: ?*anyopaque, line: *i32, index: *i32) void {
         qtc.QsciScintilla_GetCursorPosition(@ptrCast(self), @ptrCast(line), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, lineFrom: *i32, indexFrom: *i32, lineTo: *i32, indexTo: *i32 ```
     pub fn GetSelection(self: ?*anyopaque, lineFrom: *i32, indexFrom: *i32, lineTo: *i32, indexTo: *i32) void {
         qtc.QsciScintilla_GetSelection(@ptrCast(self), @ptrCast(lineFrom), @ptrCast(indexFrom), @ptrCast(lineTo), @ptrCast(indexTo));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn HasSelectedText(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_HasSelectedText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn Indentation(self: ?*anyopaque, line: i32) i32 {
         return qtc.QsciScintilla_Indentation(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IndentationGuides(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IndentationGuides(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IndentationsUseTabs(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IndentationsUseTabs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IndentationWidth(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_IndentationWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, style: qsciscintilla_enums.IndicatorStyle ```
     pub fn IndicatorDefine(self: ?*anyopaque, style: i32) i32 {
         return qtc.QsciScintilla_IndicatorDefine(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, indicatorNumber: i32 ```
     pub fn IndicatorDrawUnder(self: ?*anyopaque, indicatorNumber: i32) bool {
         return qtc.QsciScintilla_IndicatorDrawUnder(@ptrCast(self), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsCallTipActive(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IsCallTipActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsListActive(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IsListActive(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsModified(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IsModified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IsReadOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsRedoAvailable(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IsRedoAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsUndoAvailable(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IsUndoAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsUtf8(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_IsUtf8(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, ch: u8 ```
     pub fn IsWordCharacter(self: ?*anyopaque, ch: u8) bool {
         return qtc.QsciScintilla_IsWordCharacter(@ptrCast(self), @intCast(ch));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, point: QtC.QPoint ```
     pub fn LineAt(self: ?*anyopaque, point: ?*anyopaque) i32 {
         return qtc.QsciScintilla_LineAt(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, line: *i32, index: *i32 ```
     pub fn LineIndexFromPosition(self: ?*anyopaque, position: i32, line: *i32, index: *i32) void {
         qtc.QsciScintilla_LineIndexFromPosition(@ptrCast(self), @intCast(position), @ptrCast(line), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn LineLength(self: ?*anyopaque, line: i32) i32 {
         return qtc.QsciScintilla_LineLength(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Lines(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_Lines(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Length(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_Length(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Lexer(self: ?*anyopaque) QtC.QsciLexer {
         return qtc.QsciScintilla_Lexer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32 ```
     pub fn MarginBackgroundColor(self: ?*anyopaque, margin: i32) QtC.QColor {
         return qtc.QsciScintilla_MarginBackgroundColor(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32 ```
     pub fn MarginLineNumbers(self: ?*anyopaque, margin: i32) bool {
         return qtc.QsciScintilla_MarginLineNumbers(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32 ```
     pub fn MarginMarkerMask(self: ?*anyopaque, margin: i32) i32 {
         return qtc.QsciScintilla_MarginMarkerMask(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MarginOptions(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_MarginOptions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32 ```
     pub fn MarginSensitivity(self: ?*anyopaque, margin: i32) bool {
         return qtc.QsciScintilla_MarginSensitivity(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32 ```
     ///
@@ -782,140 +782,140 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_MarginType(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32 ```
     pub fn MarginWidth(self: ?*anyopaque, margin: i32) i32 {
         return qtc.QsciScintilla_MarginWidth(@ptrCast(self), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Margins(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_Margins(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, sym: qsciscintilla_enums.MarkerSymbol ```
     pub fn MarkerDefine(self: ?*anyopaque, sym: i32) i32 {
         return qtc.QsciScintilla_MarkerDefine(@ptrCast(self), @intCast(sym));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, ch: u8 ```
     pub fn MarkerDefine2(self: ?*anyopaque, ch: u8) i32 {
         return qtc.QsciScintilla_MarkerDefine2(@ptrCast(self), @intCast(ch));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, pm: QtC.QPixmap ```
     pub fn MarkerDefine3(self: ?*anyopaque, pm: ?*anyopaque) i32 {
         return qtc.QsciScintilla_MarkerDefine3(@ptrCast(self), @ptrCast(pm));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, im: QtC.QImage ```
     pub fn MarkerDefine4(self: ?*anyopaque, im: ?*anyopaque) i32 {
         return qtc.QsciScintilla_MarkerDefine4(@ptrCast(self), @ptrCast(im));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32, markerNumber: i32 ```
     pub fn MarkerAdd(self: ?*anyopaque, linenr: i32, markerNumber: i32) i32 {
         return qtc.QsciScintilla_MarkerAdd(@ptrCast(self), @intCast(linenr), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32 ```
     pub fn MarkersAtLine(self: ?*anyopaque, linenr: i32) u32 {
         return qtc.QsciScintilla_MarkersAtLine(@ptrCast(self), @intCast(linenr));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32 ```
     pub fn MarkerDelete(self: ?*anyopaque, linenr: i32) void {
         qtc.QsciScintilla_MarkerDelete(@ptrCast(self), @intCast(linenr));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MarkerDeleteAll(self: ?*anyopaque) void {
         qtc.QsciScintilla_MarkerDeleteAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mhandle: i32 ```
     pub fn MarkerDeleteHandle(self: ?*anyopaque, mhandle: i32) void {
         qtc.QsciScintilla_MarkerDeleteHandle(@ptrCast(self), @intCast(mhandle));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mhandle: i32 ```
     pub fn MarkerLine(self: ?*anyopaque, mhandle: i32) i32 {
         return qtc.QsciScintilla_MarkerLine(@ptrCast(self), @intCast(mhandle));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32, mask: u32 ```
     pub fn MarkerFindNext(self: ?*anyopaque, linenr: i32, mask: u32) i32 {
         return qtc.QsciScintilla_MarkerFindNext(@ptrCast(self), @intCast(linenr), @intCast(mask));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32, mask: u32 ```
     pub fn MarkerFindPrevious(self: ?*anyopaque, linenr: i32, mask: u32) i32 {
         return qtc.QsciScintilla_MarkerFindPrevious(@ptrCast(self), @intCast(linenr), @intCast(mask));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn OverwriteMode(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_OverwriteMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Paper(self: ?*anyopaque) QtC.QColor {
         return qtc.QsciScintilla_Paper(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, index: i32 ```
     pub fn PositionFromLineIndex(self: ?*anyopaque, line: i32, index: i32) i32 {
         return qtc.QsciScintilla_PositionFromLineIndex(@ptrCast(self), @intCast(line), @intCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, io: QtC.QIODevice ```
     pub fn Read(self: ?*anyopaque, io: ?*anyopaque) bool {
         return qtc.QsciScintilla_Read(@ptrCast(self), @ptrCast(io));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, start: i32, end: i32 ```
     pub fn Recolor(self: ?*anyopaque, start: i32, end: i32) void {
         qtc.QsciScintilla_Recolor(@ptrCast(self), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -924,7 +924,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnRecolor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -933,21 +933,21 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseRecolor(@ptrCast(self), @intCast(start), @intCast(end));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, pm: QtC.QPixmap ```
     pub fn RegisterImage(self: ?*anyopaque, id: i32, pm: ?*anyopaque) void {
         qtc.QsciScintilla_RegisterImage(@ptrCast(self), @intCast(id), @ptrCast(pm));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, im: QtC.QImage ```
     pub fn RegisterImage2(self: ?*anyopaque, id: i32, im: ?*anyopaque) void {
         qtc.QsciScintilla_RegisterImage2(@ptrCast(self), @intCast(id), @ptrCast(im));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, replaceStr: []const u8 ```
     pub fn Replace(self: ?*anyopaque, replaceStr: []const u8) void {
@@ -958,7 +958,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_Replace(@ptrCast(self), replaceStr_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -967,7 +967,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnReplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -980,63 +980,63 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseReplace(@ptrCast(self), replaceStr_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ResetFoldMarginColors(self: ?*anyopaque) void {
         qtc.QsciScintilla_ResetFoldMarginColors(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ResetHotspotBackgroundColor(self: ?*anyopaque) void {
         qtc.QsciScintilla_ResetHotspotBackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ResetHotspotForegroundColor(self: ?*anyopaque) void {
         qtc.QsciScintilla_ResetHotspotForegroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ScrollWidth(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_ScrollWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ScrollWidthTracking(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_ScrollWidthTracking(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, fore: QtC.QColor, back: QtC.QColor ```
     pub fn SetFoldMarginColors(self: ?*anyopaque, fore: ?*anyopaque, back: ?*anyopaque) void {
         qtc.QsciScintilla_SetFoldMarginColors(@ptrCast(self), @ptrCast(fore), @ptrCast(back));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, display: qsciscintilla_enums.AnnotationDisplay ```
     pub fn SetAnnotationDisplay(self: ?*anyopaque, display: i32) void {
         qtc.QsciScintilla_SetAnnotationDisplay(@ptrCast(self), @intCast(display));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, enabled: bool ```
     pub fn SetAutoCompletionFillupsEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QsciScintilla_SetAutoCompletionFillupsEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, fillups: []const u8 ```
     pub fn SetAutoCompletionFillups(self: ?*anyopaque, fillups: []const u8) void {
@@ -1044,7 +1044,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_SetAutoCompletionFillups(@ptrCast(self), fillups_Cstring);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, separators: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAutoCompletionWordSeparators(self: ?*anyopaque, separators: [][]const u8, allocator: std.mem.Allocator) void {
@@ -1063,49 +1063,49 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_SetAutoCompletionWordSeparators(@ptrCast(self), separators_list);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetCallTipsBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetCallTipsBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetCallTipsForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetCallTipsForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetCallTipsHighlightColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetCallTipsHighlightColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: qsciscintilla_enums.CallTipsPosition ```
     pub fn SetCallTipsPosition(self: ?*anyopaque, position: i32) void {
         qtc.QsciScintilla_SetCallTipsPosition(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, style: qsciscintilla_enums.CallTipsStyle ```
     pub fn SetCallTipsStyle(self: ?*anyopaque, style: i32) void {
         qtc.QsciScintilla_SetCallTipsStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, nr: i32 ```
     pub fn SetCallTipsVisible(self: ?*anyopaque, nr: i32) void {
         qtc.QsciScintilla_SetCallTipsVisible(@ptrCast(self), @intCast(nr));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, folds: []i32 ```
     pub fn SetContractedFolds(self: ?*anyopaque, folds: []i32) void {
@@ -1116,105 +1116,105 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_SetContractedFolds(@ptrCast(self), folds_list);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, document: QtC.QsciDocument ```
     pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.QsciScintilla_SetDocument(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, colnr: i32, col: QtC.QColor ```
     pub fn AddEdgeColumn(self: ?*anyopaque, colnr: i32, col: ?*anyopaque) void {
         qtc.QsciScintilla_AddEdgeColumn(@ptrCast(self), @intCast(colnr), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ClearEdgeColumns(self: ?*anyopaque) void {
         qtc.QsciScintilla_ClearEdgeColumns(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetEdgeColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetEdgeColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, colnr: i32 ```
     pub fn SetEdgeColumn(self: ?*anyopaque, colnr: i32) void {
         qtc.QsciScintilla_SetEdgeColumn(@ptrCast(self), @intCast(colnr));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mode: qsciscintilla_enums.EdgeMode ```
     pub fn SetEdgeMode(self: ?*anyopaque, mode: i32) void {
         qtc.QsciScintilla_SetEdgeMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32 ```
     pub fn SetFirstVisibleLine(self: ?*anyopaque, linenr: i32) void {
         qtc.QsciScintilla_SetFirstVisibleLine(@ptrCast(self), @intCast(linenr));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, under: bool ```
     pub fn SetIndicatorDrawUnder(self: ?*anyopaque, under: bool) void {
         qtc.QsciScintilla_SetIndicatorDrawUnder(@ptrCast(self), under);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetIndicatorForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetIndicatorForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetIndicatorHoverForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetIndicatorHoverForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, style: qsciscintilla_enums.IndicatorStyle ```
     pub fn SetIndicatorHoverStyle(self: ?*anyopaque, style: i32) void {
         qtc.QsciScintilla_SetIndicatorHoverStyle(@ptrCast(self), @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetIndicatorOutlineColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetIndicatorOutlineColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, col: QtC.QColor ```
     pub fn SetMarginBackgroundColor(self: ?*anyopaque, margin: i32, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetMarginBackgroundColor(@ptrCast(self), @intCast(margin), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, options: i32 ```
     pub fn SetMarginOptions(self: ?*anyopaque, options: i32) void {
         qtc.QsciScintilla_SetMarginOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: i32 ```
     pub fn SetMarginText(self: ?*anyopaque, line: i32, text: []const u8, style: i32) void {
@@ -1225,7 +1225,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_SetMarginText(@ptrCast(self), @intCast(line), text_str, @intCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: QtC.QsciStyle ```
     pub fn SetMarginText2(self: ?*anyopaque, line: i32, text: []const u8, style: ?*anyopaque) void {
@@ -1236,133 +1236,133 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_SetMarginText2(@ptrCast(self), @intCast(line), text_str, @ptrCast(style));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: QtC.QsciStyledText ```
     pub fn SetMarginText3(self: ?*anyopaque, line: i32, text: ?*anyopaque) void {
         qtc.QsciScintilla_SetMarginText3(@ptrCast(self), @intCast(line), @ptrCast(text));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, typeVal: qsciscintilla_enums.MarginType ```
     pub fn SetMarginType(self: ?*anyopaque, margin: i32, typeVal: i32) void {
         qtc.QsciScintilla_SetMarginType(@ptrCast(self), @intCast(margin), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ClearMarginText(self: ?*anyopaque) void {
         qtc.QsciScintilla_ClearMarginText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margins: i32 ```
     pub fn SetMargins(self: ?*anyopaque, margins: i32) void {
         qtc.QsciScintilla_SetMargins(@ptrCast(self), @intCast(margins));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetMarkerBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetMarkerBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetMarkerForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetMarkerForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetMatchedBraceBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetMatchedBraceBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetMatchedBraceForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetMatchedBraceForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, indicatorNumber: i32 ```
     pub fn SetMatchedBraceIndicator(self: ?*anyopaque, indicatorNumber: i32) void {
         qtc.QsciScintilla_SetMatchedBraceIndicator(@ptrCast(self), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ResetMatchedBraceIndicator(self: ?*anyopaque) void {
         qtc.QsciScintilla_ResetMatchedBraceIndicator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, pixelWidth: i32 ```
     pub fn SetScrollWidth(self: ?*anyopaque, pixelWidth: i32) void {
         qtc.QsciScintilla_SetScrollWidth(@ptrCast(self), @intCast(pixelWidth));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, enabled: bool ```
     pub fn SetScrollWidthTracking(self: ?*anyopaque, enabled: bool) void {
         qtc.QsciScintilla_SetScrollWidthTracking(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mode: qsciscintilla_enums.TabDrawMode ```
     pub fn SetTabDrawMode(self: ?*anyopaque, mode: i32) void {
         qtc.QsciScintilla_SetTabDrawMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetUnmatchedBraceBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetUnmatchedBraceBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetUnmatchedBraceForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetUnmatchedBraceForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, indicatorNumber: i32 ```
     pub fn SetUnmatchedBraceIndicator(self: ?*anyopaque, indicatorNumber: i32) void {
         qtc.QsciScintilla_SetUnmatchedBraceIndicator(@ptrCast(self), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ResetUnmatchedBraceIndicator(self: ?*anyopaque) void {
         qtc.QsciScintilla_ResetUnmatchedBraceIndicator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, endFlag: qsciscintilla_enums.WrapVisualFlag ```
     pub fn SetWrapVisualFlags(self: ?*anyopaque, endFlag: i32) void {
         qtc.QsciScintilla_SetWrapVisualFlags(@ptrCast(self), @intCast(endFlag));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1373,98 +1373,98 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SelectionToEol(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_SelectionToEol(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetHotspotBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetHotspotBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetHotspotForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetHotspotForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, enable: bool ```
     pub fn SetHotspotUnderline(self: ?*anyopaque, enable: bool) void {
         qtc.QsciScintilla_SetHotspotUnderline(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, enable: bool ```
     pub fn SetHotspotWrap(self: ?*anyopaque, enable: bool) void {
         qtc.QsciScintilla_SetHotspotWrap(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, filled: bool ```
     pub fn SetSelectionToEol(self: ?*anyopaque, filled: bool) void {
         qtc.QsciScintilla_SetSelectionToEol(@ptrCast(self), filled);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, extra: i32 ```
     pub fn SetExtraAscent(self: ?*anyopaque, extra: i32) void {
         qtc.QsciScintilla_SetExtraAscent(@ptrCast(self), @intCast(extra));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, extra: i32 ```
     pub fn SetExtraDescent(self: ?*anyopaque, extra: i32) void {
         qtc.QsciScintilla_SetExtraDescent(@ptrCast(self), @intCast(extra));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, overwrite: bool ```
     pub fn SetOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
         qtc.QsciScintilla_SetOverwriteMode(@ptrCast(self), overwrite);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetWhitespaceBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetWhitespaceBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetWhitespaceForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetWhitespaceForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, size: i32 ```
     pub fn SetWhitespaceSize(self: ?*anyopaque, size: i32) void {
         qtc.QsciScintilla_SetWhitespaceSize(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mode: qsciscintilla_enums.WrapIndentMode ```
     pub fn SetWrapIndentMode(self: ?*anyopaque, mode: i32) void {
         qtc.QsciScintilla_SetWrapIndentMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, list: [][]const u8, allocator: std.mem.Allocator ```
     pub fn ShowUserList(self: ?*anyopaque, id: i32, list: [][]const u8, allocator: std.mem.Allocator) void {
@@ -1483,14 +1483,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_ShowUserList(@ptrCast(self), @intCast(id), list_list);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn StandardCommands(self: ?*anyopaque) QtC.QsciCommandSet {
         return qtc.QsciScintilla_StandardCommands(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -1499,21 +1499,21 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_TabDrawMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn TabIndents(self: ?*anyopaque) bool {
         return qtc.QsciScintilla_TabIndents(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn TabWidth(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_TabWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1524,7 +1524,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, allocator: std.mem.Allocator ```
     pub fn Text2(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1535,7 +1535,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, start: i32, end: i32, allocator: std.mem.Allocator ```
     pub fn Text3(self: ?*anyopaque, start: i32, end: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1546,21 +1546,21 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32 ```
     pub fn TextHeight(self: ?*anyopaque, linenr: i32) i32 {
         return qtc.QsciScintilla_TextHeight(@ptrCast(self), @intCast(linenr));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn WhitespaceSize(self: ?*anyopaque) i32 {
         return qtc.QsciScintilla_WhitespaceSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -1569,7 +1569,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_WhitespaceVisibility(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, index: i32, allocator: std.mem.Allocator ```
     pub fn WordAtLineIndex(self: ?*anyopaque, line: i32, index: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1580,7 +1580,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, point: QtC.QPoint, allocator: std.mem.Allocator ```
     pub fn WordAtPoint(self: ?*anyopaque, point: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1591,7 +1591,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn WordCharacters(self: ?*anyopaque) []const u8 {
@@ -1599,7 +1599,7 @@ pub const qsciscintilla = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -1608,7 +1608,7 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_WrapMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -1617,14 +1617,14 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_WrapIndentMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, io: QtC.QIODevice ```
     pub fn Write(self: ?*anyopaque, io: ?*anyopaque) bool {
         return qtc.QsciScintilla_Write(@ptrCast(self), @ptrCast(io));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn Append(self: ?*anyopaque, text: []const u8) void {
@@ -1635,7 +1635,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_Append(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1644,7 +1644,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnAppend(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1657,14 +1657,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseAppend(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompleteFromAll(self: ?*anyopaque) void {
         qtc.QsciScintilla_AutoCompleteFromAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1673,7 +1673,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnAutoCompleteFromAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1682,14 +1682,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseAutoCompleteFromAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompleteFromAPIs(self: ?*anyopaque) void {
         qtc.QsciScintilla_AutoCompleteFromAPIs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1698,7 +1698,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnAutoCompleteFromAPIs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1707,14 +1707,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseAutoCompleteFromAPIs(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoCompleteFromDocument(self: ?*anyopaque) void {
         qtc.QsciScintilla_AutoCompleteFromDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1723,7 +1723,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnAutoCompleteFromDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1732,14 +1732,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseAutoCompleteFromDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CallTip(self: ?*anyopaque) void {
         qtc.QsciScintilla_CallTip(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1748,7 +1748,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnCallTip(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1757,14 +1757,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseCallTip(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QsciScintilla_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1773,7 +1773,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1782,14 +1782,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseClear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Copy(self: ?*anyopaque) void {
         qtc.QsciScintilla_Copy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1798,7 +1798,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1807,14 +1807,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseCopy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Cut(self: ?*anyopaque) void {
         qtc.QsciScintilla_Cut(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1823,7 +1823,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnCut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1832,14 +1832,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseCut(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn EnsureCursorVisible(self: ?*anyopaque) void {
         qtc.QsciScintilla_EnsureCursorVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1848,7 +1848,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnEnsureCursorVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1857,14 +1857,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseEnsureCursorVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn EnsureLineVisible(self: ?*anyopaque, line: i32) void {
         qtc.QsciScintilla_EnsureLineVisible(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1873,7 +1873,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnEnsureLineVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1882,14 +1882,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseEnsureLineVisible(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, children: bool ```
     pub fn FoldAll(self: ?*anyopaque, children: bool) void {
         qtc.QsciScintilla_FoldAll(@ptrCast(self), children);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1898,7 +1898,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnFoldAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1907,14 +1907,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseFoldAll(@ptrCast(self), children);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn FoldLine(self: ?*anyopaque, line: i32) void {
         qtc.QsciScintilla_FoldLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1923,7 +1923,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnFoldLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1932,14 +1932,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseFoldLine(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn Indent(self: ?*anyopaque, line: i32) void {
         qtc.QsciScintilla_Indent(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1948,7 +1948,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnIndent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1957,7 +1957,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseIndent(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn Insert(self: ?*anyopaque, text: []const u8) void {
@@ -1968,7 +1968,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_Insert(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1977,7 +1977,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnInsert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -1990,7 +1990,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseInsert(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8, line: i32, index: i32 ```
     pub fn InsertAt(self: ?*anyopaque, text: []const u8, line: i32, index: i32) void {
@@ -2001,7 +2001,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_InsertAt(@ptrCast(self), text_str, @intCast(line), @intCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2010,7 +2010,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnInsertAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2023,14 +2023,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseInsertAt(@ptrCast(self), text_str, @intCast(line), @intCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MoveToMatchingBrace(self: ?*anyopaque) void {
         qtc.QsciScintilla_MoveToMatchingBrace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2039,7 +2039,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnMoveToMatchingBrace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2048,14 +2048,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseMoveToMatchingBrace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Paste(self: ?*anyopaque) void {
         qtc.QsciScintilla_Paste(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2064,7 +2064,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnPaste(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2073,14 +2073,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBasePaste(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Redo(self: ?*anyopaque) void {
         qtc.QsciScintilla_Redo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2089,7 +2089,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnRedo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2098,14 +2098,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseRedo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn RemoveSelectedText(self: ?*anyopaque) void {
         qtc.QsciScintilla_RemoveSelectedText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2114,7 +2114,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnRemoveSelectedText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2123,7 +2123,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseRemoveSelectedText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn ReplaceSelectedText(self: ?*anyopaque, text: []const u8) void {
@@ -2134,7 +2134,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_ReplaceSelectedText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2143,7 +2143,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnReplaceSelectedText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2156,14 +2156,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseReplaceSelectedText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ResetSelectionBackgroundColor(self: ?*anyopaque) void {
         qtc.QsciScintilla_ResetSelectionBackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2172,7 +2172,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnResetSelectionBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2181,14 +2181,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseResetSelectionBackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ResetSelectionForegroundColor(self: ?*anyopaque) void {
         qtc.QsciScintilla_ResetSelectionForegroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2197,7 +2197,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnResetSelectionForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2206,14 +2206,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseResetSelectionForegroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, selectVal: bool ```
     pub fn SelectAll(self: ?*anyopaque, selectVal: bool) void {
         qtc.QsciScintilla_SelectAll(@ptrCast(self), selectVal);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2222,7 +2222,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSelectAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2231,14 +2231,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSelectAll(@ptrCast(self), selectVal);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SelectToMatchingBrace(self: ?*anyopaque) void {
         qtc.QsciScintilla_SelectToMatchingBrace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2247,7 +2247,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSelectToMatchingBrace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2256,14 +2256,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSelectToMatchingBrace(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, cs: bool ```
     pub fn SetAutoCompletionCaseSensitivity(self: ?*anyopaque, cs: bool) void {
         qtc.QsciScintilla_SetAutoCompletionCaseSensitivity(@ptrCast(self), cs);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2272,7 +2272,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetAutoCompletionCaseSensitivity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2281,14 +2281,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetAutoCompletionCaseSensitivity(@ptrCast(self), cs);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, replace: bool ```
     pub fn SetAutoCompletionReplaceWord(self: ?*anyopaque, replace: bool) void {
         qtc.QsciScintilla_SetAutoCompletionReplaceWord(@ptrCast(self), replace);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2297,7 +2297,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetAutoCompletionReplaceWord(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2306,14 +2306,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetAutoCompletionReplaceWord(@ptrCast(self), replace);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, single: bool ```
     pub fn SetAutoCompletionShowSingle(self: ?*anyopaque, single: bool) void {
         qtc.QsciScintilla_SetAutoCompletionShowSingle(@ptrCast(self), single);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2322,7 +2322,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetAutoCompletionShowSingle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2331,14 +2331,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetAutoCompletionShowSingle(@ptrCast(self), single);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, source: qsciscintilla_enums.AutoCompletionSource ```
     pub fn SetAutoCompletionSource(self: ?*anyopaque, source: i32) void {
         qtc.QsciScintilla_SetAutoCompletionSource(@ptrCast(self), @intCast(source));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2347,7 +2347,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetAutoCompletionSource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2356,14 +2356,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetAutoCompletionSource(@ptrCast(self), @intCast(source));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, thresh: i32 ```
     pub fn SetAutoCompletionThreshold(self: ?*anyopaque, thresh: i32) void {
         qtc.QsciScintilla_SetAutoCompletionThreshold(@ptrCast(self), @intCast(thresh));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2372,7 +2372,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetAutoCompletionThreshold(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2381,14 +2381,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetAutoCompletionThreshold(@ptrCast(self), @intCast(thresh));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, single: qsciscintilla_enums.AutoCompletionUseSingle ```
     pub fn SetAutoCompletionUseSingle(self: ?*anyopaque, single: i32) void {
         qtc.QsciScintilla_SetAutoCompletionUseSingle(@ptrCast(self), @intCast(single));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2397,7 +2397,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetAutoCompletionUseSingle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2406,14 +2406,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetAutoCompletionUseSingle(@ptrCast(self), @intCast(single));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, autoindent: bool ```
     pub fn SetAutoIndent(self: ?*anyopaque, autoindent: bool) void {
         qtc.QsciScintilla_SetAutoIndent(@ptrCast(self), autoindent);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2422,7 +2422,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetAutoIndent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2431,14 +2431,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetAutoIndent(@ptrCast(self), autoindent);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, bm: qsciscintilla_enums.BraceMatch ```
     pub fn SetBraceMatching(self: ?*anyopaque, bm: i32) void {
         qtc.QsciScintilla_SetBraceMatching(@ptrCast(self), @intCast(bm));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2447,7 +2447,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetBraceMatching(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2456,14 +2456,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetBraceMatching(@ptrCast(self), @intCast(bm));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, unindent: bool ```
     pub fn SetBackspaceUnindents(self: ?*anyopaque, unindent: bool) void {
         qtc.QsciScintilla_SetBackspaceUnindents(@ptrCast(self), unindent);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2472,7 +2472,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetBackspaceUnindents(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2481,14 +2481,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetBackspaceUnindents(@ptrCast(self), unindent);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetCaretForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetCaretForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2497,7 +2497,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetCaretForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2506,14 +2506,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetCaretForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetCaretLineBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetCaretLineBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2522,7 +2522,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetCaretLineBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2531,14 +2531,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetCaretLineBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, width: i32 ```
     pub fn SetCaretLineFrameWidth(self: ?*anyopaque, width: i32) void {
         qtc.QsciScintilla_SetCaretLineFrameWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2547,7 +2547,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetCaretLineFrameWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2556,14 +2556,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetCaretLineFrameWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, enable: bool ```
     pub fn SetCaretLineVisible(self: ?*anyopaque, enable: bool) void {
         qtc.QsciScintilla_SetCaretLineVisible(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2572,7 +2572,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetCaretLineVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2581,14 +2581,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetCaretLineVisible(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, width: i32 ```
     pub fn SetCaretWidth(self: ?*anyopaque, width: i32) void {
         qtc.QsciScintilla_SetCaretWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2597,7 +2597,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetCaretWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2606,14 +2606,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetCaretWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, c: QtC.QColor ```
     pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QsciScintilla_SetColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2622,7 +2622,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2631,14 +2631,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, index: i32 ```
     pub fn SetCursorPosition(self: ?*anyopaque, line: i32, index: i32) void {
         qtc.QsciScintilla_SetCursorPosition(@ptrCast(self), @intCast(line), @intCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2647,7 +2647,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetCursorPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2656,14 +2656,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetCursorPosition(@ptrCast(self), @intCast(line), @intCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mode: qsciscintilla_enums.EolMode ```
     pub fn SetEolMode(self: ?*anyopaque, mode: i32) void {
         qtc.QsciScintilla_SetEolMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2672,7 +2672,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetEolMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2681,14 +2681,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetEolMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, visible: bool ```
     pub fn SetEolVisibility(self: ?*anyopaque, visible: bool) void {
         qtc.QsciScintilla_SetEolVisibility(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2697,7 +2697,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetEolVisibility(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2706,14 +2706,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetEolVisibility(@ptrCast(self), visible);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, fold: qsciscintilla_enums.FoldStyle, margin: i32 ```
     pub fn SetFolding(self: ?*anyopaque, fold: i32, margin: i32) void {
         qtc.QsciScintilla_SetFolding(@ptrCast(self), @intCast(fold), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2722,7 +2722,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetFolding(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2731,14 +2731,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetFolding(@ptrCast(self), @intCast(fold), @intCast(margin));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, indentation: i32 ```
     pub fn SetIndentation(self: ?*anyopaque, line: i32, indentation: i32) void {
         qtc.QsciScintilla_SetIndentation(@ptrCast(self), @intCast(line), @intCast(indentation));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2747,7 +2747,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetIndentation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2756,14 +2756,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetIndentation(@ptrCast(self), @intCast(line), @intCast(indentation));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, enable: bool ```
     pub fn SetIndentationGuides(self: ?*anyopaque, enable: bool) void {
         qtc.QsciScintilla_SetIndentationGuides(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2772,7 +2772,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetIndentationGuides(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2781,14 +2781,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetIndentationGuides(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetIndentationGuidesBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetIndentationGuidesBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2797,7 +2797,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetIndentationGuidesBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2806,14 +2806,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetIndentationGuidesBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetIndentationGuidesForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetIndentationGuidesForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2822,7 +2822,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetIndentationGuidesForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2831,14 +2831,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetIndentationGuidesForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, tabs: bool ```
     pub fn SetIndentationsUseTabs(self: ?*anyopaque, tabs: bool) void {
         qtc.QsciScintilla_SetIndentationsUseTabs(@ptrCast(self), tabs);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2847,7 +2847,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetIndentationsUseTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2856,14 +2856,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetIndentationsUseTabs(@ptrCast(self), tabs);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, width: i32 ```
     pub fn SetIndentationWidth(self: ?*anyopaque, width: i32) void {
         qtc.QsciScintilla_SetIndentationWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2872,7 +2872,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetIndentationWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2881,14 +2881,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetIndentationWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, lexer: QtC.QsciLexer ```
     pub fn SetLexer(self: ?*anyopaque, lexer: ?*anyopaque) void {
         qtc.QsciScintilla_SetLexer(@ptrCast(self), @ptrCast(lexer));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2897,7 +2897,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetLexer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2906,14 +2906,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetLexer(@ptrCast(self), @ptrCast(lexer));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetMarginsBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetMarginsBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2922,7 +2922,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginsBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2931,14 +2931,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginsBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, f: QtC.QFont ```
     pub fn SetMarginsFont(self: ?*anyopaque, f: ?*anyopaque) void {
         qtc.QsciScintilla_SetMarginsFont(@ptrCast(self), @ptrCast(f));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2947,7 +2947,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginsFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2956,14 +2956,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginsFont(@ptrCast(self), @ptrCast(f));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetMarginsForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetMarginsForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2972,7 +2972,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginsForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -2981,14 +2981,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginsForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, lnrs: bool ```
     pub fn SetMarginLineNumbers(self: ?*anyopaque, margin: i32, lnrs: bool) void {
         qtc.QsciScintilla_SetMarginLineNumbers(@ptrCast(self), @intCast(margin), lnrs);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -2997,7 +2997,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginLineNumbers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3006,14 +3006,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginLineNumbers(@ptrCast(self), @intCast(margin), lnrs);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, mask: i32 ```
     pub fn SetMarginMarkerMask(self: ?*anyopaque, margin: i32, mask: i32) void {
         qtc.QsciScintilla_SetMarginMarkerMask(@ptrCast(self), @intCast(margin), @intCast(mask));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3022,7 +3022,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginMarkerMask(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3031,14 +3031,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginMarkerMask(@ptrCast(self), @intCast(margin), @intCast(mask));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, sens: bool ```
     pub fn SetMarginSensitivity(self: ?*anyopaque, margin: i32, sens: bool) void {
         qtc.QsciScintilla_SetMarginSensitivity(@ptrCast(self), @intCast(margin), sens);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3047,7 +3047,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginSensitivity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3056,14 +3056,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginSensitivity(@ptrCast(self), @intCast(margin), sens);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, width: i32 ```
     pub fn SetMarginWidth(self: ?*anyopaque, margin: i32, width: i32) void {
         qtc.QsciScintilla_SetMarginWidth(@ptrCast(self), @intCast(margin), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3072,7 +3072,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3081,7 +3081,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginWidth(@ptrCast(self), @intCast(margin), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, s: []const u8 ```
     pub fn SetMarginWidth2(self: ?*anyopaque, margin: i32, s: []const u8) void {
@@ -3092,7 +3092,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_SetMarginWidth2(@ptrCast(self), @intCast(margin), s_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3101,7 +3101,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetMarginWidth2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3114,14 +3114,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetMarginWidth2(@ptrCast(self), @intCast(margin), s_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, m: bool ```
     pub fn SetModified(self: ?*anyopaque, m: bool) void {
         qtc.QsciScintilla_SetModified(@ptrCast(self), m);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3130,7 +3130,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetModified(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3139,14 +3139,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetModified(@ptrCast(self), m);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, c: QtC.QColor ```
     pub fn SetPaper(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QsciScintilla_SetPaper(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3155,7 +3155,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetPaper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3164,14 +3164,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetPaper(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, ro: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, ro: bool) void {
         qtc.QsciScintilla_SetReadOnly(@ptrCast(self), ro);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3180,7 +3180,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetReadOnly(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3189,14 +3189,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetReadOnly(@ptrCast(self), ro);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32 ```
     pub fn SetSelection(self: ?*anyopaque, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32) void {
         qtc.QsciScintilla_SetSelection(@ptrCast(self), @intCast(lineFrom), @intCast(indexFrom), @intCast(lineTo), @intCast(indexTo));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3205,7 +3205,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3214,14 +3214,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetSelection(@ptrCast(self), @intCast(lineFrom), @intCast(indexFrom), @intCast(lineTo), @intCast(indexTo));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetSelectionBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetSelectionBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3230,7 +3230,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetSelectionBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3239,14 +3239,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetSelectionBackgroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor ```
     pub fn SetSelectionForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
         qtc.QsciScintilla_SetSelectionForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3255,7 +3255,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetSelectionForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3264,14 +3264,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetSelectionForegroundColor(@ptrCast(self), @ptrCast(col));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, indent: bool ```
     pub fn SetTabIndents(self: ?*anyopaque, indent: bool) void {
         qtc.QsciScintilla_SetTabIndents(@ptrCast(self), indent);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3280,7 +3280,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetTabIndents(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3289,14 +3289,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetTabIndents(@ptrCast(self), indent);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, width: i32 ```
     pub fn SetTabWidth(self: ?*anyopaque, width: i32) void {
         qtc.QsciScintilla_SetTabWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3305,7 +3305,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetTabWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3314,7 +3314,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetTabWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -3325,7 +3325,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3334,7 +3334,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3347,14 +3347,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, cp: bool ```
     pub fn SetUtf8(self: ?*anyopaque, cp: bool) void {
         qtc.QsciScintilla_SetUtf8(@ptrCast(self), cp);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3363,7 +3363,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetUtf8(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3372,14 +3372,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetUtf8(@ptrCast(self), cp);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mode: qsciscintilla_enums.WhitespaceVisibility ```
     pub fn SetWhitespaceVisibility(self: ?*anyopaque, mode: i32) void {
         qtc.QsciScintilla_SetWhitespaceVisibility(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3388,7 +3388,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetWhitespaceVisibility(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3397,14 +3397,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetWhitespaceVisibility(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, mode: qsciscintilla_enums.WrapMode ```
     pub fn SetWrapMode(self: ?*anyopaque, mode: i32) void {
         qtc.QsciScintilla_SetWrapMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3413,7 +3413,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnSetWrapMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3422,14 +3422,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseSetWrapMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Undo(self: ?*anyopaque) void {
         qtc.QsciScintilla_Undo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3438,7 +3438,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnUndo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3447,14 +3447,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseUndo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn Unindent(self: ?*anyopaque, line: i32) void {
         qtc.QsciScintilla_Unindent(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3463,7 +3463,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnUnindent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3472,14 +3472,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseUnindent(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, range: i32 ```
     pub fn ZoomIn(self: ?*anyopaque, range: i32) void {
         qtc.QsciScintilla_ZoomIn(@ptrCast(self), @intCast(range));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3488,7 +3488,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnZoomIn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3497,14 +3497,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseZoomIn(@ptrCast(self), @intCast(range));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ZoomIn2(self: ?*anyopaque) void {
         qtc.QsciScintilla_ZoomIn2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3513,7 +3513,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnZoomIn2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3522,14 +3522,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseZoomIn2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, range: i32 ```
     pub fn ZoomOut(self: ?*anyopaque, range: i32) void {
         qtc.QsciScintilla_ZoomOut(@ptrCast(self), @intCast(range));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3538,7 +3538,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnZoomOut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3547,14 +3547,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseZoomOut(@ptrCast(self), @intCast(range));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ZoomOut2(self: ?*anyopaque) void {
         qtc.QsciScintilla_ZoomOut2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3563,7 +3563,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnZoomOut2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3572,14 +3572,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseZoomOut2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, size: i32 ```
     pub fn ZoomTo(self: ?*anyopaque, size: i32) void {
         qtc.QsciScintilla_ZoomTo(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3588,7 +3588,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnZoomTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3597,161 +3597,161 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseZoomTo(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, index: i32 ```
     pub fn CursorPositionChanged(self: ?*anyopaque, line: i32, index: i32) void {
         qtc.QsciScintilla_CursorPositionChanged(@ptrCast(self), @intCast(line), @intCast(index));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32) callconv(.c) void ```
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, yes: bool ```
     pub fn CopyAvailable(self: ?*anyopaque, yes: bool) void {
         qtc.QsciScintilla_CopyAvailable(@ptrCast(self), yes);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, yes: bool) callconv(.c) void ```
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn IndicatorClicked(self: ?*anyopaque, line: i32, index: i32, state: i64) void {
         qtc.QsciScintilla_IndicatorClicked(@ptrCast(self), @intCast(line), @intCast(index), @intCast(state));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnIndicatorClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn IndicatorReleased(self: ?*anyopaque, line: i32, index: i32, state: i64) void {
         qtc.QsciScintilla_IndicatorReleased(@ptrCast(self), @intCast(line), @intCast(index), @intCast(state));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnIndicatorReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn LinesChanged(self: ?*anyopaque) void {
         qtc.QsciScintilla_LinesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void ```
     pub fn OnLinesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_LinesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MarginClicked(self: ?*anyopaque, margin: i32, line: i32, state: i64) void {
         qtc.QsciScintilla_MarginClicked(@ptrCast(self), @intCast(margin), @intCast(line), @intCast(state));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnMarginClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MarginRightClicked(self: ?*anyopaque, margin: i32, line: i32, state: i64) void {
         qtc.QsciScintilla_MarginRightClicked(@ptrCast(self), @intCast(margin), @intCast(line), @intCast(state));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnMarginRightClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginRightClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ModificationAttempted(self: ?*anyopaque) void {
         qtc.QsciScintilla_ModificationAttempted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void ```
     pub fn OnModificationAttempted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_ModificationAttempted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, m: bool ```
     pub fn ModificationChanged(self: ?*anyopaque, m: bool) void {
         qtc.QsciScintilla_ModificationChanged(@ptrCast(self), m);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, m: bool) callconv(.c) void ```
     pub fn OnModificationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_ModificationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SelectionChanged(self: ?*anyopaque) void {
         qtc.QsciScintilla_SelectionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void ```
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn TextChanged(self: ?*anyopaque) void {
         qtc.QsciScintilla_TextChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void ```
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, stringVal: []const u8 ```
     pub fn UserListActivated(self: ?*anyopaque, id: i32, stringVal: []const u8) void {
@@ -3762,21 +3762,21 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_UserListActivated(@ptrCast(self), @intCast(id), stringVal_str);
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, id: i32, stringVal: [*:0]const u8) callconv(.c) void ```
     pub fn OnUserListActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_UserListActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, e: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QsciScintilla_Event(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3785,7 +3785,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3794,14 +3794,14 @@ pub const qsciscintilla = struct {
         return qtc.QsciScintilla_QBaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, e: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QsciScintilla_ChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3810,7 +3810,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3819,14 +3819,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, e: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QsciScintilla_ContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3835,7 +3835,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3844,14 +3844,14 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, e: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QsciScintilla_WheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Allows for overriding the related default method
     ///
@@ -3860,7 +3860,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Base class method implementation
     ///
@@ -3869,7 +3869,7 @@ pub const qsciscintilla = struct {
         qtc.QsciScintilla_QBaseWheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -3882,7 +3882,7 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -3895,126 +3895,126 @@ pub const qsciscintilla = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn ClearAnnotations1(self: ?*anyopaque, line: i32) void {
         qtc.QsciScintilla_ClearAnnotations1(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, style: qsciscintilla_enums.IndicatorStyle, indicatorNumber: i32 ```
     pub fn IndicatorDefine2(self: ?*anyopaque, style: i32, indicatorNumber: i32) i32 {
         return qtc.QsciScintilla_IndicatorDefine2(@ptrCast(self), @intCast(style), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, sym: qsciscintilla_enums.MarkerSymbol, markerNumber: i32 ```
     pub fn MarkerDefine22(self: ?*anyopaque, sym: i32, markerNumber: i32) i32 {
         return qtc.QsciScintilla_MarkerDefine22(@ptrCast(self), @intCast(sym), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, ch: u8, markerNumber: i32 ```
     pub fn MarkerDefine23(self: ?*anyopaque, ch: u8, markerNumber: i32) i32 {
         return qtc.QsciScintilla_MarkerDefine23(@ptrCast(self), @intCast(ch), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, pm: QtC.QPixmap, markerNumber: i32 ```
     pub fn MarkerDefine24(self: ?*anyopaque, pm: ?*anyopaque, markerNumber: i32) i32 {
         return qtc.QsciScintilla_MarkerDefine24(@ptrCast(self), @ptrCast(pm), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, im: QtC.QImage, markerNumber: i32 ```
     pub fn MarkerDefine25(self: ?*anyopaque, im: ?*anyopaque, markerNumber: i32) i32 {
         return qtc.QsciScintilla_MarkerDefine25(@ptrCast(self), @ptrCast(im), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, linenr: i32, markerNumber: i32 ```
     pub fn MarkerDelete2(self: ?*anyopaque, linenr: i32, markerNumber: i32) void {
         qtc.QsciScintilla_MarkerDelete2(@ptrCast(self), @intCast(linenr), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, markerNumber: i32 ```
     pub fn MarkerDeleteAll1(self: ?*anyopaque, markerNumber: i32) void {
         qtc.QsciScintilla_MarkerDeleteAll1(@ptrCast(self), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, under: bool, indicatorNumber: i32 ```
     pub fn SetIndicatorDrawUnder2(self: ?*anyopaque, under: bool, indicatorNumber: i32) void {
         qtc.QsciScintilla_SetIndicatorDrawUnder2(@ptrCast(self), under, @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor, indicatorNumber: i32 ```
     pub fn SetIndicatorForegroundColor2(self: ?*anyopaque, col: ?*anyopaque, indicatorNumber: i32) void {
         qtc.QsciScintilla_SetIndicatorForegroundColor2(@ptrCast(self), @ptrCast(col), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor, indicatorNumber: i32 ```
     pub fn SetIndicatorHoverForegroundColor2(self: ?*anyopaque, col: ?*anyopaque, indicatorNumber: i32) void {
         qtc.QsciScintilla_SetIndicatorHoverForegroundColor2(@ptrCast(self), @ptrCast(col), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, style: qsciscintilla_enums.IndicatorStyle, indicatorNumber: i32 ```
     pub fn SetIndicatorHoverStyle2(self: ?*anyopaque, style: i32, indicatorNumber: i32) void {
         qtc.QsciScintilla_SetIndicatorHoverStyle2(@ptrCast(self), @intCast(style), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor, indicatorNumber: i32 ```
     pub fn SetIndicatorOutlineColor2(self: ?*anyopaque, col: ?*anyopaque, indicatorNumber: i32) void {
         qtc.QsciScintilla_SetIndicatorOutlineColor2(@ptrCast(self), @ptrCast(col), @intCast(indicatorNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, line: i32 ```
     pub fn ClearMarginText1(self: ?*anyopaque, line: i32) void {
         qtc.QsciScintilla_ClearMarginText1(@ptrCast(self), @intCast(line));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor, markerNumber: i32 ```
     pub fn SetMarkerBackgroundColor2(self: ?*anyopaque, col: ?*anyopaque, markerNumber: i32) void {
         qtc.QsciScintilla_SetMarkerBackgroundColor2(@ptrCast(self), @ptrCast(col), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, col: QtC.QColor, markerNumber: i32 ```
     pub fn SetMarkerForegroundColor2(self: ?*anyopaque, col: ?*anyopaque, markerNumber: i32) void {
         qtc.QsciScintilla_SetMarkerForegroundColor2(@ptrCast(self), @ptrCast(col), @intCast(markerNumber));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, endFlag: qsciscintilla_enums.WrapVisualFlag, startFlag: qsciscintilla_enums.WrapVisualFlag ```
     pub fn SetWrapVisualFlags2(self: ?*anyopaque, endFlag: i32, startFlag: i32) void {
         qtc.QsciScintilla_SetWrapVisualFlags2(@ptrCast(self), @intCast(endFlag), @intCast(startFlag));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, endFlag: qsciscintilla_enums.WrapVisualFlag, startFlag: qsciscintilla_enums.WrapVisualFlag, indent: i32 ```
     pub fn SetWrapVisualFlags3(self: ?*anyopaque, endFlag: i32, startFlag: i32, indent: i32) void {
@@ -4023,7 +4023,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     ///
     pub fn Pool() QtC.QsciScintillaBase {
@@ -4032,7 +4032,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, scrollBar: QtC.QScrollBar ```
     pub fn ReplaceHorizontalScrollBar(self: ?*anyopaque, scrollBar: ?*anyopaque) void {
@@ -4041,7 +4041,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, scrollBar: QtC.QScrollBar ```
     pub fn ReplaceVerticalScrollBar(self: ?*anyopaque, scrollBar: ?*anyopaque) void {
@@ -4050,7 +4050,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32 ```
     pub fn SendScintilla(self: ?*anyopaque, msg: u32) i64 {
@@ -4059,7 +4059,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: u64, lParam: ?*anyopaque ```
     pub fn SendScintilla2(self: ?*anyopaque, msg: u32, wParam: u64, lParam: ?*anyopaque) i64 {
@@ -4068,7 +4068,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: usize, lParam: []const u8 ```
     pub fn SendScintilla3(self: ?*anyopaque, msg: u32, wParam: usize, lParam: []const u8) i64 {
@@ -4078,7 +4078,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, lParam: []const u8 ```
     pub fn SendScintilla4(self: ?*anyopaque, msg: u32, lParam: []const u8) i64 {
@@ -4088,7 +4088,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: []const u8, lParam: []const u8 ```
     pub fn SendScintilla5(self: ?*anyopaque, msg: u32, wParam: []const u8, lParam: []const u8) i64 {
@@ -4099,7 +4099,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: i64 ```
     pub fn SendScintilla6(self: ?*anyopaque, msg: u32, wParam: i64) i64 {
@@ -4108,7 +4108,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: i32 ```
     pub fn SendScintilla7(self: ?*anyopaque, msg: u32, wParam: i32) i64 {
@@ -4117,7 +4117,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, cpMin: i64, cpMax: i64, lpstrText: []u8 ```
     pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: i64, cpMax: i64, lpstrText: []u8) i64 {
@@ -4127,7 +4127,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: u64, col: QtC.QColor ```
     pub fn SendScintilla9(self: ?*anyopaque, msg: u32, wParam: u64, col: ?*anyopaque) i64 {
@@ -4136,7 +4136,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, col: QtC.QColor ```
     pub fn SendScintilla10(self: ?*anyopaque, msg: u32, col: ?*anyopaque) i64 {
@@ -4145,7 +4145,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: u64, hdc: QtC.QPainter, rc: QtC.QRect, cpMin: i64, cpMax: i64 ```
     pub fn SendScintilla11(self: ?*anyopaque, msg: u32, wParam: u64, hdc: ?*anyopaque, rc: ?*anyopaque, cpMin: i64, cpMax: i64) i64 {
@@ -4154,7 +4154,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: u64, lParam: QtC.QPixmap ```
     pub fn SendScintilla12(self: ?*anyopaque, msg: u32, wParam: u64, lParam: ?*anyopaque) i64 {
@@ -4163,7 +4163,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: u64, lParam: QtC.QImage ```
     pub fn SendScintilla13(self: ?*anyopaque, msg: u32, wParam: u64, lParam: ?*anyopaque) i64 {
@@ -4172,7 +4172,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32 ```
     pub fn SendScintillaPtrResult(self: ?*anyopaque, msg: u32) ?*anyopaque {
@@ -4181,7 +4181,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` qt_key: i32, modifiers: *i32 ```
     pub fn CommandKey(qt_key: i32, modifiers: *i32) i32 {
@@ -4190,7 +4190,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, yes: bool ```
     pub fn QSCN_SELCHANGED(self: ?*anyopaque, yes: bool) void {
@@ -4199,7 +4199,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_AUTOCCANCELLED(self: ?*anyopaque) void {
@@ -4208,7 +4208,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_AUTOCCHARDELETED(self: ?*anyopaque) void {
@@ -4217,7 +4217,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, selection: []const u8, position: i32, ch: i32, method: i32 ```
     pub fn SCN_AUTOCCOMPLETED(self: ?*anyopaque, selection: []const u8, position: i32, ch: i32, method: i32) void {
@@ -4227,7 +4227,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, selection: []const u8, position: i32, ch: i32, method: i32 ```
     pub fn SCN_AUTOCSELECTION(self: ?*anyopaque, selection: []const u8, position: i32, ch: i32, method: i32) void {
@@ -4237,7 +4237,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, selection: []const u8, position: i32 ```
     pub fn SCN_AUTOCSELECTION2(self: ?*anyopaque, selection: []const u8, position: i32) void {
@@ -4247,7 +4247,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, selection: []const u8, id: i32, position: i32 ```
     pub fn SCN_AUTOCSELECTIONCHANGE(self: ?*anyopaque, selection: []const u8, id: i32, position: i32) void {
@@ -4257,7 +4257,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCEN_CHANGE(self: ?*anyopaque) void {
@@ -4266,7 +4266,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, direction: i32 ```
     pub fn SCN_CALLTIPCLICK(self: ?*anyopaque, direction: i32) void {
@@ -4275,7 +4275,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, charadded: i32 ```
     pub fn SCN_CHARADDED(self: ?*anyopaque, charadded: i32) void {
@@ -4284,7 +4284,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, line: i32, modifiers: i32 ```
     pub fn SCN_DOUBLECLICK(self: ?*anyopaque, position: i32, line: i32, modifiers: i32) void {
@@ -4293,7 +4293,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, x: i32, y: i32 ```
     pub fn SCN_DWELLEND(self: ?*anyopaque, position: i32, x: i32, y: i32) void {
@@ -4302,7 +4302,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, x: i32, y: i32 ```
     pub fn SCN_DWELLSTART(self: ?*anyopaque, position: i32, x: i32, y: i32) void {
@@ -4311,7 +4311,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_FOCUSIN(self: ?*anyopaque) void {
@@ -4320,7 +4320,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_FOCUSOUT(self: ?*anyopaque) void {
@@ -4329,7 +4329,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, modifiers: i32 ```
     pub fn SCN_HOTSPOTCLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
@@ -4338,7 +4338,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, modifiers: i32 ```
     pub fn SCN_HOTSPOTDOUBLECLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
@@ -4347,7 +4347,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, modifiers: i32 ```
     pub fn SCN_HOTSPOTRELEASECLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
@@ -4356,7 +4356,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, modifiers: i32 ```
     pub fn SCN_INDICATORCLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
@@ -4365,7 +4365,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, modifiers: i32 ```
     pub fn SCN_INDICATORRELEASE(self: ?*anyopaque, position: i32, modifiers: i32) void {
@@ -4374,7 +4374,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, param1: u32, param2: u64, param3: ?*anyopaque ```
     pub fn SCN_MACRORECORD(self: ?*anyopaque, param1: u32, param2: u64, param3: ?*anyopaque) void {
@@ -4383,7 +4383,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, modifiers: i32, margin: i32 ```
     pub fn SCN_MARGINCLICK(self: ?*anyopaque, position: i32, modifiers: i32, margin: i32) void {
@@ -4392,7 +4392,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32, modifiers: i32, margin: i32 ```
     pub fn SCN_MARGINRIGHTCLICK(self: ?*anyopaque, position: i32, modifiers: i32, margin: i32) void {
@@ -4401,7 +4401,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, param1: i32, param2: i32, param3: []const u8, param4: i32, param5: i32, param6: i32, param7: i32, param8: i32, param9: i32, param10: i32 ```
     pub fn SCN_MODIFIED(self: ?*anyopaque, param1: i32, param2: i32, param3: []const u8, param4: i32, param5: i32, param6: i32, param7: i32, param8: i32, param9: i32, param10: i32) void {
@@ -4411,7 +4411,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_MODIFYATTEMPTRO(self: ?*anyopaque) void {
@@ -4420,7 +4420,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, param1: i32, param2: i32 ```
     pub fn SCN_NEEDSHOWN(self: ?*anyopaque, param1: i32, param2: i32) void {
@@ -4429,7 +4429,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_PAINTED(self: ?*anyopaque) void {
@@ -4438,7 +4438,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_SAVEPOINTLEFT(self: ?*anyopaque) void {
@@ -4447,7 +4447,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_SAVEPOINTREACHED(self: ?*anyopaque) void {
@@ -4456,7 +4456,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, position: i32 ```
     pub fn SCN_STYLENEEDED(self: ?*anyopaque, position: i32) void {
@@ -4465,7 +4465,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, url: QtC.QUrl ```
     pub fn SCN_URIDROPPED(self: ?*anyopaque, url: ?*anyopaque) void {
@@ -4474,7 +4474,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, updated: i32 ```
     pub fn SCN_UPDATEUI(self: ?*anyopaque, updated: i32) void {
@@ -4483,7 +4483,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, selection: []const u8, id: i32, ch: i32, method: i32, position: i32 ```
     pub fn SCN_USERLISTSELECTION(self: ?*anyopaque, selection: []const u8, id: i32, ch: i32, method: i32, position: i32) void {
@@ -4493,7 +4493,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, selection: []const u8, id: i32, ch: i32, method: i32 ```
     pub fn SCN_USERLISTSELECTION2(self: ?*anyopaque, selection: []const u8, id: i32, ch: i32, method: i32) void {
@@ -4503,7 +4503,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, selection: []const u8, id: i32 ```
     pub fn SCN_USERLISTSELECTION3(self: ?*anyopaque, selection: []const u8, id: i32) void {
@@ -4513,7 +4513,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SCN_ZOOM(self: ?*anyopaque) void {
@@ -4522,7 +4522,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: u64 ```
     pub fn SendScintilla22(self: ?*anyopaque, msg: u32, wParam: u64) i64 {
@@ -4531,7 +4531,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintilla, msg: u32, wParam: u64, lParam: i64 ```
     pub fn SendScintilla32(self: ?*anyopaque, msg: u32, wParam: u64, lParam: i64) i64 {
@@ -4540,7 +4540,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -4551,7 +4551,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QsciScintilla, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -4560,7 +4560,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -4569,7 +4569,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.QsciScintilla, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -4578,7 +4578,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -4589,7 +4589,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QsciScintilla, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -4598,7 +4598,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -4607,7 +4607,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.QsciScintilla, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -4616,7 +4616,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4625,7 +4625,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.QsciScintilla, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -4634,7 +4634,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QsciScintilla, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -4643,7 +4643,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QsciScintilla, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -4657,7 +4657,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -4666,7 +4666,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.QsciScintilla, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -4675,7 +4675,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -4684,7 +4684,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -4695,7 +4695,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QsciScintilla, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -4704,7 +4704,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -4713,7 +4713,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.QsciScintilla, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -4722,7 +4722,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -4731,7 +4731,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -4742,7 +4742,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QsciScintilla, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -4751,7 +4751,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -4762,7 +4762,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QsciScintilla, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -4771,7 +4771,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -4780,7 +4780,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.QsciScintilla, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -4789,7 +4789,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -4798,7 +4798,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.QsciScintilla, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -4807,7 +4807,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -4816,7 +4816,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.QsciScintilla, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -4825,7 +4825,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -4834,7 +4834,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -4843,7 +4843,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -4852,7 +4852,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -4861,7 +4861,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -4870,7 +4870,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QsciScintilla, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -4879,7 +4879,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -4888,7 +4888,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -4897,7 +4897,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -4906,7 +4906,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -4917,7 +4917,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QsciScintilla, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -4926,7 +4926,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -4935,7 +4935,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -4944,7 +4944,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QsciScintilla, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -4953,7 +4953,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QsciScintilla, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -4962,7 +4962,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QsciScintilla, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -4971,7 +4971,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -4980,7 +4980,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -4989,7 +4989,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -4998,7 +4998,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -5007,7 +5007,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -5016,7 +5016,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -5025,7 +5025,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -5034,7 +5034,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -5043,7 +5043,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -5052,7 +5052,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -5061,7 +5061,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -5070,7 +5070,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -5079,7 +5079,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -5088,7 +5088,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -5097,7 +5097,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -5106,7 +5106,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -5115,7 +5115,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -5124,7 +5124,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -5133,7 +5133,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -5142,7 +5142,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QsciScintilla, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -5151,7 +5151,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QsciScintilla, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -5160,7 +5160,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QsciScintilla, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -5169,7 +5169,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QsciScintilla, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -5178,7 +5178,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QsciScintilla, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -5187,7 +5187,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QsciScintilla, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -5196,7 +5196,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QsciScintilla, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -5205,7 +5205,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QsciScintilla, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -5214,7 +5214,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -5223,7 +5223,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QsciScintilla, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -5232,7 +5232,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QsciScintilla, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -5241,7 +5241,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -5250,7 +5250,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QsciScintilla, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -5259,7 +5259,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QsciScintilla, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -5268,7 +5268,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QsciScintilla, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -5277,7 +5277,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QsciScintilla, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -5286,7 +5286,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QsciScintilla, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -5295,7 +5295,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QsciScintilla, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -5304,7 +5304,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -5313,7 +5313,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -5322,7 +5322,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -5331,7 +5331,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -5340,7 +5340,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -5349,7 +5349,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -5358,7 +5358,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -5367,7 +5367,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -5376,7 +5376,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -5385,7 +5385,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -5394,7 +5394,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -5403,7 +5403,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -5412,7 +5412,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -5421,7 +5421,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -5430,7 +5430,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -5439,7 +5439,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -5448,7 +5448,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QsciScintilla, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -5457,7 +5457,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QsciScintilla, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -5466,7 +5466,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -5477,7 +5477,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QsciScintilla, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -5486,7 +5486,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -5497,7 +5497,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -5506,7 +5506,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -5515,7 +5515,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -5524,7 +5524,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -5533,7 +5533,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QsciScintilla, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -5542,7 +5542,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -5551,7 +5551,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QsciScintilla, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -5560,7 +5560,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -5569,7 +5569,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -5578,7 +5578,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QsciScintilla, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -5587,7 +5587,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -5596,7 +5596,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QsciScintilla, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -5605,7 +5605,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QsciScintilla, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -5614,7 +5614,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -5623,7 +5623,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -5632,7 +5632,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -5641,7 +5641,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -5650,7 +5650,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -5659,7 +5659,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -5668,7 +5668,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QsciScintilla, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -5677,7 +5677,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QsciScintilla, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -5686,7 +5686,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QsciScintilla, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -5695,7 +5695,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QsciScintilla, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -5708,7 +5708,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QsciScintilla, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -5721,7 +5721,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5734,7 +5734,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5747,7 +5747,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QsciScintilla, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -5756,7 +5756,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -5765,7 +5765,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QsciScintilla, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -5778,7 +5778,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5791,7 +5791,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QsciScintilla, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -5804,7 +5804,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5817,7 +5817,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QsciScintilla, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -5830,7 +5830,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5843,7 +5843,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QsciScintilla, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -5852,7 +5852,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -5861,7 +5861,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -5870,7 +5870,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QsciScintilla, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -5883,7 +5883,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5896,7 +5896,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QsciScintilla, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -5905,7 +5905,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -5914,7 +5914,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QsciScintilla, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -5927,7 +5927,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5940,7 +5940,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QsciScintilla, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -5953,7 +5953,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5966,7 +5966,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -5979,7 +5979,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QsciScintilla, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -5992,7 +5992,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -6005,7 +6005,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QsciScintilla, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -6018,7 +6018,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QsciScintilla, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -6027,7 +6027,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -6038,7 +6038,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -6047,7 +6047,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QsciScintilla, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -6056,7 +6056,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -6065,7 +6065,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -6074,7 +6074,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -6083,7 +6083,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -6092,7 +6092,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -6101,7 +6101,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -6110,7 +6110,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -6119,7 +6119,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -6128,7 +6128,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QsciScintilla, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -6137,7 +6137,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -6148,7 +6148,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QsciScintilla, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -6157,7 +6157,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -6166,7 +6166,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -6175,7 +6175,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QsciScintilla, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -6184,7 +6184,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -6193,7 +6193,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -6204,7 +6204,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QsciScintilla, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -6213,7 +6213,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -6222,7 +6222,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6231,7 +6231,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -6240,7 +6240,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -6249,7 +6249,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -6258,7 +6258,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QsciScintilla, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -6267,7 +6267,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -6276,7 +6276,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -6285,7 +6285,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -6294,7 +6294,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -6303,7 +6303,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -6312,7 +6312,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -6321,7 +6321,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QsciScintilla, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -6330,7 +6330,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -6339,7 +6339,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Update(self: ?*anyopaque) void {
@@ -6348,7 +6348,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -6357,7 +6357,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QsciScintilla, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -6366,7 +6366,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6375,7 +6375,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6384,7 +6384,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QsciScintilla, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -6393,7 +6393,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6402,7 +6402,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6411,7 +6411,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QsciScintilla, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -6420,7 +6420,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Show(self: ?*anyopaque) void {
@@ -6429,7 +6429,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -6438,7 +6438,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -6447,7 +6447,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -6456,7 +6456,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -6465,7 +6465,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -6474,7 +6474,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -6483,7 +6483,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -6492,7 +6492,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -6501,7 +6501,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6510,7 +6510,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QsciScintilla, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -6519,7 +6519,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6528,7 +6528,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QsciScintilla, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -6537,7 +6537,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -6546,7 +6546,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QsciScintilla, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -6555,7 +6555,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QsciScintilla, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -6564,7 +6564,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -6577,7 +6577,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QsciScintilla, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -6590,7 +6590,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -6599,7 +6599,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -6608,7 +6608,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -6617,7 +6617,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -6626,7 +6626,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -6635,7 +6635,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -6644,7 +6644,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -6653,7 +6653,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -6664,7 +6664,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QsciScintilla, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -6673,7 +6673,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QsciScintilla, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -6682,7 +6682,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -6691,7 +6691,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QsciScintilla, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -6700,7 +6700,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QsciScintilla, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -6709,7 +6709,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -6718,7 +6718,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QsciScintilla, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -6727,7 +6727,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QsciScintilla, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -6736,7 +6736,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -6745,7 +6745,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -6754,7 +6754,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -6763,7 +6763,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QsciScintilla, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -6772,7 +6772,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -6781,7 +6781,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QsciScintilla, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -6790,7 +6790,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QsciScintilla, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -6799,7 +6799,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QsciScintilla, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -6808,7 +6808,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QsciScintilla, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -6817,7 +6817,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -6826,7 +6826,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -6835,7 +6835,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -6844,7 +6844,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -6853,7 +6853,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QsciScintilla, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -6862,7 +6862,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QsciScintilla, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -6871,7 +6871,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QsciScintilla, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -6884,7 +6884,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QsciScintilla, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -6897,7 +6897,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QsciScintilla, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -6906,7 +6906,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QsciScintilla, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -6915,7 +6915,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -6929,7 +6929,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -6942,7 +6942,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QsciScintilla, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -6955,7 +6955,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -6968,7 +6968,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QsciScintilla, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -6981,7 +6981,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -6990,7 +6990,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QsciScintilla, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -6999,7 +6999,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -7010,7 +7010,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QsciScintilla, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -7019,7 +7019,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QsciScintilla, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -7028,7 +7028,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -7039,7 +7039,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#find)
     ///
     /// ``` param1: u64 ```
     pub fn Find(param1: u64) QtC.QWidget {
@@ -7048,7 +7048,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QsciScintilla, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -7057,7 +7057,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QsciScintilla, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -7066,7 +7066,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QsciScintilla, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -7075,7 +7075,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QsciScintilla, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -7084,7 +7084,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QsciScintilla, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -7093,7 +7093,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -7102,7 +7102,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QsciScintilla, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -7111,7 +7111,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -7120,7 +7120,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QsciScintilla, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -7129,7 +7129,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -7138,7 +7138,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -7147,7 +7147,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -7156,7 +7156,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QsciScintilla, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -7165,7 +7165,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -7174,7 +7174,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QsciScintilla, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -7187,7 +7187,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -7196,7 +7196,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QsciScintilla, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -7205,7 +7205,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -7214,7 +7214,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QsciScintilla, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -7227,7 +7227,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -7236,7 +7236,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QsciScintilla, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -7245,7 +7245,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -7254,7 +7254,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QsciScintilla ```
     ///
@@ -7265,7 +7265,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QsciScintilla, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -7274,7 +7274,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -7283,7 +7283,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -7292,7 +7292,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -7301,7 +7301,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -7310,7 +7310,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -7319,7 +7319,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QsciScintilla, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -7328,7 +7328,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QsciScintilla, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -7337,7 +7337,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QsciScintilla, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -7346,7 +7346,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QsciScintilla, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -7355,7 +7355,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -7364,7 +7364,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -7373,7 +7373,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QsciScintilla, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -7382,7 +7382,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QsciScintilla, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -7391,7 +7391,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -7400,7 +7400,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -7409,7 +7409,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -7422,7 +7422,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QsciScintilla, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -7435,7 +7435,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -7444,7 +7444,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -7453,7 +7453,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -7462,7 +7462,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -7471,7 +7471,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QsciScintilla, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -7480,7 +7480,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -7489,7 +7489,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QsciScintilla, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -7498,7 +7498,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QsciScintilla, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -7507,7 +7507,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QsciScintilla, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -7516,7 +7516,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QsciScintilla, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -7525,7 +7525,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -7539,7 +7539,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QsciScintilla, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -7548,7 +7548,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QsciScintilla, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -7557,7 +7557,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -7566,7 +7566,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QsciScintilla, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -7577,7 +7577,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -7586,7 +7586,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -7595,7 +7595,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -7604,7 +7604,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -7613,7 +7613,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QsciScintilla, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -7623,7 +7623,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QsciScintilla, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -7633,7 +7633,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -7657,7 +7657,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -7666,7 +7666,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -7675,7 +7675,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -7684,7 +7684,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -7693,7 +7693,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -7702,7 +7702,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QsciScintilla, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -7712,7 +7712,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -7721,7 +7721,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QsciScintilla, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -7730,7 +7730,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QsciScintilla, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -7739,7 +7739,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -7748,7 +7748,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QsciScintilla, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -7759,7 +7759,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciScintilla, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -7768,7 +7768,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -7777,7 +7777,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -7786,7 +7786,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -7795,7 +7795,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -7804,7 +7804,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -7813,7 +7813,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -7822,7 +7822,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -7831,7 +7831,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -7840,7 +7840,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -7849,7 +7849,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -7858,7 +7858,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -7867,7 +7867,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QsciScintilla ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -7876,7 +7876,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -7885,7 +7885,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -7894,7 +7894,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7905,7 +7905,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7916,7 +7916,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7927,7 +7927,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7942,7 +7942,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7957,7 +7957,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -7968,7 +7968,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -7983,7 +7983,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -7998,7 +7998,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8009,7 +8009,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8020,7 +8020,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8031,7 +8031,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8042,7 +8042,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8053,7 +8053,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8064,7 +8064,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8075,7 +8075,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8086,7 +8086,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8097,7 +8097,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8108,7 +8108,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8119,7 +8119,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8130,7 +8130,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8141,7 +8141,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8152,7 +8152,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8163,7 +8163,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8174,7 +8174,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8185,7 +8185,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8196,7 +8196,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8207,7 +8207,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8218,7 +8218,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8229,7 +8229,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8240,7 +8240,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8251,7 +8251,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8262,7 +8262,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8273,7 +8273,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8284,7 +8284,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8295,7 +8295,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8306,7 +8306,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8317,7 +8317,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8328,7 +8328,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8339,7 +8339,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8350,7 +8350,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8361,7 +8361,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8372,7 +8372,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8383,7 +8383,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8394,7 +8394,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8405,7 +8405,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8416,7 +8416,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8427,7 +8427,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8438,7 +8438,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8449,7 +8449,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8460,7 +8460,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8471,7 +8471,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8482,7 +8482,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8493,7 +8493,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8504,7 +8504,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8515,7 +8515,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8526,7 +8526,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8537,7 +8537,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8548,7 +8548,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8559,7 +8559,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8570,7 +8570,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8581,7 +8581,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8592,7 +8592,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8603,7 +8603,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8614,7 +8614,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8625,7 +8625,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8636,7 +8636,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8647,7 +8647,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8658,7 +8658,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8669,7 +8669,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8680,7 +8680,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8691,7 +8691,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8702,7 +8702,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8713,7 +8713,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8724,7 +8724,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8735,7 +8735,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8746,7 +8746,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8757,7 +8757,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8768,7 +8768,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8779,7 +8779,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8790,7 +8790,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8801,7 +8801,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8812,7 +8812,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8823,7 +8823,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8834,7 +8834,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8845,7 +8845,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8856,7 +8856,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8867,7 +8867,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8878,7 +8878,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8889,7 +8889,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8900,7 +8900,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8911,7 +8911,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8922,7 +8922,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8933,7 +8933,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8944,7 +8944,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8955,7 +8955,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8966,7 +8966,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -8977,7 +8977,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -8988,7 +8988,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -8999,7 +8999,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9010,7 +9010,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9021,7 +9021,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9032,7 +9032,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9043,7 +9043,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9054,7 +9054,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9065,7 +9065,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9076,7 +9076,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9087,7 +9087,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9098,7 +9098,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9109,7 +9109,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9120,7 +9120,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9131,7 +9131,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9142,7 +9142,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9153,7 +9153,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9164,7 +9164,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9175,7 +9175,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9186,7 +9186,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9197,7 +9197,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9208,7 +9208,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9219,7 +9219,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9230,7 +9230,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9241,7 +9241,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9252,7 +9252,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9263,7 +9263,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9278,7 +9278,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9293,7 +9293,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9304,7 +9304,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9315,7 +9315,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9326,7 +9326,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9337,7 +9337,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9348,7 +9348,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9359,7 +9359,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9370,7 +9370,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9381,7 +9381,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9392,7 +9392,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9403,7 +9403,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9414,7 +9414,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9425,7 +9425,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9436,7 +9436,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9447,7 +9447,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9458,7 +9458,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9469,7 +9469,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9480,7 +9480,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9491,7 +9491,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9502,7 +9502,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9513,7 +9513,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9524,7 +9524,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9535,7 +9535,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9546,7 +9546,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9557,7 +9557,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9568,7 +9568,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9579,7 +9579,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9590,7 +9590,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9601,7 +9601,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9612,7 +9612,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9623,7 +9623,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9634,7 +9634,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9645,7 +9645,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9656,7 +9656,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QsciScintillaBase
     ///
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9667,7 +9667,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9678,7 +9678,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9689,7 +9689,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9700,7 +9700,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9711,7 +9711,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9722,7 +9722,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9733,7 +9733,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9744,7 +9744,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9755,7 +9755,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9766,7 +9766,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9777,7 +9777,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9788,7 +9788,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9799,7 +9799,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9810,7 +9810,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9821,7 +9821,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9832,7 +9832,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9843,7 +9843,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9854,7 +9854,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9865,7 +9865,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9876,7 +9876,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9887,7 +9887,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9898,7 +9898,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9909,7 +9909,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9920,7 +9920,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9931,7 +9931,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9942,7 +9942,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9953,7 +9953,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9964,7 +9964,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -9975,7 +9975,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -9986,7 +9986,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -9997,7 +9997,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -10009,7 +10009,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -10021,7 +10021,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -10032,7 +10032,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -10043,7 +10043,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -10054,7 +10054,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -10065,7 +10065,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -10076,7 +10076,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -10087,7 +10087,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -10098,7 +10098,7 @@ pub const qsciscintilla = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -10107,7 +10107,7 @@ pub const qsciscintilla = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// Delete this object from C++ memory.
     ///

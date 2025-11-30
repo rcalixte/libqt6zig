@@ -46,14 +46,14 @@ pub const kdesktopfileaction = struct {
         return qtc.KDesktopFileAction_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#operator-eq)
     ///
     /// ``` self: QtC.KDesktopFileAction, other: QtC.KDesktopFileAction ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.KDesktopFileAction_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#actionsKey)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#actionsKey)
     ///
     /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
     pub fn ActionsKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -64,7 +64,7 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#desktopFilePath)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#desktopFilePath)
     ///
     /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
     pub fn DesktopFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -75,7 +75,7 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#name)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#name)
     ///
     /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -86,7 +86,7 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#icon)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#icon)
     ///
     /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
     pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -97,7 +97,7 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#exec)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#exec)
     ///
     /// ``` self: QtC.KDesktopFileAction, allocator: std.mem.Allocator ```
     pub fn Exec(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -108,14 +108,14 @@ pub const kdesktopfileaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#isSeparator)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#isSeparator)
     ///
     /// ``` self: QtC.KDesktopFileAction ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
         return qtc.KDesktopFileAction_IsSeparator(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdesktopfileaction.html#dtor.KDesktopFileAction)
+    /// [Upstream resources](https://api.kde.org/kdesktopfileaction.html#dtor.KDesktopFileAction)
     ///
     /// Delete this object from C++ memory.
     ///

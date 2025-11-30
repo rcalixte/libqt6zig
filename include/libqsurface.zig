@@ -4,7 +4,7 @@ const qsurface_enums = enums;
 
 /// https://doc.qt.io/qt-6/qsurface.html
 pub const qsurface = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
     /// ``` self: QtC.QSurface ```
     ///
@@ -13,14 +13,14 @@ pub const qsurface = struct {
         return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#format)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#format)
     ///
     /// ``` self: QtC.QSurface ```
     pub fn Format(self: ?*anyopaque) QtC.QSurfaceFormat {
         return qtc.QSurface_Format(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
     ///
     /// ``` self: QtC.QSurface ```
     ///
@@ -29,21 +29,21 @@ pub const qsurface = struct {
         return qtc.QSurface_SurfaceType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#supportsOpenGL)
     ///
     /// ``` self: QtC.QSurface ```
     pub fn SupportsOpenGL(self: ?*anyopaque) bool {
         return qtc.QSurface_SupportsOpenGL(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#size)
     ///
     /// ``` self: QtC.QSurface ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
         return qtc.QSurface_Size(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#dtor.QSurface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#dtor.QSurface)
     ///
     /// Delete this object from C++ memory.
     ///

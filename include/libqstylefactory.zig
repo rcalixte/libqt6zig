@@ -32,7 +32,7 @@ pub const qstylefactory = struct {
         qtc.QStyleFactory_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylefactory.html#keys)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#keys)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Keys(allocator: std.mem.Allocator) [][]const u8 {
@@ -54,7 +54,7 @@ pub const qstylefactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylefactory.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#create)
     ///
     /// ``` param1: []const u8 ```
     pub fn Create(param1: []const u8) QtC.QStyle {
@@ -65,7 +65,7 @@ pub const qstylefactory = struct {
         return qtc.QStyleFactory_Create(param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylefactory.html#dtor.QStyleFactory)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#dtor.QStyleFactory)
     ///
     /// Delete this object from C++ memory.
     ///

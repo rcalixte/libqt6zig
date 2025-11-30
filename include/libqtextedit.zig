@@ -54,7 +54,7 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_new4(text_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -86,7 +86,7 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -98,21 +98,21 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setDocument)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocument)
     ///
     /// ``` self: QtC.QTextEdit, document: QtC.QTextDocument ```
     pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
         qtc.QTextEdit_SetDocument(@ptrCast(self), @ptrCast(document));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#document)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#document)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
         return qtc.QTextEdit_Document(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setPlaceholderText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlaceholderText)
     ///
     /// ``` self: QtC.QTextEdit, placeholderText: []const u8 ```
     pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
@@ -123,7 +123,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetPlaceholderText(@ptrCast(self), placeholderText_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#placeholderText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#placeholderText)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -134,42 +134,42 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextCursor)
     ///
     /// ``` self: QtC.QTextEdit, cursor: QtC.QTextCursor ```
     pub fn SetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QTextEdit_SetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textCursor)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn TextCursor(self: ?*anyopaque) QtC.QTextCursor {
         return qtc.QTextEdit_TextCursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#isReadOnly)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isReadOnly)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsReadOnly(self: ?*anyopaque) bool {
         return qtc.QTextEdit_IsReadOnly(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setReadOnly)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setReadOnly)
     ///
     /// ``` self: QtC.QTextEdit, ro: bool ```
     pub fn SetReadOnly(self: ?*anyopaque, ro: bool) void {
         qtc.QTextEdit_SetReadOnly(@ptrCast(self), ro);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
     ///
     /// ``` self: QtC.QTextEdit, flags: flag of qnamespace_enums.TextInteractionFlag ```
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
         qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textInteractionFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textInteractionFlags)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -178,14 +178,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontPointSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontPointSize)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FontPointSize(self: ?*anyopaque) f64 {
         return qtc.QTextEdit_FontPointSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontFamily)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontFamily)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -196,49 +196,49 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontWeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontWeight)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FontWeight(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_FontWeight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontUnderline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontUnderline)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FontUnderline(self: ?*anyopaque) bool {
         return qtc.QTextEdit_FontUnderline(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#fontItalic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#fontItalic)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FontItalic(self: ?*anyopaque) bool {
         return qtc.QTextEdit_FontItalic(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textColor)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn TextColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QTextEdit_TextColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textBackgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textBackgroundColor)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn TextBackgroundColor(self: ?*anyopaque) QtC.QColor {
         return qtc.QTextEdit_TextBackgroundColor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentFont)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CurrentFont(self: ?*anyopaque) QtC.QFont {
         return qtc.QTextEdit_CurrentFont(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#alignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#alignment)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -247,28 +247,28 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_Alignment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mergeCurrentCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mergeCurrentCharFormat)
     ///
     /// ``` self: QtC.QTextEdit, modifier: QtC.QTextCharFormat ```
     pub fn MergeCurrentCharFormat(self: ?*anyopaque, modifier: ?*anyopaque) void {
         qtc.QTextEdit_MergeCurrentCharFormat(@ptrCast(self), @ptrCast(modifier));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setCurrentCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentCharFormat)
     ///
     /// ``` self: QtC.QTextEdit, format: QtC.QTextCharFormat ```
     pub fn SetCurrentCharFormat(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QTextEdit_SetCurrentCharFormat(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormat)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CurrentCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
         return qtc.QTextEdit_CurrentCharFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#autoFormatting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#autoFormatting)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -277,28 +277,28 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_AutoFormatting(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAutoFormatting)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAutoFormatting)
     ///
     /// ``` self: QtC.QTextEdit, features: flag of qtextedit_enums.AutoFormattingFlag ```
     pub fn SetAutoFormatting(self: ?*anyopaque, features: i64) void {
         qtc.QTextEdit_SetAutoFormatting(@ptrCast(self), @intCast(features));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#tabChangesFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabChangesFocus)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn TabChangesFocus(self: ?*anyopaque) bool {
         return qtc.QTextEdit_TabChangesFocus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTabChangesFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabChangesFocus)
     ///
     /// ``` self: QtC.QTextEdit, b: bool ```
     pub fn SetTabChangesFocus(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_SetTabChangesFocus(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setDocumentTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setDocumentTitle)
     ///
     /// ``` self: QtC.QTextEdit, title: []const u8 ```
     pub fn SetDocumentTitle(self: ?*anyopaque, title: []const u8) void {
@@ -309,7 +309,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetDocumentTitle(@ptrCast(self), title_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#documentTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#documentTitle)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn DocumentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -320,21 +320,21 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#isUndoRedoEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#isUndoRedoEnabled)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsUndoRedoEnabled(self: ?*anyopaque) bool {
         return qtc.QTextEdit_IsUndoRedoEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setUndoRedoEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setUndoRedoEnabled)
     ///
     /// ``` self: QtC.QTextEdit, enable: bool ```
     pub fn SetUndoRedoEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QTextEdit_SetUndoRedoEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#lineWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapMode)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -343,28 +343,28 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_LineWrapMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapMode)
     ///
     /// ``` self: QtC.QTextEdit, mode: qtextedit_enums.LineWrapMode ```
     pub fn SetLineWrapMode(self: ?*anyopaque, mode: i32) void {
         qtc.QTextEdit_SetLineWrapMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#lineWrapColumnOrWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#lineWrapColumnOrWidth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn LineWrapColumnOrWidth(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_LineWrapColumnOrWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapColumnOrWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setLineWrapColumnOrWidth)
     ///
     /// ``` self: QtC.QTextEdit, w: i32 ```
     pub fn SetLineWrapColumnOrWidth(self: ?*anyopaque, w: i32) void {
         qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self), @intCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wordWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wordWrapMode)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -373,14 +373,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_WordWrapMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setWordWrapMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setWordWrapMode)
     ///
     /// ``` self: QtC.QTextEdit, policy: qtextoption_enums.WrapMode ```
     pub fn SetWordWrapMode(self: ?*anyopaque, policy: i32) void {
         qtc.QTextEdit_SetWordWrapMode(@ptrCast(self), @intCast(policy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.QTextEdit, exp: []const u8 ```
     pub fn Find(self: ?*anyopaque, exp: []const u8) bool {
@@ -391,14 +391,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_Find(@ptrCast(self), exp_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.QTextEdit, exp: QtC.QRegularExpression ```
     pub fn Find2(self: ?*anyopaque, exp: ?*anyopaque) bool {
         return qtc.QTextEdit_Find2(@ptrCast(self), @ptrCast(exp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toPlainText)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn ToPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -409,7 +409,7 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toHtml)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn ToHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -420,7 +420,7 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn ToMarkdown(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -431,21 +431,21 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#ensureCursorVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#ensureCursorVisible)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn EnsureCursorVisible(self: ?*anyopaque) void {
         qtc.QTextEdit_EnsureCursorVisible(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// ``` self: QtC.QTextEdit, typeVal: i32, name: QtC.QUrl ```
     pub fn LoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
         return qtc.QTextEdit_LoadResource(@ptrCast(self), @intCast(typeVal), @ptrCast(name));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Allows for overriding the related default method
     ///
@@ -454,7 +454,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnLoadResource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#loadResource)
     ///
     /// Base class method implementation
     ///
@@ -463,42 +463,42 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_QBaseLoadResource(@ptrCast(self), @intCast(typeVal), @ptrCast(name));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
         return qtc.QTextEdit_CreateStandardContextMenu(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createStandardContextMenu)
     ///
     /// ``` self: QtC.QTextEdit, position: QtC.QPoint ```
     pub fn CreateStandardContextMenu2(self: ?*anyopaque, position: ?*anyopaque) QtC.QMenu {
         return qtc.QTextEdit_CreateStandardContextMenu2(@ptrCast(self), @ptrCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorForPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorForPosition)
     ///
     /// ``` self: QtC.QTextEdit, pos: QtC.QPoint ```
     pub fn CursorForPosition(self: ?*anyopaque, pos: ?*anyopaque) QtC.QTextCursor {
         return qtc.QTextEdit_CursorForPosition(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
     ///
     /// ``` self: QtC.QTextEdit, cursor: QtC.QTextCursor ```
     pub fn CursorRect(self: ?*anyopaque, cursor: ?*anyopaque) QtC.QRect {
         return qtc.QTextEdit_CursorRect(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorRect)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CursorRect2(self: ?*anyopaque) QtC.QRect {
         return qtc.QTextEdit_CursorRect2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#anchorAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#anchorAt)
     ///
     /// ``` self: QtC.QTextEdit, pos: QtC.QPoint, allocator: std.mem.Allocator ```
     pub fn AnchorAt(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -509,63 +509,63 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#overwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#overwriteMode)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn OverwriteMode(self: ?*anyopaque) bool {
         return qtc.QTextEdit_OverwriteMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setOverwriteMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setOverwriteMode)
     ///
     /// ``` self: QtC.QTextEdit, overwrite: bool ```
     pub fn SetOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
         qtc.QTextEdit_SetOverwriteMode(@ptrCast(self), overwrite);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#tabStopDistance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#tabStopDistance)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn TabStopDistance(self: ?*anyopaque) f64 {
         return qtc.QTextEdit_TabStopDistance(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTabStopDistance)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTabStopDistance)
     ///
     /// ``` self: QtC.QTextEdit, distance: f64 ```
     pub fn SetTabStopDistance(self: ?*anyopaque, distance: f64) void {
         qtc.QTextEdit_SetTabStopDistance(@ptrCast(self), @floatCast(distance));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorWidth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CursorWidth(self: ?*anyopaque) i32 {
         return qtc.QTextEdit_CursorWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setCursorWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCursorWidth)
     ///
     /// ``` self: QtC.QTextEdit, width: i32 ```
     pub fn SetCursorWidth(self: ?*anyopaque, width: i32) void {
         qtc.QTextEdit_SetCursorWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#acceptRichText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#acceptRichText)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn AcceptRichText(self: ?*anyopaque) bool {
         return qtc.QTextEdit_AcceptRichText(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAcceptRichText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAcceptRichText)
     ///
     /// ``` self: QtC.QTextEdit, accept: bool ```
     pub fn SetAcceptRichText(self: ?*anyopaque, accept: bool) void {
         qtc.QTextEdit_SetAcceptRichText(@ptrCast(self), accept);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setExtraSelections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setExtraSelections)
     ///
     /// ``` self: QtC.QTextEdit, selections: []QtC.QTextEdit__ExtraSelection ```
     pub fn SetExtraSelections(self: ?*anyopaque, selections: []QtC.QTextEdit__ExtraSelection) void {
@@ -576,7 +576,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetExtraSelections(@ptrCast(self), selections_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#extraSelections)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#extraSelections)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn ExtraSelections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextEdit__ExtraSelection {
@@ -588,35 +588,35 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
     ///
     /// ``` self: QtC.QTextEdit, operation: qtextcursor_enums.MoveOperation ```
     pub fn MoveCursor(self: ?*anyopaque, operation: i32) void {
         qtc.QTextEdit_MoveCursor(@ptrCast(self), @intCast(operation));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canPaste)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canPaste)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CanPaste(self: ?*anyopaque) bool {
         return qtc.QTextEdit_CanPaste(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#print)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#print)
     ///
     /// ``` self: QtC.QTextEdit, printer: QtC.QPagedPaintDevice ```
     pub fn Print(self: ?*anyopaque, printer: ?*anyopaque) void {
         qtc.QTextEdit_Print(@ptrCast(self), @ptrCast(printer));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// ``` self: QtC.QTextEdit, property: qnamespace_enums.InputMethodQuery ```
     pub fn InputMethodQuery(self: ?*anyopaque, property: i64) QtC.QVariant {
         return qtc.QTextEdit_InputMethodQuery(@ptrCast(self), @intCast(property));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Allows for overriding the related default method
     ///
@@ -625,7 +625,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// Base class method implementation
     ///
@@ -634,21 +634,21 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_QBaseInputMethodQuery(@ptrCast(self), @intCast(property));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
     ///
     /// ``` self: QtC.QTextEdit, query: qnamespace_enums.InputMethodQuery, argument: QtC.QVariant ```
     pub fn InputMethodQuery2(self: ?*anyopaque, query: i64, argument: QtC.QVariant) QtC.QVariant {
         return qtc.QTextEdit_InputMethodQuery2(@ptrCast(self), @intCast(query), @ptrCast(argument));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontPointSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontPointSize)
     ///
     /// ``` self: QtC.QTextEdit, s: f64 ```
     pub fn SetFontPointSize(self: ?*anyopaque, s: f64) void {
         qtc.QTextEdit_SetFontPointSize(@ptrCast(self), @floatCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontFamily)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontFamily)
     ///
     /// ``` self: QtC.QTextEdit, fontFamily: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, fontFamily: []const u8) void {
@@ -659,56 +659,56 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetFontFamily(@ptrCast(self), fontFamily_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontWeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontWeight)
     ///
     /// ``` self: QtC.QTextEdit, w: i32 ```
     pub fn SetFontWeight(self: ?*anyopaque, w: i32) void {
         qtc.QTextEdit_SetFontWeight(@ptrCast(self), @intCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontUnderline)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontUnderline)
     ///
     /// ``` self: QtC.QTextEdit, b: bool ```
     pub fn SetFontUnderline(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_SetFontUnderline(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setFontItalic)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setFontItalic)
     ///
     /// ``` self: QtC.QTextEdit, b: bool ```
     pub fn SetFontItalic(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_SetFontItalic(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextColor)
     ///
     /// ``` self: QtC.QTextEdit, c: QtC.QColor ```
     pub fn SetTextColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QTextEdit_SetTextColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextBackgroundColor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setTextBackgroundColor)
     ///
     /// ``` self: QtC.QTextEdit, c: QtC.QColor ```
     pub fn SetTextBackgroundColor(self: ?*anyopaque, c: ?*anyopaque) void {
         qtc.QTextEdit_SetTextBackgroundColor(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setCurrentFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setCurrentFont)
     ///
     /// ``` self: QtC.QTextEdit, f: QtC.QFont ```
     pub fn SetCurrentFont(self: ?*anyopaque, f: ?*anyopaque) void {
         qtc.QTextEdit_SetCurrentFont(@ptrCast(self), @ptrCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
     ///
     /// ``` self: QtC.QTextEdit, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
         qtc.QTextEdit_SetAlignment(@ptrCast(self), @intCast(a));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setPlainText)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8 ```
     pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
@@ -719,7 +719,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetPlainText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setHtml)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8 ```
     pub fn SetHtml(self: ?*anyopaque, text: []const u8) void {
@@ -730,7 +730,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetHtml(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setMarkdown)
     ///
     /// ``` self: QtC.QTextEdit, markdown: []const u8 ```
     pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
@@ -741,7 +741,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetMarkdown(@ptrCast(self), markdown_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#setText)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -752,56 +752,56 @@ pub const qtextedit = struct {
         qtc.QTextEdit_SetText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cut)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Cut(self: ?*anyopaque) void {
         qtc.QTextEdit_Cut(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#copy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copy)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Copy(self: ?*anyopaque) void {
         qtc.QTextEdit_Copy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paste)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paste)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Paste(self: ?*anyopaque) void {
         qtc.QTextEdit_Paste(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#undo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undo)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Undo(self: ?*anyopaque) void {
         qtc.QTextEdit_Undo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#redo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redo)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Redo(self: ?*anyopaque) void {
         qtc.QTextEdit_Redo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#clear)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QTextEdit_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#selectAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectAll)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn SelectAll(self: ?*anyopaque) void {
         qtc.QTextEdit_SelectAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertPlainText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertPlainText)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8 ```
     pub fn InsertPlainText(self: ?*anyopaque, text: []const u8) void {
@@ -812,7 +812,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_InsertPlainText(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertHtml)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertHtml)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8 ```
     pub fn InsertHtml(self: ?*anyopaque, text: []const u8) void {
@@ -823,7 +823,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_InsertHtml(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#append)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8 ```
     pub fn Append(self: ?*anyopaque, text: []const u8) void {
@@ -834,7 +834,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_Append(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollToAnchor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollToAnchor)
     ///
     /// ``` self: QtC.QTextEdit, name: []const u8 ```
     pub fn ScrollToAnchor(self: ?*anyopaque, name: []const u8) void {
@@ -845,126 +845,126 @@ pub const qtextedit = struct {
         qtc.QTextEdit_ScrollToAnchor(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ZoomIn(self: ?*anyopaque) void {
         qtc.QTextEdit_ZoomIn(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ZoomOut(self: ?*anyopaque) void {
         qtc.QTextEdit_ZoomOut(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn TextChanged(self: ?*anyopaque) void {
         qtc.QTextEdit_TextChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit) callconv(.c) void ```
     pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
     ///
     /// ``` self: QtC.QTextEdit, b: bool ```
     pub fn UndoAvailable(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_UndoAvailable(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, b: bool) callconv(.c) void ```
     pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
     ///
     /// ``` self: QtC.QTextEdit, b: bool ```
     pub fn RedoAvailable(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_RedoAvailable(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, b: bool) callconv(.c) void ```
     pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
     ///
     /// ``` self: QtC.QTextEdit, format: QtC.QTextCharFormat ```
     pub fn CurrentCharFormatChanged(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QTextEdit_CurrentCharFormatChanged(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, format: QtC.QTextCharFormat) callconv(.c) void ```
     pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
     ///
     /// ``` self: QtC.QTextEdit, b: bool ```
     pub fn CopyAvailable(self: ?*anyopaque, b: bool) void {
         qtc.QTextEdit_CopyAvailable(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, b: bool) callconv(.c) void ```
     pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn SelectionChanged(self: ?*anyopaque) void {
         qtc.QTextEdit_SelectionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit) callconv(.c) void ```
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CursorPositionChanged(self: ?*anyopaque) void {
         qtc.QTextEdit_CursorPositionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit) callconv(.c) void ```
     pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#event)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QTextEdit_Event(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -973,7 +973,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#event)
     ///
     /// Base class method implementation
     ///
@@ -982,14 +982,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_QBaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QTimerEvent ```
     pub fn TimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_TimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -998,7 +998,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
     ///
     /// Base class method implementation
     ///
@@ -1007,14 +1007,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseTimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyPressEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QKeyEvent ```
     pub fn KeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_KeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1023,7 +1023,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyPressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyPressEvent)
     ///
     /// Base class method implementation
     ///
@@ -1032,14 +1032,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QKeyEvent ```
     pub fn KeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_KeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1048,7 +1048,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -1057,14 +1057,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QResizeEvent ```
     pub fn ResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_ResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1073,7 +1073,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
     ///
     /// Base class method implementation
     ///
@@ -1082,14 +1082,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QPaintEvent ```
     pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1098,7 +1098,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#paintEvent)
     ///
     /// Base class method implementation
     ///
@@ -1107,14 +1107,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QMouseEvent ```
     pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_MousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1123,7 +1123,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
     ///
     /// Base class method implementation
     ///
@@ -1132,14 +1132,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QMouseEvent ```
     pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1148,7 +1148,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -1157,14 +1157,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QMouseEvent ```
     pub fn MouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1173,7 +1173,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
     ///
@@ -1182,14 +1182,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1198,7 +1198,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
     ///
@@ -1207,14 +1207,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// ``` self: QtC.QTextEdit, next: bool ```
     pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
         return qtc.QTextEdit_FocusNextPrevChild(@ptrCast(self), next);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1223,7 +1223,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusNextPrevChild)
     ///
     /// Base class method implementation
     ///
@@ -1232,14 +1232,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_QBaseFocusNextPrevChild(@ptrCast(self), next);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#contextMenuEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QContextMenuEvent ```
     pub fn ContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_ContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#contextMenuEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1248,7 +1248,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#contextMenuEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#contextMenuEvent)
     ///
     /// Base class method implementation
     ///
@@ -1257,14 +1257,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QDragEnterEvent ```
     pub fn DragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_DragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1273,7 +1273,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
     ///
     /// Base class method implementation
     ///
@@ -1282,14 +1282,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QDragLeaveEvent ```
     pub fn DragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1298,7 +1298,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
     ///
     /// Base class method implementation
     ///
@@ -1307,14 +1307,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QDragMoveEvent ```
     pub fn DragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_DragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1323,7 +1323,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
     ///
     /// Base class method implementation
     ///
@@ -1332,14 +1332,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QDropEvent ```
     pub fn DropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_DropEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1348,7 +1348,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
     ///
     /// Base class method implementation
     ///
@@ -1357,14 +1357,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseDropEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QFocusEvent ```
     pub fn FocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_FocusInEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1373,7 +1373,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
     ///
     /// Base class method implementation
     ///
@@ -1382,14 +1382,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QFocusEvent ```
     pub fn FocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_FocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1398,7 +1398,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusOutEvent)
     ///
     /// Base class method implementation
     ///
@@ -1407,14 +1407,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QShowEvent ```
     pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QTextEdit_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1423,7 +1423,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
     ///
     /// Base class method implementation
     ///
@@ -1432,14 +1432,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QEvent ```
     pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_ChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1448,7 +1448,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
     ///
     /// Base class method implementation
     ///
@@ -1457,14 +1457,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// ``` self: QtC.QTextEdit, e: QtC.QWheelEvent ```
     pub fn WheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QTextEdit_WheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1473,7 +1473,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
     ///
     /// Base class method implementation
     ///
@@ -1482,14 +1482,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseWheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
         return qtc.QTextEdit_CreateMimeDataFromSelection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1498,7 +1498,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
     ///
     /// Base class method implementation
     ///
@@ -1507,14 +1507,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_QBaseCreateMimeDataFromSelection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// ``` self: QtC.QTextEdit, source: QtC.QMimeData ```
     pub fn CanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
         return qtc.QTextEdit_CanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1523,7 +1523,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnCanInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
     ///
     /// Base class method implementation
     ///
@@ -1532,14 +1532,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_QBaseCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// ``` self: QtC.QTextEdit, source: QtC.QMimeData ```
     pub fn InsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
         qtc.QTextEdit_InsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1548,7 +1548,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
     ///
     /// Base class method implementation
     ///
@@ -1557,14 +1557,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QInputMethodEvent ```
     pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QTextEdit_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1573,7 +1573,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
     ///
     /// Base class method implementation
     ///
@@ -1582,14 +1582,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// ``` self: QtC.QTextEdit, dx: i32, dy: i32 ```
     pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QTextEdit_ScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1598,7 +1598,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
     ///
     /// Base class method implementation
     ///
@@ -1607,14 +1607,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// ``` self: QtC.QTextEdit, cursor: QtC.QTextCursor ```
     pub fn DoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
         qtc.QTextEdit_DoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1623,7 +1623,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnDoSetTextCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
     ///
     /// Base class method implementation
     ///
@@ -1632,14 +1632,14 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// ``` self: QtC.QTextEdit, range: f32 ```
     pub fn ZoomInF(self: ?*anyopaque, range: f32) void {
         qtc.QTextEdit_ZoomInF(@ptrCast(self), @floatCast(range));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1648,7 +1648,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_OnZoomInF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
     ///
     /// Base class method implementation
     ///
@@ -1657,7 +1657,7 @@ pub const qtextedit = struct {
         qtc.QTextEdit_QBaseZoomInF(@ptrCast(self), @floatCast(range));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -1670,7 +1670,7 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1683,7 +1683,7 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.QTextEdit, exp: []const u8, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i32) bool {
@@ -1694,14 +1694,14 @@ pub const qtextedit = struct {
         return qtc.QTextEdit_Find22(@ptrCast(self), exp_str, @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
     /// ``` self: QtC.QTextEdit, exp: QtC.QRegularExpression, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i32) bool {
         return qtc.QTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
     /// ``` self: QtC.QTextEdit, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
     pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1712,21 +1712,21 @@ pub const qtextedit = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#moveCursor)
     ///
     /// ``` self: QtC.QTextEdit, operation: qtextcursor_enums.MoveOperation, mode: qtextcursor_enums.MoveMode ```
     pub fn MoveCursor2(self: ?*anyopaque, operation: i32, mode: i32) void {
         qtc.QTextEdit_MoveCursor2(@ptrCast(self), @intCast(operation), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomIn)
     ///
     /// ``` self: QtC.QTextEdit, range: i32 ```
     pub fn ZoomIn1(self: ?*anyopaque, range: i32) void {
         qtc.QTextEdit_ZoomIn1(@ptrCast(self), @intCast(range));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomOut)
     ///
     /// ``` self: QtC.QTextEdit, range: i32 ```
     pub fn ZoomOut1(self: ?*anyopaque, range: i32) void {
@@ -1735,7 +1735,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -1746,7 +1746,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTextEdit, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
@@ -1755,7 +1755,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBar)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -1764,7 +1764,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBar)
     ///
     /// ``` self: QtC.QTextEdit, scrollbar: QtC.QScrollBar ```
     pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -1773,7 +1773,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -1784,7 +1784,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTextEdit, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
     pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
@@ -1793,7 +1793,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBar)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
@@ -1802,7 +1802,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBar)
     ///
     /// ``` self: QtC.QTextEdit, scrollbar: QtC.QScrollBar ```
     pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
@@ -1811,7 +1811,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#cornerWidget)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
@@ -1820,7 +1820,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setCornerWidget)
     ///
     /// ``` self: QtC.QTextEdit, widget: QtC.QWidget ```
     pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1829,7 +1829,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
     /// ``` self: QtC.QTextEdit, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
@@ -1838,7 +1838,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
     /// ``` self: QtC.QTextEdit, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
@@ -1852,7 +1852,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewport)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
@@ -1861,7 +1861,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewport)
     ///
     /// ``` self: QtC.QTextEdit, widget: QtC.QWidget ```
     pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -1870,7 +1870,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#maximumViewportSize)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
@@ -1879,7 +1879,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -1890,7 +1890,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QTextEdit, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
@@ -1899,7 +1899,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameStyle)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FrameStyle(self: ?*anyopaque) i32 {
@@ -1908,7 +1908,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameStyle)
     ///
     /// ``` self: QtC.QTextEdit, frameStyle: i32 ```
     pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
@@ -1917,7 +1917,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameWidth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FrameWidth(self: ?*anyopaque) i32 {
@@ -1926,7 +1926,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -1937,7 +1937,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QTextEdit, frameShape: qframe_enums.Shape ```
     pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
@@ -1946,7 +1946,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -1957,7 +1957,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QTextEdit, frameShadow: qframe_enums.Shadow ```
     pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
@@ -1966,7 +1966,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#lineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#lineWidth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn LineWidth(self: ?*anyopaque) i32 {
@@ -1975,7 +1975,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setLineWidth)
     ///
     /// ``` self: QtC.QTextEdit, lineWidth: i32 ```
     pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
@@ -1984,7 +1984,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#midLineWidth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MidLineWidth(self: ?*anyopaque) i32 {
@@ -1993,7 +1993,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setMidLineWidth)
     ///
     /// ``` self: QtC.QTextEdit, midLineWidth: i32 ```
     pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
@@ -2002,7 +2002,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#frameRect)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
@@ -2011,7 +2011,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#setFrameRect)
     ///
     /// ``` self: QtC.QTextEdit, frameRect: QtC.QRect ```
     pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
@@ -2020,7 +2020,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#winId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#winId)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn WinId(self: ?*anyopaque) usize {
@@ -2029,7 +2029,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWinId)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn CreateWinId(self: ?*anyopaque) void {
@@ -2038,7 +2038,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#internalWinId)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn InternalWinId(self: ?*anyopaque) usize {
@@ -2047,7 +2047,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#effectiveWinId)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn EffectiveWinId(self: ?*anyopaque) usize {
@@ -2056,7 +2056,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#style)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#style)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Style(self: ?*anyopaque) QtC.QStyle {
@@ -2065,7 +2065,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyle)
     ///
     /// ``` self: QtC.QTextEdit, style: QtC.QStyle ```
     pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
@@ -2074,7 +2074,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isTopLevel)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsTopLevel(self: ?*anyopaque) bool {
@@ -2083,7 +2083,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindow)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsWindow(self: ?*anyopaque) bool {
@@ -2092,7 +2092,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isModal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isModal)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsModal(self: ?*anyopaque) bool {
@@ -2101,7 +2101,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -2112,7 +2112,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QTextEdit, windowModality: qnamespace_enums.WindowModality ```
     pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
@@ -2121,7 +2121,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabled)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -2130,7 +2130,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isEnabledTo)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QWidget ```
     pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -2139,7 +2139,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setEnabled)
     ///
     /// ``` self: QtC.QTextEdit, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -2148,7 +2148,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setDisabled)
     ///
     /// ``` self: QtC.QTextEdit, disabled: bool ```
     pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
@@ -2157,7 +2157,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowModified)
     ///
     /// ``` self: QtC.QTextEdit, windowModified: bool ```
     pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
@@ -2166,7 +2166,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameGeometry)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2175,7 +2175,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#geometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#geometry)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Geometry(self: ?*anyopaque) QtC.QRect {
@@ -2184,7 +2184,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#normalGeometry)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
@@ -2193,7 +2193,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#x)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#x)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn X(self: ?*anyopaque) i32 {
@@ -2202,7 +2202,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#y)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#y)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Y(self: ?*anyopaque) i32 {
@@ -2211,7 +2211,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#pos)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#pos)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Pos(self: ?*anyopaque) QtC.QPoint {
@@ -2220,7 +2220,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#frameSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#frameSize)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
@@ -2229,7 +2229,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#size)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#size)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Size(self: ?*anyopaque) QtC.QSize {
@@ -2238,7 +2238,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#width)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -2247,7 +2247,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#height)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -2256,7 +2256,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#rect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#rect)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Rect(self: ?*anyopaque) QtC.QRect {
@@ -2265,7 +2265,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRect)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
@@ -2274,7 +2274,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childrenRegion)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
@@ -2283,7 +2283,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSize)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
@@ -2292,7 +2292,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumSize)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
@@ -2301,7 +2301,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumWidth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MinimumWidth(self: ?*anyopaque) i32 {
@@ -2310,7 +2310,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumHeight)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MinimumHeight(self: ?*anyopaque) i32 {
@@ -2319,7 +2319,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumWidth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MaximumWidth(self: ?*anyopaque) i32 {
@@ -2328,7 +2328,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#maximumHeight)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn MaximumHeight(self: ?*anyopaque) i32 {
@@ -2337,7 +2337,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QTextEdit, minimumSize: QtC.QSize ```
     pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
@@ -2346,7 +2346,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumSize)
     ///
     /// ``` self: QtC.QTextEdit, minw: i32, minh: i32 ```
     pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
@@ -2355,7 +2355,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QTextEdit, maximumSize: QtC.QSize ```
     pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
@@ -2364,7 +2364,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumSize)
     ///
     /// ``` self: QtC.QTextEdit, maxw: i32, maxh: i32 ```
     pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
@@ -2373,7 +2373,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumWidth)
     ///
     /// ``` self: QtC.QTextEdit, minw: i32 ```
     pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
@@ -2382,7 +2382,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMinimumHeight)
     ///
     /// ``` self: QtC.QTextEdit, minh: i32 ```
     pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
@@ -2391,7 +2391,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumWidth)
     ///
     /// ``` self: QtC.QTextEdit, maxw: i32 ```
     pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
@@ -2400,7 +2400,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMaximumHeight)
     ///
     /// ``` self: QtC.QTextEdit, maxh: i32 ```
     pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
@@ -2409,7 +2409,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeIncrement)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
@@ -2418,7 +2418,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QTextEdit, sizeIncrement: QtC.QSize ```
     pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
@@ -2427,7 +2427,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizeIncrement)
     ///
     /// ``` self: QtC.QTextEdit, w: i32, h: i32 ```
     pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2436,7 +2436,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#baseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#baseSize)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
@@ -2445,7 +2445,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QTextEdit, baseSize: QtC.QSize ```
     pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
@@ -2454,7 +2454,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBaseSize)
     ///
     /// ``` self: QtC.QTextEdit, basew: i32, baseh: i32 ```
     pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
@@ -2463,7 +2463,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QTextEdit, fixedSize: QtC.QSize ```
     pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
@@ -2472,7 +2472,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedSize)
     ///
     /// ``` self: QtC.QTextEdit, w: i32, h: i32 ```
     pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
@@ -2481,7 +2481,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedWidth)
     ///
     /// ``` self: QtC.QTextEdit, w: i32 ```
     pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
@@ -2490,7 +2490,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFixedHeight)
     ///
     /// ``` self: QtC.QTextEdit, h: i32 ```
     pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
@@ -2499,7 +2499,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPointF ```
     pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2508,7 +2508,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPoint ```
     pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2517,7 +2517,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPointF ```
     pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2526,7 +2526,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPoint ```
     pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2535,7 +2535,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPointF ```
     pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2544,7 +2544,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPoint ```
     pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2553,7 +2553,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPointF ```
     pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
@@ -2562,7 +2562,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPoint ```
     pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
@@ -2571,7 +2571,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2580,7 +2580,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2589,7 +2589,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QWidget, param2: QtC.QPointF ```
     pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
@@ -2598,7 +2598,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFrom)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QWidget, param2: QtC.QPoint ```
     pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
@@ -2607,7 +2607,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#window)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#window)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Window(self: ?*anyopaque) QtC.QWidget {
@@ -2616,7 +2616,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeParentWidget)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2625,7 +2625,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#topLevelWidget)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
@@ -2634,7 +2634,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#palette)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Palette(self: ?*anyopaque) QtC.QPalette {
@@ -2643,7 +2643,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setPalette)
     ///
     /// ``` self: QtC.QTextEdit, palette: QtC.QPalette ```
     pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -2652,7 +2652,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QTextEdit, backgroundRole: qpalette_enums.ColorRole ```
     pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
@@ -2661,7 +2661,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -2672,7 +2672,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QTextEdit, foregroundRole: qpalette_enums.ColorRole ```
     pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
@@ -2681,7 +2681,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -2692,7 +2692,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#font)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -2701,7 +2701,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFont)
     ///
     /// ``` self: QtC.QTextEdit, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -2710,7 +2710,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontMetrics)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
@@ -2719,7 +2719,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#fontInfo)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
@@ -2728,7 +2728,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#cursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#cursor)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
@@ -2737,7 +2737,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setCursor)
     ///
     /// ``` self: QtC.QTextEdit, cursor: QtC.QCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -2746,7 +2746,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetCursor)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn UnsetCursor(self: ?*anyopaque) void {
@@ -2755,7 +2755,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMouseTracking)
     ///
     /// ``` self: QtC.QTextEdit, enable: bool ```
     pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
@@ -2764,7 +2764,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasMouseTracking)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn HasMouseTracking(self: ?*anyopaque) bool {
@@ -2773,7 +2773,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#underMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#underMouse)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn UnderMouse(self: ?*anyopaque) bool {
@@ -2782,7 +2782,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabletTracking)
     ///
     /// ``` self: QtC.QTextEdit, enable: bool ```
     pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
@@ -2791,7 +2791,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasTabletTracking)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn HasTabletTracking(self: ?*anyopaque) bool {
@@ -2800,7 +2800,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QTextEdit, mask: QtC.QBitmap ```
     pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2809,7 +2809,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QTextEdit, mask: QtC.QRegion ```
     pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
@@ -2818,7 +2818,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mask)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Mask(self: ?*anyopaque) QtC.QRegion {
@@ -2827,7 +2827,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearMask)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearMask)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ClearMask(self: ?*anyopaque) void {
@@ -2836,7 +2836,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, target: QtC.QPaintDevice ```
     pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
@@ -2845,7 +2845,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, painter: QtC.QPainter ```
     pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
@@ -2854,7 +2854,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
@@ -2863,7 +2863,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsEffect)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
@@ -2872,7 +2872,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGraphicsEffect)
     ///
     /// ``` self: QtC.QTextEdit, effect: QtC.QGraphicsEffect ```
     pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
@@ -2881,7 +2881,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QTextEdit, typeVal: qnamespace_enums.GestureType ```
     pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2890,7 +2890,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ungrabGesture)
     ///
     /// ``` self: QtC.QTextEdit, typeVal: qnamespace_enums.GestureType ```
     pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
@@ -2899,7 +2899,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowTitle)
     ///
     /// ``` self: QtC.QTextEdit, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
@@ -2912,7 +2912,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStyleSheet)
     ///
     /// ``` self: QtC.QTextEdit, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
@@ -2925,7 +2925,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#styleSheet)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2938,7 +2938,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitle)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2951,7 +2951,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIcon)
     ///
     /// ``` self: QtC.QTextEdit, icon: QtC.QIcon ```
     pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -2960,7 +2960,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIcon)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
@@ -2969,7 +2969,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowIconText)
     ///
     /// ``` self: QtC.QTextEdit, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
@@ -2982,7 +2982,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconText)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -2995,7 +2995,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowRole)
     ///
     /// ``` self: QtC.QTextEdit, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
@@ -3008,7 +3008,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowRole)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3021,7 +3021,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFilePath)
     ///
     /// ``` self: QtC.QTextEdit, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
@@ -3034,7 +3034,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFilePath)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3047,7 +3047,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowOpacity)
     ///
     /// ``` self: QtC.QTextEdit, level: f64 ```
     pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
@@ -3056,7 +3056,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowOpacity)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn WindowOpacity(self: ?*anyopaque) f64 {
@@ -3065,7 +3065,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isWindowModified)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsWindowModified(self: ?*anyopaque) bool {
@@ -3074,7 +3074,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTip)
     ///
     /// ``` self: QtC.QTextEdit, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
@@ -3087,7 +3087,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTip)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3100,7 +3100,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setToolTipDuration)
     ///
     /// ``` self: QtC.QTextEdit, msec: i32 ```
     pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
@@ -3109,7 +3109,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#toolTipDuration)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ToolTipDuration(self: ?*anyopaque) i32 {
@@ -3118,7 +3118,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setStatusTip)
     ///
     /// ``` self: QtC.QTextEdit, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -3131,7 +3131,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#statusTip)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3144,7 +3144,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWhatsThis)
     ///
     /// ``` self: QtC.QTextEdit, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
@@ -3157,7 +3157,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#whatsThis)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3170,7 +3170,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleName)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3183,7 +3183,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleName)
     ///
     /// ``` self: QtC.QTextEdit, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
@@ -3196,7 +3196,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#accessibleDescription)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -3209,7 +3209,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAccessibleDescription)
     ///
     /// ``` self: QtC.QTextEdit, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
@@ -3222,7 +3222,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextEdit, direction: qnamespace_enums.LayoutDirection ```
     pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
@@ -3231,7 +3231,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -3242,7 +3242,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLayoutDirection)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
@@ -3251,7 +3251,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLocale)
     ///
     /// ``` self: QtC.QTextEdit, locale: QtC.QLocale ```
     pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
@@ -3260,7 +3260,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#locale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#locale)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Locale(self: ?*anyopaque) QtC.QLocale {
@@ -3269,7 +3269,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#unsetLocale)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn UnsetLocale(self: ?*anyopaque) void {
@@ -3278,7 +3278,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isRightToLeft)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsRightToLeft(self: ?*anyopaque) bool {
@@ -3287,7 +3287,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isLeftToRight)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsLeftToRight(self: ?*anyopaque) bool {
@@ -3296,7 +3296,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn SetFocus(self: ?*anyopaque) void {
@@ -3305,7 +3305,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isActiveWindow)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsActiveWindow(self: ?*anyopaque) bool {
@@ -3314,7 +3314,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#activateWindow)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ActivateWindow(self: ?*anyopaque) void {
@@ -3323,7 +3323,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#clearFocus)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ClearFocus(self: ?*anyopaque) void {
@@ -3332,7 +3332,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTextEdit, reason: qnamespace_enums.FocusReason ```
     pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
@@ -3341,7 +3341,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -3352,7 +3352,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QTextEdit, policy: qnamespace_enums.FocusPolicy ```
     pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3361,7 +3361,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasFocus)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn HasFocus(self: ?*anyopaque) bool {
@@ -3370,7 +3370,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setTabOrder)
     ///
     /// ``` param1: QtC.QWidget, param2: QtC.QWidget ```
     pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
@@ -3379,7 +3379,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setFocusProxy)
     ///
     /// ``` self: QtC.QTextEdit, focusProxy: QtC.QWidget ```
     pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
@@ -3388,7 +3388,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusProxy)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
@@ -3397,7 +3397,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -3408,7 +3408,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QTextEdit, policy: qnamespace_enums.ContextMenuPolicy ```
     pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
@@ -3417,7 +3417,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn GrabMouse(self: ?*anyopaque) void {
@@ -3426,7 +3426,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QCursor ```
     pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3435,7 +3435,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseMouse)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ReleaseMouse(self: ?*anyopaque) void {
@@ -3444,7 +3444,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabKeyboard)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn GrabKeyboard(self: ?*anyopaque) void {
@@ -3453,7 +3453,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseKeyboard)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ReleaseKeyboard(self: ?*anyopaque) void {
@@ -3462,7 +3462,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QTextEdit, key: QtC.QKeySequence ```
     pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
@@ -3471,7 +3471,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#releaseShortcut)
     ///
     /// ``` self: QtC.QTextEdit, id: i32 ```
     pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
@@ -3480,7 +3480,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QTextEdit, id: i32 ```
     pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
@@ -3489,7 +3489,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QTextEdit, id: i32 ```
     pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
@@ -3498,7 +3498,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
     ///
     pub fn MouseGrabber() QtC.QWidget {
@@ -3507,7 +3507,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
     ///
     pub fn KeyboardGrabber() QtC.QWidget {
@@ -3516,7 +3516,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updatesEnabled)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn UpdatesEnabled(self: ?*anyopaque) bool {
@@ -3525,7 +3525,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setUpdatesEnabled)
     ///
     /// ``` self: QtC.QTextEdit, enable: bool ```
     pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
@@ -3534,7 +3534,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#graphicsProxyWidget)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
@@ -3543,7 +3543,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Update(self: ?*anyopaque) void {
@@ -3552,7 +3552,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Repaint(self: ?*anyopaque) void {
@@ -3561,7 +3561,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTextEdit, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3570,7 +3570,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QRect ```
     pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3579,7 +3579,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QRegion ```
     pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3588,7 +3588,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTextEdit, x: i32, y: i32, w: i32, h: i32 ```
     pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3597,7 +3597,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QRect ```
     pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3606,7 +3606,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QRegion ```
     pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3615,7 +3615,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setHidden)
     ///
     /// ``` self: QtC.QTextEdit, hidden: bool ```
     pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
@@ -3624,7 +3624,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#show)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#show)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Show(self: ?*anyopaque) void {
@@ -3633,7 +3633,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hide)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hide)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Hide(self: ?*anyopaque) void {
@@ -3642,7 +3642,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMinimized)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ShowMinimized(self: ?*anyopaque) void {
@@ -3651,7 +3651,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showMaximized)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ShowMaximized(self: ?*anyopaque) void {
@@ -3660,7 +3660,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showFullScreen)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ShowFullScreen(self: ?*anyopaque) void {
@@ -3669,7 +3669,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#showNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showNormal)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ShowNormal(self: ?*anyopaque) void {
@@ -3678,7 +3678,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#close)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#close)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Close(self: ?*anyopaque) bool {
@@ -3687,7 +3687,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#raise)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#raise)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Raise(self: ?*anyopaque) void {
@@ -3696,7 +3696,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#lower)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#lower)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Lower(self: ?*anyopaque) void {
@@ -3705,7 +3705,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#stackUnder)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QWidget ```
     pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3714,7 +3714,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QTextEdit, x: i32, y: i32 ```
     pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
@@ -3723,7 +3723,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QPoint ```
     pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3732,7 +3732,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QTextEdit, w: i32, h: i32 ```
     pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
@@ -3741,7 +3741,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QSize ```
     pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -3750,7 +3750,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QTextEdit, x: i32, y: i32, w: i32, h: i32 ```
     pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
@@ -3759,7 +3759,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QTextEdit, geometry: QtC.QRect ```
     pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
@@ -3768,7 +3768,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#saveGeometry)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -3781,7 +3781,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#restoreGeometry)
     ///
     /// ``` self: QtC.QTextEdit, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
@@ -3794,7 +3794,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#adjustSize)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn AdjustSize(self: ?*anyopaque) void {
@@ -3803,7 +3803,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisible)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -3812,7 +3812,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isVisibleTo)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QWidget ```
     pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
@@ -3821,7 +3821,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isHidden)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isHidden)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsHidden(self: ?*anyopaque) bool {
@@ -3830,7 +3830,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMinimized)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsMinimized(self: ?*anyopaque) bool {
@@ -3839,7 +3839,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isMaximized)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsMaximized(self: ?*anyopaque) bool {
@@ -3848,7 +3848,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isFullScreen)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsFullScreen(self: ?*anyopaque) bool {
@@ -3857,7 +3857,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -3868,7 +3868,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
     /// ``` self: QtC.QTextEdit, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
@@ -3877,7 +3877,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
     /// ``` self: QtC.QTextEdit, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
@@ -3886,7 +3886,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizePolicy)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
@@ -3895,7 +3895,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QTextEdit, sizePolicy: QtC.QSizePolicy ```
     pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
@@ -3904,7 +3904,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QTextEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
     pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
@@ -3913,7 +3913,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#visibleRegion)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
@@ -3922,7 +3922,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QTextEdit, left: i32, top: i32, right: i32, bottom: i32 ```
     pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
@@ -3931,7 +3931,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QTextEdit, margins: QtC.QMargins ```
     pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
@@ -3940,7 +3940,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsMargins)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
@@ -3949,7 +3949,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contentsRect)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
@@ -3958,7 +3958,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#layout)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Layout(self: ?*anyopaque) QtC.QLayout {
@@ -3967,7 +3967,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setLayout)
     ///
     /// ``` self: QtC.QTextEdit, layout: QtC.QLayout ```
     pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
@@ -3976,7 +3976,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateGeometry)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn UpdateGeometry(self: ?*anyopaque) void {
@@ -3985,7 +3985,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QTextEdit, parent: QtC.QWidget ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -3994,7 +3994,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
     /// ``` self: QtC.QTextEdit, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
@@ -4003,7 +4003,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QTextEdit, dx: i32, dy: i32 ```
     pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
@@ -4012,7 +4012,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#scroll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#scroll)
     ///
     /// ``` self: QtC.QTextEdit, dx: i32, dy: i32, param3: QtC.QRect ```
     pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
@@ -4021,7 +4021,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusWidget)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4030,7 +4030,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nextInFocusChain)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4039,7 +4039,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#previousInFocusChain)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
@@ -4048,7 +4048,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#acceptDrops)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn AcceptDrops(self: ?*anyopaque) bool {
@@ -4057,7 +4057,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAcceptDrops)
     ///
     /// ``` self: QtC.QTextEdit, on: bool ```
     pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
@@ -4066,7 +4066,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTextEdit, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4075,7 +4075,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addActions)
     ///
     /// ``` self: QtC.QTextEdit, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4088,7 +4088,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertActions)
     ///
     /// ``` self: QtC.QTextEdit, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
@@ -4101,7 +4101,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#insertAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#insertAction)
     ///
     /// ``` self: QtC.QTextEdit, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
@@ -4110,7 +4110,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#removeAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#removeAction)
     ///
     /// ``` self: QtC.QTextEdit, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
@@ -4119,7 +4119,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actions)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -4133,7 +4133,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4146,7 +4146,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTextEdit, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -4159,7 +4159,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTextEdit, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4172,7 +4172,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTextEdit, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
@@ -4185,7 +4185,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
@@ -4194,7 +4194,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
     /// ``` self: QtC.QTextEdit, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4203,7 +4203,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -4214,7 +4214,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QTextEdit, param1: qnamespace_enums.WindowType ```
     pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
@@ -4223,7 +4223,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
     /// ``` self: QtC.QTextEdit, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
@@ -4232,7 +4232,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -4243,7 +4243,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTextEdit, x: i32, y: i32 ```
     pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
@@ -4252,7 +4252,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTextEdit, p: QtC.QPoint ```
     pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4261,7 +4261,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTextEdit, p: QtC.QPointF ```
     pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
@@ -4270,7 +4270,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTextEdit, param1: qnamespace_enums.WidgetAttribute ```
     pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
@@ -4279,7 +4279,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QTextEdit, param1: qnamespace_enums.WidgetAttribute ```
     pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
@@ -4288,7 +4288,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#ensurePolished)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn EnsurePolished(self: ?*anyopaque) void {
@@ -4297,7 +4297,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#isAncestorOf)
     ///
     /// ``` self: QtC.QTextEdit, child: QtC.QWidget ```
     pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
@@ -4306,7 +4306,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#autoFillBackground)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn AutoFillBackground(self: ?*anyopaque) bool {
@@ -4315,7 +4315,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAutoFillBackground)
     ///
     /// ``` self: QtC.QTextEdit, enabled: bool ```
     pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
@@ -4324,7 +4324,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backingStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#backingStore)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
@@ -4333,7 +4333,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowHandle)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
@@ -4342,7 +4342,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#screen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#screen)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Screen(self: ?*anyopaque) QtC.QScreen {
@@ -4351,7 +4351,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setScreen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setScreen)
     ///
     /// ``` self: QtC.QTextEdit, screen: QtC.QScreen ```
     pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
@@ -4360,7 +4360,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow ```
     pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
@@ -4369,7 +4369,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QTextEdit, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
@@ -4382,7 +4382,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, title: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4391,7 +4391,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QTextEdit, icon: QtC.QIcon ```
     pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -4400,7 +4400,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4409,7 +4409,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QTextEdit, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
@@ -4422,7 +4422,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, iconText: [*:0]const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
@@ -4431,7 +4431,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QTextEdit, pos: QtC.QPoint ```
     pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
@@ -4440,7 +4440,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4449,7 +4449,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QTextEdit ```
     ///
@@ -4460,7 +4460,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
     /// ``` self: QtC.QTextEdit, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
@@ -4469,7 +4469,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
     pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4478,7 +4478,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4487,7 +4487,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4496,7 +4496,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
     pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
@@ -4505,7 +4505,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion ```
     pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
@@ -4514,7 +4514,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTextEdit, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
@@ -4523,7 +4523,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grab)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grab)
     ///
     /// ``` self: QtC.QTextEdit, rectangle: QtC.QRect ```
     pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
@@ -4532,7 +4532,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
     /// ``` self: QtC.QTextEdit, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
@@ -4541,7 +4541,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QTextEdit, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
     pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
@@ -4550,7 +4550,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutEnabled)
     ///
     /// ``` self: QtC.QTextEdit, id: i32, enable: bool ```
     pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4559,7 +4559,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setShortcutAutoRepeat)
     ///
     /// ``` self: QtC.QTextEdit, id: i32, enable: bool ```
     pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
@@ -4568,7 +4568,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setWindowFlag)
     ///
     /// ``` self: QtC.QTextEdit, param1: qnamespace_enums.WindowType, on: bool ```
     pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
@@ -4577,7 +4577,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTextEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
     pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
@@ -4586,7 +4586,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget ```
     pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -4595,7 +4595,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
     /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
@@ -4604,7 +4604,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -4617,7 +4617,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QTextEdit, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -4630,7 +4630,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -4639,7 +4639,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -4648,7 +4648,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -4657,7 +4657,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -4666,7 +4666,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QTextEdit, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -4675,7 +4675,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -4684,7 +4684,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTextEdit, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -4693,7 +4693,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTextEdit, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -4702,7 +4702,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTextEdit, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -4711,7 +4711,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTextEdit, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -4720,7 +4720,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -4734,7 +4734,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QTextEdit, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -4743,7 +4743,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QTextEdit, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -4752,7 +4752,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -4761,7 +4761,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTextEdit, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -4772,7 +4772,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -4781,7 +4781,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -4790,7 +4790,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -4799,7 +4799,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -4808,7 +4808,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QTextEdit, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -4818,7 +4818,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QTextEdit, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -4828,7 +4828,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QTextEdit, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -4852,7 +4852,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4861,7 +4861,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -4870,7 +4870,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -4879,7 +4879,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -4888,7 +4888,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -4897,7 +4897,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QTextEdit, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -4907,7 +4907,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -4916,7 +4916,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTextEdit, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -4925,7 +4925,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTextEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -4934,7 +4934,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4943,7 +4943,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTextEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -4954,7 +4954,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTextEdit, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -4963,7 +4963,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QTextEdit, callback: *const fn (self: QtC.QTextEdit, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -4972,7 +4972,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -4981,7 +4981,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -4990,7 +4990,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -4999,7 +4999,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -5008,7 +5008,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -5017,7 +5017,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -5026,7 +5026,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -5035,7 +5035,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -5044,7 +5044,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -5053,7 +5053,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -5062,7 +5062,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QTextEdit ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -5071,7 +5071,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -5080,7 +5080,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -5089,7 +5089,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5100,7 +5100,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5111,7 +5111,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5122,7 +5122,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5133,7 +5133,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5144,7 +5144,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5155,7 +5155,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5166,7 +5166,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5177,7 +5177,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5188,7 +5188,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5199,7 +5199,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5210,7 +5210,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5221,7 +5221,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5232,7 +5232,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5243,7 +5243,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5254,7 +5254,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5265,7 +5265,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5276,7 +5276,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5287,7 +5287,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5298,7 +5298,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5309,7 +5309,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5320,7 +5320,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5331,7 +5331,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5342,7 +5342,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5353,7 +5353,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5364,7 +5364,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5375,7 +5375,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5386,7 +5386,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5397,7 +5397,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5408,7 +5408,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5419,7 +5419,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5430,7 +5430,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5441,7 +5441,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5452,7 +5452,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5463,7 +5463,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5474,7 +5474,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5485,7 +5485,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5496,7 +5496,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5507,7 +5507,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5518,7 +5518,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5529,7 +5529,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5540,7 +5540,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5551,7 +5551,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5562,7 +5562,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5573,7 +5573,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5584,7 +5584,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5595,7 +5595,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5606,7 +5606,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5617,7 +5617,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5628,7 +5628,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5639,7 +5639,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5650,7 +5650,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5661,7 +5661,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5672,7 +5672,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5683,7 +5683,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5694,7 +5694,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5705,7 +5705,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5716,7 +5716,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5731,7 +5731,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5746,7 +5746,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5757,7 +5757,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5768,7 +5768,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5779,7 +5779,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5790,7 +5790,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5801,7 +5801,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5812,7 +5812,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5823,7 +5823,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5834,7 +5834,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5845,7 +5845,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5856,7 +5856,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5867,7 +5867,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5878,7 +5878,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5889,7 +5889,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5900,7 +5900,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5911,7 +5911,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5922,7 +5922,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5933,7 +5933,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5944,7 +5944,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5955,7 +5955,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5966,7 +5966,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -5977,7 +5977,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -5988,7 +5988,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -5999,7 +5999,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6010,7 +6010,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6021,7 +6021,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6032,7 +6032,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6043,7 +6043,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6054,7 +6054,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6065,7 +6065,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6076,7 +6076,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6087,7 +6087,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6098,7 +6098,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6109,7 +6109,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QFrame
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#drawFrame)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6120,7 +6120,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6131,7 +6131,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6142,7 +6142,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6153,7 +6153,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6164,7 +6164,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6175,7 +6175,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#create)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6186,7 +6186,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6197,7 +6197,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6208,7 +6208,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#destroy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6219,7 +6219,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6230,7 +6230,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6241,7 +6241,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6252,7 +6252,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6263,7 +6263,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6274,7 +6274,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QWidget
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6285,7 +6285,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6296,7 +6296,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6307,7 +6307,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6318,7 +6318,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6329,7 +6329,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6340,7 +6340,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6351,7 +6351,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6363,7 +6363,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6375,7 +6375,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6386,7 +6386,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6397,7 +6397,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6408,7 +6408,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6419,7 +6419,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -6430,7 +6430,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -6441,7 +6441,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -6452,7 +6452,7 @@ pub const qtextedit = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -6461,7 +6461,7 @@ pub const qtextedit = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#dtor.QTextEdit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dtor.QTextEdit)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -6480,35 +6480,35 @@ pub const qtextedit__extraselection = struct {
         return qtc.QTextEdit__ExtraSelection_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#cursor-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit-extraselection.html#cursor-var)
     ///
     /// ``` self: QtC.QTextEdit__ExtraSelection ```
     pub fn Cursor(self: ?*anyopaque) QtC.QTextCursor {
         return qtc.QTextEdit__ExtraSelection_Cursor(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#cursor-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit-extraselection.html#cursor-var)
     ///
     /// ``` self: QtC.QTextEdit__ExtraSelection, cursor: QtC.QTextCursor ```
     pub fn SetCursor(self: ?*anyopaque, cursor: QtC.QTextCursor) void {
         qtc.QTextEdit__ExtraSelection_SetCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#format-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit-extraselection.html#format-var)
     ///
     /// ``` self: QtC.QTextEdit__ExtraSelection ```
     pub fn Format(self: ?*anyopaque) QtC.QTextCharFormat {
         return qtc.QTextEdit__ExtraSelection_Format(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#format-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit-extraselection.html#format-var)
     ///
     /// ``` self: QtC.QTextEdit__ExtraSelection, format: QtC.QTextCharFormat ```
     pub fn SetFormat(self: ?*anyopaque, format: QtC.QTextCharFormat) void {
         qtc.QTextEdit__ExtraSelection_SetFormat(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtextedit-extraselection.html#operator-eq)
     ///
     /// ``` self: QtC.QTextEdit__ExtraSelection, param1: QtC.QTextEdit__ExtraSelection ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

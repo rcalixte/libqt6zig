@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qclipboard.html
 pub const qclipboard = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qclipboard = struct {
         return qtc.QClipboard_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,49 +37,49 @@ pub const qclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#clear)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QClipboard_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#supportsSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#supportsSelection)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn SupportsSelection(self: ?*anyopaque) bool {
         return qtc.QClipboard_SupportsSelection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#supportsFindBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#supportsFindBuffer)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn SupportsFindBuffer(self: ?*anyopaque) bool {
         return qtc.QClipboard_SupportsFindBuffer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#ownsSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#ownsSelection)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn OwnsSelection(self: ?*anyopaque) bool {
         return qtc.QClipboard_OwnsSelection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#ownsClipboard)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#ownsClipboard)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn OwnsClipboard(self: ?*anyopaque) bool {
         return qtc.QClipboard_OwnsClipboard(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#ownsFindBuffer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#ownsFindBuffer)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn OwnsFindBuffer(self: ?*anyopaque) bool {
         return qtc.QClipboard_OwnsFindBuffer(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const qclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, subtype: []const u8, allocator: std.mem.Allocator ```
     pub fn Text2(self: ?*anyopaque, subtype: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -105,7 +105,7 @@ pub const qclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setText)
     ///
     /// ``` self: QtC.QClipboard, param1: []const u8 ```
     pub fn SetText(self: ?*anyopaque, param1: []const u8) void {
@@ -116,105 +116,105 @@ pub const qclipboard = struct {
         qtc.QClipboard_SetText(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#mimeData)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn MimeData(self: ?*anyopaque) QtC.QMimeData {
         return qtc.QClipboard_MimeData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setMimeData)
     ///
     /// ``` self: QtC.QClipboard, data: QtC.QMimeData ```
     pub fn SetMimeData(self: ?*anyopaque, data: ?*anyopaque) void {
         qtc.QClipboard_SetMimeData(@ptrCast(self), @ptrCast(data));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#image)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#image)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn Image(self: ?*anyopaque) QtC.QImage {
         return qtc.QClipboard_Image(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#pixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#pixmap)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn Pixmap(self: ?*anyopaque) QtC.QPixmap {
         return qtc.QClipboard_Pixmap(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setImage)
     ///
     /// ``` self: QtC.QClipboard, param1: QtC.QImage ```
     pub fn SetImage(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QClipboard_SetImage(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setPixmap)
     ///
     /// ``` self: QtC.QClipboard, param1: QtC.QPixmap ```
     pub fn SetPixmap(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QClipboard_SetPixmap(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#changed)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
     pub fn Changed(self: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_Changed(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#changed)
     ///
     /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard, mode: qclipboard_enums.Mode) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QClipboard_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#selectionChanged)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn SelectionChanged(self: ?*anyopaque) void {
         qtc.QClipboard_SelectionChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#selectionChanged)
     ///
     /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QClipboard_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn FindBufferChanged(self: ?*anyopaque) void {
         qtc.QClipboard_FindBufferChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged)
     ///
     /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
     pub fn OnFindBufferChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QClipboard_Connect_FindBufferChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#dataChanged)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn DataChanged(self: ?*anyopaque) void {
         qtc.QClipboard_DataChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#dataChanged)
     ///
     /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QClipboard_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -227,7 +227,7 @@ pub const qclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -240,14 +240,14 @@ pub const qclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#clear)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
     pub fn Clear1(self: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_Clear1(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode, allocator: std.mem.Allocator ```
     pub fn Text1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
@@ -258,7 +258,7 @@ pub const qclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, subtype: []const u8, mode: qclipboard_enums.Mode, allocator: std.mem.Allocator ```
     pub fn Text22(self: ?*anyopaque, subtype: []const u8, mode: i32, allocator: std.mem.Allocator) []const u8 {
@@ -273,7 +273,7 @@ pub const qclipboard = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setText)
     ///
     /// ``` self: QtC.QClipboard, param1: []const u8, mode: qclipboard_enums.Mode ```
     pub fn SetText2(self: ?*anyopaque, param1: []const u8, mode: i32) void {
@@ -284,42 +284,42 @@ pub const qclipboard = struct {
         qtc.QClipboard_SetText2(@ptrCast(self), param1_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#mimeData)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
     pub fn MimeData1(self: ?*anyopaque, mode: i32) QtC.QMimeData {
         return qtc.QClipboard_MimeData1(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setMimeData)
     ///
     /// ``` self: QtC.QClipboard, data: QtC.QMimeData, mode: qclipboard_enums.Mode ```
     pub fn SetMimeData2(self: ?*anyopaque, data: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_SetMimeData2(@ptrCast(self), @ptrCast(data), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#image)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#image)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
     pub fn Image1(self: ?*anyopaque, mode: i32) QtC.QImage {
         return qtc.QClipboard_Image1(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#pixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#pixmap)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
     pub fn Pixmap1(self: ?*anyopaque, mode: i32) QtC.QPixmap {
         return qtc.QClipboard_Pixmap1(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setImage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setImage)
     ///
     /// ``` self: QtC.QClipboard, param1: QtC.QImage, mode: qclipboard_enums.Mode ```
     pub fn SetImage2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_SetImage2(@ptrCast(self), @ptrCast(param1), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setPixmap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qclipboard.html#setPixmap)
     ///
     /// ``` self: QtC.QClipboard, param1: QtC.QPixmap, mode: qclipboard_enums.Mode ```
     pub fn SetPixmap2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) void {
@@ -328,7 +328,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QClipboard, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -337,7 +337,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QClipboard, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -346,7 +346,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QClipboard, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -359,7 +359,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QClipboard, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -372,7 +372,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -381,7 +381,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -390,7 +390,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -399,7 +399,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -408,7 +408,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QClipboard, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -417,7 +417,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -426,7 +426,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QClipboard, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -435,7 +435,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QClipboard, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -444,7 +444,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QClipboard, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -453,7 +453,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QClipboard, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -462,7 +462,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QClipboard, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -476,7 +476,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QClipboard, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -485,7 +485,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QClipboard, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -494,7 +494,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QClipboard, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -503,7 +503,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -512,7 +512,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QClipboard, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -523,7 +523,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -532,7 +532,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -541,7 +541,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -550,7 +550,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -559,7 +559,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QClipboard, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -569,7 +569,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QClipboard, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -579,7 +579,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QClipboard, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -603,7 +603,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -612,7 +612,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -621,7 +621,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -630,7 +630,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -639,7 +639,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -648,7 +648,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QClipboard, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -658,7 +658,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QClipboard ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -667,7 +667,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QClipboard, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -676,7 +676,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QClipboard, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -685,7 +685,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -694,7 +694,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QClipboard, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -705,7 +705,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QClipboard, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -714,7 +714,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -723,7 +723,7 @@ pub const qclipboard = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

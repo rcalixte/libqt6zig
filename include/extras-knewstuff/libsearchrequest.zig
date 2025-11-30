@@ -5,14 +5,14 @@ const std = @import("std");
 
 /// https://api.kde.org/knscore.html
 pub const knscore = struct {
-    /// [Qt documentation](https://api.kde.org/knscore.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://api.kde.org/knscore.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: searchrequest_enums.SortMode ```
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
         return qtc.KNSCore_GetEnumMetaObject(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore.html#qt_getEnumName)
+    /// [Upstream resources](https://api.kde.org/knscore.html#qt_getEnumName)
     ///
     /// ``` param1: searchrequest_enums.SortMode ```
     pub fn GetEnumName(param1: i32) []const u8 {
@@ -20,14 +20,14 @@ pub const knscore = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://api.kde.org/knscore.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: searchrequest_enums.Filter ```
     pub fn GetEnumMetaObject2(param1: i32) QtC.QMetaObject {
         return qtc.KNSCore_GetEnumMetaObject2(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore.html#qt_getEnumName)
+    /// [Upstream resources](https://api.kde.org/knscore.html#qt_getEnumName)
     ///
     /// ``` param1: searchrequest_enums.Filter ```
     pub fn GetEnumName2(param1: i32) []const u8 {
@@ -150,7 +150,7 @@ pub const knscore__searchrequest = struct {
         return qtc.KNSCore__SearchRequest_new8(@intCast(sortMode_), @intCast(filter_), searchTerm__str, categories__list, @intCast(page_), @intCast(pageSize_));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchrequest.html#sortMode)
+    /// [Upstream resources](https://api.kde.org/knscore-searchrequest.html#sortMode)
     ///
     /// ``` self: QtC.KNSCore__SearchRequest ```
     ///
@@ -159,7 +159,7 @@ pub const knscore__searchrequest = struct {
         return qtc.KNSCore__SearchRequest_SortMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchrequest.html#filter)
+    /// [Upstream resources](https://api.kde.org/knscore-searchrequest.html#filter)
     ///
     /// ``` self: QtC.KNSCore__SearchRequest ```
     ///
@@ -168,7 +168,7 @@ pub const knscore__searchrequest = struct {
         return qtc.KNSCore__SearchRequest_Filter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchrequest.html#searchTerm)
+    /// [Upstream resources](https://api.kde.org/knscore-searchrequest.html#searchTerm)
     ///
     /// ``` self: QtC.KNSCore__SearchRequest, allocator: std.mem.Allocator ```
     pub fn SearchTerm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -179,7 +179,7 @@ pub const knscore__searchrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchrequest.html#categories)
+    /// [Upstream resources](https://api.kde.org/knscore-searchrequest.html#categories)
     ///
     /// ``` self: QtC.KNSCore__SearchRequest, allocator: std.mem.Allocator ```
     pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -201,21 +201,21 @@ pub const knscore__searchrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchrequest.html#page)
+    /// [Upstream resources](https://api.kde.org/knscore-searchrequest.html#page)
     ///
     /// ``` self: QtC.KNSCore__SearchRequest ```
     pub fn Page(self: ?*anyopaque) i32 {
         return qtc.KNSCore__SearchRequest_Page(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchrequest.html#pageSize)
+    /// [Upstream resources](https://api.kde.org/knscore-searchrequest.html#pageSize)
     ///
     /// ``` self: QtC.KNSCore__SearchRequest ```
     pub fn PageSize(self: ?*anyopaque) i32 {
         return qtc.KNSCore__SearchRequest_PageSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-searchrequest.html#nextPage)
+    /// [Upstream resources](https://api.kde.org/knscore-searchrequest.html#nextPage)
     ///
     /// ``` self: QtC.KNSCore__SearchRequest ```
     pub fn NextPage(self: ?*anyopaque) QtC.KNSCore__SearchRequest {

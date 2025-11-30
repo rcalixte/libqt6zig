@@ -18,14 +18,14 @@ pub const kio__udsentry = struct {
         return qtc.KIO__UDSEntry_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#operator-eq)
     ///
     /// ``` self: QtC.KIO__UDSEntry, param1: QtC.KIO__UDSEntry ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KIO__UDSEntry_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#stringValue)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#stringValue)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32, allocator: std.mem.Allocator ```
     pub fn StringValue(self: ?*anyopaque, field: u32, allocator: std.mem.Allocator) []const u8 {
@@ -36,35 +36,35 @@ pub const kio__udsentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#numberValue)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#numberValue)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32 ```
     pub fn NumberValue(self: ?*anyopaque, field: u32) i64 {
         return qtc.KIO__UDSEntry_NumberValue(@ptrCast(self), @intCast(field));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#isDir)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#isDir)
     ///
     /// ``` self: QtC.KIO__UDSEntry ```
     pub fn IsDir(self: ?*anyopaque) bool {
         return qtc.KIO__UDSEntry_IsDir(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#isLink)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#isLink)
     ///
     /// ``` self: QtC.KIO__UDSEntry ```
     pub fn IsLink(self: ?*anyopaque) bool {
         return qtc.KIO__UDSEntry_IsLink(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#reserve)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#reserve)
     ///
     /// ``` self: QtC.KIO__UDSEntry, size: i32 ```
     pub fn Reserve(self: ?*anyopaque, size: i32) void {
         qtc.KIO__UDSEntry_Reserve(@ptrCast(self), @intCast(size));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#fastInsert)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#fastInsert)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32, value: []const u8 ```
     pub fn FastInsert(self: ?*anyopaque, field: u32, value: []const u8) void {
@@ -75,28 +75,28 @@ pub const kio__udsentry = struct {
         qtc.KIO__UDSEntry_FastInsert(@ptrCast(self), @intCast(field), value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#fastInsert)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#fastInsert)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32, l: i64 ```
     pub fn FastInsert2(self: ?*anyopaque, field: u32, l: i64) void {
         qtc.KIO__UDSEntry_FastInsert2(@ptrCast(self), @intCast(field), @intCast(l));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#count)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#count)
     ///
     /// ``` self: QtC.KIO__UDSEntry ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.KIO__UDSEntry_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#contains)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#contains)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32 ```
     pub fn Contains(self: ?*anyopaque, field: u32) bool {
         return qtc.KIO__UDSEntry_Contains(@ptrCast(self), @intCast(field));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#fields)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#fields)
     ///
     /// ``` self: QtC.KIO__UDSEntry, allocator: std.mem.Allocator ```
     pub fn Fields(self: ?*anyopaque, allocator: std.mem.Allocator) []u32 {
@@ -108,14 +108,14 @@ pub const kio__udsentry = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#clear)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#clear)
     ///
     /// ``` self: QtC.KIO__UDSEntry ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KIO__UDSEntry_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#replace)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#replace)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32, value: []const u8 ```
     pub fn Replace(self: ?*anyopaque, field: u32, value: []const u8) void {
@@ -126,14 +126,14 @@ pub const kio__udsentry = struct {
         qtc.KIO__UDSEntry_Replace(@ptrCast(self), @intCast(field), value_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#replace)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#replace)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32, l: i64 ```
     pub fn Replace2(self: ?*anyopaque, field: u32, l: i64) void {
         qtc.KIO__UDSEntry_Replace2(@ptrCast(self), @intCast(field), @intCast(l));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-udsentry.html#numberValue)
+    /// [Upstream resources](https://api.kde.org/kio-udsentry.html#numberValue)
     ///
     /// ``` self: QtC.KIO__UDSEntry, field: u32, defaultValue: i64 ```
     pub fn NumberValue2(self: ?*anyopaque, field: u32, defaultValue: i64) i64 {

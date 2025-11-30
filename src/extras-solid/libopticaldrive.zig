@@ -10,7 +10,7 @@ const storagedrive_enums = @import("libstoragedrive.zig").enums;
 
 /// https://api.kde.org/solid-opticaldrive.html
 pub const solid__opticaldrive = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -28,7 +28,7 @@ pub const solid__opticaldrive = struct {
         return qtc.Solid__OpticalDrive_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -40,7 +40,7 @@ pub const solid__opticaldrive = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#deviceInterfaceType)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#deviceInterfaceType)
     ///
     ///
     ///
@@ -49,7 +49,7 @@ pub const solid__opticaldrive = struct {
         return qtc.Solid__OpticalDrive_DeviceInterfaceType();
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#supportedMedia)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#supportedMedia)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     ///
@@ -58,21 +58,21 @@ pub const solid__opticaldrive = struct {
         return qtc.Solid__OpticalDrive_SupportedMedia(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#readSpeed)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#readSpeed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn ReadSpeed(self: ?*anyopaque) i32 {
         return qtc.Solid__OpticalDrive_ReadSpeed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#writeSpeed)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#writeSpeed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn WriteSpeed(self: ?*anyopaque) i32 {
         return qtc.Solid__OpticalDrive_WriteSpeed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#writeSpeeds)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#writeSpeeds)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, allocator: std.mem.Allocator ```
     pub fn WriteSpeeds(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
@@ -84,14 +84,14 @@ pub const solid__opticaldrive = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#eject)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#eject)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn Eject(self: ?*anyopaque) bool {
         return qtc.Solid__OpticalDrive_Eject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectPressed)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#ejectPressed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, udi: []const u8 ```
     pub fn EjectPressed(self: ?*anyopaque, udi: []const u8) void {
@@ -102,14 +102,14 @@ pub const solid__opticaldrive = struct {
         qtc.Solid__OpticalDrive_EjectPressed(@ptrCast(self), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectPressed)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#ejectPressed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnEjectPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__OpticalDrive_Connect_EjectPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectDone)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#ejectDone)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: []const u8 ```
     pub fn EjectDone(self: ?*anyopaque, errorVal: i32, errorData: QtC.QVariant, udi: []const u8) void {
@@ -120,14 +120,14 @@ pub const solid__opticaldrive = struct {
         qtc.Solid__OpticalDrive_EjectDone(@ptrCast(self), @intCast(errorVal), @ptrCast(errorData), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectDone)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#ejectDone)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnEjectDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__OpticalDrive_Connect_EjectDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectRequested)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#ejectRequested)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, udi: []const u8 ```
     pub fn EjectRequested(self: ?*anyopaque, udi: []const u8) void {
@@ -138,14 +138,14 @@ pub const solid__opticaldrive = struct {
         qtc.Solid__OpticalDrive_EjectRequested(@ptrCast(self), udi_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectRequested)
+    /// [Upstream resources](https://api.kde.org/solid-opticaldrive.html#ejectRequested)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, udi: [*:0]const u8) callconv(.c) void ```
     pub fn OnEjectRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.Solid__OpticalDrive_Connect_EjectRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -158,7 +158,7 @@ pub const solid__opticaldrive = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -173,7 +173,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#bus)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#bus)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     ///
@@ -184,7 +184,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#driveType)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#driveType)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     ///
@@ -195,7 +195,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#isRemovable)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#isRemovable)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn IsRemovable(self: ?*anyopaque) bool {
@@ -204,7 +204,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#isHotpluggable)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#isHotpluggable)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn IsHotpluggable(self: ?*anyopaque) bool {
@@ -213,7 +213,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#size)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#size)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn Size(self: ?*anyopaque) u64 {
@@ -222,7 +222,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#isInUse)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#isInUse)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn IsInUse(self: ?*anyopaque) bool {
@@ -231,7 +231,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#timeDetected)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#timeDetected)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn TimeDetected(self: ?*anyopaque) QtC.QDateTime {
@@ -240,7 +240,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::StorageDrive
     ///
-    /// [Qt documentation](https://api.kde.org/solid-storagedrive.html#timeMediaDetected)
+    /// [Upstream resources](https://api.kde.org/solid-storagedrive.html#timeMediaDetected)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn TimeMediaDetected(self: ?*anyopaque) QtC.QDateTime {
@@ -249,7 +249,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#isValid)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#isValid)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -258,7 +258,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#typeToString)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#typeToString)
     ///
     /// ``` typeVal: deviceinterface_enums.Type, allocator: std.mem.Allocator ```
     pub fn TypeToString(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -271,7 +271,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#stringToType)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#stringToType)
     ///
     /// ``` typeVal: []const u8 ```
     ///
@@ -286,7 +286,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from Solid::DeviceInterface
     ///
-    /// [Qt documentation](https://api.kde.org/solid-deviceinterface.html#typeDescription)
+    /// [Upstream resources](https://api.kde.org/solid-deviceinterface.html#typeDescription)
     ///
     /// ``` typeVal: deviceinterface_enums.Type, allocator: std.mem.Allocator ```
     pub fn TypeDescription(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
@@ -299,7 +299,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -308,7 +308,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -317,7 +317,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -330,7 +330,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -343,7 +343,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -352,7 +352,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -361,7 +361,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -370,7 +370,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -379,7 +379,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -388,7 +388,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -397,7 +397,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -406,7 +406,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -415,7 +415,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -424,7 +424,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -433,7 +433,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -447,7 +447,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -456,7 +456,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -465,7 +465,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -474,7 +474,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -483,7 +483,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -494,7 +494,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -503,7 +503,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -512,7 +512,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -521,7 +521,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -530,7 +530,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -540,7 +540,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -550,7 +550,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -574,7 +574,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -583,7 +583,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -592,7 +592,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -601,7 +601,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -610,7 +610,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -619,7 +619,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -629,7 +629,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.Solid__OpticalDrive ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -638,7 +638,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -647,7 +647,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -656,7 +656,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -665,7 +665,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -676,7 +676,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -685,7 +685,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -694,7 +694,7 @@ pub const solid__opticaldrive = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

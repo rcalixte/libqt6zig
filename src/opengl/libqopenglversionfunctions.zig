@@ -40,7 +40,7 @@ pub const qopenglversionstatus = struct {
         return qtc.QOpenGLVersionStatus_new5(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
     ///
     /// ``` self: QtC.QOpenGLVersionStatus ```
     pub fn Version(self: ?*anyopaque) struct_i32_i32 {
@@ -51,7 +51,7 @@ pub const qopenglversionstatus = struct {
         };
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
     ///
     /// ``` self: QtC.QOpenGLVersionStatus, version: struct_i32_i32 ```
     pub fn SetVersion(self: ?*anyopaque, version: struct_i32_i32) void {
@@ -64,7 +64,7 @@ pub const qopenglversionstatus = struct {
         qtc.QOpenGLVersionStatus_SetVersion(@ptrCast(self), version_pair);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)
     ///
     /// ``` self: QtC.QOpenGLVersionStatus ```
     ///
@@ -73,21 +73,21 @@ pub const qopenglversionstatus = struct {
         return qtc.QOpenGLVersionStatus_Status(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)
     ///
     /// ``` self: QtC.QOpenGLVersionStatus, status: qopenglversionfunctions_enums.OpenGLStatus ```
     pub fn SetStatus(self: ?*anyopaque, status: i32) void {
         qtc.QOpenGLVersionStatus_SetStatus(@ptrCast(self), @intCast(status));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionstatus.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#operator-eq)
     ///
     /// ``` self: QtC.QOpenGLVersionStatus, param1: QtC.QOpenGLVersionStatus ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QOpenGLVersionStatus_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionstatus.html#dtor.QOpenGLVersionStatus)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#dtor.QOpenGLVersionStatus)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -99,21 +99,21 @@ pub const qopenglversionstatus = struct {
 
 /// https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html
 pub const qopenglversionfunctionsbackend = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLVersionFunctionsBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
         return qtc.QOpenGLVersionFunctionsBackend_Context(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLVersionFunctionsBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
         qtc.QOpenGLVersionFunctionsBackend_SetContext(@ptrCast(self), @ptrCast(context));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#dtor.QOpenGLVersionFunctionsBackend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#dtor.QOpenGLVersionFunctionsBackend)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -125,14 +125,14 @@ pub const qopenglversionfunctionsbackend = struct {
 
 /// https://doc.qt.io/qt-6/qabstractopenglfunctions.html
 pub const qabstractopenglfunctions = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#initializeOpenGLFunctions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#initializeOpenGLFunctions)
     ///
     /// ``` self: QtC.QAbstractOpenGLFunctions ```
     pub fn InitializeOpenGLFunctions(self: ?*anyopaque) bool {
         return qtc.QAbstractOpenGLFunctions_InitializeOpenGLFunctions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#dtor.QAbstractOpenGLFunctions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#dtor.QAbstractOpenGLFunctions)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -146,7 +146,7 @@ pub const qabstractopenglfunctions = struct {
 pub const qopenglfunctions_1_0_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_0_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -155,7 +155,7 @@ pub const qopenglfunctions_1_0_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_0_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -167,7 +167,7 @@ pub const qopenglfunctions_1_0_corebackend = struct {
 pub const qopenglfunctions_1_1_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_1_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -176,7 +176,7 @@ pub const qopenglfunctions_1_1_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_1_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -188,7 +188,7 @@ pub const qopenglfunctions_1_1_corebackend = struct {
 pub const qopenglfunctions_1_2_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_2_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -197,7 +197,7 @@ pub const qopenglfunctions_1_2_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_2_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -209,7 +209,7 @@ pub const qopenglfunctions_1_2_corebackend = struct {
 pub const qopenglfunctions_1_3_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_3_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -218,7 +218,7 @@ pub const qopenglfunctions_1_3_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_3_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -230,7 +230,7 @@ pub const qopenglfunctions_1_3_corebackend = struct {
 pub const qopenglfunctions_1_4_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_4_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -239,7 +239,7 @@ pub const qopenglfunctions_1_4_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_4_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -251,7 +251,7 @@ pub const qopenglfunctions_1_4_corebackend = struct {
 pub const qopenglfunctions_1_5_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_5_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -260,7 +260,7 @@ pub const qopenglfunctions_1_5_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_5_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -272,7 +272,7 @@ pub const qopenglfunctions_1_5_corebackend = struct {
 pub const qopenglfunctions_2_0_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_2_0_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -281,7 +281,7 @@ pub const qopenglfunctions_2_0_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_2_0_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -293,7 +293,7 @@ pub const qopenglfunctions_2_0_corebackend = struct {
 pub const qopenglfunctions_2_1_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_2_1_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -302,7 +302,7 @@ pub const qopenglfunctions_2_1_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_2_1_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -314,7 +314,7 @@ pub const qopenglfunctions_2_1_corebackend = struct {
 pub const qopenglfunctions_3_0_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_0_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -323,7 +323,7 @@ pub const qopenglfunctions_3_0_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_0_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -335,7 +335,7 @@ pub const qopenglfunctions_3_0_corebackend = struct {
 pub const qopenglfunctions_3_1_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_1_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -344,7 +344,7 @@ pub const qopenglfunctions_3_1_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_1_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -356,7 +356,7 @@ pub const qopenglfunctions_3_1_corebackend = struct {
 pub const qopenglfunctions_3_2_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_2_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -365,7 +365,7 @@ pub const qopenglfunctions_3_2_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_2_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -377,7 +377,7 @@ pub const qopenglfunctions_3_2_corebackend = struct {
 pub const qopenglfunctions_3_3_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_3_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -386,7 +386,7 @@ pub const qopenglfunctions_3_3_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_3_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -398,7 +398,7 @@ pub const qopenglfunctions_3_3_corebackend = struct {
 pub const qopenglfunctions_4_0_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_0_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -407,7 +407,7 @@ pub const qopenglfunctions_4_0_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_0_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -419,7 +419,7 @@ pub const qopenglfunctions_4_0_corebackend = struct {
 pub const qopenglfunctions_4_1_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_1_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -428,7 +428,7 @@ pub const qopenglfunctions_4_1_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_1_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -440,7 +440,7 @@ pub const qopenglfunctions_4_1_corebackend = struct {
 pub const qopenglfunctions_4_2_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -449,7 +449,7 @@ pub const qopenglfunctions_4_2_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -461,7 +461,7 @@ pub const qopenglfunctions_4_2_corebackend = struct {
 pub const qopenglfunctions_4_3_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_3_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -470,7 +470,7 @@ pub const qopenglfunctions_4_3_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_3_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -482,7 +482,7 @@ pub const qopenglfunctions_4_3_corebackend = struct {
 pub const qopenglfunctions_4_4_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_4_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -491,7 +491,7 @@ pub const qopenglfunctions_4_4_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_4_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -503,7 +503,7 @@ pub const qopenglfunctions_4_4_corebackend = struct {
 pub const qopenglfunctions_4_5_corebackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_5_CoreBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -512,7 +512,7 @@ pub const qopenglfunctions_4_5_corebackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_5_CoreBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -524,7 +524,7 @@ pub const qopenglfunctions_4_5_corebackend = struct {
 pub const qopenglfunctions_1_0_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -533,7 +533,7 @@ pub const qopenglfunctions_1_0_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_0_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -545,7 +545,7 @@ pub const qopenglfunctions_1_0_deprecatedbackend = struct {
 pub const qopenglfunctions_1_1_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_1_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -554,7 +554,7 @@ pub const qopenglfunctions_1_1_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_1_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -566,7 +566,7 @@ pub const qopenglfunctions_1_1_deprecatedbackend = struct {
 pub const qopenglfunctions_1_2_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_2_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -575,7 +575,7 @@ pub const qopenglfunctions_1_2_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_2_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -587,7 +587,7 @@ pub const qopenglfunctions_1_2_deprecatedbackend = struct {
 pub const qopenglfunctions_1_3_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_3_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -596,7 +596,7 @@ pub const qopenglfunctions_1_3_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_3_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -608,7 +608,7 @@ pub const qopenglfunctions_1_3_deprecatedbackend = struct {
 pub const qopenglfunctions_1_4_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_4_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -617,7 +617,7 @@ pub const qopenglfunctions_1_4_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_4_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -629,7 +629,7 @@ pub const qopenglfunctions_1_4_deprecatedbackend = struct {
 pub const qopenglfunctions_2_0_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_2_0_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -638,7 +638,7 @@ pub const qopenglfunctions_2_0_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_2_0_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -650,7 +650,7 @@ pub const qopenglfunctions_2_0_deprecatedbackend = struct {
 pub const qopenglfunctions_3_0_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_0_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -659,7 +659,7 @@ pub const qopenglfunctions_3_0_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_0_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -671,7 +671,7 @@ pub const qopenglfunctions_3_0_deprecatedbackend = struct {
 pub const qopenglfunctions_3_3_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_3_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -680,7 +680,7 @@ pub const qopenglfunctions_3_3_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_3_3_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {
@@ -692,7 +692,7 @@ pub const qopenglfunctions_3_3_deprecatedbackend = struct {
 pub const qopenglfunctions_4_5_deprecatedbackend = struct {
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_5_DeprecatedBackend ```
     pub fn Context(self: ?*anyopaque) QtC.QOpenGLContext {
@@ -701,7 +701,7 @@ pub const qopenglfunctions_4_5_deprecatedbackend = struct {
 
     /// Inherited from QOpenGLVersionFunctionsBackend
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html#context-var)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_5_DeprecatedBackend, context: QtC.QOpenGLContext ```
     pub fn SetContext(self: ?*anyopaque, context: ?*anyopaque) void {

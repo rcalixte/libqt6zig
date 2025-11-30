@@ -46,28 +46,28 @@ pub const ksyntaxhighlighting__foldingregion = struct {
         qtc.KSyntaxHighlighting__FoldingRegion_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__FoldingRegion, other: QtC.KSyntaxHighlighting__FoldingRegion ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__FoldingRegion_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#isValid)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#isValid)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__FoldingRegion ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__FoldingRegion_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#id)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#id)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__FoldingRegion ```
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.KSyntaxHighlighting__FoldingRegion_Id(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#type)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#type)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__FoldingRegion ```
     ///
@@ -76,7 +76,7 @@ pub const ksyntaxhighlighting__foldingregion = struct {
         return qtc.KSyntaxHighlighting__FoldingRegion_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#sibling)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-foldingregion.html#sibling)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__FoldingRegion ```
     pub fn Sibling(self: ?*anyopaque) QtC.KSyntaxHighlighting__FoldingRegion {

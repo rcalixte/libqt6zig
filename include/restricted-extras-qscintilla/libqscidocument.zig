@@ -17,14 +17,14 @@ pub const qscidocument = struct {
         return qtc.QsciDocument_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
     ///
     /// ``` self: QtC.QsciDocument, param1: QtC.QsciDocument ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QsciDocument_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
+    /// [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
     ///
     /// Delete this object from C++ memory.
     ///

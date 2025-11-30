@@ -5,14 +5,14 @@ const std = @import("std");
 
 /// https://api.kde.org/kpassword.html
 pub const kpassword = struct {
-    /// [Qt documentation](https://api.kde.org/kpassword.html#qt_getEnumMetaObject)
+    /// [Upstream resources](https://api.kde.org/kpassword.html#qt_getEnumMetaObject)
     ///
     /// ``` param1: kpassword_enums.RevealMode ```
     pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
         return qtc.KPassword_GetEnumMetaObject(@intCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/kpassword.html#qt_getEnumName)
+    /// [Upstream resources](https://api.kde.org/kpassword.html#qt_getEnumName)
     ///
     /// ``` param1: kpassword_enums.RevealMode ```
     pub fn GetEnumName(param1: i32) []const u8 {

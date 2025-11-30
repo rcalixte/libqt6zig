@@ -36,14 +36,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_new4(@ptrCast(printer), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#devType)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn DevType(self: ?*anyopaque) i32 {
         return qtc.QPrinter_DevType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#devType)
     ///
     /// Allows for overriding the related default method
     ///
@@ -52,7 +52,7 @@ pub const qprinter = struct {
         qtc.QPrinter_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#devType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#devType)
     ///
     /// Base class method implementation
     ///
@@ -61,14 +61,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_QBaseDevType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setOutputFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setOutputFormat)
     ///
     /// ``` self: QtC.QPrinter, format: qprinter_enums.OutputFormat ```
     pub fn SetOutputFormat(self: ?*anyopaque, format: i32) void {
         qtc.QPrinter_SetOutputFormat(@ptrCast(self), @intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#outputFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#outputFormat)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -77,14 +77,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_OutputFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPdfVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setPdfVersion)
     ///
     /// ``` self: QtC.QPrinter, version: qpagedpaintdevice_enums.PdfVersion ```
     pub fn SetPdfVersion(self: ?*anyopaque, version: i32) void {
         qtc.QPrinter_SetPdfVersion(@ptrCast(self), @intCast(version));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#pdfVersion)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#pdfVersion)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -93,7 +93,7 @@ pub const qprinter = struct {
         return qtc.QPrinter_PdfVersion(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPrinterName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setPrinterName)
     ///
     /// ``` self: QtC.QPrinter, printerName: []const u8 ```
     pub fn SetPrinterName(self: ?*anyopaque, printerName: []const u8) void {
@@ -104,7 +104,7 @@ pub const qprinter = struct {
         qtc.QPrinter_SetPrinterName(@ptrCast(self), printerName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printerName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printerName)
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn PrinterName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -115,14 +115,14 @@ pub const qprinter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#isValid)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QPrinter_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setOutputFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setOutputFileName)
     ///
     /// ``` self: QtC.QPrinter, outputFileName: []const u8 ```
     pub fn SetOutputFileName(self: ?*anyopaque, outputFileName: []const u8) void {
@@ -133,7 +133,7 @@ pub const qprinter = struct {
         qtc.QPrinter_SetOutputFileName(@ptrCast(self), outputFileName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#outputFileName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#outputFileName)
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn OutputFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -144,7 +144,7 @@ pub const qprinter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPrintProgram)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setPrintProgram)
     ///
     /// ``` self: QtC.QPrinter, printProgram: []const u8 ```
     pub fn SetPrintProgram(self: ?*anyopaque, printProgram: []const u8) void {
@@ -155,7 +155,7 @@ pub const qprinter = struct {
         qtc.QPrinter_SetPrintProgram(@ptrCast(self), printProgram_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printProgram)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printProgram)
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn PrintProgram(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -166,7 +166,7 @@ pub const qprinter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setDocName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setDocName)
     ///
     /// ``` self: QtC.QPrinter, docName: []const u8 ```
     pub fn SetDocName(self: ?*anyopaque, docName: []const u8) void {
@@ -177,7 +177,7 @@ pub const qprinter = struct {
         qtc.QPrinter_SetDocName(@ptrCast(self), docName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#docName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#docName)
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn DocName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -188,7 +188,7 @@ pub const qprinter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setCreator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setCreator)
     ///
     /// ``` self: QtC.QPrinter, creator: []const u8 ```
     pub fn SetCreator(self: ?*anyopaque, creator: []const u8) void {
@@ -199,7 +199,7 @@ pub const qprinter = struct {
         qtc.QPrinter_SetCreator(@ptrCast(self), creator_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#creator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#creator)
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn Creator(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -210,14 +210,14 @@ pub const qprinter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPageOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setPageOrder)
     ///
     /// ``` self: QtC.QPrinter, pageOrder: qprinter_enums.PageOrder ```
     pub fn SetPageOrder(self: ?*anyopaque, pageOrder: i32) void {
         qtc.QPrinter_SetPageOrder(@ptrCast(self), @intCast(pageOrder));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#pageOrder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#pageOrder)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -226,28 +226,28 @@ pub const qprinter = struct {
         return qtc.QPrinter_PageOrder(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setResolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setResolution)
     ///
     /// ``` self: QtC.QPrinter, resolution: i32 ```
     pub fn SetResolution(self: ?*anyopaque, resolution: i32) void {
         qtc.QPrinter_SetResolution(@ptrCast(self), @intCast(resolution));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#resolution)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#resolution)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn Resolution(self: ?*anyopaque) i32 {
         return qtc.QPrinter_Resolution(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setColorMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setColorMode)
     ///
     /// ``` self: QtC.QPrinter, colorMode: qprinter_enums.ColorMode ```
     pub fn SetColorMode(self: ?*anyopaque, colorMode: i32) void {
         qtc.QPrinter_SetColorMode(@ptrCast(self), @intCast(colorMode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#colorMode)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#colorMode)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -256,63 +256,63 @@ pub const qprinter = struct {
         return qtc.QPrinter_ColorMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setCollateCopies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setCollateCopies)
     ///
     /// ``` self: QtC.QPrinter, collate: bool ```
     pub fn SetCollateCopies(self: ?*anyopaque, collate: bool) void {
         qtc.QPrinter_SetCollateCopies(@ptrCast(self), collate);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#collateCopies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#collateCopies)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn CollateCopies(self: ?*anyopaque) bool {
         return qtc.QPrinter_CollateCopies(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setFullPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setFullPage)
     ///
     /// ``` self: QtC.QPrinter, fullPage: bool ```
     pub fn SetFullPage(self: ?*anyopaque, fullPage: bool) void {
         qtc.QPrinter_SetFullPage(@ptrCast(self), fullPage);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#fullPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#fullPage)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn FullPage(self: ?*anyopaque) bool {
         return qtc.QPrinter_FullPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setCopyCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setCopyCount)
     ///
     /// ``` self: QtC.QPrinter, copyCount: i32 ```
     pub fn SetCopyCount(self: ?*anyopaque, copyCount: i32) void {
         qtc.QPrinter_SetCopyCount(@ptrCast(self), @intCast(copyCount));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#copyCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#copyCount)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn CopyCount(self: ?*anyopaque) i32 {
         return qtc.QPrinter_CopyCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#supportsMultipleCopies)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#supportsMultipleCopies)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn SupportsMultipleCopies(self: ?*anyopaque) bool {
         return qtc.QPrinter_SupportsMultipleCopies(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPaperSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setPaperSource)
     ///
     /// ``` self: QtC.QPrinter, paperSource: qprinter_enums.PaperSource ```
     pub fn SetPaperSource(self: ?*anyopaque, paperSource: i32) void {
         qtc.QPrinter_SetPaperSource(@ptrCast(self), @intCast(paperSource));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#paperSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#paperSource)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -321,14 +321,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_PaperSource(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setDuplex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setDuplex)
     ///
     /// ``` self: QtC.QPrinter, duplex: qprinter_enums.DuplexMode ```
     pub fn SetDuplex(self: ?*anyopaque, duplex: i32) void {
         qtc.QPrinter_SetDuplex(@ptrCast(self), @intCast(duplex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#duplex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#duplex)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -337,7 +337,7 @@ pub const qprinter = struct {
         return qtc.QPrinter_Duplex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#supportedResolutions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#supportedResolutions)
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn SupportedResolutions(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
@@ -349,35 +349,35 @@ pub const qprinter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setFontEmbeddingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setFontEmbeddingEnabled)
     ///
     /// ``` self: QtC.QPrinter, enable: bool ```
     pub fn SetFontEmbeddingEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.QPrinter_SetFontEmbeddingEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#fontEmbeddingEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#fontEmbeddingEnabled)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn FontEmbeddingEnabled(self: ?*anyopaque) bool {
         return qtc.QPrinter_FontEmbeddingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#paperRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#paperRect)
     ///
     /// ``` self: QtC.QPrinter, param1: qprinter_enums.Unit ```
     pub fn PaperRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
         return qtc.QPrinter_PaperRect(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#pageRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#pageRect)
     ///
     /// ``` self: QtC.QPrinter, param1: qprinter_enums.Unit ```
     pub fn PageRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
         return qtc.QPrinter_PageRect(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printerSelectionOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printerSelectionOption)
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn PrinterSelectionOption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -388,7 +388,7 @@ pub const qprinter = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPrinterSelectionOption)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setPrinterSelectionOption)
     ///
     /// ``` self: QtC.QPrinter, printerSelectionOption: []const u8 ```
     pub fn SetPrinterSelectionOption(self: ?*anyopaque, printerSelectionOption: []const u8) void {
@@ -399,14 +399,14 @@ pub const qprinter = struct {
         qtc.QPrinter_SetPrinterSelectionOption(@ptrCast(self), printerSelectionOption_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#newPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#newPage)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn NewPage(self: ?*anyopaque) bool {
         return qtc.QPrinter_NewPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#newPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#newPage)
     ///
     /// Allows for overriding the related default method
     ///
@@ -415,7 +415,7 @@ pub const qprinter = struct {
         qtc.QPrinter_OnNewPage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#newPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#newPage)
     ///
     /// Base class method implementation
     ///
@@ -424,14 +424,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_QBaseNewPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#abort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#abort)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn Abort(self: ?*anyopaque) bool {
         return qtc.QPrinter_Abort(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printerState)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printerState)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -440,14 +440,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_PrinterState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#paintEngine)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
         return qtc.QPrinter_PaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#paintEngine)
     ///
     /// Allows for overriding the related default method
     ///
@@ -456,7 +456,7 @@ pub const qprinter = struct {
         qtc.QPrinter_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#paintEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#paintEngine)
     ///
     /// Base class method implementation
     ///
@@ -465,42 +465,42 @@ pub const qprinter = struct {
         return qtc.QPrinter_QBasePaintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printEngine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printEngine)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn PrintEngine(self: ?*anyopaque) QtC.QPrintEngine {
         return qtc.QPrinter_PrintEngine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setFromTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setFromTo)
     ///
     /// ``` self: QtC.QPrinter, fromPage: i32, toPage: i32 ```
     pub fn SetFromTo(self: ?*anyopaque, fromPage: i32, toPage: i32) void {
         qtc.QPrinter_SetFromTo(@ptrCast(self), @intCast(fromPage), @intCast(toPage));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#fromPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#fromPage)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn FromPage(self: ?*anyopaque) i32 {
         return qtc.QPrinter_FromPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#toPage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#toPage)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn ToPage(self: ?*anyopaque) i32 {
         return qtc.QPrinter_ToPage(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPrintRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setPrintRange)
     ///
     /// ``` self: QtC.QPrinter, range: qprinter_enums.PrintRange ```
     pub fn SetPrintRange(self: ?*anyopaque, range: i32) void {
         qtc.QPrinter_SetPrintRange(@ptrCast(self), @intCast(range));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printRange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#printRange)
     ///
     /// ``` self: QtC.QPrinter ```
     ///
@@ -509,14 +509,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_PrintRange(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#metric)
     ///
     /// ``` self: QtC.QPrinter, param1: qpaintdevice_enums.PaintDeviceMetric ```
     pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QPrinter_Metric(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#metric)
     ///
     /// Allows for overriding the related default method
     ///
@@ -525,7 +525,7 @@ pub const qprinter = struct {
         qtc.QPrinter_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#metric)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#metric)
     ///
     /// Base class method implementation
     ///
@@ -534,14 +534,14 @@ pub const qprinter = struct {
         return qtc.QPrinter_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setEngines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
     ///
     /// ``` self: QtC.QPrinter, printEngine: QtC.QPrintEngine, paintEngine: QtC.QPaintEngine ```
     pub fn SetEngines(self: ?*anyopaque, printEngine: ?*anyopaque, paintEngine: ?*anyopaque) void {
         qtc.QPrinter_SetEngines(@ptrCast(self), @ptrCast(printEngine), @ptrCast(paintEngine));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setEngines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
     ///
     /// Allows for overriding the related default method
     ///
@@ -550,7 +550,7 @@ pub const qprinter = struct {
         qtc.QPrinter_OnSetEngines(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setEngines)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
     ///
     /// Base class method implementation
     ///
@@ -561,7 +561,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageLayout)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn PageLayout(self: ?*anyopaque) QtC.QPageLayout {
@@ -570,7 +570,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageRanges)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#pageRanges)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn PageRanges(self: ?*anyopaque) QtC.QPageRanges {
@@ -579,7 +579,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn PaintingActive(self: ?*anyopaque) bool {
@@ -588,7 +588,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#width)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn Width(self: ?*anyopaque) i32 {
@@ -597,7 +597,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#height)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn Height(self: ?*anyopaque) i32 {
@@ -606,7 +606,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn WidthMM(self: ?*anyopaque) i32 {
@@ -615,7 +615,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn HeightMM(self: ?*anyopaque) i32 {
@@ -624,7 +624,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn LogicalDpiX(self: ?*anyopaque) i32 {
@@ -633,7 +633,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn LogicalDpiY(self: ?*anyopaque) i32 {
@@ -642,7 +642,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
@@ -651,7 +651,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
@@ -660,7 +660,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
@@ -669,7 +669,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
@@ -678,7 +678,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn ColorCount(self: ?*anyopaque) i32 {
@@ -687,7 +687,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ``` self: QtC.QPrinter ```
     pub fn Depth(self: ?*anyopaque) i32 {
@@ -696,7 +696,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
     ///
     pub fn DevicePixelRatioFScale() f64 {
@@ -705,7 +705,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
     pub fn EncodeMetricF(metric: i32, value: f64) i32 {
@@ -714,7 +714,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -725,7 +725,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -736,7 +736,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -747,7 +747,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -758,7 +758,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -769,7 +769,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -780,7 +780,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -791,7 +791,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -802,7 +802,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -813,7 +813,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -824,7 +824,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -835,7 +835,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -846,7 +846,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -857,7 +857,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -868,7 +868,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPagedPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -879,7 +879,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -890,7 +890,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -901,7 +901,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -912,7 +912,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -923,7 +923,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -934,7 +934,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -945,7 +945,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -956,7 +956,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -967,7 +967,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -978,7 +978,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -989,7 +989,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1000,7 +1000,7 @@ pub const qprinter = struct {
 
     /// Inherited from QPaintDevice
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1009,7 +1009,7 @@ pub const qprinter = struct {
         qtc.QPrinter_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#dtor.QPrinter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#dtor.QPrinter)
     ///
     /// Delete this object from C++ memory.
     ///

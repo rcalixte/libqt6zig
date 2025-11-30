@@ -14,7 +14,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -31,7 +31,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -45,7 +45,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -54,7 +54,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -63,7 +63,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -76,7 +76,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -89,7 +89,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -98,7 +98,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -107,7 +107,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -116,7 +116,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -125,7 +125,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -134,7 +134,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -143,7 +143,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -152,7 +152,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -161,7 +161,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -170,7 +170,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -179,7 +179,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -193,7 +193,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -202,7 +202,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -211,7 +211,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -220,7 +220,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -229,7 +229,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -240,7 +240,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -249,7 +249,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -258,7 +258,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -267,7 +267,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -276,7 +276,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -286,7 +286,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -296,7 +296,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -320,7 +320,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -329,7 +329,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -338,7 +338,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -347,7 +347,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, callback: *const fn (self: QtC.QDBusAbstractInterfaceBase) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -356,7 +356,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -365,7 +365,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -375,7 +375,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -384,7 +384,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -399,7 +399,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -414,7 +414,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -423,7 +423,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -432,7 +432,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -441,7 +441,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -452,7 +452,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -461,7 +461,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterfaceBase, callback: *const fn (self: QtC.QDBusAbstractInterfaceBase, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -470,7 +470,7 @@ pub const qdbusabstractinterfacebase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -479,7 +479,7 @@ pub const qdbusabstractinterfacebase = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterfacebase.html#dtor.QDBusAbstractInterfaceBase)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterfacebase.html#dtor.QDBusAbstractInterfaceBase)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -491,7 +491,7 @@ pub const qdbusabstractinterfacebase = struct {
 
 /// https://doc.qt.io/qt-6/qdbusabstractinterface.html
 pub const qdbusabstractinterface = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -509,7 +509,7 @@ pub const qdbusabstractinterface = struct {
         return qtc.QDBusAbstractInterface_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -521,21 +521,21 @@ pub const qdbusabstractinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#isValid)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QDBusAbstractInterface_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#connection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#connection)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn Connection(self: ?*anyopaque) QtC.QDBusConnection {
         return qtc.QDBusAbstractInterface_Connection(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#service)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#service)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, allocator: std.mem.Allocator ```
     pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -546,7 +546,7 @@ pub const qdbusabstractinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#path)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#path)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -557,7 +557,7 @@ pub const qdbusabstractinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#interface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#interface)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, allocator: std.mem.Allocator ```
     pub fn Interface(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -568,42 +568,42 @@ pub const qdbusabstractinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#lastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#lastError)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn LastError(self: ?*anyopaque) QtC.QDBusError {
         return qtc.QDBusAbstractInterface_LastError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#setTimeout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#setTimeout)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, timeout: i32 ```
     pub fn SetTimeout(self: ?*anyopaque, timeout: i32) void {
         qtc.QDBusAbstractInterface_SetTimeout(@ptrCast(self), @intCast(timeout));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#timeout)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#timeout)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn Timeout(self: ?*anyopaque) i32 {
         return qtc.QDBusAbstractInterface_Timeout(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#setInteractiveAuthorizationAllowed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#setInteractiveAuthorizationAllowed)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, enable: bool ```
     pub fn SetInteractiveAuthorizationAllowed(self: ?*anyopaque, enable: bool) void {
         qtc.QDBusAbstractInterface_SetInteractiveAuthorizationAllowed(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#isInteractiveAuthorizationAllowed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#isInteractiveAuthorizationAllowed)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn IsInteractiveAuthorizationAllowed(self: ?*anyopaque) bool {
         return qtc.QDBusAbstractInterface_IsInteractiveAuthorizationAllowed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#call)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#call)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, method: []const u8 ```
     pub fn Call(self: ?*anyopaque, method: []const u8) QtC.QDBusMessage {
@@ -614,7 +614,7 @@ pub const qdbusabstractinterface = struct {
         return qtc.QDBusAbstractInterface_Call(@ptrCast(self), method_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#call)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#call)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, mode: qdbusconnection_enums.CallMode, method: []const u8 ```
     pub fn Call2(self: ?*anyopaque, mode: i32, method: []const u8) QtC.QDBusMessage {
@@ -625,7 +625,7 @@ pub const qdbusabstractinterface = struct {
         return qtc.QDBusAbstractInterface_Call2(@ptrCast(self), @intCast(mode), method_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#callWithArgumentList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#callWithArgumentList)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, mode: qdbusconnection_enums.CallMode, method: []const u8, args: []QtC.QVariant ```
     pub fn CallWithArgumentList(self: ?*anyopaque, mode: i32, method: []const u8, args: []QtC.QVariant) QtC.QDBusMessage {
@@ -640,7 +640,7 @@ pub const qdbusabstractinterface = struct {
         return qtc.QDBusAbstractInterface_CallWithArgumentList(@ptrCast(self), @intCast(mode), method_str, args_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#asyncCall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#asyncCall)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, method: []const u8 ```
     pub fn AsyncCall(self: ?*anyopaque, method: []const u8) QtC.QDBusPendingCall {
@@ -651,7 +651,7 @@ pub const qdbusabstractinterface = struct {
         return qtc.QDBusAbstractInterface_AsyncCall(@ptrCast(self), method_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#asyncCallWithArgumentList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#asyncCallWithArgumentList)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, method: []const u8, args: []QtC.QVariant ```
     pub fn AsyncCallWithArgumentList(self: ?*anyopaque, method: []const u8, args: []QtC.QVariant) QtC.QDBusPendingCall {
@@ -666,7 +666,7 @@ pub const qdbusabstractinterface = struct {
         return qtc.QDBusAbstractInterface_AsyncCallWithArgumentList(@ptrCast(self), method_str, args_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -679,7 +679,7 @@ pub const qdbusabstractinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -694,7 +694,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -703,7 +703,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -712,7 +712,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -725,7 +725,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -738,7 +738,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -747,7 +747,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -756,7 +756,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -765,7 +765,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -774,7 +774,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -783,7 +783,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -792,7 +792,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -801,7 +801,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -810,7 +810,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -819,7 +819,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -828,7 +828,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -842,7 +842,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -851,7 +851,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -860,7 +860,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -869,7 +869,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -878,7 +878,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -889,7 +889,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -898,7 +898,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -907,7 +907,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -916,7 +916,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -925,7 +925,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -935,7 +935,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -945,7 +945,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -969,7 +969,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -978,7 +978,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -987,7 +987,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -996,7 +996,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, callback: *const fn (self: QtC.QDBusAbstractInterface) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1005,7 +1005,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1014,7 +1014,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1024,7 +1024,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QDBusAbstractInterface ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1033,7 +1033,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1042,7 +1042,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1051,7 +1051,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1060,7 +1060,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1071,7 +1071,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1080,7 +1080,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusAbstractInterface, callback: *const fn (self: QtC.QDBusAbstractInterface, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1089,7 +1089,7 @@ pub const qdbusabstractinterface = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1098,7 +1098,7 @@ pub const qdbusabstractinterface = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbusabstractinterface.html#dtor.QDBusAbstractInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbusabstractinterface.html#dtor.QDBusAbstractInterface)
     ///
     /// Delete this object from C++ memory.
     ///

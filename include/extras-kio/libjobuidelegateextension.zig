@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://api.kde.org/kio-jobuidelegateextension.html
 pub const kio__jobuidelegateextension = struct {
-    /// [Qt documentation](https://api.kde.org/kio-jobuidelegateextension.html#askDeleteConfirmation)
+    /// [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#askDeleteConfirmation)
     ///
     /// ``` self: QtC.KIO__JobUiDelegateExtension, urls: []QtC.QUrl, deletionType: jobuidelegateextension_enums.DeletionType, confirmationType: jobuidelegateextension_enums.ConfirmationType ```
     pub fn AskDeleteConfirmation(self: ?*anyopaque, urls: []QtC.QUrl, deletionType: i32, confirmationType: i32) bool {
@@ -16,7 +16,7 @@ pub const kio__jobuidelegateextension = struct {
         return qtc.KIO__JobUiDelegateExtension_AskDeleteConfirmation(@ptrCast(self), urls_list, @intCast(deletionType), @intCast(confirmationType));
     }
 
-    /// [Qt documentation](https://api.kde.org/kio-jobuidelegateextension.html#updateUrlInClipboard)
+    /// [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#updateUrlInClipboard)
     ///
     /// ``` self: QtC.KIO__JobUiDelegateExtension, src: QtC.QUrl, dest: QtC.QUrl ```
     pub fn UpdateUrlInClipboard(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque) void {
@@ -26,14 +26,14 @@ pub const kio__jobuidelegateextension = struct {
 
 /// https://api.kde.org/kio.html
 pub const kio = struct {
-    /// [Qt documentation](https://api.kde.org/kio.html#defaultJobUiDelegateExtension)
+    /// [Upstream resources](https://api.kde.org/kio.html#defaultJobUiDelegateExtension)
     ///
     ///
     pub fn DefaultJobUiDelegateExtension() QtC.KIO__JobUiDelegateExtension {
         return qtc.KIO_DefaultJobUiDelegateExtension();
     }
 
-    /// [Qt documentation](https://api.kde.org/kio.html#setDefaultJobUiDelegateExtension)
+    /// [Upstream resources](https://api.kde.org/kio.html#setDefaultJobUiDelegateExtension)
     ///
     /// ``` param1: QtC.KIO__JobUiDelegateExtension ```
     pub fn SetDefaultJobUiDelegateExtension(param1: ?*anyopaque) void {

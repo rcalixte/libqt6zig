@@ -37,14 +37,14 @@ pub const ksslerroruidata = struct {
         return qtc.KSslErrorUiData_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksslerroruidata.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/ksslerroruidata.html#operator-eq)
     ///
     /// ``` self: QtC.KSslErrorUiData, param1: QtC.KSslErrorUiData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.KSslErrorUiData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksslerroruidata.html#dtor.KSslErrorUiData)
+    /// [Upstream resources](https://api.kde.org/ksslerroruidata.html#dtor.KSslErrorUiData)
     ///
     /// Delete this object from C++ memory.
     ///

@@ -32,7 +32,7 @@ pub const qtooltip = struct {
         qtc.QToolTip_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#showText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#showText)
     ///
     /// ``` pos: QtC.QPoint, text: []const u8 ```
     pub fn ShowText(pos: ?*anyopaque, text: []const u8) void {
@@ -43,21 +43,21 @@ pub const qtooltip = struct {
         qtc.QToolTip_ShowText(@ptrCast(pos), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#hideText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#hideText)
     ///
     ///
     pub fn HideText() void {
         qtc.QToolTip_HideText();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#isVisible)
     ///
     ///
     pub fn IsVisible() bool {
         return qtc.QToolTip_IsVisible();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#text)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Text(allocator: std.mem.Allocator) []const u8 {
@@ -68,35 +68,35 @@ pub const qtooltip = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#palette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#palette)
     ///
     ///
     pub fn Palette() QtC.QPalette {
         return qtc.QToolTip_Palette();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#setPalette)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#setPalette)
     ///
     /// ``` palette: QtC.QPalette ```
     pub fn SetPalette(palette: ?*anyopaque) void {
         qtc.QToolTip_SetPalette(@ptrCast(palette));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#font)
     ///
     ///
     pub fn Font() QtC.QFont {
         return qtc.QToolTip_Font();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#setFont)
     ///
     /// ``` font: QtC.QFont ```
     pub fn SetFont(font: ?*anyopaque) void {
         qtc.QToolTip_SetFont(@ptrCast(font));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#showText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#showText)
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget ```
     pub fn ShowText3(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque) void {
@@ -107,7 +107,7 @@ pub const qtooltip = struct {
         qtc.QToolTip_ShowText3(@ptrCast(pos), text_str, @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#showText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#showText)
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget, rect: QtC.QRect ```
     pub fn ShowText4(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque, rect: ?*anyopaque) void {
@@ -118,7 +118,7 @@ pub const qtooltip = struct {
         qtc.QToolTip_ShowText4(@ptrCast(pos), text_str, @ptrCast(w), @ptrCast(rect));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#showText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#showText)
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget, rect: QtC.QRect, msecShowTime: i32 ```
     pub fn ShowText5(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque, rect: ?*anyopaque, msecShowTime: i32) void {
@@ -129,7 +129,7 @@ pub const qtooltip = struct {
         qtc.QToolTip_ShowText5(@ptrCast(pos), text_str, @ptrCast(w), @ptrCast(rect), @intCast(msecShowTime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtooltip.html#dtor.QToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qtooltip.html#dtor.QToolTip)
     ///
     /// Delete this object from C++ memory.
     ///

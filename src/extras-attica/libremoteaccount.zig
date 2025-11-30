@@ -18,14 +18,14 @@ pub const attica__remoteaccount = struct {
         return qtc.Attica__RemoteAccount_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, other: QtC.Attica__RemoteAccount ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__RemoteAccount_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setId)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, id: []const u8 ```
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
@@ -36,7 +36,7 @@ pub const attica__remoteaccount = struct {
         qtc.Attica__RemoteAccount_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#id)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,7 +47,7 @@ pub const attica__remoteaccount = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#setType)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setType)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, typeVal: []const u8 ```
     pub fn SetType(self: ?*anyopaque, typeVal: []const u8) void {
@@ -58,7 +58,7 @@ pub const attica__remoteaccount = struct {
         qtc.Attica__RemoteAccount_SetType(@ptrCast(self), typeVal_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#type)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#type)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, allocator: std.mem.Allocator ```
     pub fn Type(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -69,7 +69,7 @@ pub const attica__remoteaccount = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#setRemoteServiceId)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setRemoteServiceId)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, remoteServiceId: []const u8 ```
     pub fn SetRemoteServiceId(self: ?*anyopaque, remoteServiceId: []const u8) void {
@@ -80,7 +80,7 @@ pub const attica__remoteaccount = struct {
         qtc.Attica__RemoteAccount_SetRemoteServiceId(@ptrCast(self), remoteServiceId_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#remoteServiceId)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#remoteServiceId)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, allocator: std.mem.Allocator ```
     pub fn RemoteServiceId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -91,7 +91,7 @@ pub const attica__remoteaccount = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#setData)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setData)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, data: []const u8 ```
     pub fn SetData(self: ?*anyopaque, data: []const u8) void {
@@ -102,7 +102,7 @@ pub const attica__remoteaccount = struct {
         qtc.Attica__RemoteAccount_SetData(@ptrCast(self), data_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#data)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#data)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, allocator: std.mem.Allocator ```
     pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -113,7 +113,7 @@ pub const attica__remoteaccount = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#setLogin)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setLogin)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, login: []const u8 ```
     pub fn SetLogin(self: ?*anyopaque, login: []const u8) void {
@@ -124,7 +124,7 @@ pub const attica__remoteaccount = struct {
         qtc.Attica__RemoteAccount_SetLogin(@ptrCast(self), login_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#login)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#login)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, allocator: std.mem.Allocator ```
     pub fn Login(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -135,7 +135,7 @@ pub const attica__remoteaccount = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#setPassword)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#setPassword)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
@@ -146,7 +146,7 @@ pub const attica__remoteaccount = struct {
         qtc.Attica__RemoteAccount_SetPassword(@ptrCast(self), password_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#password)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#password)
     ///
     /// ``` self: QtC.Attica__RemoteAccount, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -157,7 +157,7 @@ pub const attica__remoteaccount = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-remoteaccount.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-remoteaccount.html#isValid)
     ///
     /// ``` self: QtC.Attica__RemoteAccount ```
     pub fn IsValid(self: ?*anyopaque) bool {

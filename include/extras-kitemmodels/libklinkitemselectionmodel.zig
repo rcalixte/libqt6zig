@@ -35,7 +35,7 @@ pub const klinkitemselectionmodel = struct {
         return qtc.KLinkItemSelectionModel_new4(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -67,7 +67,7 @@ pub const klinkitemselectionmodel = struct {
         return qtc.KLinkItemSelectionModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -79,28 +79,28 @@ pub const klinkitemselectionmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModel)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModel)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn LinkedItemSelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
         return qtc.KLinkItemSelectionModel_LinkedItemSelectionModel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#setLinkedItemSelectionModel)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#setLinkedItemSelectionModel)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, selectionModel: QtC.QItemSelectionModel ```
     pub fn SetLinkedItemSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_SetLinkedItemSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn Select(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_Select(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Allows for overriding the related default method
     ///
@@ -109,7 +109,7 @@ pub const klinkitemselectionmodel = struct {
         qtc.KLinkItemSelectionModel_OnSelect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Base class method implementation
     ///
@@ -118,14 +118,14 @@ pub const klinkitemselectionmodel = struct {
         qtc.KLinkItemSelectionModel_QBaseSelect(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn Select2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
         qtc.KLinkItemSelectionModel_Select2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Allows for overriding the related default method
     ///
@@ -134,7 +134,7 @@ pub const klinkitemselectionmodel = struct {
         qtc.KLinkItemSelectionModel_OnSelect2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#select)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#select)
     ///
     /// Base class method implementation
     ///
@@ -143,21 +143,21 @@ pub const klinkitemselectionmodel = struct {
         qtc.KLinkItemSelectionModel_QBaseSelect2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn LinkedItemSelectionModelChanged(self: ?*anyopaque) void {
         qtc.KLinkItemSelectionModel_LinkedItemSelectionModelChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#linkedItemSelectionModelChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel) callconv(.c) void ```
     pub fn OnLinkedItemSelectionModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.KLinkItemSelectionModel_Connect_LinkedItemSelectionModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -170,7 +170,7 @@ pub const klinkitemselectionmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -185,7 +185,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentIndex)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
@@ -194,7 +194,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#isSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isSelected)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, index: QtC.QModelIndex ```
     pub fn IsSelected(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -203,7 +203,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, row: i32 ```
     pub fn IsRowSelected(self: ?*anyopaque, row: i32) bool {
@@ -212,7 +212,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, column: i32 ```
     pub fn IsColumnSelected(self: ?*anyopaque, column: i32) bool {
@@ -221,7 +221,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, row: i32 ```
     pub fn RowIntersectsSelection(self: ?*anyopaque, row: i32) bool {
@@ -230,7 +230,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, column: i32 ```
     pub fn ColumnIntersectsSelection(self: ?*anyopaque, column: i32) bool {
@@ -239,7 +239,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#hasSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#hasSelection)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn HasSelection(self: ?*anyopaque) bool {
@@ -248,7 +248,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedIndexes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedIndexes)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -262,7 +262,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn SelectedRows(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -276,7 +276,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn SelectedColumns(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -290,7 +290,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selection)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn Selection(self: ?*anyopaque) QtC.QItemSelection {
@@ -299,7 +299,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -308,7 +308,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn Model2(self: ?*anyopaque) QtC.QAbstractItemModel {
@@ -317,7 +317,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#setModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setModel)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, model: QtC.QAbstractItemModel ```
     pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
@@ -326,7 +326,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearSelection)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn ClearSelection(self: ?*anyopaque) void {
@@ -335,7 +335,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, selected: QtC.QItemSelection, deselected: QtC.QItemSelection ```
     pub fn SelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
@@ -344,7 +344,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void ```
     pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -353,7 +353,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
     pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
@@ -362,7 +362,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -371,7 +371,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
     pub fn CurrentRowChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
@@ -380,7 +380,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnCurrentRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -389,7 +389,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex ```
     pub fn CurrentColumnChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
@@ -398,7 +398,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnCurrentColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -407,7 +407,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, model: QtC.QAbstractItemModel ```
     pub fn ModelChanged(self: ?*anyopaque, model: ?*anyopaque) void {
@@ -416,7 +416,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, model: QtC.QAbstractItemModel) callconv(.c) void ```
     pub fn OnModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -425,7 +425,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isRowSelected)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, row: i32, parent: QtC.QModelIndex ```
     pub fn IsRowSelected2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -434,7 +434,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#isColumnSelected)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, column: i32, parent: QtC.QModelIndex ```
     pub fn IsColumnSelected2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -443,7 +443,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#rowIntersectsSelection)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RowIntersectsSelection2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -452,7 +452,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#columnIntersectsSelection)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, column: i32, parent: QtC.QModelIndex ```
     pub fn ColumnIntersectsSelection2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -461,7 +461,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedRows)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, column: i32, allocator: std.mem.Allocator ```
     pub fn SelectedRows1(self: ?*anyopaque, column: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -475,7 +475,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectedColumns)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, row: i32, allocator: std.mem.Allocator ```
     pub fn SelectedColumns1(self: ?*anyopaque, row: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
@@ -489,7 +489,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -502,7 +502,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -515,7 +515,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -524,7 +524,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -533,7 +533,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -542,7 +542,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -551,7 +551,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -560,7 +560,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -569,7 +569,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -578,7 +578,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -587,7 +587,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -596,7 +596,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -605,7 +605,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -619,7 +619,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -628,7 +628,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -637,7 +637,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -646,7 +646,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -655,7 +655,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -666,7 +666,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -675,7 +675,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -684,7 +684,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -693,7 +693,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -702,7 +702,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -712,7 +712,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -722,7 +722,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -746,7 +746,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -755,7 +755,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -764,7 +764,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -773,7 +773,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -782,7 +782,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -791,7 +791,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -801,7 +801,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -810,7 +810,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -819,7 +819,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -828,7 +828,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -837,7 +837,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -848,7 +848,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -857,7 +857,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KLinkItemSelectionModel, callback: *const fn (self: QtC.KLinkItemSelectionModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -866,7 +866,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -877,7 +877,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -888,7 +888,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -899,7 +899,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -910,7 +910,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -921,7 +921,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -932,7 +932,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -943,7 +943,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -954,7 +954,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -965,7 +965,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -976,7 +976,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -987,7 +987,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -998,7 +998,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1009,7 +1009,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1020,7 +1020,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1031,7 +1031,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1042,7 +1042,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1053,7 +1053,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1064,7 +1064,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1075,7 +1075,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1086,7 +1086,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1097,7 +1097,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1108,7 +1108,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1119,7 +1119,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1130,7 +1130,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1141,7 +1141,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1152,7 +1152,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1163,7 +1163,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1174,7 +1174,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1185,7 +1185,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1196,7 +1196,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1207,7 +1207,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1218,7 +1218,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1229,7 +1229,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1240,7 +1240,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1251,7 +1251,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QItemSelectionModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1262,7 +1262,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1273,7 +1273,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1284,7 +1284,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1295,7 +1295,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1306,7 +1306,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1317,7 +1317,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1328,7 +1328,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1340,7 +1340,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1352,7 +1352,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1363,7 +1363,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1374,7 +1374,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1385,7 +1385,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1396,7 +1396,7 @@ pub const klinkitemselectionmodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1405,7 +1405,7 @@ pub const klinkitemselectionmodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/klinkitemselectionmodel.html#dtor.KLinkItemSelectionModel)
+    /// [Upstream resources](https://api.kde.org/klinkitemselectionmodel.html#dtor.KLinkItemSelectionModel)
     ///
     /// Delete this object from C++ memory.
     ///

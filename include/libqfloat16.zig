@@ -39,49 +39,49 @@ pub const qfloat16 = struct {
         qtc.qfloat16_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#operator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#operator)
     ///
     /// ``` self: QtC.qfloat16 ```
     pub fn ToFloat(self: ?*anyopaque) f32 {
         return qtc.qfloat16_ToFloat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#isInf)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isInf)
     ///
     /// ``` self: QtC.qfloat16 ```
     pub fn IsInf(self: ?*anyopaque) bool {
         return qtc.qfloat16_IsInf(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#isNaN)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isNaN)
     ///
     /// ``` self: QtC.qfloat16 ```
     pub fn IsNaN(self: ?*anyopaque) bool {
         return qtc.qfloat16_IsNaN(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#isFinite)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isFinite)
     ///
     /// ``` self: QtC.qfloat16 ```
     pub fn IsFinite(self: ?*anyopaque) bool {
         return qtc.qfloat16_IsFinite(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#fpClassify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#fpClassify)
     ///
     /// ``` self: QtC.qfloat16 ```
     pub fn FpClassify(self: ?*anyopaque) i32 {
         return qtc.qfloat16_FpClassify(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#isNormal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#isNormal)
     ///
     /// ``` self: QtC.qfloat16 ```
     pub fn IsNormal(self: ?*anyopaque) bool {
         return qtc.qfloat16_IsNormal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#dtor.qfloat16)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#dtor.qfloat16)
     ///
     /// Delete this object from C++ memory.
     ///

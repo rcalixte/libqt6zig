@@ -286,35 +286,35 @@ pub const qvariant = struct {
         return qtc.QVariant_new30(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
     ///
     /// ``` self: QtC.QVariant, other: QtC.QVariant ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QVariant_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#swap)
     ///
     /// ``` self: QtC.QVariant, other: QtC.QVariant ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QVariant_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#userType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#userType)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn UserType(self: ?*anyopaque) i32 {
         return qtc.QVariant_UserType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#typeId)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeId)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn TypeId(self: ?*anyopaque) i32 {
         return qtc.QVariant_TypeId(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#typeName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeName)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn TypeName(self: ?*anyopaque) []const u8 {
@@ -322,140 +322,140 @@ pub const qvariant = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#metaType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#metaType)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn MetaType(self: ?*anyopaque) QtC.QMetaType {
         return qtc.QVariant_MetaType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#canConvert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canConvert)
     ///
     /// ``` self: QtC.QVariant, targetType: QtC.QMetaType ```
     pub fn CanConvert(self: ?*anyopaque, targetType: QtC.QMetaType) bool {
         return qtc.QVariant_CanConvert(@ptrCast(self), @ptrCast(targetType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#convert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#convert)
     ///
     /// ``` self: QtC.QVariant, typeVal: QtC.QMetaType ```
     pub fn Convert(self: ?*anyopaque, typeVal: QtC.QMetaType) bool {
         return qtc.QVariant_Convert(@ptrCast(self), @ptrCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#canView)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canView)
     ///
     /// ``` self: QtC.QVariant, targetType: QtC.QMetaType ```
     pub fn CanView(self: ?*anyopaque, targetType: QtC.QMetaType) bool {
         return qtc.QVariant_CanView(@ptrCast(self), @ptrCast(targetType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#canConvert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#canConvert)
     ///
     /// ``` self: QtC.QVariant, targetTypeId: i32 ```
     pub fn CanConvert2(self: ?*anyopaque, targetTypeId: i32) bool {
         return qtc.QVariant_CanConvert2(@ptrCast(self), @intCast(targetTypeId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#convert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#convert)
     ///
     /// ``` self: QtC.QVariant, targetTypeId: i32 ```
     pub fn Convert2(self: ?*anyopaque, targetTypeId: i32) bool {
         return qtc.QVariant_Convert2(@ptrCast(self), @intCast(targetTypeId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isValid)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QVariant_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#isNull)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isNull)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn IsNull(self: ?*anyopaque) bool {
         return qtc.QVariant_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#clear)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QVariant_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#detach)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#detach)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn Detach(self: ?*anyopaque) void {
         qtc.QVariant_Detach(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#isDetached)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#isDetached)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn IsDetached(self: ?*anyopaque) bool {
         return qtc.QVariant_IsDetached(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toInt)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QVariant_ToInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toUInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUInt)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToUInt(self: ?*anyopaque) u32 {
         return qtc.QVariant_ToUInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToLongLong(self: ?*anyopaque) i64 {
         return qtc.QVariant_ToLongLong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToULongLong(self: ?*anyopaque) u64 {
         return qtc.QVariant_ToULongLong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toBool)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toBool)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QVariant_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDouble)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToDouble(self: ?*anyopaque) f64 {
         return qtc.QVariant_ToDouble(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toFloat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toFloat)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToFloat(self: ?*anyopaque) f32 {
         return qtc.QVariant_ToFloat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toReal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toReal)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToReal(self: ?*anyopaque) f64 {
         return qtc.QVariant_ToReal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toByteArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toByteArray)
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
@@ -466,14 +466,14 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toBitArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toBitArray)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToBitArray(self: ?*anyopaque) QtC.QBitArray {
         return qtc.QVariant_ToBitArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toString)
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -484,7 +484,7 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toStringList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toStringList)
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -506,35 +506,35 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toChar)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toChar)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToChar(self: ?*anyopaque) QtC.QChar {
         return qtc.QVariant_ToChar(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toDate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDate)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToDate(self: ?*anyopaque) QtC.QDate {
         return qtc.QVariant_ToDate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toTime)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToTime(self: ?*anyopaque) QtC.QTime {
         return qtc.QVariant_ToTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toDateTime)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDateTime)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QVariant_ToDateTime(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toList)
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
@@ -546,7 +546,7 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toMap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toMap)
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
@@ -572,7 +572,7 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toHash)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toHash)
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToHash(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
@@ -598,154 +598,154 @@ pub const qvariant = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toPoint)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPoint)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToPoint(self: ?*anyopaque) QtC.QPoint {
         return qtc.QVariant_ToPoint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toPointF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPointF)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToPointF(self: ?*anyopaque) QtC.QPointF {
         return qtc.QVariant_ToPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toRect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRect)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToRect(self: ?*anyopaque) QtC.QRect {
         return qtc.QVariant_ToRect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toSize)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToSize(self: ?*anyopaque) QtC.QSize {
         return qtc.QVariant_ToSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toSizeF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toSizeF)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToSizeF(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QVariant_ToSizeF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toLine)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLine)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToLine(self: ?*anyopaque) QtC.QLine {
         return qtc.QVariant_ToLine(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toLineF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLineF)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToLineF(self: ?*anyopaque) QtC.QLineF {
         return qtc.QVariant_ToLineF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toRectF)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRectF)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToRectF(self: ?*anyopaque) QtC.QRectF {
         return qtc.QVariant_ToRectF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toLocale)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLocale)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToLocale(self: ?*anyopaque) QtC.QLocale {
         return qtc.QVariant_ToLocale(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toRegularExpression)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toRegularExpression)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToRegularExpression(self: ?*anyopaque) QtC.QRegularExpression {
         return qtc.QVariant_ToRegularExpression(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toEasingCurve)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toEasingCurve)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToEasingCurve(self: ?*anyopaque) QtC.QEasingCurve {
         return qtc.QVariant_ToEasingCurve(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toUuid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUuid)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToUuid(self: ?*anyopaque) QtC.QUuid {
         return qtc.QVariant_ToUuid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUrl)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToUrl(self: ?*anyopaque) QtC.QUrl {
         return qtc.QVariant_ToUrl(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toJsonValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonValue)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToJsonValue(self: ?*anyopaque) QtC.QJsonValue {
         return qtc.QVariant_ToJsonValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toJsonObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonObject)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToJsonObject(self: ?*anyopaque) QtC.QJsonObject {
         return qtc.QVariant_ToJsonObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toJsonArray)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonArray)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToJsonArray(self: ?*anyopaque) QtC.QJsonArray {
         return qtc.QVariant_ToJsonArray(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toJsonDocument)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toJsonDocument)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToJsonDocument(self: ?*anyopaque) QtC.QJsonDocument {
         return qtc.QVariant_ToJsonDocument(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toModelIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toModelIndex)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToModelIndex(self: ?*anyopaque) QtC.QModelIndex {
         return qtc.QVariant_ToModelIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toPersistentModelIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toPersistentModelIndex)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ToPersistentModelIndex(self: ?*anyopaque) QtC.QPersistentModelIndex {
         return qtc.QVariant_ToPersistentModelIndex(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#load)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#load)
     ///
     /// ``` self: QtC.QVariant, ds: QtC.QDataStream ```
     pub fn Load(self: ?*anyopaque, ds: ?*anyopaque) void {
         qtc.QVariant_Load(@ptrCast(self), @ptrCast(ds));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#save)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#save)
     ///
     /// ``` self: QtC.QVariant, ds: QtC.QDataStream ```
     pub fn Save(self: ?*anyopaque, ds: ?*anyopaque) void {
         qtc.QVariant_Save(@ptrCast(self), @ptrCast(ds));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#type)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#type)
     ///
     /// ``` self: QtC.QVariant ```
     ///
@@ -754,7 +754,7 @@ pub const qvariant = struct {
         return qtc.QVariant_Type(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#typeToName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#typeToName)
     ///
     /// ``` typeId: i32 ```
     pub fn TypeToName(typeId: i32) []const u8 {
@@ -762,7 +762,7 @@ pub const qvariant = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#nameToType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#nameToType)
     ///
     /// ``` name: []const u8 ```
     ///
@@ -772,105 +772,105 @@ pub const qvariant = struct {
         return qtc.QVariant_NameToType(name_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#data)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn Data(self: ?*anyopaque) ?*anyopaque {
         return qtc.QVariant_Data(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#constData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#constData)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn ConstData(self: ?*anyopaque) ?*const anyopaque {
         return qtc.QVariant_ConstData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#data)
     ///
     /// ``` self: QtC.QVariant ```
     pub fn Data2(self: ?*anyopaque) ?*const anyopaque {
         return qtc.QVariant_Data2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#setValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#setValue)
     ///
     /// ``` self: QtC.QVariant, avalue: QtC.QVariant ```
     pub fn SetValue(self: ?*anyopaque, avalue: ?*anyopaque) void {
         qtc.QVariant_SetValue(@ptrCast(self), @ptrCast(avalue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
     ///
     /// ``` typeVal: QtC.QMetaType ```
     pub fn FromMetaType(typeVal: QtC.QMetaType) QtC.QVariant {
         return qtc.QVariant_FromMetaType(@ptrCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#compare)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#compare)
     ///
     /// ``` lhs: QtC.QVariant, rhs: QtC.QVariant ```
     pub fn Compare(lhs: ?*anyopaque, rhs: ?*anyopaque) QtC.QPartialOrdering {
         return qtc.QVariant_Compare(@ptrCast(lhs), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toInt)
     ///
     /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QVariant_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toUInt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toUInt)
     ///
     /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QVariant_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
     ///
     /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QVariant_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
     ///
     /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QVariant_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toDouble)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toDouble)
     ///
     /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toFloat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toFloat)
     ///
     /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QVariant_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toReal)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#toReal)
     ///
     /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToReal1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToReal1(@ptrCast(self), @ptrCast(ok));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#fromMetaType)
     ///
     /// ``` typeVal: QtC.QMetaType, copyVal: ?*anyopaque ```
     pub fn FromMetaType2(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
         return qtc.QVariant_FromMetaType2(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#dtor.QVariant)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#dtor.QVariant)
     ///
     /// Delete this object from C++ memory.
     ///

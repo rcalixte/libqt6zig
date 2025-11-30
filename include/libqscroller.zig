@@ -7,7 +7,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qscroller.html
 pub const qscroller = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -25,7 +25,7 @@ pub const qscroller = struct {
         return qtc.QScroller_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -37,28 +37,28 @@ pub const qscroller = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#hasScroller)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#hasScroller)
     ///
     /// ``` target: QtC.QObject ```
     pub fn HasScroller(target: ?*anyopaque) bool {
         return qtc.QScroller_HasScroller(@ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#scroller)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scroller)
     ///
     /// ``` target: QtC.QObject ```
     pub fn Scroller(target: ?*anyopaque) QtC.QScroller {
         return qtc.QScroller_Scroller(@ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#scroller)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scroller)
     ///
     /// ``` target: QtC.QObject ```
     pub fn Scroller2(target: ?*anyopaque) QtC.QScroller {
         return qtc.QScroller_Scroller2(@ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#grabGesture)
     ///
     /// ``` target: QtC.QObject ```
     ///
@@ -67,7 +67,7 @@ pub const qscroller = struct {
         return qtc.QScroller_GrabGesture(@ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#grabbedGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#grabbedGesture)
     ///
     /// ``` target: QtC.QObject ```
     ///
@@ -76,14 +76,14 @@ pub const qscroller = struct {
         return qtc.QScroller_GrabbedGesture(@ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#ungrabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#ungrabGesture)
     ///
     /// ``` target: QtC.QObject ```
     pub fn UngrabGesture(target: ?*anyopaque) void {
         qtc.QScroller_UngrabGesture(@ptrCast(target));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#activeScrollers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#activeScrollers)
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ActiveScrollers(allocator: std.mem.Allocator) []QtC.QScroller {
@@ -95,14 +95,14 @@ pub const qscroller = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#target)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#target)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn Target(self: ?*anyopaque) QtC.QObject {
         return qtc.QScroller_Target(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#state)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#state)
     ///
     /// ``` self: QtC.QScroller ```
     ///
@@ -111,49 +111,49 @@ pub const qscroller = struct {
         return qtc.QScroller_State(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#handleInput)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#handleInput)
     ///
     /// ``` self: QtC.QScroller, input: qscroller_enums.Input, position: QtC.QPointF ```
     pub fn HandleInput(self: ?*anyopaque, input: i32, position: ?*anyopaque) bool {
         return qtc.QScroller_HandleInput(@ptrCast(self), @intCast(input), @ptrCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#stop)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QScroller_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#velocity)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#velocity)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn Velocity(self: ?*anyopaque) QtC.QPointF {
         return qtc.QScroller_Velocity(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#finalPosition)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#finalPosition)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn FinalPosition(self: ?*anyopaque) QtC.QPointF {
         return qtc.QScroller_FinalPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#pixelPerMeter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#pixelPerMeter)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn PixelPerMeter(self: ?*anyopaque) QtC.QPointF {
         return qtc.QScroller_PixelPerMeter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#scrollerProperties)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scrollerProperties)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn ScrollerProperties(self: ?*anyopaque) QtC.QScrollerProperties {
         return qtc.QScroller_ScrollerProperties(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsX)
     ///
     /// ``` self: QtC.QScroller, positions: []f64 ```
     pub fn SetSnapPositionsX(self: ?*anyopaque, positions: []f64) void {
@@ -164,14 +164,14 @@ pub const qscroller = struct {
         qtc.QScroller_SetSnapPositionsX(@ptrCast(self), positions_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsX)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsX)
     ///
     /// ``` self: QtC.QScroller, first: f64, interval: f64 ```
     pub fn SetSnapPositionsX2(self: ?*anyopaque, first: f64, interval: f64) void {
         qtc.QScroller_SetSnapPositionsX2(@ptrCast(self), @floatCast(first), @floatCast(interval));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsY)
     ///
     /// ``` self: QtC.QScroller, positions: []f64 ```
     pub fn SetSnapPositionsY(self: ?*anyopaque, positions: []f64) void {
@@ -182,84 +182,84 @@ pub const qscroller = struct {
         qtc.QScroller_SetSnapPositionsY(@ptrCast(self), positions_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsY)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#setSnapPositionsY)
     ///
     /// ``` self: QtC.QScroller, first: f64, interval: f64 ```
     pub fn SetSnapPositionsY2(self: ?*anyopaque, first: f64, interval: f64) void {
         qtc.QScroller_SetSnapPositionsY2(@ptrCast(self), @floatCast(first), @floatCast(interval));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#setScrollerProperties)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#setScrollerProperties)
     ///
     /// ``` self: QtC.QScroller, prop: QtC.QScrollerProperties ```
     pub fn SetScrollerProperties(self: ?*anyopaque, prop: ?*anyopaque) void {
         qtc.QScroller_SetScrollerProperties(@ptrCast(self), @ptrCast(prop));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scrollTo)
     ///
     /// ``` self: QtC.QScroller, pos: QtC.QPointF ```
     pub fn ScrollTo(self: ?*anyopaque, pos: ?*anyopaque) void {
         qtc.QScroller_ScrollTo(@ptrCast(self), @ptrCast(pos));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#scrollTo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scrollTo)
     ///
     /// ``` self: QtC.QScroller, pos: QtC.QPointF, scrollTime: i32 ```
     pub fn ScrollTo2(self: ?*anyopaque, pos: ?*anyopaque, scrollTime: i32) void {
         qtc.QScroller_ScrollTo2(@ptrCast(self), @ptrCast(pos), @intCast(scrollTime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#ensureVisible)
     ///
     /// ``` self: QtC.QScroller, rect: QtC.QRectF, xmargin: f64, ymargin: f64 ```
     pub fn EnsureVisible(self: ?*anyopaque, rect: ?*anyopaque, xmargin: f64, ymargin: f64) void {
         qtc.QScroller_EnsureVisible(@ptrCast(self), @ptrCast(rect), @floatCast(xmargin), @floatCast(ymargin));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#ensureVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#ensureVisible)
     ///
     /// ``` self: QtC.QScroller, rect: QtC.QRectF, xmargin: f64, ymargin: f64, scrollTime: i32 ```
     pub fn EnsureVisible2(self: ?*anyopaque, rect: ?*anyopaque, xmargin: f64, ymargin: f64, scrollTime: i32) void {
         qtc.QScroller_EnsureVisible2(@ptrCast(self), @ptrCast(rect), @floatCast(xmargin), @floatCast(ymargin), @intCast(scrollTime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#resendPrepareEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#resendPrepareEvent)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn ResendPrepareEvent(self: ?*anyopaque) void {
         qtc.QScroller_ResendPrepareEvent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#stateChanged)
     ///
     /// ``` self: QtC.QScroller, newstate: qscroller_enums.State ```
     pub fn StateChanged(self: ?*anyopaque, newstate: i32) void {
         qtc.QScroller_StateChanged(@ptrCast(self), @intCast(newstate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#stateChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#stateChanged)
     ///
     /// ``` self: QtC.QScroller, callback: *const fn (self: QtC.QScroller, newstate: qscroller_enums.State) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScroller_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#scrollerPropertiesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scrollerPropertiesChanged)
     ///
     /// ``` self: QtC.QScroller, param1: QtC.QScrollerProperties ```
     pub fn ScrollerPropertiesChanged(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QScroller_ScrollerPropertiesChanged(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#scrollerPropertiesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#scrollerPropertiesChanged)
     ///
     /// ``` self: QtC.QScroller, callback: *const fn (self: QtC.QScroller, param1: QtC.QScrollerProperties) callconv(.c) void ```
     pub fn OnScrollerPropertiesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QScroller_Connect_ScrollerPropertiesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -272,7 +272,7 @@ pub const qscroller = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -285,7 +285,7 @@ pub const qscroller = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#grabGesture)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#grabGesture)
     ///
     /// ``` target: QtC.QObject, gestureType: qscroller_enums.ScrollerGestureType ```
     ///
@@ -294,7 +294,7 @@ pub const qscroller = struct {
         return qtc.QScroller_GrabGesture2(@ptrCast(target), @intCast(gestureType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#handleInput)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#handleInput)
     ///
     /// ``` self: QtC.QScroller, input: qscroller_enums.Input, position: QtC.QPointF, timestamp: i64 ```
     pub fn HandleInput3(self: ?*anyopaque, input: i32, position: ?*anyopaque, timestamp: i64) bool {
@@ -303,7 +303,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// ``` self: QtC.QScroller, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
@@ -312,7 +312,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QScroller, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -321,7 +321,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QScroller, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -334,7 +334,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QScroller, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -347,7 +347,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -356,7 +356,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -365,7 +365,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -374,7 +374,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -383,7 +383,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QScroller, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -392,7 +392,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -401,7 +401,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QScroller, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -410,7 +410,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QScroller, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -419,7 +419,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QScroller, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -428,7 +428,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QScroller, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -437,7 +437,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QScroller, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -451,7 +451,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QScroller, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -460,7 +460,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QScroller, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -469,7 +469,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QScroller, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -478,7 +478,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -487,7 +487,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QScroller, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -498,7 +498,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -507,7 +507,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -516,7 +516,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -525,7 +525,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -534,7 +534,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QScroller, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -544,7 +544,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QScroller, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -554,7 +554,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QScroller, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -578,7 +578,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -587,7 +587,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -596,7 +596,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -605,7 +605,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScroller, callback: *const fn (self: QtC.QScroller) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -614,7 +614,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -623,7 +623,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QScroller, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -633,7 +633,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QScroller ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -642,7 +642,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QScroller, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -651,7 +651,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QScroller, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -660,7 +660,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -669,7 +669,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QScroller, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -680,7 +680,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScroller, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -689,7 +689,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QScroller, callback: *const fn (self: QtC.QScroller, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -698,7 +698,7 @@ pub const qscroller = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

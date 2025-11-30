@@ -18,14 +18,14 @@ pub const attica__forum = struct {
         return qtc.Attica__Forum_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#operator-eq)
     ///
     /// ``` self: QtC.Attica__Forum, other: QtC.Attica__Forum ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.Attica__Forum_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setId)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setId)
     ///
     /// ``` self: QtC.Attica__Forum, id: []const u8 ```
     pub fn SetId(self: ?*anyopaque, id: []const u8) void {
@@ -36,7 +36,7 @@ pub const attica__forum = struct {
         qtc.Attica__Forum_SetId(@ptrCast(self), id_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#id)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#id)
     ///
     /// ``` self: QtC.Attica__Forum, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -47,7 +47,7 @@ pub const attica__forum = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setName)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setName)
     ///
     /// ``` self: QtC.Attica__Forum, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
@@ -58,7 +58,7 @@ pub const attica__forum = struct {
         qtc.Attica__Forum_SetName(@ptrCast(self), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#name)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#name)
     ///
     /// ``` self: QtC.Attica__Forum, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -69,7 +69,7 @@ pub const attica__forum = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setDescription)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setDescription)
     ///
     /// ``` self: QtC.Attica__Forum, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
@@ -80,7 +80,7 @@ pub const attica__forum = struct {
         qtc.Attica__Forum_SetDescription(@ptrCast(self), description_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#description)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#description)
     ///
     /// ``` self: QtC.Attica__Forum, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -91,63 +91,63 @@ pub const attica__forum = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setDate)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setDate)
     ///
     /// ``` self: QtC.Attica__Forum, date: QtC.QDateTime ```
     pub fn SetDate(self: ?*anyopaque, date: ?*anyopaque) void {
         qtc.Attica__Forum_SetDate(@ptrCast(self), @ptrCast(date));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#date)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#date)
     ///
     /// ``` self: QtC.Attica__Forum ```
     pub fn Date(self: ?*anyopaque) QtC.QDateTime {
         return qtc.Attica__Forum_Date(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setIcon)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setIcon)
     ///
     /// ``` self: QtC.Attica__Forum, icon: QtC.QUrl ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
         qtc.Attica__Forum_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#icon)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#icon)
     ///
     /// ``` self: QtC.Attica__Forum ```
     pub fn Icon(self: ?*anyopaque) QtC.QUrl {
         return qtc.Attica__Forum_Icon(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setChildCount)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setChildCount)
     ///
     /// ``` self: QtC.Attica__Forum, childCount: i32 ```
     pub fn SetChildCount(self: ?*anyopaque, childCount: i32) void {
         qtc.Attica__Forum_SetChildCount(@ptrCast(self), @intCast(childCount));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#childCount)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#childCount)
     ///
     /// ``` self: QtC.Attica__Forum ```
     pub fn ChildCount(self: ?*anyopaque) i32 {
         return qtc.Attica__Forum_ChildCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setTopics)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setTopics)
     ///
     /// ``` self: QtC.Attica__Forum, topics: i32 ```
     pub fn SetTopics(self: ?*anyopaque, topics: i32) void {
         qtc.Attica__Forum_SetTopics(@ptrCast(self), @intCast(topics));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#topics)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#topics)
     ///
     /// ``` self: QtC.Attica__Forum ```
     pub fn Topics(self: ?*anyopaque) i32 {
         return qtc.Attica__Forum_Topics(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#setChildren)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#setChildren)
     ///
     /// ``` self: QtC.Attica__Forum, comments: []QtC.Attica__Forum ```
     pub fn SetChildren(self: ?*anyopaque, comments: []QtC.Attica__Forum) void {
@@ -158,7 +158,7 @@ pub const attica__forum = struct {
         qtc.Attica__Forum_SetChildren(@ptrCast(self), comments_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#children)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#children)
     ///
     /// ``` self: QtC.Attica__Forum, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Attica__Forum {
@@ -170,7 +170,7 @@ pub const attica__forum = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/attica-forum.html#isValid)
+    /// [Upstream resources](https://api.kde.org/attica-forum.html#isValid)
     ///
     /// ``` self: QtC.Attica__Forum ```
     pub fn IsValid(self: ?*anyopaque) bool {

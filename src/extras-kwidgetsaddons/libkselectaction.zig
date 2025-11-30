@@ -41,7 +41,7 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_new3(@ptrCast(icon), text_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -73,7 +73,7 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -85,7 +85,7 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolBarMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#toolBarMode)
     ///
     /// ``` self: QtC.KSelectAction ```
     ///
@@ -94,14 +94,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_ToolBarMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolBarMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setToolBarMode)
     ///
     /// ``` self: QtC.KSelectAction, mode: kselectaction_enums.ToolBarMode ```
     pub fn SetToolBarMode(self: ?*anyopaque, mode: i32) void {
         qtc.KSelectAction_SetToolBarMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#toolButtonPopupMode)
     ///
     /// ``` self: QtC.KSelectAction ```
     ///
@@ -110,35 +110,35 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_ToolButtonPopupMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setToolButtonPopupMode)
     ///
     /// ``` self: QtC.KSelectAction, mode: qtoolbutton_enums.ToolButtonPopupMode ```
     pub fn SetToolButtonPopupMode(self: ?*anyopaque, mode: i32) void {
         qtc.KSelectAction_SetToolButtonPopupMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#selectableActionGroup)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#selectableActionGroup)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn SelectableActionGroup(self: ?*anyopaque) QtC.QActionGroup {
         return qtc.KSelectAction_SelectableActionGroup(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentAction)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn CurrentAction(self: ?*anyopaque) QtC.QAction {
         return qtc.KSelectAction_CurrentAction(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentItem)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentItem)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn CurrentItem(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_CurrentItem(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#currentText)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#currentText)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -149,7 +149,7 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#actions)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#actions)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
@@ -161,14 +161,14 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KSelectAction, index: i32 ```
     pub fn Action(self: ?*anyopaque, index: i32) QtC.QAction {
         return qtc.KSelectAction_Action(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn Action2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -179,21 +179,21 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_Action2(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn SetCurrentAction(self: ?*anyopaque, action: ?*anyopaque) bool {
         return qtc.KSelectAction_SetCurrentAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentItem)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentItem)
     ///
     /// ``` self: QtC.KSelectAction, index: i32 ```
     pub fn SetCurrentItem(self: ?*anyopaque, index: i32) bool {
         return qtc.KSelectAction_SetCurrentItem(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn SetCurrentAction2(self: ?*anyopaque, text: []const u8) bool {
@@ -204,14 +204,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_SetCurrentAction2(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_AddAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -222,7 +222,7 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_AddAction2(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#addAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#addAction)
     ///
     /// ``` self: QtC.KSelectAction, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
@@ -233,14 +233,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
         return qtc.KSelectAction_RemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -249,7 +249,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnRemoveAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAction)
     ///
     /// Base class method implementation
     ///
@@ -258,14 +258,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseRemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// ``` self: QtC.KSelectAction, before: QtC.QAction, action: QtC.QAction ```
     pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Allows for overriding the related default method
     ///
@@ -274,7 +274,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnInsertAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#insertAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
     ///
     /// Base class method implementation
     ///
@@ -283,7 +283,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseInsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setItems)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setItems)
     ///
     /// ``` self: QtC.KSelectAction, lst: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetItems(self: ?*anyopaque, lst: [][]const u8, allocator: std.mem.Allocator) void {
@@ -302,7 +302,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_SetItems(@ptrCast(self), lst_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#items)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#items)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -324,70 +324,70 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#isEditable)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#isEditable)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsEditable(self: ?*anyopaque) bool {
         return qtc.KSelectAction_IsEditable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setEditable)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setEditable)
     ///
     /// ``` self: QtC.KSelectAction, editable: bool ```
     pub fn SetEditable(self: ?*anyopaque, editable: bool) void {
         qtc.KSelectAction_SetEditable(@ptrCast(self), editable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#comboWidth)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#comboWidth)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn ComboWidth(self: ?*anyopaque) i32 {
         return qtc.KSelectAction_ComboWidth(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setComboWidth)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setComboWidth)
     ///
     /// ``` self: QtC.KSelectAction, width: i32 ```
     pub fn SetComboWidth(self: ?*anyopaque, width: i32) void {
         qtc.KSelectAction_SetComboWidth(@ptrCast(self), @intCast(width));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setMaxComboViewCount)
     ///
     /// ``` self: QtC.KSelectAction, n: i32 ```
     pub fn SetMaxComboViewCount(self: ?*anyopaque, n: i32) void {
         qtc.KSelectAction_SetMaxComboViewCount(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#clear)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#clear)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.KSelectAction_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#removeAllActions)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#removeAllActions)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn RemoveAllActions(self: ?*anyopaque) void {
         qtc.KSelectAction_RemoveAllActions(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setMenuAccelsEnabled)
     ///
     /// ``` self: QtC.KSelectAction, b: bool ```
     pub fn SetMenuAccelsEnabled(self: ?*anyopaque, b: bool) void {
         qtc.KSelectAction_SetMenuAccelsEnabled(@ptrCast(self), b);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#menuAccelsEnabled)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn MenuAccelsEnabled(self: ?*anyopaque) bool {
         return qtc.KSelectAction_MenuAccelsEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#changeItem)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#changeItem)
     ///
     /// ``` self: QtC.KSelectAction, index: i32, text: []const u8 ```
     pub fn ChangeItem(self: ?*anyopaque, index: i32, text: []const u8) void {
@@ -398,35 +398,35 @@ pub const kselectaction = struct {
         qtc.KSelectAction_ChangeItem(@ptrCast(self), @intCast(index), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn ActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_ActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, action: QtC.QAction) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KSelectAction, index: i32 ```
     pub fn IndexTriggered(self: ?*anyopaque, index: i32) void {
         qtc.KSelectAction_IndexTriggered(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, index: i32) callconv(.c) void ```
     pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn TextTriggered(self: ?*anyopaque, text: []const u8) void {
@@ -437,21 +437,21 @@ pub const kselectaction = struct {
         qtc.KSelectAction_TextTriggered(@ptrCast(self), text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#textTriggered)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, text: [*:0]const u8) callconv(.c) void ```
     pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// ``` self: QtC.KSelectAction, action: QtC.QAction ```
     pub fn SlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
         qtc.KSelectAction_SlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Allows for overriding the related default method
     ///
@@ -460,7 +460,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnSlotActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotActionTriggered)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
     ///
     /// Base class method implementation
     ///
@@ -469,14 +469,14 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseSlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// ``` self: QtC.KSelectAction, param1: bool ```
     pub fn SlotToggled(self: ?*anyopaque, param1: bool) void {
         qtc.KSelectAction_SlotToggled(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Allows for overriding the related default method
     ///
@@ -485,7 +485,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnSlotToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#slotToggled)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
     ///
     /// Base class method implementation
     ///
@@ -494,14 +494,14 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseSlotToggled(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// ``` self: QtC.KSelectAction, parent: QtC.QWidget ```
     pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
         return qtc.KSelectAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -510,7 +510,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#createWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
     ///
     /// Base class method implementation
     ///
@@ -519,14 +519,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// ``` self: QtC.KSelectAction, widget: QtC.QWidget ```
     pub fn DeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
         qtc.KSelectAction_DeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Allows for overriding the related default method
     ///
@@ -535,7 +535,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnDeleteWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#deleteWidget)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
     ///
     /// Base class method implementation
     ///
@@ -544,14 +544,14 @@ pub const kselectaction = struct {
         qtc.KSelectAction_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// ``` self: QtC.KSelectAction, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KSelectAction_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Allows for overriding the related default method
     ///
@@ -560,7 +560,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#event)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#event)
     ///
     /// Base class method implementation
     ///
@@ -569,14 +569,14 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// ``` self: QtC.KSelectAction, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.KSelectAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -585,7 +585,7 @@ pub const kselectaction = struct {
         qtc.KSelectAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#eventFilter)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
     ///
     /// Base class method implementation
     ///
@@ -594,7 +594,7 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -607,7 +607,7 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -620,7 +620,7 @@ pub const kselectaction = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#action)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#action)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Action22(self: ?*anyopaque, text: []const u8, cs: i32) QtC.QAction {
@@ -631,7 +631,7 @@ pub const kselectaction = struct {
         return qtc.KSelectAction_Action22(@ptrCast(self), text_str, @intCast(cs));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#setCurrentAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#setCurrentAction)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn SetCurrentAction22(self: ?*anyopaque, text: []const u8, cs: i32) bool {
@@ -644,7 +644,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#setDefaultWidget)
     ///
     /// ``` self: QtC.KSelectAction, w: QtC.QWidget ```
     pub fn SetDefaultWidget(self: ?*anyopaque, w: ?*anyopaque) void {
@@ -653,7 +653,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#defaultWidget)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn DefaultWidget(self: ?*anyopaque) QtC.QWidget {
@@ -662,7 +662,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#requestWidget)
     ///
     /// ``` self: QtC.KSelectAction, parent: QtC.QWidget ```
     pub fn RequestWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
@@ -671,7 +671,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#releaseWidget)
     ///
     /// ``` self: QtC.KSelectAction, widget: QtC.QWidget ```
     pub fn ReleaseWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
@@ -680,7 +680,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#associatedObjects)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -694,7 +694,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setActionGroup)
     ///
     /// ``` self: QtC.KSelectAction, group: QtC.QActionGroup ```
     pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
@@ -703,7 +703,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#actionGroup)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#actionGroup)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
@@ -712,7 +712,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIcon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIcon)
     ///
     /// ``` self: QtC.KSelectAction, icon: QtC.QIcon ```
     pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
@@ -721,7 +721,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#icon)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#icon)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Icon(self: ?*anyopaque) QtC.QIcon {
@@ -730,7 +730,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setText)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
@@ -743,7 +743,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#text)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#text)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -756,7 +756,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconText)
     ///
     /// ``` self: QtC.KSelectAction, text: []const u8 ```
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
@@ -769,7 +769,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#iconText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#iconText)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -782,7 +782,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setToolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setToolTip)
     ///
     /// ``` self: QtC.KSelectAction, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
@@ -795,7 +795,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toolTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toolTip)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -808,7 +808,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setStatusTip)
     ///
     /// ``` self: QtC.KSelectAction, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
@@ -821,7 +821,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#statusTip)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#statusTip)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -834,7 +834,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setWhatsThis)
     ///
     /// ``` self: QtC.KSelectAction, what: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
@@ -847,7 +847,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#whatsThis)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#whatsThis)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -860,7 +860,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setPriority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
     /// ``` self: QtC.KSelectAction, priority: qaction_enums.Priority ```
     pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
@@ -869,7 +869,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#priority)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
     /// ``` self: QtC.KSelectAction ```
     ///
@@ -880,7 +880,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setSeparator)
     ///
     /// ``` self: QtC.KSelectAction, b: bool ```
     pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
@@ -889,7 +889,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isSeparator)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isSeparator)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsSeparator(self: ?*anyopaque) bool {
@@ -898,7 +898,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcut)
     ///
     /// ``` self: QtC.KSelectAction, shortcut: QtC.QKeySequence ```
     pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
@@ -907,7 +907,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcut)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcut)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
@@ -916,7 +916,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KSelectAction, shortcuts: []QtC.QKeySequence ```
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
@@ -929,7 +929,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.KSelectAction, shortcuts: qkeysequence_enums.StandardKey ```
     pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
@@ -938,7 +938,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcuts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcuts)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
@@ -952,7 +952,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
     /// ``` self: QtC.KSelectAction, context: qnamespace_enums.ShortcutContext ```
     pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
@@ -961,7 +961,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
     /// ``` self: QtC.KSelectAction ```
     ///
@@ -972,7 +972,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setAutoRepeat)
     ///
     /// ``` self: QtC.KSelectAction, autoRepeat: bool ```
     pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
@@ -981,7 +981,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#autoRepeat)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn AutoRepeat(self: ?*anyopaque) bool {
@@ -990,7 +990,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setFont)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setFont)
     ///
     /// ``` self: QtC.KSelectAction, font: QtC.QFont ```
     pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
@@ -999,7 +999,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#font)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#font)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Font(self: ?*anyopaque) QtC.QFont {
@@ -1008,7 +1008,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setCheckable)
     ///
     /// ``` self: QtC.KSelectAction, checkable: bool ```
     pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
@@ -1017,7 +1017,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isCheckable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isCheckable)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsCheckable(self: ?*anyopaque) bool {
@@ -1026,7 +1026,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#data)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Data(self: ?*anyopaque) QtC.QVariant {
@@ -1035,7 +1035,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setData)
     ///
     /// ``` self: QtC.KSelectAction, varVal: QtC.QVariant ```
     pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
@@ -1044,7 +1044,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isChecked)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsChecked(self: ?*anyopaque) bool {
@@ -1053,7 +1053,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isEnabled)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsEnabled(self: ?*anyopaque) bool {
@@ -1062,7 +1062,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isVisible)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsVisible(self: ?*anyopaque) bool {
@@ -1071,7 +1071,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#activate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
     /// ``` self: QtC.KSelectAction, event: qaction_enums.ActionEvent ```
     pub fn Activate(self: ?*anyopaque, event: i32) void {
@@ -1080,7 +1080,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
     /// ``` self: QtC.KSelectAction, menuRole: qaction_enums.MenuRole ```
     pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
@@ -1089,7 +1089,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#menuRole)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
     /// ``` self: QtC.KSelectAction ```
     ///
@@ -1100,7 +1100,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setIconVisibleInMenu)
     ///
     /// ``` self: QtC.KSelectAction, visible: bool ```
     pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
@@ -1109,7 +1109,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isIconVisibleInMenu)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
@@ -1118,7 +1118,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KSelectAction, show: bool ```
     pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
@@ -1127,7 +1127,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#isShortcutVisibleInContextMenu)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
@@ -1136,7 +1136,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn ShowStatusText(self: ?*anyopaque) bool {
@@ -1145,7 +1145,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#trigger)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#trigger)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Trigger(self: ?*anyopaque) void {
@@ -1154,7 +1154,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hover)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hover)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Hover(self: ?*anyopaque) void {
@@ -1163,7 +1163,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setChecked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setChecked)
     ///
     /// ``` self: QtC.KSelectAction, checked: bool ```
     pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
@@ -1172,7 +1172,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggle)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggle)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Toggle(self: ?*anyopaque) void {
@@ -1181,7 +1181,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setEnabled)
     ///
     /// ``` self: QtC.KSelectAction, enabled: bool ```
     pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
@@ -1190,7 +1190,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#resetEnabled)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn ResetEnabled(self: ?*anyopaque) void {
@@ -1199,7 +1199,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setDisabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setDisabled)
     ///
     /// ``` self: QtC.KSelectAction, b: bool ```
     pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
@@ -1208,7 +1208,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setVisible)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#setVisible)
     ///
     /// ``` self: QtC.KSelectAction, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
@@ -1217,7 +1217,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Changed(self: ?*anyopaque) void {
@@ -1226,7 +1226,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1235,7 +1235,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KSelectAction, enabled: bool ```
     pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
@@ -1244,7 +1244,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1253,7 +1253,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KSelectAction, checkable: bool ```
     pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
@@ -1262,7 +1262,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, checkable: bool) callconv(.c) void ```
     pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1271,7 +1271,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn VisibleChanged(self: ?*anyopaque) void {
@@ -1280,7 +1280,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1289,7 +1289,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Triggered(self: ?*anyopaque) void {
@@ -1298,7 +1298,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction) callconv(.c) void ```
     pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1307,7 +1307,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Hovered(self: ?*anyopaque) void {
@@ -1316,7 +1316,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1325,7 +1325,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KSelectAction, param1: bool ```
     pub fn Toggled(self: ?*anyopaque, param1: bool) void {
@@ -1334,7 +1334,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, param1: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1343,7 +1343,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#showStatusText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#showStatusText)
     ///
     /// ``` self: QtC.KSelectAction, object: QtC.QObject ```
     pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
@@ -1352,7 +1352,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KSelectAction, checked: bool ```
     pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
@@ -1361,7 +1361,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, checked: bool) callconv(.c) void ```
     pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
@@ -1370,7 +1370,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1383,7 +1383,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KSelectAction, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1396,7 +1396,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1405,7 +1405,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1414,7 +1414,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1423,7 +1423,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1432,7 +1432,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KSelectAction, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1441,7 +1441,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1450,7 +1450,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KSelectAction, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1459,7 +1459,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KSelectAction, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1468,7 +1468,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KSelectAction, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1477,7 +1477,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KSelectAction, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1486,7 +1486,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1500,7 +1500,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KSelectAction, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1509,7 +1509,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KSelectAction, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1518,7 +1518,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KSelectAction, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1527,7 +1527,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1536,7 +1536,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KSelectAction, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1547,7 +1547,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1556,7 +1556,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1565,7 +1565,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1574,7 +1574,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1583,7 +1583,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KSelectAction, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1593,7 +1593,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KSelectAction, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1603,7 +1603,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KSelectAction, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1627,7 +1627,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1636,7 +1636,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1645,7 +1645,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1654,7 +1654,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1663,7 +1663,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -1672,7 +1672,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KSelectAction, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1682,7 +1682,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KSelectAction ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1691,7 +1691,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KSelectAction, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1700,7 +1700,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KSelectAction, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1709,7 +1709,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1718,7 +1718,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KSelectAction, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1729,7 +1729,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSelectAction, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1738,7 +1738,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KSelectAction, callback: *const fn (self: QtC.KSelectAction, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1747,7 +1747,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1758,7 +1758,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1769,7 +1769,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1780,7 +1780,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1791,7 +1791,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1802,7 +1802,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1813,7 +1813,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1824,7 +1824,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1835,7 +1835,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1846,7 +1846,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1857,7 +1857,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1868,7 +1868,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1879,7 +1879,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1890,7 +1890,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1901,7 +1901,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1912,7 +1912,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1928,7 +1928,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1944,7 +1944,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QWidgetAction
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1955,7 +1955,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1966,7 +1966,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1977,7 +1977,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1988,7 +1988,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1999,7 +1999,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2010,7 +2010,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2021,7 +2021,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2033,7 +2033,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2045,7 +2045,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2056,7 +2056,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2067,7 +2067,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2078,7 +2078,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2089,7 +2089,7 @@ pub const kselectaction = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -2098,7 +2098,7 @@ pub const kselectaction = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kselectaction.html#dtor.KSelectAction)
+    /// [Upstream resources](https://api.kde.org/kselectaction.html#dtor.KSelectAction)
     ///
     /// Delete this object from C++ memory.
     ///

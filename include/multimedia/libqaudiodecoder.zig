@@ -21,7 +21,7 @@ pub const qaudiodecoder = struct {
         return qtc.QAudioDecoder_new2(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -53,7 +53,7 @@ pub const qaudiodecoder = struct {
         return qtc.QAudioDecoder_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -65,63 +65,63 @@ pub const qaudiodecoder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#isSupported)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#isSupported)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn IsSupported(self: ?*anyopaque) bool {
         return qtc.QAudioDecoder_IsSupported(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#isDecoding)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#isDecoding)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn IsDecoding(self: ?*anyopaque) bool {
         return qtc.QAudioDecoder_IsDecoding(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#source)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#source)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Source(self: ?*anyopaque) QtC.QUrl {
         return qtc.QAudioDecoder_Source(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#setSource)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#setSource)
     ///
     /// ``` self: QtC.QAudioDecoder, fileName: QtC.QUrl ```
     pub fn SetSource(self: ?*anyopaque, fileName: ?*anyopaque) void {
         qtc.QAudioDecoder_SetSource(@ptrCast(self), @ptrCast(fileName));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#sourceDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#sourceDevice)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn SourceDevice(self: ?*anyopaque) QtC.QIODevice {
         return qtc.QAudioDecoder_SourceDevice(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#setSourceDevice)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#setSourceDevice)
     ///
     /// ``` self: QtC.QAudioDecoder, device: QtC.QIODevice ```
     pub fn SetSourceDevice(self: ?*anyopaque, device: ?*anyopaque) void {
         qtc.QAudioDecoder_SetSourceDevice(@ptrCast(self), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#audioFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#audioFormat)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn AudioFormat(self: ?*anyopaque) QtC.QAudioFormat {
         return qtc.QAudioDecoder_AudioFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#setAudioFormat)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#setAudioFormat)
     ///
     /// ``` self: QtC.QAudioDecoder, format: QtC.QAudioFormat ```
     pub fn SetAudioFormat(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QAudioDecoder_SetAudioFormat(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#error)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     ///
@@ -130,7 +130,7 @@ pub const qaudiodecoder = struct {
         return qtc.QAudioDecoder_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#errorString)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#errorString)
     ///
     /// ``` self: QtC.QAudioDecoder, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -141,112 +141,112 @@ pub const qaudiodecoder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#read)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#read)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Read(self: ?*anyopaque) QtC.QAudioBuffer {
         return qtc.QAudioDecoder_Read(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferAvailable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferAvailable)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn BufferAvailable(self: ?*anyopaque) bool {
         return qtc.QAudioDecoder_BufferAvailable(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#position)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#position)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Position(self: ?*anyopaque) i64 {
         return qtc.QAudioDecoder_Position(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#duration)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#duration)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Duration(self: ?*anyopaque) i64 {
         return qtc.QAudioDecoder_Duration(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#start)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#start)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Start(self: ?*anyopaque) void {
         qtc.QAudioDecoder_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#stop)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#stop)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Stop(self: ?*anyopaque) void {
         qtc.QAudioDecoder_Stop(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferAvailableChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferAvailableChanged)
     ///
     /// ``` self: QtC.QAudioDecoder, param1: bool ```
     pub fn BufferAvailableChanged(self: ?*anyopaque, param1: bool) void {
         qtc.QAudioDecoder_BufferAvailableChanged(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferReady)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#bufferReady)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn BufferReady(self: ?*anyopaque) void {
         qtc.QAudioDecoder_BufferReady(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#finished)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Finished(self: ?*anyopaque) void {
         qtc.QAudioDecoder_Finished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#isDecodingChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#isDecodingChanged)
     ///
     /// ``` self: QtC.QAudioDecoder, param1: bool ```
     pub fn IsDecodingChanged(self: ?*anyopaque, param1: bool) void {
         qtc.QAudioDecoder_IsDecodingChanged(@ptrCast(self), param1);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#formatChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#formatChanged)
     ///
     /// ``` self: QtC.QAudioDecoder, format: QtC.QAudioFormat ```
     pub fn FormatChanged(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QAudioDecoder_FormatChanged(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#error)
     ///
     /// ``` self: QtC.QAudioDecoder, errorVal: qaudiodecoder_enums.Error ```
     pub fn Error2(self: ?*anyopaque, errorVal: i32) void {
         qtc.QAudioDecoder_Error2(@ptrCast(self), @intCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#sourceChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#sourceChanged)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn SourceChanged(self: ?*anyopaque) void {
         qtc.QAudioDecoder_SourceChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#positionChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#positionChanged)
     ///
     /// ``` self: QtC.QAudioDecoder, position: i64 ```
     pub fn PositionChanged(self: ?*anyopaque, position: i64) void {
         qtc.QAudioDecoder_PositionChanged(@ptrCast(self), @intCast(position));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#durationChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#durationChanged)
     ///
     /// ``` self: QtC.QAudioDecoder, duration: i64 ```
     pub fn DurationChanged(self: ?*anyopaque, duration: i64) void {
         qtc.QAudioDecoder_DurationChanged(@ptrCast(self), @intCast(duration));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -259,7 +259,7 @@ pub const qaudiodecoder = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -274,7 +274,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QAudioDecoder, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -287,7 +287,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QAudioDecoder, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -300,7 +300,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -309,7 +309,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -318,7 +318,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -327,7 +327,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -336,7 +336,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QAudioDecoder, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -345,7 +345,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -354,7 +354,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAudioDecoder, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -363,7 +363,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAudioDecoder, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -372,7 +372,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAudioDecoder, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -381,7 +381,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAudioDecoder, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -390,7 +390,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QAudioDecoder, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -404,7 +404,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QAudioDecoder, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -413,7 +413,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QAudioDecoder, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -422,7 +422,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QAudioDecoder, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -431,7 +431,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -440,7 +440,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAudioDecoder, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -451,7 +451,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -460,7 +460,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -469,7 +469,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -478,7 +478,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -487,7 +487,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QAudioDecoder, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -497,7 +497,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QAudioDecoder, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -507,7 +507,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QAudioDecoder, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -531,7 +531,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -540,7 +540,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -549,7 +549,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -558,7 +558,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioDecoder, callback: *const fn (self: QtC.QAudioDecoder) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -567,7 +567,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -576,7 +576,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QAudioDecoder, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -586,7 +586,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QAudioDecoder ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -595,7 +595,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAudioDecoder, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -604,7 +604,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAudioDecoder, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -613,7 +613,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -622,7 +622,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAudioDecoder, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -633,7 +633,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioDecoder, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -642,7 +642,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QAudioDecoder, callback: *const fn (self: QtC.QAudioDecoder, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -651,7 +651,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -662,7 +662,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -673,7 +673,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -684,7 +684,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -695,7 +695,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -706,7 +706,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -717,7 +717,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -728,7 +728,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -739,7 +739,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -750,7 +750,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -761,7 +761,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -772,7 +772,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -783,7 +783,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -794,7 +794,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -805,7 +805,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -816,7 +816,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -827,7 +827,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -838,7 +838,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -849,7 +849,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -860,7 +860,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -871,7 +871,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -882,7 +882,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -893,7 +893,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -904,7 +904,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -915,7 +915,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -926,7 +926,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -937,7 +937,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -948,7 +948,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -960,7 +960,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -972,7 +972,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -983,7 +983,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -994,7 +994,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1005,7 +1005,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1016,7 +1016,7 @@ pub const qaudiodecoder = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1025,7 +1025,7 @@ pub const qaudiodecoder = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodecoder.html#dtor.QAudioDecoder)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudiodecoder.html#dtor.QAudioDecoder)
     ///
     /// Delete this object from C++ memory.
     ///

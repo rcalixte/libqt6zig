@@ -17,28 +17,28 @@ pub const ksyntaxhighlighting__state = struct {
         return qtc.KSyntaxHighlighting__State_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-state.html#operator-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#operator-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__State, rhs: QtC.KSyntaxHighlighting__State ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__State_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-state.html#operator-eq-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#operator-eq-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__State, other: QtC.KSyntaxHighlighting__State ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__State_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-state.html#operator-not-eq)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#operator-not-eq)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__State, other: QtC.KSyntaxHighlighting__State ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.KSyntaxHighlighting__State_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://api.kde.org/ksyntaxhighlighting-state.html#indentationBasedFoldingEnabled)
+    /// [Upstream resources](https://api.kde.org/ksyntaxhighlighting-state.html#indentationBasedFoldingEnabled)
     ///
     /// ``` self: QtC.KSyntaxHighlighting__State ```
     pub fn IndentationBasedFoldingEnabled(self: ?*anyopaque) bool {

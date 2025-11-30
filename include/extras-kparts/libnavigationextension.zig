@@ -16,7 +16,7 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_new(@ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -48,7 +48,7 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -60,14 +60,14 @@ pub const kparts__navigationextension = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#xOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#xOffset)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn XOffset(self: ?*anyopaque) i32 {
         return qtc.KParts__NavigationExtension_XOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#xOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#xOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -76,7 +76,7 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnXOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#xOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#xOffset)
     ///
     /// Base class method implementation
     ///
@@ -85,14 +85,14 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_QBaseXOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#yOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn YOffset(self: ?*anyopaque) i32 {
         return qtc.KParts__NavigationExtension_YOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#yOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
     ///
     /// Allows for overriding the related default method
     ///
@@ -101,7 +101,7 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnYOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#yOffset)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#yOffset)
     ///
     /// Base class method implementation
     ///
@@ -110,14 +110,14 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_QBaseYOffset(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#saveState)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, stream: QtC.QDataStream ```
     pub fn SaveState(self: ?*anyopaque, stream: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_SaveState(@ptrCast(self), @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#saveState)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -126,7 +126,7 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnSaveState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#saveState)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#saveState)
     ///
     /// Base class method implementation
     ///
@@ -135,14 +135,14 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_QBaseSaveState(@ptrCast(self), @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#restoreState)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, stream: QtC.QDataStream ```
     pub fn RestoreState(self: ?*anyopaque, stream: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_RestoreState(@ptrCast(self), @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#restoreState)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
     ///
     /// Allows for overriding the related default method
     ///
@@ -151,7 +151,7 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_OnRestoreState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#restoreState)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#restoreState)
     ///
     /// Base class method implementation
     ///
@@ -160,21 +160,21 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_QBaseRestoreState(@ptrCast(self), @ptrCast(stream));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#isURLDropHandlingEnabled)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#isURLDropHandlingEnabled)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn IsURLDropHandlingEnabled(self: ?*anyopaque) bool {
         return qtc.KParts__NavigationExtension_IsURLDropHandlingEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#setURLDropHandlingEnabled)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setURLDropHandlingEnabled)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, enable: bool ```
     pub fn SetURLDropHandlingEnabled(self: ?*anyopaque, enable: bool) void {
         qtc.KParts__NavigationExtension_SetURLDropHandlingEnabled(@ptrCast(self), enable);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#isActionEnabled)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#isActionEnabled)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, name: []const u8 ```
     pub fn IsActionEnabled(self: ?*anyopaque, name: []const u8) bool {
@@ -182,7 +182,7 @@ pub const kparts__navigationextension = struct {
         return qtc.KParts__NavigationExtension_IsActionEnabled(@ptrCast(self), name_Cstring);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#actionText)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#actionText)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, name: []const u8, allocator: std.mem.Allocator ```
     pub fn ActionText(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -194,21 +194,21 @@ pub const kparts__navigationextension = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#childObject)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#childObject)
     ///
     /// ``` obj: QtC.QObject ```
     pub fn ChildObject(obj: ?*anyopaque) QtC.KParts__NavigationExtension {
         return qtc.KParts__NavigationExtension_ChildObject(@ptrCast(obj));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#pasteRequest)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#pasteRequest)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn PasteRequest(self: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_PasteRequest(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#enableAction)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#enableAction)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, name: []const u8, enabled: bool ```
     pub fn EnableAction(self: ?*anyopaque, name: []const u8, enabled: bool) void {
@@ -216,7 +216,7 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_EnableAction(@ptrCast(self), name_Cstring, enabled);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#setActionText)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setActionText)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, name: []const u8, text: []const u8 ```
     pub fn SetActionText(self: ?*anyopaque, name: []const u8, text: []const u8) void {
@@ -228,28 +228,28 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_SetActionText(@ptrCast(self), name_Cstring, text_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, url: QtC.QUrl ```
     pub fn OpenUrlRequest(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_OpenUrlRequest(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#openUrlRequestDelayed)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequestDelayed)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, url: QtC.QUrl, arguments: QtC.KParts__OpenUrlArguments ```
     pub fn OpenUrlRequestDelayed(self: ?*anyopaque, url: ?*anyopaque, arguments: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_OpenUrlRequestDelayed(@ptrCast(self), @ptrCast(url), @ptrCast(arguments));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#openUrlNotify)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlNotify)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn OpenUrlNotify(self: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_OpenUrlNotify(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#setLocationBarUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setLocationBarUrl)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, url: []const u8 ```
     pub fn SetLocationBarUrl(self: ?*anyopaque, url: []const u8) void {
@@ -260,35 +260,35 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_SetLocationBarUrl(@ptrCast(self), url_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#setIconUrl)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setIconUrl)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, url: QtC.QUrl ```
     pub fn SetIconUrl(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_SetIconUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#createNewWindow)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#createNewWindow)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, url: QtC.QUrl ```
     pub fn CreateNewWindow(self: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_CreateNewWindow(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#loadingProgress)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#loadingProgress)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, percent: i32 ```
     pub fn LoadingProgress(self: ?*anyopaque, percent: i32) void {
         qtc.KParts__NavigationExtension_LoadingProgress(@ptrCast(self), @intCast(percent));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#speedProgress)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#speedProgress)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, bytesPerSecond: i32 ```
     pub fn SpeedProgress(self: ?*anyopaque, bytesPerSecond: i32) void {
         qtc.KParts__NavigationExtension_SpeedProgress(@ptrCast(self), @intCast(bytesPerSecond));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#infoMessage)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#infoMessage)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, param1: []const u8 ```
     pub fn InfoMessage(self: ?*anyopaque, param1: []const u8) void {
@@ -299,35 +299,35 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_InfoMessage(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, items: QtC.KFileItemList ```
     pub fn PopupMenu(self: ?*anyopaque, global: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_PopupMenu(@ptrCast(self), @ptrCast(global), @ptrCast(items));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl ```
     pub fn PopupMenu2(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_PopupMenu2(@ptrCast(self), @ptrCast(global), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#selectionInfo)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#selectionInfo)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, items: QtC.KFileItemList ```
     pub fn SelectionInfo(self: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_SelectionInfo(@ptrCast(self), @ptrCast(items));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#mouseOverInfo)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#mouseOverInfo)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, item: QtC.KFileItem ```
     pub fn MouseOverInfo(self: ?*anyopaque, item: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_MouseOverInfo(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#addWebSideBar)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#addWebSideBar)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, url: QtC.QUrl, name: []const u8 ```
     pub fn AddWebSideBar(self: ?*anyopaque, url: ?*anyopaque, name: []const u8) void {
@@ -338,42 +338,42 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_AddWebSideBar(@ptrCast(self), @ptrCast(url), name_str);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#moveTopLevelWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#moveTopLevelWidget)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, x: i32, y: i32 ```
     pub fn MoveTopLevelWidget(self: ?*anyopaque, x: i32, y: i32) void {
         qtc.KParts__NavigationExtension_MoveTopLevelWidget(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#resizeTopLevelWidget)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#resizeTopLevelWidget)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, w: i32, h: i32 ```
     pub fn ResizeTopLevelWidget(self: ?*anyopaque, w: i32, h: i32) void {
         qtc.KParts__NavigationExtension_ResizeTopLevelWidget(@ptrCast(self), @intCast(w), @intCast(h));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#requestFocus)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#requestFocus)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, part: QtC.KParts__ReadOnlyPart ```
     pub fn RequestFocus(self: ?*anyopaque, part: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_RequestFocus(@ptrCast(self), @ptrCast(part));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#setPageSecurity)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#setPageSecurity)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, pageSecurity: i32 ```
     pub fn SetPageSecurity(self: ?*anyopaque, pageSecurity: i32) void {
         qtc.KParts__NavigationExtension_SetPageSecurity(@ptrCast(self), @intCast(pageSecurity));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#itemsRemoved)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#itemsRemoved)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, items: QtC.KFileItemList ```
     pub fn ItemsRemoved(self: ?*anyopaque, items: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_ItemsRemoved(@ptrCast(self), @ptrCast(items));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -386,7 +386,7 @@ pub const kparts__navigationextension = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -399,28 +399,28 @@ pub const kparts__navigationextension = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#openUrlRequest)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, url: QtC.QUrl, arguments: QtC.KParts__OpenUrlArguments ```
     pub fn OpenUrlRequest2(self: ?*anyopaque, url: ?*anyopaque, arguments: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_OpenUrlRequest2(@ptrCast(self), @ptrCast(url), @ptrCast(arguments));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, items: QtC.KFileItemList, arguments: QtC.KParts__OpenUrlArguments ```
     pub fn PopupMenu3(self: ?*anyopaque, global: ?*anyopaque, items: ?*anyopaque, arguments: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_PopupMenu3(@ptrCast(self), @ptrCast(global), @ptrCast(items), @ptrCast(arguments));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, items: QtC.KFileItemList, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag ```
     pub fn PopupMenu4(self: ?*anyopaque, global: ?*anyopaque, items: ?*anyopaque, arguments: ?*anyopaque, flags: i32) void {
         qtc.KParts__NavigationExtension_PopupMenu4(@ptrCast(self), @ptrCast(global), @ptrCast(items), @ptrCast(arguments), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, items: QtC.KFileItemList, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag, actionGroups: map_constu8_qtcqaction, allocator: std.mem.Allocator ```
     pub fn PopupMenu5(self: ?*anyopaque, global: ?*anyopaque, items: ?*anyopaque, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_anyopaque, allocator: std.mem.Allocator) void {
@@ -447,28 +447,28 @@ pub const kparts__navigationextension = struct {
         qtc.KParts__NavigationExtension_PopupMenu5(@ptrCast(self), @ptrCast(global), @ptrCast(items), @ptrCast(arguments), @intCast(flags), actionGroups_map);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16 ```
     pub fn PopupMenu32(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16) void {
         qtc.KParts__NavigationExtension_PopupMenu32(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode);
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16, arguments: QtC.KParts__OpenUrlArguments ```
     pub fn PopupMenu42(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_PopupMenu42(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode, @ptrCast(arguments));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag ```
     pub fn PopupMenu52(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque, flags: i32) void {
         qtc.KParts__NavigationExtension_PopupMenu52(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode, @ptrCast(arguments), @intCast(flags));
     }
 
-    /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
+    /// [Upstream resources](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag, actionGroups: map_constu8_qtcqaction, allocator: std.mem.Allocator ```
     pub fn PopupMenu6(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_anyopaque, allocator: std.mem.Allocator) void {
@@ -497,7 +497,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -510,7 +510,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -523,7 +523,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -532,7 +532,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -541,7 +541,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -550,7 +550,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -559,7 +559,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -568,7 +568,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -577,7 +577,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -586,7 +586,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -595,7 +595,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -604,7 +604,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -613,7 +613,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -627,7 +627,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -636,7 +636,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -645,7 +645,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -654,7 +654,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -663,7 +663,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -674,7 +674,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -683,7 +683,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -692,7 +692,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -701,7 +701,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -710,7 +710,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -720,7 +720,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -730,7 +730,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -754,7 +754,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -763,7 +763,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -772,7 +772,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -781,7 +781,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, callback: *const fn (self: QtC.KParts__NavigationExtension) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -790,7 +790,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -799,7 +799,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -809,7 +809,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.KParts__NavigationExtension ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -818,7 +818,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -827,7 +827,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -836,7 +836,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -845,7 +845,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -856,7 +856,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -865,7 +865,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.KParts__NavigationExtension, callback: *const fn (self: QtC.KParts__NavigationExtension, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -874,7 +874,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -885,7 +885,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -896,7 +896,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -907,7 +907,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -918,7 +918,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -929,7 +929,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -940,7 +940,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -951,7 +951,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -962,7 +962,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -973,7 +973,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -984,7 +984,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -995,7 +995,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1006,7 +1006,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1017,7 +1017,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1028,7 +1028,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1039,7 +1039,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1050,7 +1050,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1061,7 +1061,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1072,7 +1072,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1083,7 +1083,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1094,7 +1094,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1105,7 +1105,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1116,7 +1116,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1127,7 +1127,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1138,7 +1138,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1149,7 +1149,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1160,7 +1160,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1171,7 +1171,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1183,7 +1183,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1195,7 +1195,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1206,7 +1206,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1217,7 +1217,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1228,7 +1228,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1239,7 +1239,7 @@ pub const kparts__navigationextension = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///

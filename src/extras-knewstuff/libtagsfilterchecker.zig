@@ -24,7 +24,7 @@ pub const knscore__tagsfilterchecker = struct {
         return qtc.KNSCore__TagsFilterChecker_new(tagFilter_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/knscore-tagsfilterchecker.html#filterAccepts)
+    /// [Upstream resources](https://api.kde.org/knscore-tagsfilterchecker.html#filterAccepts)
     ///
     /// ``` self: QtC.KNSCore__TagsFilterChecker, tags: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FilterAccepts(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) bool {

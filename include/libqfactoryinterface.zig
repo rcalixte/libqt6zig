@@ -4,7 +4,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qfactoryinterface.html
 pub const qfactoryinterface = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfactoryinterface.html#keys)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#keys)
     ///
     /// ``` self: QtC.QFactoryInterface, allocator: std.mem.Allocator ```
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -26,7 +26,7 @@ pub const qfactoryinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfactoryinterface.html#dtor.QFactoryInterface)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#dtor.QFactoryInterface)
     ///
     /// Delete this object from C++ memory.
     ///

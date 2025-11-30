@@ -31,7 +31,7 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_new3(@ptrCast(parent), @ptrCast(db));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -63,7 +63,7 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -75,7 +75,7 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
     ///
     /// ``` self: QtC.QSqlTableModel, tableName: []const u8 ```
     pub fn SetTable(self: ?*anyopaque, tableName: []const u8) void {
@@ -86,7 +86,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_SetTable(@ptrCast(self), tableName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
     ///
     /// Allows for overriding the related default method
     ///
@@ -95,7 +95,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
     ///
     /// Base class method implementation
     ///
@@ -108,7 +108,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseSetTable(@ptrCast(self), tableName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#tableName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#tableName)
     ///
     /// ``` self: QtC.QSqlTableModel, allocator: std.mem.Allocator ```
     pub fn TableName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -119,7 +119,7 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
     ///
     /// ``` self: QtC.QSqlTableModel, index: QtC.QModelIndex ```
     ///
@@ -128,7 +128,7 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
     ///
     /// Allows for overriding the related default method
     ///
@@ -137,7 +137,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
     ///
     /// Base class method implementation
     ///
@@ -148,28 +148,28 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#record)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#record)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Record(self: ?*anyopaque) QtC.QSqlRecord {
         return qtc.QSqlTableModel_Record(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#record)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#record)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn Record2(self: ?*anyopaque, row: i32) QtC.QSqlRecord {
         return qtc.QSqlTableModel_Record2(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
     ///
     /// ``` self: QtC.QSqlTableModel, idx: QtC.QModelIndex, role: i32 ```
     pub fn Data(self: ?*anyopaque, idx: ?*anyopaque, role: i32) QtC.QVariant {
         return qtc.QSqlTableModel_Data(@ptrCast(self), @ptrCast(idx), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
     ///
     /// Allows for overriding the related default method
     ///
@@ -178,7 +178,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
     ///
     /// Base class method implementation
     ///
@@ -187,14 +187,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseData(@ptrCast(self), @ptrCast(idx), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
     ///
     /// ``` self: QtC.QSqlTableModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32 ```
     pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
         return qtc.QSqlTableModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -203,7 +203,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
     ///
     /// Base class method implementation
     ///
@@ -212,14 +212,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
     ///
     /// ``` self: QtC.QSqlTableModel, index: QtC.QModelIndex ```
     pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QSqlTableModel_ClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -228,7 +228,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
     ///
     /// Base class method implementation
     ///
@@ -237,14 +237,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
     ///
     /// ``` self: QtC.QSqlTableModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32 ```
     pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
         return qtc.QSqlTableModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
     ///
     /// Allows for overriding the related default method
     ///
@@ -253,7 +253,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
     ///
     /// Base class method implementation
     ///
@@ -262,28 +262,28 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn IsDirty(self: ?*anyopaque) bool {
         return qtc.QSqlTableModel_IsDirty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
     ///
     /// ``` self: QtC.QSqlTableModel, index: QtC.QModelIndex ```
     pub fn IsDirty2(self: ?*anyopaque, index: ?*anyopaque) bool {
         return qtc.QSqlTableModel_IsDirty2(@ptrCast(self), @ptrCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QSqlTableModel_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
     ///
     /// Allows for overriding the related default method
     ///
@@ -292,7 +292,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
     ///
     /// Base class method implementation
     ///
@@ -301,14 +301,14 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseClear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
     ///
     /// ``` self: QtC.QSqlTableModel, strategy: qsqltablemodel_enums.EditStrategy ```
     pub fn SetEditStrategy(self: ?*anyopaque, strategy: i32) void {
         qtc.QSqlTableModel_SetEditStrategy(@ptrCast(self), @intCast(strategy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
     ///
     /// Allows for overriding the related default method
     ///
@@ -317,7 +317,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetEditStrategy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
     ///
     /// Base class method implementation
     ///
@@ -326,7 +326,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseSetEditStrategy(@ptrCast(self), @intCast(strategy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#editStrategy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#editStrategy)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     ///
@@ -335,21 +335,21 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_EditStrategy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryKey)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn PrimaryKey(self: ?*anyopaque) QtC.QSqlIndex {
         return qtc.QSqlTableModel_PrimaryKey(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#database)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#database)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Database(self: ?*anyopaque) QtC.QSqlDatabase {
         return qtc.QSqlTableModel_Database(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#fieldIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#fieldIndex)
     ///
     /// ``` self: QtC.QSqlTableModel, fieldName: []const u8 ```
     pub fn FieldIndex(self: ?*anyopaque, fieldName: []const u8) i32 {
@@ -360,14 +360,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_FieldIndex(@ptrCast(self), fieldName_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
     ///
     /// ``` self: QtC.QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QSqlTableModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -376,7 +376,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
     ///
     /// Base class method implementation
     ///
@@ -385,14 +385,14 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
     ///
     /// ``` self: QtC.QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder ```
     pub fn SetSort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QSqlTableModel_SetSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
     ///
     /// Allows for overriding the related default method
     ///
@@ -401,7 +401,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
     ///
     /// Base class method implementation
     ///
@@ -410,7 +410,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseSetSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#filter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#filter)
     ///
     /// ``` self: QtC.QSqlTableModel, allocator: std.mem.Allocator ```
     pub fn Filter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -421,7 +421,7 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
     ///
     /// ``` self: QtC.QSqlTableModel, filter: []const u8 ```
     pub fn SetFilter(self: ?*anyopaque, filter: []const u8) void {
@@ -432,7 +432,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_SetFilter(@ptrCast(self), filter_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
     ///
     /// Allows for overriding the related default method
     ///
@@ -441,7 +441,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
     ///
     /// Base class method implementation
     ///
@@ -454,14 +454,14 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseSetFilter(@ptrCast(self), filter_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
     ///
     /// ``` self: QtC.QSqlTableModel, parent: QtC.QModelIndex ```
     pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
         return qtc.QSqlTableModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
     ///
     /// Allows for overriding the related default method
     ///
@@ -470,7 +470,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
     ///
     /// Base class method implementation
     ///
@@ -479,14 +479,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
     ///
     /// ``` self: QtC.QSqlTableModel, column: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
         return qtc.QSqlTableModel_RemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
     ///
     /// Allows for overriding the related default method
     ///
@@ -495,7 +495,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
     ///
     /// Base class method implementation
     ///
@@ -504,14 +504,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseRemoveColumns(@ptrCast(self), @intCast(column), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
         return qtc.QSqlTableModel_RemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -520,7 +520,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
     ///
     /// Base class method implementation
     ///
@@ -529,14 +529,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseRemoveRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, count: i32, parent: QtC.QModelIndex ```
     pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
         return qtc.QSqlTableModel_InsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
     ///
     /// Allows for overriding the related default method
     ///
@@ -545,7 +545,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
     ///
     /// Base class method implementation
     ///
@@ -554,28 +554,28 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseInsertRows(@ptrCast(self), @intCast(row), @intCast(count), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRecord)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord ```
     pub fn InsertRecord(self: ?*anyopaque, row: i32, record: ?*anyopaque) bool {
         return qtc.QSqlTableModel_InsertRecord(@ptrCast(self), @intCast(row), @ptrCast(record));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setRecord)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord ```
     pub fn SetRecord(self: ?*anyopaque, row: i32, record: ?*anyopaque) bool {
         return qtc.QSqlTableModel_SetRecord(@ptrCast(self), @intCast(row), @ptrCast(record));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn RevertRow(self: ?*anyopaque, row: i32) void {
         qtc.QSqlTableModel_RevertRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
     ///
     /// Allows for overriding the related default method
     ///
@@ -584,7 +584,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRevertRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
     ///
     /// Base class method implementation
     ///
@@ -593,14 +593,14 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseRevertRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Select(self: ?*anyopaque) bool {
         return qtc.QSqlTableModel_Select(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
     ///
     /// Allows for overriding the related default method
     ///
@@ -609,7 +609,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSelect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
     ///
     /// Base class method implementation
     ///
@@ -618,14 +618,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseSelect(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn SelectRow(self: ?*anyopaque, row: i32) bool {
         return qtc.QSqlTableModel_SelectRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
     ///
     /// Allows for overriding the related default method
     ///
@@ -634,7 +634,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSelectRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
     ///
     /// Base class method implementation
     ///
@@ -643,14 +643,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseSelectRow(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Submit(self: ?*anyopaque) bool {
         return qtc.QSqlTableModel_Submit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
     ///
     /// Allows for overriding the related default method
     ///
@@ -659,7 +659,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
     ///
     /// Base class method implementation
     ///
@@ -668,14 +668,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseSubmit(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Revert(self: ?*anyopaque) void {
         qtc.QSqlTableModel_Revert(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
     ///
     /// Allows for overriding the related default method
     ///
@@ -684,7 +684,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
     ///
     /// Base class method implementation
     ///
@@ -693,84 +693,84 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseRevert(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#submitAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submitAll)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn SubmitAll(self: ?*anyopaque) bool {
         return qtc.QSqlTableModel_SubmitAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revertAll)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertAll)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn RevertAll(self: ?*anyopaque) void {
         qtc.QSqlTableModel_RevertAll(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primeInsert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primeInsert)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord ```
     pub fn PrimeInsert(self: ?*anyopaque, row: i32, record: ?*anyopaque) void {
         qtc.QSqlTableModel_PrimeInsert(@ptrCast(self), @intCast(row), @ptrCast(record));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primeInsert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primeInsert)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord) callconv(.c) void ```
     pub fn OnPrimeInsert(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_PrimeInsert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
     ///
     /// ``` self: QtC.QSqlTableModel, record: QtC.QSqlRecord ```
     pub fn BeforeInsert(self: ?*anyopaque, record: ?*anyopaque) void {
         qtc.QSqlTableModel_BeforeInsert(@ptrCast(self), @ptrCast(record));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, record: QtC.QSqlRecord) callconv(.c) void ```
     pub fn OnBeforeInsert(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_BeforeInsert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord ```
     pub fn BeforeUpdate(self: ?*anyopaque, row: i32, record: ?*anyopaque) void {
         qtc.QSqlTableModel_BeforeUpdate(@ptrCast(self), @intCast(row), @ptrCast(record));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord) callconv(.c) void ```
     pub fn OnBeforeUpdate(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_BeforeUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn BeforeDelete(self: ?*anyopaque, row: i32) void {
         qtc.QSqlTableModel_BeforeDelete(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) void ```
     pub fn OnBeforeDelete(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QSqlTableModel_Connect_BeforeDelete(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, values: QtC.QSqlRecord ```
     pub fn UpdateRowInTable(self: ?*anyopaque, row: i32, values: ?*anyopaque) bool {
         return qtc.QSqlTableModel_UpdateRowInTable(@ptrCast(self), @intCast(row), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
     ///
     /// Allows for overriding the related default method
     ///
@@ -779,7 +779,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnUpdateRowInTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
     ///
     /// Base class method implementation
     ///
@@ -788,14 +788,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseUpdateRowInTable(@ptrCast(self), @intCast(row), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
     ///
     /// ``` self: QtC.QSqlTableModel, values: QtC.QSqlRecord ```
     pub fn InsertRowIntoTable(self: ?*anyopaque, values: ?*anyopaque) bool {
         return qtc.QSqlTableModel_InsertRowIntoTable(@ptrCast(self), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
     ///
     /// Allows for overriding the related default method
     ///
@@ -804,7 +804,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnInsertRowIntoTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
     ///
     /// Base class method implementation
     ///
@@ -813,14 +813,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseInsertRowIntoTable(@ptrCast(self), @ptrCast(values));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn DeleteRowFromTable(self: ?*anyopaque, row: i32) bool {
         return qtc.QSqlTableModel_DeleteRowFromTable(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
     ///
     /// Allows for overriding the related default method
     ///
@@ -829,7 +829,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnDeleteRowFromTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
     ///
     /// Base class method implementation
     ///
@@ -838,7 +838,7 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseDeleteRowFromTable(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
     ///
     /// ``` self: QtC.QSqlTableModel, allocator: std.mem.Allocator ```
     pub fn OrderByClause(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -849,7 +849,7 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
     ///
     /// Allows for overriding the related default method
     ///
@@ -858,7 +858,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnOrderByClause(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
     ///
     /// Base class method implementation
     ///
@@ -871,7 +871,7 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
     /// ``` self: QtC.QSqlTableModel, allocator: std.mem.Allocator ```
     pub fn SelectStatement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -882,7 +882,7 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
     /// Allows for overriding the related default method
     ///
@@ -891,7 +891,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSelectStatement(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
     /// Base class method implementation
     ///
@@ -904,14 +904,14 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
     ///
     /// ``` self: QtC.QSqlTableModel, key: QtC.QSqlIndex ```
     pub fn SetPrimaryKey(self: ?*anyopaque, key: ?*anyopaque) void {
         qtc.QSqlTableModel_SetPrimaryKey(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
     ///
     /// Allows for overriding the related default method
     ///
@@ -920,7 +920,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetPrimaryKey(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
     ///
     /// Base class method implementation
     ///
@@ -929,14 +929,14 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QBaseSetPrimaryKey(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
     ///
     /// ``` self: QtC.QSqlTableModel, item: QtC.QModelIndex ```
     pub fn IndexInQuery(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
         return qtc.QSqlTableModel_IndexInQuery(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
     ///
     /// Allows for overriding the related default method
     ///
@@ -945,7 +945,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnIndexInQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
     ///
     /// Base class method implementation
     ///
@@ -954,14 +954,14 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBaseIndexInQuery(@ptrCast(self), @ptrCast(item));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn PrimaryValues(self: ?*anyopaque, row: i32) QtC.QSqlRecord {
         return qtc.QSqlTableModel_PrimaryValues(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
     ///
     /// Allows for overriding the related default method
     ///
@@ -970,7 +970,7 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnPrimaryValues(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
     ///
     /// Base class method implementation
     ///
@@ -979,7 +979,7 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_QBasePrimaryValues(@ptrCast(self), @intCast(row));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -992,7 +992,7 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -1007,7 +1007,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
     ///
     /// ``` self: QtC.QSqlTableModel, query: QtC.QSqlQuery ```
     pub fn SetQuery(self: ?*anyopaque, query: ?*anyopaque) void {
@@ -1016,7 +1016,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
     ///
     /// ``` self: QtC.QSqlTableModel, query: []const u8 ```
     pub fn SetQuery2(self: ?*anyopaque, query: []const u8) void {
@@ -1029,7 +1029,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#query)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#query)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Query(self: ?*anyopaque) QtC.QSqlQuery {
@@ -1038,7 +1038,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#lastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#lastError)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn LastError(self: ?*anyopaque) QtC.QSqlError {
@@ -1047,7 +1047,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setQuery)
     ///
     /// ``` self: QtC.QSqlTableModel, query: []const u8, db: QtC.QSqlDatabase ```
     pub fn SetQuery22(self: ?*anyopaque, query: []const u8, db: ?*anyopaque) void {
@@ -1060,7 +1060,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#query)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#query)
     ///
     /// ``` self: QtC.QSqlTableModel, param1: QtC.Disambiguated_t ```
     pub fn Query1(self: ?*anyopaque, param1: QtC.Disambiguated_t) QtC.QSqlQuery {
@@ -1069,7 +1069,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, column: i32 ```
     pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
@@ -1078,7 +1078,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// ``` self: QtC.QSqlTableModel, child: QtC.QModelIndex ```
     pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
@@ -1087,7 +1087,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1098,7 +1098,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
     ///
     /// Base class method implementation
     ///
@@ -1109,7 +1109,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// ``` self: QtC.QSqlTableModel, parent: QtC.QModelIndex ```
     pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
@@ -1118,7 +1118,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Allows for overriding the related default method
     ///
@@ -1129,7 +1129,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
     ///
     /// Base class method implementation
     ///
@@ -1140,7 +1140,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
@@ -1149,7 +1149,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QSqlTableModel, column: i32 ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
@@ -1158,7 +1158,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32 ```
     pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
@@ -1167,7 +1167,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QSqlTableModel, column: i32 ```
     pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
@@ -1176,7 +1176,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRow)
     ///
     /// ``` self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceRow: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -1185,7 +1185,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumn)
     ///
     /// ``` self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, destinationParent: QtC.QModelIndex, destinationChild: i32 ```
     pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
@@ -1194,7 +1194,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QSqlTableModel, index: QtC.QModelIndex ```
     pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
@@ -1203,7 +1203,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
@@ -1212,7 +1212,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1221,7 +1221,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
     pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
@@ -1230,7 +1230,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
@@ -1239,7 +1239,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn LayoutChanged(self: ?*anyopaque) void {
@@ -1248,7 +1248,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1257,7 +1257,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
@@ -1266,7 +1266,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1275,7 +1275,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, column: i32, parent: QtC.QModelIndex ```
     pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
@@ -1284,7 +1284,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, parent: QtC.QModelIndex ```
     pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1293,7 +1293,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QSqlTableModel, column: i32, parent: QtC.QModelIndex ```
     pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1302,7 +1302,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeRow)
     ///
     /// ``` self: QtC.QSqlTableModel, row: i32, parent: QtC.QModelIndex ```
     pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
@@ -1311,7 +1311,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumn)
     ///
     /// ``` self: QtC.QSqlTableModel, column: i32, parent: QtC.QModelIndex ```
     pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
@@ -1320,7 +1320,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
     /// ``` self: QtC.QSqlTableModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
@@ -1329,7 +1329,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
@@ -1342,7 +1342,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
@@ -1351,7 +1351,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1364,7 +1364,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1373,7 +1373,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1386,7 +1386,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1395,7 +1395,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
@@ -1408,7 +1408,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
@@ -1417,7 +1417,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
@@ -1430,7 +1430,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
@@ -1439,7 +1439,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QSqlTableModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -1452,7 +1452,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QSqlTableModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -1465,7 +1465,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -1474,7 +1474,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -1483,7 +1483,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -1492,7 +1492,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -1501,7 +1501,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QSqlTableModel, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -1510,7 +1510,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -1519,7 +1519,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSqlTableModel, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -1528,7 +1528,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSqlTableModel, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -1537,7 +1537,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSqlTableModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -1546,7 +1546,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSqlTableModel, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -1555,7 +1555,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QSqlTableModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -1569,7 +1569,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QSqlTableModel, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -1578,7 +1578,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QSqlTableModel, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -1587,7 +1587,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QSqlTableModel, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -1596,7 +1596,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -1605,7 +1605,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSqlTableModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -1616,7 +1616,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -1625,7 +1625,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -1634,7 +1634,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -1643,7 +1643,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -1652,7 +1652,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QSqlTableModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -1662,7 +1662,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QSqlTableModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -1672,7 +1672,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QSqlTableModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -1696,7 +1696,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1705,7 +1705,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -1714,7 +1714,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -1723,7 +1723,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -1732,7 +1732,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QSqlTableModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -1742,7 +1742,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QSqlTableModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -1751,7 +1751,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSqlTableModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -1760,7 +1760,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSqlTableModel, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -1769,7 +1769,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1778,7 +1778,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSqlTableModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -1789,7 +1789,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlTableModel, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1798,7 +1798,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -1807,7 +1807,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#columnCount)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1818,7 +1818,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#columnCount)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1829,7 +1829,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#columnCount)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#columnCount)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1840,7 +1840,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1851,7 +1851,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setHeaderData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1862,7 +1862,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setHeaderData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setHeaderData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1873,7 +1873,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#insertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1884,7 +1884,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#insertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1895,7 +1895,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#insertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#insertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1906,7 +1906,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#fetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1917,7 +1917,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#fetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1928,7 +1928,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#fetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#fetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1939,7 +1939,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1950,7 +1950,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#canFetchMore)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1961,7 +1961,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#canFetchMore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#canFetchMore)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1972,7 +1972,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#roleNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#roleNames)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1997,7 +1997,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#queryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#queryChange)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2008,7 +2008,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#queryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#queryChange)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2019,7 +2019,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#queryChange)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#queryChange)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2030,7 +2030,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2041,7 +2041,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2052,7 +2052,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2063,7 +2063,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2074,7 +2074,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2085,7 +2085,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2096,7 +2096,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2107,7 +2107,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2118,7 +2118,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractTableModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2129,7 +2129,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2154,7 +2154,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2182,7 +2182,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2208,7 +2208,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2234,7 +2234,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2245,7 +2245,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2260,7 +2260,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2275,7 +2275,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2286,7 +2286,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2297,7 +2297,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2308,7 +2308,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2319,7 +2319,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2332,7 +2332,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2345,7 +2345,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2356,7 +2356,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2369,7 +2369,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2382,7 +2382,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2393,7 +2393,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2404,7 +2404,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2415,7 +2415,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2426,7 +2426,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2437,7 +2437,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2448,7 +2448,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2459,7 +2459,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2470,7 +2470,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2481,7 +2481,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2492,7 +2492,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2508,7 +2508,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2524,7 +2524,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2535,7 +2535,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2546,7 +2546,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2557,7 +2557,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2568,7 +2568,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2579,7 +2579,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2590,7 +2590,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2601,7 +2601,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2612,7 +2612,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2623,7 +2623,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2634,7 +2634,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2645,7 +2645,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2656,7 +2656,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2667,7 +2667,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2678,7 +2678,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2689,7 +2689,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2700,7 +2700,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2711,7 +2711,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2722,7 +2722,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2733,7 +2733,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2744,7 +2744,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2755,7 +2755,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2766,7 +2766,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2777,7 +2777,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2788,7 +2788,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2799,7 +2799,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2810,7 +2810,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2821,7 +2821,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2832,7 +2832,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2843,7 +2843,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2854,7 +2854,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2865,7 +2865,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2876,7 +2876,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2887,7 +2887,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2898,7 +2898,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2909,7 +2909,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2920,7 +2920,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2931,7 +2931,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2942,7 +2942,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2953,7 +2953,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2964,7 +2964,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -2975,7 +2975,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -2986,7 +2986,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -2997,7 +2997,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3008,7 +3008,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3019,7 +3019,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3030,7 +3030,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3041,7 +3041,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3052,7 +3052,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3063,7 +3063,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3074,7 +3074,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3085,7 +3085,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3096,7 +3096,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3107,7 +3107,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3118,7 +3118,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3129,7 +3129,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3140,7 +3140,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3151,7 +3151,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3162,7 +3162,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endResetModel)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3173,7 +3173,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endResetModel)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3184,7 +3184,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#endResetModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endResetModel)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3195,7 +3195,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setLastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setLastError)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3206,7 +3206,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setLastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setLastError)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3217,7 +3217,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QSqlQueryModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqlquerymodel.html#setLastError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setLastError)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3228,7 +3228,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3239,7 +3239,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3250,7 +3250,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3261,7 +3261,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3276,7 +3276,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3291,7 +3291,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3302,7 +3302,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3313,7 +3313,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3324,7 +3324,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3335,7 +3335,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3346,7 +3346,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3357,7 +3357,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3368,7 +3368,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3379,7 +3379,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3390,7 +3390,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3401,7 +3401,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3412,7 +3412,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3423,7 +3423,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3434,7 +3434,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3445,7 +3445,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3456,7 +3456,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3467,7 +3467,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3478,7 +3478,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3489,7 +3489,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3500,7 +3500,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3519,7 +3519,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3538,7 +3538,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3549,7 +3549,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3565,7 +3565,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3581,7 +3581,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3592,7 +3592,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3603,7 +3603,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3614,7 +3614,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3625,7 +3625,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3636,7 +3636,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3647,7 +3647,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3658,7 +3658,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3670,7 +3670,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3682,7 +3682,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3693,7 +3693,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -3704,7 +3704,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -3715,7 +3715,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -3726,7 +3726,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3737,7 +3737,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3748,7 +3748,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3759,7 +3759,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3770,7 +3770,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3781,7 +3781,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsInserted)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3792,7 +3792,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3803,7 +3803,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsRemoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3814,7 +3814,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelAboutToBeReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3825,7 +3825,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#modelReset)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3836,7 +3836,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3847,7 +3847,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#rowsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3858,7 +3858,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsAboutToBeMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3869,7 +3869,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnsMoved)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3880,7 +3880,7 @@ pub const qsqltablemodel = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -3889,7 +3889,7 @@ pub const qsqltablemodel = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#dtor.QSqlTableModel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#dtor.QSqlTableModel)
     ///
     /// Delete this object from C++ memory.
     ///

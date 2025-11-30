@@ -68,7 +68,7 @@ pub const qboxset = struct {
         return qtc.QBoxSet_new6(@floatCast(le), @floatCast(lq), @floatCast(m), @floatCast(uq), @floatCast(ue), label_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -100,7 +100,7 @@ pub const qboxset = struct {
         return qtc.QBoxSet_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -112,14 +112,14 @@ pub const qboxset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#append)
     ///
     /// ``` self: QtC.QBoxSet, value: f64 ```
     pub fn Append(self: ?*anyopaque, value: f64) void {
         qtc.QBoxSet_Append(@ptrCast(self), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#append)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#append)
     ///
     /// ``` self: QtC.QBoxSet, values: []f64 ```
     pub fn Append2(self: ?*anyopaque, values: []f64) void {
@@ -130,14 +130,14 @@ pub const qboxset = struct {
         qtc.QBoxSet_Append2(@ptrCast(self), values_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clear)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QBoxSet_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setLabel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setLabel)
     ///
     /// ``` self: QtC.QBoxSet, label: []const u8 ```
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
@@ -148,7 +148,7 @@ pub const qboxset = struct {
         qtc.QBoxSet_SetLabel(@ptrCast(self), label_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#label)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#label)
     ///
     /// ``` self: QtC.QBoxSet, allocator: std.mem.Allocator ```
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -159,210 +159,210 @@ pub const qboxset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-lt-lt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QBoxSet, value: *const f64 ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, value: *const f64) QtC.QBoxSet {
         return qtc.QBoxSet_OperatorShiftLeft(@ptrCast(self), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setValue)
     ///
     /// ``` self: QtC.QBoxSet, index: i32, value: f64 ```
     pub fn SetValue(self: ?*anyopaque, index: i32, value: f64) void {
         qtc.QBoxSet_SetValue(@ptrCast(self), @intCast(index), @floatCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#at)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#at)
     ///
     /// ``` self: QtC.QBoxSet, index: i32 ```
     pub fn At(self: ?*anyopaque, index: i32) f64 {
         return qtc.QBoxSet_At(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-5b-5d)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QBoxSet, index: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, index: i32) f64 {
         return qtc.QBoxSet_OperatorSubscript(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#count)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#count)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Count(self: ?*anyopaque) i32 {
         return qtc.QBoxSet_Count(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setPen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setPen)
     ///
     /// ``` self: QtC.QBoxSet, pen: QtC.QPen ```
     pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
         qtc.QBoxSet_SetPen(@ptrCast(self), @ptrCast(pen));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pen)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pen)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Pen(self: ?*anyopaque) QtC.QPen {
         return qtc.QBoxSet_Pen(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setBrush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setBrush)
     ///
     /// ``` self: QtC.QBoxSet, brush: QtC.QBrush ```
     pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
         qtc.QBoxSet_SetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brush)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brush)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Brush(self: ?*anyopaque) QtC.QBrush {
         return qtc.QBoxSet_Brush(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clicked)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Clicked(self: ?*anyopaque) void {
         qtc.QBoxSet_Clicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clicked)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#hovered)
     ///
     /// ``` self: QtC.QBoxSet, status: bool ```
     pub fn Hovered(self: ?*anyopaque, status: bool) void {
         qtc.QBoxSet_Hovered(@ptrCast(self), status);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#hovered)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#hovered)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet, status: bool) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QBoxSet_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pressed)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Pressed(self: ?*anyopaque) void {
         qtc.QBoxSet_Pressed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pressed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pressed)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#released)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Released(self: ?*anyopaque) void {
         qtc.QBoxSet_Released(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#released)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#released)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#doubleClicked)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn DoubleClicked(self: ?*anyopaque) void {
         qtc.QBoxSet_DoubleClicked(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#doubleClicked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#doubleClicked)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#penChanged)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn PenChanged(self: ?*anyopaque) void {
         qtc.QBoxSet_PenChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#penChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#penChanged)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brushChanged)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn BrushChanged(self: ?*anyopaque) void {
         qtc.QBoxSet_BrushChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brushChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brushChanged)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valuesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valuesChanged)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn ValuesChanged(self: ?*anyopaque) void {
         qtc.QBoxSet_ValuesChanged(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valuesChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valuesChanged)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnValuesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_ValuesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valueChanged)
     ///
     /// ``` self: QtC.QBoxSet, index: i32 ```
     pub fn ValueChanged(self: ?*anyopaque, index: i32) void {
         qtc.QBoxSet_ValueChanged(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valueChanged)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet, index: i32) callconv(.c) void ```
     pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QBoxSet_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#cleared)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#cleared)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Cleared(self: ?*anyopaque) void {
         qtc.QBoxSet_Cleared(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#cleared)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#cleared)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnCleared(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QBoxSet_Connect_Cleared(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -375,7 +375,7 @@ pub const qboxset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -390,7 +390,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QBoxSet, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -403,7 +403,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QBoxSet, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -416,7 +416,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -425,7 +425,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -434,7 +434,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -443,7 +443,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -452,7 +452,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QBoxSet, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -461,7 +461,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -470,7 +470,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QBoxSet, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -479,7 +479,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBoxSet, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -488,7 +488,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBoxSet, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -497,7 +497,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBoxSet, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -506,7 +506,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QBoxSet, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -520,7 +520,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QBoxSet, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -529,7 +529,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QBoxSet, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -538,7 +538,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QBoxSet, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -547,7 +547,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -556,7 +556,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QBoxSet, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -567,7 +567,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -576,7 +576,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -585,7 +585,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -594,7 +594,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -603,7 +603,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QBoxSet, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -613,7 +613,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QBoxSet, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -623,7 +623,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QBoxSet, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -647,7 +647,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -656,7 +656,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -665,7 +665,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -674,7 +674,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -683,7 +683,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -692,7 +692,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QBoxSet, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -702,7 +702,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QBoxSet ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -711,7 +711,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QBoxSet, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -720,7 +720,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBoxSet, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -729,7 +729,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -738,7 +738,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QBoxSet, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -749,7 +749,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxSet, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -758,7 +758,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QBoxSet, callback: *const fn (self: QtC.QBoxSet, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -767,7 +767,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -778,7 +778,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -789,7 +789,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -800,7 +800,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -811,7 +811,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -822,7 +822,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -833,7 +833,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -844,7 +844,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -855,7 +855,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -866,7 +866,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -877,7 +877,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -888,7 +888,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -899,7 +899,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -910,7 +910,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -921,7 +921,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -932,7 +932,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -943,7 +943,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -954,7 +954,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -965,7 +965,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -976,7 +976,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -987,7 +987,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -998,7 +998,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1009,7 +1009,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1020,7 +1020,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1031,7 +1031,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1042,7 +1042,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1053,7 +1053,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1064,7 +1064,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1076,7 +1076,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1088,7 +1088,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1099,7 +1099,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1110,7 +1110,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1121,7 +1121,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1132,7 +1132,7 @@ pub const qboxset = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1141,7 +1141,7 @@ pub const qboxset = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#dtor.QBoxSet)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#dtor.QBoxSet)
     ///
     /// Delete this object from C++ memory.
     ///

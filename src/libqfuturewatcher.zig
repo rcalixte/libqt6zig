@@ -6,7 +6,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qfuturewatcherbase.html
 pub const qfuturewatcherbase = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -24,7 +24,7 @@ pub const qfuturewatcherbase = struct {
         return qtc.QFutureWatcherBase_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -36,28 +36,28 @@ pub const qfuturewatcherbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValue)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValue)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn ProgressValue(self: ?*anyopaque) i32 {
         return qtc.QFutureWatcherBase_ProgressValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressMinimum)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressMinimum)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn ProgressMinimum(self: ?*anyopaque) i32 {
         return qtc.QFutureWatcherBase_ProgressMinimum(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressMaximum)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressMaximum)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn ProgressMaximum(self: ?*anyopaque) i32 {
         return qtc.QFutureWatcherBase_ProgressMaximum(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressText)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressText)
     ///
     /// ``` self: QtC.QFutureWatcherBase, allocator: std.mem.Allocator ```
     pub fn ProgressText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -68,231 +68,231 @@ pub const qfuturewatcherbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isStarted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isStarted)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsStarted(self: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_IsStarted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isFinished)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsFinished(self: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_IsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isRunning)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isRunning)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsRunning(self: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_IsRunning(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isCanceled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isCanceled)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsCanceled(self: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_IsCanceled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isPaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isPaused)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsPaused(self: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_IsPaused(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isSuspending)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isSuspending)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsSuspending(self: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_IsSuspending(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isSuspended)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isSuspended)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsSuspended(self: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_IsSuspended(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#waitForFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#waitForFinished)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn WaitForFinished(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_WaitForFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setPendingResultsLimit)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setPendingResultsLimit)
     ///
     /// ``` self: QtC.QFutureWatcherBase, limit: i32 ```
     pub fn SetPendingResultsLimit(self: ?*anyopaque, limit: i32) void {
         qtc.QFutureWatcherBase_SetPendingResultsLimit(@ptrCast(self), @intCast(limit));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#event)
     ///
     /// ``` self: QtC.QFutureWatcherBase, event: QtC.QEvent ```
     pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
         return qtc.QFutureWatcherBase_Event(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#started)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#started)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Started(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Started(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#started)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#started)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Finished(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Finished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Canceled(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Canceled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Paused(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Paused(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnPaused(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Paused(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Suspending(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Suspending(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnSuspending(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Suspending(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Suspended(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Suspended(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Resumed(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Resumed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
     ///
     /// ``` self: QtC.QFutureWatcherBase, resultIndex: i32 ```
     pub fn ResultReadyAt(self: ?*anyopaque, resultIndex: i32) void {
         qtc.QFutureWatcherBase_ResultReadyAt(@ptrCast(self), @intCast(resultIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, resultIndex: i32) callconv(.c) void ```
     pub fn OnResultReadyAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ResultReadyAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
     ///
     /// ``` self: QtC.QFutureWatcherBase, beginIndex: i32, endIndex: i32 ```
     pub fn ResultsReadyAt(self: ?*anyopaque, beginIndex: i32, endIndex: i32) void {
         qtc.QFutureWatcherBase_ResultsReadyAt(@ptrCast(self), @intCast(beginIndex), @intCast(endIndex));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, beginIndex: i32, endIndex: i32) callconv(.c) void ```
     pub fn OnResultsReadyAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ResultsReadyAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
     ///
     /// ``` self: QtC.QFutureWatcherBase, minimum: i32, maximum: i32 ```
     pub fn ProgressRangeChanged(self: ?*anyopaque, minimum: i32, maximum: i32) void {
         qtc.QFutureWatcherBase_ProgressRangeChanged(@ptrCast(self), @intCast(minimum), @intCast(maximum));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, minimum: i32, maximum: i32) callconv(.c) void ```
     pub fn OnProgressRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressRangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
     ///
     /// ``` self: QtC.QFutureWatcherBase, progressValue: i32 ```
     pub fn ProgressValueChanged(self: ?*anyopaque, progressValue: i32) void {
         qtc.QFutureWatcherBase_ProgressValueChanged(@ptrCast(self), @intCast(progressValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, progressValue: i32) callconv(.c) void ```
     pub fn OnProgressValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
     ///
     /// ``` self: QtC.QFutureWatcherBase, progressText: []const u8 ```
     pub fn ProgressTextChanged(self: ?*anyopaque, progressText: []const u8) void {
@@ -303,70 +303,70 @@ pub const qfuturewatcherbase = struct {
         qtc.QFutureWatcherBase_ProgressTextChanged(@ptrCast(self), progressText_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, progressText: [*:0]const u8) callconv(.c) void ```
     pub fn OnProgressTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#cancel)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#cancel)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Cancel(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Cancel(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setSuspended)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setSuspended)
     ///
     /// ``` self: QtC.QFutureWatcherBase, suspendVal: bool ```
     pub fn SetSuspended(self: ?*anyopaque, suspendVal: bool) void {
         qtc.QFutureWatcherBase_SetSuspended(@ptrCast(self), suspendVal);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspend)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspend)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Suspend(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Suspend(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resume)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Resume(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Resume(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#toggleSuspended)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#toggleSuspended)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn ToggleSuspended(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_ToggleSuspended(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setPaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setPaused)
     ///
     /// ``` self: QtC.QFutureWatcherBase, paused: bool ```
     pub fn SetPaused(self: ?*anyopaque, paused: bool) void {
         qtc.QFutureWatcherBase_SetPaused(@ptrCast(self), paused);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#pause)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#pause)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Pause(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_Pause(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#togglePaused)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#togglePaused)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn TogglePaused(self: ?*anyopaque) void {
         qtc.QFutureWatcherBase_TogglePaused(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -379,7 +379,7 @@ pub const qfuturewatcherbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -394,7 +394,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// ``` self: QtC.QFutureWatcherBase, watched: QtC.QObject, event: QtC.QEvent ```
     pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
@@ -403,7 +403,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QFutureWatcherBase, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -416,7 +416,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QFutureWatcherBase, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -429,7 +429,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -438,7 +438,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -447,7 +447,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -456,7 +456,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -465,7 +465,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QFutureWatcherBase, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -474,7 +474,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -483,7 +483,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFutureWatcherBase, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -492,7 +492,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFutureWatcherBase, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -501,7 +501,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFutureWatcherBase, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -510,7 +510,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFutureWatcherBase, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -519,7 +519,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QFutureWatcherBase, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -533,7 +533,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QFutureWatcherBase, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -542,7 +542,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QFutureWatcherBase, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -551,7 +551,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QFutureWatcherBase, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -560,7 +560,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -569,7 +569,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFutureWatcherBase, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -580,7 +580,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -589,7 +589,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -598,7 +598,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -607,7 +607,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -616,7 +616,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QFutureWatcherBase, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -626,7 +626,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QFutureWatcherBase, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -636,7 +636,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QFutureWatcherBase, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -660,7 +660,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -669,7 +669,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -678,7 +678,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -687,7 +687,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -696,7 +696,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -705,7 +705,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QFutureWatcherBase, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -715,7 +715,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QFutureWatcherBase ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -724,7 +724,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFutureWatcherBase, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -733,7 +733,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFutureWatcherBase, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -742,7 +742,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -751,7 +751,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFutureWatcherBase, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -762,7 +762,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFutureWatcherBase, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -771,7 +771,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -780,7 +780,7 @@ pub const qfuturewatcherbase = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -789,7 +789,7 @@ pub const qfuturewatcherbase = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#dtor.QFutureWatcherBase)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#dtor.QFutureWatcherBase)
     ///
     /// Delete this object from C++ memory.
     ///

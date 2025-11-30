@@ -46,7 +46,7 @@ pub const qwebengineprofile = struct {
         return qtc.QWebEngineProfile_new4(name_str, @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -78,7 +78,7 @@ pub const qwebengineprofile = struct {
         return qtc.QWebEngineProfile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -90,7 +90,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#storageName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#storageName)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn StorageName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -101,14 +101,14 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#isOffTheRecord)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#isOffTheRecord)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn IsOffTheRecord(self: ?*anyopaque) bool {
         return qtc.QWebEngineProfile_IsOffTheRecord(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentStoragePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentStoragePath)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn PersistentStoragePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -119,7 +119,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentStoragePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentStoragePath)
     ///
     /// ``` self: QtC.QWebEngineProfile, path: []const u8 ```
     pub fn SetPersistentStoragePath(self: ?*anyopaque, path: []const u8) void {
@@ -130,7 +130,7 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetPersistentStoragePath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#cachePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#cachePath)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn CachePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -141,7 +141,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setCachePath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setCachePath)
     ///
     /// ``` self: QtC.QWebEngineProfile, path: []const u8 ```
     pub fn SetCachePath(self: ?*anyopaque, path: []const u8) void {
@@ -152,7 +152,7 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetCachePath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#httpUserAgent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#httpUserAgent)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn HttpUserAgent(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -163,7 +163,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpUserAgent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpUserAgent)
     ///
     /// ``` self: QtC.QWebEngineProfile, userAgent: []const u8 ```
     pub fn SetHttpUserAgent(self: ?*anyopaque, userAgent: []const u8) void {
@@ -174,7 +174,7 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetHttpUserAgent(@ptrCast(self), userAgent_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#httpCacheType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#httpCacheType)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     ///
@@ -183,14 +183,14 @@ pub const qwebengineprofile = struct {
         return qtc.QWebEngineProfile_HttpCacheType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpCacheType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpCacheType)
     ///
     /// ``` self: QtC.QWebEngineProfile, httpCacheType: qwebengineprofile_enums.HttpCacheType ```
     pub fn SetHttpCacheType(self: ?*anyopaque, httpCacheType: i32) void {
         qtc.QWebEngineProfile_SetHttpCacheType(@ptrCast(self), @intCast(httpCacheType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpAcceptLanguage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpAcceptLanguage)
     ///
     /// ``` self: QtC.QWebEngineProfile, httpAcceptLanguage: []const u8 ```
     pub fn SetHttpAcceptLanguage(self: ?*anyopaque, httpAcceptLanguage: []const u8) void {
@@ -201,7 +201,7 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetHttpAcceptLanguage(@ptrCast(self), httpAcceptLanguage_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#httpAcceptLanguage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#httpAcceptLanguage)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn HttpAcceptLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -212,7 +212,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentCookiesPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentCookiesPolicy)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     ///
@@ -221,14 +221,14 @@ pub const qwebengineprofile = struct {
         return qtc.QWebEngineProfile_PersistentCookiesPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentCookiesPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentCookiesPolicy)
     ///
     /// ``` self: QtC.QWebEngineProfile, persistentCookiesPolicy: qwebengineprofile_enums.PersistentCookiesPolicy ```
     pub fn SetPersistentCookiesPolicy(self: ?*anyopaque, persistentCookiesPolicy: i32) void {
         qtc.QWebEngineProfile_SetPersistentCookiesPolicy(@ptrCast(self), @intCast(persistentCookiesPolicy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentPermissionsPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentPermissionsPolicy)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     ///
@@ -237,49 +237,49 @@ pub const qwebengineprofile = struct {
         return qtc.QWebEngineProfile_PersistentPermissionsPolicy(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentPermissionsPolicy)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentPermissionsPolicy)
     ///
     /// ``` self: QtC.QWebEngineProfile, persistentPermissionsPolicy: qwebengineprofile_enums.PersistentPermissionsPolicy ```
     pub fn SetPersistentPermissionsPolicy(self: ?*anyopaque, persistentPermissionsPolicy: u8) void {
         qtc.QWebEngineProfile_SetPersistentPermissionsPolicy(@ptrCast(self), @intCast(persistentPermissionsPolicy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#httpCacheMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#httpCacheMaximumSize)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn HttpCacheMaximumSize(self: ?*anyopaque) i32 {
         return qtc.QWebEngineProfile_HttpCacheMaximumSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpCacheMaximumSize)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpCacheMaximumSize)
     ///
     /// ``` self: QtC.QWebEngineProfile, maxSize: i32 ```
     pub fn SetHttpCacheMaximumSize(self: ?*anyopaque, maxSize: i32) void {
         qtc.QWebEngineProfile_SetHttpCacheMaximumSize(@ptrCast(self), @intCast(maxSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#cookieStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#cookieStore)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn CookieStore(self: ?*anyopaque) QtC.QWebEngineCookieStore {
         return qtc.QWebEngineProfile_CookieStore(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setUrlRequestInterceptor)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setUrlRequestInterceptor)
     ///
     /// ``` self: QtC.QWebEngineProfile, interceptor: QtC.QWebEngineUrlRequestInterceptor ```
     pub fn SetUrlRequestInterceptor(self: ?*anyopaque, interceptor: ?*anyopaque) void {
         qtc.QWebEngineProfile_SetUrlRequestInterceptor(@ptrCast(self), @ptrCast(interceptor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clearAllVisitedLinks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clearAllVisitedLinks)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn ClearAllVisitedLinks(self: ?*anyopaque) void {
         qtc.QWebEngineProfile_ClearAllVisitedLinks(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clearVisitedLinks)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clearVisitedLinks)
     ///
     /// ``` self: QtC.QWebEngineProfile, urls: []QtC.QUrl ```
     pub fn ClearVisitedLinks(self: ?*anyopaque, urls: []QtC.QUrl) void {
@@ -290,35 +290,35 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_ClearVisitedLinks(@ptrCast(self), urls_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#visitedLinksContainsUrl)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#visitedLinksContainsUrl)
     ///
     /// ``` self: QtC.QWebEngineProfile, url: QtC.QUrl ```
     pub fn VisitedLinksContainsUrl(self: ?*anyopaque, url: ?*anyopaque) bool {
         return qtc.QWebEngineProfile_VisitedLinksContainsUrl(@ptrCast(self), @ptrCast(url));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#settings)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#settings)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn Settings(self: ?*anyopaque) QtC.QWebEngineSettings {
         return qtc.QWebEngineProfile_Settings(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#scripts)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#scripts)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn Scripts(self: ?*anyopaque) QtC.QWebEngineScriptCollection {
         return qtc.QWebEngineProfile_Scripts(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clientHints)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clientHints)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn ClientHints(self: ?*anyopaque) QtC.QWebEngineClientHints {
         return qtc.QWebEngineProfile_ClientHints(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#urlSchemeHandler)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#urlSchemeHandler)
     ///
     /// ``` self: QtC.QWebEngineProfile, param1: []u8 ```
     pub fn UrlSchemeHandler(self: ?*anyopaque, param1: []u8) QtC.QWebEngineUrlSchemeHandler {
@@ -329,7 +329,7 @@ pub const qwebengineprofile = struct {
         return qtc.QWebEngineProfile_UrlSchemeHandler(@ptrCast(self), param1_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#installUrlSchemeHandler)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#installUrlSchemeHandler)
     ///
     /// ``` self: QtC.QWebEngineProfile, scheme: []u8, param2: QtC.QWebEngineUrlSchemeHandler ```
     pub fn InstallUrlSchemeHandler(self: ?*anyopaque, scheme: []u8, param2: ?*anyopaque) void {
@@ -340,7 +340,7 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_InstallUrlSchemeHandler(@ptrCast(self), scheme_str, @ptrCast(param2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#removeUrlScheme)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#removeUrlScheme)
     ///
     /// ``` self: QtC.QWebEngineProfile, scheme: []u8 ```
     pub fn RemoveUrlScheme(self: ?*anyopaque, scheme: []u8) void {
@@ -351,28 +351,28 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_RemoveUrlScheme(@ptrCast(self), scheme_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#removeUrlSchemeHandler)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#removeUrlSchemeHandler)
     ///
     /// ``` self: QtC.QWebEngineProfile, param1: QtC.QWebEngineUrlSchemeHandler ```
     pub fn RemoveUrlSchemeHandler(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QWebEngineProfile_RemoveUrlSchemeHandler(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#removeAllUrlSchemeHandlers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#removeAllUrlSchemeHandlers)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn RemoveAllUrlSchemeHandlers(self: ?*anyopaque) void {
         qtc.QWebEngineProfile_RemoveAllUrlSchemeHandlers(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCache)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCache)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn ClearHttpCache(self: ?*anyopaque) void {
         qtc.QWebEngineProfile_ClearHttpCache(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setSpellCheckLanguages)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setSpellCheckLanguages)
     ///
     /// ``` self: QtC.QWebEngineProfile, languages: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetSpellCheckLanguages(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) void {
@@ -391,7 +391,7 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetSpellCheckLanguages(@ptrCast(self), languages_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#spellCheckLanguages)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#spellCheckLanguages)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn SpellCheckLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
@@ -413,21 +413,21 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setSpellCheckEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setSpellCheckEnabled)
     ///
     /// ``` self: QtC.QWebEngineProfile, enabled: bool ```
     pub fn SetSpellCheckEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QWebEngineProfile_SetSpellCheckEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#isSpellCheckEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#isSpellCheckEnabled)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn IsSpellCheckEnabled(self: ?*anyopaque) bool {
         return qtc.QWebEngineProfile_IsSpellCheckEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#downloadPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#downloadPath)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn DownloadPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -438,7 +438,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setDownloadPath)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setDownloadPath)
     ///
     /// ``` self: QtC.QWebEngineProfile, path: []const u8 ```
     pub fn SetDownloadPath(self: ?*anyopaque, path: []const u8) void {
@@ -449,35 +449,35 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetDownloadPath(@ptrCast(self), path_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#isPushServiceEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#isPushServiceEnabled)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn IsPushServiceEnabled(self: ?*anyopaque) bool {
         return qtc.QWebEngineProfile_IsPushServiceEnabled(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPushServiceEnabled)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#setPushServiceEnabled)
     ///
     /// ``` self: QtC.QWebEngineProfile, enabled: bool ```
     pub fn SetPushServiceEnabled(self: ?*anyopaque, enabled: bool) void {
         qtc.QWebEngineProfile_SetPushServiceEnabled(@ptrCast(self), enabled);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clientCertificateStore)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clientCertificateStore)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn ClientCertificateStore(self: ?*anyopaque) QtC.QWebEngineClientCertificateStore {
         return qtc.QWebEngineProfile_ClientCertificateStore(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#queryPermission)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#queryPermission)
     ///
     /// ``` self: QtC.QWebEngineProfile, securityOrigin: QtC.QUrl, permissionType: qwebenginepermission_enums.PermissionType ```
     pub fn QueryPermission(self: ?*anyopaque, securityOrigin: ?*anyopaque, permissionType: u8) QtC.QWebEnginePermission {
         return qtc.QWebEngineProfile_QueryPermission(@ptrCast(self), @ptrCast(securityOrigin), @intCast(permissionType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#listAllPermissions)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#listAllPermissions)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn ListAllPermissions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
@@ -489,7 +489,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#listPermissionsForOrigin)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#listPermissionsForOrigin)
     ///
     /// ``` self: QtC.QWebEngineProfile, securityOrigin: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ListPermissionsForOrigin(self: ?*anyopaque, securityOrigin: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
@@ -501,7 +501,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#listPermissionsForPermissionType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#listPermissionsForPermissionType)
     ///
     /// ``` self: QtC.QWebEngineProfile, permissionType: qwebenginepermission_enums.PermissionType, allocator: std.mem.Allocator ```
     pub fn ListPermissionsForPermissionType(self: ?*anyopaque, permissionType: u8, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
@@ -513,42 +513,42 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#defaultProfile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#defaultProfile)
     ///
     ///
     pub fn DefaultProfile() QtC.QWebEngineProfile {
         return qtc.QWebEngineProfile_DefaultProfile();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#downloadRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#downloadRequested)
     ///
     /// ``` self: QtC.QWebEngineProfile, download: QtC.QWebEngineDownloadRequest ```
     pub fn DownloadRequested(self: ?*anyopaque, download: ?*anyopaque) void {
         qtc.QWebEngineProfile_DownloadRequested(@ptrCast(self), @ptrCast(download));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#downloadRequested)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#downloadRequested)
     ///
     /// ``` self: QtC.QWebEngineProfile, callback: *const fn (self: QtC.QWebEngineProfile, download: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnDownloadRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineProfile_Connect_DownloadRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCacheCompleted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCacheCompleted)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn ClearHttpCacheCompleted(self: ?*anyopaque) void {
         qtc.QWebEngineProfile_ClearHttpCacheCompleted(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCacheCompleted)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCacheCompleted)
     ///
     /// ``` self: QtC.QWebEngineProfile, callback: *const fn (self: QtC.QWebEngineProfile) callconv(.c) void ```
     pub fn OnClearHttpCacheCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineProfile_Connect_ClearHttpCacheCompleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -561,7 +561,7 @@ pub const qwebengineprofile = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -576,7 +576,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -589,7 +589,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QWebEngineProfile, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -602,7 +602,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -611,7 +611,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -620,7 +620,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -629,7 +629,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -638,7 +638,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QWebEngineProfile, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -647,7 +647,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -656,7 +656,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineProfile, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -665,7 +665,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineProfile, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -674,7 +674,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineProfile, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -683,7 +683,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineProfile, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -692,7 +692,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -706,7 +706,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QWebEngineProfile, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -715,7 +715,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QWebEngineProfile, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -724,7 +724,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QWebEngineProfile, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -733,7 +733,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -742,7 +742,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineProfile, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -753,7 +753,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -762,7 +762,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -771,7 +771,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -780,7 +780,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -789,7 +789,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QWebEngineProfile, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -799,7 +799,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QWebEngineProfile, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -809,7 +809,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -833,7 +833,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -842,7 +842,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -851,7 +851,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -860,7 +860,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineProfile, callback: *const fn (self: QtC.QWebEngineProfile) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -869,7 +869,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -878,7 +878,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QWebEngineProfile, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -888,7 +888,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -897,7 +897,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineProfile, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -906,7 +906,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineProfile, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -915,7 +915,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -924,7 +924,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineProfile, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -935,7 +935,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineProfile, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -944,7 +944,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QWebEngineProfile, callback: *const fn (self: QtC.QWebEngineProfile, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -953,7 +953,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -964,7 +964,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -975,7 +975,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -986,7 +986,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -997,7 +997,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1008,7 +1008,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1019,7 +1019,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1030,7 +1030,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1041,7 +1041,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1052,7 +1052,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1063,7 +1063,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1074,7 +1074,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1085,7 +1085,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1096,7 +1096,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1107,7 +1107,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1118,7 +1118,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1129,7 +1129,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1140,7 +1140,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1151,7 +1151,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1162,7 +1162,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1173,7 +1173,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1184,7 +1184,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1195,7 +1195,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1206,7 +1206,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1217,7 +1217,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1228,7 +1228,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1239,7 +1239,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1250,7 +1250,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1262,7 +1262,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1274,7 +1274,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1285,7 +1285,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1296,7 +1296,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1307,7 +1307,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1318,7 +1318,7 @@ pub const qwebengineprofile = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1327,7 +1327,7 @@ pub const qwebengineprofile = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#dtor.QWebEngineProfile)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#dtor.QWebEngineProfile)
     ///
     /// Delete this object from C++ memory.
     ///

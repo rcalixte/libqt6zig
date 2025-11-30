@@ -4,7 +4,7 @@ const qaudio_enums = enums;
 
 /// https://doc.qt.io/qt-6/qaudio.html
 pub const qaudio = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudio.html#convertVolume)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qaudio.html#convertVolume)
     ///
     /// ``` param1: f32, param2: qaudio_enums.VolumeScale, param3: qaudio_enums.VolumeScale ```
     pub fn ConvertVolume(param1: f32, param2: i32, param3: i32) f32 {

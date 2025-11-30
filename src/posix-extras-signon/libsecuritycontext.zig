@@ -34,7 +34,7 @@ pub const signon__securitycontext = struct {
         return qtc.SignOn__SecurityContext_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
     /// ``` self: QtC.SignOn__SecurityContext, systemContext: []const u8 ```
     pub fn SetSystemContext(self: ?*anyopaque, systemContext: []const u8) void {
@@ -45,7 +45,7 @@ pub const signon__securitycontext = struct {
         qtc.SignOn__SecurityContext_SetSystemContext(@ptrCast(self), systemContext_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
     /// ``` self: QtC.SignOn__SecurityContext, allocator: std.mem.Allocator ```
     pub fn SystemContext(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -56,7 +56,7 @@ pub const signon__securitycontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
     /// ``` self: QtC.SignOn__SecurityContext, applicationContext: []const u8 ```
     pub fn SetApplicationContext(self: ?*anyopaque, applicationContext: []const u8) void {
@@ -67,7 +67,7 @@ pub const signon__securitycontext = struct {
         qtc.SignOn__SecurityContext_SetApplicationContext(@ptrCast(self), applicationContext_str);
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
     /// ``` self: QtC.SignOn__SecurityContext, allocator: std.mem.Allocator ```
     pub fn ApplicationContext(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -78,7 +78,7 @@ pub const signon__securitycontext = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
+    /// [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SecurityContext.html)
     ///
     /// Delete this object from C++ memory.
     ///

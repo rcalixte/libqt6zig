@@ -13,77 +13,77 @@ pub const qdbuspendingcall = struct {
         return qtc.QDBusPendingCall_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#operator-eq)
     ///
     /// ``` self: QtC.QDBusPendingCall, other: QtC.QDBusPendingCall ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusPendingCall_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#swap)
     ///
     /// ``` self: QtC.QDBusPendingCall, other: QtC.QDBusPendingCall ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QDBusPendingCall_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isFinished)
     ///
     /// ``` self: QtC.QDBusPendingCall ```
     pub fn IsFinished(self: ?*anyopaque) bool {
         return qtc.QDBusPendingCall_IsFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#waitForFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#waitForFinished)
     ///
     /// ``` self: QtC.QDBusPendingCall ```
     pub fn WaitForFinished(self: ?*anyopaque) void {
         qtc.QDBusPendingCall_WaitForFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isError)
     ///
     /// ``` self: QtC.QDBusPendingCall ```
     pub fn IsError(self: ?*anyopaque) bool {
         return qtc.QDBusPendingCall_IsError(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isValid)
     ///
     /// ``` self: QtC.QDBusPendingCall ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QDBusPendingCall_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#error)
     ///
     /// ``` self: QtC.QDBusPendingCall ```
     pub fn Error(self: ?*anyopaque) QtC.QDBusError {
         return qtc.QDBusPendingCall_Error(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#reply)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#reply)
     ///
     /// ``` self: QtC.QDBusPendingCall ```
     pub fn Reply(self: ?*anyopaque) QtC.QDBusMessage {
         return qtc.QDBusPendingCall_Reply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromError)
     ///
     /// ``` errorVal: QtC.QDBusError ```
     pub fn FromError(errorVal: ?*anyopaque) QtC.QDBusPendingCall {
         return qtc.QDBusPendingCall_FromError(@ptrCast(errorVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromCompletedCall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromCompletedCall)
     ///
     /// ``` message: QtC.QDBusMessage ```
     pub fn FromCompletedCall(message: ?*anyopaque) QtC.QDBusPendingCall {
         return qtc.QDBusPendingCall_FromCompletedCall(@ptrCast(message));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#dtor.QDBusPendingCall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#dtor.QDBusPendingCall)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -109,7 +109,7 @@ pub const qdbuspendingcallwatcher = struct {
         return qtc.QDBusPendingCallWatcher_new2(@ptrCast(call), @ptrCast(parent));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
@@ -141,7 +141,7 @@ pub const qdbuspendingcallwatcher = struct {
         return qtc.QDBusPendingCallWatcher_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -153,28 +153,28 @@ pub const qdbuspendingcallwatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#waitForFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#waitForFinished)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn WaitForFinished(self: ?*anyopaque) void {
         qtc.QDBusPendingCallWatcher_WaitForFinished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn Finished(self: ?*anyopaque) void {
         qtc.QDBusPendingCallWatcher_Finished(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, callback: *const fn (self: QtC.QDBusPendingCallWatcher) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.QDBusPendingCallWatcher_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
@@ -187,7 +187,7 @@ pub const qdbuspendingcallwatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
@@ -200,14 +200,14 @@ pub const qdbuspendingcallwatcher = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, selfVal: QtC.QDBusPendingCallWatcher ```
     pub fn Finished1(self: ?*anyopaque, selfVal: ?*anyopaque) void {
         qtc.QDBusPendingCallWatcher_Finished1(@ptrCast(self), @ptrCast(selfVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#finished)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, callback: *const fn (self: QtC.QDBusPendingCallWatcher, selfVal: QtC.QDBusPendingCallWatcher) callconv(.c) void ```
     pub fn OnFinished1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -216,7 +216,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -229,7 +229,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setObjectName)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setObjectName)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
@@ -242,7 +242,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn IsWidgetType(self: ?*anyopaque) bool {
@@ -251,7 +251,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWindowType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWindowType)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn IsWindowType(self: ?*anyopaque) bool {
@@ -260,7 +260,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isQuickItemType)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn IsQuickItemType(self: ?*anyopaque) bool {
@@ -269,7 +269,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#signalsBlocked)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn SignalsBlocked(self: ?*anyopaque) bool {
@@ -278,7 +278,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#blockSignals)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#blockSignals)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, b: bool ```
     pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
@@ -287,7 +287,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#thread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#thread)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn Thread(self: ?*anyopaque) QtC.QThread {
@@ -296,7 +296,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, thread: QtC.QThread ```
     pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
@@ -305,7 +305,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, interval: i32 ```
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
@@ -314,7 +314,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
@@ -323,7 +323,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, id: qnamespace_enums.TimerId ```
     pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
@@ -332,7 +332,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#children)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
@@ -346,7 +346,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setParent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setParent)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, parent: QtC.QObject ```
     pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
@@ -355,7 +355,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#installEventFilter)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, filterObj: QtC.QObject ```
     pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
@@ -364,7 +364,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#removeEventFilter)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, obj: QtC.QObject ```
     pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
@@ -373,7 +373,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod ```
     pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
@@ -382,7 +382,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
@@ -393,7 +393,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, member: QtC.QMetaMethod ```
     pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
@@ -402,7 +402,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
     pub fn Disconnect2(param1: ?*anyopaque) bool {
@@ -411,7 +411,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectTree)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn DumpObjectTree(self: ?*anyopaque) void {
@@ -420,7 +420,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dumpObjectInfo)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn DumpObjectInfo(self: ?*anyopaque) void {
@@ -429,7 +429,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#setProperty)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#setProperty)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
@@ -439,7 +439,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#property)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#property)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
@@ -449,7 +449,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#dynamicPropertyNames)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
@@ -473,7 +473,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
@@ -482,7 +482,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
@@ -491,7 +491,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn Destroyed(self: ?*anyopaque) void {
@@ -500,7 +500,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, callback: *const fn (self: QtC.QDBusPendingCallWatcher) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
@@ -509,7 +509,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#parent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#parent)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn Parent(self: ?*anyopaque) QtC.QObject {
@@ -518,7 +518,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#inherits)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#inherits)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
@@ -528,7 +528,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#deleteLater)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#deleteLater)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn DeleteLater(self: ?*anyopaque) void {
@@ -537,7 +537,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
     pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
@@ -546,7 +546,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, interval: i32, timerType: qnamespace_enums.TimerType ```
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
@@ -555,7 +555,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
@@ -564,7 +564,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
@@ -575,7 +575,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, param1: QtC.QObject ```
     pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -584,7 +584,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, callback: *const fn (self: QtC.QDBusPendingCallWatcher, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
@@ -593,7 +593,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#operator-eq)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#operator-eq)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, other: QtC.QDBusPendingCall ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -602,7 +602,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#swap)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#swap)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher, other: QtC.QDBusPendingCall ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -611,7 +611,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isFinished)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isFinished)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn IsFinished(self: ?*anyopaque) bool {
@@ -620,7 +620,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isError)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn IsError(self: ?*anyopaque) bool {
@@ -629,7 +629,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#isValid)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#isValid)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -638,7 +638,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#error)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#error)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn Error(self: ?*anyopaque) QtC.QDBusError {
@@ -647,7 +647,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#reply)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#reply)
     ///
     /// ``` self: QtC.QDBusPendingCallWatcher ```
     pub fn Reply(self: ?*anyopaque) QtC.QDBusMessage {
@@ -656,7 +656,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromError)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromError)
     ///
     /// ``` errorVal: QtC.QDBusError ```
     pub fn FromError(errorVal: ?*anyopaque) QtC.QDBusPendingCall {
@@ -665,7 +665,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QDBusPendingCall
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromCompletedCall)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcall.html#fromCompletedCall)
     ///
     /// ``` message: QtC.QDBusMessage ```
     pub fn FromCompletedCall(message: ?*anyopaque) QtC.QDBusPendingCall {
@@ -674,7 +674,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -685,7 +685,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -696,7 +696,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -707,7 +707,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -718,7 +718,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -729,7 +729,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -740,7 +740,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -751,7 +751,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -762,7 +762,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -773,7 +773,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -784,7 +784,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -795,7 +795,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -806,7 +806,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -817,7 +817,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -828,7 +828,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -839,7 +839,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -850,7 +850,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -861,7 +861,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -872,7 +872,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -883,7 +883,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -894,7 +894,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -905,7 +905,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -916,7 +916,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -927,7 +927,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -938,7 +938,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -949,7 +949,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -960,7 +960,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -971,7 +971,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -983,7 +983,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -995,7 +995,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1006,7 +1006,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
@@ -1017,7 +1017,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
@@ -1028,7 +1028,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
@@ -1039,7 +1039,7 @@ pub const qdbuspendingcallwatcher = struct {
 
     /// Inherited from QObject
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
     ///
     /// Wrapper to allow calling private signal
     ///
@@ -1048,7 +1048,7 @@ pub const qdbuspendingcallwatcher = struct {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#dtor.QDBusPendingCallWatcher)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qdbuspendingcallwatcher.html#dtor.QDBusPendingCallWatcher)
     ///
     /// Delete this object from C++ memory.
     ///

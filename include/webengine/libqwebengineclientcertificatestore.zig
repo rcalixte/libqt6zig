@@ -4,14 +4,14 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html
 pub const qwebengineclientcertificatestore = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#add)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#add)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateStore, certificate: QtC.QSslCertificate, privateKey: QtC.QSslKey ```
     pub fn Add(self: ?*anyopaque, certificate: ?*anyopaque, privateKey: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateStore_Add(@ptrCast(self), @ptrCast(certificate), @ptrCast(privateKey));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#certificates)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#certificates)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateStore, allocator: std.mem.Allocator ```
     pub fn Certificates(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
@@ -23,14 +23,14 @@ pub const qwebengineclientcertificatestore = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#remove)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#remove)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateStore, certificate: QtC.QSslCertificate ```
     pub fn Remove(self: ?*anyopaque, certificate: ?*anyopaque) void {
         qtc.QWebEngineClientCertificateStore_Remove(@ptrCast(self), @ptrCast(certificate));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#clear)
+    /// [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificatestore.html#clear)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateStore ```
     pub fn Clear(self: ?*anyopaque) void {
