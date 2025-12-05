@@ -51,6 +51,7 @@ const (
 
 var operatorLookup = map[rune]string{
 	'!': "-not",
+	'"': "-22",
 	'&': "-and",
 	'(': "-28",
 	')': "-29",
@@ -81,40 +82,45 @@ func operatorToUrl(cmdUrl string) string {
 	return ret
 }
 
+const (
+	preUrl  = "\n/// ### [Upstream resources]("
+	postUrl = ")"
+)
+
 func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	if strings.HasPrefix(pageName, "qsci") {
 		if pageType == EnumPage {
 			return ""
 		}
-		return "https://www.riverbankcomputing.com/static/Docs/QScintilla/class" + className + ".html"
+		return preUrl + "https://www.riverbankcomputing.com/static/Docs/QScintilla/class" + className + ".html" + postUrl
 	}
 
 	if strings.HasPrefix(pageName, "layershellqt") {
-		return "https://invent.kde.org/plasma/layer-shell-qt"
+		return preUrl + "https://invent.kde.org/plasma/layer-shell-qt" + postUrl
 	}
 
 	if strings.HasPrefix(pageName, "kcolorpicker") {
-		return "https://github.com/ksnip/kcolorpicker"
+		return preUrl + "https://github.com/ksnip/kcolorpicker" + postUrl
 	}
 
 	if strings.HasPrefix(pageName, "kimageannotator") {
-		return "https://github.com/ksnip/kImageAnnotator"
+		return preUrl + "https://github.com/ksnip/kImageAnnotator" + postUrl
 	}
 
 	if strings.HasPrefix(pageName, "packagekit") {
-		return "https://github.com/PackageKit/PackageKit-Qt"
+		return preUrl + "https://github.com/PackageKit/PackageKit-Qt" + postUrl
 	}
 
 	if strings.HasPrefix(pageName, "qkeychain") {
-		return "https://github.com/frankosterfeld/qtkeychain"
+		return preUrl + "https://github.com/frankosterfeld/qtkeychain" + postUrl
 	}
 
 	if strings.HasPrefix(pageName, "Accounts__") {
-		return "https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1" + strings.ToUpper(pageName[10:11]) + pageName[11:] + ".html"
+		return preUrl + "https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1" + strings.ToUpper(pageName[10:11]) + pageName[11:] + ".html" + postUrl
 	}
 
 	if strings.HasPrefix(pageName, "SignOn__") {
-		return "https://accounts-sso.gitlab.io/signond/classSignOn_1_1" + strings.ToUpper(pageName[8:9]) + pageName[9:] + ".html"
+		return preUrl + "https://accounts-sso.gitlab.io/signond/classSignOn_1_1" + strings.ToUpper(pageName[8:9]) + pageName[9:] + ".html" + postUrl
 	}
 
 	if pageType == DtorPage && strings.Contains(className, "__") {
@@ -123,11 +129,11 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 
 	if strings.HasPrefix(pageName, "qtermwidget") || strings.HasPrefix(className, "Keyboard") ||
 		strings.HasPrefix(className, "Konsole") || pageName == "emulation" || pageName == "filter" {
-		return "https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api"
+		return preUrl + "https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api" + postUrl
 	}
 
 	qtUrl := "https://doc.qt.io/qt-6/"
-	types := "types"
+	types := ifv(pageName == "qt", "types", "public-types")
 	if pageName[0] != 'q' && pageName != "disambiguated_t" &&
 		pageName != "partial_ordering" && pageName != "weak_ordering" && pageName != "strong_ordering" {
 		qtUrl = "https://api.kde.org/"
@@ -154,11 +160,11 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 			cmdURL = operatorToUrl(cmdURL)
 		}
 
-		return qtUrl + pageName + ".html" + ifv(cmdURL != "", "#"+cmdURL, "")
+		return preUrl + qtUrl + pageName + ".html" + ifv(cmdURL != "", "#"+cmdURL, "") + postUrl
 	case EnumPage:
-		return qtUrl + pageName + ".html#" + types
+		return preUrl + qtUrl + pageName + ".html#" + types + postUrl
 	case DtorPage:
-		return qtUrl + pageName + ".html#dtor." + className
+		return preUrl + qtUrl + pageName + ".html#dtor." + className + postUrl
 	}
 	return ""
 }
@@ -237,13 +243,15 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	if t1, t2, _, ok := p.QMapOf(); ok {
 		var hashMapType, k string
-		if t1.ParameterType == "QString" || t1.ParameterType == "SignOn::MethodName" {
+
+		switch t1.ParameterType {
+		case "QString", "SignOn::MethodName":
 			k = "constu8"
 			hashMapType = "StringHashMap,,"
-		} else if t1.ParameterType == "QByteArray" {
+		case "QByteArray":
 			k = "u8"
 			hashMapType = "AutoHashMap,u8,"
-		} else {
+		default:
 			k = t1.RenderTypeZig(zfs, isReturnType, false)
 			if e, ok := KnownEnums[t1.ParameterType]; ok {
 				k = e.EnumTypeZig
@@ -588,6 +596,10 @@ func (p CppParameter) parameterTypeZig() string {
 }
 
 func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot bool) string {
+	if len(params) == 0 {
+		return ""
+	}
+
 	tmp := make([]string, 0, len(params))
 
 	for i := 0; i < len(params); i++ {
@@ -618,10 +630,27 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 			tmp = append(tmp, p.ParameterName+": "+paramType)
 		}
 	}
-	return strings.Join(tmp, ", ")
+
+	var ret string
+
+	if isSlot {
+		ret = strings.Join(tmp, ", ")
+	} else if len(params) == 1 {
+		ret = "\n///\n/// ` " + tmp[0] + " `"
+	} else {
+		for _, p := range tmp {
+			ret += "\n///\n/// ` " + p + " `"
+		}
+	}
+
+	return ret
 }
 
 func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) string {
+	if len(params) == 0 {
+		return ""
+	}
+
 	tmp := make([]string, 0, len(params))
 
 	for i := 0; i < len(params); i++ {
@@ -671,17 +700,17 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 	if rt.IsKnownEnum() {
 		if strings.HasPrefix(rt.ParameterType, "QFlags<") {
 			if zigImport, ok := KnownImports[rt.ParameterType[7:len(rt.ParameterType)-1]]; ok {
-				returnComment = "///\n/// Returns: ``` flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " ```\n"
+				returnComment = "\n///\n/// ## Returns:\n///\n/// ` flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " `"
 				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 			}
 		} else {
-			returnComment = "///\n/// Returns: ``` " + rt.RenderTypeZig(zfs, false, true) + " ```\n"
+			returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, false, true) + " `"
 		}
 	} else if t, _, ok := rt.QListOf(); ok {
 		if _, ok := KnownEnums[t.ParameterType]; ok {
 			if zigImport, ok := KnownImports[t.ParameterType]; ok {
-				returnComment = "///\n/// Returns: ``` []" + zigImport.Filename + "_enums." + cabiEnumName(t.ParameterType) + " ```\n"
+				returnComment = "\n///\n/// ## Returns:\n///\n/// ` []" + zigImport.Filename + "_enums." + cabiEnumName(t.ParameterType) + " `"
 				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 			}
@@ -815,17 +844,20 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// QMap<K,V>
 		zfs.imports["std"] = struct{}{}
 		var hashMapType, valCast, valCastClose string
-		if kType.ParameterType == "QString" || kType.ParameterType == "SignOn::MethodName" {
+
+		switch kType.ParameterType {
+		case "QString", "SignOn::MethodName":
 			hashMapType = "StringHashMap,,"
-		} else if kType.ParameterType == "QByteArray" {
+		case "QByteArray":
 			hashMapType = "AutoHashMap,u8,"
-		} else {
+		default:
 			k := kType.RenderTypeZig(zfs, false, true)
 			if e, ok := KnownEnums[kType.ParameterType]; ok {
 				k = e.EnumTypeZig
 			}
 			hashMapType = "AutoHashMap," + k + ","
 		}
+
 		vParam := vType.RenderTypeZig(zfs, true, true)
 		if !strings.HasPrefix(vParam, "map_") {
 			valCast = "@ptrCast("
@@ -1485,8 +1517,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			maybeDedupe = ifv(zigStruct == "ktexteditor" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "ktimezone" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStruct + maybeDedupe + ` = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").` + zigStruct + ";"
-			ret.WriteString("\n/// " + getPageUrl(QtPage, pageName, "", zigStructName) +
-				"\npub const " + zigStruct + " = struct {")
+			ret.WriteString(getPageUrl(QtPage, pageName, "", zigStructName) + "\n" +
+				"pub const " + zigStruct + " = struct {")
 		}
 
 		for i, ctor := range c.Ctors {
@@ -1497,19 +1529,30 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			zfs.currentMethodName = "New" + maybeSuffix(i)
 			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(ctor)
 
+			var maybeAllocatorComment, maybeParamsLine, maybeFinalNewLine string
 			allocatorParam := ifv(strings.Contains(preamble, "allocator"), "allocator: std.mem.Allocator", "")
+
+			if len(ctor.Parameters) > 0 || allocatorParam != "" {
+				maybeParamsLine = "\n///\n/// ## Parameter(s):"
+				maybeFinalNewLine = "\n///"
+			} else {
+				maybeParamsLine = "\n///"
+			}
+
+			if allocatorParam != "" {
+				maybeAllocatorComment = "\n///\n/// ` " + allocatorParam + " `"
+
+				if len(ctor.Parameters) > 0 {
+					allocatorParam = ", " + allocatorParam
+				}
+			}
 
 			if ctor.FossOnly {
 				zfs.imports["builtin"] = struct{}{}
 
-				backticks := ifv(len(ctor.Parameters) > 0 || allocatorParam != "", "```", "")
-				commaParams := ifv(len(ctor.Parameters) > 1, ", ", "")
-				allocComma := ifv(allocatorParam != "", ", ", "")
-
-				ret.WriteString("\n\n    /// New" + maybeSuffix(i) + " constructs a new " + c.ClassName +
-					" object.\n    ///\n    /// " + backticks + " " +
-					zfs.emitCommentParametersZig(ctor.Parameters, false) + commaParams + allocComma + allocatorParam + " " + backticks + "\n" +
-					"    pub fn New" + maybeSuffix(i) + "(" + zfs.emitParametersZig(ctor.Parameters, false) + allocComma + allocatorParam + ") QtC." + zigStructName + ` {
+				ret.WriteString("\n\n/// New" + maybeSuffix(i) + " constructs a new " + c.ClassName + " object." +
+					maybeParamsLine + zfs.emitCommentParametersZig(ctor.Parameters, false) + maybeAllocatorComment + maybeFinalNewLine +
+					"\n    pub fn New" + maybeSuffix(i) + "(" + zfs.emitParametersZig(ctor.Parameters, false) + allocatorParam + ") QtC." + zigStructName + ` {
         switch (builtin.os.tag) {
             .linux, .freebsd => {
                 return qtc.` + zigStructName + "_new" + maybeSuffix(i) + "(" + forwarding + `);
@@ -1521,29 +1564,26 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 `)
 			} else {
 				maybeMoveCtor := ifv(ctor.IsMoveCtor, " object and invalidates the source "+c.ClassName, "")
-				allocComma := ifv(len(ctor.Parameters) > 0 && allocatorParam != "", ", ", "")
-				backticks := ifv(len(ctor.Parameters) > 0 || allocatorParam != "", "```", "")
 
 				preamble = ifv(preamble != "", preamble+"\n", "")
 
-				ret.WriteString("\n    /// New" + maybeSuffix(i) + " constructs a new " + c.ClassName + maybeMoveCtor +
-					" object.\n    ///\n    /// " + backticks + " " +
-					zfs.emitCommentParametersZig(ctor.Parameters, false) + allocComma + allocatorParam + " " + backticks + "\n" +
-					"    pub fn New" + maybeSuffix(i) + "(" + zfs.emitParametersZig(ctor.Parameters, false) + allocComma + allocatorParam + ") QtC." + zigStructName + " {\n" +
+				ret.WriteString("\n/// New" + maybeSuffix(i) + " constructs a new " + c.ClassName + maybeMoveCtor + " object." +
+					maybeParamsLine + zfs.emitCommentParametersZig(ctor.Parameters, false) + maybeAllocatorComment + maybeFinalNewLine +
+					"\n    pub fn New" + maybeSuffix(i) + "(" + zfs.emitParametersZig(ctor.Parameters, false) + allocatorParam + ") QtC." + zigStructName + " {\n" +
 					preamble + "        return qtc." + zigStructName + "_new" + maybeSuffix(i) + "(" + forwarding + ");\n}\n\n")
 			}
 		}
 
 		if c.HasTrivialCopyAssign {
 			ret.WriteString("/// CopyAssign shallow copies `other` into `self`.\n///\n" +
-				"/// ``` self: QtC." + zigStructName + ", other: QtC." + zigStructName + " ```\n" +
+				"/// ## Parameters:\n///\n/// ` self: QtC." + zigStructName + " `\n///\n/// ` other: QtC." + zigStructName + " `\n///\n" +
 				"pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {\n" +
 				"qtc." + zigStructName + "_CopyAssign(@ptrCast(self), @ptrCast(other));\n}\n\n")
 		}
 
 		if c.HasTrivialMoveAssign {
 			ret.WriteString("/// MoveAssign moves `other` into `self` and invalidates `other`.\n///\n" +
-				"/// ``` self: QtC." + zigStructName + ", other: QtC." + zigStructName + " ```\n" +
+				"/// ## Parameters:\n///\n/// ` self: QtC." + zigStructName + " `\n///\n/// ` other: QtC." + zigStructName + " `\n///\n" +
 				"pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {\n" +
 				"qtc." + zigStructName + "_MoveAssign(@ptrCast(self), @ptrCast(other));\n}\n\n")
 		}
@@ -1650,14 +1690,14 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			cmdStructName := ifv(overrideTr, "QObject", zigStructName)
 			var inheritedFrom string
 			if m.InheritedFrom != "" {
-				inheritedFrom = "\n    /// Inherited from " + m.InheritedFrom + "\n    ///"
+				inheritedFrom = "\n/// Inherited from " + m.InheritedFrom + "\n///"
 				if !overrideTr {
 					cmdStructName = cabiClassName(m.InheritedFrom)
 				}
 			}
 
 			if m.InheritedInClass != "" {
-				inheritedFrom = "\n    /// Inherited from " + m.InheritedInClass + "\n    ///"
+				inheritedFrom = "\n/// Inherited from " + m.InheritedInClass + "\n///"
 			}
 
 			maybePlatformCompileError := ""
@@ -1672,6 +1712,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			ret.WriteString(inheritedFrom)
 
 			var docCommentUrl string
+			maybeNewLine := "\n"
+
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
 
 			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) ||
@@ -1692,8 +1734,9 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			if subjectURL != "" {
 				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
 				pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
-				docCommentUrl = "\n/// [Upstream resources](" + pageURL + ")\n///\n"
-				ret.WriteString(docCommentUrl)
+				docCommentUrl = pageURL
+				ret.WriteString(docCommentUrl + "\n")
+				maybeNewLine = "///\n"
 			}
 
 			previousMethods[m.MethodName] = struct{}{}
@@ -1704,31 +1747,39 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			rvalue := "qtc." + cmdStructName + "_" + cSafeMethodName + "(" + forwarding + ")"
 			returnFunc := zfs.emitCabiToZig("return ", m.ReturnType, rvalue)
 
-			var backticks string
+			var maybeAllocatorComment, maybeParamsLine string
 			allocatorParam := ifv(strings.Contains(returnFunc, "allocator") || strings.Contains(preamble, "allocator"), "allocator: std.mem.Allocator", "")
-			commaParams := ifv(len(m.Parameters) > 0, ", ", "")
 			allocComma := ifv(allocatorParam != "", ", ", "")
-			commentParam := "self: QtC." + zigStructName + commaParams
+			maybeComma := ifv(len(m.Parameters) > 0, ", ", "")
+			selfParam := "\n///\n/// ` self: QtC." + zigStructName + " `"
 
-			fnMethod := mSafeMethodName + "(self: ?*anyopaque" + commaParams
+			if allocatorParam != "" {
+				maybeAllocatorComment = "\n///\n/// ` " + allocatorParam + " `"
+			}
+
+			fnMethod := mSafeMethodName + "(self: ?*anyopaque" + maybeComma
 			if m.IsStatic && !m.IsProtected {
-				commentParam = ""
+				selfParam = ""
 				fnMethod = mSafeMethodName + "("
 				if len(m.Parameters) == 0 {
 					allocComma = ""
 				}
 			}
 
-			if commentParam != "" || len(m.Parameters) > 0 || allocatorParam != "" {
-				backticks = "```"
-			}
-
 			returnComment := zfs.emitReturnComment(m.ReturnType)
 
-			ret.WriteString("\n    /// " + backticks + " " +
-				commentParam + zfs.emitCommentParametersZig(m.Parameters, false) +
-				allocComma + allocatorParam + " " + backticks + "\n" + returnComment +
-				"    pub fn " + fnMethod + zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {" + maybePlatformCompileError)
+			if selfParam != "" || len(m.Parameters) > 0 || allocatorParam != "" {
+				maybeParamsLine = "/// ## Parameter(s):"
+			} else {
+				maybeNewLine = ifv(returnComment == "", "///", "")
+			}
+
+			maybeFinalNewLine := ifv(maybeParamsLine != "" || returnComment != "", "\n///", "")
+
+			ret.WriteString(maybeNewLine + maybeParamsLine + selfParam +
+				zfs.emitCommentParametersZig(m.Parameters, false) +
+				maybeAllocatorComment + returnComment + maybeFinalNewLine +
+				"\n    pub fn " + fnMethod + zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {" + maybePlatformCompileError)
 
 			if m.FossOnly {
 				zfs.imports["builtin"] = struct{}{}
@@ -1752,12 +1803,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				}
 
 				if addConnect {
-					slotComma := ifv(len(m.Parameters) != 0, ", ", "")
-					ret.WriteString(inheritedFrom + docCommentUrl + "\n    /// ``` self: QtC." + zigStructName + ", callback: *const fn (self: QtC." +
-						zigStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void ```\n")
-
-					ret.WriteString("    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
-						slotComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
+					ret.WriteString(inheritedFrom + docCommentUrl + "\n///\n/// ## Parameters:\n///\n/// ` self: QtC." + zigStructName + " `\n///\n/// ` callback: *const fn (self: QtC." +
+						zigStructName + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
+						"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
+						ifv(len(m.Parameters) != 0, ", ", "") + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
 						"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 				}
 			}
@@ -1772,16 +1821,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 
 			if (m.IsVirtual || m.IsProtected) && len(virtualMethods) > 0 && virtualEligible {
-				var maybeCommentStruct, maybeAnyopaque, maybeComma, maybeCommentSelf string
-				if len(m.Parameters) != 0 {
-					maybeCommentStruct = "QtC." + zigStructName + commaParams
+				var maybeAnyopaque, maybeComma, maybeCommentSelf string
+				if len(m.Parameters) != 0 || (showHiddenParams && len(m.HiddenParams) != 0) {
 					maybeAnyopaque = "?*anyopaque"
-					maybeCommentSelf = "self: "
-				}
-				if showHiddenParams && len(m.HiddenParams) != 0 {
-					maybeCommentStruct = "QtC." + zigStructName + commaParams
-					maybeAnyopaque = "?*anyopaque"
-					maybeCommentSelf = "self: "
+					maybeCommentSelf = "self: QtC." + zigStructName
 				}
 				if len(m.Parameters) > 0 {
 					maybeComma = ", "
@@ -1797,26 +1840,26 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					continue
 				}
 
-				onDocComment := "\n/// Allows for overriding the related default method\n    ///"
+				maybeNewLine = ifv(docCommentUrl == "", maybeNewLine, "\n///\n")
+				onDocComment := maybeNewLine + "/// Allows for overriding the related default method\n///\n/// ## Parameters:"
 
-				ret.WriteString(inheritedFrom + docCommentUrl + onDocComment + "\n    /// ``` self: QtC." +
-					zigStructName + ", callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
-					") callconv(.c) " + retType + " ```\n" +
+				ret.WriteString(inheritedFrom + docCommentUrl + onDocComment + "\n///\n/// ` self: QtC." + zigStructName +
+					" `\n///\n/// ` callback: *const fn (" + maybeCommentSelf + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) +
+					") callconv(.c) " + retType + " `\n///\n" +
 					"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + maybeComma +
-					paramsZig + ") callconv(.c) " +
-					retType + ") void {\n" +
+					paramsZig + ") callconv(.c) " + retType + ") void {\n" +
 					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 
 				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
-				qbaseDocComment := "\n/// Base class method implementation\n    ///"
-				baseMethod := "QBase" + mSafeMethodName + "(" + maybeSelf + commaParams
+				qbaseDocComment := maybeNewLine + "/// Base class method implementation\n///\n" + maybeParamsLine
 				baseCallTarget := "qtc." + cmdStructName + "_QBase" + cSafeMethodName + "(" + forwarding + ")"
 				basereturnFunc := zfs.emitCabiToZig("return ", m.ReturnType, baseCallTarget)
 
-				ret.WriteString(inheritedFrom + docCommentUrl + qbaseDocComment + "\n    /// " + backticks + " " +
-					commentParam + zfs.emitCommentParametersZig(m.Parameters, false) +
-					allocComma + allocatorParam + " " + backticks + "\n" + returnComment +
-					"    pub fn " + baseMethod + zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {")
+				ret.WriteString(inheritedFrom + docCommentUrl + qbaseDocComment + selfParam +
+					zfs.emitCommentParametersZig(m.Parameters, false) +
+					maybeAllocatorComment + returnComment + maybeFinalNewLine +
+					"\n    pub fn " + "QBase" + mSafeMethodName + "(" + maybeSelf + maybeComma +
+					zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {")
 
 				if m.FossOnly {
 					zfs.imports["builtin"] = struct{}{}
@@ -1830,17 +1873,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				ret.WriteString("\n" + preamble + basereturnFunc + "\n}\n")
 			}
 		}
-
-		// 		if headerName == "qmetatype.h" {
-		// 			ret.WriteString("\n    /// ``` f: ConverterFunction, from: QtC.QMetaType, to: QtC.QMetaType ```\n" +
-		// 				`    pub fn RegisterConverterFunction(f: ConverterFunction, from: QtC.QMetaType, to: QtC.QMetaType) bool {
-		//         return qtc.QMetaType_RegisterConverterFunction(@ptrCast(f), @ptrCast(from), @ptrCast(to));
-		//     }` + "\n\n    /// ``` f: MutableViewFunction, from: QtC.QMetaType, to: QtC.QMetaType ```\n" +
-		// 				`    pub fn RegisterMutableViewFunction(f: MutableViewFunction, from: QtC.QMetaType, to: QtC.QMetaType) bool {
-		//         return qtc.QMetaType_RegisterMutableViewFunction(@ptrCast(f), @ptrCast(from), @ptrCast(to));
-		//     }
-		// `)
-		// 		}
 
 		seenVirtuals := map[string]bool{}
 
@@ -1880,7 +1912,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			cSafeMethodName := mSafeMethodName
 
 			// Include inheritance information if we have it
-			var inheritedFrom, maybeCommentStruct, maybeAnyopaque, maybeCommentSelf string
+			var inheritedFrom, maybeAllocatorComment, maybeCommentStruct, maybeAnyopaque, maybeCommentSelf string
 			cmdStructName := zigStructName
 			commaParams := ifv(len(m.Parameters) > 0, ", ", "")
 			if m.InheritedFrom != "" {
@@ -1908,7 +1940,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "", "-qtcharts", "")
 			pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
-			documentationURL := "\n/// [Upstream resources](" + pageURL + ")\n///\n"
+			documentationURL := pageURL + "\n///\n"
 
 			// Add a package-private function to call the C++ base class method
 			// QWidget_PaintEvent
@@ -1918,14 +1950,18 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			zfsParams := zfs.emitParametersZig(m.Parameters, showHiddenParams)
 			returnFunc := zfs.emitCabiToZig("return ", m.ReturnType, "qtc."+cmdStructName+"_"+cSafeMethodName+"("+forwarding+")")
 			allocatorParam := ifv(strings.Contains(returnFunc, "allocator") || strings.Contains(preamble, "allocator"), "allocator: std.mem.Allocator", "")
-			allocComma := ifv(allocatorParam != "", ", ", "")
 			returnComment := zfs.emitReturnComment(m.ReturnType)
 
-			headerComment := " /// Wrapper to allow calling virtual or protected method\n ///\n"
+			if allocatorParam != "" {
+				maybeAllocatorComment = "\n///\n/// ` " + allocatorParam + " `"
+				allocatorParam = ", " + allocatorParam
+			}
 
-			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
-				zigStructName + commaParams + zfs.emitCommentParametersZig(m.Parameters, false) + allocComma + allocatorParam + " ```\n" + returnComment +
-				"    pub fn " + mSafeMethodName + "(self: ?*anyopaque" + commaParams + zfsParams + allocComma + allocatorParam + ") " + returnTypeDecl + " {\n" +
+			headerComment := " /// Wrapper to allow calling virtual or protected method\n ///\n/// ## Parameter(s):\n///"
+
+			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ` self: QtC." + zigStructName + " `" +
+				zfs.emitCommentParametersZig(m.Parameters, false) + maybeAllocatorComment + returnComment + "\n///" +
+				"\n    pub fn " + mSafeMethodName + "(self: ?*anyopaque" + commaParams + zfsParams + allocatorParam + ") " + returnTypeDecl + " {\n" +
 				preamble + returnFunc + "\n}\n")
 
 			if !AllowVirtual(m) {
@@ -1939,14 +1975,14 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				continue
 			}
 
-			headerComment = "\n /// Wrapper to allow calling base class virtual or protected method\n ///\n"
+			headerComment = "/// Wrapper to allow calling base class virtual or protected method\n///\n/// ## Parameter(s):\n///"
 
 			maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
 			returnFunc = zfs.emitCabiToZig("return ", m.ReturnType, "qtc."+cmdStructName+"_QBase"+cSafeMethodName+"("+forwarding+")")
 
-			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
-				zigStructName + commaParams + zfs.emitCommentParametersZig(m.Parameters, false) + allocComma + allocatorParam + " ```\n" + returnComment +
-				"    pub fn QBase" + mSafeMethodName + "(" + maybeSelf + commaParams + zfsParams + allocComma + allocatorParam + ") " + returnTypeDecl + " {\n" +
+			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n/// ` self: QtC." + zigStructName + " `" +
+				zfs.emitCommentParametersZig(m.Parameters, false) + maybeAllocatorComment + returnComment + "\n///" +
+				"\n    pub fn QBase" + mSafeMethodName + "(" + maybeSelf + commaParams + zfsParams + allocatorParam + ") " + returnTypeDecl + " {\n" +
 				preamble + returnFunc + "\n}\n")
 
 			if len(m.Parameters) > 0 {
@@ -1955,22 +1991,17 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			if showHiddenParams && (len(m.Parameters) > 0 || len(m.HiddenParams) > 0) {
 				commaParams = ", "
 			}
-			if len(m.Parameters) != 0 {
-				maybeCommentStruct = "QtC." + zigStructName + commaParams
-				maybeAnyopaque = "?*anyopaque"
-				maybeCommentSelf = "self: "
-			}
-			if showHiddenParams && len(m.HiddenParams) != 0 {
+			if len(m.Parameters) != 0 || (showHiddenParams && len(m.HiddenParams) != 0) {
 				maybeCommentStruct = "QtC." + zigStructName + commaParams
 				maybeAnyopaque = "?*anyopaque"
 				maybeCommentSelf = "self: "
 			}
 
-			headerComment = "\n /// Wrapper to allow overriding base class virtual or protected method\n ///\n"
+			headerComment = "/// Wrapper to allow overriding base class virtual or protected method\n///"
 
-			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
-				zigStructName + ", callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
-				") callconv(.c) " + retType + " ```\n" +
+			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n/// ## Parameters:\n///\n/// ` self: QtC." + zigStructName +
+				"`\n///\n/// ` callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
+				") callconv(.c) " + retType + " `\n///\n" +
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + commaParams +
 				paramsZig + ") callconv(.c) " +
 				retType + ") void {\n" +
@@ -1986,12 +2017,12 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			cmdStructName := zigStructName
 			var inheritedFrom string
 			if m.InheritedFrom != "" {
-				inheritedFrom = "\n    /// Inherited from " + m.InheritedFrom + "\n    ///"
+				inheritedFrom = "\n/// Inherited from " + m.InheritedFrom + "\n///"
 				cmdStructName = cabiClassName(m.InheritedFrom)
 			}
 
 			if m.InheritedInClass != "" {
-				inheritedFrom = "\n    /// Inherited from " + m.InheritedInClass + "\n    ///"
+				inheritedFrom = "\n/// Inherited from " + m.InheritedInClass + "\n///"
 			}
 
 			var docCommentUrl string
@@ -2015,16 +2046,15 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			if subjectURL != "" {
 				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
 				pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
-				docCommentUrl = "\n/// [Upstream resources](" + pageURL + ")\n///\n"
+				docCommentUrl = pageURL + "\n///\n"
 			}
 
-			slotComma := ifv(len(m.Parameters) != 0, ", ", "")
-			headerComment := "/// Wrapper to allow calling private signal\n///"
+			headerComment := "/// Wrapper to allow calling private signal\n///\n/// ## Parameters:\n///\n"
 
-			ret.WriteString(inheritedFrom + docCommentUrl + headerComment + "\n  /// ``` self: QtC." + zigStructName + ", callback: *const fn (self: QtC." +
-				zigStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void ```\n" +
+			ret.WriteString(inheritedFrom + docCommentUrl + headerComment + "/// ` self: QtC." + zigStructName + " `\n///\n/// ` callback: *const fn (self: QtC." +
+				zigStructName + zfs.emitCommentParametersZig(m.Parameters, true) + ") callconv(.c) void `\n///\n" +
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (?*anyopaque" +
-				slotComma + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
+				ifv(len(m.Parameters) != 0, ", ", "") + zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) void) void {\n" +
 				"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 		}
 
@@ -2036,9 +2066,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
 
 			pageUrl := getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
-			ret.WriteString(ifv(pageUrl != "", "\n/// [Upstream resources]("+pageUrl+")\n///\n", "\n") +
-				"    /// Delete this object from C++ memory.\n///\n" +
-				"    /// ``` self: QtC." + zigStructName + " ```\n" +
+			ret.WriteString(ifv(pageUrl != "", pageUrl+"\n///\n", "\n") +
+				"/// Delete this object from C++ memory.\n///\n" +
+				"/// ## Parameter: \n///\n" +
+				"/// ` self: QtC." + zigStructName + " `\n///\n" +
 				"    pub fn QDelete(self: ?*anyopaque) void {\n" +
 				"qtc." + zigStructName + "_Delete(@ptrCast(self));\n}")
 		}
@@ -2066,8 +2097,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
 		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
 		pageUrl := getPageUrl(EnumPage, pageName, "", zfs.currentHeaderName)
-		maybeUrl := ifv(pageUrl != "", "\n/// "+pageUrl, "")
-		ret.WriteString(maybeUrl + "\npub const enums = struct {\n")
+		ret.WriteString(pageUrl + "\npub const enums = struct {\n")
 		closeEnums = true
 	}
 	seenEnums := map[string]struct{}{}
@@ -2122,11 +2152,13 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		structDef := make([]string, 0, len(zfs.imports))
 		seenEnumClasses := map[string]struct{}{}
 		for k := range zfs.imports {
-			if k == "std" {
+			switch k {
+			case "std":
 				allImports = append(allImports, `const std = @import("std");`)
-			} else if k == "builtin" {
+			case "builtin":
 				allImports = append(allImports, `const builtin = @import("builtin");`)
 			}
+
 			if strings.Contains(k, ",") && strings.Count(k, ",") >= 2 {
 				kSplit := strings.Split(k, ",")
 				mapType := kSplit[0]
@@ -2187,11 +2219,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				}
 			}
 		}
-
-		// if headerName == "qmetatype.h" {
-		// 	allImports = append(allImports, `const ConverterFunction = fn (?*anyopaque, ?*anyopaque) callconv(.c) bool;`)
-		// 	allImports = append(allImports, `const MutableViewFunction = fn (?*anyopaque, ?*anyopaque) callconv(.c) bool;`)
-		// }
 
 		sort.Strings(allImports)
 		sort.Strings(structDef)
